@@ -1,0 +1,532 @@
+so hello there my name is Henry bakshi
+and this time we're going to be going
+over a question that someone sent me so
+let's take a look at the question that
+they sent
+me hi tan it's Paige I have a question
+for you today what is the binary number
+system that is used in computers also
+how do I convert from decimals to Binary
+and binary to decimals thank you I'll be
+waiting for your new video to learn
+about it so yeah that was the question
+that Paige asked me so now I'm going to
+be trying my best to solve the that
+answer and also make a video in the
+process let's get started so as you can
+see today's topic is interchanging
+between binary and decimal
+systems so this is going to be one of my
+first uh just algorithm tutorials no IOS
+app involved here sorry uh as you know
+I've already created an IOS app for this
+um and so a link to that will be down in
+the description uh it's a YouTube video
+on my page however I decided to create a
+new video about this because back then I
+didn't really explain the algorithm as
+much as the code uh so now I'm going to
+be explaining just the algorithm uh very
+much in depth giving a few examples uh I
+also made my own uh good way to describe
+the algorithm which I'll also show you
+and let's get started I'm going to be
+starting off with a little bit of an
+easier concept such which is uh as you
+guessed it decimal to Binary
+okay so uh just take
+this okay as you can see here let's just
+get started so let's just say oh I don't
+know let's just choose a random integer
+something like
+25 so we take a random integer like 25
+now what would this be in binary you may
+ask so 25 and binary which if you didn't
+know is just a collection of ones and
+zeros that computers like to read like
+uh us humans would use a 10 uh number
+system but computers they only
+communicate in zeros and ones ons and
+offs uh yes a no stuff like that okay so
+let's get started and our conventional
+method is to use two operators the
+modulus and the divide in case you
+didn't know what modulus is let's just
+give you an example for example
+16 uh
+modulus 2 is equal to let's see
+here first of all modulus
+means the
+remainder the
+remainder
+of a
+division
+question a
+question so as you can see uh modulus is
+just the remainder of a division
+question
+so for example uh 16 / 2 the remainder
+in this case would be zero and if you're
+wondering how I calculated that so fast
+is because the number on the end is a
+two and whenever it's a two that you
+just automatically assume check if this
+number is even or odd if it's even then
+it's a zero if it's odd then it's a one
+because whenever you modulus something
+by two oh wait sorry H yeah so whenever
+you mod anything by
+two then the remainder or the actual
+answer could only be uh
+either zero or
+one there we
+are so now let's get started with
+actually converting this to
+Binary let's get started the first thing
+that we need to do is we need to take 25
+as you can see here I'm just going to
+say 25
+okay 25 here let just write that nice
+and dark for you so you can see
+it okay so we have a 25
+here now what we need to do is take
+modulus by two now as you can see this
+is an odd number so this will be
+one our answer here is one then what we
+need to do 25 actually divided by two
+and you must know that this is 12.5
+now all you uh now just before I
+continue this needs to be an integer now
+so all you smart people must be thinking
+hm that's pretty easy uh take this round
+it stuff and then we get 13 that's our
+final answer correct you're
+wrong in case you didn't know this
+already and I'm sure some of you
+do aner division doesn't mean rounding
+this decimal it means just quite
+literally chopping it off or you could
+just say that you always round it down
+in technical
+terms so instead of it being
+12.55 here instead of it being
+12.5 well it's actually going to be is
+just 12 because again we're just erasing
+that little decimal part right
+off let's continue now we take 12 as our
+number okay so then what we do is
+12 modulus 2 what would this be equal to
+let's see 12 is an even number okay so
+we know this will be
+zero then we take
+12 / 2 which is going to be equal to
+6 perfect now we can take six as our new
+answer anyway now we take 6 modulus
+2 and let's just take this as zero again
+because this is an even number then we
+can say six actually divided by
+2 is equal to
+3 now we're getting into the odd numbers
+again as you can see with three as our
+number we say that
+three modulus uh just a
+second as you can see
+here three modulus 2 will be one because
+this is an odd number
+however 3 / 2 will also be 1 and if you
+don't realize how is because 3 / 2 is
+actually
+1.5 however since we want to do integer
+division we just chop it right
+off nice now we have one as our
+number now here's a be uh here's a
+mistake that lots of beginners make they
+stop at the number one which is and
+number one is completely valid number to
+take is just that you could probably
+just hard code this into the algorithm
+but why not just actually calculate it
+so this is completely valid what I'm
+about to do which is 1 modul 2 which
+will be one because it's
+odd also sorry 1 / 2 which is equal to
+0.5 but since we integer divide we just
+chop off the decimal and we're left with
+zero meaning that's the end of the line
+quite
+literally and you you must have noticed
+a little
+pattern computers they talk in zeros and
+ones but when you modulus by
+two you get a zero or a
+one
+so
+theoretically these modulus answers are
+is our
+binary and you're
+right the answers of these modulus
+combined together become our binary so
+the binary value for
+25 is 1 0 0 1
+1 wait a minute you might notice
+something a little bit bad and that's
+only if you actually convert this to
+decimal you could actually just pause
+this video and try it out right now go
+to some online converter and find the
+decimal value of this
+binary are you back yet okay this won't
+work it's because this binary is in
+reverse order you have to reverse the
+binary that you get and so in this case
+it'll be 1 1 0 0 1 and this is our real
+binary uh yeah so now you can actually
+uh put this into some converter or
+something uh and then you'll see that
+this is actually 25 and again you can
+use almost any number uh doesn't really
+matter I just use 25 as an example let's
+continue now and before we actually stop
+this I'm going to first of all show you
+my own uh cleaner method to do this
+stuff and also then I'm going to show
+you a quick a flowchart which will
+really really explain how this algorithm
+really
+works okay as you can see this is a
+pretty indecent way of doing this stuff
+it's a little bit clunky as you can see
+it wouldn't really fit on a paper that
+nicely and it's just too much to look at
+but I developed a little system which
+will help us do it much much
+cleaner so as you can see we want to get
+to the result 1 1
+01 and I'm also going to erase
+this okay let's continue
+now so first of all what I'm going to do
+is as you know
+we have 25 as our starting
+decimal now when we modulus this by two
+we actually get a one here and our next
+number by dividing by doing integer
+division by two we get
+12 so my format is modulus 2 into the
+division by two so now we can continue
+this in an entire tree format and we
+eventually get get our correct
+answer so let's just continue this
+really quickly because yeah so this will
+be zero because it's even as you know uh
+as modulus by two and then divide
+six
+0 3 1 1 1
+zero correct so as you can see we get 1
+1 0 0 1 1 1 0 0 1 which is our corect
+binary as you can see this is a much
+more elegant way of doing it this will
+usually fit on a paper and it's just
+overall better to read and if you really
+want to you can write down the rule here
+so anyone can understand it uh which is
+integer
+divide integer
+divide
+by two and over here we can write
+modulus by two just let everyone knows
+that this is what we're doing and then
+we always as you know take it in reverse
+order so same thing with this method
+we're taking this entire thing in
+reverse
+order that's how that works let's take a
+look at a full chart on my Mac let's go
+over here for a second as you can see
+this is a little flowchart as you'll see
+in just a second done
+yet yeah so as you can see this is a
+little flowchart which explains exactly
+uh how this method works and so uh just
+a second because uh this isn't really
+the method that's used to do it it's
+actually this one uh this is the method
+to convert uh any decimal to
+Binary uh and let's get explaining so
+first of all as you can see we're
+starting our algorithm uh after that we
+are declaring two variables the first
+one is n which is equal to a new integer
+that you input into the app or the um
+algorithm then we're creating a new
+array called binary and this is a blank
+array currently but this will be full of
+integers when it's
+done then what we're doing is we're
+doing a while loop and we're checking
+while I is not I mean while n is not
+equal to zero meaning while n is
+basically not equal to zero so if n's 12
+25 6 3 or 1 it'll keep on looping but
+right as it gets to the zero State it'll
+just stop looping and give us the result
+so as you can see uh first of all while
+it is looping it is going to append to
+our binary array n modulus 2 so this
+will take our uh first a binary digit
+and append it to the end of our binary
+array after that what we're doing uh is
+we're saying n is equal to n / 2 so
+we're basically having n and since n is
+already an integer it'll automatically
+do integer division for us
+that's really helpful after that we keep
+on looping until n is equal to zero once
+it's equal to zero you should know the
+rule we print the reverse value of that
+binary and then we stop our app that's
+basically how the algorithm works now
+let's take a look at the algorithm for
+binary to decimal so we're going to be
+pretty excited with this because you're
+about to see some interesting stuff so
+let's get started uh and so this is a
+little bit more complicated slight bit
+but I mean it works at
+least let's get started so what we're
+going to do is let's just say our binary
+value to start with I'll also do the 25
+binary value but first let's do
+something like 1 Z 1 0 sorry one
+zero okay one 0 1 0 so now that you have
+this uh let's just try to convert this
+to an act ual decimal value spoiler
+alert the actual decimal value of this
+is
+10 okay so now let's start and so what
+we need to basically do the algorithm
+for this
+result or I'll just say res for now
+result is equal to
+result result times 2 plus uh the digit
+so uh first of all uh whenever we start
+we create a new digit or a new variable
+called result which is going to be zero
+over here so we're starting off at with
+a zero as you can see then what we're
+doing is we look at this first
+digit okay so we're looking at this
+first digit of
+binary so our result is equal to our
+result time 2 plus the digit and in this
+case this is a one so in this case the
+digit is a one the result is
+zero and the yeah so result * 2 still
+zero + 1 that would be one so our new
+result is not zero it is one due to the
+fact that we took zero which is our
+result times 2 which is still 0o plus 1
+which is the current edit we're on which
+gave us a value of one
+let's continue now we look at this
+zero so what we do is our new uh let me
+just rewrite this re is equal to Res * 2
++ digit and so now I can fill in the
+blanks so it's basically blank equal
+blank *
+2
+blank okay so our
+result will be equal to okay what's our
+current result it's 1 1 * 2 + 0 so
+what's 1 * 2 that would be two then a
+zero still two so our new result is a
+two amazing now we look at this
+one let's take a look at this again so
+basically it's 2 * 2 if you can't see
+that I'll go over here 2 * 2
+okay that would be uh
+four then we say
+four plus the digit we're on which is a
+one gives us a
+five okay so our new result will not be
+a two but it will be a
+five
+amazing now we come over
+here let's take a look at this again now
+we are on digit four which is a zero
+so then again as
+always we
+say sorry so our res our new res res is
+equal to our old res times uh
+2 uh plus 0 because that's the thing so
+then uh so 5 * 2 so our new resol our
+new result sorry is equal to 5 * 2 plus
+0 what's 5 * 2 10+ 0 still 10 so then we
+cross this out it's 10 there's no more
+digits left that's our final decimal
+answer as you can see we have gotten the
+answer which is 10 amazing yay
+but there is a bit cleaner way to do
+this this is
+still a pretty clunky method it's it
+takes way too much space I mean I can
+erase this because I'm on a
+whiteboard but just for any sort of uh
+thing it really wouldn't be the best of
+most efficient way to do
+this but a very nice and efficient way
+is let's just say we had our our binary
+one 0 1
+0 Let's Start so we start our tree at
+one because that's our first digit okay
+so we start at
+one and so this gives us a new result
+from zero of one because as I have just
+calculated with you uh the first uh
+digit always gives us the one value as
+long as it's one because 0 * 2 0 + 1
+which is our digit 1 so that gives us
+our new value or result as I call it
+then we have another uh branch which is
+our next digit which in this case is a
+zero then we continue the tree onwards
+until we find find a good result or
+until the tree is over so now what we
+already what we really need to do is say
+okay what's our new result after zero 1
+* 2 that's 2 + 0 still two so two then
+what's our next digit this case it's a
+one again we continue this 2 * 2 that
+would be 4 + 1 5 next digit
+zero * 2 10 + 0 still 10 10 and then we
+are done our tree so then we find this
+last uh value to be our correct answer
+that's
+it that was awesome now let's see what
+uh flowchart could make this sort of an
+algorithm work let's look at this for a
+second so as you can see over here we
+start uh then we say the binary is equal
+to the input number so basically we're
+inputting a number for the binary
+however we store the binary as a
+string then what we do is we go for I in
+0 to binary. count minus
+one what this will do uh is it will say
+that okay we have till zero then how
+many digits are there in binary uh for 1
+0 1 0 there's four but we want to go one
+minus that which is three so 0 three so
+it'll execute four
+times let's see what'll happen when it
+executes when this Loop will execute
+it'll say decimal times equals
+2 but then we'll check if the binary is
+one then we'll just add one to our
+decimal
+value however for our binary is not one
+we'll just skip that part and continue
+because plus Z doesn't really make sense
+that's just for explaining in a simple
+way uh but usually you would just say
+okay if it's a one add or else nay okay
+once it's done looping once it Finds Its
+complete decimal
+value we will print out the decimal
+value and we will stop this Loop or stop
+this uh
+algorithm so that's how this algorithm
+works so now back to the Whiteboard and
+now I'm going to be explaining how to
+convert the binary value of 25 back into
+a decimal value now this is really going
+to feel that little Gap and show to you
+how you can actually convert a decimal
+value to a binary value and then back
+again so it just proves my point that
+you can really convert back and
+forth okay so let's get started here
+first of all we're going to write out uh
+1 1 0 0 1 okay now let's take a look at
+each little digit and let's just use the
+tree method that I explained to you
+earlier
+so we start with the first digit over
+here
+one now our starting result will always
+be
+zero so when we start with one we say 0
+* 0 0 * 2 sorry is 0o add one because
+that's our digit and it becomes a one
+and then our next digit in this case
+would be a one as you can
+see then we continue and let's continue
+together now so our new result will be 1
+* 2 that's 2 plus one which is our digit
+three so our new result is three
+here then our next digit is zero and if
+you just notice a slight pattern this
+actually I'll tell you this when we're
+done now with our next digit being zero
+we just say 3 * 2 6 + 0 still 6 so six
+right and then our next digit in this
+case would be zero
+so then we just say
+zero so 6 * 2
+12 okay then we take a look over here
+and our next our final digit is a one uh
+and so our next digit will anyway be
+nothing so we can just draw that first
+and our final result will be 12 * 2 uh
+that would be 24 plus 1 because it's a
+one there
+25 now I'm just going to draw the tree
+of converting 20
+from binary to De from decimal to Binary
+which is the opposite of this so you can
+really see a pattern here and yeah so as
+you can see we're going to take
+25 this is the same tree that I just
+drew uh not here uh for converting 25 to
+a binary value so we have 25 over here
+after that we're converting it uh to
+this will be a one in our binary and
+we're going to 12 I'm just going to rush
+do this because I've already explained
+it to you I'm just going to draw this
+out so that uh you can really see what
+my pattern is
+here
+okay as you can see that's done and now
+our binary value is 1 1 01 just to prove
+that this is the correct tree now if you
+see a
+pattern there's 25 here then there's a
+12 here then there's a six here and
+there's a three here and there's a one
+there so it's basically the opposite of
+what's Happening we're taking this zero
+it's going
+to if you take this for example here
+we're starting at 12 here right after 25
+comes our
+12 but at the end over here we have a 12
+then in the middle we have a six over
+here in the middle we have a six over
+here then over here we have a three over
+here we have a three so that just really
+proves that we're using the same numbers
+to convert from our binary value to our
+decimal value and also from our decimal
+value to our binary value so that's why
+there's actually a pattern in between
+them and they're able to be
+interchanged that was it for this video
+I hope this answers your question page
+uh and yeah subscribe to my channel if
+you're new like the video if you liked
+it comment if you have any suggestions
+questions app ideas video ideas
+algorithm explanation requests anything
+of that sort if it's good I'll take a
+look at it and we'll do it and yeah
+that'll be it goodbye

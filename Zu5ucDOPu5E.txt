@@ -1,0 +1,311 @@
+hello there viewers I'm back with
+another tutorial this time I'd like to
+be doing something similar to the last
+tutorial and sounds we learning Desa
+binary to decimal and decimal to binary
+this time we're going to be converting
+by an area text in text to binary
+now we can't just convert text to binary
+we have to convert that text to a
+decimal and then that that's what to
+binary and then the exact opposite if we
+want to convert binary to text we would
+convert the binary to decimals and
+decimals to text so basically what we're
+doing here is or converting the text to
+ASCII ask you to binary and then binary
+to ASCII and asking to text so if you
+already watched my previous tutorial on
+these two functions then you can skip
+ahead and if you are new to the tutorial
+then you can watch me explain this so
+basically we have two functions convert
+the binary convert to decimal the first
+convert to binary function what it does
+is it takes a decimal as an integer and
+returns a string now it declares four
+variables inside of it and c k + FS + +
+c do all the calculations what the
+binary is and Kate holds the binary but
+there's a problem
+k holds the binary however that binary
+is flipped around it's not the correct
+binary it's in reverse order so when to
+reverse K inside of FS to get our final
+string and so basically what we're doing
+next is n is equal to decimal
+meaningless and variable is equal to a
+decimal that we asked them for and then
+we are go doing a while loop while n is
+greater than 0 and so what we're doing
+inside of here is we are checking we're
+not really checking we are doing c is
+equal to n modulus 2 now this gets if
+the current digit should either be 0 or
+1 so
+let me just explain that really quick so
+let's say we have 1 2 3 4 5 6 7 8 9 so
+basically here we have or numbers 1 to 9
+now anything modulus 2 is either going
+to be 1 or 0 that's because our numbers
+basically the answer of a modulus or the
+remainder of a division statement can
+only be that this number this on the end
+minus 1 it can that's the only number it
+can go up to so for 2 that would be one
+meaning 0 & 1 so for 1 the modulus 1
+modulus 2 would be 1 and then 2 would be
+0 1 0 1 0 1 0 1 and it'll keep going on
+like that so basically if the numbers
+vary then it's going to be a zero if
+it's odd then it's going to be a 1 so
+now that we've got that out of the way
+seas are there going to be as well or 1
+then basically what we're doing is we
+are dividing and by 2 and setting that
+value inside of the end variable so we
+basically divide n by 2 meaning we have
+it
+we basically chop it now and then we are
+adding to K and a string we are adding
+whatever's inside of C but then the
+problem is that K is currently reversed
+so we need to reverse it again
+so that it becomes the correct order so
+what we're doing is we're looping for I
+inside of a reverse K meaning it
+reverses K and loops through so FS plus
+equals I
+so we're basically playing all that
+binary in
+at us and then we returning at us and
+then it could be convert to decimal
+function or taking the binary value as a
+string and returning a string so we are
+creating a result variable inside of the
+function and this is an intense equal to
+zero and then we are doing a for loop
+here as you can see and so it's for num
+in binary Val so we're taking whatever
+we have from the user and we are looping
+through it with the variable num short
+for number and then we are doing a
+switch case on num and then we're
+checking if it's zero then root then the
+result is equal to the result times two
+however if it's 1 then the result is
+equal to the result times 2 plus 1
+and then if it's anything else than that
+then just return error because this is
+not a binary value done so now let me
+show you the actual code behind the
+binary to text in text binary so as you
+can see this huge chunk of code this is
+all of the basically text to binary so
+if I enter any text in here you will see
+the binary for that text coming here so
+let's just say I type in Oh
+okay so as you can see in just a second
+you will see this executes and the
+binary gets copied on here and then if I
+go on to a website I will put a link to
+this website in the description if you'd
+like to test any of your scripts and so
+here we are as you can see it our
+program properly encoded this text into
+binary then I copied this binary put it
+in here and as you can see it gives us
+the text tender back screen displayed
+random the exact same case also got
+visits so now as you can see now what
+it's doing is it's taking the string
+it's converting it to ASCII and this is
+the array of all the characters and
+ASCII values so as you can see if I say
+so basically a space here is asking you
+32 a capital T is 80 for a small a is 97
+a small M I mean n is 110 a small M is
+109 97 is a small a and I mentioned on
+121 is a small Y so as you can see all
+the characters have their own ASCII
+value including the dot at the end which
+is 46 and so this all these decimals get
+converted to eight minutes of binary and
+then those eight digits of binary are
+stitched together into one entire loop
+of binary and then decoded later so let
+me explain exactly how this works now
+what we're doing is we are declaring
+four variables start string hockey
+finals binary array and binary so in
+front of Start screen we are creating an
+NS string and it has
+nothing in it and this is where you put
+the string that you'd like to in code
+and then we haven't asked me fine all
+right this is all the athletes in their
+final state and then we have the binary
+array which is all binaries basically
+all eight digits of binary that's
+together an array and then the binary
+string which is what eventually will
+contain the binary know the reason you
+have to have the the binary string is
+because the binary array has all the
+eight it's a binary is separate
+basically columns
+however we need to take all those binary
+elements and put them all together into
+that one string so that's why we have
+that there and then we're using an
+objective-c style for loop we're
+creating a variable called I and it's
+equal to zero and then we are doing for
+I is equal to zero
+onions listing start string dot length
+and I plus plus so that's the increment
+every time what you want what it's going
+to do inside of that for loop is the
+ASCII code which is an integer is equal
+to the start straight doc character
+index I meaning it's looping through
+that string and each character gets
+converted to an ASCII code and that
+ASCII code is appended to the array once
+that's done we'll just printing all the
+askings and then we are looping through
+the asking array what we're doing then
+is we are appending to the binary array
+and what we're appending is that asking
+converted to binary now the only problem
+is our convert to binary function does
+not handle converting it from let's say
+a six or seven digit binary and to an
+eight digit binary since that's how we
+organize it now the way we fix fact is
+through another for loop and this is
+actually a little complicated and I do
+not need this variable here so basically
+we are looping through the binary array
+and we are creating a variable called
+straight to submit now this string to
+submit is completely empty right now and
+then we're checking if the binary is
+actually currently less than 8 then
+it'll do something or else it's just
+gonna return it and then so basically if
+it is less than 8 then we are we're
+creating a variable called to add and
+it's equal to Inc - how many elements
+there are inside of the binary little
+code and so that tells me for loop how
+many times how many zeros you need to
+add to the beginning of that binary so
+what we're doing next is we are doing
+another for loop inside of that per loop
+and what that's doing is it's looping in
+from one from zero to two at now the
+reason we couldn't do one is because if
+this was one then that would be a
+problem and it won't execute however now
+what we can do is just make sure that if
+I is not equal to zero meaning it only
+happens once not twice if it's number if
+it's one times a needs to go then the
+string to submit is we are adding zero
+to string to submit now the problem is I
+let's say we need to add two zeros
+string to submit since it's completely
+empty we'll only be two zeros so we're
+adding I into the binary string the
+string to submit which is all the zeros
+and then I which is that binary that
+doesn't have eight digits but because of
+us putting those zeros in front of it it
+will now have eight digits and then else
+as I said it's just returning I and then
+we're printing the binary so once again
+if I type in some text Oh Frank it'll
+give me the binary value for it as you
+can see all the ASCII values and then I
+can take this binary value
+you copy in here and it's correctly
+encoded so next is the
+basically detect a binary to text and
+what this does is it takes any binary
+you give it and converts it to text so
+as you can see this is a much shorter
+program and what it's doing is it's
+declare three variables first of all and
+those three variables are binary to
+convert which is a string which is the
+binary you have to convert and then the
+ASCII is actor convert which is an array
+of integers which is again the ass keys
+you get after converting the binary to a
+skis and then the final text is just
+those asking digits put into text and so
+we are then going to more variables on
+and binary equal to zero and nothing
+respectively and when we are looping
+through the binary to convert all right
+I mean string but when you've been
+through it character by character we are
+incrementing the on variable and we are
+setting the we are basically adding
+value to the bot the bin string when
+we're checking if it's been eight digits
+if it's been eight increments in those
+eight digits inside of the bin variable
+then we are appending something to the
+ass keys after convert array and what we
+are appending is the convert to decimal
+of that binary meaning we are extracting
+the ASCII code back out of that binary
+you can bring it to an integer then we
+are sitting the binary back to nothing
+and on back to zero and that's ends near
+for loop and then one last for you for I
+in a skis after converts what this is
+doing is it's taking all those a skis
+forming it together into one final
+string
+and so what I'm doing here is the final
+text plus equals that strings unicode
+scalar I so it's finding the character
+value of that ASCII and then basically
+appending it to the final text so if I
+go here this program that I actually
+create can handle long messages such as
+this one it can also handle long
+paragraphs and does binary to text and
+text to binary conversion it does I'm
+sorry Oh symbols correctly and works
+perfectly and then if I click do binary
+it gives us under a Gantt ik chunk of
+binary which I can then copy put into
+the program and if we wait a while and I
+think I should remove this so it doesn't
+take me off so don't worry if I just
+paste it in here and that's a ton of
+binary as you can see this program will
+be able to convert it to text it these
+four loops are just going off a ton of
+times you need it's executing yes
+Attilan while that's happening I guess
+I'll tell you that's oh yes it's done so
+as you can see this program that I
+turned back we can handle long messages
+such as this one you can also handle
+long paragraphs and does binary a text
+and thanks to binary conversions
+it does all symbols correctly and works
+perfectly yeah so as you can see it can
+also convert a huge chunk of binary like
+this one and yeah that was a tutorial
+comment if here
+I didn't subscribe if you use the
+channel comic for any suggestions
+improvements or if you have a question
+like if you liked the video and goodbye
+I'll see you in another video thanks

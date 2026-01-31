@@ -1,0 +1,648 @@
+so hello there and welcome to another
+tutorial my name is hry backy this time
+we're going to be going over something a
+bit different recursion and this time
+using the example of
+factorials uh and so uh again today
+we're going to be talking about
+recursion uh and so today we're going to
+be doing something again a bit different
+we're not going to be using apps we're
+going to be using playgrounds uh so
+anyway I'm still going to label it under
+iOS apps just because it becomes easier
+and I don't have a million different
+playlists uh but they are classified
+under iOS apps and this is technically
+an algorithm because we're teaching you
+how to get the factorial of something uh
+using recursion not using recursion and
+sort of using
+recursion anyway let's get started today
+uh with finding my marker anyway so now
+that I have it uh let's get started with
+first of all what in the world is
+recursion well cursion simply put is
+just recurring repeating it's just
+calling something over and over again
+for example if you have function called
+um factorial and within that function
+you call itself making an eternal Loop
+that's considered recursion however I'm
+going to be teaching you not how to
+crash your computer not how to create an
+internal Loop but instead how to create
+a loop by calling a function over over
+and over again within itself but then
+stopping at a point and then returning a
+value so let's get started by asking
+another question what in the world is a
+factorial well let's get started first
+of all what's the operator for factorial
+hint math because I have to put math
+into everything anyway the operator for
+a factorial is actually an exclamation
+mark uh and so actually bit thicker you
+probably can't see that on camera there
+and now if I were to find something like
+four is
+factorial I would just put the number
+four in front of
+it four factorial and so all this
+equal how do we calculate a factorial I
+don't understand well you'll find out
+right as I write this
+down that's the factorial of four 4 * 3
+* 2 * 1 and so you must understand the
+point of a factorial now it's taking
+number
+n multiplying it by each number that
+comes in between it till the number one
+and so in the case of number four it's 4
+3 2 and 1 so 4 * 3 * 2 1 so first let's
+do it this order so 2 * 1 we know that's
+2 2 * 3 we know that's 6 4 * 6 we know
+that's 24 and so we can theoretically
+say that 4 * 3 * 2 * 1 is
+24 and so we know that the factorial of
+four can successfully be identified as
+24 now why exactly would we use this in
+the first place well let's take this
+down a step let's see what uh three's
+factorial is for example so
+3's
+factorial 3's
+factorial now how would we find this out
+again 3 * 2 * 1 which I'll just write
+down one more
+time we know 2 * 1 is uh 2 and we know
+that 3 * 2 is of course
+6 and so we can say that 3 is factorial
+is
+six now let's just write down the
+numbers 1 2 and three or to make it
+simpler a b and
+c so we have
+a b and
+c okay now how all can we arrange these
+letters or what are the possible
+permutations of this
+set in this case let's get started it's
+going to be
+ABC a
+CB B
+CA B c a
+c
+CBA and C
+AB now these are all the possible
+permutations for a b c if you were to
+swap these out with numbers 1 2 3 one
+like 1 2 and three then you would have 1
+2 3 1 3 2 etc etc but let's just count
+this for a second there's one possible
+permutation two possible permutation 3 4
+5 6 oh what a coincidence this must not
+even matter well the um apparently
+factorial for three is six and the
+possible permutations for it are six as
+well what a coincidence well it's not
+because that's what factorials are used
+for factorials are used to find out the
+possible permutations of a
+set
+so we can see that if we were to do this
+with any number four is factorial 5 6 7
+8 9 10 11 12 13 14 15 16 17 18 or even
+19 or even 20 any
+number is any number is factorial will
+be the amount of permutations you can
+give it give
+it and so now that we know this much
+let's continue really
+quickly and so you might be wondering
+actually you aren't wondering this
+because I haven't told you this
+already however I'm going to tell you
+something a bit
+shocking which you may have not
+known which
+is
+that watch
+this On's factorial
+is equal to Z's
+factorial which is equal to
+one I'll just write that a bit
+bigger how is this
+possible well let's take this a step
+back what are the possible permutations
+of the set with one in
+it well might not seem obvious at first
+but there is one
+permutation which is to do nothing keep
+one in its place
+so that counts as a permutation because
+as you saw we counted a b c as a
+permutation that was still in place so
+why can't this be counted as permutation
+H and so according to that
+theory the uh factorial of one should be
+one however zero how does this work so
+these are the possible permutations for
+zero just a blank thing because of
+course it's
+zero now what are the possible things
+that I can do to this set well I can do
+one thing keep it in place again and so
+we can successfully say that Zero's
+factorial should in theory be one which
+is equal to one's
+factorial and so now that you know that
+you are completely equipped with the
+knowledge for
+factorials now that you know about
+factorials nothing's left but to go to
+the Mac part uh and so oh one more thing
+before you continue on your quest is
+what about
+this -4
+factorial well first of all let's break
+this down into steps in order to find a
+negative numbers
+factorial take the
+negative write a bracket then the
+factorial part then another
+bracket what does this do exactly well
+that's telling us that we solve for
+Four's um factorial and then give it a
+negative
+value and so we know that four is
+factorial is equal to
+24 now if we were to
+take
+24 we would actually quite actually
+negative of positive 24 if you watch my
+integer series I you know what I'm
+talking about the link will be down in
+the description and also on the screen
+right
+now and now it's gone uh but so
+now negative and positive is equal to
+negative so the net answer will be -4
+and theoretically we should be able to
+say that
+-4 factorial is -4
+and so that actually completes your
+knowledge for
+factorials anyway now I'm going to be
+joining you in the Mac part where I will
+be creating an implementation for this
+in Swift using not using non- recursion
+a little recursion but still keeping it
+readable and no readability at all so
+yeah it's going to be pretty interesting
+uh so stick around to the Mac part in
+which you will learn how to create your
+own recursion sort
+of program for factorials and then you
+can apply it to any pretty much any
+other algorithm or function you want so
+let's get to
+it so welcome back to the Mac part now
+that we're at the Mac part let's
+actually give a demonstration of how you
+would do a classic sort of way of
+finding the factorial now classically
+wouldn't use recursion so we're not
+going to use recursion this is going to
+be the longest method and first I'm just
+going to show you a barebone of how this
+will work so let's get started by
+creating a function uh named
+factorial uh and let's just say that
+this is not recursive uh and let's take
+it take a number to factorial uh as a
+number as an integer uh and return an
+integer uh inside of here we're going to
+do a few things like uh let's just
+create the result variable so we have
+something to return and let's just
+return
+this sometimes I hate Alex code takes a
+bit of time yeah that was not supposed
+to happen okay perfect uh and then next
+let's just declare a limit for our while
+loop uh and next what we want to do is
+take our number over here and change it
+to a variable you'll see why in just a
+minute next we're going to create a
+while
+loop uh for while num the number that
+they gave us in the parameter is not
+equal to to our limit meaning it'll keep
+going we just decrement our number and
+say that our result times equals that
+number now first of all I'm just going
+to show you that it works after I show
+you how it works I'll explain in depth
+and explain some of the limitations as
+well so let's see this as well let's see
+this right now so factorial NR and let's
+just get the factorial for four as you
+can see first of all let's just
+Spotlight it so if I do four exclamation
+mark or exclamation mark uh we see we
+should be getting 24 and we do and so
+this
+means if I open up here we get 24 and so
+this means that our factorial function
+is working we can even do five and if we
+Spotlight
+it 120 and we get
+120 I can do it for six 7 8 9 10 11 up
+to like a lot of
+numbers however
+what we can't do is something like
+this and then we just go into an eternal
+Loop of Despair and so in order to stop
+this eternal Loop all we do is we make a
+simple conditional before we even start
+our function we just want to come over
+here and say if our number is equal to
+zero or our number is equal to one then
+just immediately return one don't even
+do anything and now if I give it a zero
+don't worry about that error it's a
+ghost err perfect we get the result one
+it doesn't go into internal Loop of
+Despair uh and so now next what we have
+to do is something like um I have an
+idea what if we were to give
+it4 again it just realizes that hey I'm
+never going to stop looping so I should
+just give us a give an
+exception and so in order to combat this
+we have to do something like um okay
+let's do this of first of all let's
+create a flag and let's just check if
+our uh number is
+negative uh and we're going to check
+this by saying if our number is less
+than zero then it is or else it is
+not okay so now we know if our number is
+negative but we still aren't doing
+anything about it and so in order to do
+something about it what we need to do is
+we have to say number is equal to first
+of all we have to check is our number
+negative if it is it's equal to uh the
+absolute value of this number or else
+it's just equal to the
+number and so this will turn it into a
+positive number now as you can see
+already we see that it isn't going into
+an internal loop it's just giving us
+24 which is the factorial for positive4
+however if you see this 4 is factorial
+24-4 is factorial -4 I can do the same
+thing with five 5's factorial is 120
+Nega 5's factorial is- 120 and so what
+this means is that a numbers a negative
+numbers factorial is equal to a positive
+numbers
+factorial negated or actually put a
+negative in front of it if you don't
+know what that means and so in order to
+do this when we're turning we just say
+okay was our number negative in the
+beginning okay if it was return our
+negative result or else just return our
+normal result and this should give us -4
+and it
+does and so now we've built a function
+uh which does not use recursion uh and
+it solves our purpose of finding a
+factorial uh it can do negatives zero
+one and any positive
+now there's just one problem with this
+it's way too long and it's adding too
+much mess to your
+code now how can we solve
+this in order to solve this all we
+really have to do is use something
+called recursion there are two ways to
+use
+recursion one is just a nicely readable
+uh sort of long uh nice way to do
+recursion and then there's a type where
+this is completely almost unreadable
+unless you're an expert
+programmer and it's just a oneline
+program and so let's do both but first
+I'm going to show you the medium way
+then I'll show you the really short
+oneliner way so let's get started by
+creating um a function uh this is going
+to be named
+factorial with recursion but it's a bit
+longer
+method and we're going to again take a
+number as an integer and we're going to
+return an integer
+uh and then we can do stuff like so now
+what's going to happen is let's say we
+give it factorial for the number four
+it'll say four times the factorial for
+three okay 3 times the factorial of two
+okay 2 * a factorial of one and it'll
+keep going until it finds the correct
+answer if you don't get what I mean yet
+don't worry because I'm about to explain
+it so let's just move my head over here
+for a second uh and so now what I'm
+going to do is I'm going to explain how
+exactly you can use recursion in a
+longer method inside of function to find
+a factorial and the simplest way you
+could do this is say okay let's just
+declare a result variable and set it to
+two our current number times the
+factorial for our number
+minus1 and then we just return the
+result
+seems simple right it should
+work however if I call it as you can see
+right now it
+again should go into an eternal
+Loop uh sorry about that uh and so
+what's happening now is Swift will
+realize very quickly that this is just
+going to keep repeating and repeating
+and repeating over again so it doesn't
+give us an exception but it gives us an
+exception and it does not recurse over
+and over again it just gives us an
+exception
+in order to solve this we have to see
+why it's
+happening well let's just take a look
+first of all in order to find the
+factorial of four we have to find four *
+the factorial of 3 in order to find the
+factorial of three we have to do 3 * the
+factorial of
+2 then in order to find the factorial of
+two we have to do two * a factorial of
+one but then there's one aspect we
+didn't look at here wouldn't this just
+keep going on till negative negative
+Infinity yes and that's why I call this
+new thing that I'm about to teach you
+the barrier of
+recursion what this barrier of recursion
+will do is it'll make sure that our
+function stops calling itself at a
+certain point which in this case will be
+when the number is equal to one and
+it'll start back tracing each function
+until it gets to the first one and now
+in order to do this we just have to keep
+on checking each time this function is
+called if our number is equal to zero or
+one and why did I say zero well let's
+just kill two words with one stone and
+let's just check if the user entered
+zero or one or if our function got to
+one so in order to do this we just do
+the exact same thing as we did in our
+older function which is if number is
+equal to zero or the number is equal to
+one then just immediately return one and
+now as you can see it should give us the
+correct answer 24 as you can see this is
+a drastic improvement I think five to
+six lines for the last one three lines
+for this one so that's a pretty nice
+Improvement but there are still a few
+limitations for
+example negative
+numbers if I were to give it a negative
+number again it just uh doesn't work and
+so in order to uh fix this what we have
+to do so first of all yeah as you can
+see it went into an eternal loop again
+in order to solve this first of all what
+we have to
+do is check if our number over here is
+greater than zero if it is then we just
+want to do the regular thing that we
+were always doing however if it isn't we
+want to positive out our
+number by doing the number times we know
+that this is a negative number we and so
+we need to times it by another negative
+number in order to make it
+positive once we we make it positive we
+can solve for that positive um uh number
+once we solve for the positive number we
+can negate it and return it in order to
+do this all we have to do is we have to
+instead of doing number times
+factorial number times the negative fact
+torial and you won't understand this yet
+or maybe you will we're giving it
+negative number minus one now what does
+this mean basically what we're doing is
+we're saying number times the negative
+factorial of the positive number minus
+one sounds a bit complicated it sort of
+is but it should work and as we can see
+we get 24 which is not the right answer
+and I purposely tricked you to see if
+you paying attention and so the reason
+this won't work is because we're just
+returning the positive result we're not
+negating it then returning the result in
+order to negate this we can again just
+check if our number is greater than zero
+then just return our result however if
+it's not then return our negative result
+and as you can see it gives us
+-4 and that concludes this uh little
+function however I just going to take a
+look at one more thing which may just
+work because the reason we're uh
+negating negating the um factorial yeah
+that worked as well so as you can see
+this is a bit more understandable way of
+doing it so essentially we're taking the
+absolute value of our number so
+basically positive number times the
+factorial of our positive number again
+so I can again say absolute value minus
+one uh and so I guess what I could do
+here
+this could theoretically work and then
+if I just do
+this yeah so this is a even shorter way
+of doing this uh and to be honest this
+does save uh quite a lot of uh space uh
+and as you can see using just this much
+code you are able to find that factorial
+and so simply what it's doing is it's
+finding the absolute value of the number
+meaning if it's negative make it
+positive if it's positive keep it
+positive times the factorial of the
+absolute value of the number again
+negative positive positive
+positive minus
+one and then once we find the answer of
+the positive no matter what a result we
+are checking if our number was greater
+than zero good turn return the result or
+else negate the result then
+return however I believe there is a
+smaller way to do this maybe even in
+just one
+line in order to do this let's create
+another
+function let's just call this function
+um
+factorial with recursion short now again
+uh I mean it's not required for you to
+use this method because of course this
+is hardly readable and if your program
+is going to be open source for beginner
+programmers I would not recommend doing
+this but if it's just for you and you're
+just whipping up something really
+quickly and you don't want really long
+code then this is amazing for
+you watch this we just need to and look
+at this for a second all we're doing
+here is conditionals there's an if
+statement then there's a variable which
+is full of a full of just uh stuff that
+we're returning
+anyway and so we can
+put
+essentially we could just say um
+actually I'm not going to do that yet
+but if you see this function it's just
+all conditionals why not take those
+conditionals and Stitch them into one
+line not using
+semicolons but you'll see how in just a
+second so basically just immediately
+return we're not going to do anything
+else okay just immediately
+return but then we just want to check is
+our number equal to zero or is our
+number equal to one if it's any of
+those then we just want to return one or
+else we want to
+return first of all we have to check if
+our number is greater than
+zero then we just want to return our
+normal number times uh
+factorial number minus one however if it
+is
+not then we have to return the negative
+of whatever we put here the reason I put
+negative of is because over here we have
+time to actually negate the result using
+a conditional in the return statement
+however here we don't have time for
+another line and so we do it on the Fly
+while we're doing this and so it's just
+returning the negative value of of
+whatever I just explained in factorial
+with the recursion but long method now
+I'll explain this in a bit more in depth
+but first let's try it out so you know
+it works factorial wrs let's give it a
+four handles four is amazing 24 done
+let's give it a
+five 120 amazing let's give it um a
+zero one let's give it a
+one one let's give it a
+-44 -4 amazing now let's do
+uh5
+-20 and that's how this function works
+so it's checking if our numbers are
+equal to zero or one if they are just
+return one then we're checking if our
+number is greater than zero if it is do
+our classic number times factorial
+number minus one method
+however if it's
+not return the negative of the absolute
+value of our number times the
+factorial H sorry just make this the
+short method so it's
+faster of the absolute value of our
+number minus
+one and so that'll return a positive
+result which we then
+negate and that's just the simplest way
+we could do that and and that also
+concludes this uh and also one more time
+uh this recursion stuff takes up a lot
+of memory and I've even seen some
+programming languages don't allow you to
+do recursion uh and so this is because
+it takes so much memory uh but nowadays
+we don't really care about this because
+we have so much memory before uh if if
+you were to just go back a few hundred
+years and just say okay here's a
+computer with 8 GB of RAM just 8 gab
+they would go crazy because that's a lot
+lot of RAM for a time that only has a
+few megabytes of Ram uh and so uh back
+then that would be a really big concern
+that okay how are we going to conserve
+memory well don't use recursion simplest
+method uh but nowadays we have like
+gigabytes and gigabytes of memory so we
+don't need to really care that much uh
+but again if you're looking for your
+program to be fast down to the
+millisecond then don't use recursion but
+again they're so fast now that we don't
+need that anyway I'm not going to
+elaborate on that this video isn't
+really talking about speed uh and just
+one more thing recursion in memory
+actually uses Stacks in case you didn't
+know or you wanted to know it uses
+Stacks so it builds up lots of recursive
+functions right as it gets to that
+barrier that barrier of recursion that I
+talked about uh it comes back down and
+again only a few programming languages
+use that stacking sort of thing and
+recursions and yeah and and that's going
+to conclude our video for today I hope
+you liked it and if you did please leave
+a like down below again you can even
+comment or email me at tman gmail.com if
+you have any questions suggestions app
+Ideas Math questions science questions
+uh you can even email me with a video
+question at tagim Manny
+gmail.com uh and I may just feature it
+in one of my next videos uh and again
+one more thing um again subscribe to my
+channel if you're new or you like my
+content you want to see more of it uh
+and that's going to be It Goodbye Oh
+just before I go again don't forget to
+follow me on Twitter uh and so uh my
+Twitter handle will be down in the
+description and it's also @ tajim Manny
+uh and if you can't spell that again
+it'll be in the description again
+subscribe if you're new and you like my
+content you want to see more of it
+that's going to be it goodbye

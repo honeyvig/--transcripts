@@ -1,0 +1,124 @@
+turn it back with another tutorial for
+you too now in this tutorial I'm going
+to be teaching you how to create an app
+that converts decimal to binary and
+binary to decimal so here's a here's the
+app running on the simulator and you
+just give you a quick demo and then I'll
+show you the storyboard and the cook
+first of all as you can see it asks you
+to enter a binary / decimal value and
+just less information the keyboard will
+show up on the real device it's just
+that right now
+the simulators and support the number
+pad keyboard so it won't show up so I'm
+going to have to use my keyboard so I'm
+actually typing in numbers so let's say
+I type in 6 4 2 6 4 right but now I want
+the binary value of this decimal so I
+click the 2 binary button and it gives
+you a binary value of 6 4 2 6 4 however
+if I click 2 decimal it's going to give
+me an error since this already is a
+decimal so what I need to do is enter in
+some binary and as you can see it would
+give me 200 248 and if I were to enter
+in this it gives me 64 128 256 512 1024
+and so on yes that's basically how it
+works and so if I click to binary since
+any number can be converted to binary it
+will actually successfully convert this
+number to binary
+well let's start with the code and start
+in the storyboard and so as you can see
+we have a text field here this text
+field asks you to enter the binary /
+decimal value and actually have two
+buttons to convert a decimal to binary
+or binary to a decimal and then we have
+an entire textview that where you can
+see what you have in your what you have
+is output and so now what I can do is
+write a code and so first of all we are
+declaring to IB outlets the value and
+output
+the outlets the value iboutlet is a UI
+text field and that's the value need to
+convert and the output iboutlet
+is a UI label and it's the output of
+that value so next as you can see we
+have two functions here convert to
+binary and convert to decimal convert
+the binary takes a decimal as an integer
+and return the string however convert to
+decimal takes a binary value as a string
+and it also returns a string so the
+convert to binary function all its
+really doing is its declaring four
+variables first its declaring n see k
+and FS and c and k and final string and
+then basically we're setting the value
+of n to decimal so that we can change it
+and then we're doing condition a while
+loop actually while n is greater than 0
+or n is not equal to 0 basically we are
+executing this code and so basically
+we're doing is C is equal to n modulus 2
+and then basically n is equal to n
+divided by 2 and then we're are
+appending the result of C into this
+array so it's either going to be 0 or 1
+here and then basically we are taking
+for I and reverse K and we are making
+the final string and the reason we have
+to reverse K is because K actually gives
+us the output in but in a real first
+format and we do not want reversed we
+wanted a proper binary way so what we do
+is we go on a for loop with K reversed
+and FS is a string the normal string not
+in the right and so basically every time
+we go through the k KS array we are
+adding one character to the final string
+which will eventually add up to be the
+final binary and then we're just
+returning that final string that's
+basically how to convert the binary
+function works now the converts decimal
+function is quite a bit different what
+it's doing is taking binary value as a
+string and it's also returning a string
+and that's creating a result result
+variable which is an integer and then we
+are looping through the binary value
+character my character so basically we
+are doing a switch case of what number
+that binary that character is so if it's
+zero then we are saying that the result
+is equal to result times two and then if
+it's one it's the result is equal to the
+result times two plus one and if it's a
+default then return error because then
+it's not a zero it's not a one it's
+something that cannot be converted to
+binary or it convert it to a decimal
+sorry it isn't binary so it cannot be
+converted to a decimal and then we're
+just returning that result and then we
+have two IV actions here a trubiner in
+two decimal what two binary does is its
+setting outputs text to convert to
+binary value dot text as a string dot
+integer value so we're basically
+converting it to an integer here and
+then basically in the two decimal
+function we are setting the outputs text
+to convert to decimal just the text of
+that value and then the functions handle
+the rest
+yeah so that's it subscribe but for you
+to the channel like the video if you
+liked it current frame suggestions
+improvements or if you have any
+questions and goodbye

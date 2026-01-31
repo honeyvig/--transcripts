@@ -1,0 +1,257 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is Tammy bakshi and
+this time we're going to be going over
+how you can use IBM iot IBM Watson
+conversation and node red to control a
+drone more specifically the parrot AR
+drone
+2.0 all right let's begin so now
+essentially uh what I've developed is a
+phone interface so you can uh text
+message a twillo phone number uh with
+your command for example take off land
+or even like what's the battery
+percentage for example uh and it will be
+able to reply to you using no red Watson
+conversation IBM iot and all the other
+really fun stuff uh now what I'd like to
+say first of all uh is actually quick
+quick fun fact I named the Drone tandro
+tan maze drone so yeah uh now also
+really quickly uh this is in fact the
+world's first to the extent of my
+research at least drone to be powered by
+IBM iot IBM Watson conversation and of
+course no dread all right let's begin
+shall we so essentially as I said we
+have a phone here uh that's able to send
+commands uh so we have a
+phone uh and our our eventual goal is to
+have a drone here sorry we have a drone
+here uh and so essentially our eventual
+goal is to be able to communicate
+between the phone and the Drone all
+right uh but we can't do that directly
+that's impossible or at least almost
+impossible unless you install the AR
+free flight app and that other stuff but
+that's too simple let's create let's say
+we wanted to create our own little AP
+die for this so how would we do that so
+now let me show you uh so now
+essentially what we do is we have a node
+red here so we have
+node
+red all right this is one of our little
+building blocks here we also have
+twilio because I mean a phone's best
+friend in the terms of API uh is twio uh
+and of course we have Watson
+and of course uh there's IBM
+iot
+sorry so we have IBM iot along with this
+uh so now we have a few uh quite a few
+building blocks here but now the
+question is how do we connect these
+building blocks to work together to
+create what we eventually need now
+essentially first of all what I did is I
+set up the connection between the Drone
+uh and IBM iot that's one of the most
+essential Parts which is to ensure that
+the Drone can commun communicate with
+IBM iot on Blu miix uh so that we can
+actually transfer data uh now uh that
+that being said this is technically
+through uh node.js uh so in between here
+I guess you could say there is some
+nodejs code
+no JS code here uh which is essentially
+allowing this communication between the
+Drone and IBM
+iot all right so now of course uh we
+also have the phone okay so once this uh
+connection is established uh essentially
+we have the phone that connects to twio
+so now essentially we've sent a text
+message to twilio uh and so from twio
+this will actually go to nothing other
+than node red now once this goes to node
+red node red can now hand
+everything uh and then send us back uh a
+text message so to begin we have Watson
+Watson conversation uh and so
+essentially node red sends the message
+to Watson so now this is the first step
+this is the second step this is the
+third
+one sorry this is the third step so now
+uh essentially what's happening is no
+Dre has sent this to Waton conversation
+and Watson now understands the intent
+behind what you wanted to say for
+example if you asked it how much
+batteries left in my drone it knows that
+your intent is to find out the battery
+remaining in the Drone if you asked it
+to fire up the engines it knows that you
+want to take off and if you asked it to
+land it knows that you want to land your
+drone so now once Watson knows this
+intent it's going to return uh a
+response to no dread now in this case
+now just before I continue if you
+haven't already please do check out my
+Watson conversation YouTube video uh
+that essentially teaches you how you can
+use Watson conversation in depth
+continuing though by the way link will
+be in the description all right so now
+essentially uh I the Watson conversation
+service will give us a response but in
+this case I programmed it to not give me
+a simple response but an advanced
+response and this Advanced response will
+give me two responses instead of just
+one now why would we need two responses
+well let's say that this node.js code
+hasn't executed or the Drone we weren't
+able to get uh any battery percentages
+from the Drone or the Drone has been
+disconnected any one of those issues in
+that case we don't know how much battery
+there is in the Drone so what do we do
+well Watson returns two as I said uh
+texts uh and so the first one assumes
+that yes we do have a battery percentage
+value and the second one assumes that no
+we do not have a battery percentage
+value then what node red is going to do
+is it's going to check its Global
+variable or its Global context and check
+whether or not uh that the that the
+Watson conversation uh or the sorry the
+battery percentage currently exists
+inside of its Global context meaning did
+the Drone actually send us a battery
+percentage uh and if it did what it's
+going to do is it's going to choose the
+first one the battery percentage uh the
+battery percentage uh uh of course um
+message because of course if we do have
+it available we want to send it to the
+user and if it's not available then
+we'll say sorry the Drone has not yet
+provided me with this information all
+right so now uh now once Watson has
+given the result back to node red node
+red will send a uh message back down
+here to twio this is of course the
+fourth step uh and then twio will most
+certainly send it back to your phone
+which is the fifth
+step but then how do we control the
+Drone well pretty simply uh once node
+red knows the tent uh whether it is to
+take off or to land it will send that
+tent uh to technically not the Drone uh
+well essentially what's going to happen
+uh is it's going to send this
+um request I guess you could say uh to
+well IBM iot so it's going to send it
+down here to IBM iot which is the sixth
+step uh and then IBM iot will you know
+send it up through nodejs code to the
+Drone and the Drone will you know reply
+back with what it's currently doing uh
+and once we have this entire thing
+working here uh it becomes a really neat
+system which allows me to control a
+drone using my phone all right so now
+let's actually message Tandra and see uh
+what we can achieve here uh so now as
+you can see I have my phone uh and I'm
+writing a text message to Chandra all
+right now as you can see what I'm going
+to say is I'm going to say something
+like hey
+how much battery is left in my drone
+question
+mark all right now if I send this quite
+simply it
+says the battery percentage of your
+drone is currently
+63% pretty nice uh should be good enough
+for a take off maybe a little flight uh
+and so what we can do is I can say fire
+up the engines exclamation
+mark all right so now uh let's actually
+look at the Drone for a sec uh now I'm
+going to send the message and look at
+the
+Drone all right it has now taken off and
+as you can see the Drone is taken off
+and now uh we can let it fly but let's
+say we want it to land right all I need
+to
+say land the Drone all right I'm going
+to send this text message and now watch
+the
+Drone as you can see the Drone has
+landed and as I said fire up the engines
+it said all right up we go which is one
+of the options that I gave Watson
+conversation and once I said land the
+Drone it said all right Landing the
+Drone the battery percentage is now
+57% and that was how you can control a
+drone if actually you know what uh let's
+just do a second or you know what never
+mind let's uh not do that but that was
+how you can control a parrot AR drone to
+2.0 with of course Watson conversation
+and IMM iot and just before I end off
+today I'd like to say that last night I
+was with Marcus van kempen in the IBM uh
+BL office in downtown Toronto you know
+we were throwing around some ideas U
+mixing up some ideas uh and we got the
+idea uh and of course uh I was able to
+develop uh using node red and iBot this
+project uh and of course I actually do
+have a lot more stuff coming up with him
+uh in fact yesterday we didn't have
+enough time to record uh but I do have
+some more features that I will be adding
+in with him uh and then of course we
+will create a collaboration video but I
+want to keep the features a surprise for
+now but that's going to be it for this
+tutorial and just before I end off I'd
+like to say that in case you don't know
+who Marcus van kmit is well essentially
+he's my mentor from IBM uh and of course
+I do lots of collaborations with him in
+fact uh one of my earlier iot videos uh
+my iot part 2 uh for beginners uh which
+will be in the description uh was a
+collaboration with Marcus uh and so yeah
+that's actually going to be it for this
+tutorial today thank you very much I
+hope you enjoyed if you did enjoy please
+consider liking the video and if you
+think it help it could help someone else
+that you know maybe even consider
+sharing the video of course if you have
+any questions feedback or suggestions do
+send them to my email at tagim Manny
+gmail.com tweet sorry tweet them to me
+at tajim Manny or leave them in the
+comments down below and of course if you
+really like my content and you want to
+see more of it please do consider
+subscribing to my YouTube channel as it
+really does help out a lot all right
+that's going to be it for today thank
+you very much goodbye

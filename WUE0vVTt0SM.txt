@@ -1,0 +1,442 @@
+so hello there and welcome to another
+tutorial my name is Henry bshi and this
+time I'm going to be going over a
+question that Lan sent me Lan is uh is
+in Brazil uh he speaks Portuguese so
+this question that he sent me is going
+to be in Portuguese however there will
+be an English translated version uh
+which I will be saying after this
+question uh and there will also be a
+question down in the description uh so
+yeah I'll show you the clip of his
+question
+for so now I'll explain exactly how this
+app works so essentially this app will
+be able to uh start off and then when
+you click a little plus button uh you'll
+get to to a view where you can click on
+the customer button once you click on
+the customer button uh you will be able
+to see a list of your customers from a
+database on the web which I will explain
+in just a minute you can click on one of
+the customers and you will get a
+description the equipment they have from
+you and their contact uh and so
+basically all their information so now
+let me give you a little bit more
+detailed look on how this actually
+works so let's see over here first of
+all as you can see here we have our main
+view uh and so this is written
+Portuguese most of this but I mean uh
+I'm going to be translating this to
+English right as we continue first of
+all chato in uh Portuguese means call in
+English uh and so right as you click
+this little plus button here uh you'll
+get to this page on this page uh you can
+click either this back button to get
+back to this page or you can click on
+the client button uh sorry if I'm not
+pronouncing that right but in Portuguese
+uh client in English would mean uh
+customer so once you click on this
+customer button it will show you this
+little page now it retrieves all the
+customers uh that you have from a
+database like this as I've explained in
+all my other Swift databases Parts uh
+this is how it works so basically Swift
+over here oh sorry not
+eight too used to doing algebra
+anyway okay so Swift over
+here
+wants to contact this
+database now the thing is Swift can't
+just directly contact the database there
+has to be a bridge in between and that's
+PHP so Swift will contact
+PHP uh and it'll give it the request
+that I want uh everything from the data
+database PHP will go over to the
+database the database will give to the
+PHP and then the PHP will give back to
+Swift That's how simple it is in order
+to make an app like this so basically we
+want this view this view
+controller which is represented by Swift
+want something from this database so
+first it will use this to contact PHP
+and give it the request PHP will then
+continue the request in the second Arrow
+over
+here uh and then go to the database the
+database will then give back to
+PHP and then PHP will give to
+Swift That's how simple that is anyway
+so basically uh the database will
+contain uh all the
+customers
+uh and so Swift wants to retrieve all
+the customers which it has and it's also
+put it into a table view so now let's
+just say we were to click on
+International meals and this gets
+selected then what we do is we click on
+the back button now it takes us to this
+view however our view will look like
+this due to the fact that basically when
+we go back from here it'll tell you
+it'll tell this view what you clicked on
+depending on what you clicked on it'll
+get all its information from the
+database
+again once it gets all the information
+what it's going to do uh is it's going
+to give it to this and
+then it'll remove client from the table
+view first of all then it'll add its
+contact which is the email the equipment
+that it took from you and also the
+description of that client or that
+customer
+sorry and then the uh International
+meals uh basically customer name will go
+into a little label uh and then so
+basically this is the same view just uh
+it's been a little bit uh redesigned
+with
+code and then again since this is the
+same view this back button will do the
+same thing and bring you back to this
+view
+here and then you can start the cycle
+all over again and just keep doing that
+and that's how the app
+works and yeah that was simple descrip
+destion of the app and now let's get to
+the Mac
+part so yeah welcome to back to the Mac
+part and now we're going to be
+explaining exactly how the app works and
+also the code behind it now let's get
+started now and so this is the starting
+UI of the app again this is running on
+the simulator uh and this is going to be
+uh Swift uh or actually Swift 1.2 xcode
+6.4 uh so the source code will be down
+in the description if you want to take a
+look at it maybe edit it maybe use it
+for yourself you're completely allowed
+to do that anyway let's get started so
+this is the starting up view as you can
+see this is our shim's view which means
+call view now we can click on this
+little plus button
+here and as you can see uh we can go
+back to our view but let's just stay
+here and as you can see there's a little
+blank space and then our client uh which
+actually means uh customer in English
+from Portuguese so if I just click on
+this as you can see it will query the
+database get all of our uh um customers
+and then it will just uh list them here
+in a table View and then we can click on
+any one for example the international
+meal company now I'm just going to click
+on it as you can see it highlights it
+automatically uh and then I can just go
+back and it'll give me all the
+information about the international meal
+company uh such as their contact uh
+their equipment and their description
+which are not in the database yet uh but
+uh we decide to put that in a bit
+later anyway now we can go back to our
+shad's view everything's the the same
+but right as we click the plus Button as
+you can see it's black back to client
+because whenever we click the plus
+button sorry about that I'm clearing up
+this label and I'm also putting client
+back into the array of the data for this
+table view so that we only have the
+client and when we click on it it works
+that was how that worked and now let's
+see the code for
+it so now actually I'm just going to
+give you one more example here uh and so
+let's just use wraps for examples so
+that you know that it's not just
+International meal company that works
+and as you can see wraps at impress.com
+equipment description wraps and we can
+do lots more things like that such as
+CMS and then it just works like that
+okay now see the code and yeah let's get
+started so this is our storyboard it's
+pretty simple storyboard actually I'm
+going to stop the app and then show it
+to you there okay so as you can see we
+start with a navigation controller so
+that we can actually valid uh do push
+sees um and not get exceptions while you
+try to do them anyway apart from that
+then we have our shim's view which is
+our main view uh and over here uh we
+just have a blank table view uh maybe I
+might add another feature where you
+actually use this table view but
+currently you don't uh there's just this
+little plus button which will contact
+this new view uh which has a label
+that's that actually gets set to no text
+um and then it has the uh table view
+which will'll have eventually client in
+it then uh when you were to click on one
+of these cells it would come over here
+to this page where it would just query
+the database get all of the uh customers
+list them here click on one of them
+click the back button that'll appear
+here uh it'll show the information click
+the back button again and it'll come
+back here and then you can just continue
+that like a little
+cycle that's how the storyboard looks
+and now let's look at the first uh view
+which is the shimano's view which
+actually just doesn't really have much
+at all that's it uh we're just checking
+if we're moving to the new customer view
+uh which
+is this one if we're moving from here to
+here then what we want to
+do uh is check uh first of all what we
+want to do set the text of the label to
+nothing set the objects to a blank array
+and just append client to it now that I
+think about
+it d uh one line of code less anyway uh
+so now that that's done uh we can
+actually jump over to our client TBL
+viewcontroller.swift
+file over here we are declaring a global
+variable for text and this will be the
+text for the variable which is over here
+if I just run this really
+quickly like right as I click on this
+I'm this uh labels text is in a global
+variable currently uh which can be set
+by anyone so basically what I'm saying
+is right as you click on restaurant it's
+already put the text in for the label
+and it's already put in all the details
+inside of the table view but right as
+you click the black button it'll render
+it onto the screen anyway so then in our
+client table view controller which is
+um this one
+over
+here actually just let me make sure uh
+no actually uh the one over here is this
+one so this um uh view controller class
+uh is associated with this specific t
+with this specific um View and so first
+of all we're creating an object Global
+array uh which is just a new string
+array with client in it then we are
+declaring Class View controller which
+confirms to UI view controller UI table
+view data source UI table view delegate
+and UI navigation controller delegate
+after that we're creating two iets the
+first one is just an automatic one uh
+which is the table view uh and then we
+just have our title label uh and so this
+is the label that's over
+here then uh after that we in our viewed
+load function uh we are setting our
+title labels text to the text which is
+the global variable in our video load
+again and then we are just reloading our
+table views
+data and in view will appear uh I'm just
+doing viewed load which is not required
+anymore uh and we also don't need this
+anymore okay apart from that now we have
+our table view
+classes first of all number of rows in
+section where we just return objects.
+count then self row index path where we
+do let cell is equal to self. table. DQ
+reusable cell with identifier the cell
+because that's our identifier uh for the
+index path which is our current index
+path as a new table view cell after that
+we're saying cell. tile label. text is
+equal to objects index path. row so
+whatever um uh basically um respective
+um object it's currently on it'll put
+into that cell then we just return the
+cell with the correct text so that it
+puts it into our table View
+after that did select row at index path
+table view function uh so here we're
+just saying self. view. the select row
+at index path and then the index path uh
+and which just just make sure that it's
+animated not just a uh straight up
+animation after that we have our prepare
+for SE function sorry this isn't uh
+really
+uh yeah so on our prepare for SE
+function um
+we have just a
+second over
+here okay so in our prepare for SE
+function uh we are just creating the
+upcoming view controller uh we are
+creating an index path and we are
+creating a title string which apparently
+we don't need this okay sorry I didn't
+need this function
+actually uh but anyway now that uh this
+entire class is uh done uh we can go to
+the next one which is going to
+be this
+one now that we're on this uh we can
+just say okay first of all as we can see
+there's nothing but a table view here uh
+and so this is going to be pretty
+simple over here we can just see again
+we declare this Global text variable and
+then inside here uh we just create our
+table view IB Outlet we create create
+our data as an nsarray which is our uh
+customers and then the value to pass as
+a string
+which we do not exactly need again this
+is just like cleaning up the code when
+you read over it anyway now we're
+setting the data to the data of Json and
+then uh luan's website and we're getting
+specifically client select. PHP so if I
+go to it right now in Google
+Chrome let that load
+up if I paste that
+in as you can see it gives us all the
+well I didn't want that show
+original perfect it shows the entire uh
+Json and it's pretty
+simple next we are just printing the
+data for debugging purposes to make sure
+that everything works in our number of
+rows and section uh table view function
+we just return data. count in our self
+rowa index path function uh we just
+create the cell as an additional info
+cell uh and we give it the identifier of
+of second cell because that's our
+identifier in the table View and then
+we're checking if index path. row is
+less than or equal to data. count just
+in case something were to go wrong uh
+create main data is equal to data index
+path. row as NS dictionary so we get the
+current current customer their um name
+their email their login uh what whatever
+this means in Portuguese sorry I don't
+know what that means in Portuguese
+anyway uh then after that uh we are
+saying cell. client name. text is equal
+to the name from name data as a string
+so what's that going to what that's
+going to do uh is wherever you find a
+name for that specific entry put it into
+that cell then return that
+cell that's how simple that was and then
+of course our classic data of Json
+function
+uh where we just create the data
+variable or actually constant and we say
+NS data contents of URL NS URL string
+URL which is the URL we got from our
+parameter uh Force unwrap this and then
+actually Force unwrap this and then
+don't do that here then we just return
+nsjs serialization Json object with data
+we give it the data we get the options
+which is NS Json reading options.
+mutable containers we don't give it an
+near Handler so it'll just throw an
+exception uh and then we just say as
+ansr because we are 100% sure that this
+will work because again we're coding
+this
+down so now what we're doing is we are
+overwriting the table view function uh
+for did select row at index path so when
+you select something over here what it's
+essentially doing like a Red Lobster and
+come back here and I'll do this anyway
+when you select something uh it'll
+create variable user data I mean URL
+data of data of Jon on again the same
+link it'll sorry about that um it will
+set the um uh what do the um the uh
+contact variable to email because this
+is the parameter that we want uh for
+email uh then we actually don't need
+these lines uh because these were for
+the older version of this
+app uh and then so apart from that now
+we have text is equal to the URL data
+from index path. row and specifically
+get the name Force this as an unwrap and
+force this as a downcast to
+string and so then uh we're basically
+putting the name of the of the index
+that was selected into this
+label then what we're doing is we're
+setting objects Zero from client into
+contact URL data index path. row
+cont force and force what this will do
+uh is it will basically uh put in url
+data specifically for the indexp pass.
+row which is the uh current index that
+we're on we want to get their contact we
+want to force this as an unwrap Force
+this as a downcast to the string
+class then we append the equipment and
+the description to the objects but of
+course since that's not in the database
+yet uh we cannot append them into the
+objects and that was essentially the
+entire code for this app there's nothing
+really else here uh that we are using
+except for the additional info cell
+which only has a client name in it and
+the table view cell which again only has
+a title label in it and that was really
+pretty much it for this video and again
+please subscribe to my uh Channel if you
+really like my videos and you want to
+see more of it uh also consider
+following me on Twitter my uh Twitter
+handle is tajim Manny uh and my Twitter
+account will be down in the description
+uh you can always comment down uh down
+there if you have any questions
+suggestions app ideas science video
+Ideas Math video ideas etc etc uh you
+can even email me at tajim Manny
+gmail.com if you have any questions if
+you want to send me a video of you
+asking a question I might just feature
+it in one of my videos uh and that's
+going to be it
+goodbye

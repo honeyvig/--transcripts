@@ -1,0 +1,1098 @@
+[Music]
+so hello there and welcome to another
+tutorial
+goodbye name is Tammy Bakshi and this
+time we're going to be going over a very
+interesting topic within deep learning
+one that I'm sure it's gonna be very
+fascinating and in this case actually
+three different use cases that are all
+powered by the same algorithm this
+algorithm is called picks two picks you
+may have already heard of it it's
+actually quite popular and it uses
+something called conditional generative
+adversarial networks and today I'm gonna
+be showing you how you can actually use
+this technology in order to be implement
+three use cases personal facial
+segmentation to find out exactly to the
+pixel where your face is in an image and
+all the other attributes of your face
+then we're going to be doing face to
+sketch pen sketch to face which I'll be
+talking about more in the computer parts
+so now though let's actually start off a
+little bit more on conditional
+generative adversarial networks and has
+a fixed effects algorithm works first of
+all though before we even get into
+Pinkston picks what are gaps or
+generative adversarial networks well
+again these are a very popular deep
+learning algorithms
+however in essence generative
+adversarial networks aim to create
+neural networks that can generate new
+realistic information now up until now
+they've been used mainly for images
+because of course you can actually
+synthesize human and for realistic
+details and images using these
+techniques it's very very interesting
+so let's actually take a look at how the
+algorithm works now of course you can't
+just use a neural network or at least in
+this case you can just use a neural
+network in order to generate deep so you
+have to use some kind of combination of
+neural networks in this case it were
+generate such photorealistic and
+generally such such convincing data in
+fact speaking of convincing this network
+has two parts in total now these parts
+are first of all a generator
+course because we have to have some kind
+of neural network that can create our
+data for us but we've also got the
+discriminator all right now these are
+the two parts of the neural network
+these two parts work for and against
+each other basically now what I mean by
+that is of course let's just say that
+we've eaten oh I don't know millions of
+human faces into the generator now we
+feed in all the faces and the generator
+is going to try and create new versions
+of these faces it'll create new faces
+that we've never seen before all right
+now when the generator starts out and
+for example let's just say it generates
+some kind of face over here for 10
+that's kind of image now the problem is
+that's not very realistic this is the
+very first epoch the very first training
+narration and what happens is this image
+is sent over to the discriminator and
+the discriminator is going to say is
+this a real human face or is this a fake
+human face created by the generator
+basically is it from this training data
+or is it something that the generator
+created so it's going to ask itself that
+question and using its neural network
+it'll say hmm oh this is probably fake
+all right so now the discriminator knows
+that this image was fake it was created
+by the generator and is not a sample
+from the training data or any other kind
+of real data now this sort of fun part
+comes in seeing a loss function which is
+basically what tells the neural networks
+where their weight should go that will
+actually tell the gener in hay the
+discriminator thought that your image
+was fake now this is something you
+shouldn't do you should create more
+realistic images so that the
+discriminator thinks that the images are
+real so in the next epoch what should
+happen or the next training iteration a
+new more face will be fed into a
+generator it'll keep training
+it'll create a slightly more realistic
+sample let's just say of course it
+recreates a sample and in this case it
+makes a small difference and what's
+going to happen is this image will go
+over to the discriminator and now
+theoretically what should happen is this
+time instead of the discriminator saying
+that it's fake the discriminator will
+say that the image is real it will get
+tricked into thinking that it's a real
+image now when the discriminator gets
+tricked each should become better and
+now in the next retraining iterations it
+will learn that these kinds of images
+are indeed fake because the program
+won't tell this career that hey what you
+just saw was indeed created by the
+generator there we go and now over time
+what happens is a generator and the
+discriminator work against each other
+they basically compete with each other
+and try and become better so the other
+one doesn't actually recognize what they
+do and in doing that we get very very
+realistic images or any other kind of
+data created by our generator this can
+be used for audio for text for images
+practically anything but currently it's
+multiplied most two images because they
+work so well with convolutional neural
+networks and the output is really
+exciting but this time we've got
+something a little bit different instead
+of regular old regular old january of
+adversarial networks we've got
+conditional gix now conditional genes
+are a little bit different and instead
+of just feeding thousands of faces into
+a generator and expecting you to come
+out with new results we actually convert
+or basically translate specific kinds of
+images to other kinds of images let me
+give you an example
+now just for example let's just say we
+erase this ink over here we erase the
+output of the generator creates and of
+course we erase the discriminators
+output as well now we've got the
+generator and discriminator Network
+but instead of just being raw millions
+of faces this time we feed in a sketch
+of a face now of course we're all aware
+of these feast sketches that you can get
+made and of course you can for example
+describe faces to experts and they'll
+actually sketch out faces or you can
+actually take a face and then expert can
+sketch out that face in a sketch style
+now in some cases with these images you
+want to run facial recognition but the
+thing is you can't use regular old
+facial recognition algorithms because of
+the fact that well they're not faces
+they're sketches so how can you
+translate a sketch to an actual face
+let's take a look now imagine this let's
+feed into the generator hundreds of
+sketches but in one train narration were
+only going to feed in one individual
+sketch so the previous generator we
+didn't really have much input data the
+input data was just random noise and the
+generator would come up with new images
+however in this case we provide the
+generator with a useful input data from
+which it will create its output let's
+take a look now once we feed in the
+sketch a generator let's just at the
+first training iteration it's going to
+create a very very noisy and basically
+just random output of a face and so the
+generator will return this really sort
+of garbage result that means absolutely
+nothing and again this will be fed to
+those into the discriminator but there's
+a small difference instead of just this
+image being fed to the discriminator we
+also now have one more input to the
+discriminator and this is the input that
+was given to the generator now what the
+discriminator knows is hey this was the
+input given to the generator and this
+was the generators output now thinking
+about both of these was this output
+given by the generator or was it the
+actual sample from the training data and
+so this sketch will actually make its
+way over to the discriminate
+as well and once it makes its way over
+to the discriminator it's going to
+return hey this is fake because it
+realizes that this is not from the
+training set if you were to for example
+give a sketch and a face that was
+actually from the training data then the
+discriminator should be able to realize
+that hey this is a real image this is
+indeed something that is not synthesized
+however in this case we'll the generator
+it should say it's fake and again these
+two networks are going to compete with
+each other and try and do better and
+better results each time and in doing so
+we get very good output when we give it
+new sketches and you can do this for
+practically any kind of data in fact
+there are Union for example cycle
+generative adversarial networks that's
+basically an entire new video about how
+those kinds of GM's work and in essence
+what they can do is unimpaired
+image translation so you don't need to
+say all right here's a face and here's a
+sketch here's a face and here's a sketch
+we just say here's a bunch of faces
+here's a bunch of sketches there is a
+correlation between them now you find
+that correlation we don't specifically
+match any faces to any sketches and
+that's very useful because for example
+I've got and I actually do a huge
+database of base sketches but not really
+many faces and so I can't make the
+correlation but when cycle games I can
+do unpaired image translation say a
+bunch of faces a bunch of face sketches
+and it automatically learns how to do
+the generation and the discrimination
+but then again though that's an entirely
+separate video today I'm going to be
+showing you how you can implement this
+very algorithm for a few different tasks
+and we're gonna start all the tasks
+known as facial segmentation now in
+essence what this task is gonna do is
+it's gonna allow us to find out not only
+a bounding box of where face is in a
+video or image but instead it's going to
+give us pixel precise segmentations a
+where exactly not only our faces of an
+image but your eyes your nose your
+eyebrows and that your hair and a little
+bit of your neck and of course it's
+going to remove the entire background so
+you can use it for a lot of different
+tasks like just for example on the new
+iPhones we've got the portrait mode and
+you can actually simulate something like
+that using a neural network on finding
+and segmenting a face in an image or
+video and quite literally in real time
+blurring everything else this is very
+interesting technology but now without
+any further ado let's take a look at how
+you can implement this very use case and
+training all of this on the Jarvis cloud
+platform all right let's head over to
+the computer where I'm gonna be showing
+you how you can use PI torch to
+implement this entire project let's get
+to it all right so welcome back to the
+program important now I'm going to show
+you how you can actually implement this
+system let's take a look and I get
+started I recommend going over to the
+github page linked in the video
+description and this github page
+actually shows the work over here which
+actually is a port of the original picks
+up X algorithm over to PI torch
+originally it was written in torture at
+least that's one of the most popular
+implementations there are ports do
+tensorflow to PI tours do quite a few
+different libraries unfortunately not
+many to Karass just yet
+however pi torch is also a very very
+good deep learning library which we'll
+be taking a look into today alright so
+as you can see there are many
+interesting use cases that people have
+already implemented this for like as you
+can see for example just here people
+actually train this neural network to
+translate horses to zebras now again all
+I had to do for that it was the same
+kind of unsupervised or not unsupervised
+but unlabeled the translation from image
+to image that I was showing you and this
+is implemented with the cycle Gans you
+can also do the same for summer to
+winter photos you can do the same for
+winter summer you can do photo to Monay
+Monay to photo tons of different use
+cases that you can implement this for of
+course you can actually do the opposite
+of facial segmentation or this case City
+segmentation in this case which is
+actually labels the street scene where
+they take segmented images convert them
+back to the original images of course
+since it's a little bit of a Buick app
+ambiguous there is a little bit of a
+problem with that one however then again
+it does prove how the neural networks
+are able to create that kind of data
+there are also fat aides to labels you
+can also do an image colorization edge
+to photo you can convert aerial or
+satellite images into actual map images
+it's very very interesting what all you
+can do with the neural network however
+of course one main use cases that you
+might actually already know this for is
+of course the edges to cats demo or
+edges to handbags are quite a few
+different other use cases as you can see
+over here you can convert little line
+drawings into cat texturized drawings so
+again quite quite interesting
+however today though we're not looking
+at any of those implementations we're
+looking at our own custom
+implementations so let's actually go
+ahead and get started now in order to
+start off you need a place to actually
+train in this case I'm using of course
+Jarvis over here hosted and bakes and so
+I actually I've actually spun up two
+different instances
+first of all in it Nvidia dgx one server
+now this dgx one server extremely
+powerful will allow us to train these
+neural network models very quickly and
+of course I'm also not that mimics file
+manager open and this will allow me to
+go quite instantly actually send and
+receive files from the server
+so that I can actually do very very
+quick prototyping see what the results
+are from the neural network very very
+quickly all right let's take a look a
+little bit deeper if we go over here
+this is an image file manager now is out
+of the mix file manager we can actually
+see that I have already get cloned at
+the repository again you can just do
+that there's a link to it in the
+description below
+once you clone that repository over to
+your server your computer your GPU
+computer whatever you may have once
+you've gotten that though you have to
+start off I take a look at the data sets
+now of course the first thing you need
+to do is figure out how to get some data
+to the model now since we're starting
+off on the facial segmentation I'd like
+to show you the data set that I prepared
+now let's over let's go over to the face
+segment data set and these are all the
+folders within that data set and let's
+start by taking a look at the folder a
+now of course inside a folder a are the
+first set of images that are going to be
+going into the model now again for this
+model we've got an input and output the
+input and output are both images we want
+to do image translation from A to B we
+could also do b2 and I'll talk about
+that in just a moment now inside of a
+we've got all the inputs that we're
+going to be giving our neural network
+and I've got a training set a testing
+set and a validation set in this case
+just for the sake of simplicity and
+because I didn't I didn't have much data
+I just copied and pasted the test and
+validation data sets the same it doesn't
+really matter of course it's always
+optimal to have different data sets but
+coming into the training data set as you
+can see we've got a bunch of bitmap
+images now these bitmap images
+unfortunately because of a because of a
+small village of how ownCloud which is
+what jarvis uses actually displays
+bitmaps apparently he is showing us an
+inverted color here of course these
+these people aren't actually creamed
+however since I believe the color scheme
+is inverted it's displaying that as
+green of course what we could actually
+do is open that up on my local computer
+and take a look and make sure that's
+actually a problem in the facial or the
+in the own cloud and not actually in the
+images let's take a look and we're going
+to a training alright as you can see yes
+that is indeed problem with own plow
+that problem with the data set as you
+can see these are the images without
+that we are green green stuff and so
+these are all of the images of course
+I'm gonna be giving a link to where I
+actually got this data in the
+description as well a very very
+interesting data source for that apart
+from that though once we've gotten these
+people's faces ain't in the neural
+network what do we want to see out of
+the neural network well what we want to
+see out of the neural network is facial
+segmentation maps and what I mean by
+maps is basically what is at each pixel
+so if I actually go back over to the B
+folder over here and I think you'll be
+able to see that better in own clouds we
+go back to the B folder inside of B if
+we're going to train you
+see these maps all right now these maps
+if we actually open them up actually
+show what's at each and every individual
+pixel so wherever there is like a dark
+red like this that means it's background
+it's something that's not related to the
+face wherever it's this kind of sort of
+darker rat that would mean hem whenever
+it's this kind of darker right again
+that means hair in this case the eyebrow
+we've got the regular sort of face skin
+and this includes the ears and
+everything else that's yellow blue eyes
+cyan kind of nose and of course a green
+mouth and lips and so that's basically
+the maps that's basically what encodes
+and this is what we want the neural
+network to output from here you can use
+any sort of regular program in order to
+extract only the face from the facial
+segmentation map all right so now you
+know how the actual segmentation maps
+work let's go ahead and build our own
+using the picks and picks Network so I'm
+actually gonna close this down here and
+we're gonna head back over to own Club
+now there's just one small problem if
+you see we've got the a folder at the B
+folder but we'd also have to test
+validation and training folders now the
+reason we have those is because the
+neural network you cannot understand any
+be formatted data what you have to do is
+you have to format the data in a
+slightly more special way this is how
+you to format it within one image you
+have to put the input and output beside
+each other like so then the program
+that's of course implemented in pi torch
+will actually split those this image
+into two different images and then train
+the neural network on it this and so in
+order to get the data into this kind of
+format luckily the repository provides a
+script for you to do so in a very simple
+way and it's called combine a b py let
+me show you a quick example of how you
+use it so now let's head over to an SSH
+window where we can actually go ahead
+and implement it now in this case all
+you need to do is of course first won't
+go into your datasets directory that's
+the most important part
+so don't datasets once you're there run
+Python
+- of course combine a beat-up UI
+and you want to give it a fold which is
+where a day that's located in this case
+that's a face segment /a and then you
+give it your B fold and in this case
+that'll be face segment /b after that
+you give it your aim be full which is
+just face segment and the aim be fold is
+where this script is going to output the
+a be combined data that looks like this
+and so of course I don't want to give it
+a different directory we're just gonna
+go in the same face segment directory
+and so again just so you know though of
+course inside of the face segment
+director you've got B you've got a and
+now inside of that same dress you're
+gonna have the combined a B now right
+after you run this what's going to
+happen is it's going to just really
+quickly do all the processing when the
+data do whatever magic needs to do now
+this may take I don't know a few seconds
+usually this is very very fast as you
+can see it's just kind of bleeding
+through that and I've tried this out
+with around 4,000 images as well and
+that's me only around 3 minutes of
+processing time to actually get that
+done so it doesn't take too long works
+relatively quickly so that's going to
+combine your data into a format that the
+neural network can understand once
+you've got your data though then you're
+ready to move on to the fun part and the
+fun part is training your model however
+you don't need to actually train it
+absolutely from scratch you can actually
+go and head over to the github
+repository scroll down a little bit and
+they provide the example of how to train
+and you actually test up pigs to pix
+model so it's actually go ahead copy
+their command for training a model and
+let's use that in order to actually
+train one of our own models so I'm gonna
+paste that to the terminal window and
+let's make one of your modifications we
+need to to make this command
+useful for our use case now in this case
+my machine has actually got a GPU so
+what I can do is do GPU ID so again
+since PI torch is so flexible it
+supports multiple GPUs so I just I just
+tell it which GPU IDs to use and there
+we go now one more thing to know though
+is that this version of Linux doesn't
+actually have a desktop attached to it
+and
+is actually gonna start logging out to
+the desktop some training progress now
+for most people that would be very very
+useful but since my cloud environment
+doesn't have that as I haven't installed
+it either in this case I'm going to give
+the display idea of zero so that it
+knows it shouldn't try and display
+something and turn crash because there's
+no display now in the direction you want
+to say A to B because what we're doing
+is creating facial segmentation maps out
+of faces not the other way around it so
+we've got the faces in the a directory
+and the maps the B directory you want to
+do to a the A to B direction once that's
+nicely done though you can define which
+model type you want to use in this case
+we're using the unit 256 I'm going to
+link to a paper in the description below
+this paper is going to describe what MIT
+is and 256 is just sort of the model
+size that kind of thing this basically
+describes exactly which model were using
+and get more details in the description
+below apart from that we're using a pick
+space model you can set this to cycle
+gain but a lot of the other parameters
+will change and there's also an example
+of how to use cycle gann up here in the
+repository as well alright after you've
+created that modeled hope you can
+actually name your model as well I was
+gonna name this v2 and of course I'm not
+gonna name is fat Cades because we're
+not using the buildings data set instead
+I'm going to name this facial or face
+segment pixel pics and v2 alright once
+that's done you finally mutant you
+finally tell it where data is located in
+the Deo route parameter and in this case
+this would be dot slash that's sash face
+segment and that is where our data is
+located apart from that just you do a
+few ports in my Irvine environment I
+need to use Python 2 depending on your
+cloud environment you may or may not you
+to a music maybe you even use Python 3 I
+can't really depends on what you're
+comfortable with
+once you've got that command though you
+are ready to go again really depends on
+your use case exactly what the command
+is it depends on your data and your
+environments app however for me this is
+the command that works let's go ahead
+and give the computer the command and as
+you can see it immediately goes and
+starts to train
+it's gonna go ahead and split that up
+and do some damn appear ilysm on GPUs
+again very soon you'll probably see a
+video of me explaining how exactly data
+parallelism and model parallelism arap
+allow you to train they're all networked
+models on multiple GPUs but as you can
+see our neural network is on its away
+doing epoch after epoch and again since
+we're training with quite literally a
+miniscule data set there is quite
+literally hardly any day that we're
+training with this is gonna give like an
+epoch every two seconds and since we're
+running 200 epochs this should reach a
+very good accuracy and hopefully does
+not overfish the training data but we'll
+be able to see whether or not it did
+overfit to the training data in the next
+step and the next step is the testing
+step now again I don't want you to watch
+paint dry and I don't want you have to
+watch the sped up time lapse either so
+I've already pre trained the model using
+this exact method just left us here for
+a few minutes around 30 minutes I'll Ida
+trained at the model for me now though
+we can go ahead and test out the model
+that I trained for you in order to test
+it out so let's actually go ahead
+control see that now head back over to
+pi torch and the adopt PI torch but the
+repository and take a look at what
+command they use to test out the model
+so let's actually go ahead copy that
+command go back over to our computer
+paste it in now let's make some more
+changes again we want the display I need
+to be zero but then again though since
+we're just doing inference and it's only
+on a few images we don't need multi-gpu
+the overhead of multi-gpu might even
+give an outlet might even not outweigh
+the advantages that we get when we
+actually run it with multum with many
+GPUs so let's just keep it with one GPU
+for now we're gonna use an A to B
+direction again we're gonna be the same
+model type and of course I'm going to
+give it the model name now again I named
+my model v2 why am I not telling this v2
+well the reason is when I trained the v2
+model I stopped it halfway in between so
+you didn't need to watch train now my v1
+model which doesn't have me to at the
+end is of course the one that's pre
+trained so we're gonna use that model
+for now
+again we're going to pass it the data
+sets free segment and because of the
+fact that we told it the thing is over
+here where's phase or no no no we don't
+actually tell it to face well since
+we're using the Python test dot py
+script it knows that we don't need to
+use the training set for the testing set
+same thing for the training set it
+doesn't know it knows that it doesn't
+meet use the test set but now though
+fixing the Python quirk
+we can go ahead and send that command
+over to the model there we go now the
+model is actually starting to train or
+not trained it's starting to run its
+immigrants we can take a look and how
+the facial segmentation map turned out
+all right let's see it now this is
+actually quite exciting again I don't
+need to like you know secure copy or do
+anything to get my my files back over to
+my local computer and see them all I can
+do is go over to the jar vise or in this
+case the mimics file manager go over to
+the results folder once I'm inside of
+results and just click on my bottle name
+in this case face segment it picks two
+picks go over test latest tell it to
+give me the images enough HTML give that
+just one second sometimes the Internet's
+not very cooperative with us but we just
+have to wait for a second I just need to
+speed this up alright as you can see
+it's back and now we can actually head
+over to the images folder and inside
+images we see a bunch of images I'm
+going to sort this by name and let's
+start by take a look at this image over
+here this is an image on a human face
+now let's take a look at this now this
+is the real segmentation map created by
+a human however take a look at his face
+again this is the segmentation map
+created by a neural network
+I know it's fascinating isn't it now
+let's take a look at this face maybe
+take a look at that alright it's a human
+face this is what the neural network
+outputs in terms of a segmentation map
+now I know this is a very very exciting
+result and this is all be trained on a
+very small amount of data well and of
+course you can actually pay and get much
+much larger datasets if you'd like to
+and it was only trained for a short
+amount of time
+so if you train it for longer and much
+bigger than sex you should get even
+better results if these aren't already
+stunning enough again human face
+give that a women and and you can
+actually tell which one is created by
+the neural network because this is the a
+image meaning the human face and this is
+real this is the B image and it's real
+unique it's what the actual segmentation
+map is and this is the B image and this
+is fake meaning that this is what the
+neural network generated so as you can
+see this is the real egg this is the
+fake B call right as you can see so very
+fascinating even though there are a few
+different I guess you could say warps
+around there but still take a look at
+this one for example in most cases it
+works almost perfectly but now though
+let's actually take a look at what we
+can do with that segmentation map so I'm
+gonna go ahead and take first of all
+fake B download it all right there we go
+and then I moved to take real a and
+download it all right there we go once
+again now we've got these two images
+once we've got them though we can go
+ahead and do some really fascinating
+stuff let's go back over to the terminal
+now inside of this terminal I'd like to
+show you a little bit of code now this
+code over here very very simple quick
+Python script that I put together and in
+essence this Python script takes in two
+files and it returns one file one of
+those files that it takes in is a face
+image the second one is the segmentation
+map and the third one that it gives out
+is the final face and it actually used
+the segmentation map in order to extract
+only the face from the image let's take
+a look all right so what I'm gonna do
+first of all is I'm going to go ahead
+and copy the face image that we just
+downloaded to dot slash face image dot
+PNG all right then I'm going to copy the
+segmentation map over to sack map image
+dot PNG LS as you can see we've got the
+correct images next I'm going to run
+Python main dot py I'm gonna pass it the
+face image the segmentation map image
+and I'm also going to pass it the
+cleaned face image dot PNG and this is
+what
+at work or about the neural network the
+Python script outputs run the command
+and there we go now watch this so if I
+actually go ahead over to this folder
+over here you can't really see that
+unfortunately but if I open this up this
+is the original face image as you can
+see behind this person there's a gray
+background now doesn't sound very bad
+but there could be a very noisy
+background behind that person pretend
+for example he's in a very crowded area
+and he does not want that crowd of the
+image this is the segmentation map it
+shows the red where all the background
+is now watch this using that Python
+script I eliminated all the gray and
+it's almost pixel perfect no more gray
+only white in those areas now and now
+just imagine wherever he was that
+crowded area there's nothing behind him
+anymore now it's just clean white
+background and just like that we've
+created a neural network that can do
+facial segmentation how long did that
+take using pixel pics that only took at
+maximum including training time around
+it 30 minutes and now though let's take
+a look at something a little bit more
+fascinating now let's just say we've
+segmented this person's face and of
+course there are if you want more things
+to work on and I'll talk about that in
+just a moment but now we want to do
+something with that face let's go ahead
+and try to do something a little
+fascinating now this thing again quite
+fascinating but in terms of practical
+application not necessarily the most
+however if we go over back to my PI
+torch folder or my pigs depicts PI torch
+folder sorry and then if we go over back
+to the datasets and we go over to a
+folder that I call an M sketch if we go
+over to the a folder or actually we go
+to it over to the B folder and we go to
+train you can see that I've got a bunch
+of people's faces alright so we've got a
+bunch of faces here let that just load
+give that one second so I can show you a
+sample all right there we go that's one
+sample we've got a two a three bunch of
+different people
+and if we go back over to a you can see
+that corresponding to each of those
+people's face
+we've got sketches are these are face
+sketches creative by excerpts these are
+professionals creating those facial
+sketches now what I'm going to train
+this neural network to do is actually
+convert faces to sketches realistic
+sketches that look as if a professional
+sketch artist has created the sketches
+of those faces let's take a look at how
+it works all right so again it's very
+very similar sort of routine right all
+you need to do is run that similar train
+command all same parameters just a
+different model name and then in this
+case the different data set
+however instead of going a to b we're
+going b to a this time because of the
+fact that the faces are located in the B
+folder and I've got my sketches located
+in the a folder we want to go face to
+sketch so B to a however instead of me
+sitting here showing you that's training
+which you've already seen let's go ahead
+and take a look at actual things to
+sketch conversion I've actually want to
+go through B to a alright and we're
+going to be using the face to sketch
+model that has already created and we're
+going to be using a nun schedule and
+over to the face to sketch application
+let's go ahead and run that give that
+just a moment and as you can see within
+around a second it already goes ahead
+and runs the test now if we go back over
+to the own cloud inside of jar vise we
+can actually go to the pics to pics
+folder root folder basically we can go
+over to results inside of results you
+should see a face to sketch folder or
+face the sketch underscore pics to fix
+click on it go to tests latest all right
+to the images folder and then once
+you're in the images folder let's take a
+look at the results now these are going
+to be fascinating I tell you take a look
+at this this is a real human face or at
+least it will be a real going face once
+it's done loading give that just a
+moment all right
+now for this real human face this is a
+sketch designed by professional sketch
+artist there we go now take a look at
+that same face again and this is a
+sketch created by the neural network
+isn't that just so photorealistic just
+look at the difference this is neural
+network sketch artist neural network
+sketch artist or sketch artist now let's
+take a look at this example this is a
+human face again and this is what the
+neural that were converted into isn't
+that just so fascinating it's so
+lifelike
+it included such realistic details at
+notes and sketches sometimes we have a
+little bit extra detail few more lines
+drugs around here maybe a few line
+strokes here and here where the clothing
+are supposed to be including for example
+if you were to take a look at the real
+sketch artist to create that image look
+if anything the neural network might
+even look a little bit more sketch light
+because it learns over time that has
+great really sketch style images whereas
+the sketch artist tries to create more
+realistic images but ends up becoming
+more sketchy which is why the neural
+network learns that and in fact this is
+again a real human face converted to a
+sketch by a neural network like so so
+you can actually click through the real
+human face in the neural network sketch
+and you realize that they're almost the
+same in terms of face almost pixel to
+pixel again that's the name of the
+algorithm of course it is and again
+final example over here this person you
+can even see for example just look at
+that hair over here and the real human
+face even over here look at how the
+neural network expertly translated that
+into a sketch just like that and this is
+what the real human expert created in
+terms of a sketch
+look at those two images that is the
+power of neural network techniques
+however some
+I was even a bit more interesting than
+going from phase to sketch or maybe
+facial segmentation would be well what
+if I were to take a professional sketch
+artist we were to explain a face to them
+they create a sketch and then we convert
+that sketch back into an image I know it
+sounds really fascinating and it is and
+in fact I train a neural network to do
+just the same so remember how in the
+previous test command we went from eight
+from B to a because we wanted to go from
+face to sketch well I want you to
+reverse that go from A to B and watch
+what happens however just before you do
+that change the model from face the
+sketch the sketch to face and remember
+just so you know in just in case you
+don't have the computing power to
+actually train these models I will be
+providing the pre trained models that
+you can import into your own PI tour
+torn up by torches picks two picks
+folder in the description below in the
+github repository alright let's go ahead
+and try it out again we're using sketch
+to face and we're going from the A to B
+directory alright we're gonna run that
+command and take a look at what the
+output is give that just upon it's gonna
+initiate the model and it's going to go
+ahead and get it take a look at the data
+now this is the fascinating part go here
+let's go back over to the results folder
+give that just a second to load and now
+let's go ahead and click on sketch to
+face test latest that's the moment of
+truth let's see what the neural network
+gives us
+all right let's click on the images
+folder and then once you are in the
+images folder let's take a look at this
+sketch okay pretty realistic sketch
+created by human being now let's take a
+look at the real human face behind it ok
+great
+sketch again and now let's see what the
+neural network outputs as the human face
+my god that is extremely realistic look
+at those two faces in fact look at the
+sketch too
+face it's almost perfect again pixel to
+pixel let's take a look at this catch
+now what does the neural network output
+this output for this one you know puts
+well let's see wait for it
+this can't that is extremely realistic
+again you might say hey well there's a
+little bit of warping around here it
+looks like a few JPEG artifacts well
+then again though this is a neural
+network has not been trained on nearly
+enough data it's an extremely complex
+task human faces are very very different
+and it hasn't been trained for very long
+so if you were to combine all those
+disadvantages this is a very impressive
+result and of course games aren't
+perfect either however think about this
+we were able to get this close with
+those many disadvantages if we were to
+train with a lot more data with a lot
+more time and patience we would be
+getting a lot closer to an actual photo
+real even more photorealistic sketch to
+face a system again this is another
+human this and this is another face
+sketch and this is the neural networks
+output let's take a look at one or two
+more face sketch neural network face
+face sketch there we go again you can
+actually take a look at the actual human
+face and with the neural that were
+created look at the similarity there and
+look at the similarity between
+specifically this sketch and the human
+face generated via the neural network
+look at how realistic that is and so
+that was the example you can go from not
+only facial segmentation but also
+converting faces to face sketches
+without the help of a professional face
+sketch artist and then even further
+converting the work of that sketch
+artist into human faces and that was a
+quick tutorial on how you can use the
+the Pixar pix algorithm powered with
+conditional generative adversarial
+networks in order to convert or
+basically translate images from one time
+to another type hello this is very very
+fascinating again thank you very much
+everyone for joining in today that's
+gonna sum up what we had in this video
+again even the description I'll be
+linking to a few papers describing
+conditional generative adversarial
+networks apart from that also can be
+linking to the PI torch picsou picsou
+repository again thank you to him French
+with helping that apart from that I'm
+also going to be providing a few more
+tutorials regarding the next steps
+because if you think about it with
+facial segmentation we did a great job
+right we can segment faces from images
+but there's still something missing
+because if you think about it
+the facial segmentation only really
+works well if we've got a tight bounding
+box around that face not necessarily
+tight bounding box on the face you
+probably get what I mean we don't not
+want a lot of extraneous noise around it
+so we can get really pixel perfect with
+those segmentations and so the neural
+network is enough contextual information
+so what if we could use another neural
+network in order to do facial detection
+and I'm using the detected face do
+segmentation that is exactly what I'm
+gonna show you how to do in the next
+part of the video and then we're gonna
+build an end-to-end system where you can
+input a face debt the facial
+segmentation that out that actually
+extract the face from the image and
+create a sketch on the image in essence
+we'll create a web service where you can
+actually basically upload a picture of
+anyone and create a sketch again
+practically anyone it's gonna be really
+really interesting that videos gonna be
+coming out soon as a part two to this
+one but I hope you enjoyed this tutorial
+where I showed you how to do facial
+segmentation converting faces to
+sketches and then from there even
+sketches to faces with extremely
+photorealistic results even with very
+little training data and of course very
+little training time yeah thank you very
+much for joining in today there will be
+more about cycle gaps and unsupervised
+labelled or unpaired image translation
+coming soon thank you for joining in
+today that's gonna solve the tutorial
+again if you really did enjoy or if this
+really didn't help you out please do
+consider subscribe this youtube channel
+as it really does help out a lot
+apart from that you've got any more
+questions suggestions or feedback weave
+it down with the comment section below
+I'd love to hear from you
+that's why to sum up what I had for this
+video today thank you very much everyone
+goodbye

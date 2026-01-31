@@ -1,0 +1,312 @@
+solo there and welcome to the tutorial
+my name is Hannah Bakshi and this time
+we're going to be going over a new
+playlist which is called Tammy's tips
+and this time as by the name suggests
+I'm going to be telling you tips about
+tutorials I have done previously or I am
+yet to do and so these tips will include
+stuff like frequently asked questions
+questions that I got that are really
+small but they are significant actually
+lots of people do ask this question and
+just basic stuff like that so let's get
+started and so today my question comes
+from VIN so actually he's working on a
+bigger project which I might create a
+part two on maybe but actually his main
+question for this specific time was
+first of all he can't that he doesn't
+want to buy a hosting provider so
+instead he wants to host locally and
+because he's hosting locally how do I
+make a DRI our testing device actually
+connect to that local server so first of
+all let's get started and let's just see
+how a basic network would have worked if
+we were to connect so first of all this
+is your laptop or actually let's just
+draw a desktop because it's easier to
+draw um actually so we have a bit more
+space because I'm going to be drawing
+something here I'm going to erase this
+you all know his name now and so yeah so
+this is the desktop it's just saying
+something here a power button okay so
+this is our a specific level the desktop
+here now that we have this desktop let's
+just say we have our router here our
+there
+now that we have a router oh we can say
+that this ah desktop is connected to
+this router so now let's just do
+something like okay we have another
+iPhone testing device here now there are
+a few exceptions to this rule that I'm
+about to tell you and so this is your
+iPhone and this is connected to your own
+router and so on your other end however
+you have some other users and these
+users are users over here and so let's
+just say this is number one user number
+one user number 2 and user number 3 so I
+can give you some examples now first of
+all what would happen usually is first
+of all you are running a server here on
+your ah desktop here ah
+and so this is connected to your router
+and this means that if you were to
+access from this I device of completing
+work however before I continue let me
+just tell you there are two different
+types of IP addresses there's the public
+and there's a private the private IP
+address is the IP address that only you
+and devices within your local network
+can see and access however a public IP
+address as the name suggests is an IP
+address that both you locally and people
+outside can access only if it's port
+forwarded I'll explain what that means
+in just a second so this means that this
+specific um what you call it your server
+has a private IP address and let's just
+say it's 0.0.0.0 and this is like a
+desktop local service local servers sort
+of thing and so this has an IP a private
+IP address of zero point zero point zero
+point one now let's come over here again
+these are not real IP addresses these
+are just fake so you get the point and
+let's just say our public IP address now
+let me just tell you all devices will
+have the same public IP address as long
+as they're connected to the same router
+because this router assigns them this IP
+address so let's just say it's one point
+one point one point one now of course a
+private IP addresses would start with
+something like 192.168 and stuff but I'm
+just giving this as a little example for
+now and so just to give it as a little
+clearer demonstration so now as you can
+see we have the phone we have the server
+and we have our router all with
+respective IP addresses and so now let's
+just say that our iPhone over here wants
+to access 0.0.0.0 now first of all we
+have seen that this is a private IP
+address what this means is that it's in
+its our it's in it it's sorry it is in
+our own local network we do not need to
+go searching for it elsewhere and so
+this iPhone will send a request to the
+router over here then what's going to
+happen is the router will process this
+and it will send a request to your
+desktop or local server and it will go
+through the server then your server will
+process and get whatever is required and
+then continue back then again your
+router will process this and this will
+go back again I'm not exactly telling
+you like point by point whatever is
+happening inside this is not exactly
+what's happening for for sure but this
+is just a simple demonstration of how
+this works
+just go through the router as a little
+bridge come back and go back it's that
+simple and so now let's just say our
+user number one wanted to access our
+server how would we do this
+well first of all as we know how the
+internet works let's just say there's a
+few nodes here here here here here here
+here here you don't need to really care
+about these these are just little dots
+where some nodes are and these all have
+IP addresses then these will link us to
+get to this router so let's just say
+user number 2 I'm not going to start
+with user number 1 yet
+goes and tries to access this server to
+get some information first of all he's
+going to need this public IP address and
+there's one major flaw with this which
+I'll tell you so he's trying to connect
+to one point one point one point one now
+how will he do this first of all of
+course this DNS will take care of
+everything and stuff and then he's going
+to start to connect from here to here to
+here they here to here to here and then
+finally to the router again this is not
+a cure just a random depiction of this
+and so what would happen is now this is
+accessing the router
+however our router first of all it does
+not know where it needs to go it doesn't
+know if it needs to go to this iPhone it
+doesn't need to know if it needs to go
+to the server doesn't need to know if it
+goes if it needs to go to another device
+it doesn't know this because we haven't
+given a port which I will talk about
+later but let's just assume that it knew
+that it had to go to the server then it
+would actually try it's best to go
+however it has a little wall in between
+which will prevent us from going forward
+and so our connection is invalid and
+user number 2 is not able to
+however there is something called port
+forwarding what is port forwarding mask
+let's take this little blank area to
+explain first of all let's just draw a
+router here okay and this is draw a few
+boxes maybe for now there are actually
+actually first let me explain there's
+ports 1 2 3 & 4 and so what's happening
+now uh is that first of all ports go
+from a few hundred a few ten thousand to
+a few utter hunt at ten thousand these
+are not accurate ports just as a
+demonstration again and again port
+forwarding varies from router to router
+it doesn't strip set of rules that you
+can follow for every single router to
+port forward so unfortunately you can't
+do that however this is the basics of
+how it works so let's just say someone
+tries to access port 1 this will be
+denied because port 1 is closed port 2
+is also closed port 3 is also closed and
+4 4 is also closed now let's just say we
+were to send requests to each one they
+would all deny it and we would get no
+result now let's just say we were
+unblock number 3 now if we were to send
+a request it would go through on to our
+router our router will process this and
+it will say ok 4 3 is open on this
+server and so what that means is I have
+to go to the server make it process send
+it back through this entire network so
+how do we make this work well let's see
+first of all what we're going to do in
+order to make this work and so this is a
+example without port forwarding without
+port forwarding this is a complete
+message jumble however if I were to port
+forward and if a more smart number one
+user were to access for example okay
+let's just go over here and for this
+specific computer we have unlocked port
+number I don't know eight zero zero one
+dot so now what we're going to do is
+we're going to come over to user number
+one and let's just say he tries to
+access one point one point one point one
+but wait how do we tell it that we have
+to access port eight zero zero one well
+to do that we just write a colon eight
+zero zero one or the port number and so
+what this is going to do is it's going
+to tell us exactly where we need to go
+and exactly how to get there and how to
+come back and so since eight zero zero
+one has been opened the router will
+actually allow this connection so let's
+just say number one goes from here to
+here to here to here and then to here
+and then here and then it reaches the
+router actually let me just erase number
+twos path so that you can actually see
+number ones path it's a bit confusing
+isn't it confusing for me as well
+okay
+okay
+so now
+as you can see not only one has made its
+way to the rubber no surprise however
+there is still a wall but within that
+wall there is a gap and this gaps name
+is eight zero zero one and so what this
+means is that eight zero zero 1
+corresponds to specifically this server
+and so since we have sent a request from
+user number one over here with port 8 0
+0 1 where we've sent the request with 4
+8 0 0 1 and what this means is it will
+travel all the way to our router and it
+will find the gap in the wall that says
+8 0 0 1 and so once it finds this little
+gap it's going to go through it's going
+to go through this little server it's
+going to process its information go back
+through this little tunnel back this
+entire path and user number 1 will have
+gotten his data that's exactly how that
+works now let's see user number 3 why
+did I choose 3 users you may ask well
+let's just see why it's actually quite
+interesting why it's because I wanted to
+show you something which is if you were
+to access a different port for example
+maybe if we were to access port number
+oh I know 80 which is actually most
+actually not 80 that's a really common
+port let's just go with um 3000 okay
+let's go with for 3000 we're trying to
+access port 3000 and so let's just say
+for 3000 is right here
+that's the gap that's the part of the
+wall that is labeled 3000 so when to
+happen user number 3 is going to start
+he's going to connect he's going to go
+through this entire map and he reaches
+our router now what's going to happen is
+since their quest was sent from 2 to
+access port number 3000 it's going to
+search for 3000 ok 3000 Oh 3000 now see
+this is blocked it cannot break through
+this wall so it goes back and says that
+sorry the request was not able to be
+handled
+however user number three's problem can
+be solved either by also opening the
+port 3000 but also it can be sold and
+are not exactly sure if all routers have
+this but there is an option where you
+can forward all ports actually open all
+ports at once which actually does he'll
+help in some situations if you're trying
+to open all your ports at once if you're
+having trouble with port forwarding or
+something which is actually quite common
+thing with Balor's then you can just
+open up all your reports at once and
+then it will do exactly what it says
+open all the ports at once and no matter
+which port you access it will always go
+to this computer however you can only
+turn that mode on for one computer at a
+time or else of course the router won't
+know whether whether to direct you to
+this or this doesn't know pretty simple
+and yeah that was pretty much the video
+bin I hope that's really helped I really
+hope this helped all of you as well
+again if you have any questions leave it
+down in the comments like the view if
+you liked it and also subscribe to my
+channel if you like my cotton you want
+to see more of it also consider
+following me on Twitter at Taji mani
+the link will be down the description
+everything will be down in the
+description even a little bit more
+simplified version of what I just
+explained and that's going to be it good
+bye

@@ -1,0 +1,404 @@
+so hello there and welcome to another
+tutorial my name is T bakshi and this
+time we're going to be going over the
+IBM Watson natural language classifier
+in
+bluex so you must be wondering and
+actually before I get started this is a
+part two to my retrieve and rank video
+for IBM Watson and you can visit that by
+the link in the description it'll
+probably also be in the related video
+section anyway getting straight to the
+point what is the natural language
+classifier well simply put let's say we
+have two different categories male and
+female
+names and let's say we give Watson tons
+of example of female names and tons of
+examples of male names what'll happen is
+if we give it a new name then after it's
+done training a new name that it's never
+even heard
+before it'll estimate if this is
+probably a male name or probably a
+female name this is actually quite
+interesting let me show you a quick demo
+on the
+Whiteboard okay so now let's get started
+and let's create a little uh t-
+chart here we're going to have girl
+names and here we're going to have boy
+names so now let's just start listing
+off some girl and boy names uh like
+Kathy there's John
+right uh we have stuff like
+Sarah we have
+[Music]
+Peter we have
+Lisa we have um
+Robert a few more Samantha
+uh
+Brandon we have um one more
+Tracy
+and one more
+Anna uh for boys we can have uh uh
+Frank and we can have
+Mike let me just think of one more
+name okay got it but I won't be putting
+it in this okay so now we have tons of
+girl names and tons of boy names now
+let's just imagine I know these are just
+like 1 2 3 4 5 six names for each but
+let's just imagine that that there were
+thousands of girl names and thousands of
+boy names okay now let's imagine that
+over here on the Whiteboard or actually
+over here we have the
+NLC
+service now this is very interesting
+this is one great service over here this
+is one of the most advanced IBM Watson
+Services I would say you even rank
+sometimes uh would be more useful than
+this but again that's an entirely
+separate use case now natural language
+classifier over here what you're going
+to do you're going to give it all of
+this information basically all of this
+information we're going to give
+it the first of all training
+data as we did for the retrieving
+rank then what we're going to do is
+we're also going to give it uh something
+to classify
+or else there's really no point of the
+service uh and so what's going to happen
+is once we give it the training data
+it's going to start grinding it up and
+stuff and what's going to happen is it's
+going to use machine learning
+algorithms and what this will do is
+let's say we have these names over here
+if we can move over here to the
+names this machine learning algorithm
+will find literally any pattern among
+these names it'll look for patterns in
+between each letter of the names for
+each name and the patterns that match
+with each other among the entire data
+set will be used as pattern matching to
+see if something that you try to
+classify should be girl or
+boy again if I put this in a bit more
+simple way uh what's going to happen is
+it's going to
+find uh it's going to make a set of
+rules basically uh set of computer
+rules uh so that it can determine later
+whether something is a girl name or a
+boy name because a a human it can't you
+can't really start at a computer and say
+you know what let's start writing so
+many conditionals to see okay is this a
+girl name okay it has to have these
+these these these these letters in order
+to have be a girl name these these these
+these letters to be a boy name you can't
+do that it's very very hard to make
+conditionals manually so we just let the
+computer do that work by making a
+machine learning algorithm such as
+natural language classifier does uh and
+it finds patterns between the data by
+itself and then creates a set of rules
+so now we're going to give it a name
+that it has not even heard before let's
+give it something like uh Kelly for
+example now again remember as with
+everything it won't always get it right
+sometimes times and this is very very
+sometimes because I've mostly always had
+success with the IBM Lots in natural
+language classifier service just once in
+a while that it just glitches out but uh
+now we're going to come over
+here now let's see what it outputs what
+it's going to do is it's going to see hm
+there're only girl and boy classes so
+it's going to say I think it
+is so and so let's just say for example
+this isn't real data but let's just say
+it's 90% sure that it's a girl
+name and let's just say it's 15%
+sure oh sorry anyway it's 15% shirt that
+it's a boy
+name so as you can see it says it's
+Kelly is probably a girl name and so it
+ranks that first and then we are able to
+say you know what we're 90% sure that
+this is a girl uh name now let's just uh
+try changing Kelly to something like uh
+I don't
+know
+um
+bill now what's going to
+happen
+is the
+service is going to again give us output
+but let's just say this time it's
+um 95% sure that it's a boy
+name and pretty unsure like 5% sure
+unsure uh 5% sure that it's a girl name
+as you can see it's ranking boy above
+girl because it thinks you know what
+with the patterns that we have it's
+probably a boy name uh and so as you can
+see that's how it does that okay so that
+was a quick example but you know this
+is sort of boring I mean why would you
+want to know why would you want a
+computer program that can tell the
+difference between a boy and a girl name
+I mean sometimes it could be a bit
+practical but not
+fun so what I'm going to do in order to
+solve that instead of creating a name
+classifier we're going to create a movie
+rating classifier so what we're going to
+be doing is we're going to be
+downloading around 15,000 movies from
+IMDb yeah a lot but that's actually very
+little compared to what we're actually
+going to be doing we're going to be
+downloading their ratings we're going to
+round the ratings uh then in a CSV file
+we're going to put the ratings I mean
+the movie name and the rating uh then
+we're going to feed that into Watson and
+so when you enter new name that it
+hasn't even heard before of a movie it
+should be able to tell you it's around
+uh this much perc sure that it is this
+rating and it usually gets it quite
+right uh it doesn't always get it spot
+on of course because cuz it's rounded uh
+but it will get it uh quite right not to
+the decimal but to the uh proper number
+uh place so anyway now let's get to the
+Mac part so I can show you how to put
+this into a Watson blue mix application
+uh and so let's get to the Mac part now
+so welcome back to the Mac part and now
+I'm going to be showing you how you can
+actually use the natural language
+classifier so to get started let's go to
+blo
+miix uh and let's open up the
+catalog see what's happening
+there so seems like my Wi-Fi isn't too
+good today anyway so now let's uh go to
+Watson as you can see I'm just going to
+click on this little Watson service over
+here uh then o over here we see natural
+language classifier okay so now let's
+click on
+this perfect and now let's create the
+service just like we did for rri rank in
+our last
+video okay perfect now while that
+happens let's go to Google and search up
+the retrieve and rank documentation uh
+and this is where we get or not retrieve
+and rank sorry natural language
+classifier uh and so this is where we
+get uh there will be a link to this in
+the description I yeah so there will be
+a link to this in the description uh so
+you don't need to search for it but once
+you are done creating your service over
+here in Blu miix all we're going to do
+is is click on service credentials over
+here and take your
+password copy them and then I wonder
+where Sublime Text goes when you need it
+uh
+okay new file okay perfect so paste in
+the
+username uh let's also paste in our
+password perfect now let's start with
+the quick start guide
+so first thing we're going to do is
+we're going to go to our
+documentation we've already gotten our
+service credentials so what we're going
+to be doing is in stage two we're going
+to be preparing our training data now
+I've already prepared the training data
+for you uh and so this is a gigantic
+list of around
+15,000 yeah
+15,000 different
+um uh movies and if I open this up with
+Excel
+so it's movies and their
+ratings so over here as you can see got
+that is a lot so now if I just scroll
+down here a second yeah by the way these
+um these uh movies are from IMDb in case
+you were
+wondering uh and so I had to extract
+them from the very very difficult to use
+and Par actually specifically um text
+files so as you can see uh there are
+exactly
+14,99 of these movies and their ratings
+so now what's going to happen is Watson
+will be able to estimate another rating
+um using these uh and pattern
+matching yeah so oh yeah uh again you
+can only have up to 15,000 records in
+the examples and you cannot have more
+than that I believe that's what I read
+last in the
+documentation okay so now
+oh oh yeah and one more thing uh I only
+have these from I think one yeah one to
+C because I don't know how to randomly
+choose movies from all the different
+letters I just got from one to C but
+still it doesn't really matter it
+works okay so now uh let's go to the
+next step since we already have our
+training data uh and you can see this
+little terminal command over here this
+curl or as I just say curl command uh
+copy it go over to Sublime Text paste it
+in now actually there was a take of this
+video before this one which you probably
+won't see but uh in it I actually made a
+slight
+error uh basically you're supposed to
+delete this part of the command and make
+the path to your um uh training
+data uh so if I do this
+uh now the thing is what happened after
+that I had to cut and then stuff because
+there was an error and I just realized I
+forgot to put this little at the right
+thing there yeah so make sure you don't
+forget to put that in so then I'm going
+to copy my
+username paste it in my password paste
+it in
+perfect so now that I have my username
+password and everything filled out here
+I'm just going to name this tutorial
+classifier anyway just keep it the
+default uh in while we're going to copy
+this uh command again I would recommend
+that you watch my retrieve and rank
+tutorial before this one because then
+you'll uh sort of know what the uh sort
+of uh you know
+um uh way we're do the format of this is
+so right now what I'm doing is I'm
+following the guide that IBM gives us in
+general uh I'm also modifying the
+commands so they actually fit our needs
+okay so again here you need to put in
+the path uh to your the training data
+file uh you put your credentials over
+here and then you're set so now in order
+to execute the command we just paste it
+into
+terminal click the enter
+button now theoretically what should
+happen it should
+say uh okay so that was not supposed to
+happen if I just go to stack Overflow
+really quick um
+M
+fed uh where is the little
+command yeah thanks to
+um planer I guess uh so for this command
+so I'm just going to run this command on
+the training data
+itself um
+training these you won't be to do this
+it's just I that need to to do this I'm
+going to move this
+into okay
+perfect so now what happened uh is uh in
+my training data there was a malformed
+utf8 sequence over here as you can see
+uh and so what's going to happen is I'm
+going to run a command that will remove
+all those uh malformed UTF character
+utfa characters uh and now I'm going to
+just
+uh I have already done it so now let's
+run the Watson command with the new
+training
+data okay perfect it worked now the
+classifier is in its training phase and
+it's not yet ready to accept classifier
+quests
+so essentially what's happening now is
+the Watson instance is training it's
+taking those 15,000 movies and their
+ratings and it's training itself to
+recognize more movies and their ratings
+it's finding patterns between the
+ratings uh and the uh letters in between
+uh the
+um uh specific uh the names of the
+movies and so it's just going to do tons
+of pattern matching machine learning etc
+etc uh and so essentially what what our
+goal is is at the end of this when we're
+done everything when it's done training
+uh we should be able to enter in a movie
+like hone 3 uh that it's never even
+heard before as I said it's only from 1
+to C 1abc hasn't even heard of Home
+Alone before so if we enter in the name
+of the movie it should be able to tell
+us an estimated rank of what the movie
+should be rated on
+IMDb uh so that's going to great once
+that's done but uh bad news but before
+that we should just get on with this so
+if I copy the next command in step
+three uh into Sublime Text fill in the
+username and
+password uh then over here if you see in
+terminal we have a classifier ID so if I
+copy that and paste it over here in the
+second command and remove that
+then if I copy the second command from
+Sublime Text into
+terminal yeah bad news this will take a
+long long time to
+train and by long time I mean I'm going
+to have to keep this running overnight
+and come back by tomorrow because this
+thing will take hours upon hours to
+train because it's a gigantic data set
+anyway so now what I'm going to do is
+I'm going to pause the recording uh I'm
+going to wait uh overnight I'm just
+going to sleep now I guess uh maybe
+upload this video uh then tomorrow I'm
+going to be back with part two uh in
+which I will show you the trained
+classifier then we're going to be
+classifying some text uh and see how
+that works okay so I hope you enjoyed if
+you did please make sure to subscribe to
+my channel like the video comment down
+below email me at tajim Manny gmail.com
+or tweet me at tajim Manny if you have
+any questions suggestions concerns Etc
+and that's going to be it for for this
+tutorial goodbye

@@ -1,0 +1,699 @@
+[Music]
+so go there and welcome to another
+tutorial my name is Tammy Bakshi and
+today we're gonna be going over a
+fascinating subject that enables you to
+standardize not only the data you feed
+into your neural network but even the
+hidden states of your neural networks
+themselves
+it's called batch normalization I'm sure
+you've heard of it if not used it and it
+helps you increase the training
+efficiency of your neural networks many
+fold today I'm gonna be showing you a
+demo of how to implement batch
+normalization in Swift retention flow
+I'm showing you just how much of a
+difference it can make even on a simple
+data set like the endless data set let's
+take a look but before we even get to
+all that first you've gotta understand
+what bath bubble ization is and before
+we can do that let's go ahead and break
+that word apart now first of all what
+does normalization mean normalization is
+something that you probably do with
+almost every neural network that you
+have trained for example let's just say
+your training and the image classifier
+the determine whether a digit is 0 1 2 3
+4 5 6 7 8 or 9 and against data set now
+in this case you are going to have a 28
+by 28 image and so for example let's
+just say you were to take this 28 by 28
+image and you were to feed it to the
+neural network well you see there would
+be a little bit of problem because you
+need to define how many channels there
+are in your image now in this case
+you've just got a black and white image
+this is a very very simple kind of image
+and therefore you only have one color
+channel at the end which is essentially
+just an intensity value saying how
+intense how white this pixel is the
+lower the value the closer to black in
+the middle it's gray but closer to 1 the
+more white that pixel will be now what
+if you would
+in your image well let's just say you're
+creating a dataset training a neural
+network on the image that dataset
+in this case we're gonna feed in say 224
+by 224 images of the thing is you can't
+just have one channel because you need
+to define color and the way you define
+color is by using the RGB standard red
+green blue so you're gonna have three
+color channels at the end here now the
+thing is pixel values are always put
+between or in the RGB standard in most
+cases are put between the values 0 to
+255 so that's a 256 value range so each
+individual pixel has a value between 0
+and 255
+whether it's one channel or three
+channels all pixels will be between this
+value now there's a small problem with
+this with values this large and this
+varying neural networks don't do very
+well they don't do very well with such
+large values it's like for example if
+you take a look at one of the most
+popular activation functions the sigmoid
+activation function it activates between
+0 and 1 and thing is you have anything
+more than for example a value of 2
+you're gonna get so so close to 1 they
+are basically not gonna have any
+meaningful output from the neural
+network after it's been activated
+therefore what you do is you take every
+single pixel value and you divide it by
+the maximum value so for example let's
+just say you're gonna have pixel value X
+and you just divide this by 255 this is
+your new pixel value Y and this is what
+you're gonna use as your input to your
+neural network very simple that's
+normalization they do this for every
+feature so for example if you've got the
+iris dataset and you're feeding and
+attributes of different flowers within
+the iris species then you're gonna take
+each feature and divided by its maximum
+value and in doing so you have
+standardized or normalized at
+you you've gone from some arbitrary
+range to a known range of zero to one
+but then that brings us for the next
+topic standardization that normalization
+is great it really helps neural networks
+and without it we wouldn't really have
+much success with neural networks but
+standardization takes this a step
+further now imagine being able to Center
+your input data on zero so for example I
+mentioned the sigmoid activation
+function so we've got the sigmoid but
+there's also another very very popular
+activation function called tan H Tenex
+hyperbolic tangent that the hyperbolic
+tangent is a type of sigmoid activation
+function from a technical standpoint and
+the only difference really is that
+sigmoid goes from 0 to 1 and tan H goes
+from negative 1 to positive 1 so just to
+make this clear I'll say 0 to 1 and
+negative 1 to positive 1 so if you take
+a look at this it doesn't really seem
+like there's that much of a difference
+does it but on the average rule that for
+example let's just say you're training
+the iris dataset within their own
+network now if you were to use the
+sigmoid and tan h automation functions
+you actually notice that when using the
+tan h activation function you get at
+least a little bit better performance
+your neural network will learn quicker
+it'll decrease loss quicker and they'll
+get to a better result in the end why is
+that it's not just because there's a
+broader range on which to represent
+values but it's also because of the
+center of that value because the very
+center between negative 1 and positive 1
+is 0 ok so the center is 0 but with
+sigmoid the center is 0.5 now if this
+doesn't seem like much the problem does
+it this is just a mathematical model
+it'll learn to overcome that 0.5
+centering well yes and no it does learn
+to
+recumbents but neural networks and other
+machine learning techniques have been
+built from the ground up assuming this
+sort of zero centering and when you
+Center your data on zero if your neural
+network learns a lot quicker than it
+would when it's centered on a different
+arbitrary values that's what an H
+activation function works so level and
+now you can take this to another level
+by actually standardizing your input
+data itself
+let me explain now let's go ahead and
+take the activation functions here
+forget actually well it's actually not
+look at this active at the activation
+functions for now let's just take a look
+at our image now let's just say you've
+got this to 24 22 24 by 3 image now
+these three channels are your red your
+green and your blue channels now let's
+just say we were to move this axis up
+here so it's 8 3 by 2 24 3 by 2 24 by 2
+24 already love pixel that leaves now
+after you have done the normalization
+this is how you can do standardization
+take every channel of input to your
+neural network and separate it so now
+we've got three different arrays the are
+all right G array and B are a red green
+and blue arrays now you're going to take
+each one and you're gonna modify it a
+little bit
+how exactly well you're going to take
+over for example and they're gonna say
+that R is equal to then R minus the mean
+value of R divided by the standard
+deviation of our and what does it going
+to do is essentially doing the same
+thing that the 10h activation was doing
+centering your data on 0 it might not
+seem like it at first glance but this
+improves neural network training speeds
+many fault but there's another problem
+your neural network doesn't just have
+one layer it has
+many layers it's not hidden layers so
+for example let's just say we're
+training a simple multi-layer perceptron
+on the MS data set so you've got a dense
+layer as as the first layer you're
+feeding it into another dense layer and
+you're feeding this into one final dense
+layer which is fed into a softmax
+activation now let's just say that
+you're using a rectified linear unit
+activity on both of your hidden layers
+and of course they're getting a 28 on 28
+on one image game okay so this is your
+input you've got your M miss digit which
+is your 28 by 28 by the one digit it's
+being fed into a dense layer with a
+rectified linear unit of asian and it's
+going through your neural network until
+you finally get to softmax which is your
+probability matrix it's essentially
+telling you which class is most likely
+to be the actual digit now let's just
+say that we would have this input
+standardized so we've got these RGB
+values or the grayscale values in this
+case and let's just say we were to
+standardize them sensor than one zero
+and feed them into the neural network
+now the first layer has a great time
+with this because it's much easier for
+it to learn these weights over here are
+ways in the world but the second layer
+outputs a certain matrix of values now
+when it outputs these values and feeds
+it to the next layer the next layer
+doesn't have the same advantage that the
+first layer had it doesn't have the same
+zero centering at the first layer half
+and similarly that continues down the
+chain because none of them have that
+advantage anymore it's only the first
+layer that gets this advantage but now
+with batch normalization you can
+actually take the standardization effect
+and bring it to all of your neural
+network hidden States so by applying a
+batch normalization layer between these
+two dense layers over here so you're
+gonna feed this into a batch realization
+or B egg layer and they're gonna feed
+this into another batch normalization
+layer
+you're essentially saying okay take this
+dense layer see its output to match
+normalization come back from it feed
+that into a dense layer and feed its
+output into a bachelor ization layer and
+then back into the final dense layer but
+I'm doing this all of your layers
+actually benefit from having a zero
+Center data now how exactly does it work
+well it's got two parameters the beta
+and the gamma parameters okay so we've
+got beta and gamma okay now why exactly
+does it have these two parameters it's
+because when you're standardizing this
+data batch normalization does this on a
+per batch basis and the advantage of
+batch normalization is that it doesn't
+just standardize to Center on 0 using
+gradient descent your neural network can
+actually optimize these values and
+change where exactly a data center so
+for example let's just say that this
+layer really wants 0 Center data but
+this layer because of the weight so
+because of any other values it thinks
+you know what no I think this other
+distribution is better for me by
+changing the beta and gamma parameters
+it can actually change which
+distribution it's using it can change
+whether it's centering on 0 or 1 or any
+other arbitrary value and so this is how
+batch trouble ization works it enables
+all of your neural network to benefit
+from standardization and now let's take
+a look at how you can actually implement
+batch realization in your neural net
+which is a very simple way using Swift
+for tensor flow it's just another layer
+to call and by using it you can increase
+training efficiency by a mind-boggling
+amount let's take a look all right so
+welcome back to the code of how you can
+actually implement batch normalization
+with Swift for tensor flow now if you
+haven't already I highly recommend you
+take a look at my tutorial on how you
+can actually train an endless digit
+classifier using Swift for tensor flow
+it does
+feature batch normalization because well
+that's what we're gonna talk about today
+in this tutorial again if you haven't
+already there will be a link in the
+description if you'd like to go check
+that out because it will really help you
+understand exactly what this code is
+doing but without any further ado let's
+begin as you can see on screen right now
+I've got my google collab notebook ready
+now the first cell for this google cloud
+notebook is really simple it essentially
+just has import tensorflow enable GPU
+and import python this is gonna allow us
+to use these packages and there we go
+simple it runs successfully next we've
+got a little bit more complex code we're
+essentially in importing the OS numpy
+and scikit-learn metrics packages from
+Python into Swift and after that I check
+if the endless datasets all even
+downloaded if it has I do nothing if it
+hasn't then I go ahead and download it
+using W get from the OS package then
+after that I go ahead and load the MS
+dataset in to numpy by using NP load and
+then I convert that numpy array or that
+dictionary of numpy arrays into four
+different tensors for both the input and
+output for training and testing after
+that I print out the shape just to make
+sure everything's going nicely and from
+there we've got the next cell now the
+next cell we do something a little bit
+unnecessary but convenience is really
+what matters here so there is a Python
+package called TQ diem which enables you
+to plot out the progress of different
+operations so for example let's just say
+are you running a long-running operation
+and you want to figure out how far along
+you are in a for loop or in a map or in
+a multi processing pool map then you can
+essentially just wrap the iterator or
+the sequence in T qdm and you will get a
+progress bar automatically it's just as
+simple as that now because you can
+import Python code into Swift I'm using
+that in order to create a very very thin
+wrapper around Python T qdm in Swift so
+you can actually pass this new Swift T
+qdm type with any sequence and it'll
+automatically create a progress bar for
+you it's really nice you can pass it
+ranges you can pass
+arrays and we're going to use this to
+make our life easier when training this
+model so let's take a look at how this
+works I start off by importing the TQ DM
+package and then create a structure
+called TQ DM progress bar this is
+actually the wrapper around T qdm in
+terms of upgrading the progress bar
+itself the progress bar is a private
+variable within the structure it's a
+Python object and the total number of
+elements in the sequence is an integer
+we just initialize with the total number
+of sequences there's an update or the
+total number of elements in the sequence
+and then there's an update function
+which takes an amount to update by
+updates the progress bar and then
+there's also a close function to close
+the progress bar and so that's exactly
+how the TCD and progress bar structure
+structure works but then after that
+you've got to have the structure that
+actually wraps around a sequence and
+this called the T qdm structure it takes
+a generic type called element and it is
+of type sequence it conforms to the
+sequence protocol now it has an internal
+sequence which is an array of element
+values and this is why we're using this
+generic type and I also have initializer
+with no keyword argument so this is the
+key part here the reason I have this
+initializer is because let's just say I
+wanted to do for I in T qdm 1.5 and then
+maybe println or a print hello
+and then I all right now if I wanted to
+have this code the thing is this
+sequence needs to be passed to T qdm if
+this underscore wasn't there you'd have
+the unn you would have the ugly syntax
+of T qdm sequence and then pass of the
+sequence so to make it more Python like
+and to make it more natural to use you
+just wrap 1 to 5 and T to DM and just
+like that you've got a progress bar now
+after that there's also a make iterator
+function and the make iterator function
+will essentially run at route return
+new structure the TQ DM iterator
+structure the TQM
+TDM iterator structure takes again the
+generic type of element and it conforms
+to iterator protocol essentially this is
+what allows Maps and for loops and
+filters to actually use this iterator so
+now if we actually go ahead and take a
+look at the inside it's very very simple
+you've essentially got the internal
+sequence which is the array of elements
+which is again why we have that element
+generic type you've got the index that
+we're currently on within the iteration
+and you've got the progress bar itself
+which is the tqd and progress bar that
+we defined up here now again this just
+initialized is very very simple with a
+sequence and it has a mutating function
+called NEX which returns an optional
+type of element now essentially what its
+gonna do is it's gonna check if the
+current index is within the bounds of
+the sequence array if it is it'll update
+the progress bar by one increase the
+index and return the current value
+within the sequence however if we've
+reached an index outside of the array
+it'll close the progress bar
+automatically for us so we don't need to
+do it
+convenience and it'll also return nil
+this is what tells for loops in Swift to
+stop whenever you loop with a for loop
+you are using an iterator when the for
+loop reaches nil that's when it's going
+to actually stop with a for loop that's
+the internal working of the iterator
+protocol at the for loop uses and so
+this is just convenience not necessary
+but it also allows us to figure out how
+far along the model is in both training
+and testing now after this we could take
+a look at real model code now first of
+all I start off with a very very simple
+function called mini-batch this is
+actually taken from the Swift models
+example there will be a link to the
+example down in the description below
+and essentially just takes a tensor with
+a scalar generic type and it returns a
+mini batch mini batch at an index so for
+example if you've got a batch size of 64
+it'll return at that index plus the
+batch size
+so on and so forth and so that's how a
+mini batching works very very simple
+allows us to take the MS data set create
+many batches that we can then train with
+now after that is really the main part
+that you've got to focus on this is the
+EM nest model itself it can form to a
+layer type or the layer protocol and it
+has a few layers in it first of all
+we've got two convolutional layers one
+max pooling layer another convolutional
+layer and then two dense layers now in
+the initializer function you can take a
+look at the actual parameters that go
+behind these these layers so you can
+take a look at the first two
+convolutions they've got filter sizes of
+three by three and at the end you get a
+64 channel output and then after that
+you can take a look at the pooling now
+the pooling essentially enables you to
+half the size of the image so from 24 by
+24 by 64 to 12 by 12 by 64 we've got one
+more convolution same number of channels
+and same filter size three by three and
+then two dense layers to bring it down
+from 10 by 10 by 64 to 128 and then 128
+to 10 and these are final outputs
+finally there is a differentiable
+function called applied to input in
+context and essentially this is going to
+take all your different layers it's
+gonna feed your input through these
+layers and it's going to get your output
+and return it so again this is actually
+limited to floats there's no you know
+generic type here this is limited to
+floating point input floating point
+output it's essentially taking that
+input feeding it to the first
+convolutional layer running against a
+rectified linear unit of a ssin doing
+the same thing with the second layer
+feeding it to the pooling layer and so
+on and so forth throughout the neural
+network model and so that's how the
+actual model itself works now this code
+over here essentially enables me to
+calculate the loss and the accuracy of
+the model just calculating the loss is
+differentiable just calculating the
+accuracy or calculating loss with
+accuracy is not differential because
+that's not a differentiable operation
+you cannot find the derivative of that
+op
+and so these are the two functions if
+you want to find out how exactly this
+works in more detail I don't recommend
+you take a look at my tutorial again on
+these Swit for tensorflow
+trading analyst model now after that
+I've got a very very simple training
+loop that's essentially going to loop
+through the mini-batches
+ten times it's gonna loop through each
+individual batch in the mini batches ten
+times of ten epochs and n number of
+batches it'll loop through them and
+actually train the model and at the same
+time it's going to accumulate a training
+and a testing loss and what this enables
+us to do is plot it not just plot but
+also print out of the actual loss values
+at each epoch as well as accuracy now as
+you can tell this model does not contain
+batch mobilization okay but it does have
+a regular old eminence model so let's go
+ahead and take a look at how exactly
+this code functions so I'm gonna go
+ahead and run all the code first of all
+let's go ahead and load the data over
+here we can see the shape of the tensors
+now let's go ahead and create our T qdm
+great no errors and now let's go ahead
+and actually train the model so I'm
+gonna go command enter here and any
+second now it shall start training the
+model now remember we're using T qdm so
+we can actually take a look at a
+progress how many batches it's done in
+the epoch how long it's going to take
+and how many iterations are being
+completed every single second so now
+let's go ahead and give this around
+three minutes and we should be done with
+the first epoch right after that we'll
+take a look at the accuracy and then
+we'll actually implement Batchelor
+ization to the exact same model and
+let's see what kinds of metrics we get
+all right so now as you can see we are
+99% done only oh there we go so we get
+the average training losses 1.75 not too
+bad not too good and now it's evaluating
+on the test set and our loss is one
+point six two and the accuracy is at 83%
+because if you were to go ahead and
+multiply this by a hundred you would get
+eighty three point five six percent so
+again not really bad but it's not great
+either of course if you were to continue
+training for more epochs we would get
+good results it's just that well we want
+it faster because compute power is
+limited and you want as fast results as
+possible so let's go ahead and stop this
+training run and let's take a look at
+one o'clock with Bachelor realization so
+I've got another notebook open here and
+we've got the exact same code in all the
+cells there's just one difference so if
+I go ahead and restart the runtime so we
+get a new RAM and new disk if I scroll
+down as you can see here there are three
+extra layers in the model and these are
+all batch mobilization layers after
+every convolutional layer comes a
+bachelorville ization layer now there's
+been a great debate going on online and
+there's been for a long time about
+whether bachelors ation should come
+before or after the activation layer
+rectified linear unit or whatever else
+it may be now there are arguments on
+both sides of the debate the original
+author of the paper on bachelors ation
+originally said it should come before
+the activations but then change his mind
+to after the activations most people
+still put it before the activations but
+I found in my limited testing that after
+the activations works best but then
+again you should really choose what
+works best for your model in your
+circumstance because everyone's model is
+different everyone's data is different
+and everyone's needs are different this
+is in a way a Hydra parameter that you
+can adjust as well all right so now
+apart from just the initializer which is
+where you actually initialize the
+Batchelor realization layers over here i
+basically instead of just applying the
+input to the convolutional layers i then
+the output of the convolutional layers
+then apply the bachelors ation layers on
+those in order to get the outputs and so
+we've got essentially the same number of
+lines in the applied to in context later
+function but we have batch normalization
+abilities applied here now so after that
+we've got the exact same code remember
+the only difference is that batch
+normalization has been implemented now
+if I go ahead and run this let's take a
+look at the kinds of accuracy metrics we
+get on the first epoch let's take a look
+oh we first have to import tensor flow
+and all Python packages and TQ DM and
+then we can go ahead and run so there we
+go let's go ahead and give that around
+three and a half minutes and I'll be
+right back to take a look at the results
+you
+all right so now let's see first of all
+on the training set we've already got
+better metrics we've got 1.5 average
+laws and on the test set oh wow we've
+got even better results 1.4 average loss
+and 98.1 percent accuracy that is really
+amazing so if I go ahead and stop this
+let's take a moment to really understand
+what happened here back when there was
+no batch normalization on the first
+epoch just the first epoch we got eight
+and three percent accuracy which itself
+is very very good metric although it's
+not acceptable for most production
+standards but if you take a look with
+bass realization in just one individual
+iteration the whole training set on the
+test set we were able to achieve a
+stunning 89% accuracy I go ahead and
+open up the window here we were able to
+get 98% accuracy that is really an
+amazing metric and why is that it's
+because you were able to take the hidden
+states of that neural network and
+optimize them to make it easier for the
+neural network to deal with them and
+best part is that not only are you
+standardizing data according to the mean
+the variance of the data but rather what
+you're doing is you're saying all right
+I can learn what distribution is best
+for the neural network century of 0 may
+be better for some data sets but worse
+for some censoring at five might be
+better for some types of layers but
+worse for other types of layers just how
+like for example the bias neuron enables
+you to move the activation function
+around depending on the scale of the
+actual neuron Batchelor ization in a
+similar sort of analogy of a very
+bird's-eye view enables you to learn a
+distribution of the data that works best
+for that layer in the neural network
+according to the data set and the values
+are chosen by back propagation has just
+another layer in your neural network and
+that's how easy it is to implement this
+kind of layer in sweep for tensor flow
+so thank you very much everyone for
+joining in today I really do hope you
+enjoyed this tour
+if you did please do make sure to leave
+a like down below and also if you do
+have any questions suggestions or
+feedback make sure you leave them down
+in the comments or you can email me at a
+g-man each email com because I'd love to
+answer any questions that you may have
+apart from that if you really do like my
+content you want to see more of it
+please do make sure to subscribe to my
+youtube channel as it really does help a
+lot and turn on notifications if you'd
+like to be notified whenever I release
+new content but from that's the link to
+the code and the collab notebooks will
+be in a link in the description down
+below as well as a video to my m nest
+Swiffer dense flow training alright so
+thank you very much everyone for joining
+in today that's what I had for this
+tutorial goodbye

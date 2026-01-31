@@ -1,0 +1,239 @@
+[Music]
+so hi wait don't go away
+yeah it's Tammy teaches my name is
+Stephanie mother I'm a developer
+advocate from Brazil
+I work IBM for most three years and
+started learning all the things about
+Watson watching a small video from
+canmake and it's a pleasure to be here
+today so thank you very much Stephanie
+and thank you for sharing that story
+welcome to another tutorial everyone as
+a matter of fact this isn't just any
+tutorial today we have a video but a
+really special edition for IBM called
+the color code we actually get into that
+of course welcome step into the channel
+go of course thank you for being here
+today we'll need to just quickly give
+you a quick introduction of what you do
+at IBM and the kinds of technology so
+I'm Stephanie as I said I worked in the
+research lab here in Brazil I don't know
+if you know but there's a research lab
+here in Brazil that's the first goal
+playing right I have three patents in
+the machine learning area especially not
+only for machine learning but also
+related to IOT as a mandatory continuing
+and I could do this stuff and then I
+moved for digital business group and we
+have a great group of developer
+advocates and wants this name right
+my poco idea is to be the focal point
+within the technologists from IBM to
+developers so I am I'm today I'm a
+specialist in artificial intelligence
+Watson and IOT
+so it's great to talk to you because we
+were together her strategy oh my dog
+okay thank you very much something says
+tying quite a bit with the technology
+that I love to work with and so
+specifically though today we're here to
+talk about one initiative that actually
+organizations mainly by again in the
+linux foundation together to create this
+initiative is called call for coke the
+entire point of this initiative is
+essentially to help out people to be
+more prepared for st. natural disasters
+in fact justice Jones statistic over
+80,000 people and single day are
+affected by natural disasters its daily
+people are being affected by severe
+natural disasters and so in essence with
+a call for calm we're trying to take
+next-generation technologies the I've
+been thought provides like watts and
+like blockchain like IOT that you
+mentioned and so much more you can
+quantum if you're up for it and
+basically try to use that in order to
+solve this problem and while of course
+we can't or natural disasters what we
+can do is make sure that everyone is
+more prepared for what they do strike so
+that they are ready to tackle what comes
+so stuck with would you like to share a
+little bit more about the culprit Club
+what it is on how I get towards that's a
+really good question because people ask
+me okay what's comfortable then how can
+I be prepared for them because Stephanie
+and and they we know the technology but
+how a developer can be prepared like
+they have any solutions already worth so
+the first thing is called for code I
+really appreciate the initiative because
+all the things of natural disasters
+there needs to be like a digital
+hackathon it's going to just start it
+and good to be and the almost the middle
+to the end of August and the idea is to
+present an idea not only an MVP like a
+small project but a solution for natural
+disasters but the point is how we are
+going to show these solutions how can we
+start
+do we have any boosts like some things
+so we wanted to show and give you ad
+about that called the code factories I
+don't know if you talked to the words in
+your presentations here but code
+patterns are awesome guys some developer
+advocates from all around the world
+there are some code patterns there
+used to help me - so there is to start
+so if you want to make her I don't know
+a DJ but that it's one of my work my
+focus area here you can get it while the
+cold just 400 github and get all the
+information it's easy so that is really
+to make a small thing you can go from
+the beginning to the end they'd get a
+solution and then it just makes some
+movements you've made some different
+things that you can just adapt it to
+nicely as a matter of fact the color
+pattern website is gonna be on screen
+right now and again the entire point of
+code patterns is to make your life as
+developer easier so when you're
+developing applications for say the
+clover code you don't need to start from
+scratch you ready to create your own
+idea then build applications and work on
+the application rather you can take the
+building blocks of code and it's already
+exist you can fork the monkey hope you
+can create your own versions of them
+Rafe you can match up a bunch of
+different code patterns and create your
+own application entirely using the kind
+of production or any code that these
+components provide written by developer
+advocates like set me over here the
+culper code website will also be on
+screen right now so you can take a look
+at that initiative definitely you talked
+a little bit about the kinds of
+technologies with source libraries that
+tend to flow all has technologies
+available
+yeah it's a great question because
+sometimes people ask me okay you work
+again
+so you're just talking about idea
+and I said no so the point is sometimes
+sellers even fight with me because they
+say this but the point is we we are so
+excited so the cold patterns are not
+only for Watson the first thing if you
+get to the website there's not a tag for
+Watson there's a tech for yeah I like to
+talk about this because we work not only
+if they what's an API is but we work
+quite with projects you can do with
+tensorflow
+or even with much learning Python you
+can get to Watson's - duper duper change
+but you can do it manually so the idea
+that I can detect all the technologists
+sorry that we have there are like all
+the things related to artificial
+intelligence
+iotv blockchain we have some things
+related to some industries it's like
+some solutions specifically for retail
+or banking and for banking I have a
+great passion for you just to have here
+tell me why are you here today right yes
+banking you aren't going to talk
+something about things you didn't see
+your finance absolutely in fact that
+reminds me I'm actually currently here
+in Brazil forever bond for the AR C of C
+ami conference here in CIB 2018 tomorrow
+at 4 p.m. your resolve gawky them and in
+essence again the entire conference
+Walter and thanking around 5 minutes
+it's really what I'm trying to do is
+talk about how I'm implementing
+artificial intelligence technologies
+including IBM Watson and open-source
+tools like tensorflow and OD k basically
+using them in the financial service
+sector as well as how technologies like
+blockchain aren't limited to just print
+the current senior finance but they can
+be used really anywhere where you need
+transparency for transactions from one
+place to another that you
+so again talking about that technology
+and finishing off with a little bit of
+health care with a project that you may
+have heard of that predicts side effects
+of certain drugs that people may
+experience I've never seen that specific
+person that specific body type or
+demographic or that specific chemical
+composition before a federal child it's
+really interesting technology so that's
+why I'm here it wasn't just to just to
+add something I once in my TED talk I
+said a great sentence that was just to
+share here like we have technology to
+empower people right so that was my main
+idea in my TED talk because to talk like
+Howard Fischer intelligence is powers of
+people and it's great to show how it's
+occurring not only the financial sector
+but health and all this stuff so thank
+you welcome to Brazil thank you glad to
+be here in Brazil okay guys thank you
+thank you very much I'm home for 2003
+again thank you very much Stephanie for
+20 night on the channel and its mojo
+guys when you see this video you can say
+you learned something from Stephanie -
+[Music]
+thank you there will be links to
+everything that we just mentioned
+including the call for code and it's
+down in the description below
+Stephanie yeah we can put our like here
+- I have an about me the video is I try
+to be a youtuber - that's perfect so
+there will be links or simply as YouTube
+channel down about me down in the
+description below but apart from that if
+you really did enjoy make sure to leave
+a like down below part practica any more
+questions suggestions or feedback do
+that down the comment section below
+you can contact
+or you can email me that's how you
+manage you know penny apart from that if
+you really do like the content on this
+channel and you do want to start
+subscribe to be notified whenever I do
+release new content you can do that down
+below as well
+and of course you'd like to receive you
+know whenever these new videos you can
+do that as well thank you thank you
+thank you
+it does a pleasure bye guys thank you
+bye bye

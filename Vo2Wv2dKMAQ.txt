@@ -1,0 +1,483 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is tan bakshi and this
+time we're going to be going over neural
+networks in Nimble ninja and how you can
+code a game to play itself on your
+behalf using neural net Works in Swift
+let's begin now if you've already seen
+part one of this video series you
+probably know what this is uh and so now
+that you now after some time that we are
+creating part two uh now I'm going to be
+showing you the actual code behind the
+system itself uh so if you haven't
+already seen part one I'd recommend you
+go and see part one it's on the it's in
+the video description down below and on
+screen right now as well uh all right so
+let's actually go ahead and begin uh
+this tutorial now how is this system
+going to work uh you probably already
+have a briefing of how the system will
+work from part one but I'm going to give
+you another quick overview so you know
+the context so I can explain the code
+too nicely let's begin so the way the
+system is going to work uh is of course
+the the general concept is that you are
+to play a game called Nimble ninja uh
+Nimble ninja is an open source iOS game
+developed by crash course code or
+Michael leech uh it is a video series on
+YouTube about how you can build this and
+it's also a code available on GitHub and
+so what I've gone ahead and done is I've
+taken Nimble ninja and modified it
+myself to incorporate neural network
+technology so I can learn how to play
+the game as you play it let me explain
+what happens is it starts off by
+observing you play so say that you've
+got Nimble
+ninja the first step is for it to learn
+how to play or other data about you
+playing the game so it can learn to play
+from that data so the way this works is
+of course we've got this nibble ninja
+game uh and you are the user are
+actually playing this
+game now as you play the game I've
+injected these sorts of scripts into the
+code that'll actually gather data every
+around a half a second uh or so orever
+you know around 100 to 500 milliseconds
+uh it'll gather data about the closest
+block from you it'll it'll it'll find
+the x value of that block and once it
+has the x value of that block now there
+can be two output values either a zero
+or a one if it's a zero then that means
+at this millisecond you were not
+clicking the screen however if it is a
+one then that means you are clicking the
+screen at this distance and so a neural
+network basically just has to learn uh
+at around what x value you like to click
+the screen uh and so of course as you
+play Nimble ninja it gathers a bunch of
+data about the x value and whether or
+not you clicked the
+screen this is the type of data
+gathers however there's a little problem
+as you know when you're playing nibble
+ninja you're not you're not tapping on
+the screen as often as you aren't
+tapping on the screen and that means
+that you've got thousands of more in
+this data where you're not clicking than
+when you are and so some data cleanup is
+required or else the neural network
+doesn't have good quality data meaning
+it'll either overfit or not trained
+properly uh something bad will happen
+and so what has to happen uh is this of
+course once the game generates the sorts
+of data then it'll go through another
+script and that's called the data
+cleanup
+script and so the data cleanup
+will allow
+you to remove some of the values where
+you're not clicking to basically balance
+it out with the values where you are
+clicking once you've done that then
+you're ready to actually do the real
+neural network implementation so after
+this this data will be passed over to a
+library called Swift AI by Colin Hundley
+uh now there are a few notes Here col
+hly developed Swift Ai and allows you to
+create very easy neural network
+implementations in Swift uh however I'm
+using a slightly older version of Swift
+AI because that's the original version
+that I had coded the system with however
+soon I will update that code and provide
+it to you in the description not too
+much has changed uh however he has made
+many more performance improvements which
+is of course great because you don't
+want the user waiting for their game uh
+to train you want it to happen instantly
+so there are a few more performance
+improvements on the way uh but for now
+I'm going to show you how you can
+actually implement the Swift AI core
+itself and so of course once the data
+has been cleaned up uh then it will go
+to the
+Swift AI
+library and then Swift from and then
+Swift AI of course will train a neural
+network to understand this data uh and
+this neural network actually has one
+input it has 300 Hidden
+units and it has one output
+that is how the neural network works in
+fact a neat little trick here is if you
+want to find out exactly how many
+connections there are there are or how
+many individual weights will need to be
+tuned you can just do one um yes 1 *
+300 plus
+300 * 1 so you're doing the connections
+between these two layers and the
+connections between these two layers and
+if you were to find that that should be
+around 600 because of course 300 300 uh
+and then of course that would become 600
+so you've got 600 individual weights to
+tune in this neural network and that is
+how the system works from there what's
+going to happen is some fancy logic
+we'll actually use this neural network
+to find out when the character should
+flip on the screen so after you play and
+lose the game once the neural network
+will automatically start training and
+once the neural network is done training
+it will then of course go ahead uh and
+play for you the next time you start the
+game all right so now let's get over to
+the Mac part where I'll show you how you
+can actually implement this system let's
+get over to it now all right so welcome
+back to the Mac part and now I'm going
+to show you how you can actually build
+this Nimble Ninja system but first I'd
+like to show you a demo if you've
+already watched part one you know about
+the game mechanics so I'd highly
+recommend you go and watch part one
+before you actually start watching part
+two all right so as you can see I'm
+actually starting to play Nimble ninja
+and my goal here is to reach a score of
+around 30 right as I reach them the
+neural network should have gathered
+enough data to learn how to play the
+game now as you can see what's happening
+is as I'm playing it's Gathering data
+about the closest Block's x value uh and
+of course uh it's able to find out
+whether or not I'm clicking the screen
+uh and it'll label those it'll uh
+basically Stitch that data together uh
+and once it's done stitching the data
+together it will give it to the neural
+network uh to learn from now as you can
+see let's just say I a score of around
+50 right I mean the more data the better
+uh you don't want too much data but uh
+you know more data is good uh the reason
+we don't want too much data those
+because then it trains very very slowly
+okay now I'm just going to not not play
+the game and wait for it to just die uh
+and okay there we go so I've now lost
+the game and as you can see it's kind of
+Frozen and when it's frozen that means
+it's training the neural network but as
+you can see it says it's game over now
+uh meaning that it is done training the
+neural network so I can actually click
+the game over screen and right as I want
+to I can actually now tap to start and
+right as I tap to start watch this I'm
+actually not going to uh you know click
+on the uh screen at all but I should be
+able to tap to start uh and there we go
+it is playing by itself what's happening
+is the neural network has learned how to
+play Nimble ninja and it is now playing
+on my behalf exactly how I would play
+you could say that quite literally it is
+uh an an IM ation of the really tiny
+part of my brain that knows how to play
+Nimble ninja uh that really tiny
+biological part of my neural network uh
+that's being put onto an artificial
+neural network in my phone and so as you
+can see that is how you can have your
+phone played Nimble Ninja for you so
+that was a demo and I'm actually going
+to keep this running so it just keeps on
+uh you know playing Nimble ninja but I'm
+going to go over to xcode and I'm going
+to start explaining how you can actually
+build this entire system now as you can
+see of of course first of all we've got
+an extension to the array class and in
+this array class I've got a sample
+function uh this was from stack Overflow
+and it basically just gets a random
+index from the uh from the array and a
+random value but after that of course
+I've got a function called cleanup uh
+cleanup will take the current array of
+course self uh and it'll also take
+another two-dimensional float array
+called with answers uh now of course uh
+there are two separate arrays to niml
+ninous function or at least the neural
+Network part and these arrays are first
+of all of course the the x value arrays
+uh the x value array where you have a
+bunch of X values from the from the uh
+from of course the from from the data
+gatherer uh but then of course you've
+also got another array that contains
+whether or not at each x value I have
+clicked the screen uh and so of course
+once the cleanup function is given both
+arrays it's able to do some really great
+logic uh and over here what it's able to
+do is after the data pre-processing here
+it's able to actually clean up the data
+and make sure there's an equal amount of
+zeros and ones in the training data so
+that the neural network is able to train
+properly with good quality data and so
+that it does not uh need to be you know
+uh so it does not overfit or it doesn't
+uh you know underfit or something of
+that sort uh so of course uh it balances
+out the amount of data that we've got in
+the
+array after that of course I've got a a
+function called random between numbers
+and I'll explain what that does in just
+a minute and you'll see in the end of
+the uh in the end of the code but apart
+from that of course you see that I've
+created a neural network uh using the
+ffnn class provided by Swift Ai and I'm
+and I'm making the neural network have
+one input 300 Hidden units and one
+output apart from that in the game scene
+there are only two variables related to
+the neural Network's functioning uh
+first of all it's called neural play
+second last flip neurop playay is the
+variable of whether or not the neural
+network is currently playing the game
+now after you lose this will
+automatically be set to True last flip
+is whether or not the neural network has
+just told the character to flip but why
+well if I actually open my phone back up
+here uh and go back over here as you can
+see what's happening is the character
+doesn't instantaneously within a
+fraction of you know millisecond uh
+actually just flip between the flip
+between the sides of the platform it
+does take him a few sort of you know
+milliseconds to actually animate to the
+other side of the platform uh and so
+what happens is since that's not
+instantaneous uh the neural network is
+actually called more times uh per more
+times uh it was actually called faster
+uh than the character can flip on the
+platform it's called that fast uh and so
+what happens is eventually say that the
+neural network wants the character to
+flip and the neural network issues use a
+flip command what happens is the the the
+character could be in between states uh
+could be just about to flip technically
+on the other side uh but has not you
+know completely flipped yet uh that
+means that the uh that the neural
+network might issue another flip command
+which in turn brought him to the other
+plat the same side of platform again
+which defeats the purpose and then they
+would issue another flip command and
+another one and another one and it would
+just keep going on there's really no
+point to having the neural network
+infinitely called a flip Comm command uh
+and so of course in order to prevent
+that what I do is whenever the neural
+network issues a flip command I set last
+flip to true and once last flip has been
+set to true then I do not allow the
+neural network to issue another flip
+command until last flip is equal to
+false uh and the way it gets Su to false
+is if neural if the neural network uh
+tells a program that it does not want
+the neural net the hero to flip uh and
+so that's how the last flip logic Works
+apart from that of course I've also got
+this little code here uh and if you do
+want the neural network to start playing
+Nimble ninja in the beginning of the
+game even though it wouldn't really do
+anything at all it would just you know
+randomly uh flip and not flip uh then
+you can just set this to True uh but
+apart from that I've actually got some
+code over here in game over now in the
+game over function this is a code that I
+have
+implemented now this is actually what
+starts the entire Nimble ninja pipeline
+what it does is it checks if the neural
+network is not playing meaning that you
+have lost the game a human has lost the
+game then what'll happen is it'll
+actually clean up the data it'll print
+out the old data it'll print out the new
+data just so I can see what's happening
+uh and then it'll actually train a
+neural network using Swift AI on the
+data and the error threshold is 0.1
+meaning at maximum from the trading data
+uh it can get the the neural network
+should be able to get at maximum 0.1 off
+uh from the training data specifically
+uh and then once you're done that and
+once you have trained your neural
+network I just print out the weights of
+the neural network just in case I really
+like the way that this one plays and I
+want to save its weights uh and
+basically just I guess you could say uh
+preserve its brain uh so it's able to
+play again in the future if I just want
+to take those weights uh and put them
+into a the uh program once again and
+load up a specific neural
+network after that I set neural play to
+true and once neurop play is true the
+neural network will start playing the
+game the next time it's oh the next time
+you turn on the
+game but next I've got some more code in
+the update function in the update
+function and of course if you don't know
+exactly how Sprite kit functions and uh
+and what it update function does I'd
+recommend you find out a bit more about
+Sprite kit there might be some resources
+uh and links to resources in the
+description for you to find out a bit
+more about that but apart from that
+though uh let's take a look at the code
+inside the update function
+uh as you can see the first if statement
+that I've got here uh is that I'm making
+sure that the closest obstacle x value
+is not equal to zero uh now this uh
+basically what this will do uh is it'll
+make sure that the closest obstacle x
+value actually exists uh because what
+I've gone ahead and programmed it to do
+is whenever that the the character does
+not have the um a block in front of him
+then this variable will be equal to zero
+uh and so what happens is I make sure
+that that's not equal to zero and
+there's also an array called done for
+done for contains the X values that uh
+the neural network has already been
+trained for uh if done for already
+contains this x value uh then of course
+do not run this if statement or the code
+inside the if statement however if both
+of these end out to be true uh then what
+we can do is actually pend this x value
+to the array uh or the inputs array and
+then of course append a zero meaning I'm
+not clicking the screen to the answers
+array then after that check if the
+neural network is playing the game and
+the game has been started and the game
+is not over if so then call the neural
+network and give it the current x value
+find that neural network value and
+create a new constant called Network
+wants to flip and this is equal to
+whether or not the network value is
+greater than
+0.99 this means that if the network
+wants to flip that means that it is over
+99% sure that it does in fact want to
+flip
+after that it'll print out whether or
+not the network wants to flip and with
+and with how much confidence it wants to
+flip or not flip and apart from that
+after that uh I check if the neural
+network wants to flip and if not last
+flip then I do hero. flip and I set last
+flip to true and this is that last flip
+logic that I was talking about where if
+last flip is is false then it will allow
+the neural network to flip and set it to
+true meaning that this will not be run
+until last flip is set to false when the
+neural network does not want to flip and
+from there you are ready to continue and
+once you have injected these sorts of I
+guess you could say scripts into Nimble
+ninja uh you ready to go and have an AI
+enabled Nimble ninja that can learn from
+you and how you like to play nibble
+ninja all right so thank you very much
+for joining in today that's what I had
+to show you in fact I actually to get
+back here as you can see the neural
+network is at
+550 now of course this game is actually
+not very hard but this very same
+algorithm could be applied to many
+different games whether that be you know
+uh Tetris or or whatever whatever else
+it might be this exact same algorithm
+can be applied to many other games and
+of course soon in the future I will be
+showing you how you can actually apply
+this algorithm and actually algorithms
+like this one for example convolutional
+neural networks and more on other games
+on how you can create AI games or or AIS
+for games that don't actually support
+them natively all right so thank you
+very much for joining in today I really
+do hope you enjoyed if you did please
+make sure to leave a like down below and
+share this video If you think this could
+help anybody else that you know like
+your friends or family of course if you
+have any more suggestions questions or
+feedback please leave them down in the
+comments section below email them to me
+at tagim Manny gmail.com or you can
+tweet them to me at tajim Manny of
+course though if you really like my
+content you want to see more of it
+please do consider subscribing to my
+YouTube channel as well as it really
+does help out a lot uh and of course if
+you'd like to be notified whenever I
+release new content please do make sure
+to turn on notifications as well as
+again it really does help out a lot
+thank you very much for joining me today
+that's what I had to show you today
+goodbye

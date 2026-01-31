@@ -1,0 +1,902 @@
+so hello there and welcome to another
+tutorial my name is Tammy vaccine this
+time we're gonna be going over something
+that I call the amazing maze now what
+could the amazing maze be out of all the
+amazing inventions that I make on my
+channel what could this be well this is
+using the a-star path finding algorithm
+which is different than the Dijkstra and
+the best first search algorithm in many
+ways this is a path mining algorithm
+that will allow us to find away from
+point A to point B even through a maze
+pretty easily so I've made a swift and
+version of this and today I'm going to
+be explaining it to you
+first I'm going to explain the algorithm
+itself and then I'm going to be
+explaining my app that I created on it
+right now you can get auxiliary code for
+this app down in the description however
+in a while I will be posting up the
+actual API for path finding that I will
+release so just keep your eyes in the
+description for that you will get it
+soon and yeah so let's get started so
+this is called the a-star path finding
+algorithm it's different than the best
+first search algorithm which is very
+greedy with the fact that it also keeps
+a track of how far it is from its root
+node meaning it's point a so it will
+keep track of both how far it is from
+its ending point and also how far it is
+from point A which is a starting point
+and it's also different is it from the
+Dijkstra algorithm by because the
+Dijkstra algorithm will also search a
+lot of onion nodes which it really
+shouldn't be searching at all I mean if
+if it knows it's right there it
+shouldn't go over here and start
+searching just go over there which is
+what the a-star path finding algorithm
+will solve I will find usually the
+shortest path to the end and this will
+work great in games where an AI entity
+would need to actually find its way to a
+player from so many nodes away so it can
+just find its way through ignore
+obstacles
+go around obstacles stuff like that
+let's get started
+so before we even start learning about
+the a-star algorithm we need three
+different costs what is a cost you may
+ask a cost is the amount of energy used
+by a node so for example there are three
+different types of costs that you have
+in this sort of an algorithm there is
+the G cost there's the H cost and
+there's the F cost the F cost it's
+always the main cost here it's like the
+father of all costs here so this cost is
+always equal to G Plus H which I will
+explain in just a minute
+now our G cost what and you should know
+what cost by now because I've explained
+it it's how much energy is used up from
+one specific node to another node our G
+cost will be the energy used from one
+node to its starting point meaning let's
+just say we take this path this node
+will have a G value of 10 then 20 then
+30 and 40 and 50 then 60 due to the fact
+that this is point a it's G value of
+zero because it is itself point a then
+we add 10 here we get 10 then 10 we at
+20 and 10 me a 30x etc so our algorithm
+here to find the G value is always going
+to be the last G value plus another 10
+so that's how we find our next G value
+but how do we find our H value but first
+of all what is our H value our H value
+is how much cost we have for moving from
+this node to our ending node so the way
+you cut you calculate this and before I
+tell you let's just draw the coordinates
+on the squid so we can actually
+understand it so first I'm going to draw
+the Y values 0 1 2
+we perfect so now we can see that this
+is zero 3 this is 3 3 this is 3 0 and
+this is 0 0 so that's how we can
+understand our grid now so we can find
+the coordinates of any such grid like
+this would be 1 2 etc etc so now let's
+see how we calculate the H value since
+this is a longer expression I'm just
+going to write it down here so this is
+where we're going to do the H value okay
+so now let's get started by doing this
+is the actual algorithm we find the
+absolute value the nodes X minus the
+ending X plus the absolute value of the
+node Y minus the node at the end and Y
+okay so we add these and then one more
+step we multiply it by 40 this will get
+us our H cost that's pretty long
+expression thank God we have computers
+to do it anyway so then once we find our
+G and H costs we always have to find our
+F cost which is going to be G Plus H so
+swift's forgot what it's called but they
+have a feature where you can just set
+you can give a variable organa in the
+center so instead of having to set the F
+value each time and then retrieving it
+you can retrieve the F value and it'll
+always return G Plus H that's a really
+good feature
+I'll have that written down in the Mac
+part of the video anyway coming back to
+our a starts planation
+now you know what each of these costs
+are and so now as you can see over here
+I've prepared a little demonstration of
+how this entire a-star pathfinding will
+work remember this is not my app this is
+just a presentation that I created which
+will explain exactly how the apple tree
+through point a go along here come up to
+point B so it's just a little
+explanation of how that happens so now
+what I'm gonna do is I'm just going to
+give you one more quick demo over here
+then we're gonna get over here see how
+this actually works and then we'll go to
+the code so as you can see over here
+let's just give a quick example over
+here let's just find the G H and F costs
+for this specific node that's it and
+then we'll go to our explanation so in
+order to find the G cost we take the
+last G cost in this case it was zero
+because it's its self then we add ad
+tend to it and you might be thinking why
+do we add ten to our G cost is there a
+special reason well there is first of
+all this app cannot do diagonals the
+reason I didn't program them in is
+because let's say there's an obstacle
+here let's say there's an obstacle here
+our diagonal searching won't look for an
+obstacle over here and over here it's
+just gonna look if there's an obstacle
+here and it'll just happily jump over
+these obstacles and continue and
+continue and continue which we do not
+want obviously so we don't do diagonals
+coming back to the point let's find the
+G H and F values for this specific node
+so as you can see we've already
+calculated the G cost which will be 10
+you through its meaning the first due to
+it being the first node that we're
+travelling to then what we do is we
+calculate the H value so our node X okay
+let's just actually fill in the blanks
+over here we have absolute value node X
+minus end X plus I'm just gonna remember
+to put the absolute value here since I
+don't want to write that are actually
+going out absolute value for this minus
+this plus the absolute value for
+something minus something times 40 ok
+let's fill in the blanks and actually
+answer this equation so first let's see
+this by parts okay so we have the
+absolute value what's the nodes x value
+it's zero or yeah the nodes x value is
+zero so we're gonna peel them what's our
+ending X value 3
+okay so you've answered that in then
+what's our Y value for this node it is 2
+so i'm gonna enter into what's our Y
+value for this zero so I'm gonna turn 0
+so what would this be this would be 3
+and you might be asking yourself why
+would it be 3 0 - store you would
+obviously negative 3 well you obviously
+ignored the fact that this is an
+absolute value meaning that we have to
+take away that a little negative that's
+over there apart from that we have the
+plus symbol and I'm just gonna put this
+in a bracket plus and now we find the
+absolute value of 2 minus 0 that will
+obviously just be at positive 2 then we
+can close our bracket and then obviously
+times 40 so let's just take this by
+parts again I'm just gonna break this
+down into a little expression tree so
+then this would be 5 times 40
+so our final equation will me 5 times 40
+so this would be 200 okay so now that we
+found out our H value we can just write
+it down here and so our F value will
+obviously be 200 plus 10 which will be
+210 perfect so this will be our final
+node this is how the computer will
+interpret this node and we will be able
+to get a proper functioning a star
+working out with them just by choosing
+the lowest F value on the entire map
+each time when we take another move
+that's pretty simple now alright so yeah
+I'll meet you at the presentation part
+of the video so just before we get to
+the presentation part I'm going to
+explain the Doyle template and so now
+that you know the GH enough values you
+should be able to get this so for each
+know that I have on my little
+presentation over there I will have it
+formatted this way up in this corner
+will be the G value the H value and the
+F value again this is the cost from our
+starting node or node this is our
+heuristic value calculated using the
+Manhattan method which I will explain
+later value to our destination Square
+then our F value which is our G Plus H
+value so let's get started shall we so
+let's just show the presentation really
+quickly and so now let's get started
+since I've already showed you a little
+example of calculating this nodes G H
+and F values I'm just going to tell you
+that this was actually right what we
+calculated it was correct and so the
+there's a 10 200 and 210 as you can tell
+okay coming back to our presentation
+then it will calculate the G H and F
+values for its next neighbor so it'll
+look at all its neighbors and say okay I
+can either go to this either go to this
+calculate the math for each one of these
+then choose one now you must be asking
+yourself why are these both the same
+they shouldn't be well actually they
+should be let's count one two three four
+okay one two three four that means it's
+the same amount of squares away then the
+other square so these will both be the
+same however I programmed it to choose
+right more than up and up more than left
+so now it goes over there and now I'm
+going to speed things up by calculating
+two at a time so that we don't take all
+day so as you can see it calculated the
+G H and F values for its neighbors as
+well so its neighbors were this and this
+so 21 60 180 they're getting smaller
+each time again 20 160 180 because
+they're the same amount of squares away
+1 2 3 1 2 3 so those will be the same
+then it decides to go over here again
+because it detected that okay I could
+either go up here where it's 31 2150 or
+I could go where it's 31 2150 however
+this is right this is up and again it
+chooses right over up each time after
+that it sees that I have no no neighbor
+but this one so it will calculate the
+values for this one it'll look for the
+smallest F value on the entire map but
+not just over here it'll actually look
+over here too and it'll say oh if this
+one's x value is coincidentally smaller
+then we just want to back-trace and go
+through here instead but it found out
+that the F value is smallest over here
+so it continued in this direction the re
+and next as you can see this value
+didn't update the reason is because it's
+these that we already attempted to
+travel this path but we didn't like this
+path so it's going to ignore this path
+and only say that it has one neighbor
+and it is go immediately going to go up
+here and calculate all of its math now
+after that it has two more neighbors one
+of its neighbors is the winning square
+so of course it goes to the winning
+square however due to the way it was
+programmed and because I didn't want to
+end add in any extra code it will also
+calculate stuff for this node however it
+will always go for the lowest F cost
+which we will get when it gets to B so
+that's a very simple demonstration of
+how this will work
+and now let me just go through this a
+little bit faster so as you can see this
+will start off by calculating the values
+for each neighbor has and it will choose
+the one with the smallest F value or if
+it's to the right next it'll again
+calculate each value for its neighbors
+and choose the one either to the right
+it'll either choose a direction that it
+wants or it'll choose the costs that it
+wants in this case that chooses the
+direction because there is no cost value
+again it'll do the same thing however
+this time there's still no cost
+comparison it's just the direction
+comparison that's going on now it can
+only go one way so it's going to go that
+way however it will
+still calculate the values for that note
+it can still only go one way but it'll
+still calculate the values for that note
+then it has two neighbors one is the
+winning square one is the longer square
+to get there so of course it chooses the
+winning square so that was a quick
+rundown of how this works
+and now we will be going to the Mac Park
+mat part Mac parts are announced today
+anyway now so now we will be going to
+the Mac part in which I will explain all
+my code I'll give you a link to the
+source code in the description and all
+that good stuff so let's get to the Mac
+part so welcome back to the Mac part now
+I'm gonna be giving you a quick demo
+been going over the code so let's get
+started so as you can see this is the
+simulator and now I'm going to be
+testing the app in front of you
+as you can see the red point is point a
+the green point is point B now it shows
+you the G ot how it's the H and F values
+on the node itself so when I click on
+the pathline button guess what yep it
+will find the path from red to green and
+this is the shortest path that could
+possibly take in this case I'm not
+exactly sure for other cases I put one
+but it probably would and for example I
+can place obstacles here and here and it
+would find it would find that I should
+go through here around here over the
+obstacle and back on the course that's
+really interesting let's just try
+obstacles maybe over here over here over
+here over here this will force it to go
+around and in its path find and as you
+can see in it it actually just went this
+path it didn't even it did explore these
+it tried to but it didn't and so that's
+what these are sort of lighter colors
+mean here the light the cyan here means
+that it explored this it tried it's best
+to go here but it wasn't successful and
+this dark blue path is where it actually
+went and where it was successful in
+going then there's these white where it
+didn't even bother and then the green
+and the red which I've already explained
+and black are just the obstacles
+so that's really it for that and there's
+also of course a clear button and now
+let's get into the code now we have a
+few classes here such as block type node
+node view and array extension let's
+start with block type this block type
+enum or enumeration will allow us to see
+what types of blocks we can have we can
+have air obstacle point a point B path
+or explore path so air is just white
+obstacle is black point a is red point B
+is green the path is the the actual
+darkbloom path the explored path or it
+actually tried to go is the cyan and you
+must be thinking I'm not declaring cyan
+except for etc over here how are you
+getting the value well that's simple in
+my node class I have a color variable
+which will allow me to get whatever
+color of myself which I am so if it if
+self dot type is not equal to one of
+these it'll just return orange as a
+random color because it has to return
+something okay getting back to the main
+stuff then we have an array extension
+this array extension has a few functions
+by some by some people so this function
+a mutating function was created by drag
+sorry I'm not pronouncing your name
+right but this is a link to the stack
+overflow thread where he actually
+explained how to create a remove objects
+from array function and I just modified
+this function a bit so if you want to
+download this source code will be in the
+description apart from that we have a
+get function by Alex Wain on
+stackoverflow again sorry if I'm not
+pronouncing your name right but this is
+a link to where he answered this get
+function and then this is the check
+index function that I've created which
+if an index exists it will return true
+or else the return false okay so these
+are all the extent being extended to the
+array class and now we can get into our
+main parts such as the node and node
+view class for the first time I haven't
+really used you controller dot Swift I'm
+mainly only using these four files
+anyway let's get into node first because
+that's smaller simpler there's no really
+much algorithms vault
+this could be more of a struct if you
+think about it but I just wanted to
+create this as a class okay so now this
+is one node on the screen not every
+single node just one node which extends
+and this object it has a private
+variable called real type or just by
+default equal to da air this is the real
+type that the note carries and this is
+always going to stay private
+then this is the x value that's these
+that this node holds and I must be
+thinking that this is on-screen because
+that's obviously what it is but no
+that's not in the array of the nodes
+themselves so for example if we had an
+array of nodes a two-dimensional array
+of nodes we could store that okay this
+node is at this X this Y in this array
+so we could use it later then there's
+also the Y value for it then we have the
+G H and F values the G value yeah by
+default equal to negative 100 and so is
+the H value as to be the lowest score as
+possible and then for the F value
+I think these are called properties
+maybe I don't know exactly but basically
+whenever you call this whatever you get
+the F variable it will always return G
+Plus H because then we don't need to
+keep setting Afton retrieving up then
+setting up and improving if then setting
+after the treating F we just retrieve F
+and it'll always give us the latest
+updated output depending on what G and H
+are next we have from this is basically
+the nodes parent so for example if we
+had from point a to the 1 2 that's right
+it's from would be 0.8 then so on so on
+so forth until we had an array or lots
+of nodes from this node that came from
+this node that came from this node that
+came from this node except etc then we
+have the color which is a UI color and
+this is
+color of the current node which I've
+already explained to you so this will
+return the color of the node that it
+showed me so if it's air it'll be white
+if it's obstacle to be black if it's one
+day then it's red color if it's pointing
+me then it's green color if it's path
+then it's blue color for this explored
+path and it's cyan and if it's none of
+those than it's orange yeah because
+there was no other color I could think
+of anyway then we had the type this is
+the actual type that we can access
+publicly not globally publicly because
+we have to have some sort of a time
+variable in order to access it the
+reason I didn't just create one proper
+real type variable here as public is
+because this will be private here
+however when we are setting our type we
+might want to do something so we create
+this public variable that one get it
+will just return the real type however
+when you set it'll actually set the real
+type to the new value that you're trying
+to give it so it won't actually set
+itself
+this means that basically if we want to
+do something once we've set a new color
+or a new type then we can actually put
+that code here we have the freedom to do
+so we don't need to add this much code
+just to do that anyway now into the
+juiciest part you could possibly think
+of the node view class this is the
+actual UI view that we will have on our
+main not storyboard and this is where
+all the magic happens as you can see
+this is very detailed commented code
+that you can just download and you will
+be able to understand almost all of this
+so basically we're creating a global
+variable called in finite just because
+you know I had to have something for the
+dummy G&H values then I create later not
+the negative 100 and negative 100 that
+you just saw but you will see when I
+actually start comparing F values I have
+to have a dummy G and dummy H value okay
+next this is our actual class for the
+node view then we have a size which is a
+CG float for for mana exactly
+I couldn't see oh yeah so I could
+actually multiply and divide nicely
+that's why I come here to see G float
+anyway next we have the nodes or which
+is array a two-dimensional array nodes
+and this is just a blank array right now
+because we will eventually be filling it
+up with lots and lots of nodes so then
+in our awake from nib function we we
+have a few we have a for loop first of
+all this one goes from this actually if
+you didn't know already just a swift
+quick tip just one second sorry
+okay coming back to this slept quick tip
+if you put an underscore in a for loop
+or if an in an if statement or a flat
+statement sorry we're in a while loop or
+and a do-while loop or something this
+will substitute for nothing
+meaning it will not count this in any
+variable that yeah that was pretty
+interesting so so for blank in zero dot
+dot less than and size this means that
+it will basically go 0 to 1 less than
+the size so this will insert also make
+something that's for loop will insert
+air into all the dummy nodes so I'll
+create a final node well which is an
+array of nodes and it will loop through
+0 to 1 less than the size again and it
+will create a new node it'll set the
+node type to air and it will append that
+node into the final array then it will
+append that final rate or our nodes
+two-dimensional array so that we
+eventually get a two dimensional array
+full of just blank nodes 4x4 or if I
+were to change this we can actually make
+this a 10 by 10 grid if you really want
+to see what that looks like in case
+you're one of those curious people that
+really wants to see a 10 by 10 grid as
+you can see it's the labels are almost
+unreadable so just don't try to read
+those if you want the bigger screen
+anyway as you can see I can just make a
+few obstacles and they should be able to
+traverse to it as you can see it has
+found the shortest path from the point A
+to point B and I was amazing so then it
+also explores these nodes and this is
+very different than the
+Dijkstra algorithm which would have
+explored a few more layers deep in or
+the best first search which would have
+literally just taken a much different
+path than this one
+okay anyway getting back to the point
+which is our real code here okay so now
+we have after our way from nib for loop
+we have this blue line of code so this
+will create point A and point B on the
+map so they will always be in the
+corners if you just realized sorry if
+you just realize these will always be in
+the corner no matter what size I give it
+because it automatically adjusts so for
+example it'll do nodes in size minus 1 0
+meaning the x value of the last size
+meaning this one is equal to point a or
+actually yeah so this is taking the Y
+value first so apparently this Swift
+thing will take the Y value first then
+the x value so it's taking the Y value
+which is our size minus 1 which is over
+here and the x value for 0 which is over
+here and we're setting that to point a
+then we're taking nodes 0 Y but maximum
+x over here and studying it to point B
+as you can see then we are refreshing
+the screen with self dot set needs
+display and then we are looping through
+1 0 to 1 less in nodes account then we
+are doing for J in 0 to 1 less then I
+don't count basically so imagine this a
+two-dimensional array we're taking out a
+little array at a time and then we're
+looping through that array one note at a
+time so we're basically looping through
+the all the nodes and then we're
+studying the X&Y value for each so we
+can use them for reference later ok next
+this is just a simple function that will
+create a label wherever and you tell it
+to and we're and whatever with whatever
+text you give it so then this function
+over here will be able to I started not
+explaining
+create label and touches begin and such
+as move functions right now a much depth
+however this is way too complicated to
+actually go through right now but if you
+really want a more detailed explanation
+on this you can just tell it to me in
+the comments or even mail me and I will
+do something for you about that but you
+can always download the source code in
+the description and I will be giving you
+a brief summary of these functions one
+by one okay so getting back to the point
+we have the touches began function which
+is overridden from UI view and so this
+will get the location of your touch
+calculate which node you must have
+touched on because we aren't really
+doing a wait basically it's very
+abstract how to find out which node you
+clicked on because we always have to
+take our X values divided by the size da
+da da and so it becomes really
+complicated in that sense with lots of
+math and stuff so you can just download
+it check it out but if you really want a
+more detailed explanation again mail me
+or leave it in the comments so then same
+thing for touches moved however this
+will meet whenever they move it'll keep
+on placing another block when you touch
+move I won't let you remove blocks
+however like I can for such as begin do
+children use a simple fact that when it
+touches moved and if you were to keep it
+here and just move around a little bit
+it would just keep going on and off you
+will get like okay on off on off on off
+really fast and that would be very
+annoying sometimes so I just turned that
+ability off and then this function here
+will create a rectangle on-screen
+wherever I tell it to with an orange
+border so it's all of these are just see
+G Rex put on with CG context so that's
+why our touches McGann is so abstract
+we can't just click and have it okay
+this node was clicked at this place
+because of course I mean it doesn't keep
+track of wherever every single node is
+and so that really interferes with how
+we calculates the location of your touch
+yeah so this will just create the
+rectangle as I said and
+next so then this function will return
+an array of nodes and these are all the
+nodes which are neighbors for a specific
+node that you give it so it'll get the
+node excellent node wide and it'll check
+above it it will check below it it will
+check to its right
+it will check to its left it will create
+a final rain it will make sure that all
+the neighbors match the criteria and
+then it will return this final array
+that it creates okay next this is the
+function that will you use to get the
+heuristic cost for from node to node and
+this will return an integer always and
+so it will return the absolute value
+from X minus 2 X plus absolute value of
+from dot y -2 dot y and then times this
+by 40 so that's a pretty complicated
+expression but again you can always
+download this do this step by step
+create the expression tree like we just
+did it cetera et cetera
+okay next we have our real a star
+function and you would think that this
+would be a gigantic function full-width
+code that's really complex not easy to
+understand but if you think that you're
+wrong maybe this is actually quite
+simple and so this is basically where
+all the dirty work happens and so there
+will be a link to the pursuit to the
+pseudocode that I got from Wikipedia for
+this which I had to vary it took me like
+an entire day maybe two days just to
+translate that's that sewer code and the
+slips in Swift is so much more different
+than some other languages well anyway
+I've managed to get it done and ready
+for you to download so this will
+basically create tentative view scores
+get the neighbors reload are basically
+call it it will reload our view of over
+and over again and etc etc anyway next
+one is going to do
+and by the way it will actually return
+nothing no note for the path and this is
+due to the fact that if in our while
+loop when we're doing the dirty work
+we're checking if we have already
+reached our goal if we have then we
+return reconstruct path for the current
+path that we are on what this will do is
+it will reconstruct our path from the
+ending node back all the way down so
+what it'll do is let's just say we've
+created a path Oh from A to B we will
+give it where we ended off in from B and
+it will back trace to the beginning and
+return that array of nodes so over here
+as you can see this is how we
+reconstruct and yeah that's a very
+simple function to understand as long as
+you know a little bit Swift so it will
+create a total path nodes array which is
+only equal to current and then we while
+let particle the total path out first
+stop from meaning we take the first
+thing in the total path and we check if
+it's we check its from if there's
+nothing there then we stop and we just
+return actually we don't stop we just
+skip this supposed to be node but then
+eventually we would have to stop because
+of it but anyway then we actually insert
+that from value to the total path which
+is quite complicated if you think about
+it so basically we have the ending node
+we take its parent and then we take its
+parent and then we take its parent until
+we reach the end of the line and then we
+return all of those nodes that we found
+the parents and children for that's how
+that works and this is the lowest F
+score function that I created this will
+find the lowest F score and need to hire
+array of nodes and it will return one
+node with the lowest F score so we'll
+create a final node which is equal to a
+new blank node it'll set it the G value
+to in finite it'll set its H value to in
+finite and that's why we're using that
+in finite constant that I created later
+before I mean and then we are just
+searching for the lowest F value
+and just making sure that it's not minus
+100 and then we're just returning that
+final node it's that simple
+and anyway when we draw rect however
+this is way too complicated to explain
+right now but what's basically happening
+is it will remove all squares that it
+currently has and then it'll detect the
+width for each little rectangle the
+height for each rectangle the X and the
+y for each for each rectangle and then
+it'll just loop through all the nodes
+create the actual rectangle for each one
+of them set the X and the y values
+accordingly create a label under them
+that can easily also by the way the
+labels fonts will automatically adjust
+depending on what size they are or the
+text and the actual rectangle so that's
+interesting and it will also reset the x
+and y values accordingly okay so that
+was the draw rect function but I hadn't
+also skipped a few functions before
+because I didn't want to focus on those
+yet but anyway now let's get back to
+them in our clear function we're just
+resetting all nodes and when we reset
+all nodes you know that we are basically
+clearing every node and doing whatever
+we did up in the viewdidload function
+over here
+oh I mean awake from nib whenever we
+awake from nib that's what we want to do
+we want to basically reset all nodes and
+that's it what when we reset nodes all
+this means is that we are clearing only
+the blue nodes that are for the path so
+that next time when you pass find those
+blue path nodes aren't still there
+bugging you just like those are actually
+the current path but no it'll actually
+take away those blue paths before it
+continues with its path finding that's
+interesting apart from that there's not
+much in this really and when it solves
+all it does is it will reset the nodes
+of course I will create a path which is
+equal to a new a star this is a new a
+star instance and we're giving it from
+the
+nones point a to the nodes point B as at
+school and then we are just looping
+through its path which is the
+reconstructive path which that would
+that we just got from that function and
+for every square that it actually gives
+us we want to set it to path and then
+make sure we just said the squares back
+to point B in point eight and then we
+just refresh our view so that we have
+the latest stuff and now just to prove
+it to you let's just set this to 100 I'm
+not sure this will crash it might
+because I mean I 10,000 grits I don't
+think it can handle it but why not try
+right okay so as you can see this is way
+too many minutes for it to handle I can
+want to leave some drawn this in me we
+wouldn't even see it alright so I mean
+this is way too many but if we were to
+pass find it would probably crash the
+iOS simulator and as you can see over
+here this is using up 99% of my CPU it's
+using up around 300 maybe even getting
+up to 400 mega Oh back in this 250
+megabytes of my memory and yeah it's
+really just very complicated how this is
+working
+apparently it's it hasn't been able to
+find any path yet or actually have but
+whatever that was it for this tutorial
+and yeah any comment I just once I can't
+though I just remembered something yeah
+so that was pretty much it for this
+tutorial
+I guess and yeah so yeah just give me
+one second oh yeah
+and just before I go because this wasn't
+really practical 100 by 100 why not try
+20 so you can actually see it or some
+pretty huge rids as you can see this is
+still very huge we can like draw
+something around it and then we can also
+just create a simple little obstruction
+sorry let's take a little bit time but
+and this will really prove to you that
+this can find its way through the most
+difficult of mazes well actually I
+didn't include a maze generation
+algorithm in this but I will soon and
+made me just upload a part two to this
+so now if you were to pass find as you
+can see it explores a lot of nodes
+because obviously this is a pretty open
+sort of ground for it to play on but I
+mean it works eventually it actually
+works much better than some path finding
+things that I've ever I've seen what I
+would like to include though is
+something called look-ahead
+meaning that it would actually look
+ahead from this node and say okay why go
+here when I can just go here but that's
+for later maybe part three after I
+include the maze generation and yeah
+that was it for this video and I'd like
+you to please subscribe to my channel if
+you like my content you want to see more
+of it please like my video if you liked
+it comment if you have any suggestions
+or questions you can even email me for
+those my email will be down in the
+description but just in case you want it
+right now
+it's Tasmania at gmail.com again all
+what cap PDF pages will be down in the
+description such as their Wikipedia page
+on a star Dykstra and best first search
+since they're all related to this app we
+will also have the Stack Overflow
+questions will relate to the array
+extensions that I used and that's it
+gonna be it goodbye

@@ -1,0 +1,263 @@
+so hello there and welcome to another
+tutorial my name is Tammy Bakshi and
+today I'm joined by Rob hi the CTO MVP
+of IBM Watson and my mentor thank you
+very much for being a part today Rob
+it's great to have you here Emma haha
+thank you so today we're gonna be
+talking about the Watson studio and
+we're specifically how it relates to the
+call for code now you can build
+analytics a I powered solutions that
+enable you to impact field of disaster
+preparedness so you can help out those
+who are being affected by natural
+disasters using the power of the Watson
+studio so the Watson studio Rob would
+you just give us a quick brief on Lily
+what that is and what it allows us to do
+yeah it's my sister's really cool set
+it's targeted at people who want build
+analytic or AI based solutions it
+includes a number of sub tools including
+Jupiter notebooks including our the deep
+learning visual construction tooling
+access to our knowledge catalog yes the
+ability to both gain access to it
+publish as well as to curate some of the
+data - exactly so it's really a suite of
+tools that's really called it's really
+targeted ad what we might normally refer
+to as data scientist but really it's a
+much broader class of people it doesn't
+require that you have a GC analytics or
+algorithms to be able to do anything
+useful with and it really allows you to
+get in and begin to detail out and
+decompose your problem even stupider
+notebooks to kind of organize your
+thinking around the things you're trying
+to analyze to import data normalize that
+data and curate a yes and then layout
+the algorithmic approach that you want
+to take for assessing what they did is
+trying to tell you yes including them
+driving all the way down into using
+various languages 14 buildings
+algorithms with that is great now one
+thing that you said they're really sort
+of fascinates me and that is that you
+don't need to be a machine learning
+expert to use walk in the studio you
+don't need to you know have a PhD in
+data science or machine learning
+whatever else it may be in order to use
+this tool in order to build your own
+applications and so let's just say you
+know I wanted to build an application
+that use the Watson
+I could use tools as you mentioned of
+data refinery that's built in to help me
+pre-process figure out what my day is
+like visualize I got a better idea of
+what it is I can use the open source of
+Jupiter notebooks and so I'm not even
+just limited to using say the wonderful
+Watson services I could use other
+open-source technologies maybe I want to
+build my own custom bottle eaves and
+garage yeah I can do whatever I want to
+inside the Jupiter notebooks and in fact
+if you're using a supported library like
+Ross you can actually build the neural
+networks in a graphical user interface
+with the journal Network model er uh but
+let's just say that I were taking a look
+at a more specific use case also one
+more thing though would be like for
+example the community tab there are also
+tons of different projects and and
+neural network designs and data sets I'm
+even publish on to the community of
+Watson studio in fact you can as well
+and you can collaborate with people
+inside of that experience but getting
+back to the point let's just say that I
+wanted to build an application that
+predicts how intense a wildfire is gonna
+be based off of where it's located of
+course a few more environmental factors
+in fact this is actually an open source
+data set from NASA it was actually code
+pattern on this and there'll be a link
+to it down in the description below uh
+but let's just say that I was working
+towards this use case I want to use the
+Watson tsuneo to build a custom machine
+learning model soon just for my needs
+could you kind of walk us through how
+you would do that what kinds of tools
+you use and what you use them for yeah
+well let's start with the data and as
+you pointed out some of that data is
+available now but you know you still
+need to make sure that it's shaved and
+these guys the right characteristics in
+it that you're looking for there may be
+some assets that idea that you care
+about some that you don't care about
+there may be other data that you want to
+bring in and so first step is to walk
+through and what I think of as being a
+curation process a lot of that is about
+to simply make sure the days in a shape
+that you want to be in so let me step
+one now once you've got the data
+ingested step two is to begin to
+understand what your objective is what
+is it they try to get from this data in
+a case of disaster preparedness maybe
+what you're trying to do is identify
+where the fire is likely to be addressed
+given the data that you've got available
+to you or it could be you know where you
+want equipment you know how are you
+going to manage and prepare for this
+disaster as it unfolds if you got
+any advance warning they been coming up
+to the potential maybe I said it was a
+hurricane or a storm that you know
+that's coming in or or unfortunately in
+some cases that may be so that's already
+happened but maybe the case you know
+managers and people who are involved
+with managing disaster situation II you
+know need to be able to think about
+where the gunner places equipment and
+yes and where is going to be best used
+what the needs are and so forth so but
+that's part of what you're trying to do
+then of course having that objective in
+mind you can begin to work backwards and
+decompose how would you go about
+predicting for the things we need to
+predict you know we talked about one you
+know where what you want be able to do
+is identify what people need you know
+that they're already in the midst of the
+disaster they've already been affected
+by whatever the consequence is where it
+may be that they're stuck in their home
+and they're out of food or water
+yes um you know how would you use
+something official recognition to go and
+identify somebody who's you know calling
+or asking for that before they even got
+a sign yeah so you know working
+backwards to what you're trying to do
+solve for and then using duper notebook
+to begin to organize that yeah as you
+can do that organization you can
+identify the need for specific analytics
+and so you don't have to go in and drill
+into that you gonna have to go build
+algorithms gonna have to do the machine
+learning you're gonna have to go
+construct the the approach that you want
+to take for identifying the thing that
+you're looking for the things are every
+day and again and joking nope you switch
+out of that into some of the machine
+learning technologies you may come into
+it knowing that you've got it so
+vibrates that you've already been
+playing with may be familiar with went
+with source projects around tensorflow
+or around cafe or as it carries for
+others PI torches getting crystalline
+polymers yes so you know you can import
+those libraries and corals and make use
+of them within within the Jupiter
+notebook if you're building a complex
+model like a deep learning model you may
+want going he's one of our official
+tools or tool for people in construction
+and you know that's really nice because
+you can use it parameterize the
+different layers
+as deep learning model you can read
+sequence that the pooling the various
+techniques of my applying of
+construction of your model yes and of
+course you know you're going to then use
+that in the context of that data to see
+what kinds of results really eventually
+you may decide that we've got as a real
+well form said of analytic and you want
+to take the algorithms that you've
+constructed and now export them for
+production is huge case and that's where
+this into running code and into services
+when they publish somewhere on the cloud
+perhaps and make use of that with these
+application that is great thank you very
+much Rob for giving me that overview as
+to how you go about using the Watson
+studio sounds you can tell the Watson
+studio is really tool for you to go in
+and build her own an outtake or machine
+learning applications without you having
+to be an expert in this field and at the
+same time you can make use of
+practically any library you want to you
+can use all the open source tools that
+you know and love and if you're an
+expert you can go really deep inside of
+your data you can reshape it you can
+take a look at what's important you can
+find patterns even yourself that you
+wouldn't have noticed without the Watson
+studio and all the tools that it
+provides but thank you very much all for
+giving us that detailed over you now
+though in part two you're gonna be
+seeing a live demo how you can actually
+use of the Watson studio in order to
+take a custom data set and actually
+understand it inside and out using a
+bunch of the different tools at the
+Watson studio provides so again thank
+you very much Rob for joining in today
+and that's what we have thank you guys
+of course thank you very much Rob glad
+to have you on on the channel here at
+Pasteur place and of course thank you
+very much everyone for joining in today
+that's what I had for this tutorial
+today really do hope you enjoyed part
+from that if you do have any questions
+suggestions or feedback you can e-mail
+or contact either or Rob so Rob how can
+how can viewers contact you I'm on
+LinkedIn and Rob Robert hi and on
+Twitter at RI
+Rho gh that's perfect I'll put your
+contact down in the description below is
+that you can go ahead and contact Rob if
+you'd like to and you can of course
+contact me my email on Twitter will be
+in the description as well but if you
+have any more questions please you'd
+leave them in the comments down below
+and Rob and I would love to get back to
+you again thank you very much everyone
+for joining in today
+it's gonna be all for this tutorial to
+do enjoy the content on the channel
+please do make sure to subscribe and if
+you know let's be notified whenever
+release new videos please do click the
+bell icon and they will receive an email
+every time I upload a new video again
+thank you very much for all for joining
+in bye bye bye now

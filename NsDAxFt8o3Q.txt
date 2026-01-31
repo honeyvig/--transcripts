@@ -1,0 +1,347 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is Henry Baki and this
+time we're going to be going over how to
+use a lam of fire in Swift so let's
+begin now first of all uh what is LAM of
+fire basically uh Lam of fire is a
+simple networking uh Library uh for
+Swift uh it works with iOS watch OS TV
+and Mac OS effect uh and so you know
+what that's really going to be all it
+for this little whiteboard part uh but
+just before I go I just like to say that
+this is a part two to the earlier alop
+fire video that I had created uh and so
+essentially this time I'm going to be
+showing to you how exactly uh you can
+use aop fire uh the real way uh and of
+course I'm going to be showing you uh
+exactly how you can incorporate
+synchronous lamma fire uh and into this
+as well all right so uh just before we
+go though uh one last thing I'm just
+like to show you asynchronous versus
+synchronous uh now usually when you make
+a URL request with something like NS
+data what you're doing is basically
+let's just say that um this is your
+application over
+time and this is the
+execution okay so let's just say this
+and so your application is going forward
+right the UI and
+everything UI stuff like that is getting
+updated over time while it's being
+executed uh now basically let's say you
+were to call a request with NS data what
+would happen is NS data would come into
+play here and so basically this would uh
+NS data would run on this little block
+here uh and so essentially what would
+happen is the UI would get blocked and
+everything else would and only NS data
+would run on this thread and so the
+problem with this uh is that the fact
+that I mean you can't really update the
+UI or do anything here so now what a
+lamif fire does for for you by default
+uh is that it actually creates an
+entirely I mean if I um erase this what
+happens is a lop fire what it
+does is it creates an entirely new
+block right and so this is called
+asynchronous programming because now the
+UI and all the other sort of main
+program uh stuff is running on this
+block here uh and the NSL or the Lop
+fire request is running in this block
+here all right so now again this is
+called asynchronous programming versus
+synchronous programming uh of course
+though if you just like to create some
+sort of like little test application uh
+and you just want to you know use
+synchronous programming uh to just you
+know quickly retrieve something from a
+URL uh then I'm going to be showing you
+another library that thead has made uh
+and so basically what that allows you to
+do is send this a lamif fire re Quest
+back to the main thread here or main
+block uh that'll continue that'll do it
+stuff and then the UI can
+continue and that's sort of how this is
+going to work so now let's get straight
+over to the Mac part where I'm going to
+be showing you how exactly you can use a
+lamif fire and a lamif fire synchronous
+in Swift let's get to it so welcome back
+to the Mac part and now I'm going to be
+showing you exactly how you can
+Implement a lamb fire and a lamb fire
+synchronous into your xode projects
+let's begin so now first of all uh let's
+just open up xcode over here and as you
+can see basically uh there is I mean of
+course the launch screen I'm going to
+create a new
+project um I'm going to call
+this Alo
+fire
+example YouTube uh I'm going to make
+this in Swift uh and the device is going
+to be for iPhone I'm going to click on
+next put this in the iOS directory on my
+desktop here uh and let's begin so now
+first of all uh let's install the alif
+fire framework into the xcode project
+itself so now first of all what you need
+to do is go over to your
+terminal uh
+okay then go over to your favorite
+browser and type in uh Coco
+pods now inside of cocoa pods uh inside
+of the website uh you're going to see
+this little command over here pseudo Jam
+install cocoa pods you want to run this
+to install cocoa pods and once you're
+done uh you need to run the command in
+your terminal uh I'm going to make this
+bigger for you I'm going to you're going
+to need to run something called pod
+setup uh once that's done though uh just
+navigate to
+your uh your application
+directory all right so here what you
+need to do is say nanopod file and then
+it was a directory you could use Vim if
+you wanted to uh so essentially I'm
+creating a uh file called pod file uh
+and so the Pod file contains the pods uh
+that we need to install and so basically
+what we're going to do uh is I'm going
+to tell it to install something called
+aop fire uh and in order to do that I'm
+going to go to the alop fire GitHub
+repository which there will be a link to
+in the
+description all if we go down here as
+you can see there's a way to install
+this with cocoa pod so just in uh copy
+this pod file script and paste it into
+your terminal all right right and then
+whatever you name the application in
+this case I've named it a lmop fire
+example YT so I'm going to copy
+that okay and then I'm going to go back
+here and where it says Target your
+target name I going to delete uh your
+target name uh and I'm going to paste in
+the actual Target name uh then the Pod
+for a l of fire is great the platform
+iOS 9 uh sounds great there uh and
+that's going to be it for the Pod file
+so now if you to take contrl X now this
+is for just for Nano control X to exit
+say yes to save enter to actually save
+uh all right then you just need to run
+something called pod install now I'm
+sure that most of you know these steps
+I'm just going over them pod install
+will install the Pod uh installing a l
+fire into our
+project as you can see it's going to
+install and then as youer uh navigate
+into the project
+directory over here
+here uh and then open up the workspace
+not the X code project the
+workspace or so open the workspace and
+in just a second you should see that we
+have a workspace now uh again you want
+to use the Alam fire example YT X code
+project in order to develop your
+application and now you can incorporate
+a Lambo fire into your code let's uh
+begin with a simple example shall we uh
+essentially what we're going to do is
+first of all let's import a l
+fire uh and then let's say we wanted to
+sort of um download uh some let's say
+Json all right or not Json let's just
+say we wanted to download the contents
+uh of
+google.com essentially what i' do is I'd
+say first all function download Google
+okay I now I'm going to actually send in
+an a fire request so if I build first
+all as you can see there's the second
+mat
+as you can see the a
+is and just a second it says build
+exceeded so now what I can do is now a
+very simple way to get something for
+fire or download something let to say
+alif
+fire do request uh and then there are a
+few methods either you can go with the
+full uh sort of customizable method uh
+or the function where you can specify
+the method that URL string the
+parameters the encoding the headers and
+stuff like that or just the URL request
+like the URL the NS URL requ or the
+method and the URL string in this case
+I'm going to go for the simplest one the
+method and URL string so I'm going to go
+getet as the method I'm not going to
+post to Google I just want to get Google
+and the URL string is going to be
+httpswww
+google.com and then I'm going to cck tab
+that will finish this up and now let's
+say we wanted to get a response as a
+string okay so I just say response
+string uh enter it'll give me a
+completion Handler enter it'll fill that
+up and then I can set the response to
+you let say um allow fire
+response uh and then the code inside of
+this completion Handler uh I can say for
+example a l fire
+response do response or result sorry do
+result dot
+value okay so now this is the actual
+value I'm going to forcefully unwrap
+this and print it
+out and as you can see uh in theory if I
+add this function to viewed load in
+download Google Now if I run this
+application on the
+simulator as you can see in just a
+second it should work
+Let's test this
+out as you can see over here it prints
+out exactly what it sees on
+google.com now let's say we wanted to
+use a bit more of a real example here uh
+now let's say I want to go over
+to you know what me one second what I'm
+going to do is I'm going to set up a
+simple Json file actually uh using a LMA
+fire so if I go into my GoDaddy server
+here I go to my web hting manage
+it as you can see sc one second let move
+the FP all right now file
+[Music]
+manager plus file I'm going to call this
+um
+Alo
+fire
+test.
+Json create a new
+file let's open it
+up the code
+editor and as you can see I'm going to
+give it some simple Json
+like
+name taner backi um
+age 12 all right or I can actually give
+it uh 12 all right I'm going to close
+this bracket and if I save it that
+should save to my website now all I need
+to do is change the link over here to
+just HTTP
+www.x.com
+test.js let's see here and as you can
+see yes this is called fire test. Json
+and now now we need to do is go into the
+info. pist open this up as source
+code all right and then add in the NS
+app Transport Security
+workaround essentially what I'm doing
+right now uh is I have actually uh sort
+of uh given it the URL as you can see in
+this um view controller. Swift as an
+HTTP but uh Swift would require an https
+meaning a secure protocol uh and so the
+problem is that I don't have one of
+those secure protocol uh sort of
+certificates and so switch is going to
+say you know what I cannot connect to
+this URL however if I go into my info.
+pist uh and there's going to be some
+code down in the description and if I
+paste it in here all right if I run this
+application
+now it should
+theoretically allow me to uh skip that
+security check uh and immediately as you
+can see here the response in
+Json that's going to be it for the alop
+portion of this tutorial LMO fire sorry
+uh but now let's say you wanted to do uh
+a synchronous request uh essentially
+what you could do is use this other
+cocoa pod that uh as I said the L has
+made uh it's called a l Fire Plus
+synchronous and it allows you to create
+synchronous requests for Lile so let say
+I copied this pod command here pod file
+as you can see over here here what I'm
+going to do is I'm going to paste it in
+with the other
+po if I do p control X save right and if
+I run pod install once
+more as you can see It'll install the
+new
+pod and then what I can do is inside of
+my xco project I can also
+import AO
+fire
+synchronous see if that's a okay as you
+can see no errors and then I oh never
+mind uh if I clean
+build all right no errors now all I need
+to do is in order to make a synchronous
+request is run a LOF
+fire. request and as you can see I'm
+going to do the same for doget uh and of
+course the
+URL copy it paste it here ask for
+response
+string all right and now this time you
+don't want to include any parameters in
+this function just response string and
+then you want to go you can immediately
+just go do result. value and then you
+can of course print this out all right
+so now in
+theory as you can see there are no fion
+handls uh and so now this will call uh
+with a lam of fire you know it's simple
+to use uh syntax of lam of fire uh
+except it should uh theoretically uh
+work in a synchronous Manner and as you
+can see it did work and that's going to
+be it for this tutorial I hope you
+enjoyed again thank you very much uh and
+if I mean if you did enjoy you might
+want to consider subscribing to the
+YouTube channel it really does help out
+uh and of course you can leave a like
+down below if you did uh enjoy the video
+uh again of course share it uh with your
+friends who you think might enjoy it uh
+or learn from it uh you can also leave
+any comments suggestions or feedback
+down in the comment section below uh you
+can email to me at tajim Manny gmail.com
+Twitter at tajim Manny uh and of course
+all these contact links will be down in
+the description below all the links will
+be in the description and the source
+code too uh and that's going to be it
+for this tutorial thank you very much
+goodbye

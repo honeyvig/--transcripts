@@ -1,0 +1,567 @@
+so hello there and welcome to another
+tutorial my name is Henry Bakshi this
+time we're gonna be going over an
+entirely new subject IBM Watson now you
+might not know what this is as I didn't
+just a year ago but this is a very
+interesting topic for you if you're into
+machine learning before I even get into
+Watson what's IBM I know nowadays
+because of Apple and Microsoft we don't
+really focus on IBM anymore even though
+before it used to be like the most
+gigantic tech company you could possibly
+wish for but IBM just in general creates
+computer hardware software they host
+servers they do a lot of stuff like that
+mostly related to technology and
+cognitive computing that are really
+interesting and if you didn't already
+know fun fact IBM's full full full form
+is actually international business
+computer International Business Machines
+sorry not computers machines and so
+basically the and also another thing
+before I get into more advanced stuff
+IBM was founded in 1911 making it 105
+years old but anyway leaving all of that
+let's get to the point of this video
+Watson now Watson is a cognitive
+learning supercomputer
+it makes tons of machine learning
+algorithms tons of natural language
+processing algorithms Sol are from
+Apache tons of things and it was able to
+actually compete in jeopardy now if you
+don't know what jeopardy is it's a game
+show where contestants are given answers
+and they have to apply it with questions
+but before we even get into all of that
+how did i man come up with the name
+Watson well simply puts it was named
+after the founder Thomas J Watson of IBM
+another thing
+Watson was actually created it started
+started development in 2006 but was
+released in around 2013 and 2014 but
+nowadays Watson actually has public
+api's
+we want to use and so that's what we're
+going to be doing today in this video so
+before I even before I get to the api's
+let me just clear up in case you're
+really interested by all this jeopardy
+stuff so Watson a first role auditioned
+as all humans do as well for jeopardy
+and he has to do this two times because
+the first time he wasn't so good but a
+month after that after tons of tweaking
+on IBM's side actually
+Watson was ready and so he went on to
+jeopardy
+and that was decided by jeopardy
+executives themselves there he played
+against Ken Jennings and Brad Rutter the
+game shows then best competitors or
+players and he won 1 million dollars in
+that round which all went to cheering ok
+so now that we have all of that out of
+the way
+Watson has tons of public API is like
+dialogue natural language classifier
+retrieve and rank etc available nowadays
+for the public now I'm going to be
+teaching you in the math part how you
+can use the trees and rank API which
+will use machine learning and talk about
+their stuff to just retrieve information
+from a data set and rank that
+information that it gives to you now if
+you don't really get what I'm saying
+take this for example
+let's say you took an entire math
+textbook and you shoved it into the
+retrieve and rank service let's say you
+asked it what is area and we're going to
+a textbook find the definition of area
+and give it to you that's why it's
+called retrieve and rank so today I'm
+going to be teaching you how to use that
+API however it's a bit too complicated
+to do math textbook suppiy right now so
+what I'm going to be doing to get it
+started as I'm going to taking the Gmail
+FAQ and I'm going to be putting it into
+Watson giving it some training data and
+then allowing and then so basically
+let's say you forgot your password
+instead of like let's say our new to
+Gmail instead of going to the Gmail help
+page finding for
+my password seeing how to reset your
+password you just say to Watson I forgot
+my password and it'll give you all the
+instructions you need in order to reset
+your password it's gonna be that simple
+and let's get straight to the Mac part
+so I can tell you how to do it so
+welcome back to the Mac part and now I'm
+gonna be telling you how you can use a
+treatment rank service with IBM Watson
+api's okay so to get started what we're
+gonna do is we're going to head over to
+bluemix and i just want you to go over
+to your dashboard over here so once
+you're in your dashboard which I'm
+already in actually wait not to your
+dashboard you just need to make sure
+that you have an empty space available
+for a new service then go to catalog you
+don't even need Cloud Foundry installed
+or anything really
+it's my Wi-Fi working yep okay so now
+now that we're in the catalog we can
+just scroll right down to Watson
+services now again I'm telling you how
+to use the retrieving ranked api's so
+I'm just going to click on retrieve and
+rank now as you can see it's just going
+to ask you what space you want to put
+this in what app you want to put this in
+the service name and the credentials
+name so I'm just going to create the
+service name as Google FAQ Qi okay that
+seems nice so we're going to just get
+the standard plain because that's the
+only plan then click on the create
+button okay this is nice
+going good and as you can see it brings
+us straight to our little page over here
+for retrieving rank and now what I'm
+going to do is first of all I as long as
+you're using Google Chrome or Safari or
+opera or Firefox I think it works on all
+four click the command button on your
+keyboard or on Windows I think it's ctrl
+click command and click on documentation
+okay perfect then don't click command
+anymore and click on service credentials
+now go back to your desktop and I just
+prefer the sublime text to text editor
+so I'm going to open that right up and
+make it fullscreen then I'm gonna come
+back here and you know that command
+click that we did on the documentation
+that opened up a new tab so let's go
+into that new tab and let's click on
+getting started now this is an entire
+tutorial of how to use their tree van
+rank service this looks really
+complicated and really scary but don't
+worry it won't be so you just want to
+follow Stage one as it or not stage one
+before you begin just as it tells you so
+to complete this tutorial you need the
+following pieces a bluemix account of
+course what you probably already have
+you need see URL or as I just like to
+call it to curl and then if you want to
+check if curl is installed you can just
+run these commands and then you need
+Python
+I prefer phyton 2.7 for this but you can
+also use 3 without a problem
+ok so now let's get to the main part so
+over we're just going to make sure our
+text editor is ready we're going to go
+into bluemix see these credentials that
+we have over here we're gonna copy this
+username including the quotes make sure
+you get the quotes you really people
+skip the quotes then we're going to type
+a colon then we're gonna copy the
+password and then paste that right in as
+well ok now we have our credentials so
+we're gonna go back into the retrieve
+and rank service so we have done stage 1
+already now we need to do stage 2 which
+is creating a sol our cluster or as I
+just like to call it a Patchi solar so
+now what I'm going to do is see this
+little command over here that says curl
+- ex-post - you username password and
+then a long link yeah just copy that
+or not go back ok so then go to sublime
+text and a new align I'm just going to
+paste this in I'm going to copy these
+credentials over here and paste it in
+where it says username password perfect
+now in theory what we should be able to
+do is just copy this command open up a
+new terminal bit window again expand
+this paste it in and click on the enter
+button and as you can see it says so a
+solar cluster status not available we'll
+talk about this later but what you want
+to do is you see Sol our cluster ID well
+copy this and let's go back into sublime
+text and let's just say credentials
+cluster ID and let's just do this
+perfect and so now we're going to get a
+few more IDs that we're gonna have to
+paste in here but this is just to make
+sure it's nice and clean so we can
+continue to and use our commands now I
+do not want you to repeat this command I
+mean it's okay if you do but it's not
+really going to be of any use to you you
+won't be able to see your status or
+anything like that
+actually your status you can check that
+using this command which is in stage
+three step one so copy the command at
+stage three step one copy it and bring
+it into sublime text
+now paste in and again copy your
+credentials and paste it in for username
+and password in this command then copy
+your SLR cluster ID and replace it for
+SLR cluster ID in the URL now copy this
+command go back over to your terminal
+paste it in and as you can see my SLR
+cluster status is ready now that it's
+ready I'm actually ready to start doing
+work with it so I'm just going to click
+the enter button because as you can see
+it's on one line over here now comes a
+little bit of a harder part what you're
+going to do is you're going to download
+this
+exact file this dot zip file don't do
+any modification to it
+nothing just don't yet because this is a
+very basic tutorial on how to use
+retrieve and rank so we're going to use
+this specific configuration so download
+it I already have into my so sol our
+config directory or nevermind maybe I
+didn't so I'm just going to quickly get
+that back or you know what let me just
+download this new so basically you're
+gonna click on this file it'll download
+and you're gonna take this file and drag
+it right into a directory that you want
+it to be in then what I'm going to do is
+I'm going to rename this to Sol are
+confi dot zip that's that's all you need
+to do at this point then you're gonna
+come back to bluemix or this
+documentation then in stage 3 step 3
+copy the first command ok all right
+I can't use my arrow keys for that so
+copy it and bring it back into sublime
+text
+now again cop your credentials and paste
+it in for username and password then
+wherever you see your solar cluster ID
+copy this or the solar cluster ID then
+what you want to do is you see where it
+says path to file Cranfield solar config
+tip delete all that so there's only this
+at the rate symbol left then what we're
+going to do is we're going to take our
+zip hold it move it to sublime text and
+just drag it right never mind you can't
+do that so instead we're gonna have to
+manually type out the actual address of
+this file now I know where this is it's
+on my desktop let's just say our
+for even rank so now all I need to do is
+say users save actually again this is
+full path you aren't allowed to use that
+little over here this whatever it's
+called forgot what it's called that
+little squiggly line but it just
+signifier home Direction you have to
+actually type out the entire path so
+users Hindi Bakshi desktop R&R or to
+even rank one SOR config slash Sol are
+convict that's it now again this is the
+path to my solar config I'm not sure
+where yours is that's where you have to
+come in you have to type that in okay so
+now I'm going to copy this command from
+sublime text right into terminal and now
+once we're done it gives us absolutely
+no message and that means it works okay
+so now that you have given a
+configuration to use now we're going to
+give it a collection so again copy the
+second command in step three of stage
+three copy it put it into sublime text
+copy your credentials this is a very
+repetitive process I know but you're
+about to get into some interesting stuff
+right now okay
+then again your essay will our cluster
+ID let's just put in the real one here
+okay then we are going to just copy this
+command and paste it into our terminal
+and as you can see it gives us a success
+from here in XML perfect now that we
+know that worked it's time to get to the
+really hard stuff not for me
+well actually really for me because what
+I had to do is I had to write all of
+this
+from pretty much scratch so this is a
+list this is a data set of 22 things
+that you can use this FAQ for you can
+use it to help you do the following
+things
+sign up switch to Gmail send and receive
+messages tips and tricks sign in or out
+security and privacy settings multiple
+accounts storage delete or restore your
+account message actions view and
+organize find messages unwanted or
+suspicious messages address your
+messages compose your messages view and
+nag view navigate contacts adnetik
+contacts import export and sync contacts
+you forgot your password you forgot your
+username or if you think you've been
+hacked those are the 22 use cases that
+you can you have when you use this this
+app so basically this JSON file will be
+a little template for you what you need
+to do is make sure first of all since
+you're using the Cranfield default
+config you just need to always have this
+little line of code at the end here
+comment is equal to blank so sorry I
+don't know why they just have to have
+you do this so now is JSON file they're
+going to have an add parameter which has
+a doc parameter which has an ID this is
+the this is which number of a answer or
+answer units this is in the JSON so the
+first one will be one the second one
+movie to the third one will be third
+three the fourth only four the fifth
+etcetera etc then you can make the
+author Google because of course Google
+wrote these not me
+you don't need maybe a Biblio got
+bibliography sorry set the body to sign
+up and set the title to nothing I guess
+do the same thing for all your other
+answer units in this JSON file and then
+you're pretty much done this JSON file
+okay now that you're done creating your
+entire JSON file from scratch you could
+use Cranfield default but I'd prefer
+from scratch so now you can close this
+down now what we're going to be doing is
+we're going to take this command over
+here in step four up stage three copy it
+paste it into our sublime text and so
+what I'm going to do is paste copy the
+credentials again paste them in here
+we're going to have our Sol our cluster
+ID again sorry then we're going to have
+our path to the JSON file now I also
+again know where mine is so again you
+just have to point to your own not mine
+so it's training perfect so now I'm
+going to copy this command into terminal
+paste it and theoretically this should
+work and it probably worked so now what
+we have to do is come over here and do
+the training process now again this is
+even worse now or so it's just much more
+well tedious you have to create a CSV
+file of you guessed it yeah sorry
+training data not just any training data
+around I'd say three or four questions
+or examples for each answer unit you
+have in your JSON but anyway I have
+exactly 84 these are all hand written
+from scratch and so basically the format
+of this CSV is the example in this case
+how do I sign up
+the ID of the answer unit in this case
+one which helps you sign up the
+relevancy from one to three and this is
+a three to also helps you so I'm giving
+it a one in relevancy then we're doing
+this for all 84 okay just keep going 84
+and so now we have the CSV file or just
+give me a second
+yeah yeah so this works now there's
+another thing if you go to the
+documentation they tell you to download
+a train dot py Python script now this
+didn't really work out for me too well
+so I developed my own trend API Python
+script which will be down in the
+description open source so what you're
+going to do is we're gonna come over
+here and as you can see there's straight
+up telling us to use this train dot py
+script so what I'm going to do is I'm
+going to copy this and paste it into
+sublime text now I'm going to point
+towards the custom train dot py that I
+created so this is ant users and might
+actually desktop slash are slash 3 q a
+slash train top you I okay then I'm
+gonna copy my credentials however there
+is a twist this time you want to copy it
+in but then remove the quotes from it
+okay then what you're going to do is
+you're going to point to your CSV file
+which is quite easy so I'm just going to
+copy the training and just point it
+towards examples Google FAQ dot CSV
+okay and I'm going to copy the SOR
+cluster ID paste it in and we can copy
+this entire command paste it in the
+terminal and when we run this it should
+give us a whole bunch of output
+theoretically that is if no that's also
+a very good thing okay so as you can see
+it is doing that a whole bunch of output
+this means it's not working yet it's
+working at the same time so yeah now
+let's just see really quickly does this
+work and then Julie sure so this might
+take a second or two but eventually this
+Python script will train the retrieve
+and rank service with the CSV file and
+JSON file that you've created just give
+it a minute it's just going to
+repeatedly ask the retrieve and rank
+service this question until it gets it
+right so again we're just training this
+thing to be really accurate or as
+accurate as possible it's gonna use the
+Watson API so their best and generating
+training data complete now as you can
+see it says the training it's these
+statuses training and it's in its
+training face so it's not yet ready to
+accept rank requests but it can receive
+retrieve requests so I'm going to go
+over to the documentation come down and
+it says retrieve some answers already
+like you don't even need to wait for
+that to be done training yet so I'm
+going to copy this URL that they give us
+now there's a few things you need to do
+here if you're following my guide of not
+putting in a title but a body
+then what I would recommend you doing is
+take this title and replace it with body
+over here okay then this question let's
+replace it with something like I've been
+hacked I have being hacked
+okay now let's give it the sol our class
+righty no sorry
+okay then let's just copy our
+credentials from here that have no
+quotes let's paste them over here
+and let's copy this entire URL this time
+go to Google Chrome actually paste it in
+and just hope for the best and it gives
+us three results I think I've been
+hacked I forgot my password or I forgot
+my username so as you can see this is
+actually very accurate I told it I've
+been hacked and it says I think I've
+been hacked quite obvious it'll get it
+because that's not really too hard even
+eleven trying algorithm can pretty much
+figure that out however let's do
+something like I think I don't exactly
+know if this will get it it will get
+this but let's just see I think my
+security has been compromised and as you
+can see it got it right it says I think
+I've been hacked even though we said
+it's so much so very complicated
+so that's machine learning at work
+anyway so now let's go back to our
+documentation and now let's copy this
+command quite small actually come over
+here and actually over here where you
+have your credentials and cluster ID
+yeah over here you're just gonna type in
+rank or ID I'm they're going to put in a
+few spaces I guess I'm just gonna do
+that I'm gonna copy my rank or ID from
+over here and paste it in here then I'm
+gonna copy it oh I already had it copied
+put it into this little URL over here
+copy
+my credentials that have quotes plugged
+them in there copy the entire thing
+no just miss command and then put it
+into terminal and we see oh yes as you
+can see the rancor instance has already
+been done training I actually had
+planned that I was just going to pause
+the video while it trains but it has
+trained quite quickly this time okay
+continuing now we're going to be doing
+is we're going to see over here there's
+this little URL so let's just copy and
+now let's go to sublime text paste now
+let's just copy the credentials that do
+not have boats now let's just paste it
+in okay
+now let's copy in our solar cluster ID
+face it in then we'll copy our ranker ID
+paste it in and put our question as
+something like I have no idea really it
+let's just see what do we have in our
+examples maybe we can build off of that
+let's just open it up with Excel this
+time okay so I do not exactly know what
+we should do at this point okay an idea
+how can I move over to Gmail okay let's
+copy this and let's paste it in and
+let's see if it gives us let's see what
+it is I'm just doing this so I know what
+it should give us it should give us two
+switching over to Gmail so and yeah so
+apparently it doesn't oh okay I see
+you know remember this title
+you have to change that to body still
+and as you can see it gives us the
+correct ID and body and that's going to
+be it for this tutorial I hope you
+enjoyed if you did please leave a like
+down below if you have any questions or
+suggestions or concerns you can either
+email me at any minute gmail.com or
+leave a comment down below I don't mind
+I'll reply to you well you can even
+contact me at twitter at Taji mani they
+they're all there will be a link to my
+Twitter down in the description there'll
+be a link to a trained up p/y in the
+description there will be a link to
+bluelux in the description
+there'll be a link to jeopardy in the
+description and yeah you can also email
+me video questions if you want me to
+feature them in one of my next videos
+and I also wrote a blog about this if
+you wanted to know more about that and
+there will be a link to that in the
+description as well so I hope you
+enjoyed and that's going to be it
+goodbye again don't forget to subscribe
+sorry about that
+goodbye

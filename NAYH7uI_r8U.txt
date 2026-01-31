@@ -1,0 +1,452 @@
+so hello there and welcome to another
+tutorial my name is Tammy Bakshi and
+today we're going to be going over how
+you can do near real-time image
+stylization using a convolutional neural
+network on actually using Cora Mel
+on the new iPhone 10s using it's a
+twelve Bionic chip there have been many
+great updates in fact in order to demo
+this near-real-time
+invalidation I've got my sister as a
+test subject and you'll be seeing more
+of her later as well hi my name's Tammy
+and I'm so excited to we wonder if that
+means video showing the new iPhone
+Dennis's neural engines thank you very
+much this is gonna be great so now first
+of all what's so different about the new
+iPhone tennis the new iphone tennis is
+great because it has a lot of new
+performance enhancements well it might
+not look all that different from the
+inside it's completely architected of
+course previously with the iPhone 8 and
+iPhone 10 there was a special kind of
+ASIC that Apple implemented called
+neural engine or all I need is a 2 quart
+chip dedicated to all neural network
+processing on the iPhone that includes
+simple video compression when it comes
+to 4k video but it also includes things
+like face ID and other kinds of
+authentication and other kinds of Syrian
+machine learning work that goes on on
+your device however this year what Apple
+has done with the new iPhone 10s is
+they've taken that neural engine and
+upgraded it from 2 cores to 8 cores
+enabling it to go from 600 and 600
+billion of neural network operations per
+second on the iPhone 10 to nowadays you
+can run five trillion neural network
+operations per second on the iPhone
+techs it's really amazing what these
+performance enhancements can do of
+course there's also an extra byte of RAM
+which were some applications could be
+useful however of course if you're
+optimizing your memory usage you
+shouldn't ever need that much around for
+your application but apart from that
+there's also an allow for a lot of much
+much more intensive machine learning
+work best part is that the first time
+ever developers can actually access the
+neural engine through core ml previously
+Cornell would either run on the CPU or
+GPU but now you can actually run your
+core ml predictions directly on the
+neural engine for maximum
+and the best part is that even before
+your neural network operations ever hit
+the CPU the GP or the neural engine
+there's another custom chip developed by
+Apple that's all about actually routing
+specific operations to the correct
+computer the correct chip and so if a
+certain neural network operation is
+better to be done by other neural engine
+it will actually redirect back to the
+neural engine whereas some operations
+might actually be better done on the CPU
+or the GPU that's really great what this
+performance enhancing can do and that's
+why now you can do almost real-time
+image stylisation on the new iPhone 10s
+and that's the denim that I'd love to
+show you today as to how you can take a
+pre trained convolutional neural network
+more specifically a neural network
+trained to style images in a mosaic
+format and actually use up on the 10s
+live with a camera feed coming in from
+the avfoundation library and actually
+stylize it with the neural network
+display on screen as it's happening from
+there the walls will compare that to the
+iPhone 10 take a look at its performance
+and see how it compares and see if my
+sisters actually able to detect the
+difference and predict which video was
+shot by which phone based off the
+performance of the videos and based off
+of how smooth that style of stylization
+actually is of course in some ways there
+are more efficient methods than which
+you could do this you could record an
+actual 60 frames per second video feed
+that into the Swift program and actually
+predict on all those trains at once
+therefore using the neural and into its
+maximum capacity and getting it done in
+much better performance however there
+are also some cases where you would want
+to do it in near real-time when Apple
+actually opens up the neural engine more
+through core ml and documents and a lot
+more performance will be enhanced and of
+course you can also go ahead and
+quantize or prune weights from the
+neural network itself however for now
+let's just take a vanilla convolutional
+neural network and take a look at how
+the devil works now though let's take a
+look at a demo of how smooth you can get
+to this new real-time image
+stabilization by taking a look at how my
+phone is able to stylize a video of my
+sister in real time all right so now
+let's start up the demo and take a look
+at how it works so as you can see I've
+got
+an application on my screen over here
+called real-time style transfer I'm
+gonna click on it and immediately it
+starts live-streaming the camera and as
+you can see my sister is being in
+real-time style as a psychic and showed
+on my screen now if you just go ahead
+and wave for me perfect thank you as you
+can see while it's not in perfect
+real-time it's almost in real time and
+one of these optimizations occur when
+you go ahead and make the neural network
+more efficient you will be able to get
+to nearly real-time with this now we're
+gonna do though is we're gonna take a
+look at how the iPhone 10 handles this
+exact same situation using the exact
+same neural network and the exact same
+parameters we're gonna take a look at
+than iPhone 10 actually holds up to the
+new iPhone 10s and see which one is
+smoother and whether it's a noticeable
+difference so now what you're seeing on
+your screen right now towards the left
+is the iPhone 10 and the exact same
+application running on it
+towards the right you're seeing the
+iPhone 10 s of course the new one's
+powered by the 812 bionics the previous
+ones powered by the a 11 Bionic and so
+now my sister is going to go ahead and
+wave and as you can see you can
+immediately tell the difference in how
+smooth the new iPhone 10 s is in
+comparison to how choppy the older
+iPhone 10 is the iPhone 10 itself was a
+huge leap in technology for its time but
+they do - tennis is much much faster
+even than that now my sister does not
+know which side is which iPhone they're
+both the same size they're both the same
+parameters so what I'm gonna guy can do
+is show her both the videos and let's
+get her opinion on which one she thinks
+is the new iPhone 10s and see if it's
+actually a noticeable difference in
+quality or in smoothness let's take a
+look
+so which of these two clips do you think
+is recorded on the new iPhone tax well
+that's pretty obvious it was this one on
+the right I think that's right so you
+can tell it's much much smoother has a
+much much higher frames per second
+account at the same time you can tell
+that levels recorded with a new chip
+question for you didn't iPhone 10 come
+out last year how come there's such a
+big difference between the two it did
+come out last year but first of all that
+was the first iteration of the knurl
+engine that they had very powerful at
+the time but the new iPhone 10s has an
+even more powerful neural engine that
+can now handle many many more operations
+than the previous iPhone 10 couldn't
+there for such a big difference in
+real-time performance so that one's more
+smooth than Mac's wonder absolutely in a
+year yes in one year Apple went from
+being able to do really fast neural
+network operations to being able to do
+almost real-time image stabilization and
+one more question I used so many filters
+on social media such as snapchat and
+Instagram is this similar to that it
+looks like it it is pretty similar yes
+but those use a slightly different
+technology at least with most of the
+filters this one's actually using a
+convolutional neural network to extract
+styles from the weights of the neural
+network of certain images and to apply
+those weights to other images and
+especially because of the wonderful
+libraries that we're using like core ml
+we're not actually ruining the aspect
+ratio of the image at the same time and
+preserving that and so it's pretty
+similar to what you'd use on snapchat or
+wherever else social media platform you
+want to use but it uses a different
+technology and this would be more useful
+if I had to put up a video and not a
+patron exactly more specifically not
+necessarily the technique but the new
+iPhone is gonna be much faster
+processing larger sets of data I mean as
+I mentioned before if you wanted to do
+this more efficiently you could take an
+entire video and send up all the frames
+at once to the neural engine to maximize
+its performance or you could just do
+what we're doing here and do it in real
+time which of course really highlights
+the fastness of the single image
+performance of the new iPhone techs and
+that would be visible in a video form
+not a pigeon
+exactly that makes Thank You of course
+all right so now let's take a look at
+the code that goes behind the
+application like how it is actually
+really really simple is essentially
+taking images from a me Foundation or
+specifically from the back camera device
+it's feeding it into the ML model and
+getting the output and displaying that
+as soon as it can on the UI image view
+let's take a look at how it works first
+of all the storyboard is again very
+simple it's really just one individual
+UI element in this case a UI image view
+that takes up the whole screen in this
+case I've actually expanded that
+expanded it to be covered by the knotch
+and to expand out through the round
+corners in order to make sure that there
+isn't this weird space left like this
+just to make it take up the whole screen
+including the rounded corners and to be
+covered by the notch as well just to
+make it seem like a more immersive
+experience especially to optimize
+there's a huge screen of 10s max now
+though let's take a look at the code to
+begin with let's start off with a view
+controller there's three very simple
+imports of course we're gonna need UI
+kit for the UI view controller and other
+sorts of UI elements I would eat the
+avfoundation or the audio-video
+foundation for all the sorts of
+recording that's gonna be done by this
+application and of course we're gonna
+need core ml to do all of the different
+predictions now in this case of course
+we've just got our class called view
+controller that will conform to UI of U
+controller and well ap capture video
+data output sample buffer delegate
+that's a mouthful but essentially what
+that means is that the audio-video
+foundation library or framework will be
+able to actually provide me with with
+sample buffers and I'll talk about what
+exactly that means in just a moment
+before we continue though let's take a
+look at the different variables that the
+view controller class has first of all
+of course the image view this image view
+is going to let you display the current
+stylized image on-screen it's a UI image
+view of course the model that's actually
+going to be run predictions against in
+this case I'm using the F and s mosaic 1
+model so this model is trained by Justin
+Johnson his github use frames JC Johnson
+and he has a
+full repository called fast neural style
+there will be a link to it in the
+description below it's a wonderful
+repository with a lot of different
+models you should definitely check it
+out this will actually take in an input
+as a 720 by 720 by 3 which basically
+means a color image and will output
+another image in this case again 720 by
+720 but this is the stylized image in
+the mosaic form if we go back there are
+4 more variables here these actually
+relate to the way that Aimee foundation
+is going to let us actually capture
+video data in this case there's just one
+AV capture session and this is actually
+the session that's going to provide me
+with images
+there's the ami capture device in this
+case the rear camera is the device that
+I'm focusing on the device input which
+actually handles capturing input from
+the device and video data output which
+actually handles giving me the output
+from the video stream apart from that
+there's also one more variable called
+latest image and so essentially this AV
+capture session will continuously update
+latest image with the latest image from
+the camera feed of the neural network
+can then go ahead and query at whatever
+speed that it wants to then in the View
+today unction we've actually got a lot
+of code but it's pretty simple first of
+all I initialize the model by creating a
+new FNS mosaic 1 model meaning fast
+neural style mosaic 1 model after that I
+create a new AV capture session and set
+that to myself capture session then all
+of this code over here is essentially
+all around setting up the the
+audio-video foundation library to give
+me video output and so essentially what
+this means is towards the end over here
+you can just take a look I actually set
+the delegate for the capture session to
+self and what that lets me do and this
+is happening over here and what that
+lets me do is essentially every single
+time the capture session gets a new
+frame from the video stream it's going
+to call this function over here called
+capture output I'll talk about how that
+works in just a moment first of all
+though once I actually start running
+that capture session I then call one of
+my own functions called show stylized
+we'll get to that again just a second
+but first let's take a look
+at the capture of the function
+essentially the capture output function
+is called by the Amy Foundation library
+itself more specifically it's inherited
+by the AV capture video data output
+sample buffer delegate protocol now
+essentially what this does is it gives
+me the latest CM sample buffer which is
+essentially the current image from the
+camera stream so I just need to do a
+little bit of processing work in order
+to convert that sample buffer into a UI
+image but then once I do get this UI
+image I set self dot latest image to
+that UI image and I do this in the main
+thread to make sure no there are no
+problems with with the threads then what
+I do though is of course as this
+function is being called I then go ahead
+and run the show stylized function the
+show stylized function essentially takes
+a look at the latest image itself now if
+this latest image is not nil because of
+course towards the beginning it is nil
+over here if it is not nil however it's
+then going to go ahead and run that
+image through the neural network it's
+going to create a new UI image out of
+the output of the neural network in
+order to actually show that on the image
+view of course from there though we also
+need to make sure that the stylized
+image continuously updates with new
+camera frames so I put a little bit of a
+delay more specifically a delay of two
+thousandth of a second and after that
+delay I call this function over again
+it's gonna go ahead and show the new
+stylized image and then a mm of a second
+later it'll go ahead and do that again
+now of course you could increase this
+delay if you want to there is really no
+need to and the only reason the delay is
+there is because if there is none then
+the recurrent happens so quickly then it
+reaches its recursion limit very very
+quickly in fact we then have second of
+you start in the application and you're
+unable to do anything with it however
+the main sort of heart of the code are
+lines 118 to 122 because these lines
+actually let you take the model
+prediction convert it into an image with
+these three lines and then show that
+image on top of the image
+view of course however since core ml
+does use these pixel buffers that does
+not use UI images for input to the model
+unfortunately there is this little
+helper function that was taken from this
+block for which there is a link in the
+code as well as the description and this
+function essentially converts a UI image
+to a CV pixel buffer that can be fed
+into a machine learning model very very
+easily and so that is essentially how
+this code works of course there's a lot
+more behind the actual training of the
+neural network model but that's topic
+for another time but I do hope you
+enjoyed this tutorial that's what I had
+to cover for today as to how you can
+actually take the new iPhone 10s and its
+wonderful machine learning capabilities
+and performance and actually run
+real-time style transfer at a much much
+faster pace than you could with previous
+devices like even the iPhone 10 and so
+again I really do hope you enjoyed that
+video tutorial thank you very much
+everyone for joining today that's what I
+had for this video today if you do have
+any more questions suggestions or
+feedback please do feel free to leave
+them down in the comment section below
+as I'd love to answer any questions you
+may have and apart from that if you do
+like the video and you'd like to see
+more content just like this please do
+make sure to consider hitting the like
+button and subscribing to my channel as
+it really does help out a lot and turn
+on the turn on the Bell notifications if
+you'd like to be notified whenever I
+release new content or from that if you
+do think this video could be helpful to
+anyone else you know please do consider
+sharing it as well and apart from that
+the code will be in the description and
+that's what I had for this tutorial
+today again thank you very much everyone
+that's gonna be all for now goodbye

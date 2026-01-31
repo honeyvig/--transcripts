@@ -1,0 +1,456 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is Tammy banshee and
+today we're gonna be going over actually
+a brand new series of line called Swift
+today in this series I'm gonna be
+covering the latest in the world of the
+Swift programming language things that
+would affect your development and the
+way you're doing today I'm talking about
+something that really changes the way
+you're gonna be using not just Swift but
+another programming language all
+together Python
+now of course Python is a language that
+is used for a ton of different purposes
+it's great for scripting and it's also
+great for things like data science and
+machine learning because of how easy its
+syntax is but at the same time you can
+call direct C code and so it's very low
+level it's the perfect combination of
+performance and syntax
+now with Swift however things haven't
+really been all that great in the world
+of data science at least since it was
+released recently though Apple has been
+working towards fixing that they've
+released new tools like for example
+create a Mel and Cora Mel that enable
+developers to use the hardware of
+Apple's own computers and train their
+own neural networks or machine learning
+algorithms directly on them apples also
+released a few different Python packages
+of course is all open source in terms of
+Python that enable you to develop
+machine learning models very quickly and
+export them for use directly into your
+iOS application powered by Swift one of
+these packages called Turney create is
+really convenient for training machine
+learning models in fact I've actually
+already gone through that in another
+video of mine but today though I'm
+talking about something all new
+altogether I'm talking about running
+Python code directly within the Swift
+programming language now this is really
+interesting stuff and really be changing
+the way that you do practically
+everything when it comes to Python and
+Swift combined now again Swift can
+actually work with objective-c code we
+know that you can bridge between your
+new Swift code and your old objective-c
+code through Xcode by implementing a
+simple bridging header now there's
+already a framework within this entire
+Apple suite of products called a Python
+framework now the Python framework
+enables you to essentially build or run
+Python code interpret Python code
+actually directly within the Swift
+language or the Objective C language
+however it wasn't really convenient to
+use if anything it was very difficult to
+use and barely anyone has used it for
+almost anything plus doesn't really run
+on iOS but then again neither does this
+just yet however with this new version
+of this Python Swift bridge you can very
+very conveniently run Python code
+directly within Swift using of course
+Swift syntax essentially calling Python
+functions or Python libraries directly
+within the Swift programming language
+now this is made possible by two new
+additions to Swift coming with Swift
+five in the next few weeks these two
+additions are the dynamic member and
+dynamic callable attributes now
+essentially what these do is they enable
+certain classes like for example a
+Python class in this case to actually be
+called completely dynamically so for
+example with the dynamic member lookup
+let's just say you've got a certain
+class in Python say the class is called
+animal and they're sorting attributes
+within that class and for example
+species now if you wanted to access that
+within Swift you have to call a function
+in the Python class past the name of the
+variable as a string and I can get that
+response but now you can actually take
+that Python class and just your Python
+class dot species and it'll
+automatically send that over to the same
+function that you would have sent it to
+anyway and so it's essentially a lot of
+syntax sugar that makes it very very
+easy years now if you're wondering why
+Apple would go ahead and do this it's
+actually because of a pretty interesting
+story he's
+of course the creator of the Swift
+programming language the person who
+created the very first Kanban back in
+2010 his name's Chris latinum used to
+work for Apple but he left out a little
+while ago to join Tesla because he was
+very interested in machine learning and
+next-generation technology so he had
+their auto pilot division after that
+again he wanted to do something Nina so
+he went over to Google now at Google he
+was in charge of tensorflow and his idea
+was to create a kind of tensor flow for
+Swift the only problem though is that
+even if you were to rewrite tensor flow
+work with Swift there would still be one
+key problem and that is that they're all
+there already so many individual
+packages and libraries built for Python
+programming language the translating
+them all the Swift like numpy sippy all
+these other packages translating them to
+Swift completely is nearly impossible
+and so that's why not only to create
+Swift for tensor flow which has its own
+advantages that will probably cover in a
+later episode of Swift today but instead
+they actually created new bindings
+altogether in order to enable this kind
+of dynamic member lookup and dynamic
+callable attributes in order to call
+python directly from Swift but that gets
+me now to what we're going to be doing
+today today I'm gonna be showing you an
+example of how you can actually use
+Python code directly within Swift giving
+two things first of all using other
+Python packages that you may have
+installed through say pimp directly
+within your swift code and from there
+how you can actually write your own
+Python code and then enable that Python
+code to run with your Swift applications
+just like you would objective-c code but
+one more thing you should know however
+is that this will not work on iOS it
+only runs on Mac OS so far and it has
+not been tested on Linux now eventually
+this Python binding will be available
+directly within the Swift for tensorflow
+repository and build because chris latin
+aaron's team are actually rebuilding the
+sort of compiler to work with tensorflow
+very very well and
+those graphs however because these
+Python bindings aren't available in the
+actual Swift programming language yet
+there's actually great game repository
+that has taken this whole Python binding
+code from Swift for tensorflow projects
+and put that onto a package available on
+the Swift package manager there will be
+a link to this repository down in the
+description below and that is the
+repository we're going to be using today
+so now without any further ado let's
+head over to the Mac part where I'm
+going to be showing you how exactly you
+can build an application that uses SK
+learns into a principal component
+analysis on the iris data set and
+visualize it with matplotlib alright so
+welcome back to the code and now let's
+take a look at how exactly you can
+implement this Swift Python bridge first
+though let's take a look at the github
+repo this over here is Python kit it
+uses the code by the swift for
+tensorflow team in order to implement
+this Swift framework to interact with
+Python there requires swift 5 or higher
+and indeed has been tested on both Mac
+OS and Linux now this is an example of
+how exactly you can use it as you can
+see very similar code between Swift and
+Python but we'll get to that in just a
+moment now this is an example of how
+exactly you can build it but I kind of
+cheated here a little bit if you take a
+look inside the Python kit directory you
+essentially just got four main code
+files and that's really it so what I've
+done for now and remember this is not an
+optimal practice this is not what you
+want to do in your apps I've actually
+gone ahead and downloaded those four
+files and implemented them directly into
+my application now for your app I highly
+highly recommend you actually use the
+Swift package manager however in this
+case for the sake of the demo of the
+YouTube video I haven't actually used
+the Swift package manager for simplicity
+now apart from just the actual Xcode
+project I've also created a new
+directory in my home folder called iris
+example now the iris example folder
+contains just one Python file the iris
+example dot py file now if we enter this
+file as you can see this is the same
+sample code from the scikit-learn
+website now I'm gonna go ahead and put a
+link in the description to this code
+however I have modified it slightly in
+order to be - in order to work with
+functions so instead of running the
+Python script and it goes ahead and runs
+the principal component analysis and
+then visualizes that with matplotlib
+instead it'll actually have a function
+that would do that for you
+now if I exit out of this in regular
+Python the way I've used this file is by
+going over and doing import iris example
+or actually from iris example a more a
+cleaner way to do it from peyer's
+example import plot pca iris or IRS plot
+pca let's actually go ahead and check
+plot pca iris so if i just go ahead and
+kill the earlier python process as you
+can see i should be able to go ahead and
+say from iris example import star there
+we go it imports the function directly
+from that file and then if I go into the
+file I take the function I copy the
+function name
+I continue my process here well Python
+doesn't like to be restarted I should be
+able to go ahead and import and then run
+the function now right as I run the
+function here you should see that it
+comes up with this visualization now the
+iris data set for each individual flower
+in the data set has four data points for
+it so it's a four dimensional data set
+now of course you physically cannot
+represent four spatial dimensions in
+matplotlib or really physically in the
+first place and so you need to reduce
+the dimensions if you want to visualize
+it in a way that would make sense to
+humans so when you have this kind of
+visualization it makes sense to a human
+and it's essentially taken using the
+principal component analysis algorithm
+this whole 4d dimension or this 4d
+vector space and it's reduced it to
+three dimensions now this is something
+I want to do in Swift but until now it
+wasn't really all that easy because well
+Python libraries make it really easy to
+do this kind of principal component
+analysis and so so much more so how can
+I go ahead and implement these lines of
+Python code in Swift well before we take
+a look at that let's take a look at one
+more thing now if I were to go into a
+different directory say my desktop and I
+still want to use that iris example dot
+py what I do is I go into Python IDE
+imports this system and into the system
+path I depend whatever directory I kept
+that python file in in this case it's my
+home folder slash iris example now if I
+append that then even though iris
+example not py isn't in the current
+directory I should still be able to
+import it into my Python instance and
+then I should be able to go ahead and
+run the PCA then plot with matplotlib
+there we go that works now let's go
+ahead and take a look at how we can do
+this in Swift so first of all assuming
+you've already got python kit installed
+now you can go ahead and actually start
+using it now this over here these four
+lines of code excluding the function and
+the brackets these are what let you use
+that iris example code that I just wrote
+within switch now of course you could
+rewrite the scikit-learn example to run
+entirely within swift that is definitely
+possible but in this case let's just
+take an example of actually running a
+custom Python file that we've created a
+new this could contain any Python code
+and run it through Swift now the first
+thing we're doing over here is importing
+sis okay so we're doing this by a Python
+import Python as a class again if you
+would actually use the Swift package
+manager you would say import Python kit
+at the top of your file but I just
+included it as auxiliary code now from
+here you're gonna go ahead and append to
+the path of sis and this is how you do
+it I know you might be wondering well
+what's the big deal but you've got to
+understand
+is that sis is a variable of type Python
+object okay this is a generic object any
+Python object an integer a float a
+package it could be quite literally
+anything now path is not an attribute
+it's not function it's nothing within
+Python object but when you say path
+what's happening is because Python
+object is actually a dynamic member look
+when a dynamic callable class or struct
+you're able to go ahead and access path
+and then access the append function and
+then pass this argument to the append
+function in order to append list your
+path and once that's done you can go
+ahead and import the other package that
+we just created the iris example dot py
+file and then from there you can run the
+plot piece yeah iris function that I
+just described
+now again you've got to realize that
+iris example this imported variable this
+is a Python object plot pca iris is not
+a function that has been defined within
+the Python object let's see here a
+struct this is not a class as a struct
+it has not been defined within it but
+still if you go back over to that
+definition see over here it is a dynamic
+call then a dynamic member lookup struct
+and because of that I'm able to go ahead
+and call this function and it acts just
+like I would actually get and then call
+this member of Python object now one
+thing you should note is that of course
+because Apple is very strict on security
+you will need to disable a few security
+features too for this to work because in
+order for your Mac application to access
+this folder and then import this Python
+file you're gonna need to disable a
+capability of your application called
+app sandbox so on your Xcode project if
+you go over the capabilities pane the
+second option you see here should be app
+sandbox now of course originally this is
+going to be turned on however in order
+for this whole importing other Python
+packages that you write to work you're
+going to turn off the apps
+mock's in order to import this kind of
+code and so that was a quick example of
+how exactly you can use Python code
+directly within Swift and the
+interesting part is that in some cases
+the syntax is actually similar enough
+that you can go ahead and run the exact
+same individual line of Python or Swift
+code in the other language so for
+example in Python if I were to import
+sis and annex code if I were to do sis
+top path on append and then this whole
+string I could copy that line of code
+exactly into Python and it still works a
+similar syntax in some cases is similar
+enough for that kind of thing to happen
+it's very very convenient to bring over
+your stuff from Python finally to Swift
+in fact there is so so much more that
+you can do with this library like for
+example let's just say you wanted to do
+some interesting stuff with numpy you
+could say lehtinen pi is equal to or let
+n p is equal to python dot in port numpy
+right
+and in Python again this would be
+important um PI as NP this line of code
+would be important on pi as NP then you
+can go ahead and define your own little
+lists or in Python they be lists in
+Swift their arrays and you can actually
+go ahead and convert them to numpy
+arrays so for example if I were to say
+array a is equal to num pi dot array and
+then literally just pass it a swift
+array and it'll automatically convert
+that to a Python list it is really
+magical what's going on here
+I could say 4 3 7 and then I can go
+ahead and create a raid B which would be
+something like 9 3 5 and then I could
+say you know let result is equal to
+array a times array B now even though
+these are technically arrays like in
+regular Swift you could not take two
+arrays and multiply them by each other
+because these are two Python objects
+it's very flexible you can do it then of
+course numpy will realize this multiply
+would mean you know multiply each
+element of those two arrays you can then
+go ahead and print out that result
+just as if this were a regular Swift
+package and go ahead and run that and we
+should get a result the
+we go as you can see it was that easy it
+goes ahead and tells us if we scroll
+back up here that four times nine over
+here thirty-six first result 3 times 3 9
+and 7 times 535 and so that was a quick
+demo on how you can use Python kit in
+order to integrate Python code directly
+into your Swift applications and this is
+going to have huge implications for the
+world of data science machine learning
+and practically everything that you were
+doing in Python but simply could not
+transition over to Swift because well
+Swift wouldn't let you now though you
+can so thank you very much for tuning in
+today I do hope you enjoy this tutorial
+and I do hope you enjoy the start of a
+new series Swift today I'm gonna be
+releasing these tutorials in the first
+of every month
+and of course thank you very much for
+joining him today I hope you did enjoy
+if you did please make sure to leave a
+like down below if you do believe this
+could help anyone you know like your
+family or friends please make sure to
+share it with them as well apart from
+that if you really do enjoy my content
+you want to see more of it please do
+make sure to subscribe to the channel as
+it really does help out a lot and go
+ahead and turn on notifications if you'd
+like to be notified whenever I release a
+new tutorial so thank you very much
+everyone for joining in today that's all
+I have for this tutorial goodbye

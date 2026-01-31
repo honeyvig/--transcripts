@@ -1,0 +1,517 @@
+[Music]
+solo there and welcome to another
+tutorial my name is Hannah batching and
+this time we're going to be going over
+how are you can use the IBM Watson
+visual recognition service in order to
+classify the oil Indiana touch that I
+showed you in my last healthcare
+audiology video so let's get right into
+that now in my last video what I show
+you is how you can take the audiology is
+that from the UCI machine learning
+repository and why did is I you know
+normalize that data and provided it for
+you in the description of the last video
+and in the last video what happened if I
+took that data which consisted of around
+200 rows 200 rows of 69 input values and
+3 output values so we've got 69 inputs
+and three outputs in that dataset into
+what I did is I actually had a shallow
+new network that I created and what we
+did is we sat in those 69 attributes and
+we trained this neural network it
+literally learn that audiology descent
+and what happened in our neural network
+gave us and we output at the end any
+output actually corresponding to each
+one to a different type serious order it
+will happen in these outputs and what's
+the probability value of the person that
+means actually so describing to have one
+of these hearings orders the first one
+is just you know he has a normal ear so
+the first one is normal the second one
+means that has a hearing problem due to
+cost your age and the third one is due
+to a cookie or anomaly we don't exactly
+know what's wrong with it
+coming up but it's something to do with
+aqueon oh so that's basically what was
+their tornado members in Rockland no
+network gave us an output we would feed
+in around 69 attributes of a perfect and
+it would output three different
+probability values for three different
+or two different types of hearing
+disorders and one probability for a
+normal ear but I decided that we wanted
+something a little bit more interesting
+and something a little bit more easy for
+beginners so I like to see if I be
+unlocked it can actually understand this
+data and train understand but then I
+realized that way there is no service on
+the IBM bluemix catalog that can
+understand the fumaric data just like my
+challenge relative so what I did is I
+went ahead and use the visual
+recognition service but if you're
+wondering how exactly I set a numeric
+data that individual recognition well
+I'm going to tell you in just a moment
+but before you continue watching this
+video I highly highly recommend you
+watch my last audiology video where I
+show you exactly how all this works and
+once you understand that all that data
+and exactly how it works then you can
+come back to this video and you will
+continue and I'll show you how you can
+use IBM Watson to work with this alright
+so I'm assuming you've seen that video
+and by the way a link to it will be down
+in the description below but now let me
+tell you how this is going to work now
+six cranium Lachlan cannot understand
+you Marik data we have to have a way to
+keyword it convert while walking sitting
+in from this numeric data to something
+you understand and a way that we can
+easily convert this numeric data
+something it understands is quite simple
+a visual piece of data let me show you
+so basically what I've gone ahead and
+done and I've converted these
+their dataset into a visual data set so
+let me give you an example that doesn't
+rely on audiology now I'll just say
+we've generally got six different inputs
+for a neural network supply there so
+let's say this is 0.2 0.3 1 0 91 0.5
+okay this is all of our data right and
+we generate now before instead of
+sending this to a neural network and
+having to you know engineer that you'll
+never get optimized it to the core
+all we need to do is feed it into Watson
+but there's no way we can just directly
+feed it into Watson this does not work
+I'm certain this will not work in this
+case because it's in their data so what
+we have to do is what I've done is I've
+actually created a script in this
+programming language and what it will do
+it will take all this data and we'll
+walk through that script okay so what's
+going to happen is all this data is
+going to go into that script over here
+and once the script have that data if we
+convert it into a visual representation
+of that data the scripted Bengals can
+work back to the image and then this
+image is then sent over to the IBM
+Watson visual recognition service where
+can then be processed and what is
+process and wants visual recognition
+Melvin sighs resist the distinction
+between the data and have understood
+this data we are then ready to get our
+output and visual recognition
+once it's done training on a few hundred
+images will give up our output values
+and technically to actually have again
+three
+different alpha values again for normal
+ear we've got one for the normal ear
+we've got one for cochlear H and one for
+a cochlear anomaly when we know it's
+something to do with the cochlea but
+we're not exactly sure what's wrong with
+your cochlear so now in this video
+that's exactly what I'm going to be
+showing you how to do how to convert
+this numeric data set into a visual data
+set with all this rows and then we're
+ready to train on it and a little bit in
+a new image which represents another row
+in the cache data into the training data
+and then we'll finally be able to take
+that data fit into the recognition and
+see if it has reasonable accuracy for us
+to actually work with it and then
+compare it with our actual neural
+network alright so now let's get to the
+coding part where I'm going to show you
+how you can implement all of this let's
+get you all right so welcome back to the
+Mac part and now I'm going to be showing
+you how exactly we can actually
+implement this application so let's take
+a look at the swift script to read in
+with now as you know the first part of
+the job is to take our numeric CSB data
+and of course visualize its eye and
+maybe we represent it in a visual way
+and the way we can do that is using this
+script that I created now of course the
+first little part over here these first
+few lines you can actually from any
+human friendly blog over here and may
+show you how you can take an array of
+pixel values pixel data values and you
+can actually create a UI image out of
+those values and of course what I've got
+ahead and done is I've updated it to
+Swift 3 to make it work with the latest
+of course Xcode and I've also made it
+instead of working with UI image to see
+G image so that of course we can use
+this with a Mac OS command line
+application all right so once that is
+done as you can see there's another
+function that I had created I now this
+is a function that I created this isn't
+from anywhere online
+on so basically this function is called
+value to pixel intensity and as I said
+in the whiteboard part basically we're
+going to be taking these inputs and
+we're going to be converting them to
+these these pixels and we're going to be
+putting these pixels together in two
+images and so the point is that
+basically we should be able to take some
+sort of input and this input could be
+anything it's either going to be
+negative one value or a value between
+zero and one we'll be taking that value
+on putting it through this function and
+the function will turn a pixel data
+value the way this works is it checks if
+the value is greater than negative one
+if it is in your eternal pixel data with
+the outflow of 255 and the red green and
+blue values for the 255 times the value
+what this does is it means basically
+let's say that your value is zero
+no 255 times zero that means you're
+going to have 0 RG and B and it seems
+does going to have a completely black
+image because of course there's no color
+but if it's alone then you're gonna have
+to 55 and this means that you can have
+the white image with just all the red
+green blue or 255 however if your number
+is something like 0-2 then you'll have
+something like 51 and so this is going
+to be basically I guess you could say
+20% black and then I'll sorry 20% white
+and this would be an 80% black and sosa
+it's a relatively dark color but if we
+were to get somewhere like 0.8 now this
+is 80% white in 20 percent blacks we're
+getting basically higher and higher in
+terms of the whiteness of the image I
+lower low in terms of the blackness of
+the image when we increase our value
+however 8 our value is equal to negative
+1 then we just create a red pixel by for
+the meat red to 55 green and blue to 0
+and force the elephant to 255 as well
+once that is done we are ready to
+actually begin the logic that will kind
+understand our CSV file so the way we do
+this is a 3 mu 2 dimensional double
+array called
+audio data with an equal to a blank
+array to begin with
+now audio data
+going to contain every single row of
+data I basically represented as an array
+of doubles in this array and so in order
+to actually fill this up so what we need
+to do is actually loop through those
+rows and add them individually to audio
+data in the way you can do that is by
+first of all getting the contents of our
+CSV file the way we can do this is by
+creating a new constant called CSV data
+contents and what we're doing is
+forcefully trying to get the contents of
+a URL into this string and of course
+this URL points to my audio data CSV
+file which contains the data for my
+audiology data set once that is done I'm
+in split up the entire strings contents
+into multiple strings an array of
+strings and I split this by the line
+separator and so what I do is I put that
+array into something called the CSV
+split line constant and that is exactly
+how we are able to get these into
+separate lines but then what we need to
+do is we need to loop through CSV split
+line and we need to first of all inside
+of this side is like this loop create a
+new double or a single dimensional
+double array called audio data line this
+is initialized as a blank or ready to
+begin with and what we do is we then
+link through I which is looping through
+the CSV split line array and we split
+every single line by the commas in that
+line in that row and then what we do is
+we loop through those that separate a
+value and for every single every single
+value separated by commas what we do is
+we check we can convert that to a double
+by converting it to a double and then
+checking if it's nil if it's not now let
+me put it into a constant called J
+number would be if let statement and
+then what we do is we append a number to
+the audio data line array and created
+here then at the end what we do is we
+append that audio data line to the audio
+data array and once that is done we have
+our array of arrays which contains
+basically an array
+of the rows in our CSV data after that
+what we do is we remove the last element
+from that audio data due to the fact
+that well of course there is a blank
+line at the end of my data and of course
+we don't exactly want that to show up in
+our data because that could know that
+will not be good we do not want that
+extra line in our data so you remove
+that you may not need this for your data
+but I'd recommend just checking this out
+and if you have a blank line with the
+AMIA data you would want to have this
+line once that's done I'm just printing
+out the data to make sure that it's nice
+and it's nice and it's been parsed
+correctly and me once that is done then
+of course it's going to loop through the
+audio data array and of course point to
+enumerate that audio data array and it
+does this and so basically what's going
+to happen is we are going to get the
+index and value instead of just the
+value while we're looping through then
+what we're going to do is we're going to
+create a new variable called name inside
+of this array and the reason we're using
+the main variable it's because of course
+we have to have some meaning logic for
+these images so that we don't have
+overlapping images with the same names
+and of course we do want table to know
+just from the name of the image what the
+output of this image should be so that
+we're able to organize the images
+correctly so if they get into visual
+recognition again correctly and so in
+order to do this basically if the output
+for this is cochlear anomaly then we set
+the name at the beginning of the main to
+zero one if it's cochlear age and we set
+a sub 0 on 0 and if it's a normal ear
+then we set it to 1 0 0 once that is
+done though we then create a new array
+called pixels and this is an array of
+pixel data values and once that is
+initialized we then loop through the
+value variable because River audio data
+is a two-dimensional double array and
+we're looping through it so the value
+that it gives us during the loop is
+actually going to be in turn another
+arrey and so we're able to loop through
+it and for every single one of those
+values we convert that value to a pixel
+intensity using the value of pixel
+intensity function the result of that
+function is then appended inka pixels
+and then we have another function go to
+light see the image now the right cg
+image function will take a cg image as
+well as a URL to write the image to and
+will return whether or not it was able
+to actually write that image to that
+file in a boolean now it's actually from
+Stack Overflow and there will be a link
+down in the description below that links
+to the answer for how you can actually
+write to a CG image after that we remove
+the last three pixels and the reason
+remove the last few pixels because well
+of course you do not want our outputs
+going to visual recognition because of
+course there's no point of visual
+recognition of course with finding the
+results if it already knows the output
+values finally know once that's done we
+convert those pixel values to a CG image
+by calling the image from a RGB 32 bit
+map function and what we do there is we
+pass it the pixel data array that we
+created called pixels we give it the
+weight value of 23 and the height value
+of 3 this means basically 23 times green
+that would be 69 input values going to
+visual recognition now this is actually
+the image that we are passing over to
+write the image for it to write but
+after we pass in the image then we pass
+to have to pass it a URL to where to
+write this image to now we are actually
+getting with URL from a string and I'm
+putting this to a specific directory
+that comes from my home directory and so
+what I'm going to do is and wait for the
+naming scheme as the main website of the
+based off of the output that we decided
+in the beginning then an underscore here
+and on the index of the image in the
+audio data array and then dot PNG and
+after that it should be complete and we
+should technically have a bunch of
+images we
+outputs in the beginning of them and of
+course the final the final index of the
+outsets respective image in the audio
+data array which corresponds to throw in
+the csv file and from there we should
+easily be able to feed these into visual
+recognition and train them but what I've
+gone ahead and done is you can see in
+this Finder window I have gone ahead and
+got the created a folder called final
+images and I split up all the images
+into three separate folders one called
+zero zero one one called zero one zero
+and one called
+one zero zero let's take a look at the
+cochlear anomaly pictures first or zero
+zero one pictures as you can see we've
+got a good few of these pictures here
+and if I just open up one of them and
+you can see these are extremely tiny
+images they're only 23 by 23 in terms of
+dimensions I have to zoom into them for
+you to be able to see them as you can
+see those that is exactly what our image
+looks like it makes absolutely no sense
+to a human but the visual recognition
+this makes a lot of sense and it should
+be able to understand the patterns
+between cochlear anomaly cocking your
+age and of course normal ears now if I
+go back we can also take a look at our
+cost of your aged photos here you can
+see we've got a good few photos but
+apart from that we can also look at our
+normal ear photos the attributes of
+people who have normal ears as you can
+think that's exactly what that looks
+like and that is what we are going to
+see the visual recognition now I do have
+another video in the works for how you
+can actually train visual recognition
+using the Watts and visual restoration
+command-line tools or utility as I love
+to say and of course that will be out
+soon however what I will record on ahead
+and done is that trained visual
+recognition on this beta and so what
+I've done is I've created a classifier
+over here called the audiology
+classifier and so what I'm going to do
+is I'm going to run the watts and visual
+recognition utilities on this on this on
+this classifier if we go back to the
+finder over here and you can see I've
+actually separated out
+for I trained visual recognition I
+separated out an image called zero zero
+one underscore 24 on the score test
+image PNG now this is actually again a
+very small image the same 23 by 3
+dimensions and this actually represents
+a cochlear anomaly and what we're going
+to do is we're going to feed this into
+the visual recognition and see if we can
+recognize this as a cochlear anomaly
+with a good amount of accuracy or
+confidence so as you can see what I'm
+going to do is I want to enter in the
+images name which is builder 124 text
+image dot PNG I'm going to click enter
+give it a moment and as you can see
+visual recognition should say in just a
+moment that this is a cochlear anomaly
+or 0:01 and that too with almost eighty
+percent confidence to be more specific
+that would be 79 dot eight four to four
+percent confidence Henin's you can see
+that is actually very very high in terms
+of confidence and it got the correct
+answer and so of course they were able
+to correctly classify that this data
+this numeric thing that we've
+represented visually is indeed a
+cochlear anomaly was able to understand
+that and that is absolutely amazing and
+so of course what I'm going to do here
+is going to resurface okay so that
+worked and that's what I have to show
+you in this video today how you can
+actually take this numeric CSV data
+represented visually trained visual
+recognition and then use visual
+recognition test it out on take a look
+at it in more detail there will be more
+tutorials coming out soon just like this
+one today and of course one more coming
+out soon about the Watson visual
+recognition utilities command line
+utilities and how you can use them in
+order to train use and list out
+pacifiers and of course much much more
+all coming up soon once it's out the
+link will be in the description apart
+from that whatever else comes will also
+be in the description as well as the
+source code of this application alright
+so thank you very much for join
+me tonight I really do hope you enjoyed
+in fact if you did please do make sure
+to leave a like down below of course
+though if you think this video could
+help anybody else you know like your
+friends or family please do make sure to
+share the video as well and of course if
+you have any questions suggestions or
+feedback please do make sure to leave
+that down in the comment section below
+tweet them to me at Teddy Manning - or
+email them to me at paddy Manny
+gmail.com
+of course my contact info will be down
+in the description below but if you
+really like my content you want to see
+more of it please to make sure to
+subscribe to my youtube channel as well
+and it really has helped out a lot of
+course so if you would like to be
+notified whenever I release new content
+new videos please do make sure to turn
+on notifications by clicking the little
+bell icon beside the subscription box in
+order to turn on notifications alright
+so thank you very much for watching
+today goodbye

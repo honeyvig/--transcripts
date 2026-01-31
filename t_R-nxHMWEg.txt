@@ -1,0 +1,535 @@
+so hello there and welcome to another
+tutorial my name is tammy bakshi and
+today
+we're going to be talking about the
+world of webassembly now webassembly
+kind of fundamentally changes
+what you are capable of doing within web
+browsers and through your web
+applications
+and so to really dig into webassembly i
+think it's first important talk a bit
+more about the web to begin with
+and even before i start off with that i
+do want to start off
+by saying that if you do enjoy this kind
+of content and you want to see more of
+it please do make sure to subscribe to
+the channel as it really does help out a
+lot
+and of course do make sure to like the
+video so i know you enjoyed this kind of
+video
+and of course if you have any questions
+about what i talk about any suggestions
+from you and what to cover
+any feedback please do leave that down
+in the comment section below or reach
+out to me and i'd love to go ahead and
+get in touch and answer your questions
+now digging deeper into the world of web
+starting off
+um personally you may know that i do not
+particularly enjoy web development and
+the reason for that
+um is the abstraction right when you
+code a native application for example
+you get to know what hardware you're
+working with and you get to build
+code to work very well on a specific
+piece of hardware
+for example you may know that apps like
+discord and slack aren't necessarily the
+most
+lightweight fast and responsive
+applications sure they're good and in
+the vast majority of cases they work
+but they're by no means an excellent
+user experience
+and that's because these applications
+are powered by what's known as electron
+electron enables you to run javascript
+code effectively you're running a web
+application you're running
+a web browser as a standalone
+application that is only
+running for example discord or slack now
+the issue with this kind of application
+is that you
+are using the web dev stack and
+this stack is meant to abstract away as
+many hardware details and computer level
+details as possible
+to make it as easy for you as a
+developer as
+it can be made easy uh to build
+applications that'll work cross-platform
+and that goal is definitely noble right
+it makes sense that developers would
+want to
+write code once and then run it
+everywhere but the unfortunate truth is
+that different computers and different
+platforms require
+different code for a great user
+experience
+and that makes it so you can't really do
+really processor intensive tasks
+on these kinds of applications you kind
+of need to do things
+that are well that you can do abstracted
+away
+on a fast enough computer so for example
+if you wanted to do some really intense
+like signal processing or
+or image processing or things like this
+you would need to start calling into
+native libraries
+which is a huge pain to do in these
+sorts of languages
+and the web in general again is built to
+work across devices doesn't matter if
+you're using a 32-bit
+arm cpu a risk 5 a power pc
+ibm z or x86 right it works across
+everything as long as you've got a web
+browser that implements
+you know the javascript html css engines
+that are necessary
+uh and so this can be a challenge for
+developers to work with
+and effectively what webassembly enables
+us to do
+is it allows us to say all right let's
+just say we've got some native code
+or some low level code say like in c
+what we can do now is we can compile
+that c to
+webassembly instead of having to compile
+it to say an x86 or a power pc or an arm
+assembly
+and now that it's in webassembly format
+it's super low level we can optimize
+we can compress this code we can make it
+super small
+and then what we can do is when a
+browser wants to load up a page
+obviously we're going to be sending over
+html as we usually do
+but now alongside a little bit of
+javascript code
+we're also going to send over this wasm
+this web assembly binary
+and this webassembly binary is by the
+browser on the platform going to be
+compiled ahead of time
+on the fly as it's downloaded to that
+machine's native code
+and then run on the machine as well
+now there are some limitations to this
+kind of approach and there's some
+amazing advantages
+for example as you can probably tell one
+huge advantage would be
+throughput there might be a little bit
+of latency into calling a webassembly
+function because of course you need to
+exit your javascript context
+and go into this new sort of webassembly
+context
+however that that latency uh can
+effectively be
+you know nullified in a lot of cases if
+the amount of throughput that you get
+from these native functions
+can be great enough to again uh sort of
+hide that latency
+so once again going back to the example
+of image processing or signal processing
+if you want to do something like facial
+recognition or running a deep neural
+network
+or you want to do some kind of like fast
+fourier transform things like this
+it's usually better to do these kinds of
+things with native code again
+very much depends on your use case
+that's just how it usually ends up being
+a better user experience um and so
+that's what webassembly is all about
+and i've gone ahead and prepared a
+relatively simple demo to show off
+what webassembly is capable of and why
+you would want to use it or not use it
+let's get deeper into that now of course
+web
+development is is personally not
+something that i find exciting at all
+right it's kind of hard to build
+code that works but also works across
+lots of devices which is what the web is
+built for um
+but i've gone ahead and taken a bit of a
+stab at it using some open source code
+as well as code that i've put together
+to run this benchmark in particular the
+benchmark that we're going to be running
+is
+actually a piece of custom code that i
+put together some time ago i was working
+on an implementation of the
+segmented sieve of eratosthenes and i
+took the regular siva veritostomy's part
+of that
+and put together some code effectively
+if you take a look at what i've written
+here
+uh what this code will do is it will
+take some number
+n it'll find all the prime numbers up
+until
+n and then it will sum all of those
+prime numbers
+uh into a single number over here
+and so you can see that right there uh
+now once it goes ahead and gets the sum
+of all those prime numbers it'll just
+return it
+uh by default in my main function i'm
+calculating the sum for
+uh all the prime numbers up until 50
+million
+uh but just to make this a little bit
+more of an achievable demo for now
+and i'll talk about why i'm going to
+bring this down to 30 million
+uh so so effectively what's happening
+here is i'm just printing out um
+here as well how many seconds it took
+for
+this benchmark to run all right so that
+is the task that we're running uh siva
+veritas and he's finding all the prime
+numbers up until n
+and summing them all up into a single
+number now
+uh the keen eyed programmers watching
+this video
+may have realized that i'm doing a bit
+of a no-no in this c
+code uh i or c plus plus code
+technically but i'm not really using any
+c plus plus features
+um so this over here what is this
+why am i returning a double if i'm
+clearly
+only ever using integers well it is
+because this
+exact same code that you see on screen
+right now using bit arrays
+in the naive c function using all kinds
+of pretty you know complex features this
+exact same code is going to be compiled
+to webassembly to run in the browser and
+i'm also going to compile it
+to run locally on my machine on an apple
+silicon m1
+now the thing is javascript is
+javascript
+and that's unfortunate because
+javascript for example doesn't have
+support for 64-bit integers because why
+would it
+uh instead what we have to do is we have
+to use
+doubles doubles of course being 64-bit
+floating point numbers
+have a greater range than regular floats
+and also than 32-bit integers
+so while we will never be storing
+decimals here i do need to use doubles
+so just keep in mind even though you are
+using webassembly here
+if you're going to be interoperating
+with javascript if you're going to be
+you know sending data back to javascript
+for it to work with
+there's still going to be some
+limitations to what you can and
+cannot do that is just the unfortunate
+truth of how
+web development works today however
+apart from that
+this is regular c code right what i
+really want to stress here is that this
+isn't
+special c code right i i didn't sit here
+writing you know special wrappers around
+these functions for javascript or
+anything these are just being compiled
+as it is direct to webassembly and i'll
+get to actually
+showing off the performance of this in
+just a minute first
+though i want to show you the native
+performance of this code
+so if i go ahead and just save this and
+if i were to run a very standard compile
+telling clang to compile with o3
+optimization
+then if i go ahead and run as you can
+see in about 135 milliseconds
+we're able to get our valid uh prime sum
+result
+and just like that we got our results so
+135 milliseconds for 30 million being
+the value of n
+now before we test webassembly let's go
+ahead and test out what happens with
+just plain
+javascript code so what i'm going to go
+ahead and do
+is switch over to this other tab here
+and over here
+i've written a simple index.html i got
+this bit array implementation from a
+stack overflow post that i will link in
+the description
+of this video and then i'm using these
+bit arrays
+and also pretty much just a line for
+line translation of my c
+code into javascript in order to
+implement the actual siva variations
+so if i just go ahead and take a look at
+this it's it's practically the exact
+same code
+and then of course i can go ahead and
+benchmark the exact same task
+where n is equal to 30 million so let's
+go ahead and take a look at the number
+of milliseconds
+it takes for a javascript implementation
+then we'll go ahead and take a look at
+uh
+what it what it looks like for uh what
+what it looks like for a web assembly
+so i'm gonna go ahead and serve this
+html
+uh using a very simple uh
+python command so simply do this
+and just like that we have now exposed
+port 8001
+uh to uh to to now run our benchmark on
+so what i'm gonna do is open up a new
+google chrome tab
+uh i'm going to go to localhost eight
+zero zero
+one um and i'm going to show you what
+happens
+as we uh as we go over
+to that webpage so i'm going to put move
+this over
+to this window here and watch this
+if i go ahead and run just like that
+our website tells us here's the result
+for the mathematical operation that we
+tried to run
+and it took 862.5
+milliseconds to run it and the timing
+may not be exact
+every time you run it it's going to be
+slightly different but if you take a
+look at the result
+it is the exact same from javascript to
+our c plus plus code right over here so
+the result is correct at least
+consistent between both browsers
+or both both invocations uh the c plus
+code natively took 135 milliseconds
+versus 862 for javascript
+again every time you rerun it it'll be
+slightly off but it's in that range of
+like 750 to 850
+milliseconds all right now let's take a
+look at what happens when we run the
+same thing but through
+webassembly instead so what i'm going to
+do is i've already put together a simple
+compile script over here
+what this compile script does is it uses
+an application called mscriptin
+and scriptin basically takes c and c
+plus plus code
+and it compiles it to webassembly
+and it does so using clang and llvm and
+a bunch of its own
+custom libraries because if you think
+about it if i open up my c file over
+here
+we're including a bunch of things like
+standard io standard library time math
+and these things don't exist just in
+webassembly
+right this is the c standard library not
+the c
+language that we're talking about so
+what i'm scripting does
+is it basically creates this sort of
+virtual standard library that browsers
+can then use
+um in order to allow this code to run in
+the first place
+and in this case all i'm doing is i'm
+passing it you know pretty simple
+parameters i'm saying i want to compile
+c dot cpp i want to export the sieve sum
+function
+uh starting with an underscore because
+that's how c modifies the
+symbol names um and then i'm also just
+saying
+that from m scriptin i also want to
+export c
+column c rap which will enable me to
+actually call the c
+function uh from my javascript code and
+then i'm telling it that i want to
+compile to
+wasm webassembly i wanted to output to
+see wasm.javascript and i wanted to use
+the third level optimization which is
+the highest that you can use
+in m scriptin all right so now if i go
+ahead
+and run this compile script
+as you can see it just complains about
+us not using main but that's for our
+native code anyway so it doesn't matter
+as you can see we now have sievewasm.js
+and cwasm.wasm
+the.wasm file is the actual binary file
+this will not execute on your cpu this
+is this is webassembly code as a matter
+of fact the file command doesn't even
+recognize
+what kind of binary this is this is just
+raw webassembly code compiled to bit
+code
+now what i can do is take a look at our
+new javascript code which is way shorter
+because we're doing basically nothing in
+here except for invoking the web
+assembly
+so what i do is quite simply load in
+that javascript file that i'm scripted
+made for us
+and then i go ahead and say that
+whenever that module
+is initialized so once we initialize the
+whole sort of webassembly context that
+we've um
+that we've tried to create here then
+take the sieve sum function
+call it on third n equals 30 million uh
+time the number of milliseconds and of
+course print that out to the screen
+so let's go ahead and take a look at
+what our performance looks like
+so i'm going to go ahead and run that
+same python command over here this time
+port 8 000
+and if i go ahead and just run this
+as you can see would you look at that
+same result
+but this took only 137 milliseconds
+that is effectively the same amount of
+time it took for the actual
+native code to run on this machine
+that is the kind of performance boost
+that i'm talking about you can get with
+webassembly
+now of course it's not always going to
+be this great in fact i'm pretty sure
+although not certain
+that if we were to reduce m to a small
+enough value it would be faster to do it
+in javascript
+than it would be to do in c because of
+the overhead of calling the c
+function that's what i mean by latency
+versus throughput
+in this case the throughput was enough
+to hide the latency of the function call
+however in a lot of cases that might not
+necessarily be true
+so for example if i were to go into
+index.html
+uh if i were to reduce this to like say
+just 5 million
+which is nothing for modern computers at
+least
+so if i just reduce this to 5 million
+both sides
+and if i were to run these again
+it looks like they're running then if i
+were to refresh our javascript code over
+here
+we got a different result of course just
+153 milliseconds
+versus our c code okay our c code is
+still faster
+but then again this is a computationally
+intensive task you know i could keep
+going in terms of reducing
+the actual number that we're trying to
+calculate for
+uh so let's actually try to do that
+let's see at what point if any
+web assembly starts to become slower so
+if i were to do
+1 million for example
+all right so we're doing one million now
+uh so
+javascript 28 milliseconds native code
+four milliseconds so as you can see
+the latency is very very minimal
+webassembly is relatively
+a lot more you know planned out and
+actually implemented well than it was a
+couple of years ago right latency is
+very very low
+but again if you're making tons and tons
+of function calls to webassembly
+where each individual call doesn't do as
+much work
+but there are lots of calls to make
+that's when you have to start to think
+maybe it's actually just worth using
+javascript instead
+again though every use case calls for
+its own sort of
+analysis of which language which toolkit
+which architecture makes the most sense
+in this case it just so happens that
+webassembly is
+way faster all right so thank you very
+much for joining this tutorial i do hope
+you enjoyed again all the resources that
+i used
+uh including the code and other
+tutorials will be down in the
+description below
+if you want to get started with
+webassembly if you have any questions
+feel free to leave them down in the
+comment section below i'd love to go
+ahead and answer them and once again if
+you do enjoy this kind of content please
+do make sure to subscribe to the channel
+and turn on notifications it really does
+help out a lot and you'll be notified
+whenever i release new videos so once
+again thank you for joining today really
+do hope you enjoyed and
+goodbye

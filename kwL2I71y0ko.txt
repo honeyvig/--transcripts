@@ -1,0 +1,582 @@
+[Music]
+so and welcome to another tutorial my
+name is Tammy Bakshi and this time we're
+going to be going over well the second
+part of my retreat and rank tutorial huh
+now before I even get into the tutorials
+and I know I'd like to say a big thank
+you to Stan account one of my
+subscribers for asking me this question
+and so of course I decided to answer it
+and while answering it why not create a
+YouTube video as well because of course
+I thought this could be really really
+beneficial to a lot of people out there
+as well there have been a lot of updates
+to retrieving like service since our
+last printed video so I thought why not
+just create a video as well so of course
+thank you very much to set it up for
+that question and now here's your answer
+as well alright so let's begin now today
+so as I said I need to be telling you
+how to create how to use the IBM Watson
+retrieve and rank service before we even
+get to how it works and how you can use
+it let's talk a little bit about what it
+actually is
+so the IBM Watson retrieving rank
+service put simply what it does is it
+basically takes documents things like
+you know details about Pizza Hut and
+Minnesota Riya and the Maya Indian
+cuisine and lots of other restaurants if
+you were to take like 60 of those
+documents about those restaurants and
+feed it into a tree tonight retrieving
+rank will then ingest that data as a
+corpus of knowledge and then Watson
+the rashidun ranked service can then
+take a query like oh I don't know what's
+the menu apisa hot and it'll go to a
+peep hot document and it'll grab that
+data for you and give it back to you now
+again one more thing is that by the way
+all of this data that we're going to be
+using wind retrieve an eye today has
+been given to me by sanika and so she's
+really these 650 simple questions and 60
+training documents or 60 docq
+for treating ranked to find information
+from as a corpus of knowledge but now
+all the time I'll explain how IBM Watson
+retrieving rank actually works I'll
+explain to you what it actually is so
+let's get into how retrieving rank
+actually works now Allen said we have to
+have a corpus of knowledge and in this
+case my corpus of knowledge is just a
+bunch of documents in this case we're
+using Word documents but what I've gone
+ahead and done is I converted them to
+PDF one so it's easier for me music with
+a document conversion which is improving
+ranks system service and I'll talk about
+that in a moment now you can actually
+use PDFs HTML documents and of course
+Word documents those are new supported
+document formats or nothing else
+so of course I'm not going to draw all
+60 documents but basically also you've
+got this entire corpus of knowledge with
+this huge corpus of knowledge here
+basically what we're going to do is
+we're going to take this corpus of
+knowledge and we have to process this
+data in order to grind it up into the
+Sun and it's none of these big documents
+into smaller chunks that retrieving
+write can actually work with and the way
+we can do this is by using the IBM
+Watson document conversion service so if
+I just draw in this little box here and
+images like this I still got this little
+box so this is our document or also say
+docu conversion service ok so we've got
+our document conversion service and
+basically what we're going to do is
+we're going to have these discourses of
+knowledge that aim to document
+conversion and document conversion is
+actually going to convert this into a
+flipbook answer units which are actually
+just individual paragraphs or sentences
+or words really that comes from all
+these documents and they're packaged
+into you know groups of answer units
+depending on which dockets like this
+document will completely convert into a
+group of answer units
+and each doctorate will be its own group
+of answer units from that document now
+what the document reversion is actually
+done creating those as the unit's
+document conversions work is completely
+done now we can go over to waters with
+trees and rank Mary I you'll often
+achieve entire service actually consists
+of two separate steps inside itself
+I know specific steps will be which
+we've step and II rank step there a
+chance that real it allows us to run the
+rank step another retreats that the
+ranks to asset doesn't do anything
+basically retrieves will give us answers
+that haven't been ranked in a way that
+we want them to like for example let's
+when we've got this document conversion
+service that provides to us these answer
+units that we can use in and I'll tell
+you what we're going to use them in
+different room in here so it provides me
+every units at we can use in a solar
+collection of course okay so I know this
+is actually not spelled with an able to
+print out solar so so is basically this
+I guess you could say standard search
+engine where we have these answer you
+with some document conversion and if we
+were to I don't know for example right
+I don't know Pizza Hut menu and we were
+to give this to this solar collection
+well what happened is the solar
+collection what actually produce this
+array
+all senses okay
+those coins produce this array of
+answers I'm to these answers will be
+ranked though all these answers will be
+related to something called Pizza Hut
+menu but then will be ranked in the way
+that we want them to be they all be
+ranked from most relevant Tony Sullivan
+and this is where the main part of
+Watson you're feeding rank service comes
+in here we have this step and this step
+is actually going to help us
+quite literally rank these answer units
+from most relevant till we slop we
+filled it in a really nice way and isn't
+called the Watson lowest rank rank step
+now this key the links that will take
+these answers and it'll output well as
+you probably guessed we ranked answers
+okay so now basically what happens here
+is like we'll take those answers I
+haven't been ranked it and it'll rank
+them for most relevant to reflect least
+relevant using its cognitive ability now
+we only slight dilemma on the way is the
+fact that the retrieving right service
+requires a lot of patience and training
+but one thing I can say is that once you
+have trained it properly and once you
+get it working it is absolutely a gem
+retrieving ranked works amazingly after
+that really what happens is they're able
+to feed in more documents and one will
+you've already trained or cretan ranked
+once and now it knows the patterns
+between the questions in the documents
+and so even if you were seen in many
+more documents later once they're done
+training it will still understand the
+patterns between the questions and the
+answers within the documents and what
+will happen if you don't need to retrain
+I mean you could retrain a little bit
+more in order to you know keep the
+accuracy up maintain that accuracy but
+really might should technically still
+work fine with even more documents that
+you just keep adding and adding in even
+though technically you haven't trained
+to clean rank on those documents which
+is the absolute best part about retrieve
+and rank in fact I have around 650
+questions from Seneca and by the way the
+minimum number of questions is put into
+a tree the rank would be 150 so you have
+to train with rank step on at least 150
+sample questions and their answers from
+these answer units however I have 650
+from sanika service after those
+questions to me now I've also got around
+60 documents there's no limits or
+there's no minimum maximum with how many
+documents you can have really that's
+just but in this case we have 60 each
+related to a restaurant and so I am
+actually able to achieve around a thirty
+one percent accuracy which is the best
+but then again if I'm working you know
+spend some more time maybe a few more
+days you know continuously
+training training training with free
+tonight I call definite I and higher and
+of course we need a lot of data we need
+an abundance of data but as I said the
+rewards of once you are actually done
+training or this abundance of data are
+absolutely great people that due to the
+fact that really it is absolutely so
+useful it remembers the patterns when
+you put in more documents and of course
+it's just generally really really useful
+for your users to use in fact this is
+what I'm what we teaching you how to do
+today I'm going to be mainly tree
+teaching you how you can train this rank
+step over here and while I'm teaching
+you how to train this ranks up I'll
+teach you social how you can gather data
+really easily I'm also going to teach
+you some nice ways to retrieve to train
+with rank service especially today I
+will be focusing on the IBM Watson
+retrieve rank rule kick which helps
+which cream to through junior why for
+you to train the rank step learn in
+order to make it a little bit easier
+instead of having to write out that CSV
+file yourself like we did in the last
+video and so now again after almost
+actually after more than a year for my
+first routine length video we are now
+ready to do the second part well I'm
+going to be showing you how you can
+actually go more in depth and create
+this really really strong classifier and
+of course as I said thank you to Sarah
+cup for sending in this question and
+this is your answer all right so let's
+get to the calling part now I'm going to
+teach you how to train this entire
+retrieve and rank service all right
+let's get to the coding part now alright
+so welcome back to the Mac part and now
+I'm going to be showing you how you can
+actually train your retrieve and rank
+service so the first thing is we need to
+do is head over to IBM bluemix and
+create a new retrieve and rank instance
+as well as a new document conversion
+instance and go back to retrieve our
+instance and click on you launch tooling
+button once you click on launch Chile
+you should be greeted by a few setup
+pages which will help you actually set
+up your retrieve in my tool in if you
+view if you used any other services to
+learn before you probably already
+now how exactly this works so I'll be
+going into much detail about how you can
+set up your instance tooling however I
+going to dis extremely simple to do so
+it's very straightforward you really
+don't need to do anything it mostly does
+it automatically for you
+once that's done though you should be
+greeted by a page slightly similar to
+this one however the fact is that will
+not show any collection then it will say
+our our cluster or this cluster ID at
+all
+that's I'm going to showing a blank page
+here and then it's your job to create a
+new retrieve and rank cluster so click
+on me create a new cluster button name
+your clusters something like YouTube or
+our cluster and then choose a cluster
+size which is how many gigabytes of
+documents you can actually put in or
+gigabytes of information you can put
+into this cluster and once that's done
+you should be able to create your
+cluster if you'd like to know pricing
+information about how these clusters are
+priced you can ask the costing
+information when shown to you over here
+once that's done now when you've created
+your cluster you should see an empty
+cluster mine is actually fold if you
+collection but you'll see one that's
+empty but once you have an empty cluster
+then create something called a new
+collection which is what contains all of
+our training data and will allow us to
+actually use the retrieve and rank
+service now the collection I will save
+in the YouTube are our sanika we can
+sell for Seneca gave me all this data
+shows me all the data in order to use
+for distribution ran to tutorial and
+once that's done the language I will do
+such as English however your options
+here are English French Spanish German
+Italian Japanese Arabic Brazilian
+Portuguese and Korean then we're going
+to click on create and once you click on
+create you should have a new collection
+in your cluster and once it closes you
+collapse in your cluster your right to
+actually start training books using rank
+so I'm actually going to head into the
+collection that I've already created
+here and once you go in you're going to
+be greeted by the tasks page of this
+tooling now the tasks page contains a
+few tasks that I even write believes you
+should be doing currently
+in order to help train which we even
+like and so you should actually see an
+empty tasks page you shouldn't see
+anything except for tutorial and maybe
+something like upload ground truth and
+so of course though I can see here
+questions about questions about tasks a
+repack and an upload more question tasks
+now I'll be talking about these in just
+a moment however what I can say is these
+tasks are basically what's going to be
+driving your retrieve and rank training
+but the first thing you need to actually
+do in order this training or even rank
+it needs to have some documents that the
+user will be able to query with their
+questions and so the way you can do this
+is by uploading some documents by going
+to the content page then going into a
+document page and then as you can see
+I've already got a lot of document and
+the way I got these here is reckles not
+upload documents and then dragging those
+documents onto this little box here now
+again best for us to send office for
+actually giving me all of this data to
+work with once that's done well you're
+right go over to the questions page not
+the documents page the questions page
+and you're ready to upload some sample
+questions that the user could ask and
+they're using retrieving right and so in
+this case I have got five look at 96 of
+these total essential questions if these
+are really going to be training with to
+even writing and telling it how to
+answer a user's query currently I've
+answered for a three-minute 490 one of
+these questions and of course we still
+have more than 100 to go but it's going
+good and of course the current accuracy
+of this ranker is 31% so the more
+questions you answer here the higher and
+higher that accuracy level is going to
+get impact param and me right up is
+upload these 596 questions which there
+will be a link to in the description
+Senecas to giving me that data right if
+you download those eli's you upload the
+those questions in to retrieve link if
+you go back to your tasks page you
+should see quite a few more tasks about
+the I mean specifically be questions
+about tasks
+and these are really what's going to be
+helping you train so you're like so now
+I'm actually going to guide you through
+training a little bit of recruiting
+right now I'm actually only going to be
+doing thirty two questions right now for
+thirty two way to be answering thirty
+two questions for a treatment like
+that's not maravedi and you're probably
+going to have to doing a lot a lot more
+in order to get from where we is
+retrieving rank but then again I will be
+showing that to you in part 2 of this
+tutorial
+alright so as you can see I'm going to
+go over here and I'm going to go into
+questions about apostrophe s's pizza
+alright so right side go into there and
+you can see what happens is it shows me
+questions like what is tap Captain
+Tony's Pizza & Pasta Emporium is good
+for and so as you can see it actually
+showed me all of these different answer
+units here and as you can see the name
+of the answer unit as well as which file
+it came from so the answer yes came from
+the answer unit called good for kids and
+this was from Captain Tony's pizza pasta
+Emporium ducky yes now this is the exact
+same restaurant we're talking about but
+it's not the same answer unit we're all
+being asked what what it's good for
+and not whether it's good for kids but
+since that's still slightly related what
+I want to do is I'm going to rate this
+answer with two stars and also the same
+things are good for groups now weather
+service is not related to what it's good
+for
+so I'm going to really just one star and
+delivery is not related either so I'm
+going to write that one far as well now
+if you want to see the answer unit the
+actual file itself you can actually
+click the link and you'll actually lead
+to that answer units a mess with the
+file see and as you can see over here
+what happens in passing Tony's Pizza
+Pass Emporium you only have good for
+kids and good for groups as as
+parameters it does not have good for it
+which will be you know is it good for
+lunch or dinner that other stuff and so
+since it doesn't have that what I was to
+do is I'm going to tell Watson to not
+include this questions in Watson's
+training then I'm going to click on next
+question
+then they asked me if captain Tony
+seafoam past Emporium let's just call
+that captain Tony's let's see does
+capping Tony's except quest cards now if
+you see the first answer unit here is
+called accepts accept credit cards and
+the file name is captain Tony's a PDF
+and it says yes and so this is actually
+a four star rating because this is
+exactly what the user is looking for the
+rest are not related at all
+so we can write those one star and click
+on submit ratings and now is total
+treason ranked another the answer to
+another question then active takeout is
+allow it happened 2 lanes and so as you
+can see again the first answer unit is
+very related to the answer this question
+order to create 4 stars and give the
+rest no stutters I'm going to continue
+as you can see says doesn't have
+delivery service and I think the first
+answer unit here is waiter service so
+this is not only the role however the
+second one is delivery so I'm going to
+be rating with 4 stars and the rest as 0
+of course we can just continue this and
+so look as you can see it asks the
+captain Tony stores of food and none of
+these answer units are about delivery
+and so here's a problem but what we can
+do is click on the seem more answers
+button and what'll happen is it'll show
+more answers that he believes could be
+correct
+now the ad tire is something that we're
+not going to answer the phone number is
+not related here
+takeout not related but delivery is
+going to be reading with 4 stars and
+perfect submit these ratings and
+continue now that those catching Tony's
+take reservations sign which relate with
+4 stars which is 1 1 & 1 I'm going to
+continue this pattern which I have quite
+a few more to of course do here I'm
+actually going to start speeding up the
+clip in writing light is a point where I
+can actually show you an example of the
+search in fine answer button I will slow
+down the video again
+or nevermind actually we didn't need to
+slow down the video I mean just need to
+speed up the video because the very next
+question quite coincidentally is one
+where we can use a search and find
+answer button so as you can see ask me
+what are the kinds of caffeine counties
+and so as you can see that isn't in that
+that answer is not inside of these it is
+not desaster unisys given me and so what
+I can do here and as you can see I've
+actually got this PDF open and the hours
+answer units visible text inside
+advanced unit so if I were to copy this
+text go back to the prefix page click
+search and find answer and paste in
+those hours click enter as you can see
+if I go down and find captain Tony's
+here if I just select it'll add that
+answer unit here I can rate that for
+stars and write the rest only one star
+and then I can submit my readings now
+this is actually good time since I've
+already shown you how to use this entire
+tooling to speed up the video so you can
+see me training all of these all of
+these answers cement I'm going to speed
+up the video
+[Music]
+all right so as you can see we are now
+on the final question 40 out of 50 or 98
+percent done here and now exactly what
+is the contact information of Marvin
+mother oh nice pizza and pasta and the
+in terms of contact information we say
+phone number so the phone number here is
+completely correct the rest are not
+correct and I can submit my ratings and
+I have done one task now I can go over
+to my content page and all the questions
+as you can see I'm now answers 518
+questions out of the total 596 and there
+you have it I've completed a taxi and
+now I can do if I can go to my
+performance page and I can click on the
+train a new ranker button please down I
+went to give this around though I'd say
+five to ten minutes to load for these
+many questions and retrieve and rank
+should be done training and I think that
+measure the accuracy see if it sees it
+works for me if it's you know accurate
+enough and if it's not continue training
+if it isn't perfect or done and in fact
+that's what I'm going to be showing you
+how to do in the next part of this video
+tutorial in the next part I'm going to
+be showing you the actual final trained
+version of the streamlined
+instance so that you can use it in your
+applications however that was it for
+this tutorial I show you how you could
+actually train with Freeman right and
+what reason right actually is again the
+second part to my Freeman rank that I
+created or more than a half years ago
+now of course though thank you to sanika
+for sending in this question is really
+interesting creating this video really
+wanted to play another treatment right
+video for quite some time so Allah gave
+me a nice little
+fools used to make that so of course
+thank you very much for watching tonight
+that's going great for this tutorial if
+you thought if you've got any other
+questions suggestions or feedback use
+them down in the comments section below
+to read them to me at a diemanuele sorry
+I left my email suite up to me at Casa
+Manny - or you can email them to me at
+Taji Manny and female calm all right so
+if you really liked this video and of
+course you want to support it we should
+consider leaving a like down below as
+well and if you'd like to and you could
+also share the video if you think it
+could help any way else you know of
+course well if you really like my
+content you want to see a lot more of it
+please do consider subscribing to my
+channel as well as it really does help
+out a lot and if you'd like to be
+notified whenever I release a new video
+make sure to turn on notifications on
+this YouTube channel alright so thank
+you very much for watching that was it
+for this tutorial
+goodbye

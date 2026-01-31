@@ -1,0 +1,474 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is Tammy Bakshi and
+welcome to another episode of AI cafe
+this is episode number 2 this time I'm
+currently in Boston at the AI worlds
+conference where I was invited for a
+discussion on a luncheon session
+actually with my mentor the CTO and VP
+of IBM Watson Rob hi who's not joining
+us for this very excel for the actual
+second episode of AI cafe so welcome Rob
+yeah hi Tim hey hey you guys great so
+now let's begin now in today's episode
+of AI cafe we're gonna be talking a lot
+about artificial intelligence on what to
+expect from AI but mainly what not to
+expect from AI you know there's a lot of
+hype around artificial intelligence you
+know what it can do or what a lot of
+people think it can do at least right
+yeah but since they're not actually in
+the backend you know do on the
+development side of AI they don't really
+have a very clear picture of what
+exactly
+AI is capable offering and how exactly
+it works I look for example a few days
+ago when I came from I attended IBM Talk
+I do not clarify the point that just
+because you know there are these are
+algorithms Karl Popper called artificial
+neural networks that doesn't mean that
+they're an exact replica of biological
+neural networks they are not human mind
+is incredibly common
+there's a lot of things about it that we
+don't even fully understand let alone
+try to recreate them exactly and Plus
+even apart from the fact that we don't
+completely understand them as you say
+why would we want to replicate it in the
+first place right why also take the
+limitations that our human mind has and
+put the same limitations in technology
+right there's no point to it so instead
+I have to really emphasize that
+artificial neural networks are instead
+loosely inspired by the way our brains
+work instead instead of being you know
+exact copies of the algorithms of the
+structure the structure is just slightly
+inspired by the way the brain works as a
+network of neurons and other nodes all
+but the actual algorithms are entirely
+different we have no idea how our brain
+functions
+itself all we know is that artificial
+neural networks use back propagation
+yeah that's right yeah we should we know
+what they don't do but you know I do
+think that this is a really important
+point because you know the end of the
+day we as human beings have certain
+capacities that make us human
+they say define you know who we are they
+define how well we do what we do but
+there's also limitations to what we
+always give a base to it some love you
+gotta ask why would we want to replicate
+exactly human mind both because you know
+look we've got like human minds out
+there already but also why we don't want
+to replicate the flaws oh yeah right
+it'd be so much more powerful what we
+could do is use the cognitive systems as
+AI systems to pick up from where he
+leave off so and then bring them
+together to work together to kind of
+salt some so the way they you know by
+themselves either one of them would say
+no exactly well and so what we can do
+with cognitive computing as we call it
+here um is we're not only looking at
+okay you know how can we replicate the
+human mind we're taking a look at how
+can we make humans and Technology
+collaborate in a better way right right
+how can we make it so humans want to and
+are you know and make it easy for
+actually humans to collaborate with
+technology like right now even doing
+something really simple forget like
+cancer screaming they're bringing in
+doing things simple ah simple tasks on
+your phone
+these can be annoying and the reason
+they're annoying is because it let's say
+I'm communicating with you wrong or you
+the viewing and I tell you as we were
+mentioning before send alarm for 6:00
+a.m. for me right you'll go to the clock
+is set alarm that was so natural
+mm-hm right you I didn't need to
+communicate I didn't need to click a
+button on your anything yeah with your
+phone you have to actually go over to
+the clock you just set the alarm it's
+such a manual and tedious process but
+through artificial intelligence systems
+we can create that collaboration you can
+bridge that gap between the humans and
+the technology and what we can do then
+is we can say oh Siri set an alarm for
+6:00 a.m. right and it does that but
+there's still something lacking in so
+Rob's would you like to sort of expand a
+little bit more on why what AI
+well I'm but what a guy is missing in
+their current implementations of it is a
+sense of what I call presence yeah so
+when you and I are talking and if you
+ask me to set the alarm for 6:00 a.m.
+the you know there it's not just the
+fact that I might be able to go do that
+for you in question but in doing so I'm
+also anticipating your need and I'm
+recognizing that hey if you pause for a
+moment in the process of asking me to go
+set alarm there's something meaningful
+behind that exactly on the flip side
+that is a having asked me to go set the
+alarm for you for 6 a.m. you're also
+getting some feedback from me right you
+know we have eye contact we have facial
+expression we have we have arm and hand
+movements and all which are breathe
+enforcing none of the fact that I
+understand what you just asked me to do
+I can now you can tell from my my facial
+gestures exactly that you know that I
+understood what you just asked for yeah
+but I can also use that to understand a
+little bit better whether that's
+something they is that the only thing
+they're looking for is there's something
+else going on and that back and forth is
+really essential in human communication
+right it's what makes it natural but
+it's also if we're really going to get
+these cognitive systems to amplify our
+own thinking exactly they're gonna have
+to do something similar exactly exactly
+but then again they wanna do something
+similar but what a lot of people think
+is that we're trying to replicate them
+yeah not sure yeah we're trying to make
+it so we can bridge that gap yet at the
+same time leave enough of gap that the
+limitations are left in that gap like
+for example cancer treatment okay
+one of the you know promising parts of
+AI is that it can do cancer treatment
+you know can do diagnosis so much faster
+and so much more accurately than a human
+can
+but the thing is what a lot of people
+don't realize is that AI won't be making
+the decision for the Kansas specialists
+Yeah right that's right and said what's
+gonna be doing is it's going to be
+providing them a lot of information very
+quickly that they can use to make a more
+informed a better decision yeah that's
+right in some cases that may be just
+simply reinforcing what they already
+knew absolutely but now
+given the evidence and now understand
+why what they were exacting and what
+they were thinking makes sense or in
+some cases is going to bring up ideas
+that they hadn't thought of themselves
+right maybe about something that's new
+that in the market that they're not
+aware of or they didn't know exactly how
+that could be applied to that patient's
+actually if all we can do is kind of
+reinforce their own thinking and then
+extend it with some new ideas exactly
+we're gonna make a tremendous difference
+in the healthcare industry completely
+Greek in fact I may have actually shared
+this saw on another another episode on
+my youtube channel all of as you
+probably know you know you're working
+with IBM Watson of course so you
+probably all remember this example there
+was a an IBM er who actually wanted to
+see if they can create or find new drugs
+for Parkinson's with IBM Watson hmm so
+what did they do
+mm hmm they talked I've been watching
+this drug discovery service and they you
+know fed on all these sorts of data
+points using the you know doctors health
+of special itself of course are not
+placing that we're helping on what it
+did is it once through the entire posit
+ori of drugs that has and it says these
+drugs which have never even been thought
+before yeah yeah by doctors to be linked
+to parkinson's apparently are more
+effective than current medicine well if
+I can find the association between the
+drugs that are out there the kinds of
+proteins of the act on exactly what that
+chemical reaction is and then therefore
+understand what their correlation might
+be between that drug that protein and
+other diseases that have similar kinds
+of protein and based effects and you
+know those are those are opening up a
+whole new idea of how these things that
+we may already know about could be
+reapplied to new things completely agree
+in fact if you think about it automation
+is something that's taking over us our
+lives so we're gonna write we've have we
+have these virtual agents for our phones
+right the the we make cars almost
+completely automatically this is our jaw
+then the cars drive themselves mm-hmm
+but what we haven't completely done yet
+is imagine you're a doctor okay and
+you're going through you know spending
+years finding drugs for diseases
+that is such an inefficient process hmm
+you want to actually take a look at what
+we've done with you know Watson and they
+are drug discover you think why haven't
+we mended this before Yeah right
+and that's where the AI comes in well it
+isn't is but it was interesting about
+the case that you described is this a
+perfect example where it in efficiencies
+exist because we all have our biases act
+right we tend to as if you're in the
+drug discovery space we go back to the
+things that we know say and we know the
+things that we know because we've been
+reinforced on how well those things have
+worked for us in the past and that
+creates this sort of tight loop exactly
+in results and bias and so we only look
+for answers in the way that we think
+about the problem exactly whereas most
+of the opportunity I think exists in
+places where we're not thinking about
+the questions without thinking to ask
+exactly ever you find a system that
+inspires a spoon finance system that
+brings just the right information to the
+right moment right in the right way and
+interact with this in a way that causes
+us to think differently the result will
+be that it opens our mind to different
+possibilities and you know being more
+effective and more efficiently
+exactly in fact some of the barebone
+reasons for why AI is so much better
+than us it's first of all again not
+trying to replicate the human mind so
+those limitations like for example are
+biased towards simple and repeatable
+patterns yeah they're moved yeah but for
+example if I'm looking at you know the
+Bitcoin price over the past few years
+right my brain will tend to go towards
+simple in the fuel patterns
+yeah and my brain won't see those habits
+yeah my brain will think it's just
+random noise yeah but AI can find small
+patterns that aren't necessarily simple
+right it can find patterns that don't
+repeat themselves very often it'll find
+those very very small distinct patterns
+yeah the patterns of meaning exactly
+find the meaning in such vast complex
+data yeah that's why it's so special and
+that's why it's so useful for example as
+mentioned drug discovery and the rob was
+actually mentioning this during our
+session later earlier this
+earlier today and that is that for
+example as humans let's just say we find
+this truck right you might think oh wait
+we just someone upon the drug this is
+our first answer this is something that
+we might want to go towards this is
+something that we want to continue
+research there right there
+but the thing that AI does is it says it
+won't just stop at the first answer if
+it'll continue looking through all the
+answers and say this yeah these are the
+drugs that you need to test it'll say
+these drugs definitely won't work filter
+them out mmm look at these always test
+these on the doctors boys test them
+I'm similarly with question answering
+systems okay our decisions right sort of
+decision system it's not stopping how
+the first answer it's looking through
+everything saying where could really be
+the best of all will turned an example
+that we got to bring to your attention
+exactly and that's right yeah I mean in
+the point that we were making earlier is
+that often times in any kind of business
+in the situation we're a little bit
+motivated just to find the first best
+answer exactly right not the best answer
+but the first one that we find he's good
+enough if it's the problem exact because
+if it works then we're going to use it
+on the next issue exactly and our day is
+spent almost you know I'm in and out
+going through this series of decisions
+like that completely the result being of
+course this is what drives the same two
+holes and so we have dark alleys and two
+things that we can't get out of just
+because we didn't consider what the
+alternatives were and of course you know
+there's a time essence to all this as
+well yeah we got to find these answers
+really without it being something that I
+drag off like 10 issue this you can't
+spend the entire month off just one oh
+that's right
+right you have to do it quickly but at
+the same time it needs to be effective
+there's the quantity but it also has to
+be you know high quality yeah that's
+right that's what helps us do it helps
+us find the best decisions in the
+fastest way right because it allows us
+to do our jobs so much more efficiently
+that's right and again it's not about it
+making the decisions for us it's about
+it Britain inspiring us too big better
+decision exactly exactly so there's a
+lot to be that to be said about that but
+I also think there are some things we're
+missing yes yeah I'm sure Zee presuming
+hey I can do everything now that humans
+can do guys it's very easy for us as
+human beings to imagine yeah that this
+because it can solved this problem which
+is very similar to the problem that I'm
+familiar with being able to solve means
+that it's necessarily I'll be able to
+answer every other kind of question out
+there it's not about solving the broad
+range of things that human beings are
+able to think of but we also shouldn't
+presume that that's our goal either no
+yes not we're not thriving to go great
+there you know as he said replicas of
+the human mind what we got otherwise
+referred to as jelly I yeah there are
+places where we can apply the technique
+of artificially reasoning about a
+problem that by itself doesn't
+necessarily replicate the human but yet
+still causes yeah think that things
+differently and don't presume that we
+understand the human mind well enough to
+be able to assume that later on we could
+ever get to the point of creating a
+fully replicated human mind in these
+artificial intelligence systems exactly
+and as we said earlier that's not even
+the point anyway because doing so is
+only mean that we're replicating the
+same flaws yeah exactly
+but you know there is an opportunity and
+there's economic incentive to build a
+system that will augment our intolerance
+absolutely no extend it was sort of
+strengthen our own cognitive
+capabilities and extend our intelligence
+our reach right your cognitive reach um
+which makes it very similar to almost
+every other tool yes that we have ever
+experienced that has had lasting value
+I'll think about the history of all the
+tools that have ever been created
+yeah the one thing that you'll find
+consistent across all those tools is
+they've had the effect of either
+increase our strength or sting our reach
+right whether those were hydraulics or
+pneumatics or pulleys and levers or
+hammers or I mean all these kinds of
+tools of good they go yeah have had that
+same character absolutely absolutely and
+like for example now if we would use
+artificial intelligence if we were to
+use what AI is good at for
+for example pattern
+okay if we were to use it in fields like
+say self-driving cars yeah
+that's extending our reach it's
+extending what we can do as humans yeah
+like for example as a cancer specialist
+you don't need to spend as much time
+necessarily finding the correct
+information and diagnosing the patient
+then working on the treatment that's all
+you need to do is use the AI find the
+right resources and from there yeah I
+know you'd make advantage it makes
+better decisions and faster decisions
+that's what yeah
+thank you Michael without sacrificing on
+accuracy in fact increasing yeah yeah
+and this becomes a little bit more
+obvious we'll talk about something like
+ecology and the benefits that will bring
+to the healthcare professions I mean but
+think about it in our everyday lives
+oh how many decisions we make every
+single day and we don't know home or in
+the office or you know in in you know
+going to the doctor or they're driving
+their cars how many of those decisions
+that is he said we don't think about but
+yeah if we had the benefits of a
+cognitive system sort of challenging us
+to think about the problem well
+differently would change the way that we
+come to these conclusions and the
+efficiencies of our day
+exactly alright so that concludes a
+ihcafe episode number two thank you very
+much everyone for joining you today
+thank you very much for joining wrong
+thank you
+of course thank you I hope to do another
+video with you very soon in fact if you
+haven't already watched the previous
+video I did with Rob please do check
+that out there will be a link down in
+the description below
+apart from that though if you enjoyed
+this video please do make sure to leave
+a like down below apart from that if you
+have any more questions suggestions or
+feedback you can leave it down in the
+comment section below email it to me
+attaching a gmail comm unit to me
+attaching any and raah hi where can the
+viewers contact you at our high ion
+tweet on Twitter and as Robert hi on
+LinkedIn
+great apart from that though if you
+really do you know enjoy this content
+and want to see more of it please do
+consider subscribing to the channel as
+models that really does help out a lot
+and that's gonna be it for this video
+thank you very much goodbye everyone
+thank you

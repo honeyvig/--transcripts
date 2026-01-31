@@ -1,0 +1,410 @@
+so hello there and welcome to another
+tutorial my name is Tammy Bakshi today
+I'm joined by Mark Sturdivant once again
+you may have seen another tutorial that
+having mark just a little while ago and
+now mark is joining us back so thank you
+very much for joining mark sure of
+course
+glad to have you one so now mark today
+we're going to be talking about powering
+a vision we're gonna be talking about
+this great new tool runs on power AI and
+it allows us to do object detection and
+age classification tasks in really easy
+ways in fact more specifically it works
+with images and videos as well they may
+have already seen I do have a video on
+power and vision on my channel already
+however now there's a new version and
+let's talk about power and vision and
+what it can do now so Marvin do we know
+the quite a few of your code patterns
+and what you do or rolling around power
+AI so would you like to quickly sort
+walk us through why you like powering
+our vision and what you've been doing
+with it sure well I like power a vision
+is well partly being built on power EIU
+get the performance of platform you
+don't think a whole lot about installing
+all the pieces you need to deep learning
+so I don't even think about that
+whatever they scour a vision and then
+what I really like is how easy it is use
+mm-hm
+you don't really have to think about you
+know putting your images in different
+folders and writing code to label them I
+like to code but a bunch of that is it's
+things you just don't need to do yeah so
+it's very simple in there if you want to
+classify images you're just gonna drop
+them in there
+and say what the classification is if
+you want to do object detection you just
+grab your images and you draw boxes and
+press buttons and go and train and then
+it's easy to test right there in the UI
+as well you don't even need to write
+code to test it and see how it's working
+out so it's mostly about ease of use to
+me yes that's great that's great in fact
+there are lots of extra features as well
+like I mean as you were men
+the code and stuff really deep learning
+the majority of it isn't about the code
+it's really more about the technique
+that you're putting behind that to do
+that you're giving it the technique they
+are pretentious that you're using with a
+deep learning models and then of course
+a big part of it is still the code and
+the optimizations you put into it and
+how exactly they're implementing it your
+platforming but now we've talked about
+sort of why you like power a vision
+let's just quickly go over a few of the
+things that allows us to do like for
+example of course you can actually take
+a look at the code patterns that we have
+on power AI vision that Marcos developed
+if you'd like to find out exactly how
+you can use power and a vision in fact
+in just a moment mark will be giving you
+a demo of power a vision in action but
+one more feature that I'm really a fan
+of is the fact that for example let's
+just say I'm trying to protect st.
+Mark's demo cars and videos
+now of course videos are facts they have
+lots of images and they're basically all
+put together so if you're trying to find
+cars and all those images you're gonna
+need to label a lot of cars and very
+large changes from one image to the next
+very little cars are moving fine Avenue
+pixels each time because they have such
+a high frame rate you don't want to keep
+labeling those boxes over and over and
+over again and that's where power and
+vision comes in what it allows you to do
+is create training corpus purposes and
+then upload those over to a model so we
+can make sure we get trained and once
+you've got a trained model and you can
+actually choose the kind of model you
+can use early faster our CNN partner
+recurrent convolutional neural network
+you can use the you only look once the
+yellow network the tiny version you can
+use practically any kind of model you
+want and from there you can use that
+model to actually retrain or not retrain
+to auto label data that's already in
+your training set so let's just say
+there's some data that you haven't
+labeled yet like repetitive data and it
+frames after something you've already
+labeled
+you can go ahead and have the service
+automatically left for you using that
+train model and then you as the domain
+expert you know the person who's trying
+to find
+is human you're just going to go through
+that and all you need to do is make sure
+that the data is correct you need to
+make sure that the data is exactly what
+you want a model to predict once I once
+I draw a bounding box around a car I
+don't need to say and here's the card
+here's the card here's the front here
+here's the car it can figure that out
+even on their models not complete you've
+got enough to do that and they will also
+say here's a similar car similar car
+similar exactly you can save yourself a
+lot of time with that that is growing
+and also the augmentation thank you that
+gives you a much bigger data set the
+better accuracy oh yeah
+so there again it would be a little bit
+of code if you're doing this in a
+notebook or something to say alright
+let's take these images and also augment
+them to expand my dataset so I can
+recognize a car that's a little blurry
+or a little fuzzier yeah their angle
+well it can do that with a push of a
+button
+yeah so you've got the easy interface to
+do some labeling spring
+you've got the auto labeling so it says
+oh I'll do some similar work for you
+like that yeah but then you also press
+that button it's just a button and you
+say what kind of augmentation do you
+want
+sometimes upside down is it yeah
+sometimes it's not exactly and if you're
+trying to do faces you all flip it
+upside down well I don't mind
+recognizing faces when they're upside
+down
+still a face you would really you're
+going to do say facial recognition in
+some cases you might want to recognize
+if it's upside down make a right side up
+so you can do facial feature detection
+but yeah that's all the specific
+question if you want to recognize and
+and come and press that elevator button
+for somebody the up arrow and the down
+arrow yeah they are not the same yeah so
+certain things
+yeah but augmentations so you get to
+choose those things and it's the press
+of a button and then your dataset
+expands and your accuracy will be
+greatly improved and to do that with
+just a push of a button inside out it's
+amazing so like for example if we've got
+say some sort of data set and we want to
+increase the amount of images and all
+you really need to do is again as you
+mentioned mark you just push a button
+and it's gonna
+by introducing new images by doing
+simple things like cropping a little bit
+maybe a little blur to it maybe flipping
+around horizontally or vertically doing
+all these sorts of little changes to
+make lots of versions of all those
+images to increase sort of the neural
+networks grasp on what these things
+actually are so it's actually able to
+find out what it's looking for rather
+than looking at other things in a scenic
+trying to correlate them to what it's
+looking for so instead of instead of
+needing a bigger dataset to create a
+great model yeah sometimes a small one
+that's been tortured and tweaked a lot
+of it
+yeah is almost as good as having a bunch
+of the exactly and even if you have a
+really big data set it's always good to
+augment it so that the neural network
+knows what it's doing when it sees like
+a flick image or anything so it's
+invariant yeah you might have too much
+of certain angles in language and focus
+where the augmentation helps say you
+know it doesn't really matter whether
+it's a fuzzy picture or banks and the
+faces faces a button yeah
+all right so now that we've talked about
+power animation what it allows you to do
+of course there are lots of more
+features like as I mentioned we just
+went through object detection but
+there's also image classification the
+numerous other components like for
+example image classification isn't just
+image classification is a bit more to it
+what you can do is just like you can
+actually go through videos and images
+and you can draw boxes around certain
+objects and recognize what they are you
+can also recognize in general what a
+scene what image depends using of course
+the image classification feature and the
+best part is that not only is it going
+to as output give you what classic
+believes images are it's when you use
+some more output like for example it
+will use the grad cam algorithm in order
+to provide a heat map of how exactly the
+neural network activated to each pixel
+in that image so for example let's just
+say we're trying to detect birds and we
+want to figure out is a neural network
+looking at the bird to say it's a bird
+or is it looking at the sticks and
+branches to say it's a bird because you
+know some cases a model might over fit
+to saying hey if there's a branch
+there's a bird because it's easier to
+take a branch that work the great thing
+deep learning is we didn't have to tell
+it exactly specifically how to recognize
+the bird gets it figured it out without
+that it would be way too tedious to do
+oh yeah but that leaves a lot of magic
+if you don't know what it was thinking
+maybe so it's great to see the map so
+you start to I understand that might not
+have been thinking the way you wanted it
+to exactly sorry I'm gonna see those
+activation asking me like here the knurl
+number because maybe how we were
+supposed to maybe a bit more
+augmentation maybe a bit more date or
+maybe a bit more accurate classification
+this is all stuff that can go behind
+your decision thing usually you might
+not need to guide it that much you just
+tell me I knew your dataset is not gonna
+give you the results you will hey
+exactly get a different data set things
+I add to it do something different you
+know absolutely absolutely and there are
+lots of other features but now we talked
+about power and vision on what I can do
+I think it's time to take a look at a
+demo of power a I envisioned in action
+so mark will just show us a quick demo
+sure I'll take a look at the counting
+cars code pattern so we can look at that
+and that's available online at
+github.com slash IBM slash power AI
+counting cars
+and here we took a video a very simple
+short video we wanted it to be easy to
+go through for a developer and train but
+then as the cars are coming we identify
+them and track them and count them
+that's burning it's a good example of
+what you can do with power bi in a video
+absolutely alright let's take a look at
+power a vision here we are in power a
+vision so what we're going to do is
+first we'll create a data set just using
+a single short video and then we'll
+label some objects in that video so I'll
+do manual labeling to label the cars on
+a few frames of the video then when we
+train and deploy that simple model but
+I'm going to use that and use automatic
+labeling to label cars in many more
+frames
+so I'll just create a dataset by giving
+it a name and I will drag and drop my
+video file to create a dataset based on
+that one simple video file it's a very
+similar process if you're creating a
+data set from images again you can just
+drag and drop and import files next I'll
+manually label some cars so first I need
+to add an object I'll just click on add
+object and call it a car
+now let's manually label some cars in
+this video so I'll select the video and
+going to label objects now you have a
+nice editor first the first thing we
+need to do is pull some frames out of
+this video so that's very easy here we
+just click on auto capture frames I'm
+gonna select every five seconds it's
+only a 30 second video so and I only
+need a few frames right now so I'll use
+auto capture and you'll notice it
+selected the frames now I can go in and
+label cars so I'll click on my label and
+they'll just draw bounding boxes around
+the cars now this part it's okay it's
+kind of fun to do a little bit of manual
+labeling get to draw boxes around some
+cars so I'll do some of this remember
+I'm trying to create my initial model so
+6 frames about 30 cars should be a
+decent model for what I'm trying to do
+again this is a simple example but let's
+speed this up a little bit and get into
+Auto labeling so this part that I'm
+fast-forwarding it really only took a
+couple minutes but you don't need to
+watch two minutes of me drawing boxes I
+think you get the idea that manual
+labeling for a larger data set would be
+a bit of a problem you really want to
+take advantage of that model that you
+can create with a small amount of
+labeling and then use that with
+automatic labeling to label many more
+frames with many more cars I labeled 27
+cars in 6 frames so now I can click on
+done editing and we're ready to train
+our model
+to train a model power a vision once
+again gives us a button so we don't have
+to do any coding so I just press the
+train button I want to make sure that
+the type of training says object
+detection remember we're not just doing
+car or not car we want to detect each
+car in each image so then I click the
+train button now trainings going to take
+a little bit longer so again I'll speed
+this part up and then we'll come back
+and we'll do automatic labeling wow that
+was fast
+I guess it's mostly due to movie magic
+but also we are running on power systems
+and leveraging GPUs so now that I have
+this model ready to go I'm going to
+click on model details I'll deploy this
+model so the model once it's deployed is
+ready to use you can call it via REST
+API and do object detection in your code
+but what I wanted to show you first is
+how we use this model with auto labeling
+to increase the number of labelled cars
+in frames in our video the models ready
+so now let's go back to our cars data
+set this is the original data set with
+the video with the 27 cars that I
+manually labeled now I'm going to go
+back in and click on label objects I
+have a cars model that I can use now so
+I'll click on auto label this time let's
+do every second and I'll choose my train
+model which is already deployed called
+cars model I click on auto label now
+this time I'm not going to speed up the
+video this is going to be much faster
+than my manual attempt to label cars so
+if you see it's already done it
+extracted probably 30 frames and it
+labeled the cars in all the frames
+actually the ones that are green here
+were auto labeling the ones that are
+done in blue are the ones that I
+manually labeled earlier so I can just
+click through them you can see all the
+labeling that it did for me it's
+significantly increased our data set
+from 6 frames to 30 from 27 cars to I
+think one hundred and fifty now this is
+a very simple example
+but in your real-life use cases you
+probably have more complicated datasets
+you'll probably need more examples
+better examples but this is a great one
+for developers to try out and experiment
+with so now let's train this again now
+that I've got 150 cars and that's the
+model I want to deploy that I will use
+in my example application for my code
+pattern I hope you try out the code
+pattern if you do this is what you can
+produce now this is the same camera
+angle the same Road different cars we're
+using Python and we're calling that
+deployed model to locate cars and then
+we're using OpenCV to annotate the video
+and track them and count them it's
+really a great code pattern it's fun to
+try out and experiment with feel free to
+take it and innovate

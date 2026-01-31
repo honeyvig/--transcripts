@@ -1,0 +1,389 @@
+so hello there and welcome to another
+tutorial my name is tanmay bakshi and
+today
+we're going to be taking a look at how
+you can modify the python interpreter to
+add your own custom functionality
+this is a really interesting topic and
+before i get into it i do want to start
+off by saying that if you enjoy this
+kind of content you want to see more of
+it please do make sure to subscribe to
+the channel as it really does help out a
+lot and make sure to like the video if
+you did enjoy it turn on notifications
+so you know when i release content just
+like this one today
+and if you have any questions
+suggestions or feedback feel free to
+leave it down in the comment section
+below
+and i'd love to get in touch now diving
+right into this first of all
+why would you want to modify the python
+interpreter well
+i got into this when a couple of weeks
+ago one of my friends reached out to me
+they were working on an assignment and
+as part of this assignment they wanted
+to look at the performance of allocating
+lists or arrays
+within python and i thought well
+wouldn't it be interesting to not only
+take a look at the performance of lists
+but also see what's happening internally
+under the hood within the interpreter
+whenever you want to
+say append something to a list and so i
+did and this led me to this whole
+journey of modifying the python
+interpreter to get it to do
+what i want it to do now before i get
+deeper into that though
+i want to start off by explaining a
+little bit more about how lists
+work in programming languages in general
+and then we'll get to modifying the
+python interpreter
+if you already know how how this works
+you can skip over to the next chapter of
+the video
+where i actually explain how to modify
+the python interpreter but first let me
+explain how lists and sort of resizable
+arrays work in general now let's just
+say you're working with the c
+programming language of course let's
+just say you want to store a collection
+of numbers
+what you would usually do is you would
+say run a malloc for a certain number of
+integers
+and your operating system your kernel
+rather would give you a memory buffer
+and within this memory buffer you're now
+free
+to store whatever data you want but
+here's the thing
+this memory buffer is technically not a
+resizable array in the way that we think
+of it in higher level programming
+languages like javascript or python or
+swift
+it's a constant sized memory buffer so
+you can't just append things to it
+willy-nilly you have to use the contents
+of the memory buffer that you were given
+so
+let's just say you start off having a
+collection of just a single number
+but now you want to add a second number
+how do you do that exactly
+well your kernel more than likely also
+supports another operation
+called a real lock what a real lock does
+is it takes your original memory buffer
+that you've already mallocked
+and it effectively helps you increase
+the size of that memory buffer
+now internally within your kernel there
+are two things that can happen
+either a your kernel says this memory
+buffer is already large enough so i'll
+just say all right you can use one extra
+space within it
+or let's just say beside your memory
+buffer there's a different buffer that's
+being used either by a different program
+or by
+your own program somewhere else then
+what the operating system will do is
+it'll allocate an entirely new buffer
+copy over your contents and then free
+the existing one
+and then it'll return to you that new
+buffer effectively no matter what
+happens under the hood
+you now have a new memory buffer with
+this new size
+that you can use so now you can insert
+your second element and you can keep
+doing this every time you want to append
+something you can run another you can
+run another
+reallocation request in a lot of the
+cases these reallocation requests are
+really really cheap
+because you just want to add like say
+one more set of four bytes
+and therefore the operating system can
+mostly just extend the size your memory
+buffer
+but there are some cases where it can't
+do that and it's forced to allocate a
+new buffer and copy over your contents
+that is slow it's a very expensive
+operation
+so as a programmer you want to minimize
+the number of allocations and
+reallocations that you do
+especially because then you've got a
+copy over the memory buffer
+now how do you do this exactly well one
+of the most effective ways of
+implementing resizable arrays like this
+is by effectively increasing the amount
+of capacity you reallocate every single
+time so maybe you start off
+with a capacity for a single element but
+then
+the next time you try to append you
+actually now have capacity for
+two elements again that's normal you've
+added one extra
+element to your buffer but now when you
+try to append a third
+you don't just allocate three spaces you
+allocate four spaces total
+so you double the size of your memory
+buffer then when you're at four you're
+trying to append a fifth
+you don't just add a fifth you go to
+eight again you
+double the capacity of your memory
+buffer even if you're only just
+inserting a fifth
+what that means is that your sixth
+seventh and eighth insert operations are
+now completely free they're 01 cost
+right it's it's literally just the speed
+of how quickly you can insert something
+into a particular spot in ram and if you
+just keep doing this
+then you will effectively have amortized
+01 cost
+for appending to an array that is how
+resizable arrays work in these
+programming languages
+and effectively what i wanted to do was
+track
+within python how many sort of
+how many individual elements it actually
+allocates in advance when you try to
+append something new
+to a list and then figure out if we can
+actually spot where the reallocations
+happen in a timing graph
+based off of spikes in the amount of
+time it takes to append
+a certain value to a list and well it
+turns out
+you can do that and so i went ahead and
+modified the python interpreter to add
+that functionality that i required and
+now let's get a little bit deeper into
+how i did that now python is special
+it's an interpreted programming language
+that means it's not compiled
+that actually makes our work quite a lot
+easier in this case
+because if python were like swift or c
+for example then i would need to modify
+the underlying assembly code that they
+generate however in python's case it's
+never generating any assembly code for
+your code
+all it's doing is it's a program looking
+through the code you've written
+and executing it quite literally
+practically line by line
+it's a bit more complex than that it can
+do some level of just-in-time byte code
+compilation but you really don't need to
+worry about that as
+it's very rarely actually used uh
+now getting into how this python
+interpreter works let's just say you
+were to create a new list within the
+python language
+well what happens is internally what the
+interpreter's done is it's created a
+backing structure within the c language
+and that structure contains information
+like for example the capacity of this
+list
+how many things are actually within the
+list how much capacity you're using
+as well as the actual pointer to the
+memory buffer that is backing the list
+in and of itself
+now that structure you don't have access
+to within python because you don't
+exactly have raw access to c structures
+in general in python
+when you access the list you're
+accessing a python class
+that is internally backed by that
+structure within the interpreter itself
+and so whenever you append something to
+a list you're really
+you know through the call stack calling
+a c function that's that's
+working on appending uh to the buffer
+within that list's internal structure
+so here's my idea within that append
+function
+there is a call to another function that
+is responsible for resizing the list
+should that become necessary so if i
+were to modify the resizing function
+to somehow set some kind of flag of some
+sort within the actual structure
+whenever a resize is done then there's a
+way that i could potentially detect
+that flag from within my python code and
+i would know
+when the list has been resized how did i
+do this exactly well first of all
+i took a look at where the actual list
+structure within c was located i found
+that within a header file and you can
+see that
+now then i added an extra variable to
+the structure for python's list
+structure
+and i call this variable was resized
+it's an integer but i really treat it as
+a boolean value
+its value is either going to be 0 or 1 0
+if the list was never resized or 1 if
+the last append operation caused or
+resize internally
+then what i go ahead and do is modify
+the code where python creates a new list
+to initialize that variable to zero in
+the beginning when someone creates a new
+list
+this is important because it previously
+may be filled with garbage memory
+from whoever was using the memory buffer
+before malloc decided to give it to us
+then within the resize operation if we
+do go ahead and call reallock
+i then set the was resized flag of the
+python list object structure
+to 1. this can tell me within my python
+code that the list was resized
+now i can go ahead and recompile the
+python interpreter and that's right you
+just
+recompiled it from scratch you've
+created your own build of python which
+is pretty incredible
+and i can go ahead and run it now a
+couple of things to note
+first of all the python programming
+language
+isn't actually what you run on your
+computer python is a programming
+language is only a specification
+more than likely when you run python in
+your terminal you're running what's
+known as c
+python which is a specific
+implementation of the python programming
+language specification
+c python is what we're actually
+modifying today it's entirely open
+source
+but once again here's the thing i just
+added a flag to the list object
+structure
+but i don't have access to that
+structure within python so what do i do
+well what i decided to do was actually
+write another bit of c code
+this other bit of c code had knowledge
+of what the python's list object
+structure is because i imported that
+header
+and what i did was i basically created a
+very simple function all this function
+does is it takes the pointer to the
+internal list object structure
+and it returns to me the value of the
+was resized flag
+meaning i don't need to try and access
+that flag directly from python because
+now
+i can just call this c code from python
+to access the structure for me
+and here's what's really convenient if
+the was resized flag was already set to
+one
+it will return one to me but first it
+will reset the flag to zero
+meaning that if in the future another
+append operation does a resize
+the flag has been reset and i can detect
+that in the future as well
+then i put together a very simple python
+script all it does is it puts together a
+list
+and continuously pens a bunch of
+elements to it and every single time a
+resize operation is detected
+through my c code it goes ahead and
+resets a counter
+and it creates effectively a list of how
+many elements were elapsed
+between resize operations now let's go
+ahead and run this code and see if it
+works
+and as you can see the python script
+goes ahead and prints out
+the number of elements elapsed between
+individual resize elements
+resize operations and as you can see
+over time
+it takes more and more append operations
+in order to trigger a resize
+that is why the append operation can
+effectively be thought of
+as having 01 cost because it amortizes
+over time it averages out
+to effectively having 01 cost you don't
+need to worry
+about those few times it's doing resizes
+and that is how you can modify the
+python interpreter to add your own
+custom functionality i do hope you
+enjoyed this tutorial but then again
+this is just the tip of the iceberg
+there is so much more you can do
+by modifying the internals of these
+programming languages
+to do some really interesting stuff as a
+matter of fact if you want to see me
+modify a specific language to do a
+specific thing
+please do feel free to leave that
+request down in the comments section
+below
+i'd absolutely love to take a look at it
+and potentially create another youtube
+video on modifying some more programming
+languages
+once again i do hope you enjoyed that
+tutorial if you did please do make sure
+to leave a like subscribe to the channel
+if you enjoy this kind of content and
+turn on notifications so you know
+whenever i release a new video
+and uh leave any questions suggestions
+or feedback down in the comment section
+below or reach out to me via
+email or social media once again i'd
+love to get in touch thank you very much
+and
+goodbye everybody

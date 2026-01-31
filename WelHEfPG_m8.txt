@@ -1,0 +1,257 @@
+so hello there and welcome to another
+tutorial my name is hen Baki and this
+time we're going to be going over my
+first iot video so to begin what is iot
+I will be releasing another video on the
+topic really going into depth about what
+iot is and what it means however I'm
+just going to quickly explain it
+Internet of Things is quite
+self-explanatory
+it's literally just lots of things
+connected to the internet so they can
+all they can take their data and get
+them analyzed by something like IBM
+Watson which uses machine learning in
+order to benefit you or someone else or
+something for example your exercise
+machines like your treadmill could
+connect to your Apple watch and it could
+give Health Data or exercise data and
+your Apple watch could then send that to
+your iPhone and have that processed by
+Watson algorithms and stuff and finally
+give you output in the form of what
+workouts you should do how many calories
+you burnt how what sort of meals you
+should have if you want something really
+faing but least calories that sort of
+thing how much have you exercised have
+you gone over your goal are you going
+under your goal stuff like that and so
+again tradeoff analytics with another
+Watson service would be great for that
+but continuing that's basically what iot
+is however today I'm going to be showing
+you how to be how to create a starter
+iot app in Blu miix and so actually I I
+met up with uh Marcus van kempen uh who
+is an executive architect at IBM a few
+days ago uh and so we were discussing
+things like uh Watson hardware and
+especially iot because that's where he's
+sort of um working uh and so you know he
+taught me a bit about this iot stuff
+with blue miix and so as part of my
+knowledge sharing uh t bakshi uh slogan
+uh I'm going to be sharing my knowledge
+about this with you so let's begin uh
+and so to start now first of all I'm
+going to be uh bringing to your eyes
+another device that you probably have
+not yet heard of it's called the ti uh
+you know what give me one second oh
+never mind about that okay so
+TI sendor
+kit now the ti sensor kit is just a
+little device sometimes if you get it in
+a red case I mean it could look like
+this but never mind that it looks
+however but basically it's a the ti
+Texas instrument sensor kit has 14
+sensors on there including humidity
+temperature accelerometer gyroscope
+magnetometer and uh the light meter
+um and lots of things like that
+basically um and so you know it has 14
+sensors on there uh and all of them are
+accessible via via
+Bluetooth also one more device you
+probably have heard of your
+phone is something you're probably may
+be using right now but uh basically you
+all know what a phone looks like and all
+phone looks different but basically it
+has one main sensor that no JS can
+easily access which is the location
+sensor okay and so B basically what
+we're going to do is we're going to use
+a node.js app coded by Marcus um and so
+basically we're going
+to use the location sensor on the phone
+to Output stuff on node red which is a
+Blu miix service and also something
+created by IBM and then we're also going
+to use later the sensor kit with node
+red and output sensor data but then in
+part two actually I'm going to be
+describing to actually how to create
+this stuff uh and then in part three I'm
+going to be showing you a actual sort of
+practical example okay let's
+continue so now let's look at the blumi
+side of things now in blue
+miix all we're really going to do is
+first of all um
+deploy um
+sorry we're going to
+deploy Marcus
+sample so basically um Marcus has
+prepared some sample code for us to work
+off of and so we're going to deploy that
+to Blu miix and then we're going to
+create a
+node
+red starter
+app okay so a node red
+starter so that's basically all we need
+to do on the Bloomix side however
+there's also going to you're going to
+have to use another device called a
+Macbook or a Mac actually just Mac OSX
+the operating system and so basically
+you have to have a Mac with Bluetooth
+low energy uh enabled Hardware I mean
+this could work for Windows and Linux
+but I will I might be putting links in
+the description uh that contain links to
+repos that may help you uh with
+connecting the ti sensor kit to uh Linux
+or Windows but then again you have to
+have Bluetooth low energy on your system
+I'm not exactly sure if uh there are
+scripts online for that but I will try
+to find them and put them in the
+description if they are
+existing okay so now first of all what
+our goal is is to take this phone sensor
+data location sensor data
+specifically and bring it over to Blue
+miix and specifically debug it into node
+red how are we going to do this let's
+begin once we deploy Marcus's sample
+this is essentially going to be
+accessible from both node red and the
+phone so what we're going to do is once
+we have the sort of host name in Blu
+miix I'm sure you've used Blu miix
+before once we have a host name in Blu
+miix uh then we're going to take that
+host name and run that website on to our
+phone so we're going
+to open up the website on our phone now
+it's going to ask uh first of all if
+you're on iOS It'll ask you if you can I
+think Android does this as well but
+it'll ask you uh if you want if you like
+to allow this website to access your
+location sensors and probably say yes
+because of course you want it to be able
+to access your
+location then uh It'll ask you to enter
+a um unique identifier for your phone
+which I mean anything tan May whatever
+will work your name actually but it must
+contain only letters and numbers uh no
+spaces uh and so uh once that's done uh
+this will start posting um location
+sensor data into the uh cloud and DB
+database uh on the app uh and so now
+this also this app also contains a iot
+starter Foundation kit Service uh and so
+basically that uh service can be
+connected with node red so let's just
+say we have that iot service here and so
+basically what I'm going to do is I'm
+going to connect Marcus's deploy app
+deployed app to this iot and then this
+iot into no node red and then what we
+can do is from node red print out stuff
+so we can print out location sensor
+data location data okay that's that
+that's how we would get location sensor
+data from our phone whether it be
+Android iOS whatever we're going to take
+this put it into Blu miix specifically
+the app which goes to an iot Foundation
+starter kit um Service uh come over here
+uh and then goes into the node red
+starter which will then print out
+location data from the phone that's that
+but how are we then going to connect our
+sensor kit to Blu miix well this is how
+do we do it how we do it first of all
+we're going to configure some settings
+in the iot we're going to um start
+working here and stuff so nothing really
+that I can explain right now we're going
+to have to do that in the implementation
+part which is the next part okay so in
+the iot we're going to do some settings
+fiddle around here and there uh so they
+can actually recognize the sensor kit
+however next what we're going to do is
+pretend actually what we're going to do
+is via Bluetooth low energy b l e
+Bluetooth low energy uh we're going
+to establish a sort of bir
+directional communication protocol
+which can essentially allow the sensor
+kit and the Mac to communicate with each
+other and then what we're going to do is
+in a
+nodejs I hope you can see this
+node.js um thing in the nodejs script in
+the Mac uh side we are actually going to
+take this BL this uh TI sensor kit um
+location data magnetometer data every
+single for every single one of the 14
+sensors on this uh little board we're
+going to take that sensor data uh bring
+it into node.js and then into straight
+skip Marcus's app it's just going to go
+straight into the iot service which of
+course node red is already connected to
+and so then finally we can print out
+TI uh sensor kit SK
+data now what is an example use of this
+sensor kit well let me
+explain now let's pretend now in this
+example we're using location data so
+since the sensor kit has acceler uh
+acceleration uh and motion uh motion
+location data let's say you're shaking
+it really fast like just really shaking
+it it'll start speaking I mean not
+speaking because it doesn't have a
+speaker on board but it can actually
+print out to node red please stop
+shaking me something like that how and
+let's say you bring it down really low
+it's going to use that location data and
+print out to to node red please please
+raise me up something like that and so
+then you can continue on and say get the
+magnet away from me if the magnet
+magnetometer data is really high stuff
+like that that's just an idea so now uh
+in the next part we're going to be
+talking about uh how to implement this
+in blue mix and then some more practical
+examples like please pick me up from the
+ground that's going to be it for today I
+hope you enjoyed if you did please
+contact me via Twitter at tajim Manny if
+you want to contact me on my email tajim
+Manny gmail.com comment down below if
+you have any more questions suggestions
+or feedback you can also email me a
+video question uh if you have uh a video
+question of course and I might just
+feature it in one of my next videos
+that's going to be it GitHub 10 and
+beond 3 hope you enjoyed the video If
+You did leave a like please and
+subscribe does really help out for me uh
+and that's going to be it for this video
+goodbye

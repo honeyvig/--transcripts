@@ -1,0 +1,1279 @@
+so blow there and welcome to another
+tutorial my name is Tammy Bakshi and
+this time we're going to be going over
+how you can use Twitter kit and of
+course the Watson natural language
+understanding service in order to create
+an application in mind that I like to
+call T so Morton a social media analyzer
+now the point of this application is for
+use people attract the sentiment of
+different posts of users on social media
+over time regarding a certain search
+query now this is applicable to
+absolutely any social media platform in
+fact if you were to apply a visual
+sentiment developed by Facebook you can
+actually go ahead and even do this on
+Instagram and many other kind of social
+media as well however for now I'm going
+to be focusing on textual social media
+and in this case Twitter but you can
+very easily expand this to Facebook or
+practically any other kind of social
+media that uses text because it's a very
+simple API integration and of course
+with this search so let's begin now in
+essence this is going to be created in
+the iOS application or when using a
+third-party library in order to display
+a graph of sentiment over time and let
+me show you a little bit more of what's
+actually going on in the backend when
+you're developing and actually using
+this application let's begin alright so
+now to begin of course when from an iOS
+front-end this enables us to develop the
+application really quickly because it's
+simple doing the iOS development and of
+course allows us to display a lot of
+information because the very easy to use
+touch interface so let's just say we've
+got an iOS interface and of course this
+is running Swift now of course I could
+use Watson through the iOS SDK however
+in this case I've decided to use a lamb
+on fire for which I do have quite
+through different tutorials in order to
+create a version that uses the REST API
+for Watson so these are actually going
+through raw HTTP and are wrapped by a
+lamb on fire instead of using the Watson
+developer Cloud SDK it's a little bit
+easier to set up and get installed
+because it's come
+both cocoapods and you don't need to go
+through the entire Karthus setup and so
+soon I'll be telling you also in a
+separate video how exactly we can
+install the Watson Melbourne SDK but
+that's for another video all right so I
+know actually about Watson and finally
+we've got the last piece which is the
+social media platform now in this case
+the one that I found usually works the
+best is Twitter and the reason why is
+because I've seen numerous different
+examples of it in action
+like for example a little while ago
+actually some time ago Google Drive the
+service thing I'm sure you've all heard
+of went down because as you can imagine
+millions of people like yourself are
+going on Twitter and publishing hashtag
+goon we drive down with a lot of
+negative sentiment in fact you can see
+on the screen right now a bunch of the
+different examples of different twits
+that people have and the people of
+Twitter we're having some really
+interesting reactions to it basically
+and so Twitter usually works the best
+because of its trend system and the way
+it uses hashtags compared to other
+social media websites so in this case
+Twitter is the one that I'm beginning
+with however you can use any social
+media platform that you desire as long
+as it has an API that allows you to
+search and also and of course once you
+actually sign up for a version of the
+Twitter API or a Twitter developer
+account and if you actually incorporate
+the OAuth login you will actually get a
+higher quota and so it'll work out for
+around two minutes
+continuous streaming and so essentially
+the way this works is we have a timer on
+the iOS application now what the timer's
+gonna do is every say two seconds so you
+can adjust the interval by a second less
+or more but say you'd by default every
+two seconds the iOS application is going
+to query Twitter and so it's actually
+going to send over an HTTP request over
+to Twitter and this is through its SDK
+because again it can be installed
+through cocoa pod so it's very very easy
+to get set up and so through their SDK
+we said that
+gtp request over a Twitter kit or over
+the Twitter through Twitter Kent and the
+Twitter is going to get back to us with
+a bunch of posts on this certain search
+query so it'll get back to us with posts
+now once the IMS application has posts
+it does some very very simple
+pre-processing just removes a few
+Unicode characters just a few things
+that Watson may not like and then once
+it's got posts it's actually really
+simple all you do is you use the iOS
+application to send over those posts to
+Watson again we're doing this through
+HTTP and then Watson's going to analyze
+them using the natural language
+understanding service and this is where
+the interesting part comes in you see in
+this case I could have used the
+sentiment analysis service however the
+reason I didn't decide to do that is
+because of one specific reason and that
+is that with Watson NLU I see with Emily
+you I get something called an emotion
+score I don't get sentiment I can't
+emotion now what's the difference you
+may say well with emotion I get one
+single move I get one thing about you
+and it's flowing point and it's a range
+of negative 1 to 1
+and so basically negative 1 is very
+negative positive 1 is positive and 0 is
+kind of neutral in between doesn't
+really matter kind of thing and so it
+gives me one individual value when I'm
+working with sentiment analysis service
+spell that's gonna give me five
+different values it's going to give me
+anger fear disgust sadness I'm joy and
+so these five values can be used for
+more intricate analysis if you would
+prefer that however it's easier for
+people generally this is a positive
+negative emotion then for humans to
+visually have to see five different
+emotions on a graph it really isn't that
+easy to use for a human therefore I
+prefer the one value and of course
+because it's such a simple scale we can
+easily graph it out and plus our
+graphing library is great because what
+it allows us to do is actually have
+Graff have the middle b0 have the bottom
+B negative one the positive the top
+being positive one and then what I can
+actually do is make it so that when the
+line is the middle it's blue or so when
+the lines in the middle it's blue and so
+as it actually goes up it will continue
+to be blue because of course it's
+positive and of course whatever changes
+there are but then as it starts to go
+down let's just say at this moment
+Google Drive one down it'll actually
+start to go down why is it reaches zero
+and then right after that it's going to
+be red because it's in the negatives and
+you will see and then and so it's just a
+great graphical interface and so it
+works out absolutely perfectly Watson
+fits in perfectly with our graph I seek
+a no extra processing required so it's
+very very convenient so that's exactly
+why we're using natural language
+understanding instead of sentiment
+analysis just in case you are wondering
+and so back to the flow
+Mariah's Watson gets back to us with the
+emotion then in the right as we get the
+emotion back we then just go ahead and
+do a little bit of processing on the
+information that it gives back to us in
+JSON and right after that we're able to
+show the graph and update the graph and
+of course we can have the graph scroll
+as we get more and more values and how
+the user interact with it in touch and
+so that was the beginning there's still
+a bit Homer though there's a feature
+called
+outlying tweets now what is that like
+tweets well imagine this let's just say
+our sentiment is in this range over here
+all right so that's where our range is
+here now what you can do is you can
+basically say draw a little circle we
+create a little radius around a certain
+sentiment value or the average sentiment
+value if by chance let's just say
+there's someone tweeting something
+really negative Google Drive whereas the
+average sentiment is really positive
+you'll find out in the outline tweet
+section or let's just say there's some
+kind of movie that people just do not
+like well in that case you can go ahead
+and find people who do like the movie I
+goes the outline tweet section if people
+are sort of mixed I'm 50% of people do
+not like it because I do like it then
+it'll show you the toys of people on the
+extremes it will show you people who are
+extremely positive and people who are
+extremely negative basically any
+person's post whose sentiment does not
+lie within the immediate vicinity of the
+average sentiment of one of these kinds
+of posts right so that is the outlying
+tweets feature of course permutes can be
+expanded to a bunch of other features
+including using the IBM Watson
+personality insight service and an
+application of mine that you may have
+heard of send a color and that's coming
+up in part two in the video however what
+I'd love to do now is show you this part
+to Sona how exactly it works and then
+part two we'll talk about the next
+version that takes this another level
+burger let's give up on that part now
+we're always showing you how exactly you
+can code him all of this using swift and
+iOS of course isn't the Watson natural
+language understanding and in this case
+Twitter kitchen alright let's get over
+to the coding part now all right so
+welcome back to the code part and now
+let's take a look at how exactly you can
+build your own version of T Silva now
+the storyboard for this application is a
+little bit more complex than we may be
+used to on this channel let's start off
+at the very beginning now you see I want
+T so on we won't have a push segue so
+you can actually go back to the title
+and then interact with the with a fuse
+and so what that means that I need to
+start off with a navigation controller
+and so I start off initially over here
+at the navigation controller which will
+go ahead and push us over to the Welcome
+page now you might wonder what exactly
+the Welcome page does if there's no
+button on it this is just a bunch of
+labels well the button
+does appear see right under let's start
+there's a button you can't see it in the
+storyboard though because it's a button
+that Twitter is going to put in for us
+in the code we'll be getting to that
+shortly
+now over to the second second a few
+right has you've logged in with Twitter
+and you'll put over here where it asks
+you what your search query is once you
+enter in your search query you don't
+click on the let's start and it'll move
+it over to this page this is kind of a
+dashboard t-cell but your homepage say
+now you can do a few different things
+first of all you can just search it up
+on Twitter or your search query on
+Twitter and it'll show you the tweets if
+you click it'll go through this segue
+which will push us over to this view
+which has a table view and using our own
+custom code we'll go ahead and push a
+bunch of tweets into the table view if
+you were to go back if you were to click
+the back button since we're using the
+push segues in the navigation controller
+you can click on sentiment when you're
+going to sentiment you come here now I
+know this looks really weird but don't
+worry the chart which shows sentiment is
+actually over here in these blue
+boundaries there's just a small bug and
+how xcode renders this chart because
+it's a custom UI view but that's all
+it'll actually appear correct on the
+device itself as a matter of fact this
+reminds me I'm going to be showing you a
+demo of Teasle in action right after
+we're done the coding part if you were
+to go back you can take a look at the
+most interesting feature the outline
+tweets which are visible over here and
+the way it starts off is this table view
+is going to show you all the tweets and
+then within around three to four seconds
+it's going to refresh and only show
+content which fits as an outline tweet
+but wait what if there are no outline
+tweets what everything everything what's
+the average well then go back and head
+over to your settings page here you can
+actually just quite a few different
+knobs that T's OMA has the first one is
+with the sentiment refresh now what this
+means is basically how often this chart
+is going to refresh unfold it's around
+two seconds that we'll take a look at
+that in the code in terms of outliers
+you can set the amount two tweets that
+the outliers searches for and it's quite
+tweet intensive and so make sure that if
+the user isn't paying you don't allow
+them to search for too many tweets
+because of course they're going to get
+over their quota quite soon however
+there's also the more interesting knob
+with sensitivity
+sounds of Japanese basically how far
+away from the average means to me in
+terms of sentiment to make considered an
+outlier by default it's over half I mean
+it is quite large because we want to
+make sure that massive amounts of tweets
+you're able to find the trouble outliers
+and not just slightly deviant from the
+average because of Sanna machine
+learning error however you can increase
+us or decreases to your will if you
+decrease this you'll probably get more
+tweets because it'll be closer and
+closer to the average if you increase
+this we'll get less and less tweets
+because of the fact that you're only
+searching for more at the extremes
+rather than closer to the average so
+those were all the views and how they
+interact with each other now let's take
+a look
+code for each of these views one by one
+let's start off with the main view
+controller which is this view right over
+here as I mentioned we have to insert
+the button for the actual login now if
+the view controller just loads up I'm
+able to see that the Twitter kit allows
+us to create a button here we go now I
+do to find a few global variables that
+we're going to need to throw out the
+view controllers I do this so we can
+actually access data throughout
+different view controllers without
+having to do any fancy work so now as
+you can see inside of the view
+controller if I were to go to the
+viewdidload function of course we run
+the super view in low this as always
+this is all the same from there we have
+a new login button so we have the
+Twitter login button imported from
+Twitter kit and of course I have a
+completion handler who once you have
+actually logged in as we run this as an
+asynchronous task and not a synchronous
+task I'm going to make sure maximum
+performance and we don't fill it up the
+UI now what we're doing here is creating
+the button and I'll talk about what's
+inside of the completion handler in just
+a moment
+remember because this is an asynchronous
+task what that means is that right as
+you can run this code this won't
+actually run what's inside of this
+button won't actually run rather it'll
+skip to over here where as you click the
+button then the
+code is going to run and so this is what
+runs first now what we do is we set the
+center position of the login button in
+the center of our current view and then
+from there we add a sub view to our
+current view which is a login button
+in fact if I were to make this a bit
+easier for you to see here there you go
+so then we just add the sub view and we
+are good to go we've gotten the button
+in the center of the screen
+screen and we don't actually need this
+function as it was a it's a leftover
+from the older version I'm separated
+this into a separate view controller
+entirely there we go now let's talk
+about what happens once you log in now
+right as you click the button you're
+taken over to the Twitter application
+where you give consent for your account
+to be used by my application if you
+don't have the Twitter application
+installed you know a separate window is
+going to open up and you can just give
+your consent there and if you're not
+already logged in you can go ahead and
+log in however let's just say you do
+give your consent for us to use your
+data then in that case this will go
+through because I'll have a new Twitter
+session I can then create a new Twitter
+API client and pass it your user ID I
+can then ask it to load your user in
+give it your user ID and then run
+another completion Handler now once the
+user is loaded in then if there was an
+error it's going to print out the error
+or else it's going to print out mail
+here off and regardless of whether or
+not that happens we are going to run an
+asynchronous task on the main thread
+however meaning that we can actually do
+you I up dates and I'm going to perform
+a segue on the current a view controller
+and of course this current segue is
+query and the sender itself if we were
+to go back just to tell you exactly what
+that is the query segue will take us
+from the main new controller over to the
+next view of interest and that is this
+view over here and there we go
+this field over here which asks the user
+for their search query if we were to go
+over to the query view controller you
+can see this is very very very simple
+code inside of this view controller all
+it really does is of course creates a
+new iboutlet for the search query which
+is UI text field and then why does they
+click on the start button we set the
+global variable named session
+which was designed to find in the
+viewcontroller dots which file over the
+search queries text and we perform a
+segway on the self view controller and
+this one's identifier is start the
+sender is self and so that is the query
+u controller extremely simple doesn't
+really do real work now at this point
+you're in the dashboard the dashboard
+doesn't have its own view controller
+file due to the fact that there's no
+real code you need to put there it's
+just a place where you have a bunch of
+segues in fact that's one of the main
+reasons I chose to use the push segue
+because it's easier to integrate and
+then integrate navigation there instead
+of having to have code for all the
+navigation manually alright so now we
+can talk about the first real view
+controller the tweet view controller we
+actually show you a bunch of different
+tweets in a table view now you might be
+wondering why the code is so short for
+this view controller and well it's short
+because Twitter does all the work for us
+I don't need to do anything all I do is
+I import the Twitter kit library and
+then this view controller is actually
+not a regular view controller it
+actually conforms the Twitter timeline
+view controller of course we still have
+viewed and loads as this inherits from
+the view controller class we do run the
+superb unit load and as we just said
+selfs datasource to a Twitter search
+timeline datasource we passed the global
+variable called session query that we
+discussed in the query view controller
+file and I passed the global variable
+called Twitter client because that is
+our API client and that's logged into
+your account so we can actually run the
+search now remember if you were to not
+log in to the user and just use your own
+API key and in that case you would have
+a lower quota because you're using
+well the developer account and so you
+have a lower quota just keep that in
+mind as you use the service in fact if
+we were to go over to the app delegate
+just to show you here in the app
+delegate I do actually take a look at
+Twitter create a new shared instance or
+actually access the shared instance and
+start the shared instance and I provide
+my consumer key and consumer secret
+which will be reset after the video just
+by the way and so yes I do provide my
+API credentials in the app delegate all
+right so now that we're done this
+you can go over to a sort of main view
+this is what makes t so about what it is
+Realty Zuma and so this is the sentiment
+view controller you might be wondering
+why it's called the SPME controller and
+that's because it's also mentored with
+personality and set a color which we'll
+be seeing in the next version of this
+application in the part 2 of this
+tutorial now in this case I'm importing
+three modules Twitter kit a Lambo fire
+and Swift chart Swift chart is an
+exceptional charts library I'll be
+linking to its kid hub down in the
+description below a Lambo fire is the
+exceptional networking library I'll be
+linking to them down below as well and
+of course you know Twitter get there the
+great social media platform that we all
+know and love and of course they provide
+a very very easy to use swift or not
+swift iOS framework and of course just
+so you know I am using cocoapods just in
+case you don't know how to use cocoapods
+there is a youtube video on my channel
+coming soon that will teach you a little
+bit more about what it is and how you
+can use it link will be down below once
+it's released alright so that is Twitter
+kit and those are all the modules we're
+using here now to begin with I've got a
+very simple extension to the streams to
+the string class and of course we are
+parsing JSON quite a few times here both
+with Twitter and with Watson and so I do
+use the string extension to
+automatically parse a JSON string into
+string any for me after that we also
+have the extension to the array class
+with this extension to the array class I
+can easily get the average of any array
+into a double yeah almost entirely
+automatically just like that now if we
+were to continue here as you can see in
+the SP view controller itself of course
+this inherits from the UI view
+controller
+I've created myself a chart which is the
+ID outlet variable chart and from there
+and this is also just by the way the
+chart that we control the sentiment with
+and then these are the actual sort of
+internal variables that help us out now
+Watson sentiments and chart date oh
+you'll find out exactly what those do in
+just a moment but essentially chart data
+is all the data in the chart and Watson
+sentiments is all the sentiment values
+that we get from the tweet so we talked
+about that in just a moment and of
+course there's also variable called run
+timer and I'll be talking about why I
+need that when it comes up as well now
+right as the unit load function begins
+we actually do add to chart now who take
+a look at what add to chart does is it
+checks if we're currently running the
+timer if we are then in that case it's
+going to set Watson sentiments back to
+nothing because we're going to be
+looking through and getting the center
+and for each tweet all over again
+after that we define an optional NS
+error because we're most probably not
+going to have one and of course at the
+beginning it starts off as male and then
+I create a new URL request so basically
+what this is is I actually ask the
+Twitter client to created the URL
+request for me that I can send later on
+so this is not an actual response that
+we're getting from the URL we're just
+creating an nsurl request or now renamed
+in Swift three or four it's now called a
+URL request so I'm interested in the get
+method we'd have no reason to use the
+post method or any of the other methods
+so get is the one that we use and then
+the search tweets JSON is a URL string
+that I use of course the parameters
+would be as in terms of the query the
+actual session query the global variable
+and in terms of the result type we want
+to get the most recent results first as
+that'll allow us to work with the most
+recent tweets of course I just provide
+provide a memory memory address or a
+pointer to the optional NS error so just
+in case there is an error that error is
+no longer optional and now contains a
+value that's that I create something
+called a dispatch group now before I'll
+continue just in case you're unfamiliar
+with asynchronous tasks make sure you
+watch my video on that there's a link to
+that link to it down in the description
+below but essentially what a dispatch
+group is is well a group of asynchronous
+hop operations or group of operations on
+a dispatch thread and essentially the
+reason we need a group of these is that
+at the end we want to wait for all of
+them to complete we don't just want to
+have one thing happen and then we can do
+the next thing inside of that
+asynchronous task so we need to what a
+bunch of asynchronous tasks in a loop
+and after that once they're all done we
+need to be able to wait for people to
+wait for all that to be on so we can go
+over to the next step that's why we have
+a dispatch group you'll see exactly what
+I'm talking about in just a moment there
+we actually use the Twitter client that
+we have like in the global variable to
+actually set the Twitter URL request
+that we had how I do ignore the error
+because in this case there is going to
+be no error however in order to create C
+for code you can go ahead and look at
+that error as well to pass up the URL
+request and then we have a new
+completion Handler in this case I look
+for the URL response the data passed by
+it and the error just in case there is
+one and then we begin the completion
+Handler so I have a do statement here
+now if of course all the operations do
+statement are successful then well good
+if they are not however I will print out
+the errors localized description which
+is basically a a user-friendly version
+of me ever getting back over here though
+once you have sent that Twitter request
+then you are free to start off with the
+actual sort of processing again inside
+of this do we print out just in case
+there is an error the actual localized
+description and then after that we start
+we start looking at the actual data sent
+back the first thing I do is I convert
+the URL data over to JSON now this isn't
+a string so I can't just use my string
+extension I have to convert it from data
+to JSON so I use the JSON serialization
+class with a JSON object I pass it my
+URL data and of course I allow fragments
+which is basically just an eternal talk
+allowing it to parse JSON you don't need
+to worry about all this I don't want to
+confuse you with the allow franc masala
+JSON parsing just leave it as a black
+box
+however from there we want to forcefully
+convert this to a string any because all
+of the indexes or the indices for all
+the objects here early new strings
+however the values for these indices can
+be arrays it could be strings ants
+whatever they want to be that's why we
+give them on any type there we create an
+array of tweets in this case strings and
+then I loop through the response but not
+just any indices I look through these
+statuses
+and of course in this case I treat the
+statuses as a string any array of
+dictionaries in the dictionary being
+string any from there because this is a
+list of string any I can loop through
+that list and I is always going to be a
+string Eddie there I can look at the
+indices of I text I will get any convert
+at the string and then I've got the text
+of the tweet and I append that the
+tweets array just like that I wrote all
+my tweets from JSON now in a very simple
+array that I can access natively here in
+Swift then I loop through all the tweets
+now every single time the loops code is
+called I enter my Watson group
+dispatched and despatch group so again
+this is telling the dispatch group and
+there's a new job that has joined you
+all right from there I create the
+credential data these are my credentials
+for the IBM Watson natural language
+understanding service and then I create
+a level fire request and so of course I
+pass it the eight the REST API URL for
+natural language understanding I tell it
+that I want to use the get method and
+the parameters are going to be the
+version in this case twenty 1702 27 if
+there's a new version you could always
+put that in if you force the text in
+this case is going to be a tweet which
+is I and the features that we're looking
+for in this case are only sent image
+because we don't want anything else
+however and of course I mean I use a
+little bit of different terminology in
+my whiteboard and emotion sentiment but
+what we're gathering here is indeed
+sentiment information in terms of the
+HTTP headers though that we're sending
+out only going to be sending the
+credential data so Watson knows that
+it's me not some random person that's
+trying to get into the service I'm going
+to validate this request and as long as
+it's good I should get any response all
+right as I get a response
+I've got completion handler that handles
+that Watson underscore response now I do
+have an a-flat statement to make sure
+that I do actually did a Watson response
+so if let Watson rest is equal to what's
+the response that results on value if
+this is true then I just append that
+wants a sentiment to an array
+this looks really complex doesn't it but
+really all it is is we're taking a look
+at the result that Watson gave us we
+took a look at the set time value we
+look at the document value and we look
+at the score value how this is a perfect
+example of where languages like nodejs
+or Python are superior
+we'd so if you don't marry can get very
+good JSON handling because of the way it
+handles these variables and such a type
+saving way however you can use libraries
+like swifty JSON in order to combat this
+for you and very soon thanks to for
+example what Chris Landers doing with
+the Python we we should be getting the
+dynamic callable and dynamic members the
+dynamic member lookup into classes which
+will allow us to have even better JSON
+handling very soon hopefully however for
+now we do look we do create sort of ugly
+code with what Swift has and then just a
+pen that's Watson sentiments after that
+I just print that out print up the
+entire array actually just for debugging
+purposes again the user never sees any
+of the print statements just for the bug
+and purposes it's always good to have
+that there and then once the allow the
+file request is done I then leave the
+Watson group what that enables me to do
+is enter every time something starts and
+then leave when something ends when the
+dispatch group sees that everything has
+left and now there's nothing left to
+leave and it will tell me everything's
+done you can continue your code and so
+that is that now outside of this for I
+am tweets loop comes this interesting
+part where we update the UI now of
+course we want to go back to the main
+thread we can do this as an asynchronous
+thing tasks because we don't want to
+sort of force ourselves with a
+synchronous tasks but it's on the main
+thread so we can update the UI now what
+I'm doing is I'm actually creating
+another asynchronous task inside of here
+not not sort of not an asynchronous task
+but I'm actually telling the Watson
+group to notify this block of code right
+as the Watson group has seen all of its
+members leaf and so now there's nothing
+left in the Watson group and I'm telling
+you to run this on the main queue as
+well so we probably don't need this but
+to say on the safe side I'm doing it and
+so I'm running some main queue so we can
+update the UI within this
+outright at this block of code is
+executed and we're gonna do a few things
+the first thing is we're going to keep
+attract our cells of the chart data what
+I mean by this is that we're going to
+get the average or ever the average I
+was talking about the array extension of
+the Watts and sentiments and then we're
+going to append that average over to
+chart data now if the chart data count
+is greater than 60 then we remove the
+very first from that chart data and then
+we remove all of the values from the
+actual chart that's on screen and so
+basically we remove older values as we
+get newer values if there are more than
+60 of them how do I do is I create a new
+chart series chart seems as part of the
+Swift charts library and I pass it the
+array that we just created which is the
+chart data array I tell it that the area
+is true the chart series this really
+doesn't matter to you and then from
+there I add this chart series over to my
+chart
+I set the minimum y-coordinate to
+negative 1 and the maximum Y to sorry
+minimum Y to negative one maximum Y to
+positive one and you know why if you've
+watched why we're part of the video
+because of nou sentiment being from a
+range of negative one to one and then
+from there I create a new timer this is
+a scheduled time with a specific timer
+interval in this case this is the global
+variables sentiment refresh now this is
+by default set to let's see how many
+seconds this is set to 2.5 seconds and
+the reason it's 2.5 not say 1 is so that
+we can keep the quota and still get
+relatively real-time results not to
+repeat because it's basically telling
+Swift all right after 2.5 seconds I see
+here this block of code but don't
+execute it every 2.5 seconds and that
+from there all I do is I take this this
+a which is the timer and then I tell it
+I have an in the timer I execute the add
+chart function which is the function
+that this is in and of course at the end
+here I do print out the Watson
+sentiments and you already saw what
+happens in the catch
+now the reason this happens is basically
+every time the add to chart function is
+called it'll add one extra value to the
+chart and then once it's done adding
+everything to the chart then after that
+2.5 seconds later it's going to add to
+try together
+the reason I implemented this feature is
+because let's just say your internet
+connection is bad or Watson slow or the
+TWiT library's responding correctly and
+it takes three seconds to get your chart
+values and in that case you don't want
+that before you got your first value
+you've already created a task to get
+your second set of values and so right
+after those three seconds are done then
+wait 2.5 seconds then get the next set
+of values and hopefully it's not very
+noticeable because it takes relatively
+the same amount of time for each for
+each query to go through in the first
+place and so that is how the personality
+works and so actually because Watson
+takes care of all the machine learning
+for us and I can the best part is that
+we're using well machine learning
+technology I'm just doing all right if
+they use a bad keyword it's negative is
+a positive keyword it's positive but
+rather we're actually taking a look at
+the true meaning and context of the
+sentence itself vary from perspective
+where we can actually understand natural
+language that's the power of machine
+learning
+that's why Watson is so good I literally
+have a hundred and four lines of code
+and I've created an entire application
+that grabs tweets bouncing through
+machine learning software and does this
+almost instantly on the cloud it's it's
+just great from there that is the
+outlier view controller this is sort of
+where the interesting part comes in and
+also there is one function that I did
+forget to mention for the SP view
+controller and that is view will
+disappear the point of view will
+disappear is basically the set run timer
+to false and set the global variable
+average sentiment to the average of the
+Watson sentiments now the reason we do
+this is because of two things first of
+all let's just say you started the timer
+task to look at your or not you started
+right after we got a value we started
+the timer to actually call at chart two
+point five seconds later now for those
+two point five seconds let's just say
+you leave the view and in that case even
+though you've left a view you're going
+to be calling out a chart and on
+necessarily wasting quota I'm looking
+through the tweets and so if run timer
+is false it will not run and there's
+what will not call itself over and over
+and over again so we can stop the loop
+right there and also we set the global
+variable average sentiment to the
+average of the lots of sentiments
+because of the planet simple fact that
+let's just say you go to the outlier
+view and in that case the outlier of you
+need to know the average sentiment is in
+order to give you what the outliers are
+I'm getting over to the outliers this is
+again a Twitter Timeline view controller
+however there are a few differences is a
+bit more complex so first of all what I
+do is I take a look at a bunch of tweet
+IDs or I create an array of a bunch of
+different tweet IDs and I want to show
+in my view in my my table view and then
+I'd also create a dictionary of tweet ID
+to sentiment is a string double because
+the tweet IDs are stored in strings and
+the sentiments are stored in doubles and
+I also set a variable which is max
+tweets which is the number of tweets
+that I want to look at and of course
+a local variable and so if we were to
+scroll down here we can see that we do
+not indeed he was that local variable
+all right perfect
+so next up in the viewdidload function
+the first thing that I do is I call to
+get tweeks function now this this this
+class also has its own get tweets
+function which is right over here
+now this get get tweets function it's
+actually quite special and the reason it
+special is because it's also slightly
+recursive what that means is that see
+when you search for tweets on Twitter
+it'll give you a few results at a time
+say 10 points at a time in one response
+and then when it says is alright if you
+want more responses then what you have
+to do is you have to use this ID and
+then call the API again with that ID and
+we'll give you the next page results and
+so basically the next results here is an
+optional string if you're calling get
+tweets for the first time then you don't
+want to give next results because it's
+the first set of results that you're
+getting however it get tweets as calling
+itself to get the next page of results
+that's what it's actually going to fill
+out that variable now of course this is
+mostly the same content as last time but
+I'll go through a little bit of it just
+so you get a good idea of course I
+declared error at a new URL request and
+I check is next results nil if it is not
+then I set its value in to next page
+which is of course dumb if let's name it
+if if indeed we do have a next results
+page and what I do is I tell the Twitter
+client to create a URL request for me of
+course the get method however this time
+not only do I provide the tweets a JSON
+but I tell it I'm looking for the next
+page and of course from there I tell it
+I don't want any parameters because I
+don't need me
+and I provided a pointer to the error of
+just in case there is one however if
+there is no next results page then we do
+the exact same thing as we did in the
+sentiment view controller by providing
+the parameters of the session query and
+we want the most recent tweets but in
+this case we also tell it that the
+amount of tweets we want are the outlier
+tweets
+and so of course we don't need max
+tweets because we use the
+variable without liner tweets there we
+go of course we do give it the network
+pointer as well and so this is where the
+intro nothing interesting the same part
+comes in the Watson group in order to
+tell when everything is done and then we
+send our Twitter requests over to
+Twitter we look for the response in the
+error and the data we print out the
+error if there is any or the localized
+description of it we go ahead and parse
+out the data from Twitter and then what
+I do is first of all is I create a new
+variable for the next results page if
+there is a next results page then I said
+it or I put its value into the next
+results page variable after that what I
+do is I loop through all of the
+different tweets every time I loop
+through a tweet I enter the Watson group
+and I create a new variable or constant
+called tweet text or just equal to that
+specific tweets text and then we do the
+exact same thing as we did last time
+with Watson we create the credential
+data and we create no fire request to
+access Watson now once we can respond so
+we do something slightly different of
+course we still parse the sentiment but
+then what I do is I get the absolute
+value of the average sentiment minus the
+current tweet sentiment now if I
+actually get this value and of course I
+also do get the absolute value of this
+average sentiment and the absolute value
+of the sentiment itself before I get the
+absolute value of them negated and the
+reason I do this because I always want a
+positive number I don't want positives
+negatives combined because all I'm
+looking for is a difference right like
+for example how far off is this
+sentiment from the average sentiment now
+if this difference if this difference
+number is greater than the sensitivity
+which is a global variable that's
+adjustable then in that case a pen the
+ID of this tweet to self doctrine is and
+also set this tweet IDs sentiment in the
+tweet sense variable or dictionary to
+the sentiment now of course if there is
+no sort of sentiment or if the sentiment
+is very close or it's not part of the
+sensitivity then in that case we just
+append a blank tweet
+d and then we leave the Watson group
+that's how that works now of course we
+still do the same Watson group notify on
+main right thing right as or actually
+now that I think about it we do need
+backs tweets because max tweets what
+it's going to allow us to do is this you
+see with max tweets we can see exactly
+how many tweets we want to check in
+terms of tweet IDs and so if we would
+say if self that we are used our count
+is less than self that max tweets and
+the next results Peters nothing meaning
+in essence that we've collected you know
+we have not collected the maximum of our
+tweets and there's still a next page to
+go to because it's not blank then in
+that case call get tweets all over again
+and tell that the next results page is
+an extra salt page that we had already
+gathered however if there is no next
+results page or if we've reached the
+maximum number of tweets then go ahead
+and print out all the trade IDs and
+while this tweet IDs contains blank
+meaning that while there is a blank
+string inside of tweet IDs they can go
+ahead and remove each of those blank
+tweet id's and of course just for
+debugging purposes print out the while
+just to make sure we're not getting into
+an infinite while loop after that print
+out the tweet IDs once more create out
+the sentiments for each tweet ID and
+then call a create collection function a
+great collection is actually the sort of
+graphic part basically what we do here
+is create the Twitter requests to
+actually get the text for each and every
+tweet or the actual you know tweet
+itself another I do is I go ahead and
+run a bunch of logic that'll allow us to
+put all of the tweets that we gathered
+into the actual into the actual view
+controllers table view now the way I do
+this is by creating a tweet collection
+now what's a tweet collection you may
+ask basically what I do is I take a
+bunch of tweet IDs and I tell Twitter
+create a collection out of these IDs now
+the collection is label
+under the users account since they
+logged in now the collection also has a
+custom identification ID which is given
+to us as well right here now once that
+collection is created and we have the ID
+we're able to go ahead and tell Twitter
+to use that collection as a data source
+and cause very unfortunately the Twitter
+can sdk hasn't just allow me to pass a
+bunch of tween IDs to use as a data
+source that's definitely a
+recommendation that I have for them to
+add into their SDK so I have to go
+through all of this code to create a
+collection and then use that collection
+as a data source but anyway at least I'm
+able to so I take that collection give
+it over to the Twitter collection
+timeline data source and set the
+self-taught theya source over to it and
+that new self dot refresh and there we
+go we refresh the table view and we're
+good to go now of course there are a few
+things that you can experiment with like
+for example if you can use touches began
+to just move with force ID in order to
+create a more advanced version but
+that's for version two of course there
+is just a little utility function called
+random string which is used to create
+IDs over here as well have how finally
+very simple the settings view controller
+which allows us to have a refreshed
+slider a sensitivity slider and a tweet
+slider so we can actually set each and
+every one of those variables when we do
+the viewdidload we set those sliders
+values to the actual global variables
+values and what we do view will
+disappear we set those global variables
+values to the values of those sliders so
+every time you close the view you set
+the values of the global variables every
+time you low the view you you actually
+get the values of the global variables
+and put them into your sliders so that
+was all the code that went behind T soma
+now that you understand it of course all
+the code will be available in the
+description below so you can download it
+and use it yourself and expand it to
+really whatever you'd like it to me it's
+time for a little more it's time for a
+demo of T soma in action let's take a
+look alright so as you can see this is T
+soma open up on my iPhone so let's go
+ahead and begin by logging in with
+Twitter
+I'm going to click login to Twitter and
+as you can see it forwards me to my
+Twitter application I can click the
+connect button on the bottom right and I
+can go ahead and open T so I back up T
+cell I realized the session has been
+created and allows me to enter my search
+query now let's just say my search query
+is hashtag or actually at Apple or
+actually you know let's go hashtag wEDC
+WWDC there we go
+because WBC is coming up June 4th and is
+currently June 2nd or well though June
+3rd technically so I'm going to click on
+let's start there we go let's begin by
+seeing some tweets just so we can take a
+look at some of the tweets alright so as
+you can see some people are arriving at
+WWDC there are few different banners
+people are tweeting about what to expect
+their wish lists all this kind of stuff
+so let's just go back that let's head
+over to sentiment now this is exactly
+what we want to see what do people think
+about WWDC let's find out alright so as
+you can see generally people are
+positive in fact for the next minute I'm
+gonna keep this going see if we get any
+real-time activity and we're gonna
+actually fast-forward this so you don't
+need to sit through tea soma actually
+cutting through all the data
+all right as you can see not enough
+people are tweeting about WWDC for us to
+see anything in real time however if
+they were really able to see real-time
+updates of this graph as the tweets were
+happening if you were just to choose a
+topic that's currently trending it would
+oh there we go it moved so now of course
+let's just say Apple releases something
+at WEC someone doesn't like this we'll
+definitely go down but now we've
+realized that the average sentiment is
+positive and so of course some people
+are going to have negative reactions so
+let's go back and see some of the
+negative reactions as you can see this
+is all the tweets let's go ahead and
+wait for it to to filter alright there
+we go as you can see it is filtered and
+now it's showing things that are really
+positive like for example as you can see
+mr. Bies seeing the dark mode of Xcode
+10 and Mac OS it's name is unknown so
+far which actually does look great but
+that's extremely positive and so because
+it's so positive and because it is
+abnormally positive it's showing us that
+outlying tweet so is Diddy's and of
+course lots of other people as well now
+if we go back we might be able to get
+more relevant or rest less relevant
+tweets if we go to the settings and
+adjust the sensitivity
+maybe we search more tweets and let's
+just crank up the sensitivity a little
+bit to get even more farther away tweets
+so now let's wait maybe five seconds and
+we should get a result we shouldn't see
+there we go as you can see the
+sensitivity was just too high
+if I go back however and if I set the
+sensitivity a bit lower maybe we should
+be able to see maybe some less sort of
+outlying tweets maybe less abnormal wait
+for a few seconds now ah there we go
+so as you can see we are still getting
+some but some that are extremely
+positive in fact I can actually tell
+there are barely any negative tweets
+about tell you to me VC am not
+surprising but yeah there are barely any
+negative tweets which proves that t7
+works alright so that was a quick demo
+of T Silva in action I do hope you
+enjoyed this tutorial
+of using and actually developing tan my
+social media analyzer so that was all I
+had for you in this tutorial I really do
+hope you enjoyed you're able to learn
+from this tutorial if of course you do
+have any questions suggestions or
+feedback please do leave them down in
+the comment section below it suite them
+to be adapt a to Manny on Twitter or
+email to me that's how humanity at
+gmail.com apart from that if you really
+do enjoy my content you want to see more
+of it please do consider subscribing to
+youtube channel as it really does help
+out a lot if you think this video can be
+helpful to anyone you know like your
+friends or family please do consider
+sharing the video as well apart from
+that though if you would like to be
+notified whenever I release new content
+please do consider turning on the belt
+icon down below as it really does help
+and that's all I have for this video
+thank you very much everyone goodbye

@@ -1,0 +1,2060 @@
+[Music]
+solo there and welcome to another
+tutorial my name is Tammy Bakshi and
+today we're going to be going over a
+fascinating topic how neural networks
+can actually learn abstract concepts
+without being supervised or trained to
+learn those concepts let for example a
+concept of sentiment of how neural
+networks can learn them in an
+unsupervised way now specifically I'm
+talking about open a eyes unsupervised
+sentiment neuron example you may have
+heard about it but now I'm going to give
+you a simple and intuitive explanation
+as to how exactly the sentiment neuron
+and the language modeling behind it
+actually works now open AI to begin with
+is a start that was founded around three
+years ago back in December of 2015 by
+Elon Musk and Sam Altman now when they
+created open AI essentially the goal is
+to create machine learning and
+artificial intelligence systems for the
+benefit of humanity and well this
+technology is no exception with barely
+any label training data and even in some
+cases no label training data this
+application can help you extract the
+sentiment of Amazon reviews but we'll
+get to that in just a moment first of
+all let's talk a little bit more about
+neural networks recurrent neural
+networks and language modeling now first
+of all neural networks of course I'm
+assuming that you already know a little
+bit about neural networks and why
+they're so powerful and how they can
+help you make nonlinear decisions with
+the power of the data that you have
+through back propagation however what
+I'm going to do now is give you a simple
+explanation of a special kind of neural
+network these neural networks are called
+recurrent neural networks and as the
+name suggests recurrent neural networks
+enable you to understand data over time
+you can understand
+changes in data over time you can
+understand data itself in a time series
+now what do I mean by this well let's
+just take a look at an example let's
+just say I were to give you a sentence
+and say the sentence is 10 me back she's
+recording a YouTube video on opening
+eyes unsupervised sentiment Gerard now
+every word after the other was said in a
+specific order
+every word actually has context every
+word has a different definition based
+off of all the words that came before it
+and in some rare cases the words that
+come after it as well and so if you were
+an understand Tanmay Bakshi opene ions
+in provide central neuron in say five or
+six different time steps or different
+individual analyses you wouldn't really
+get great results because you're not
+analyzing either one of those in context
+of each other but with recurrent neural
+networks you can understand that
+sequence of words you can understand not
+only with the individual words mean but
+also what they mean in context with each
+other now of course the example I gave
+you was word level but we can get even
+deeper we can get to character level now
+there are lots of different advantages
+and disadvantages to having character
+level or word level language models or
+recurrent neural networks now character
+level is actually usually a lot easier
+in terms of data pre-processing because
+you vet most got a few ten tokens in
+your vocabulary for example all the
+letters in the English alphabet a few
+punctuation marks in the space or
+newline these kinds of characters will
+be in your vocabulary but within a word
+level model you've got tens of thousands
+of words in your vocabulary and then if
+someone misspelled something or if they
+use some sort of new terminology that
+people are just starting to come up with
+well your models not going to understand
+it at all in fact it has no chance of
+understanding it but the character base
+model you at least have a little bit of
+a chance of understanding that data but
+without any further ado let's get into a
+lumen more of how recurred
+networks actually work now in essence
+the way recurrent neural networks work
+is they will take an input produce an
+output and a hidden state
+now that hidden state can be fed into
+the next recurrent neural network in
+order to continuously chain predictions
+so let me talk about let me tell you
+exactly what I'm talking about
+let's go ahead and draw out a simple
+recurrent neural network so let's just
+say I wanted to convert my name is Tammy
+Bakshi from English to French now what I
+do is that say for example my okay I
+take the word mine and I'm feed it into
+a recurrent neural network okay now this
+recurrent neural network over here
+takes two more inputs or well for the
+sake of simplicity let's just say it
+takes one more input the hidden state of
+the previous recurrent neural network
+but this is the first work so there was
+no RM cell before this one so we just
+initialize it to all zeros so what I'm
+gonna say is that we feed in a hidden
+value okay so H and now the neural
+network is going to output on another
+page okay an updated version of Dage now
+you have to have your next word so let's
+just say we have another recurrent
+neural network cell over here okay what
+you're going to do is you're going to
+feed in name I have the previous hidden
+state so what's going to happen is this
+recurrent neural network will not only
+understand the meaning of the word name
+it will also understand the specific
+important data from the previous time
+step which is of course located within H
+and essentially they're going to
+continue this chain they're going to
+feed in to the next recurrent neural
+network cell is as well
+as the hidden state produced by this
+recurrent neural network you're going to
+continue to do this until you get to
+your final state well is there at your
+final state they're going to feed that
+into another recurrent neural network
+and then take output from it from there
+you're essentially going to have a soft
+mass activation at each time step in
+order to get a classification for that
+time step and then you've got your final
+sequence this is called neural machine
+translation and it powers the majority
+of all powerful translation engines out
+there like Google Translate and the
+Watson language translator basically if
+you have a very powerful and a very
+flexible translation engine then you're
+most probably using neural machine
+translation because other more
+statistical approaches are mostly on to
+leave this part but this is not what
+we're doing today this was just an
+example to help you understand how
+recurrent neural networks understand
+data and hidden states over time now of
+course if you would continue the chain
+you would have a neural network that
+understands this text data however let's
+just say you didn't want to convert this
+sequence into another sequence what if
+you just wanted to classify the meaning
+of my name then all you do is you take
+in this final hidden state and you feed
+this into for example a multi-layer
+perceptron let's just say a dense layer
+in cross terminology you go ahead and
+feed this into your dense layer and you
+get a classification simple as that
+because again this in state also has
+context from this hidden state but that
+also gives us a little bit of a problem
+now in order to Train recurrent neural
+networks you've got to back propagate
+through time if you cannot just do
+regular back propagation you've got to
+do a special variety of back propagation
+that enables your neural network to go
+back through time it's not very complex
+it's essentially back propagation but
+applied to this kind of time series
+architecture now what this means is that
+your gradients have a very very good
+chance of either exploding or complete
+vanishing because of course you are
+continuously running multiplications and
+activating your hidden state which means
+that towards the end your hidden
+statements gradients could become so low
+that your neural network just isn't able
+to train but if it becomes very very
+high the exploding gradient problem well
+that's relatively easy to solve because
+in that case all you need to do is click
+your gradients at a certain threshold
+vanishing gradient then well that's a
+lot harder to solve but to solve the
+vanishing gradient and explode
+ingredient problems and also the fact
+that recurrent neural networks have a
+very very hard time modeling long term
+dependencies like for example if you
+were to have a fifty word paragraph if
+the last sentence depends on the first
+few words like a summary well your
+neural network stuck and remember the
+very first word because again you are
+continuously iterating on that kid in
+the state to fix this there are new
+neural network architectures like for
+example you've probably heard of the
+long short term memory or LS TM cell
+there is also the gated recurrent unit
+which came out after the LST or the GRU
+which of course it's highly debated
+which one performs better but they're
+usually better for different tests well
+let's talk a little bit how LST I was
+and GRE is actually work so technically
+the gated recurrent units came out after
+the LST amps but let's talk a little bit
+more about those first now gated
+recurrent units essentially with gr use
+an LST and as well your neural network
+can selectively forget and remember
+choose to remember certain information
+and of course update that information as
+well so with a gene are you you've
+essentially got the same flow except
+instead of using a simple recurrent
+neural network cell you're going to use
+a special gated recurrent unit cell okay
+so it's essentially a drop-in
+replacement over here okay so gated
+recurrent unit gated recurrent unit now
+in this case it was a drop-in
+replacement because gr use
+this one hidden state of course but LST
+M was already little bit more complex
+you have got two hidden states when it
+comes to LST ends you've got the cell
+state and the hidden state the cell
+state influences the hidden state so for
+example if I were to go ahead and erase
+these inputs and of course the GRU cells
+we can go ahead and update this to work
+with LSTs now with us hims
+you've got a feed in a hidden state and
+a Cell State okay so you got to feel
+hidden and sell initialize to zero and
+this is gonna go into your LS GM now
+from there your Alice team will output
+once more a hidden state and a sell
+state so if you've got another lsdm
+layer then all you need to do is feed in
+the hidden and the sell once more and
+your Ellis TM is able to understand
+these kinds of dependencies of course
+you're gonna feed in your data as well
+but towards the end well what do we have
+a dense later how do we do
+classification well you take the hidden
+and the cell state and you go ahead and
+discard the health of the stealth cell
+state and only use the hidden state now
+with the hidden state you go ahead and
+run your final classification with dense
+and you're good to go
+you've got your classification just like
+that the cell state is only to be used
+internally with the LS TM there are some
+things you could do like staple Ellis TM
+use the state in different ways but I
+won't get into that right now because
+that's out of the scope of what we're
+talking about today the unsupervised
+sentiment neuron
+alright now I'm sure you're very excited
+to find out how the unsupervised
+sentiment neuron works but there's one
+last little bit of preparation we need
+to do first now there's that preparation
+is well what our language models now
+with language models you essentially try
+to train a neural network to predict the
+next character in a sequence of care
+actors so for example let's just say I
+were to take the entirety of English
+Wikipedia now that's a lot of data and
+most of it is on different kinds of
+topics so if I were to go ahead and feed
+that all into an LS TM and give it the
+task of taking a bunch of characters and
+pretty from the next character that
+would be a language model of course
+there can be character based or word
+based language models just like MMT and
+just like classification but in this
+case let's go ahead and assume that
+we're doing character base because
+that's what open a I did with their
+example now let's get a little bit
+deeper into exactly what opening a today
+essentially what they did is they took
+Amazon reviews now I'm not talking about
+any Amazon reviews I'm talking about 82
+million
+Amazon reviews from Amazon with of
+course polarity data and the Citiz
+rating data how much the user actually
+rated the product that they were
+reviewing now what amazon what opening I
+went ahead and did with the Amazon data
+is they trained a recurrent neural
+network none LST emoji are you know
+Arden a multiplicative LS TM which is a
+slightly more complex version of an LST
+in order to create a language model
+essentially just a system that can take
+the last few characters and predict the
+next one pretty simple and it works very
+well it generates a bunch in fact
+infinite Amazon reviews and it's really
+fun to play with but that wasn't the
+reason they created the language model
+in the first place let me tell you why
+now let's just say someone said in their
+review that I bought this book okay
+let's take a look at the first four
+characters I space B oh you okay so
+let's just take a look at the first
+character I know what's gonna happen is
+they're gonna have your MLS TM okay and
+again this only has two hidden states
+the actual beta state and the cell state
+now you're going to feed in the first
+character great you've processed it when
+you
+I'm lsdm now that you're gonna go ahead
+and output from here you're hidden and
+so okay this is going to be fed into yet
+again another mlst and okay and you're
+also going to feed in your next
+character in this case it's just a space
+essentially a blank string from there
+you're gonna go ahead and take once more
+they hidden them cell states they're
+gonna feed that into another cell okay
+you've got your next cell and you're
+gonna feed in the next character b4
+bought and you're going to continue this
+chain and every time you're gonna get
+your hidden in your cells States but
+again we don't really care about the
+cell state at the very end let's just
+say that you only feed in I space B and
+you want the neural network to come up
+with the rest of the characters how do
+you do it well you start off with an
+additional hidden self state which are
+zeros you take the first character you
+feed it into your neural network you
+feed it into the cell okay good now
+you've got a new hidden themself state
+you feed this new human cell state into
+another cell along with the next
+character then you get a new hidden cell
+state and you feed this into the next
+cell along with the next character you
+do this for however many characters you
+have and at the end you go ahead and
+once more simply discard the cell and
+you feed the hidden state into a dense
+layer that helps you decide with softmax
+what the next character should be this
+is going to be essentially logics of
+probability that tell you I'm 99% sure
+that oh should be the next character for
+example but there's something a little
+weird with how this works now if you
+weren't just do this you would get the
+same text every time if I were to feed
+an eye space B you will always get the
+same characters over and over again
+because this is just math right this is
+not real human creativity this is just a
+bunch of mathematical operations so
+you've gotta mix it up a little bit
+you've got to introduce your own random
+probability of picking a character so
+essentially what you're gonna do is
+they're going to sample from that
+softmax layer with a kind of temperature
+now the way this works though lower your
+temperature is the closer your your
+sampling algorithm will be to what your
+neural network tells it to do the higher
+your temperature the more erratic it
+will be with what it samples so for
+example let's just say there's B now in
+the majority of cases after a B you
+probably wouldn't put for example a deep
+okay it's hard to pronounce B D that's a
+phoneme in the English language so the
+dense layer is going to have an
+extremely low probability for D and
+therefore what's going to happen is even
+though you're technically not taking the
+top result from your neural network and
+technically they're not taking the talk
+to or top three what you're doing is
+you're doing a random weighted sampling
+you're not going to choose D because it
+is extremely unlikely to end up choosing
+D and of course the lower your
+temperature the lower the likelihood of
+choosing something like that or let's
+just say there are a phoneme that had to
+come next your neural network could be
+extremely confident about it and
+therefore there would be a very low
+probability of any other character being
+choose and of course it's amount of zero
+probability but it's so low that it's
+essentially negligible however let's
+just say there's a little bit of leeway
+right you could say I bought or I will
+buy or something of that sort now what
+will happen there is your neural network
+will of course give not necessarily a
+99.9 percent confidence it will be more
+towards the lower ranges and because of
+that there's more probability of a
+different character being chosen that's
+how
+sampling works we're not just eating our
+max on the last axis instead we're doing
+a special kind of temperature based
+sampling of the softmax layer or else
+you'd never get interesting output you
+just see the same thing repeated over
+and over again which isn't fun but this
+brings me finally to the unsupervised
+sentiment neuron but to understand how
+the unsupervised sentiment neuron works
+we first have to understand the
+multiplicative LS TM in a little bit
+more detail so let's go ahead and do
+this what I'm gonna do is draw a diagram
+of how the MLS TM self actually works so
+you saw that you're supposed to feed in
+the hidden state and the cell state as
+well as a character which is that time
+steps data now what does the
+multiplicative Alice TN dude in that
+data well let's take a look all right so
+now what you see behind me are all the
+operations that go behind a
+multiplicative LS TM now I do know that
+at first glance this all looks very
+daunting but don't worry I'm gonna go
+ahead and walk through it step by step
+to help you understand exactly what's
+going behind it now over here let's take
+a look at our inputs first as I
+mentioned there are three inputs to an
+analyst himself the previous hidden
+state the day of being fed in for the
+current timestamp and the previous cell
+state corresponding to HX the previous
+in state D for the current data being
+fed in and C X for the previous cell
+state let's go ahead and take a look at
+how all these different pieces interact
+with each other now
+first of all let's talk about the shapes
+of the input being fed into our model so
+we can understand how we're gonna
+process it now first of all let's talk
+about hidden cell state now let's just
+say you start off on giving your MLS TM
+a hidden size of 4096 nodes okay so that
+means that your hidden state your
+previous in the state will be of shape
+one
+4 0 9 6 ok and this is the shape that
+was chosen by open AI for their
+unsupervised sentiment neuron
+now after that cell state same shape
+okay so you're going to have a very
+simple 1 4 0 96 just like that but Dan
+is work as a little bit more complex
+because it depends on what you are
+feeding into your MLS TM now in this
+case what we're doing is we're feeding
+in characters these characters are one
+hot encoded with a depth of 256
+different possible encodings now the
+thing to note here is that as the way we
+were one hot encoding the way that we
+choose a vocabulary size of 256 is by
+saying alright their total to 0 to 255
+ASCII codes and so basically each
+character corresponding to its ASCII
+code will be fed in as a one Hunton
+coded vector but the thing is we don't
+just be the one hot encoded vector
+directly do we Alice TM because that
+wouldn't work very well
+rather we project that one hot encoded
+vector onto an embedding so there's the
+semantic vector space and the way we do
+this is by using a technique called word
+vectors now the thing is you haven't
+already seen my video on weren't vectors
+I highly recommend you take a look at
+that there'll be a link in the
+description but essentially what we do
+is we take those characters that are one
+hot encoded and we go ahead and give it
+an embedding size of 64 we project 256
+to 64 ok and that's why the input over
+here will be 1 64 all right just like
+backs but the thing is the order to have
+data work with everything else we've got
+only shape it and so what we do is we
+project these 64 up to 4096 in a linear
+layer now I do know that just until a
+moment ago I was using cross terminology
+like dense and
+dense layers well the thing is now we'll
+use a slightly more technical term the
+linear layer in this case essentially
+the perceptron layer you could call it
+if you want to so this linear layer will
+have 64 inputs and 4096 outputs okay so
+essentially what's going to happen is
+we're going to project this 64 up to
+4096 with this linear later after that
+we're going to take the hidden state and
+we're gonna do something similar we're
+gonna project these 4096 to another 4096
+with this linear layer so the outputs of
+both of these linear layers although
+they're separate they'll be the same
+output shape 1 4096 will be their out of
+play now after that essentially what we
+do is an element-wise multiplication of
+both of the outputs of these linear
+layers okay so essentially each
+individual element within both of these
+outputs will be multiplied with each
+other to give us a resulting array of
+146 shape okay now this multiply layer
+will then be connected to four different
+linear layers so the same input we can I
+fit to four different linear layers each
+with their own output these are going to
+have 4096 units each and they all
+correspond to a certain gate and I'll
+get to that in just a moment now you
+might notice that apart from this
+multiplication over here the data also
+directly connects to four other linear
+layers so we've got two sets of four
+linear layers each now each linear layer
+as I mentioned corresponds is something
+called a date a gate is a kind of
+operation that the mlst M cell is going
+to run on its hidden state cell State
+and of course data in order to come up
+with a new hidden state and cell state
+let's take a look at how it works now
+there are four states and then four
+dates as I mentioned the input forget
+update and output gates it's pretty
+self-explanatory by the name what these
+gates do but the thing is we've got two
+sets
+one of the set of input forget update
+output is connected directly to the data
+you feed in and this set over here is
+connected to both the hidden state and
+the data indirectly through these two
+linear layers and the element wise
+multiplication so what you've got to do
+is combine the corresponding dates like
+for example I 1 and I 2 F 1 and F 2 so
+on and so forth so we have final date
+values that we can use and we're going
+to in order to change our data now I
+don't want to do this we do pretty
+simple element wise addition so what I
+do is I take input over here input 4
+over here and I go ahead and do element
+wise addition okay I do element wise
+addition for each of the corresponding
+gates in these two sets and there we go
+we've got four new values for new
+vectors or tensors in this case now from
+here we've got to run an activation
+function on these values now for the
+input forget and output gates over here
+this one this one and this one we're
+using same boy all right but for the
+update gate we're using 10 H hyperbolic
+tangent reason is because sigmoid goes
+from 0 1 10 H goes from negative 1 to 1
+and therefore we have a more precise
+update of the actual in state okay so
+now from there we've got actually do
+something with these gate values so
+let's go ahead and take a look at two
+things
+first of all put your mind on this
+element wise multiplication over here
+essentially what we're doing is
+retaining the output of the input and
+update dates and our running element
+wise multiplication so we are updating
+the input with this operation over here
+ok and this operation over here will
+multiply the foredeck gate find the
+previous cell state element wise
+multiplication so we're going to forget
+any information that isn't necessary any
+longer now from there you've got to
+combine these two values and I'm going
+to do that with element wise addition
+you're going to take the value of this
+new cell state they're gonna take the
+value of this updated input and they're
+gonna run that addition and once you're
+done the output of that element wise
+addition is going to be your brand new
+cell state but I think that you also
+gonna get a hidden state so to do that
+you take your new cell state and you run
+element-wise multiplication on the value
+of the output gate okay just like that
+you've got your new hidden state and so
+I know this might sound really complex
+so the best part is you don't need to
+worry about any of this you don't need
+to worry about the gradient computation
+you don't need to worry about the
+derivatives all you need to do is define
+your forward pass because sweeper
+tensorflow will take care of the rest
+and so just to quickly recap what we're
+doing over here is we're taking the
+hidden state and the new data we're
+feeding them both through their own
+linear layers running element-wise
+multiplication to get the hidden state
+and data into one vector after that
+we're cutting that to four different
+linear layers corresponding to the input
+for get updated output gates each and
+are doing the same thing but directly to
+the data over here with different
+weights that we go ahead and combine the
+corresponding gates with element-wise
+addition run their corresponding
+activation functions to an H for update
+and then after that we go ahead and
+combine update and input to have our
+updated input we combine our self state
+with our forget we combine that new cell
+state along with the updated in put
+together new cell state and then we
+combined that new cell state with the
+output gate it were to get our new
+hidden state and so that's a quick recap
+on how MLS teams work but now we don't
+need further ado let's take a look at
+how you can implement this MLS TM in
+Swift for tensor flow using the exact
+same architecture used by open AI for
+their Amazon review language model then
+we'll go ahead and take a look at how
+you can actually use this mlst of
+architecture load the weights from over
+the eyes get a repository and then
+generate your own infinitely long
+Amazon reviews so let's go ahead and
+take a look at how that works and then
+we'll get into the unsupervised
+sentiment around why neural networks
+learn sentiment in the first place take
+a look at how you can actually go ahead
+and build your own multiplicative LS TM
+with swift for tenza flow and then go
+ahead and run inference with it using
+the weights from the open a I github
+repository now something to note is that
+once you actually love those weights
+you'll be able to predict the next
+sequence of characters in an Amazon
+review with some seed text that you
+provide the neural network with in order
+to actually get that hidden state of the
+seed text essentially enabling you to
+generate your own versions of these
+reviews alright let's take a look at how
+it works
+now as you can see over here in this
+server I have got two Nvidia Tesla P 100
+GPUs now these GPUs are going to be used
+to actually generate these Amazon
+reviews in an accelerated manner using
+Swift for tensorflow and the best part
+is that unlike other libraries like pi
+torch for example tensors are for
+example implicitly copied to and from
+the accelerator you do not need to
+specify when something goes the GPU or
+comes back to CPU Swift for tensor flow
+takes care of everything for you
+so you don't need to worry alright let's
+take a look at how this works now inside
+of this folder sentiment neuron v1
+version 1 I've got five files args build
+viz genis H imports model and vis gen
+dot Swift now let's focus on these three
+files first then we'll talk about these
+two files over here now these three
+files actually have the main code the
+heart behind how exactly this
+application works and let's start off
+with the simplest of the files imports
+dot Swift as the name suggests
+essentially all I do are my crucial
+imports that are required for all the
+different code files for example import
+tensorflow enable GPU import python and
+then i go ahead and import numpy pillow
+image and pillow image draw now why
+exactly am I using pillow here well if
+you haven't used it already which in
+this case I'll assume you have something
+experience pillow is essentially an
+image manipulation library for python
+and using pillow what I'm able to do is
+write my own custom text rendering
+engine and so what I can do is I can
+take the sentiment from the sentiment
+neuron and actually create images with
+text in them and I'll show you what that
+is in just a moment but for now let's
+concentrate on the machine learning part
+of the application now let's go over to
+modeled on Swift now in model dot Swift
+I've got over here 167 lines of code
+that define exactly how the model works
+and then in my next file I actually have
+some code that enables me to use this
+model with some text let's take a look
+at how it works now first of all we've
+got two very simple structures linear
+and linear sans bias now linear is sense
+is essentially a dense layer and swiffer
+tensorflow comes packaged with a dense
+layer however just to be more explicit
+here and talk about how exactly
+everything works I'm using these two
+different layers linear and linear sans
+bias with linear you've got a weight and
+a bias which enables your neural network
+to shift your activation function to the
+left or right and then the linear sans
+bias is essentially the same thing but
+without a bias just a weight just the
+matrix multiply and no addition over
+here okay so now that we've got those
+two structures out of the way now we can
+go ahead and take a look at how exactly
+the ML STM works but first we take care
+of some logistics now what do I mean by
+logistics well the thing you have to
+note here is that well the
+multiplicative LS TM requires multiple
+inputs and multiple outputs so you've
+got to feed in your data in your hidden
+state and your hidden state itself
+consists of two different variables so
+you can't just say for example that
+there is you know just just one input
+tensor you've got to have in this case
+one two three different input tensors
+now the best part is that if you want to
+conform to layer your applied to input
+function can actually take any input and
+actually provide the output as long
+it conforms to the differentiable
+protocol by default tensors do conform
+to this protocol which is why are able
+to say for example to apply to input
+tensor float over here okay and return a
+tensor float but if you'd like to return
+multiple outputs or even take multiple
+inputs that in that case you can
+actually define your own structures that
+conform to the differentiable protocol
+would they have their own variables in
+them that you can actually use within
+your applied to function so here I go
+ahead and declare I should find two
+different structures the MLS TM hidden
+state and MLS TM input the hidden state
+basically just has hidden state and cell
+state as well as a custom initializer
+and after that the input contains the
+actual data that you're feeding into the
+model for that time step as well as the
+hidden state which is of course the MLS
+team hit the state over here with a
+custom initializer then comes the fun
+part
+okay this over here is the MLS TM layer
+of course it does conform to the layer
+protocol therefore it can be trained and
+over here we have all the different
+weights that actually go behind the the
+main computation of the MLS TM so we've
+got WX i fu o for the four different
+case we've got wh i fu o and WM x and WM
+h let's talk about what those do but
+first of all let's go ahead and define
+them now of course the MLS TM will have
+to take an input size and also a hidden
+size now in this case our input size is
+going to be 64 and our hidden size will
+be 4096 and therefore we're gonna have
+WX i WX Fu and O with an input size of
+64 and an output size of 4096 because if
+you remember that diagram that I was
+talking about and how the MLS DM works
+essentially these correspond to the
+linear layers for each of the four gates
+that are connected directly to the data
+you feed in over here these layers are
+corresponding to both the data and the
+hidden
+they combined which is why they take the
+hidden stay in and the hidden stay out
+and then these over here are the linear
+layers that are gonna pass your data and
+your hidden state through before you do
+your matrix multiplication to pass it to
+these layers over here okay now let's go
+ahead and take a look at the applied
+function now you're probably wondering
+why there's an error over here but no
+problem the only reason there's an error
+is because this is not running a latest
+tool chain of Swift for tensorflow
+that's running over here on my server so
+if I were to go ahead and open up with
+vim as you can see over here I mean it's
+the exact same code it's just that on my
+server I've got a newer version of the
+Swiffer tensorflow tool chain but on my
+Mac of our Xcode I don't all right so
+now over here we have a function public
+function applied to input taking in some
+MLS TM input providing MLS TM hidden
+state now this is going to be a
+differentiable function of course we're
+to conform to the layer protocol it's
+going to be differentiable with respect
+to self meaning all the differentiable
+variables or all the all differentiable
+variables within itself as well as the
+input passed into the function and
+inside the function essentially I just
+run all the operations that I'd shown
+you on that graph on the white board
+first what I do is I take the input data
+in the previous hidden state run them
+through their own linear layers and run
+element-wise multiplication and store
+that in a variable called M then I go
+ahead and pass the data through another
+linear layer for input for the input
+gate
+then I pass M through an input gate add
+them and run them through Sigma way then
+I do something similar for the forget
+gate update get an output gate again
+update having a hyperbolic tangent
+activation then I go ahead and calculate
+the new cell state by taking forget
+times the previous cell state plus input
+times the update gate then I go ahead
+and calculate the new hidden state by
+taking that new cell state run through
+eight an H activation times the output
+gate and so just like that you've got
+your new hidden state and your new cell
+state okay so that is really all that
+goes behind the multiplicative LSD
+I know it looks really complex but when
+you really boil it down you essentially
+are just continuously running these
+operations on all the different time
+steps of data that you have all right so
+now though we've got to have some sort
+of way to take this hidden state and do
+something with it and so for that I've
+got the stacked LS TM layer now the
+stacked LST M is going to take nothing
+but the MLS TM input but it's going to
+provide a custom form of output okay
+it's going to provide both a hit of the
+state as well as output for which
+character was chosen in this time step
+ok this of course does two friend it
+does conform to the differential
+protocol and stack does TM conforms to
+layer now they're going to be two layers
+inside of the stack Della's TM r MN
+which is of course a type MLS TM
+multiplicative Alice TM and h2o which
+stands for hidden to output which is
+just a simple linear layer with bias I
+just initialized the RN n with an input
+size of 64 and a hidden size of 4096 and
+the hidden to output with an input size
+of 4096 and an output size of 256
+corresponding to a 1 hot encoding of all
+the different characters according to
+ASCII codes now over here I've got a
+function of course public applied to
+input and this is of course a
+differentiable function with respect to
+self and input it takes an MLS TM input
+but it responds with a stacked LS TM
+output now essentially all I do is I
+take the RM apply to the input that you
+passed then take the h2o layer and apply
+it to the hidden state of the ardennes
+output then I run that through softmax
+create a new instance of stack 10s TM
+output corresponding to the hidden state
+as well as the output and just like that
+you've got your stacked LST M output
+provided as a return now there's one
+more function which is the initial state
+of the stack that was TM so this initial
+state will take a batch size of in 32
+type and return an MLS team here in the
+state this is essentially just going to
+be for the hidden state and cell state a
+bunch of 0
+which shape batch size 4096 so for
+example for feeding in one character
+then you're gonna have zeros of shape 1
+4096 all right and so that is how you
+get your initial hidden state that you
+feed in when there are no previous time
+steps then you've got one last layer ok
+this layer is the language modeling
+layer it has a custom kind of input but
+it provides stack to LST m output this
+input takes a previous hidden state as
+well as an input one hot encoded or
+sorry one hot a one huntin coded
+characters and back ok so it has a
+custom initializer and then from there
+has two variables within it the embed
+variable which is a linear sans bias
+essentially a dense layer without a bias
+for the actual embedding to convert from
+one hot encoding to a project to a
+semantic projection and then you've got
+your RN n which is a type stacked LST m
+to take that projection and return
+stacked LST m output of course I
+initialized the embedding with an input
+size of 256 and an output size of 64
+corresponding to an open a I did with
+their model and then I've got my applied
+to function taking in a language
+modeling input in returning stacked LST
+and output I go ahead and get an
+embedding according to the input
+character over here and then I go ahead
+and return the ardennes output to this
+view MLS TM input that I create
+according to this embedding and the
+hidden state from the input pass into
+the layer and so that is how your model
+works it's actually not as complex as
+you may think but now we can go ahead
+and take a look at how you can actually
+use this model so over here we've got
+public class text gem model this
+essentially takes care of taking a
+character and keeping track of hidden
+States over time it's a it uses in the
+backend a language modeling layer and it
+itself does not conform to the layer
+protocol so this is not something you're
+going to train this is essentially a
+convenience wrapper around language
+modeling of course it does also store a
+current hidden state
+and when you initialize the class the
+current hidden state will be equal to
+the initial state of the arm and inside
+of the language monitor with a batch
+size of 1 then we're gonna go ahead and
+load the weights now how exactly do we
+load the weights well we do that by
+taking the npy files provided and of
+course this will also be available on
+the github repository that i linked in
+the description below but essentially
+because of the really close
+interoperability of Python and Swift you
+can actually take the numpy weight files
+and directly load them into tensors and
+just set those tensors as the actual
+weights within your layers so for
+example when you want to set the
+embedding weights you just load that up
+and set that to its new tensor and then
+you do that for the hidden to output you
+do that for all the different gates you
+do that for all the different gates to
+the second set you do that for all the
+biases within the gates and then you do
+it for the two different for the data
+and hidden States linear layers now once
+you've gone ahead and loaded your
+weights
+then comes the applied to function of
+this is where it starts to get a little
+bit more complex this apply to function
+takes input as a string and also a
+temperature now this temperature will
+essentially determine how erratic
+the decisions are that this neural
+network makes again the lower the
+temperature the closer to ground truth
+but the higher the temperature the more
+erratic and all the decisions are going
+to be and it just returns a string now
+these are technically strings but I just
+returned characters I'm assuming that
+you only have one character in the input
+and one character will be provided as
+output okay so I go ahead and get the
+ordinal of the actual input this is
+essentially the ASCII code of the input
+so I convert that input to a Python
+string and code it and get a Python
+ordinal and then convert that to a swift
+integer again really convenient how you
+can combine Python and Swift like that
+even though you could do this directly
+in Swift then I go ahead and one hot and
+code this ordinal by taking an integer
+array repeating zeros 256 times then
+taking back ordinal or Nola's element
+and setting
+at two one then we go ahead and apply
+the language modeler to this input so I
+provide this input that we actually just
+created over here this one hot input
+that's converted to a temp sir
+and then I go ahead and provide the
+current hidden state that's part of this
+class over here once that's done I set
+the current in the state to what the
+language modeler provided me as the new
+hidden state then if the temperature is
+negative one I just return an empty
+string so why would the temperature be
+negative one well the thing is let's
+just say you provided a bunch of
+characters so in order to get the final
+hidden state of those characters I would
+need to feed in the first character get
+the new hidden state discard the output
+entirely and then go ahead and feed in
+the new hidden state and over and over
+again to get the final hidden state
+where you can actually start generating
+characters so in this case I don't want
+any output
+I just want to continuously feed input
+to update the current hidden state so
+that's why I would set the temperature
+to negative one to return a blank string
+from there I go ahead and get the
+prediction so the prediction is going to
+be the output as a numpy RA as type
+float64 i'll talk about why it's about
+64 in just a moment and you're getting
+the zero with value because we've got a
+batch size of of one so for example
+initially after as type the shape of the
+array is going to be one 4096 when you
+get this when you get the zero width
+element then it's going to be of shape
+4096 because you had in the first
+element okay so from there if your
+temperature is equal to zero then that
+means you just want the arc max of the
+prediction you just want exactly what
+the neural network is telling you to do
+so you just go ahead and well get the
+arc max convert that to a character
+convert that to a string force unwrap
+the optional and return that as the
+function and then from there if your
+temperature is not zero then you
+actually want to do a little bit of
+random choice so what you're gonna do is
+you're gonna get the law of probability
+so you're gonna pass the prediction
+through NP log divide it by the
+actual temperature and they're gonna run
+this prediction which is which was my
+calculator over here through NP X Expo
+exponent and then you're gonna go ahead
+and set that prediction to the
+prediction divided by its son and the
+reason you do this is because the next
+function which is NP dot random
+multinomial none of those values can be
+over one and so essentially what you're
+going to do is you're going to pass this
+prediction through and you don't random
+that multinomial then you're going to
+get the NP R max from that function and
+that is your predicted character with a
+little bit of random sampling according
+to the temperature and the actual
+confidence of the values within the
+prediction then you just go ahead and
+convert that to a character and a string
+just like you did over here and return
+it and just like that you've sampled
+from your soft backs layer and this is
+really all the logic that goes behind
+generating characters from in this text
+so next over here I've got a function
+called render text with RGB now
+technically this doesn't really have
+anything to do with machine learning but
+I'll still go through it and essentially
+what this only enables you to do is take
+text which is an array of strings each
+string containing only one character as
+well as another array called with RGB
+which is a two-dimensional integer array
+each individual array will have only
+three elements and so essentially you
+could say it has a shape of none three
+in Karass terminology so blank three and
+so let's just say there are 15
+characters then the with RGB array is
+going to have a shape of 15 3 and this
+15 3 array is going to correspond to the
+RGB values of each character and it also
+takes the desired width which is the
+desired width of your final image so
+just to clarify once more this function
+is going to take text the color of that
+text and it's going to create an image
+that actually has that text in it it's
+going to create an image rendering of
+that text ok and it's going to return
+this as a Python object which is the
+pillow image that it has created now the
+way it works
+is by essentially taking an initial X
+initial Y which is let's just say 1010
+an initial character with padding and
+over here we have a function called get
+character with padding now essentially
+with this care what this function does
+is it takes a character and lets me know
+how wide that character is and how much
+padding there should be between this
+character and the next so if you've got
+a space then it should be seven it
+should be seven pixels wide and zero
+pixels for padding because well it is
+itself padding or if it's any other
+character apart from a space then go
+ahead and have five for the actual width
+of the character and two for the padding
+of the character so I don't have a
+little bit of logic that essentially
+determines the initial X&Y coordinates
+for the first character and then I have
+a ray that have essentially the
+coordinates of where each individual
+character is rendered then I just go
+through each character in the text that
+you provided get the character width and
+padding for that character get a little
+bit of logic to see if we should wrap
+the line and if we should that increase
+the current Y and set the current X back
+to what it was initially or else just
+increment the current X by the code by
+the character width and character
+padding combined then go ahead and take
+that current X and current Y and append
+it to the render at array and then from
+there go ahead and determine how high
+the image will be so we have a desired
+width but how high will the image be
+what's the height going to be depending
+on how much text was actually fed into
+the function so that's gonna be equal to
+the current Y plus the initial y plus
+seven for padding okay
+so then from there what we're gonna do
+is create a new image new pil dot image
+which was imported over here then we go
+ahead and create a new image draw that I
+loop through every character in the text
+render acting with RGB now let me
+clarify once more text is the array of
+characters if there are 15 characters
+and it just has a shape of 15 render at
+will have a shape of 15 - corresponding
+to the XY coordinates of each
+individual character with RGB has a
+shape of 15 3 corresponding to the RGB
+color of each character so if you zip
+those together and convert that to a
+list then you can loop through it get
+the character lender read their location
+and render color for each character then
+you just go ahead and pass it all to the
+drawer and then you return the image
+it's that simple
+of course the logic itself isn't
+necessarily simple but using it you're
+able to render your own text with color
+now over here we have a similar function
+that this that instead takes text neuron
+values a desired width and a neuron
+range we'll get to this function of how
+it works in just a moment let's skip it
+for now
+next up you've got your model which is
+your new text generation model that we
+defined over here now once you've got
+your new text generation model then
+you've got to get your command-line
+arguments let's take a look at what
+those arguments are shall we now there
+are in this case let's see here there
+are 6 different arguments that you're
+going to pass to to this program first
+of all is the seed text that will
+initialize your neural networks in the
+state that you want to go ahead and
+generate from then you're gonna pass it
+the sequence length which is how many
+characters ahead you want it to generate
+you're gonna pass it the temperature
+then you're gonna pass it three more
+there are three more parameters but
+let's only focus on the last one and
+this is the file to actually save that
+visualization too so once your neural
+network has generated its characters
+were should save the image of that text
+to okay so that's what we go ahead and
+extract from here then I have a little
+bit of logic that actually goes ahead
+and uses those parameters in order to
+generate your string
+but I'll get to exactly how this works
+as well in just a moment first let's
+take a look at a demo of the
+visualization engine in action now in
+order to do this the first thing we need
+to do is actually compile these three
+different Swift files into one now the
+way I do this this is not optimal by the
+way I do this
+go ahead and concatenate all those files
+to one file called name not Swift then I
+go ahead and compile it to create a
+binary I remove the original may not
+Swift and then I move that new main file
+to visit Jim so if I run the build
+script I should be able to any moment
+just run dot slash vision and give it
+all my parameters so for example let's
+just say my seed text is I'd recommend
+or even I recommend and see where it
+goes from there I can go ahead and give
+it a sequence length say 500 a
+temperature of zero point four let's not
+give any neuron to oh right nor should
+we give it an overwrite value but we're
+gonna tell it to save to generate a dot
+PNG so I'll tell you what these two
+parameters are about again in just a
+moment but ignore them for now
+so essentially what's gonna happen now
+is it's gonna take this text over here
+oh we first have to copy the weights of
+course over here let's run that again
+it's gonna take this seed text it's
+gonna get the hidden site for it then
+generate 500 characters after this seed
+text for the temperature of zero point
+four and save it to generated dot PNG so
+give this just a moment and again this
+is being accelerated on GPUs completely
+automatically nothing that you need to
+worry about because of the power of
+super tensorflow so give this just a
+moment and we should see that we get our
+new output again the reason recurrent
+neural networks are sometimes not
+performing very well is because they're
+not very parallel or parallelizable
+every time step depends on the output of
+every other time step so you cannot
+process all time steps at once which is
+why you usually prefer for simple tasks
+a 1d convolution but anyway back to the
+topic so here we've got generated dot
+PNG but to take a look at what exactly
+that looks like we've got to go ahead
+and copy that back to our local machine
+so I'm gonna go ahead and secure copy
+this to my
+Mack thought I'm gonna go ahead and open
+this text and if I go ahead and take a
+look at it this is what it came up with
+so this is the seed text refitting I'd
+recommend after that this is all the
+text that it came up with after these
+few characters so let's go ahead and
+read the first sentence or two
+I recommend this product for anyone who
+wants to be in the know about the
+supernatural and the world around them I
+would recommend this to anyone who wants
+to try out a new type of book on the
+subject of the supernatural I love this
+series and this is the first one that I
+have read I'm not a big fan of the
+series but this one was great I really
+like the characters the storyline was
+great I would recommend this book to
+anyone who likes mysteries and witches I
+am big fan of the series and then so on
+and so forth so of course this is not
+very coherent you wouldn't just be able
+to generate tons of fake reviews for
+Amazon this is not what it's meant for
+it's meant to help you generate a
+language model where you can predict the
+next character in at least a semi
+coherent way as you can see it was able
+to understand some sorts of long-term
+dependencies like for example it
+mentions supernatural here because it
+remembered suits were super natural from
+over here even though there was no
+direct connection it was still able to
+remember that hey supernatural is
+important enough for me to remember that
+in specific and over here it says
+mysteries and witches even though it's
+at the end of the paragraph so the
+multiplicative Alice TM does perform
+very well but then again this is just
+around generating text what if we were
+to actually figure out what individual
+neurons actually do within the mlst M
+well that's what we're gonna do next but
+before that let me explain how exactly
+the unsupervised sent to the neuron
+actually works okay so now that you've
+seen how you can actually run inference
+and generate Amazon reviews using Swift
+for tensorflow to load the weights from
+the official opening I get hub
+repository now let's take a look at
+something a little bit more interesting
+the sentiment neurons specifically the
+unsupervised sentiment neuron
+now what does the unsupervised sentiment
+her arm
+even me well essentially when open ai
+trained their girl network to predict
+the next character in a sequence of
+characters there are neural network
+ended up learning the concept of
+sentiment within its hidden state
+without being explicitly trained in any
+way to do so let me show you what I mean
+in fact that sentiment can also heavily
+influence the output of the neural
+network as well but why are we to neural
+network want to learn sentiment well let
+me give you an example so first of all
+let's understand a little more about how
+neural networks learn first now the way
+neural networks learn is they take
+low-level features and they slowly
+accumulate them to create higher level
+features or activations like for example
+let's just say we're creating a neural
+network to classify between school bus
+and an airplane now the things this
+would be a convolutional neural network
+of course let's just say we had a few
+different layers the first layer but
+identify very very simple patterns like
+lines or different many curves and the
+actual images for the second layer were
+grouped together those low-level
+features in order to get slightly higher
+level features but for example more
+complex shapes full circles and then
+from there the next layer we're go ahead
+and combine those features in order to
+get even more complex features so I'll
+give you a full tire maybe a an airplane
+and maybe an airplane fuselage maybe the
+windows on a school bus
+these things would be calculated from
+there those are combined further and
+further to get even higher and higher
+level features until finally you have a
+multi-layer perceptron to classify those
+features into a final category so every
+layer you're learning higher and higher
+level features to help your neural
+network understand not the low level
+features not the may be greedy but the
+overall semantics of your English but
+the thing is in order to do this it
+needs to recognize abstract concepts but
+for example a school bus tire or an
+airplane fuselage or a weight
+pointing these are things that it wasn't
+trained to see it wasn't trained to find
+an airplane wing or find the school bus
+tire but it ends up doing that because
+well the most efficient way to get the
+classification
+that's how backpropagation helps us
+similarly in this case to predict the
+next character in a sequence there are
+some certain attributes that would be
+very useful to have in order to predict
+that next character and these are the
+attributes that the hidden state aims to
+calculate that's why the hidden state
+exists you're teeing just a character
+inventing a sequence of character
+nettings and converting it to a kind of
+semantic projection of that character
+embedding in respect to all of the other
+character bangs that came before it all
+right so now let's take a look at a real
+example so let's just say we build a
+neural network okay a set of MLS team
+cells this is technically just one
+neural network but we continuously feed
+its output into the next cell of itself
+now let's go ahead and build it so let's
+start off with one MLS GM layer over
+here okay um LST and now this MLS TM
+we're gonna feed in the character I okay
+so let's just say we were to feed in the
+character I and what we're trying to do
+is build an Amazon review okay so let's
+just say someone sent the Amazon review
+I would okay the models job is to
+predict what comes after I would as in
+wo you LM or wo uld okay so from there
+we're basically just gonna keep going
+ahead building these MLS TM cells and
+feeding characters into them of course
+with respect to the previous cell states
+in the state and
+suspect and so now what I'm gonna do is
+Amazon draw out this diagram I'm gonna
+go ahead and speed up the clip for you
+you
+so as you can see here this is a diagram
+of feeding in the sequence of characters
+I space would into the MLS TM now of
+course all these blocks have the same
+weights okay we're just taking the new
+mistakes and cell states and feeding
+them into that same block with new data
+now the thing is there's a little bit of
+a problem at the end a little bit of
+confusion you see I would could result
+in an apostrophe T at the end right you
+might want to say for example I wouldn't
+- whatever you need to say I wouldn't
+recommend or I wouldn't buy whatever or
+you might want to say I would recommend
+etc etc what does the model want to say
+what are we trying to say well it really
+depends what time we might depend as
+well it depends on the characters that
+came before this now if I gave you a
+bunch of characters before this a bunch
+of words before this and I would how
+would you determine what would come next
+well the way you would do is you would
+understand the semantics the context of
+what came before the students saying hey
+this review is really negative this
+person doesn't like this product
+therefore you would say I wouldn't
+recommend but if the review was really
+positive that's very good and positive
+sentiment then you would say I would
+recommend I would buy this product
+whatever else it may be and so now how
+does the model determine how to fix his
+confusion well it turns out that this
+model trained on four GPUs for an entire
+month on 82 million Amazon reviews
+learnt how to calculate sentiment even
+though it was never trained on it so
+let's ignore the sell state for a moment
+okay now inside the hidden States you of
+course got an array of length 4 0 9 6
+technically 1
+the shake but we've got like four zero
+nine six insane
+now there's one specific neuron okay
+neuron two three eight eight and this
+neuron has essentially learned to take a
+sequence of characters and change its
+value depending on the sentiment
+polarity of those characters the more
+low the value is the more towards
+negative water towards that area the
+more negative their character sequences
+the more positive the more positive it
+is the more towards zero
+the were neutral that character
+sequences and this opens up three
+exciting possibilities first of all you
+can go ahead and take any sequence of
+characters feed it into the MLS TM and
+at the end take a look at neuron two
+three eight eight its value represents
+sentiment from there you can actually
+generate different sequences of text
+based off of nothing but this neurons
+value so for example let's just say I
+give you I would okay and I wanted
+something really good after that then
+all you need to do is say alright take
+this next hidden state okay so you've
+got your hip and cell state take this
+next hidden state and in the hidden
+state before you feed it to the next
+layer overwrite this neurons value with
+a positive one and now because this
+neuron is tied to sentiment and the
+sentiment of the Texans generated the
+next character will assume that we're
+writing a really happy thing and so it's
+gonna continue to generate really happy
+things or if we go ahead and take inside
+of this hidden state two three AAA and
+replace it with negative one we're gonna
+end up continually generating really
+negative text and so this opens up a lot
+of really exciting possibilities but
+that's not all not only was this
+unsupervised
+it was unsupervised and it actually
+learnt all of this to get state of the
+art performance even better than
+supervised classifier
+it's really amazing how this one neuron
+is able to learn such a complex pattern
+but opening I was not the first company
+to actually find out that individual
+neurons can have very interesting
+firings now I'm sure you've read average
+car bethy's blog post the unreasonable
+effectiveness of recurrent neural
+networks now he's written this amazing
+article on recurrent neural networks
+when they generate tax and essentially
+why they're so special and one of the
+very very unique snippets of his blog
+post talk about for example him taking
+the entire source code of Linux feeding
+it to an LS TM a language model and
+asking it to generate code of course it
+would generate code none of it would
+compile but looked really real it looked
+as if it was real Linux source code
+looked and felt just like the real thing
+if you haven't worked with it before and
+if you want to take a look at the
+generated snippet and Linux source code
+and wouldn't even tell the difference
+and so if you would actually go ahead
+and take a look at the individual
+firings of neurons there are certain
+neurons that activate more more
+positively the deeper they are inside of
+a scope so when you open a function what
+happens is that neurons value increases
+a little bit when you then go ahead and
+open a loop and increase it a little bit
+an if statement it will increase when
+you get out of the if statement it'll
+decrease and decrease needs to keep
+track of scope or there's a certain
+neuron that's really excited when you
+open quotes so the neural network knows
+whether or not it's in a quote right now
+and then right as the cool ends the
+neural network goes right back down and
+that proves that the neural network is
+learning how to keep track of where it
+is things that came before them things
+that are coming after it and so this is
+just another example of how neural
+networks learn abstract concepts human
+concepts even even better sometimes than
+supervised learning algorithms but
+you're probably wondering how did it
+open I find they're on to 38a okay now
+the way that open AI found they're all
+number 2388 was by using
+linear classifier and so essentially
+what they did is they went ahead and
+took the hidden states all the in the
+states and they fed it into a very very
+simple say neural network you'd call it
+and this neural network and specifically
+the way that I find the sentiment neuron
+this is not how open it I find it but
+the way that I found something there on
+is go ahead and take your 0-6
+made it as input to a classifier with
+just one output and this one output will
+actually determine sentiment and string
+this in a supervised way with only a few
+hundred examples compared to the
+hundreds of thousands that you would
+usually be into another supervised
+learning system now when you train it
+like this when the hidden states and the
+sentiment polarity and if you add
+something like for example l2
+regularization and have the weight
+initializer set to zero so you can
+actually get which which specific hidden
+states are the most important then all
+it is is graphing out the weights from
+this over here in the hidden state to
+the polarity well Jennifer one is really
+high or really really low the negatives
+will most probably be your scientific
+neuron and the way that open I
+discovered this as well they weren't
+looking for just one neuron they were
+trying to create an unsupervised system
+that could take texts take a hidden
+state and then using the whole hidden
+state including all the variables in it
+find some sort of relationship to come
+up with sentiment polarity with very
+little Vega but when they train this
+neural network of theirs and they
+visualize the weights they saw that one
+weight was really high and the rest
+weren't really low and they discovered
+that there was just one individual
+neuron in this entire handle state that
+was controversial but at least almost
+solely to the final output and this was
+the central neuron there are number two
+thousand three hundred and eighty-eight
+and so that totally discovered the
+sentiment neuron and remember the reason
+neural networks come up with this is
+because they need to have some way
+project their input to their desired
+output if I'm asking the knurl that were
+to take I would and come up with a new
+output it can't just say okay I would
+and then there's some sort of generic
+output from here because there are tons
+of different examples of what comes
+after I would I wouldn't I would I most
+definitely want some there are all these
+variations of the same texts so how does
+it know what comes after well it needs
+to learn abstract concepts in order to
+come up with that and deep neural
+networks help us out a lot in this area
+which is why we were able to discover
+the sentiment Mehran alright so now
+let's take a look at how you can find
+your own sentiment or on visualize the
+weights behind this sentiment there on
+and then go ahead and visualize your own
+your own sentiment from your own
+characters then go ahead and generate
+new characters by overwriting the
+sentiment neuron and making it so we
+specifically tell the neural network
+what's the same to make me want alright
+let's take a look so now that you know a
+little bit more about how the
+unsupervised sentiment neuron actually
+works let's go ahead and take a look at
+how you can visualize its value now what
+are the two values the two arguments
+that I skipped over last time well this
+one over here is the neuron to actually
+visualize and this one is the value to
+overwrite for that neuron so for example
+if I were to replace a negative one with
+two three eight eight what's gonna
+happen is for every character in the PNG
+its color will be influenced by the
+value of neuron two three eight eight at
+that time step and so for example let's
+just say one character gives noron two
+three and a really negative activation
+then in that case it's gonna be very red
+color that character but if it gives it
+a really high activation meaning it's
+really positive then it's gonna have a
+very green activation our color so let's
+go ahead and generate this this PNG file
+and take a look again I am not
+overriding the value of this neuron I'm
+just taking its value at every time step
+and visualizing it according to the
+color of the characters okay so give it
+just one more moment and there we go GPU
+acceleration
+successfully allows us to generate then
+I can go ahead and copy that file down
+to my local machine no let's try that
+again there we go open it up and just
+like that we see that we've got color
+now for some reason I recommend is
+negative to the neural network but from
+there it goes ahead and gets into a
+positive spin because it says I'd
+recommend this product and it realizes
+hey if Center if they're recommending
+this product to someone it must be good
+so from there on out the whole review is
+actually very very positive every
+character is good in fact let's go ahead
+and read through it really quickly I'd
+recommend this product to anyone who has
+a son who is a big fan of the movie and
+who likes to read to read books and get
+to know the character and story behind
+the story again this is not meant to be
+coherent in review generation this is
+meant to successfully predict the next
+character the next sequence of
+characters in in a in a sequence of text
+the price is right and the shipping was
+fast I would recommend this product to
+anyone who's looking for a great tablet
+for a great plot price I love the style
+and the color of this cover it is
+exactly what I wanted and hoped for
+great price I have to admit I was a
+little skeptical about this product
+because of the price but I'm very happy
+so this is how you can visualize the
+value of the sentiment neuron but let's
+do something a little bit more
+interesting shall we let's go ahead and
+close this and take a look at how you
+can actually visualize the sentiment
+neuron for your own text so let's just
+say I were to set the sequence length
+that's a negative one and also the
+temperature a negative one what does
+that do well essentially what it does is
+it tells my program to not generate any
+text essentially I'm just going to pass
+a text it's going to encode it with the
+hidden States and it's also going to
+visualize those hidden States according
+to the value of neuron two through eight
+eight but it's not going to generate
+anything on its own so if I go ahead and
+say I'd recommend this product because
+of the great price however I will say
+that Inc did not perform very
+well and I do not want anyone to buy
+this product I think I've wasted my
+money buying it again this does not make
+sense as a review but to see how
+characters change over time and the
+hidden state actually changes over time
+to these characters it's a good example
+so it's gonna save it again to generate
+a dot PNG and then right as it's done
+I'll go ahead and secure copy and open
+it up and we'll take a look at whether
+or not it works ok there we go it's done
+I go ahead and secure copy type it right
+there open it up and just like that take
+a look at this I'd recommend this
+product because of the great price
+however and in the middle of however
+here see this in the middle of however
+it's switched from positive over today
+again if it was like hmmm it's a great
+price but however what kind of negate
+what they just said therefore it should
+be negative from there on out however I
+will say that it did not perform very
+well and I do not want see how this is
+really bright red I do not want anyone
+to buy this product this is all very
+bright red over here I think I've wasted
+my money buying it now let's take a look
+at something more interesting so this is
+actually interested me a lot because
+again because we're using temperatures
+over here every time it's gonna be a
+little bit different but let's just see
+if we can type something negative go
+back over here let's see if we could
+type something negative and have it have
+it realized that however is switching
+switching sentiments I'd say no one
+should buy this product it's a waste of
+money however it ships very fast and the
+customer service is excellent ok let's
+go ahead and visualize this of course is
+much faster because we're not generating
+it's just taking however many characters
+that are and encoding it with
+encoding it with the with the
+multiplicative Alice TM and the weights
+provided by open AI okay let's go ahead
+and secure copy once more go ahead and
+open and just like that as you can see
+I'd say no one should buy this product
+it's a waste of money however chips very
+fast and the customer service is
+excellent but because of the previous
+negative context it continues to take
+the next sentence into negative context
+as well okay so that was a quick review
+of the sentiment neuron but let's go
+ahead and take a look at something even
+more interesting now so let's go ahead
+and delete this okay let's go ahead and
+start off fresh I'd recommend or I'd say
+or I would okay this is the exact
+example that I gave in the whiteboard
+part I would how do you determine what
+comes after I would well let's just say
+we want to generate a good 400
+characters and temperature of 0.4 after
+I would but this time let's explicitly
+tell this program to overwrite the
+sentiment neurons value with something
+now the lower the value the more
+negative let's go ahead and generate a
+really negative review by overriding its
+value to negative one so if I go ahead
+and generate what's gonna happen is this
+neuron will influence the sentiment of
+the characters that are chosen and the
+way it's gonna do it is by well being
+overwritten to a value of negative one
+despite whatever the value may have
+actually been but in the visualization
+it'll show us the actual real value so
+I'll talk about what that is in just a
+moment right as it's done generating
+as you can see it's done generating I go
+ahead and secure copy and I go ahead and
+open up that file now as you can see the
+whole reviews negative when I over wrote
+that and sent that sentiment neurons
+value to negative it said I would not
+recommend this product to anyone
+etc etc as you can see it says I would
+not recommend this product to anyone
+I've already spent money on this product
+no never purchase another one of their
+products again I bought this product
+because I have a different cable that
+works with my Android phone and it works
+fine but this one does not it does not
+work at all even though it's only $1.99
+it generates even a coherent price I
+would not recommend this product to
+anyone I was really looking forward
+cetera etcetera now we can go ahead and
+take a look at what happens if we all
+right and pay that value at positive one
+let's go ahead and try that out all
+right so there we go it's done
+generating now if I go ahead and secure
+copy and open it up as you can see we
+get very very high good sentiments for
+the entire review it says I would say
+that this is the best product on the
+market for the price I highly recommend
+it I love this series I can't wait for
+the next one to come out I can't wait
+for the next book to come out I love
+this CD it is a must have for any lovers
+of music I highly recommend it this is a
+great product it has come in very handy
+and is easy to use I would recommend
+this product to anyone who needs and
+from there on out so this is how you can
+tie that value to whatever is you want
+to get certain sentiments in fact even
+if for example I want to generate a
+positive view i wouldn't recommend this
+product to anyone because of the
+functionality however and then from
+there let's go ahead and take a look at
+what it generates so what I'm doing just
+a recap I'm giving it a negative
+sentence however I'm tying this neurons
+value to one to force it to generate a
+positive review from what I've said so
+let's see if it's able to do so so as
+you can see it went ahead
+generated and now we can go ahead and
+say your copy open it up and just like
+that as you can see it starts off with
+negative sentiment but then it goes and
+segues into positive segment sentiment
+look at this I would not recommend this
+product to anyone because of the
+functionality however it is a perfect
+buy for any business owner or person who
+wants to take their production to the
+next level this is a great book to read
+with your family I've given this book to
+many friends and family it is a
+wonderful book to read to your children
+and grandchildren this is a great
+product and a great price for a very
+fast delivery I will definitely buy
+again from this seller so as you can see
+even if I gave it a really negative text
+and tell it generates something positive
+it's slowly segways over to the world of
+positive review and it's slowly also
+segues the true neuron value positive as
+well as you can see over here it still
+thinks that it's pretty negative but
+over here towards the end starts to
+realize that hey perfect buy to go to
+the next level this is positive and then
+the rest of the neurons value is
+actually truly positive and also just
+separately apart from the sentiment
+neuron these this visualization of text
+is indeed generative by that custom
+function that I was showing you just a
+moment ago over here render text with
+RGB and it's also done with render
+string with neuron color essentially the
+way it works is it clamps the neuron
+values to a range of negative zero point
+eight to zero point eight and then it
+basically Maps that value to a range of
+0 to 255 green is equal to whatever
+value that is then red is the inverse of
+whatever the green value is and then if
+green is greater than red then you're
+setting red and blue to zero green to
+whatever the value is if red is greater
+than green you then you set the RGB
+value to red whatever it may be then
+zero for green and serve for blue or if
+they're somehow the same which is a very
+very low chance then you just have red
+green as whatever the values are and
+then a zero for blue then you just
+render text with RGB which is this
+function over here and so
+that is how the code works behind
+visualizing and generating text for
+Amazon reviews doubt specifically to
+generate a language model that enables
+you to have this unsupervised sentiment
+neuron that can actually determine
+sentiment even better than some in fact
+most supervised sentiment classifiers
+and so that was a quick tutorial on the
+open AI unsupervised sentiment neuron I
+really do hope you enjoy thank you very
+much everyone for joining in today as
+you seen today I've shown you inference
+training is still coming soon with back
+propagation through time all right so
+thank you very much once again everyone
+for joining in today if you really do
+like that tutorial please make sure to
+leave a like down below share it with
+anyone you believe may benefit from it
+like your friends or family or apart
+from that if you have any questions
+suggestions or feedback feel free to
+leave that down in the comment section
+below and I'll definitely get back to
+you as soon as I can
+apart from that if you really do like my
+content you want to see more of it
+please make sure to subscribe to the
+channel as well as it really does help
+out a lot and turn on notifications if
+you'd like to be notified whenever I
+release new content again thank you very
+much everyone for joining in today
+that's what I had for my tutorial
+goodbye

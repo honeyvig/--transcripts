@@ -1,0 +1,341 @@
+if you'd like to see how to add
+information to a parts table click over
+here if you'd like to see how to
+retrieve information from a parse table
+click over here if you'd like to see how
+to update information in a parse table
+click over here if you'd like to see how
+to delete information in a parse table
+you can click over here you can click
+over here to follow me on Twitter and
+even here to subscribe to my youtube
+channel but if you don't click anywhere
+this video will continue just like the
+rest of my videos in that pattern so
+let's get to it
+so hello there and welcome to another
+tutorial my name is Sonia Bakshi and
+this time we're gonna be going over
+parse and so I know I've already done a
+chatting app tutorial but now I'm also
+going to be going over just hi playing
+how to use parse and so now I went to be
+going over a few main things which are
+retrieving data from the parse database
+then I'm going to teach you how to
+actually upload data into the parse
+database I'm going to teach you how to
+update some information in that table
+and also delete some information from
+that table and let's get started right
+now in the first of all as you can see
+I've already logged in to parse and I'm
+gone to my dashboard now I'm not going
+to go over how to do that because that
+should be very self-explanatory and I
+believe you can also login with Gmail or
+even github or even Facebook so that
+should be quite easy for you to do and
+yeah so now what I'm going to just do is
+in our dashboard you see up here there's
+a create a new app button so I'm just
+going to click on that I'm going to
+create my put my face a bit smaller
+actually I'm just going to cover right
+there so I'm going to call this new app
+parse tutorial ok I'm going to create it
+and now what I'm going to do is I'm
+going to click on this Quick Start
+button let's click on it make our face a
+bit smaller and now I don't always
+recommend for you to do
+is click on the data button now you can
+choose any of these but since I'm
+developing for iOS I'm just going to
+click on mobile iOS now you can choose
+between objective-c Swift or if you're
+using this amber in c-sharp so I'm just
+going to collect select Swift let's just
+click on the new project button the
+existing project button will be an
+entirely different video then what
+you're going to do is you're going to
+click on this blue button here download
+the blank Xcode project now you can just
+uh go over here and wait for it to be
+done downloading
+and so now as you can see I've extracted
+it and so what I can do is I believe yes
+what you do once you extract it and go
+into it double click on par starter it's
+all your project Swift and then
+double-click the Xcode project this
+should open up the actual Xcode project
+that you are developing for now what I'm
+just quickly going to do is come over
+here and since I'm actually developing
+for iOS 9 not 9.1 I'm going to send it
+to 9.0 perfect so now what I'm going to
+do as you can see this has already been
+set up by par so it's a nice app
+delegate I believe yep all our
+frameworks should already be imported as
+you can see whatever is required and so
+all we need to do is enter in our
+application ID and we should be good to
+go so what we're going to do is we're
+going to go back into this parse
+QuickStart page we're going to copy this
+little code that they gave us we're
+going to go into application did finish
+launching with options and we're going
+to take this little part where it says
+uncomment and fill in with your parse
+credentials parse set application ID
+your application ID and your client keep
+paste it in and now effectively what
+we've done is we've told parts that yes
+we are this person connecting to this
+table and so we want access and so parse
+it can be like yeah sure and now we can
+access that entire parse database and so
+that'll be good so now we can go to into
+any table retrieve add update and even
+Billy so now in order to actually use
+these features I'm going to be really
+simply just using the print commands for
+now not creating any fancy UI this is
+due to the fact that I just want to
+explain how posh works too I don't want
+to overcomplicate you with a UI and this
+and that this is for beginners of course
+so what I'm going to do
+he's in our muted load function let's
+demonstrate adding a row but wait what
+are we adding a row - well in order to
+solve this let's go back to parse sorry
+and let's click on this core button then
+let's click on add class make sure this
+is set to custom and let's just set this
+class name to messages now let's add a
+column to this table let's make sure
+this is a string and let's name this the
+message and that's also how to column a
+name at the number meaning which
+actually sorry this has to be a number
+so this is a number called number I'm
+just going to take this call over here
+that we just created a number and drag
+it over here beside message you don't
+need to do this it's completely optional
+but you know it's more clean and easy
+for you to see okay message number
+residence number actually you can even
+put the number before the message
+because that makes more sense because
+that's the unique not the unique because
+object you get the point anyway
+continuing now how do we add a row into
+this table it's simple
+first of all we need to do is we need to
+define this row how do we define this
+row we create a VAR object which is
+equal to a new PF object but there's a
+problem
+we need an initializer and so if I do
+this as you can see it fills in this
+initializer class name for me and so I'm
+going to give it the class name messages
+because as you can see over here we gave
+it messages and of course I exclude us
+to load because it's really really slow
+okay so now that we've decline and sorry
+decline declared our objects what we can
+do is we can say object dots set object
+now we're going to say
+we want the message named my name is
+Tammy Bakshi for the message and for the
+and so I went is also set number one for
+the number and this should actually work
+now what's going to happen it's going to
+set the message to my name is Hannah
+Bakshi and I'll set the number to one of
+course I'm not going to go to the actual
+database and find the number yet because
+that would be way too much coding but
+this is just a simple explanation of how
+you'd actually save into parse but
+there's a problem we're only setting
+objects we're not actually saving into
+the table so in order to do this let's
+forest try object dot save because I
+know that in my case this will work but
+in your case you can implement air
+handling because again air handling is
+an entirely separate video for now I'm
+just trying to teach you how to use
+parse
+now if I make the deployment target my
+iPhone and if I run now gonna not going
+to stream my iphone to my Mac because
+you only really need to see what it
+prints out not even prints out at this
+stage whatever comes over here so as you
+can see this should eventually run and
+if all goes well it should give us this
+warning perfect so now if we got a parse
+and we reload by clicking on this little
+refresh button here as you can see
+number one
+my name is Tana Bakshi we have inserted
+this row into our table now what else
+can we do
+uh let's take this for an example now
+that we've added a row again I'm going
+to keep this code in the actual source
+code or actually nevermind let's just do
+this because we don't want to save it
+again I'm just going to comment that out
+okay so now that we've actually added a
+row
+let's try retrieving the information
+that's already in the database now how
+do we do this
+first of all let's just declare a query
+which is equal to a new PF query and of
+course again we're going to give it a
+class name aka table name and I'm going
+to again give it messages then what I'm
+going to do is I'm going to say I think
+it's a yeah var objects is equal to
+query dot find objects and of course way
+to force try this now this is an array
+of PF objects but what if we wanted to
+print it out in a special way or we need
+this information in a normal string
+string or string any object dictionary
+well in order to do this what I do is
+say var final objects is equal to string
+any object and this is actually an array
+of this and so now we can loop through
+the actual objects and so it's going to
+happen is we're going to say final
+objects dot append a blank dictionary
+then final objects the last element
+meaning final objects dot count
+minus one specifically message will be
+set to J which is the loop parameter
+that we made the value for key message
+as string then what we can do is we can
+do the same thing
+final objects final objects count minus
+one meaning the last dictionary we're
+setting the number to J dot value for
+key number as a string so us effectively
+what we're doing is we're taking the
+message from the specific object from
+this array
+converting it to a string and putting it
+into a final into the final objects
+dictionary which is the last dictionary
+in an array of more dictionaries of
+values from this objects alright sounds
+complicated right now but once I print
+out the final objects won't really seen
+this hard now it should actually print
+out the my name is anand bakshi number
+one oh sorry I made a mistake unless I
+caught that integer not string a number
+can't be a string unless you got that
+and as you can see it has worked
+perfectly and now in order to prove that
+this actually does work I'm going to add
+another row from within parts number two
+message hi I'm new here
+okay so now if I run this app it should
+give us exactly what I typed in as you
+can see it retrieves all the contents
+from the parse table now we can
+effectively retrieve all rows but what
+about updating a row well that's also
+quite simple in order to update yeah
+update a row all we need to do is say
+okay first of all we're going to do
+create a query so this is going to be a
+new query PF query of course it's not
+error code query of class name messages
+next what we're going to do is we're
+going to say query dot we're key or
+sorry not this one
+we're key
+equal to in my case where the number is
+1 let's update the message to yay it
+worked so first of all we've said the
+query should look for a key number where
+it's 1 so now let's get the object value
+of that by doing query get first object
+so this is effects we're going to do
+it's going to get the object value of
+the actual row it'll basically get the
+row where number is equal to 1 or at
+least the first row where number is
+equal to 1
+not sure about if there's any others
+it'll just get the first one now I'm
+just going to make this a let object so
+it stops giving me a warning and so now
+I'm going to say object dot set object
+let's just say let's just say the new
+message is yay it worked and let's set
+this for the message of course and now
+let's save this on to our parse server
+and theoretically this should go to the
+parse table update my name is anand
+bakshi
+into yay it worked so let's actually run
+this code
+okay no exception and if we go over here
+and refresh it changed now
+we're going to do the last thing and
+this is actually very very fun it's
+basically just updating with a little
+bit of a twist so what we're going to do
+now is we're going to delete a row so
+now how do we delete a row you ask
+well actually what I'm just going to do
+is I'm going to copy this much code from
+updating and I'm just going to say
+object dot delete it was literally that
+simple and now it'll delete yeah it
+worked because we're deleting wherever
+the number is one or at least the first
+row where numbers one and so now if i
+refresh number one is gone and it worked
+and yeah that's pretty much it for this
+tutorial and really quickly yeah that
+was actually pretty much it for this
+tutorial again if you enjoyed please
+make sure to leave a like leave a
+comment or email me at a g-man a
+gmail.com my email within the
+description if you have any questions
+suggestions ideas concerns pretty much
+anything from math to science to
+computing to algorithms anything and I
+will surely almost definitely get back
+to you on that you can also email me a
+video question of you saying question
+and I will sir almost certainly feature
+that in one of my next videos and maybe
+even answer that
+so also subscribe to my channel if you
+like my cot and you want to see more of
+it or if you just plain are new to the
+channel or you like my channel please
+subscribe that really does help you can
+also follow me on twitter at tad g-man e
+if you'd like to where you can get all
+the latest updates maybe even some sneak
+peeks towards my next videos or in
+future ones and that's going to be it
+good bye

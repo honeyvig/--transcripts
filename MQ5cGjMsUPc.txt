@@ -1,0 +1,722 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is Tim Baki and this
+time we're going to be going over how
+you can use convolutional neural
+networks with caras in Python in order
+to create an mnist digit class
+classifier and now let's get into how
+we're going to be doing that all right
+so to begin today what we're going to be
+doing is we're going to be uh first of
+all I assume that you're going to that
+you have carass and tensorflow installed
+on your system and today we're going to
+be using a 14.04 to use Python uh and
+specifically the carass library in order
+to train convolutional neural networks
+and in this case we are going to be
+training a CNN on the
+mnist data that is available online all
+right so let's begin now most mnist
+digit classifiers built with
+convolutional neural networks use uh you
+know standard architectures like uh
+layet created by Yan Lun uh there will
+be a link to that in the description who
+is actually the creator of the data as
+well uh but the only thing is though uh
+I didn't want to use one of those
+architectures I wanted to use a custom
+architecture and so I built this uh this
+very uh this uh I guess you could say
+sort of mini convolutional neural
+network that can actually be trained uh
+you can actually train this at home on
+the mnist data and now let's get into
+how this works uh so to begin just in
+case you're not familiar with the mnist
+data well here's a quick overview so the
+mnist data is actually this huge data
+set of images uh and these images
+actually represent uh digits that have
+been drawn out and handwritten by people
+now these are all 28x 28 GR black and
+white photos and so like for example
+we've got classes uh zero uh they're
+handwritten zeros ones twos threes fours
+fives six sevens eight and nines so
+we've got 10 different digits that have
+been handwritten out a lot of different
+times by people actually uh and those
+have been put into our data set
+specifically each number on average has
+been written or we have handwritten
+images of 6,000 of each so we've got
+6,000 and these will actually be for our
+training
+set but for our test set we've got an
+additional 1,000 images that we can then
+go ahead and test and validate with to
+ensure that our training is going nicely
+and get a good measure of accuracy
+without having accuracy on an overfitted
+neural
+network all right so now since we've
+gotten 10 different classes each one
+containing 6,000 train 1,000 test in
+total we've got
+60,000 different train
+images and then of course we've got
+10,000 different test
+images and that is what we're going to
+be training our convolutional neural
+network on but before we actually get
+into the code of this and how it really
+works I'd like to go over the actual
+convolution neural network architecture
+a little bit beforehand so let's
+actually draw out what this
+convolutional neural network is going to
+look like now I assume that you already
+know what convolutional neural networks
+are and the different types of layers
+they provide and the activation
+functions Etc but in case or not there
+is going to be another video coming out
+very soon describing all the different
+types of layers with convolutional
+neural networks how they work in the
+logic behind them again coming out soon
+but for now let's talk a little bit
+about what's going behind it so it
+actually begins with one convolution
+layer so we begin with this convolution
+layer and this convolution layer
+actually has 16 filters and a 5x5 filter
+size now after this convolution we are
+going to have an activation function and
+this activation function in this case is
+going to be in the rectified linear unit
+activation function again in the second
+part that's going to be coming out soon
+I will discuss why exactly Rectify
+linear units are used so much with
+convolutional neural networks and why
+you don't usually see them in other
+neural network types or regular
+activation functions that are used more
+often with convolutional neural
+networks all right so after our
+activation function we're going to make
+our image much smaller by doing
+something called Max pooling so of
+course we're going to have a Max
+pool pooling
+layer uh and so here we've got a 5x five
+size and after that we practically just
+repeat the cycle we have one more
+convolution
+layer and this now has 32 filters again
+what happens is as you go deeper in the
+neural network you usually start to see
+more and more filters coming along so we
+can learn more and more sophisticated
+different types of
+features after that again this is a 5X
+five filter size and once we've got that
+done we of course going send it through
+an activation function such as Rectify
+linear unit once more and then of course
+we do one more round of Max
+pooling once more 5x five and once that
+is done we are ready to
+flatten the
+data meaning it goes from 2D to 1D oh
+flattening
+it goes from a 2d array two dimensional
+uh two-dimensional vectors to just
+onedimensional array uh and that
+onedimensional array is then used by a
+pretty much classic feedforward
+multi-layer perceptron neural network
+which will then be able to classify what
+this image is so like now what we're
+going to do is we're going to have
+something that neural convolutional
+neural networks like to call a fully
+connected layer
+and so this fully connected layer will
+have 1,000 output
+neurons and what's going to happen is
+we're going to use the rectified linear
+unit activation function once more once
+that's done we're going to have one last
+fully connected
+layer and this will finally have just 10
+outputs and this is going to be our
+final I guess you could say probability
+Matrix in fact that is what it's called
+and that's why we're using using for
+this the soft
+Max activation function the softmax
+activation function is then going to
+basically take these 10 outputs and
+create this probability Matrix for each
+digit individually so what's going to
+happen is let's just say you feed in a
+two the 0 one2 if element of the array
+meaning technically if you were to start
+from one to third element if you were
+start from zero to Second element of the
+array at the output would have a higher
+number than the rest and that would
+indicate the probability percentage uh
+uh that the percentage of likelihood
+basically that the convolutional neural
+network believes that this digit is in
+fact this output uh and so I will
+explain a little bit more and make that
+a little bit more clear in the coding
+part but just before we go one more
+thing I'd like to mention here is that I
+was actually able to train this neural
+network and the great news is that I was
+able to aeve achieve an absolutely great
+99.66%
+accuracy so that's actually a great uh
+percentage for such a small neural
+network usually you've got much deeper
+neural networks with more filters uh and
+and of course then they're able to
+achieve such accuracy but with just four
+Epoch and only around 7 Minutes of
+training we were able to achieve
+99.66% accuracy so if we were to make
+this deeper or G Al optimize this
+architecture and if we were to train it
+for a bit longer we could of course
+cranked out some more accuracy and get
+it as accurate as possible but I found
+that this is still very very accurate
+and I was able to test it out on many
+test images when getting almost every
+single one of them correct in fact it
+believes that each each of these you
+know whenever I give it an image it
+believes so much in its answer that it
+has so many nines that it just rounds it
+to 100% confidence most of the time and
+that's what you're going to be seeing
+now how we can use this in carass and
+python on an abun 2 machine now one
+thing I'd like you to note uh is that
+this example is using Cuda for GPU
+acceleration as well as CNN for more
+further acceleration with tensorflow and
+carass uh so if you'd like to train this
+on your CPU since this isn't too much of
+an intensive neural network it would
+still work on a CPU uh or an open c
+supporting uh GPU it's just that with
+Nvidia gpus you get that really fast
+performance because of Cuda and all the
+optimization provides so I'd highly
+recommend uh doing this sort of training
+on an Nvidia GPU due to the number uh
+the massive number of like the millions
+of things that you can do at once with a
+GPU but now let's get over to the
+machine where I'm going to be showing
+you now how you can actually train this
+convolutional neural network let's get
+to it now all all right so welcome back
+to the coding part and now I'm going to
+be showing you how you can actually
+implement this mnist digit classifier uh
+using caras in Python all right so let's
+head over to an SSH session I've got
+running here as you can see I basically
+ssed into a server uh W that will allow
+me to do all of this uh deep learning
+stuff uh so now let's go ahead and begin
+uh now let's actually start off with the
+script that is going to be training all
+of training the neural network but just
+before we even get to that let's take a
+quick look at our data now if I go into
+the data and I go into the train
+directory as you can see we've got 10
+directories under that 0 through n if I
+go into three for example as you can see
+we've got a good 6,000 images that LS
+has printed out here I'm not going to go
+through all of them though uh and if we
+go back as you can see if we go to
+something like eight we've got uh we've
+got similarly 6,000 images for eight as
+as well uh then we can go back and
+really do that for whichever number we
+want but then again we should we can go
+over to our validation set or our
+testing Set uh and again here as well
+we've got 10 directories uh and we can
+go into one of them like six and here
+we've got only a thousand of those
+images but still more than enough to
+test with for now uh and so from here we
+should be able to actually train our
+convolutional neural network and then
+actually use it using these validation
+images now if we go back so as you can
+see if I Nano this python file this is
+the file that's actually going to be
+helping us train our convolutional
+neural network now we've only got a few
+inputs here we're importing the image
+data generated from carass the
+sequential model uh the convolution 2D
+and Max pooling 2D layers from carass
+and of course the flatten and dense
+layers from carass as well once the
+Imports are done we are then setting our
+image width and height telling it where
+to find the train d data and where to
+find the validation data and finally how
+many training samples to use and how
+many validation samples to use after
+that I tell it that we're going to be
+training for four APO and once I tell it
+that we start actually defining our
+model now the model is in this case a
+sequential model and what we're going to
+do is we're going to add our first layer
+which is a convolution 2d layer with 16
+filters of 555 filter size a Rectify
+linear unit activation function and a
+very very very simple input shape which
+is the image width the image height and
+three
+channels once that is done we have a 2x2
+Max pooling 2D layer and after that
+we've got another 5x5 filter size 32
+filter convolution 2D layer once again
+with the rectified linear unit
+activation function which is Then
+followed up by a 2X two Max pooling 2D
+and that's really all there is to the
+convolutional part of the network then
+we've got our you know regular uh fully
+connected or in this case dense layers
+uh and so basically first of all we're
+adding a flattening layer which will
+bring it from two Dimensions to one
+dimension and once we've gotten that
+data in one dimension we are ready to
+actually use our fully connected layers
+or again in this case our dense layers
+now our dense layers will really take
+whatever input size has been given to
+them uh and they will output though a
+thousand neurons and again uh Rectify
+linear unit activation function will of
+course activate all of that data for us
+and then finally once we've got all of
+that data we can then converge down onto
+10 different classes with the softmax
+activation function order to get that
+really great probability Matrix which
+will give us a percentage of confidence
+with every classification it
+creates and once it is done we then
+print out a model summary uh which will
+basically just show us what the model
+looks like so we're able to confirm that
+this is exactly what we want uh we don't
+really use it for much though uh we just
+see uh we just use it to see what our
+model looks
+like after that then we compile this
+model and basically what this is doing
+is it's getting it ready for training by
+giving it some parameters for example
+for loss we're using the binary cross
+entripy algorithm we are using the
+optimizer RMS prop and for the metrics
+we are keeping
+accuracy but then after we have compiled
+our model we're creating a data
+generator for the training Set uh and
+this is where we do a little bit of data
+augmentation we tell it how much we can
+rescale our image how much to do the
+sheer range with and how much to do the
+zoom range with uh of course we're
+telling it that it can do horizontal
+flips that's why we're giving it true
+but with the testing data generator all
+we're doing is we're telling it that it
+can rescale uh again we're giving it how
+much we believe it should be
+rescaling once that is done though we
+are creating a train generator uh and in
+this generator we generator we are
+basically going to be passing it the
+data directory uh we're going to be
+passing it the target size how how big
+these images are going to be we're going
+to patch it pass it a batch size for the
+training and we're going to tell it that
+we're not using binary class mode we're
+not using any of that we're using the
+categorical class mode in order to allow
+us to have all of these different
+classes from 0 to 9 we're doing
+practically the exact same thing with
+the validation generator and once we've
+got all of those generators down then we
+can actually tell our model to fit
+towards a generator we then pass it our
+train generator tell it how many samples
+we're going to be using per aoch we're
+going to be telling it uh which EPO to
+use here uh we're going to be giving it
+the validation generator as well and
+then finally we're going to be giving it
+the validation samples as well to give
+it all the parameters that it needs in
+order to actually run the training once
+it is done the training goes this is a
+synchronous operation so once it's done
+it will save its weights to a five
+called mnist neuron net.
+H5 now what we can do is we can get out
+of Nano and actually run this custom
+train script using python as you can see
+uh what's happening now is it is
+training our neural network and that
+accuracy is going up uh so what's
+happening here is uh it gives us our
+estimated time of arrival and this will
+basically allow us to train our neural
+network and remember this is only going
+to do four of these sorts of
+iterations uh and so of course uh you
+want to do as many as you can uh then
+again you don't want to overfit so it
+really depends on how deep your neural
+network is how much data you have uh how
+and and what sort of the ratio of split
+is between uh your training and testing
+set it depends on a lot of different
+parameters but again uh you always want
+to pick and choose you always want to
+experiment until you find what works
+best for you and your specific neural
+network all right so since I've already
+got this neural network trained and it
+does take a little bit of time uh again
+because it's not this this data set
+isn't massive but it's not small either
+so it wouldn't be very quick uh so this
+is why I always recommend training on a
+GPU instead of uh especially with
+convolutional and deep neural networks
+uh but now what I'm going to do is I'm
+going to stop this training script and
+now that that's done let's just pretend
+you know it's trained and we've got our
+neural network file over here now we're
+ready to actually use this neural
+network and run predictions against it
+using our images and the way we're going
+to be doing this is through another file
+called predict.
+py now inside of predict. py we are
+importing numpy we are importing open
+CV2 we're importing all the same carass
+modules that you were just seeing and of
+course we're importing the CIS or system
+module I'll tell you why in just a
+moment then of course we are setting the
+image width and height to 28 and 28 once
+more just as we do for all of our mnist
+amnest data because mnist images are
+always 20 8 x 28 pixels wide and high
+then what we do is we create a function
+called create model we Define this
+function and what we're going to do is
+inside of this function we are going to
+create a new variable called model which
+is equal to a new sequential model and
+then create the exact same model that we
+did in the training script except that
+we're not going to tell it which weights
+to use just yet we're going to print out
+another summary and we're going to turn
+this model then what we will do is we
+will actually open up an image using
+open CV we will do image is equal to CV2
+IM read meaning image read and what
+we're going to do is instead of passing
+a direct file pass we'll be uh sending
+to it the first argument sent to the
+python script uh when when you were
+running the script and basically in the
+first parameter you are going to put a
+file path to an image that you would
+like to predict using this
+classifier once you pass that then it
+will be opened and CB2 will then resize
+it to
+2828 uh this is not required because all
+this digits are 28x 28 by default but if
+you would like to repurpose this to work
+with your own model or to work with uh
+you know your own data then it it's
+really easy to have this because then
+you just set your uh image width and
+height up here and it'll automatically
+change everywhere else to ensure that
+you are having uh your model work
+correctly all right but after that we
+are then crawling that create model
+function that we have just created and
+once we've got a model return from there
+we tell that model to load its weights
+from a file in current directory called
+mnist neuronet H5 and once we're done
+that we are then ready to convert the
+image that we just imported using open
+CV2 and convert it to a numpy array and
+once we convert that to a numpy array we
+then reshape it to fit the image with
+height and then finally the dimensions
+or not Dimensions the channels in the
+image which in this case we are setting
+to three because our neural network was
+trained on cheap three channels and with
+three channels you can always use RGB
+images as well as black and white they
+both work although technically since
+we're us using black and white images
+just one channel would work for the
+training and the testing and the you
+know predictions but the thing is if you
+again if you want to repurpose this
+immediately just get it working on your
+own data which is RGB then having three
+channels already there is really
+convenient all right after that we just
+add one more Dimension to make this a
+fourth rank tensor uh with our numpy
+array and then finally we tell our model
+to predict what it believes uh this
+image is by giving it the numpy array
+and getting the zeroe element from it
+now remember this is a two-dimensional
+array that numpy is giving us like for
+example uh if the if we gave it an image
+of a one this would be our array it
+would be uh 0 1 0 0 0 0 0 0 0 0 uh and
+so what's happening here is this is
+before the prediction so what happens is
+this is a two-dimensional array but we
+get this first element which is this
+first array which in turn has 10
+elements inside of it uh and so what
+happens is we are able to get that zeroe
+element and then what happens we have
+some logic to see which one has the
+highest probability and so in order to
+do this we find the best class and best
+confidence then we just do a really
+quick script here which will try and see
+which prediction is the greatest once it
+is done that though then it will print
+out I think this digit is a then the
+best class with and then the percentage
+of confidence and and then confidence so
+what this is going to do is if I just
+exit out of this script here not exactly
+sure what I changed uh but all right
+let's um yeah let's go uh and then what
+happens is basically we can run this
+python script python predict and then we
+can give it images that we want it to
+test on now the only thing is though
+we're not going to be passing it
+training images because those images
+have already been well trained on we're
+going to be giving images from the
+validation set so that we are able to
+give images that it's never seen before
+therefore testing its true
+capability the way we're going to do
+this is by going to the data directory
+and inside of that we're going to go to
+the validation directory now these are
+all images that it has never seen before
+and let's try out zero first we're going
+to try out all0 to nine and see how well
+it does now for the zeroth we can give
+it something like 71.png again just
+random number just throwing that out
+there uh click in or out and as you can
+see it says I think this digit is a zero
+with 100% confidence again that is
+absolutely great but let's just see if
+it can it can classify a one with a good
+amount of accuracy let's just say 7 14
+PNG all right so as you can see this has
+correctly classified this digit as a one
+with a 100% confidence and so we are on
+the right track so far we're getting
+great accuracy let's hope we can keep
+that up so now again we're going to try
+this out with a two and let's just say
+two uh
+390
+PNG all right so as you can see it's
+using our GPU to to do this here and as
+you can see it says this did I think
+this digit is a two with 100% confidence
+which again is the correct answer now
+let's try out what happens if we give it
+something like a three so let's give it
+a three this time let's just say you
+know 5,000 Happ andry let's see what it
+says as you can see it says that I think
+this digit is a three with 100%
+confidence again this is so close to
+100% that it's just rounding up to 100%
+due to the fact that it is so sure that
+it's a three it's seen so many patterns
+in it that make it believe that it's a
+three that it's just not even going to
+give other classes of
+probability uh and then what happens is
+again we can run this let's just try
+four now uh for four we can use 5,000
+four
+um and as you can see it says I think
+this is a four with a 100% confidence
+again absolutely great uh we can then go
+ahead and continue to save five uh where
+we can do let's do
+8,360 PNG or
+60.png all right so here we should be
+able to see that oh um apparently that
+image does not exist let's see yeah
+sometimes oh 66 Works let's see all
+right so I think this is a five with
+100% confidence again absolutely great
+that is the correct answer with a very
+good amount of confidence as well uh we
+can go to six then we can say
+,000 148 maybe uh let's see if this
+exists yeah it exists and as you can see
+I believe this digit is a six with 100%
+confidence once more we can then go
+ahead and give it a seven and let's just
+say our seven is 3,000 this time um 50
+and
+four uh hopefully that image exists and
+it does and it's you can see it says
+that seven is the correct answer with
+100%
+confidence now once we're done seven we
+finally have just two characters left to
+test our second last character is eight
+and let's try
+6024 PNG why
+not all right so as you can see again it
+has classified the digit correctly with
+100% confidence uh and now we can go
+ahead and give it something like nine
+and let's just change this up a bit
+let's just say something like um d29 all
+right uh and oh once more it says that
+this is the correct it says that this
+digit is nine with 100% confidence and
+that is once more the correct answer and
+the and our users uh and then again I
+mean users could uh have this built into
+their
+applications uh because like let's just
+say you're creating uh a no JS
+application or a website you can use
+libraries that allow you to use carass
+models uh in those languages pre-trained
+crass models in those languages uh and
+you can have this convolutional neural
+network run in browsers run on phones
+run on uh a desktop applications really
+anywhere where a language that supports
+the device also has a library that
+supports pre-trained carass models as
+long as those prerequisites are met you
+should technically be able to use this
+model anywhere and again in the worst
+case scenario if you're unable to do
+that then you can always just create uh
+a web AP Pi where you can send an image
+it would send it back to the
+convolutional neural network and the
+convolutional neural network would then
+go ahead and further return uh the
+answer and then that would be replied to
+you by the rest API once more again
+though in part two there's going to be a
+lot more coming out in those terms uh
+and so in part two you're going to be
+seeing a lot of how you can use these
+pre-trained models in many different
+languages so that's all for this
+tutorial I really do hope you enjoyed
+and you're able to learn how exactly you
+can use carass in Python with a
+tensorflow back end uh and of course use
+it to train on your own data really and
+that's the best part we're not using
+pre-built data sets we're not using like
+uh cryptic data sets that are in random
+formats like lmdb we're using actual
+image data which sometimes I guess you
+could say isn't the best per for
+performance but then again if you just
+want to get a convolutional neural
+network running quickly and running fast
+and running nicely the then of course
+images are always another option as well
+all right so I really do hope you
+enjoyed thank you very much for watching
+today that's going to be all for the
+video and I really do hope you were able
+to learn from it again if you did please
+do make sure to leave a like down below
+and of course share the video If you
+believe it could help anybody else so
+you know like your friends or family uh
+and of course if you have any questions
+or suggestions or feedback please do
+make sure to leave it down in the
+comment section below email to me at
+tajim Manny gmail.com or tweet it to me
+at tajim Manny again all contact
+information will be down in the
+description as well as has all the code
+for this video all right so if you
+really like my content though and you
+want to see a lot more of it please do
+make sure to subscribe to my YouTube
+channel as well as I really as it really
+does help out a lot and of course
+finally if you want to be notified
+through Google notification and email
+whenever I release new content please do
+make sure to click the not the Bell icon
+beside the Subscribe Button as well in
+order to be notified thank you very much
+for watching today that's going to be
+all goodbye

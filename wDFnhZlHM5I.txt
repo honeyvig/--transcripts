@@ -1,0 +1,458 @@
+so hello there and welcome to another
+tutorial
+my name is Timmy Bakshi and this time
+we're going to be going over how you can
+use a neat algorithm in order to weave
+all a neural network and I'm going to
+tell you what this network is but
+essentially it's a knockin I'll expand
+on that a bit later but let's get into
+it so first of all I'm very excited to
+get into what this is because this is
+very very interesting topic but just
+before I begin I'd like to say that if
+you've already seen my neural networks
+and genetic algorithms video those are
+very helpful so I recommend you check
+those out before you start this video
+and also the links to those will be in
+the description anyway though continuing
+so in this video I'm going to be
+implementing an algorithm called neuro
+evolution of augmented topologies which
+is essentially a neat algorithm and what
+this means is it's essentially a
+combination of neural networks and
+genetic algorithms this means that
+you'll be able to use genetic algorithms
+to evolve neural networks sounds very
+interesting doesn't it and it is so
+let's begin and jump right into it so
+what are we going to be doing today well
+let's say you have a standard ural
+network and you're using back
+propagation to train it ok so let's just
+say you gave it input like 1 1 0 1 0 ok
+and you want it to get the output as 0 0
+1 0 1 exact inversion or as a it'll
+exact inversion of the input and the
+network should act as a not gate how
+would we do this well essentially of
+course you give it a lot of examples and
+you would then put these you know
+through the neural network backdrop as a
+back propagate back propagate for hours
+for a long long time until it was
+eventually done training and reaches a
+sufficiently low error rate but that's
+kind of tedious and it's not fun
+honestly it is one it is not as fun as a
+method I'm about to introduce so today
+what I'm going to be doing
+I'm going to be introducing a genetic
+algorithm into this mix in order to
+evolve in your network they can act as a
+not gate with a genetic algorithm so
+let's begin how are we going to do this
+well essentially the planets that we can
+go online first of all this is Milton
+Python using the neat Python library and
+so of course that's actually called
+that's actually a library created by
+code reclaimers and so they created a
+library called neat Python which allows
+you to essentially use genetic
+algorithms to evolve feel networks so
+continuing them so our plan is what
+we're going to do is we're going to use
+an online combination generator what
+this will do it let's say we'll give it
+the inputs 1 & 0 using these inputs
+it'll be able to generate all
+combinations of this with 5 digits such
+as 1 1 1 1 1 ok it'll also create 1 1 1
+1 0 it will also create 1 1 1 0 1 okay
+it will create like hundreds of these
+combinations every single combination of
+1 and 0 together with 5 digits ok so
+after that what it's going to do once
+it's generated all these it's going to
+format it as an array okay so it'll
+actually be like of course the array
+starting bracket and then the commas in
+between them close it and that'll become
+for each and every one of our examples
+and of course there would actually be
+like hundreds of these and so there are
+hundreds of these arrays and we're going
+to put this into one big
+multi-dimensional array and so what this
+will allow us to do is this will act as
+our inputs next we're going to create
+another big of multi-dimensional array
+with exact opposites which essentially
+act as the outputs that we want our
+neural network to give us and I'm just
+going to create two of these just for
+the sake of simplicity but essentially
+if I show you here so one last and so
+what's going to happen is we are
+essentially creating the
+we are creating the inputs and the
+outputs for the neural network now of
+course as I said these will be many
+inputs and outputs but what I'm going to
+do is I'm going to take the first three
+inputs and outputs and remove them from
+the training set okay
+and I went to remove them from the
+training set and I'm going to train the
+neural network using this genetic
+algorithm on these other hundreds of
+inputs that are there so like if I just
+do dot dot dot there are many other
+inputs and outputs so those will keep
+going on but I'm removing the first
+three and so once the genetic algorithm
+has evolved to a state where it can act
+as a not gate at a sufficiently low
+error rate and this should be done
+within like 20 seconds then it's going
+to use these first three that we removed
+and test the neural network if it can
+reply with good responses if it can then
+that means that even when it was
+introduced to something it had never
+seen before
+it was able to give correct outputs
+because it was actually acting as a not
+gate and not just you know hard-coded to
+me okay so if it's dismiss this they're
+gonna apply this business of this okay
+which actually that's what I've seen
+most people demo which is they're
+feeding it all of the input data which
+is something that I don't like to do
+because I like to see that okay I'm only
+feeding it this input data but when I
+get my final neural network I'm able to
+test it out with some data that's
+different and see whether or not it
+actually worked
+that's essentially what we will be doing
+today now again we're going to be using
+this in Python and that's it for now so
+again created by code reclaimers a great
+library a link to that will be on the
+description in fact another very neat
+thing that they've implemented with
+their tool is that they could using any
+visualized library for Python you can
+actually essentially creep these really
+neat diagrams of neural networks
+themselves that power these knock dates
+and so if you see right now on the
+screen magically you can see an actual
+neural network diagram of how this
+current not gate know network works and
+so
+course the dimmer lines are less
+weighted connections between neurons and
+the thicker lines are more weighted
+connections between neurons and on the
+top as you can see you should be able to
+see 0 1 2 3 & 4 neurons which are the 5
+input neurons and at the very bottom you
+should see outputs 4 5 6 7 8 & 9
+those are the output neurons and so now
+that neural network diagram is off the
+screen and so that's what we're going to
+be implementing in python today but
+anyway I'm very excited for the Mac part
+now so let's switch right over to the
+Mac part let's get over there shall we
+so welcome back to the my part and now
+I'm going to be showing you how you can
+actually implement the neat algorithm
+into your Python scripts in order to
+implement evolutionary neural networks
+into your applications so let's begin
+showing so to begin in terms of data how
+are we going to produce the data for
+this neural network or technically to
+test this neural network with well
+actually I'm using this text mechanic
+website which I will leave a description
+to down a little in the description and
+so essentially in the input box you
+input 0 & 1
+and we want combinations of 5 we want 5
+in each sort of list in order to we want
+5 inputs to into the neural network and
+5 outputs to no network and once that's
+done once we have that so it's actually
+telling us though that we're going to
+produce 32 sets
+and of course we yes want to repeat
+objects we're going to prefix these sets
+with an opening square bracket over here
+and we're going to suffix them with a
+closing square bracket we're going to
+delimit them each object with a comma
+and we're going to join each set with a
+comma as we'll now what this is going to
+allow us to do is essentially watch this
+right as I click generate combinations
+as you can see it creates this huge
+array of 5 digits of course repeated the
+strings of or sorry arrays of ones and
+zeros now watch this you see the first
+two over here are 0 0 0 0 0 and all
+zeros and 0 0 0 0 1
+watch this if I instead of doing zero
+one I do one zero and the input it
+becomes exactly the opposite 1 1 1 1 1
+and 1 1 1 1 0 and so what this allows us
+to do is first of all let's just a say
+we take this and we put this into our
+inputs and so as you can see I'm going
+to copy this and if I enter my script
+here you can see I've already put in
+these inputs then I just need to of
+course put the exact opposite 0 1
+generate combinations and use these as
+the outputs because they're exactly the
+opposite as you can see here 1 1 0 1 1
+and the output is 0 0 1 0 0 so that
+becomes very very convenient but then
+again as I said I've taken the first 4
+in that training set and I've put them
+into this new test set that I've created
+and so of course this says that ok all
+one's becomes all zeros but then the
+first 4 1 and then 0 becomes first 4
+zeros and then 1 and as you can see this
+is exactly what the outputs are and this
+is sort of the training function where
+we evaluate the fitness over here of
+each individual and so essentially
+what's happening is in this sort of it's
+as I said a genetic algorithm and so
+each you know network is an individual
+in a population and throughout each
+generation the population is 150
+individuals and so each individual has
+their own neural network that's that can
+be modified in any way or can be bred
+with other neural networks in order to
+create like a crossover network just
+like it happens with I mean literally
+humans and so what can happen is we can
+generate these very complex neural
+networks in only a few generations
+for example this neural network will
+take a very long time to train by back
+propagation or a similar you know
+network training method but with a
+genetic algorithm and with this neat
+sort of implementation were able to do
+this within like 20 seconds because of
+course it's just that fast and it allows
+us to of course test many neural
+networks at the same time and of course
+what we can also do is we can only
+extract the good traits of two neural
+networks and breathe those together to
+create a better neural network with a
+better fitness but anyway I'm going
+boring with anymore that so once each
+individual has been checked for you know
+their fitness throughout each generation
+some will get bread with others some
+will get mutated in their genes some you
+know will just not be in the next
+generation etc etc so new ones will be
+generated for example and we're setting
+a limit to four hundred generations for
+this project as well so next of course
+out here over here as you can see in
+once we have our output I am running a
+test script and so what's going to
+happen is we are essentially running
+through this these test arrays that I
+created and so what we're doing is we're
+getting the output we're running the
+input through the neural networking
+getting the output into this variable
+then I'm printing out that these are the
+inputs that we gave the neural network
+and this is the expected output and then
+this is the actual neural networks
+output and so this should essentially be
+able to print out exactly what the
+neural network returned and what was
+expected of it and what was essentially
+given to the neural network but now let
+me actually show you a demo of this in
+action so as you can see if I run this
+python script here what's happening now
+is it's running through many many
+generations in fact my stop here as you
+can see it's already gotten to
+generation twenty four and the average
+fitness is negative twenty eight and so
+the best fitness until now is negative
+twenty and of course a species ID the
+spawn amounts pieces Fitness generation
+time it gives you all this information
+and if I scroll down here it's still
+going through generations and currently
+it's a near 100 yes it's gone through
+the hundredth generation and of course
+in each generation we have 150
+individuals and so what we're doing is
+we are selecting the best ones out of
+them and as you can see after let's see
+here I believe yes after 125 generations
+we have most probably gotten a good you
+know network let's try it out so as you
+can see we gave the network one one one
+one one we expected from the network 0 0
+0 0 0 and as you can see II was able to
+deliver 0 0 0
+Oh 0-0 now I know these numbers don't
+look like zero but this is actually
+scientific notation for a very very
+small number okay now the next one one
+one one one zero let's try this so the
+expected value was 0 0 0 0 1 okay now
+let's see here so 0 0 0 0 and 1 as you
+can see it's 98 which would round to a 1
+and of course another thing is that the
+reason it's not able to actually get to
+0 is because of course well I mean a
+neural network cannot mathematically get
+to 0 because if you think about it with
+division and multiplication you can't
+really get to a 0 even if you work like
+divided number infinitely by 2 and you
+were to keep having it you would always
+get a smaller and smaller number
+infinitely would just never get 0 that's
+impossible
+ha and so continuing though enough about
+that mathematical stuff so continuing so
+next we have the network 1 1 1 0 1 we
+expected 0 0 0 1 0 let's see what the
+network gave us 0 0 0 1 and 0 as you can
+see the network was able to give us that
+correct output next another one the
+inputs we gave 1 1 1 0 0 we expect it
+from the network 0 0 0 1 1 and the
+neural network gave us 0 0 0 1 1 and
+that is how a new algorithm can be
+implemented to actually sort of or
+actually I can as I was saying though it
+can be implemented to create a not gate
+or simulate Anaka or approximate a not
+gate and so now another thing though
+before I continue so now this program is
+also able to generate very neat
+visualizations of the neural network
+itself as you saw during my white word
+part now if I actually run that
+visualize Python script what's going to
+happen is it's generating generated an
+SVG file of that if I open that up here
+it's open it's created a CSP
+it's created a
+SVG file one of those vector graphic
+files of the image so if I go here of
+the neural network sorry so if I go here
+this is the neural network in its
+entirety I can actually open this up
+with Google Chrome and you'll be able to
+see it much better and so as you can see
+this is a visualization of our new
+neural network and so as you can see
+here these gray boxes indicate input
+neurons where we have okay so we have
+the 0 s and put neuron the first input
+neuron second third and fourth these are
+five input neurons or the five bits that
+we're giving it then we also have the
+fifth input output neuron sorry these
+blue ones are output neurons and so we
+have the fifth the sixth the seventh the
+eighth over here and the ninth what this
+allows us to do is essentially see how
+all these connections are forming and
+essentially how the neural network is
+able to work to achieve the result now
+of course this isn't your average
+feed-forward neural network this is
+actually a special type of not special
+necessarily it's still feed-forward but
+it's essentially you know some neurons
+are connected to others some have
+multiple connections somehow some have
+none no connections and it's actually
+quite interesting to see what
+interesting what sort of nice shapes it
+can generate and what types of
+connections it can make to give you your
+correct output and of course if you were
+to change the config files to add more
+or less processing neurons or hidden
+neurons and of course more or less like
+fitness threshold for example if you
+wanted to be accurate the very point you
+can change that in the config and of
+course you can get results that you'd
+like to achieve but of course that's
+going to be it for this video now I know
+that didn't seem like much but this was
+a demo of how you can actually use neat
+algorithms to of course evolve neural
+networks but now I'd like to say that in
+the next part of this video you'll be
+seeing a lot more including an in-depth
+explanation of how this works in its
+entirety and of course a gun a big shout
+out to code reclaimers for making this
+amazing Python library
+were implementing neat algorithms with
+Nikon I actually haven't seen many neat
+algorithms implemented in really any
+language they're there I think - and
+Java - in Python and a few and C and C++
+but not much apart from that and so of
+course I am very excited to start
+implementing these and you will be
+seeing a lot more soon but that's not
+that's going to have to be kept a
+surprise for now anyway though I hope
+you enjoyed if you did please do leave a
+like down below if you really like my
+content though any want to see more of
+it please do consider subscribing to my
+youtube channel as it really does help
+out a lot and of course if you think
+this video could help anybody else that
+you know please consider sharing the
+video as well but if you have any
+suggestions comments or reviews or even
+questions you can leave them down in the
+comment section below or you could email
+them to me at Tasmania gmail.com or
+tweet them to me at Taji many and of
+course my contact information will be in
+the description as well and in the more
+detailed explanation you will be getting
+the source code for this as well or you
+know what just in this video in the
+description you'll be able to see the
+source code of this neat implementation
+anyway though thank you very much that's
+going to be it for this video I hope you
+enjoyed it thank you very much goodbye

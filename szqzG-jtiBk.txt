@@ -1,0 +1,376 @@
+so hello there and welcome to another
+tutorial my name is tammy bakshi and
+today
+we're going to be going over well the
+start of a new series called learn ai or
+rather deep learning from scratch now
+this is a series i'm very excited about
+i'm going to be taking you
+from the very beginning of learning the
+world of deep learning and showing you
+iteratively some more and more advanced
+concepts all the way from the simple
+perceptron and how gradient descent
+works
+all the way to more advanced concepts
+like multi-layer perceptrons
+convolutional neural networks recurrent
+neural networks and so much
+more this is a really interesting series
+now before we get started one thing that
+i do want to say is that if you do enjoy
+content like this and you want to see
+more of it then please do make sure to
+subscribe to the channel as that really
+does help out a lot
+and to stay notified whenever i release
+new content including new tutorials in
+this series
+make sure you turn on notifications by
+hitting the bell that way you actually
+get a notification when i do release a
+new video
+apart from that if you want to be
+notified when i'm releasing new kinds of
+content across platforms then do follow
+me
+on instagram as well we're specifically
+going to be using
+python to implement our code in the
+beginning although that will evolve in
+the future and we're going to be using a
+couple of different frameworks all the
+way from
+you know simpler ones like numpy for
+simple calculations
+as well as pie torch and tensorflow for
+gpu accelerated computation
+we'll be covering all of that in the
+next few episodes but what i want to do
+today
+is quickly cover a couple of things to
+sort of introduce you to the series
+and get across the point of well why
+this series in the first place why would
+you want to learn artificial
+intelligence technology and
+why is the series named the way it is
+because
+well we're covering deep learning
+technology but why is ai
+in the title well you see artificial
+intelligence technology isn't just
+a single technology artificial
+intelligence technology is more like an
+umbrella term right it covers
+a bunch of different technologies from
+many decades
+of computing now traditionally
+artificial
+intelligence as the name suggests covers
+technologies that we thought required
+human intelligence or tasks
+that we thought required human
+intelligence to to implement or to do
+but now with the power of artificial
+intelligence we can do them with
+technology
+so take for example chess up until a
+couple of decades ago
+chess was something that we thought
+required intrinsically some kind of
+human
+knowledge and reasoning ability but then
+eventually ibm came out with deep blue
+and we recognized that well
+maybe we don't need as much reasoning as
+we thought
+as we thought we did and because of that
+we were able to use simple mathematical
+algorithms to determine you know
+mathematically what the best
+next possible move is and then we have
+today even more advanced versions of
+this technology with
+deepmind's alpha zero but we'll be
+getting to that in a moment now what ibm
+did with deep blue to play chess
+wasn't intelligent in any way it wasn't
+reminiscent of the way humans played
+chess
+in the slightest however we called it ai
+because we thought that playing chess
+required human intelligence even though
+of course
+we now know it doesn't and since then
+there have been quite a few different
+tasks
+that we as humans perceive as
+intelligent and therefore call
+artificial intelligence technology good
+example self-driving cars
+even your apple watch now the apple
+watch series 4 and above
+has this feature called fall detection
+and what that does is if you were to
+take a hard
+fall it'll automatically detect that
+using machine learning
+or ai algorithms on the watch but here's
+the thing
+you're never going to hear this
+technology marketed as
+ai or artificial intelligence no one's
+ever going to refer to that technology
+as artificial intelligence
+but if you were to take very very
+similar logic
+pretty much the same algorithms and
+replicate that to do
+say a language model like openai's gpt2
+that can write
+really realistic text suddenly
+people start to call pretty much the
+same technology artificial intelligence
+why is that it's the same logic it's the
+same fundamental assumptions that we're
+making the same fundamental
+math as well so why is it that all of a
+sudden we go from calling
+fall detection on the apple watch from
+machine learning to
+artificial intelligence when we're
+generating natural language
+it's because well while artificial
+intelligence has a few formal
+definitions
+the way we all colloquially use the term
+artificial intelligence is just oh if it
+looks intelligent and if it's happening
+because of technology and not from a
+human mind
+we happen to call it ai now i personally
+do not like the way we call this
+technology ai because it's reminiscent
+of human intelligence even though there
+is none
+the emergent sort of functionality of
+the technology
+may end up looking like it's intelligent
+but at the end of the day there's no
+real intelligence going on if you hold a
+conversation with open ai's gpt it's not
+because gpt can feel anything or is
+thinking or is even reasoning in the
+slightest
+there's very very little common sense
+reasoning actually happening even in
+open ai's gpt-3
+but what is happening is it's learning
+well when i saw a bunch of internet data
+when this text came up before it was
+usually followed up by this kind of text
+so i should probably respond to this
+kind of text
+and even now i've sort of humanized the
+neural network in a way by saying things
+like
+the neural network thinks it should copy
+this
+over here but really that's just a
+limitation of human language
+i don't mean to do that there's
+definitely better ways i could phrase it
+but in order for you to understand
+that's the best way that i can get the
+message across
+so we need to stop humanizing artificial
+intelligence it's not intelligent in any
+way
+it's really just mathematical you know
+function optimization which we're going
+to be getting into
+uh in just a little bit but again that's
+why this series
+is learning deep learning from scratch
+not ai because i'm going to be covering
+that sort of
+next frontier of the ai technology which
+is
+deep learning so if we were to take a
+look at sort of formally where the
+technology that i'm going to be showing
+you is
+is sort of under that umbrella term
+we've got artificial intelligence
+um not the colloquial usage of the term
+but rather the formal usage of the term
+you know tasks that we
+thought required human intelligence but
+now we know don't you know we can use
+technology for them
+and then under that you've got machine
+learning which is a lot of different
+you know kinds of algorithms that use
+some sort of mathematical
+optimization to be able to take data and
+learn
+from it and under that you've got deep
+learning which is that
+new frontier of algorithms that are
+meant to unlock insight and sort of
+understand
+the kinds of data that regular sort of
+more primitive machine learning
+algorithms
+don't have the potential to uh to
+understand
+now why exactly they don't have the
+potential and what enables deep learning
+to do so
+that we're going to be covering a moment
+or in the next episode rather
+however what i would like to do quickly
+is just let you know that
+all in all deep learning technology is
+actually
+really really simple like when you take
+a look at what it does
+you would think it's way more complex
+than it really is but deep learning
+technology at its very base is actually
+really simple
+it's basically this you have two data
+sets
+you have x and you have y now you know
+that there's some sort of like
+causal link between x and y so if you're
+given
+some sample with an x you can predict
+why you know what y
+should be but you don't know how to
+write a mathematical function
+to convert x to y so of course since
+computers only understand math
+that means you can't program a computer
+to do the x to y
+translation so good example let's just
+say you take a picture of a cat or a dog
+and you want to write some sort of rules
+to determine whether it's a cat or a dog
+how are you going to do it well take a
+second to think about it and you'll
+realize
+that you can't or at least no human so
+far has been able to figure it out
+and that's because at the end of the day
+we are trying to write a mathematical
+function for something that is chaotic
+and complex image data and so
+the entire point of deep learning is
+actually quite simple
+it is if we can't write that function
+maybe the computers can do it for us
+using
+sort of meta math taking a look at
+functions and trying to
+optimize those functions automatically
+now i know it sounds magical still
+but just all you need to keep in mind is
+that you've got x and y
+you somehow want to translate x to y you
+cannot yourself
+write the function that does the x to y
+translation so you want to use a
+computer to automatically calculate what
+the function should be
+such that when you call it it can
+calculate what the output y should be
+for some input x so you can feed it a
+new image like a cat or a dog
+that would be your x and your y would be
+a label is this a cat
+or is this a dog and if the computer can
+figure that out for you
+suddenly you have this whole new world
+of data analysis unlocked
+that can help you in untold numbers of
+ways
+quick example that i want to share with
+you here is siri
+now i'm not gonna say the wake word for
+siri because otherwise everything's
+gonna
+buzz right now and yours probably will
+too um but one thing that i will say
+is that if you were to take a look at a
+way like a personal assistant if you
+were to take a look at the way
+personal assistants like siri work
+within their core there's a very
+structured logic flow that they follow
+the first thing they've got to do is
+recognize your voice
+the way they do that is by taking the
+raw audio input stream
+and translating that to words and
+characters so in this case
+the voice is the x and the words are the
+y it's outputting
+words then once you have words we use
+another
+machine learning algorithm a completely
+separate isolated system
+to look at those words and try and
+understand meaning
+that in itself is an x to y mapping
+problem can we take
+words and translate to meaning no human
+can write a mathematical function for
+that language is too complex
+but we can use deep learning to figure
+it out for us
+then at that point it's a pretty simple
+structured algorithm where apple
+engineers are going there and being like
+all right
+if someone says a sentence with this
+meaning then we want to do this thing
+like set an alarm clock if they asked us
+to set an alarm for tomorrow at 9 00 am
+and then they manually type out a
+response the engineers in the back end
+of the series system
+which is then treated as an x for a deep
+learning system that translates it to
+why
+another audio stream that it says back
+to you all of that happens immediately
+to you it looks like a single coherent
+package but all of it is powered by
+individual isolated machine learning
+systems doing their very own
+x to y translations that previously
+simply weren't possible
+so i know that i use the words machine
+learning and deep learning almost
+interchangeably there
+but what i mean by that is that machine
+learning again is that broader umbrella
+that contains
+deep learning technologies one of the
+one of its arms
+and we're going to be specifically
+focusing on deep learning
+in this tutorial series and so now that
+you have a bit of a primer as to
+what this technology is and sort of what
+goes behind it
+let's go ahead and take a look in the
+next episode at some of the very very
+simple foundational building blocks of
+this technology
+and how they're trained from a
+mathematical perspective specifically
+the perceptron so let's go ahead and
+take a look

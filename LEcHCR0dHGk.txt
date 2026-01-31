@@ -1,0 +1,104 @@
+so lower there and welcome to another
+tutorial my name is Sameer Bakshi and
+this time we're gonna be going over
+generic functions in swift 2 now in
+order to understand what generic
+functions are and what problem they
+solve let's take a simple example let's
+say we were to create a few functions or
+actually 1 function
+currently which is int equal ok and this
+takes two integers and returns whether
+or not they're equal ok now this is a
+very simple function and it has some
+functionality to it exactly that's why
+it's called a function ok now this works
+for integers right now let's create one
+for Strings because of course you want
+to check if integers are equal you want
+to check if strings are equal and so
+what we're going to do is we're going to
+say st r which takes two strings and it
+returns whether or not they're equal ok
+now we have one for strings and we have
+one for integers why not have one for
+doubles right because we have to do
+decimals as well so we're going to say
+double equal which takes two doubles and
+returns whether or not they're equal
+again ok now this is just gonna keep
+continuing on and on and on and on for
+each type we have right and now there's
+a quick problem you may have already
+noticed this there are way too many
+functions for us to create for every
+single type of number or string or
+datatype in general there will be for
+one for NS data there would be one for
+literally any type to be completely
+honest and so in order to follow this we
+use something called generics now make
+me wondering how would generics help us
+solve this problem well let me explain
+let's take this example first of all
+let's see integer string and double
+what class do they all inherit from well
+there's one answer equatable they also
+inherit from me comparable but we'll
+talk about that later
+now in Swift equate Abel is a class that
+determines if this if this is inherited
+by class if a class inherits from this
+then this class has to first of all
+override some methods from this protocol
+bio-oil was a protocol not a class if I
+made that mistake it's a protocol which
+if other classes conform to then they
+have to implement some methods and then
+there's a way to check if two of these
+types are equal as the name equatable
+says and so this is a default in Swift
+but I'm not exactly sure about Swift one
+but Swift too of course
+yes it is and so now what we want to do
+is we want to create something called a
+generic function what is it going to do
+essentially is this will take a T
+variable not a variable from the user
+won't have to fill out the T variables
+but there's going to be an imaginary T
+over here okay and now what we're also
+going to do is we're going to make sure
+that T inherits from equatable okay and
+then we're going to do something I think
+you can understand already T equal we
+could just do equal but dumb
+but but you know just for this example
+so you understand we're going to
+continue the pattern it's a t equal and
+it's going to take two T's and it's
+going to return whether or not these two
+T's are equal and the reason we know
+that these two T's can be compared in
+equal terms is because it inherits from
+the equator of protocol and so instead
+of having to create types like and
+functions to compare each and every
+single different type we just create one
+function that takes two any types that
+are equatable compares them returns them
+to you and run function you solve your
+messy code problem you solve pretty much
+every other problem that all of these
+have and now in order to actually show
+you how this works I'm gonna be going to
+the Mac part where I will show you some
+examples in the playground and of course
+as always this will be in the
+description in the on github as a
+repository so you can check out the code
+for yourself but for now let's get to
+the Mac part in which I will be showing
+you a quick and simple playground which
+helps you solve the generic function
+issue so let's get to it

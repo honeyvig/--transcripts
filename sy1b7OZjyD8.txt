@@ -1,0 +1,293 @@
+so hello there and welcome to another
+tutorial my name is Hannah Bakshi this
+time we're gonna be going over another
+revision of Swift databases this is
+gonna be a swift databases part 1.2 and
+so I'm just adding a little teensy
+addition which makes their code much
+better and much more easy to understand
+although it doesn't require us to add an
+entirely new library
+it still works for our code anyway let's
+get to it this time we're using the
+ulema fire framework so again this will
+suggest it to me by someone called
+Emirate and so he had a project in which
+he had to use a lambo fire so I decided
+to create it and now I'm also going to
+be creating a YouTube video what this is
+going to be one of my newer social one
+videos so that's going to be in the
+description however if you want to
+switch to version just mail me and I
+will give you a swift two version anyway
+let's get back on to our app now let's
+just see how our older Swift databases
+versions used to work so as you can see
+here we have our database on one end we
+have our PHP in the middle and then we
+have our swift
+now I'm only going to be talking about
+get in from the database not giving to
+the database so Swift wants to retrieve
+every single thing from this database
+then what are we gonna do basically
+Swift will contact PHP with that net
+request PHP will contact the database
+the database will head over give it to
+PHP the PHP will give it to us in JSON
+format no not chase home anyway just
+pretend that didn't happen
+okay so actually JSON okay so now
+basically swift will contact our PHP PHP
+sends the request along to the database
+the database sends it back to PHP the
+PHP sends it back to us in JSON format
+pretty simple but let's see how this
+code is okay so the code in this case
+will be pretty long it will be an
+average around four to five lines and
+then if you would have taken two
+accounts with two it would be around
+five to six lines of code and why use
+these many lines of code when you can
+just do around oh I don't know one to
+two lines of code not including the
+completion Handler and just one last
+thing sorry for y'all to mention right
+here we are also using swiftie JSON okay
+that's another API that we're using so
+yeah although LMO fires our main
+framework or just using swiftie json
+sorry json in order to take our JSON and
+properly parse it so we don't need to do
+the manual stuff okay so basically we're
+taking four to five lines of code and
+we're reducing it to one to two lines of
+code and so let me just explain how this
+newer version will work basically in the
+middle here we have a lamb Oh fire and
+I'm just going to call AF for shorts
+then over here we have swifty JSON which
+I'm going to call s and J okay I'm also
+going to remove this okay so now we have
+SJ + AF call it so to JSON dilemma fire
+then over here we have our PHP and our
+DB ok so now we have our swift end
+perfect so as you can see what was
+what's gonna happen is when switch wants
+to again get from our database over
+there then switched will contact a lamb
+on fire ok
+a lamb a fire will go to our PHP end the
+PHP will contact the database the
+database will contact our PHP the PHP
+will contact a limo fire give it JSON
+LLL fire will contact us we contacts 50
+JSON it gives us the result and then we
+get our final result through this
+transaction here although this does seem
+much more complicated than this let me
+just tell you this is all we have to do
+after this border this is all automatic
+this is not our code anymore because
+swifty JSON
+that's an API I'll amplifier that's an
+API PHP we code at once it's done we
+don't ever need to touch it again
+maybe we caught again we just said it
+once or we give it some values that's
+already gonna be there no matter what
+and then this is all we're taken care of
+which is getting back home Alejo fire
+you having just a few JSON and also
+sending to the PHP that's always will
+take care of and then everything else
+takes care and that gets taken care of
+by itself so that's how super JSON ulema
+fire will make our lives easier so now
+let's get into the Mac part and we're
+I'll show you a demo and I'll also run
+through the code with you let's get to
+it so welcome back to the Mac part of
+the video and now we're gonna be looking
+taking a look at the source code and
+then I'll be showing you a little demo
+or actually let's skip that part and
+let's get straight to the demo but then
+the code so you can see this might take
+a little while to load because I'm not
+exactly sure whining servers okay
+perfect it loads pretty quickly and as
+you can see it downloads every entry
+from the database and we are able to see
+every person their image their ID in
+their age
+okay I hope that's done let's take a
+look at the source code so as you can
+see here we have also imported the ulema
+fire framework and we have also taken
+these 50 json auxiliary class so that we
+can actually use it okay coming back to
+our view controller class view
+controller class conforms to UI view
+controller UI tableview datasource and
+UI tableview delegate of course it will
+be very helpful for you and it would
+make much more sense if you were to
+watch the other videos before watching
+this one but I will still explain all
+the code in detail if you don't want to
+see the final parts where I explain the
+majority you can just skip that because
+that'll be the last part anyway
+continuing here we have an iboutlet
+variable and so this is our table view
+of type UI tableview well this is the
+table view that will contain all of our
+entries then we have our data as an NS
+array which is a blank array which will
+contain all of our entries themselves in
+our unit load we are just printing our
+data for
+debugging purposes after that in view
+did appear this is one of those
+workaround e functions because I
+couldn't really get okay this is really
+weird maybe it's a good for the Lambo
+fire maybe I'm not just I'm just not
+using it right because whenever I was to
+see anyone using a lot of fire in a
+function it would completely work for
+them however if I were to try to do it
+in a function any sort of function it
+just wouldn't work it refused to execute
+anything that I would give it so what I
+did is if I tried putting the Block in
+the view did appear function and for
+some reason it worked then I moved the
+exact same block back to my date of JSON
+function didn't work I moved it back in
+time he ended up here it worked
+so I found out that whenever I would put
+this block in the view did appear
+function for some reason it would work
+so apparently what I've done is I've put
+in the ulema fire request code inside of
+my view did appear function and so what
+happens is whenever I want to actually
+get data from the reload function or
+anything I just called muted appear now
+naturally when view were a one when it
+calls view did appear it will not set
+animated to animated to truth meaning
+animated will be false because it takes
+that as a boolean so then inside of here
+inside of Maya Lima fire request which
+I'll explain in just a second out it
+tonight I mean it first let's explain
+the beginning coming okay so as you can
+see here I'm doing a lamb afire got
+request I'm doing a dot get request from
+the PHP API that amrit is allowing me to
+use then I'm getting the response to
+JSON and I am taking for the completion
+Handler the variables request response
+the JSON value with an underscore
+because that's the name of the class as
+well
+I also an error if there is any and then
+I'm saying in to start that completion
+Handler and then we're checking if
+there's a value in JSON then put it into
+the final variable then if sorry if we
+can convert this point
+and as data into a swiftly JSON class
+and we can get its dictionary object
+then give that into the final two
+variable if we can do all of that then
+set self dot data
+to final two which is our dictionary
+that we just got we want to get the
+specific key called result from the end
+up from the JSON I know what to convert
+this to an array once that's done we
+want to check if we're not animated what
+this means is if this is false if
+animated is false which it is then self
+dot reload what this is going to do is
+it's going to come here it's going to
+call a view to the peer with a true you
+know come here however it will not
+execute this again meaning it won't
+become an eternal loop of functions and
+then it will also reload the table views
+data so that's how that works and so
+that's basically how our view did appear
+workaround works next we have our table
+view function this is just inherited
+from UI tableview datasource and so
+basically we are using the number of
+rows in section function and we're just
+returning data count and over here we
+have our cell for row at index path
+function which will allow us to create a
+cell as a new additional info cell and
+so this is a custom UI tableview cell
+that i've created then we're starting
+the main data so the data index path row
+as an NS dictionary
+so basically we're getting each sort of
+index of the JSON and wherever we are in
+the table view so for example here we
+would get 0 here we would get 1 here we
+get 2 3 4 and then 5 so that's how that
+works
+next we are getting we're setting the
+cells name text to the name from the
+JSON and we are forcing this to the
+downcast to string then we're doing the
+same thing for the user ID except as an
+integer then we're doing the same thing
+for the age except as a string well this
+is going into a variable sorry so these
+are all very
+and so we're giving the user ID which is
+the ID from the JSON we're getting the
+ages the age from the JSON we're getting
+the image URL which is an which is the
+URL where we should get the image from
+as a string and then we're also giving
+the actual UI image which is equal to UI
+image with data which is NS data
+contents of URL an nsurl string which is
+the image URL for some rap the nsurl
+force unwrap the NS data because i know
+that's going to be there no matter what
+and then finally we're done the UI image
+after that we're sending the image views
+image to that image and we are setting
+infos text to the ID of the user ID we
+just got and then we're creating a new
+line the age the age that we just got
+then we are returning the cell that is
+complete full with that new C
+information and then we can just fix
+that formatting issue there anyway and
+yeah that was the explanation of the
+code let's just see the app in action
+one last time so you can really
+understand how this works as you can see
+in just a second here we should get all
+the entries in our table view and you
+should be able to scroll through them
+there we are
+it fills up our table view and that's
+really for this video and so yes you can
+always email me at Tasmania at gmail.com
+if you have any questions or suggestions
+you can even leave a comment down below
+and if you like my content you want to
+see more of it please subscribe to my
+channel also like the video if you liked
+it and that'll be it goodbye

@@ -1,0 +1,247 @@
+[Music]
+well there and welcome to another
+tutorial
+my name is tendon actually and this time
+I want you going over well my third eye
+MTV elf and this time we're going over
+the PJ box and work Tonto I'm John I've
+been in IBM 35 years I'm the chief
+scientist for the Watson IOT division
+and I'm based in Munich and helping
+bring up our new headquarters there and
+we're going to get in here
+alright so let's begin
+now today we're talking about is loading
+supplies now seen on walk and IOT
+talking by team a little bit about that
+but today we're really especially once
+we're talking about the TJ block I
+really so interested in that group of
+example early season beginning to hit
+IOP and this positive IOT mcLaughlin
+well you get that when did you get that
+yes
+what's that though I forget you whoa
+actually this peepin bought over here I
+actually hope the DJ's awesome rawhide
+my innovation hostage yesterday I came
+to connect 1:15 actually where we are
+right now in a meeting room times over
+in cycles between yesterday I haven't
+really talked about hi and I'll say
+actually a surprise to win this gift
+awesome absolutely great backdrop for
+giving us the PJs on and now I can't
+wait to really take some really neat
+imsr eiope stuff with this so definitely
+this in an open the stuff and talk a
+little bit about what P they bought
+actually
+I'm going out a little bit about IOT I'm
+curious what you said I think of you
+with a cognitive guy I'm about your
+assistant IRB definitely call me
+interesting you know this but the
+Internet of Things about connecting
+everything and that's really what I love
+what is the hell is a gather so much big
+data and since I have fully well
+positive like amazing to name it isn't a
+and they did I'm talking is really fit
+together on of course the more data you
+have the better your possibility I
+always advise well I don't you know two
+years ago I didn't even know how to
+spell I regime but it turns out that
+I've been making things that are look to
+each other over to the internet for a
+long time and I really like that and
+what we're finding is coming up in so
+many is your C hard medicine insurance
+and it's really really fun to exact so
+it combines the physical world and
+logical life and what I think you're
+exactly right especially make that
+cognitively to make a thing smart need
+to make a thing learn
+sweetie I'd agree were talking about
+downstairs really got me thinking about
+something like I've got an idea
+all right in fact if you like to know
+more about what we were talking about I
+want you to feel about that as well and
+there will be a link to that in the
+description so you can find out more
+about that
+all right now get to the PJ box and what
+if it falls with IOT so just about the
+premium box and so while we're doing
+that I'm going to support our you know
+opening up the PJ botanist in a separate
+video how you can actually set up the
+PJ's off constructed when if you can
+actually get me some Amazon by the way
+I'll link the description and of course
+what exactly this would be do and some
+example code to get you run with if you
+gave oxygen though well what the TGA pot
+is a little cardboard friend that has a
+small computer Raspberry Pi which I'm
+sure most of your viewers know about and
+a couple of other features were input
+and output it has a small servo motor
+for moving it has camera proceed it has
+a microphone for hearing and then you
+can use all of the Watsons easy eyes to
+bring life to it and we put these things
+out so that you can make them yourself
+you can either buy one on amazon or
+we'll send you the file seeds and cut
+them out on your own later
+and what we're finding is there's no
+limit of the kind of creativity two
+people have in what they look like
+I hoped mine up to a Tesla coil so that
+when I talk to it it sent out a quarter
+of a million volts part I really can't
+wait to see what you make exactly
+Thank You support so we won't have it on
+that will promote into video that means
+everybody can buy as well
+all right people watch is actually
+powered by Raspberry Pi with the board
+computer and so the Raspberry Pi is
+basically the heart of the seabed bottom
+the final 50 de Botton is what controls
+now the TV I want multi compo speakers
+micro cameras the industry anchor
+Bluetooth speaker for its audience
+apart from that place is absolutely
+but are typically the main part in their
+clock in the PJ block itself and the kid
+was actually looking interesting if you
+could keep our Corvette business
+differently in fact okay we can show you
+yeah looks like you think
+and you can see this is actually okay I
+guess a cardboard here I've been taught
+to actually have a little modules that
+you can actually rip out old and then
+you can still attach them together to
+create your keychain off and that will
+still be interesting about these also
+easy to sell Fattah and so doing it
+because they can get up early
+differently what i what i really like is
+that this is just a digital file it's
+basically a simple nature file or the
+equivalent and you can take take this
+file will send it to you can go into a
+tool like illustrator or or an open
+source tool and changing you could
+resize it you can add different features
+in legs etc and then you can go to a
+makerspace like we have in munich or
+mostly i did it happen and you can
+actually cut it out with your own laser
+if this is so much fun it's about 90
+seconds to cut out low that size of it
+and it even smells good when you're
+doing
+all right so that's the TJ box what's in
+the box and health power but would you
+like you don't move a little bit but
+what developers can actually do with the
+people want what is capable
+well basically no what you're doing is
+you're making a really cute embodiment
+of a Raspberry Pi that has a camera a
+microphone and a motor actuator and so
+you know that is if you think about it
+it's like a canvas you can paint
+anything on that so we've had people
+we've had people do face recognition
+like you and I were talking about exact
+had people do music you know play music
+actually believe this wireless speakers
+really got a nice sound system you can
+use it like to play my favorite song we
+have I use mine as I said to I build
+Tesla coils which generate like quarter
+million to half a million volts you know
+a meter long spark and I hooked my TJ
+bought us so I could tell it to turn the
+Tesla coil one thing I notice is you
+never should put a Raspberry Pi too
+close to a quarter of a million volts so
+on my second raspberry I put them
+further apart but people have done all
+sorts of things with them and then not
+only can you decorate the inside of this
+with code you decorate the outside 8,000
+I I'll tell you a story we just had a
+hackathon in Munich in where I work and
+we made a bunch of them we made made
+for people and in testing one of those
+one of my one of my colleagues but later
+criminy she's not even the software
+person she's very smart and not suffer
+person and she made a TJ bot we have a
+bunch of them around and she made one
+around around that that whenever I walk
+by it said hey John yes I think she was
+pushing a button but it really surprised
+me because it had never talked to me
+before there's nobody in there and so
+that's what you can do as a TJ clock
+that's what capable of and why it's so
+interesting and so that's what we have
+talked about the TJ block I will teach
+now I know this is actually quite a
+short video but unfortunately we don't
+have enough time actually go through
+creating an example application just yet
+but very soon you losing another
+collaboration video with me and John
+Paul my mentor with for society project
+and for setting up to keep it myself
+working with a software click is really
+interesting and neat applications and
+use power Watson and of course IOT and
+order to create a really powerful make
+this a TJ bot I can't want to do what
+you're going to go it's going to be
+interesting I'm jealous thank you
+alright so again I must say thank you
+can i mentor I'm John Joseph what's up
+please watch out for our next video
+before being special playlist for our
+next video ciao ciao
+with my other nephew Marcus van Campen
+named Squanto and of course John's oh
+all right well thank you very much for
+walking today that's going into the
+video and of course if you enjoy please
+do make sure to leave a like that world
+and do believe if you have any other
+questions suggestions or feedback please
+and down I mean summon section below you
+can email them to get paddy managing all
+that problems me attaching any long-term
+housing recontacting oh you know what
+I'm John cone BT on just about
+everything
+Gmail Facebook Twitter Instagram blog
+but John cone VT and I'm the guy that
+looks kind of like this I was kind of
+crazy so you should call a couple bye
+so thank you very much I can't wait to
+be perfect thank you
+just before we go if you'd like to
+subscribe to the channels who want to
+watch more content to make sure that's
+not a lot and we like we notify whatever
+I do make new content make sure to turn
+on notifications as well alright thank
+you very much for walking today those
+goodbye

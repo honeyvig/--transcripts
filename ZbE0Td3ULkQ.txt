@@ -1,0 +1,423 @@
+[Music]
+so hello there and welcome to a special
+video my name is t Baki and today I've
+got two special guests with me two of my
+mentors Timothy Duncan and theer Huber
+so let's actually begin today with a
+little rundown of what we're going to be
+doing now this is actually a
+continuation of my previous video where
+we discussed what exactly Blu miix is
+what exactly Watson is uh and how they
+correlate with each other and a few more
+questions that my subscribers had about
+these two platforms but this video we're
+going to be talking about artificial
+intelligence cognitive Computing and
+machine learning in general so before we
+begin let's actually go through another
+quick intro just in case you hadn't
+watched the previous video so Timothy
+would you like to introduce yourself
+yeah thanks timy my name is Timothy
+Duncan and I am a Blu miix specialist at
+IBM I've been doing that role for the
+last two years and essentially I
+specialize in the process of helping
+clients or anybody who wants to use Blu
+miix understand how to take ideas off
+their brain STS and deliver them in the
+cloud as an
+application all right great so the would
+you like to introduce yourself sure the
+I'm the CEO of Darwin ecosystem and we
+specialize in cognitive Technologies
+cognitive Solutions basically use all
+this wonderful techn techology detect
+pattern changes what happens when it
+changes and we help our clients
+basically augment their intelligence and
+their business all right great so let's
+begin with a few of the most common
+questions that my subscribers have asked
+me about artificial intelligence machine
+learning and cognitive Computing and it
+actually starts off with the absolute
+simplest question that they've sent me
+which is well what is AI what is
+artificial intelligence and Tim I heard
+you had a really good definition for
+intelligence in general so would you
+like to um share your thoughts on that
+yeah so um when I did a lot of research
+into this concept in general artificial
+intelligence is is a tough concept to to
+to wrestle with there's a lot of
+different opinions on what that is
+there's a lot of different augmentations
+of what that is as well um so I think
+the the lines of truly what the core of
+artificial intelligence is it can be um
+can be tricky to Define in in simplistic
+term so if I look at what intelligence
+is um it's the process of acquiring
+knowledge and understanding and applying
+that that knowledge and understanding um
+so if you put artificial in front of it
+to me that means um doing that action
+happening anywhere outside um of the
+human mind exactly that's a good that's
+a very good way of putting it and I
+agree with it because since it's a
+matter of opinion right you're right but
+but this is interesting because when you
+think about what is intelligent it's a
+question of perception right do I
+believe this system is intelligent
+exactly when I do a Google search do I
+believe that the result is driven by
+some form of intelligence meaning some
+sort of prior knowledge for applying
+that knowledge in some which I per form
+because that's what we do right and is
+it only human intelligence that matters
+when we talk about artificial
+intelligence right so so it's about
+really a problem process and it's really
+about a process where
+somehow you have the belief that what
+you're interact with is pretty smart
+it's intelligent it gave you an answer
+that was reasoned and I think the word
+reason is important when we Define
+artificial intelligence the concept of
+reasoning can machine reason I think
+this is really you know the yeah the one
+thing that makes you say hm there's some
+reasoning behind it must be intelligent
+exactly but it needs to understand
+before it can reason correct exactly
+that's the tech what is understanding
+within a computer yes what is that
+where's the knowledge at mhm see that's
+where the opinion
+stuff uh but since I mean tying off of
+this since there is so much to do with
+opinions here and how people think of
+artificial intelligence a lot uh a very
+popular question is well generally
+what's the correlation are these are are
+icial intelligence machine learning and
+cognitive Computing just synonyms uh do
+they mean something different like what
+they're part of an ecosystem exactly and
+so what I usually like to believe in
+this case uh is that we've got
+artificial intelligence uh and so we've
+got things like cognitive Computing and
+in this case cognitive Computing would
+mean basically actually applying
+artificial intelligence to uh these
+computers specifically um because I mean
+as Tim was saying artificial
+intelligence is just intelligence done
+outside of the human body yeah quite
+literally if we were to apply that
+specifically to computers and help them
+augment our cognitive capabilities that
+would be cognitive Computing and going
+even further a subsection of this
+technology would be machine learning
+machine learning at least from our
+definition would go under the topic of
+artificial intelligence and machine
+learning so would you like to expand on
+that yeah so let's take one step back to
+cognitive Computing so we went from
+artificial intelligence cognitive
+Computing to machine learning all in the
+same sentence so let's step back once
+artificial intelligence we just defined
+that as the act of acquiring or applying
+knowledge or understanding okay and
+artificial I think it's outside of the
+human brain so if we take that one step
+further to cognitive Computing okay so
+let's bridge that Gap there cognitive is
+other related to cognition and cognition
+is the mental process of acquiring
+knowledge so cognitive is actually the
+human way of it's not artificial it's
+human right so cognitive Computing is
+back to the computer well right but but
+I look at it as you put humanistic
+traits within that's what Watson is
+that's right and then you compute with
+them exactly that's right is to actually
+realize that cognitive processes human
+cognitive processes recognizing images
+for instance right recognizing
+personalities these are things that we
+do instinctively because we've learned
+by the way learning is a process and
+machine learning is nothing else right
+than mechanism that facilitates learning
+and persistent concept that you can then
+utilize and exploit right so let's make
+a little distinction I think a lot of
+people have have made the been confused
+between machine learning artificial
+intelligence cognitive Computing we know
+cognitive right now let's define it as
+yes it's a cognitive process that can be
+implemented in a machine and it is
+instrumented by Learning Systems some
+people look at deterministic Computing
+so when I create a workflow a really
+fancy workflow okay and I write a
+process it's deterministic meaning I've
+already
+designed the way that the outcome I have
+designed the outcome that may change
+based on variables but I have designed
+the outcome I have played that a
+learning system is different a learning
+system says hm there's something a
+little bit more important a little bit
+there are variables that are unknown and
+can I learn from The Unexpected that's
+her Learning System in Computing that's
+much smarter than deterministic work
+being performed with prior knowledge
+exactly that's just not transposed right
+give me a new variable let me learn
+augment my decision capabilities that's
+a true intelligence system yep that's it
+so about this topic now that we've
+basically answered like four questions
+in one what is artificial intelligence
+what is machine learning what is cog
+computing and how do these terms into
+like uh how do these terms relate to
+each other what are they in comparison
+well look at it so did we do it or do we
+want to reiterate it I mean I think we
+have done but let's reiterate once some
+Down The Learning System right yes
+learning nwor so that's basically the
+mechanics of like how our brain works
+it's our it's our process right so you
+have that then you have the cognitive
+system which means we are able to
+recognize to learn from prior knowledge
+right and apply this ability this
+attribute into a technology and
+cognitive technology or cognitive
+Solutions are basically the
+application right it's how you apply
+that cognitive that ability into a
+context yes and that will transcend into
+artificial intelligence MH exactly
+exactly I agree all right so now that
+we've talked about this now another
+slightly more technical question uh that
+a lot of my subscribers sent me uh is
+actually something about a machine
+learning topic which um when sung down
+is actually quite simple uh and it's
+basically what is a genetic algorithm
+it's something that's extremely popular
+people uh learn about it as basically
+evolutionary algorithms uh and so people
+get really interested uh in in basically
+saying oh like artificial Evolution uh
+and so let's talk a little bit about
+that but uh one thing I'd like to point
+out here is while genetic algorithms
+would technically be classified as
+machine learning uh what I usually like
+to do is get even more specific with
+genetic algorithms because genetic
+algorithms can be used to evolve
+anything can be used to evolve uh cars
+like to build like there are demos
+online of how you can use genetic
+algorithms to evolve a shape of a car so
+it can run along run run along a little
+map correctly uh and there are more
+demos like that but the thing is in
+order to specify it specifically to uh
+things like machine learning what I like
+to do is uh use specifically the term
+neat uh there's an algorithm called uh
+neuroevolution of augmenting topologies
+neat uh which is based off of genetic
+algorithms and training neural networks
+uh with genetic algorithms uh and so
+that's something that I'm really
+interested in and basically what that is
+is it's creating basically uh an a
+simulated survival of the fittest
+scenario love that and so basically what
+happens is let's say we've got uh a
+neural network that has to evolve to
+take some input and give an inverse
+output like if it were to take 1 1 0 it
+would return 01 MH basically what would
+happen is we would create a population
+of say 100 neural networks with random
+weights and so what would happen is we
+would feed uh all of the feed all of
+them these inputs and get their outputs
+and see how how accurate each one is to
+The Final Answer we'll take the top say
+50% and we'll randomly choose do we want
+to uh take to these random uh creatures
+and do we want to cross over over their
+genes create a child or few children uh
+and then pass that on to the next
+generation or do we just want to take
+someone mutate their genes and pass that
+on to the next generation and it'll
+continue continue continue until only
+the best genes are picked until we've
+got a neural network that's extremely
+accurate in taking some inputs and
+giving an inverse output so would you
+like to add anything to that well you
+covered a heck of a lot right there I'll
+tell you that but I do like the words
+that you've used in terms of evolution
+and organic evolution I think is really
+what this is so so you if you look at at
+basically Chaos Theory models like
+Lauren's algorithm around the strange
+attractor and things like that and
+you're looking at it you've got a very
+complex closed system right that is
+chaotic and you can you can find
+patterns in it and then you add the
+component of causality in all of this
+well you brought some some good points
+one of them makes me think of what is
+the existential condition MH of such an
+environment exactly it's a what actually
+would prompt a system like this to want
+to survive to to want to have a model
+where a I would say stronger or I would
+say adaptable model would survive where
+one would be dismissed exactly right and
+so when you look at this you you have
+you're getting closer to almost let's
+call it another artificial intelligence
+it's called artificial life exactly the
+fabric of artif artificial life mature
+yes and artificial intelligence exactly
+and this is where the two of them
+actually can converge remember we're at
+the beginning of this sign exactly and
+and what do humans do best we transpose
+what we know we
+reassemble what we are we are the result
+of of many failures and successes ex and
+survival so we are the empirical
+evidence that out of chaos and disaster
+something cognitive and self- sustaining
+can exist right so why not create the
+same thing in technology exactly exactly
+and I think this is where the challenge
+is in all of this what is the
+existential Factor what is the threat
+and if you understand the threat yes or
+the situation that is not favorable can
+the system self organized exactly which
+is again the point of these genetic
+algorithms evolutionary algorith
+absolutely so self correction auto
+correction can you imagine what we could
+do with nanotechnology with this of
+model that would be absolutely you know
+it's it's tremendous so I think we we
+you know I I love to say this when we
+when we have imagination when we talk
+about these things I love to reference
+you know like the the engineers at
+Motorola who uh grew up watching Star
+Trek and he said well we're going to
+create a flip fil or H hura right or
+Captain Picard in 1987 when he flipped
+the first iPad on the Starship
+Enterprise so so here's the beauty of
+this when we talk about these things
+today it inspires the Next Generation
+when you look minor radio report and
+they have all the screen with the
+gesture that's what we're trying to do
+now we get inspired by these visions and
+and right now today I think it is a
+vision I think there's experiments I
+think it's it it's it it really is in
+its infancy but the mere fact that we
+can talk and extrapolate I bet you that
+we're going to see some wonderful things
+happening where we're going to talk
+about artificial life that is autonomous
+and self gu I completely agree it's
+going to frighten a lot of people though
+you know that but I think the key there
+is being is it's an augmentation right
+so a lot of this what you just said
+there is a real fear of of robots and um
+taking over the world let's let's be
+real blunt about it you know what I mean
+and I think it's important to point out
+that Watson and cognitive Computing in
+the eyes of us three is it's an
+augmentation correct it's not U
+mimicking humans um exactly the way I
+are way they are it's to to build
+software or code that can help us um ADV
+decision exactly make decision exactly
+not replace the decision augmentation
+very important right no but this is a
+really cool one there you you spawn on
+us I really like that yeah that's good I
+don't know who the mentor is now I think
+you just you just flipped the
+rolles yeah I didn't know you going to
+ask that question I love it I love it
+and that's one I really passionate about
+too awesome so my
+all right so that was pretty much all
+the content we had to cover in this
+video today so those were the questions
+my subscribers sent in so that's going
+to be it for this video today thank you
+very much for watching if you like the
+video please do make sure to leave a
+like down below and if you believe this
+could help anybody else you know please
+do consider sharing the video as well
+but of course if you have any more
+questions suggestions or feedback you
+can leave them down in the comment
+section below email them to me at tagim
+Manny gmail.com or tweet them to me at
+tagim Manny
+of course though if You' like to ask my
+mentors any of these questions uh then
+you can actually just send them to me
+and I'll forward them uh to my mentors
+and then they can reply back to you uh
+and that's going to be it for this video
+of course though if you really like my
+content you want to see more of it Lee
+do consider subscribing to the YouTube
+channel as well and that's going to be
+it for this video of course I'd really
+like to thank my mentors for agreeing to
+be part of this video for having us
+pleasure and sure you absolutely love
+having them in this video as well all
+right so thank you very much for
+watching today goodbye Goode bye-bye

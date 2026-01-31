@@ -1,0 +1,170 @@
+okay so hello there and welcome to this
+tutorial in this tutorial i'll be
+talking about something that i really
+didn't find online yet and i don't think
+there's any documentation for it
+i'm going to be telling you how to run
+your watch kit apps on a real apple
+watch now usually if you were to run
+your apple watch apps
+on the real apple watch you would get an
+error that would say that your
+application could not be verified
+however when watching this while
+watching this tutorial you'll learn
+exactly how to register your apple watch
+with your developer account in order to
+actually have it
+run your apps
+so let's get started
+okay so now that we're at the mac let's
+see how it actually works
+so now we want to find the ud id of the
+apple watch and connect it to our
+developer account so let's do it
+to find the udid you go to xcode and
+number one you have to make sure
+just completely make sure that your
+apple watch and your iphone are both
+paired together
+if they're not paired together
+this won't work
+okay so let's go back to the mac now
+so first of all what i'm going to do is
+i'm going to put my cursor up and it'll
+show this little menu
+so i want to click on the window button
+here
+and then i will just go down
+and click on devices
+it'll open up another window where if
+you click on your actual iphone while
+it's plugged in
+then it'll tell you the device
+information for your iphone
+for your apple watch and all the
+installed apps on your iphone
+so we want the udid for our paired watch
+so as you can see under device
+information we have paired watch
+information and under paired watch
+information
+we have identifier last
+so this identifier is a ud id that we
+have to copy in to our developer account
+just like we would any other iphone ipod
+or ipad
+so now we go command c to copy this
+and then we go here
+uh and then we just want to go to your
+apple developer account
+go to the ios developer uh or no you
+need to go to the certificates
+identifiers and profiles page
+and so now we can click on the devices
+button
+and now it's just like any other apple
+device you just click the plus button
+you give it a name and i'll say apple
+watch
+and you just paste in your ud id and you
+click continue
+that's really all you need to do here
+i'm just going to put an underscore
+since i already have it registered
+so as you can see i'm going to register
+and it doesn't let me since i already
+have this register but that's basically
+how you would actually connect the udid
+now that we've connected our udid to our
+developer account what we can do
+is we can go back to our device
+and over here you want to select the
+target
+uh whatever your app's name is watch kid
+app
+select it
+and then ask it to run on your iphone
+not your watch
+then turn on your watch
+exit the clock
+and run the app i'm just going to make
+sure this doesn't sleep
+and you can run it by doing command r
+and as you can see in just a second here
+uh the app called guessing game will
+actually run on the apple watch
+so as you can see here
+sorry
+um it's uh opening up the app uh xcode
+is opening the app
+and in just a second here
+once it's done loading
+as you can see it runs the app on the
+watch
+so it didn't give us an error
+application verification failed it
+doesn't give us any errors
+so that's basically how you do it
+okay so just one last thing before we
+end let's actually run the app so you
+know how it works
+so as you can see i have the app here
+and i've already made a tutorial for
+this on my youtube channel
+so um
+yeah i'll put a link to that in the
+description
+but just for now let me explain
+basically this guessing game app allows
+you to enter numbers
+and the computer will tell you if the
+number is right or wrong
+you'll get unlimited tries but it counts
+how many tries you've done
+look if you enter a number too big the
+computer will tell you that your
+number's too big if you enter a number
+too small the computer will tell you
+that your number is too small
+so as you can see here i'm just going to
+click on the new number button so it
+generates a new random number in memory
+i can do that as many times as i want if
+i want to restart the game
+and then let's just say my guess is six
+as you can see i'm clicking bigger six
+times so you can see six is in this
+label that means that my guess is six
+but wait how do i tell the computer that
+my guess is six
+you click the submit button
+and the watch knows that you've clicked
+it and as you can see i got lucky here
+and 6 was actually the random number
+so let's just click new number again
+and let's just say
+7 is my my choice
+this is too small and if i haven't said
+this already
+this app will generate a random number
+from 1 to 30. so if seven is too small
+that means the number is in is between 7
+and 30.
+so as you can see i can go up maybe my
+next number is 11.
+eleven is too big that means it's in
+between seven and eleven
+so i can go a little bit smaller if i
+want to
+submit and i got i got it right correct
+it three tries as you can see it says
+nine correct in three tries so then
+basically i can keep on doing that and
+now you have proof that this app
+actually works on the watch
+thank you for watching this tutorial
+subscribe if you're new to the channel
+uh comment if you have any questions or
+improvements and please like the video
+if you liked it goodbye

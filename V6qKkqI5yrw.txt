@@ -1,0 +1,203 @@
+so hello there and welcome to this
+tutorial my name is Tanya Bakshi and
+this time we're gonna be going over
+something quite interesting which is
+Swift databases and not just any Swift
+databases I'm going to be revisiting my
+most popular edition of it which is part
+one and I'm going to creating part one
+point one so you might be thinking 10-8
+what is there to improve in switch
+devices now you even gone to the extent
+of images what else could even improve
+now there is still one thing that's
+missing a library now you might be
+thinking why exactly would I need a
+library well think about this in Swift
+too when you have to use the do and
+catch your your JSON serialization first
+of all it's already really complicated
+even without Swift - but then adding in
+all those extra lines of code it's just
+too much for you to handle it's it's
+amazing that you even know how to write
+that code so I decided to take the
+liberty to make a team est me class
+which I'll explain in a minute which can
+essentially do all of the JSON reading
+from a web server for you so this stands
+for Tanmay Bakshi Swift databases now in
+case you were wondering and so basically
+what this will do is it will have a few
+functions and a few variables which will
+allow you to get the dictionary value or
+array value from any JSON API that's
+available online right now this does not
+work with JSON P or xml just quite yet
+but I will be adding that in quite soon
+so yeah I guess we'll go to the Mac part
+now and I'll explain exactly how I've
+implemented this app so just one last
+thing before I actually get to the Mac
+part is that I'd like to clarify this
+book database tutorial was actually
+inspired by someone called Amrit he's
+one of my subscribers he mailed me
+having a little problem with such
+databases he mailed me he had a little
+school project I helped him with it but
+then after that he also asked me to
+create a little API
+a class which will allow us to do such a
+thing with like really easy JSON
+interaction online so I created a TBS VB
+class and so yeah I'm going to be using
+Emirates API with his list of users and
+their images so yeah I'm gonna get
+started now and let's see the code well
+actually first I'll show you a little
+demo and as you can see here I have all
+of I still have my other tutorials open
+but I can open up Emirates thing too so
+fine what's up so you can see we are
+inside the code for Emirates app this
+most of this code I've already taught
+you how to do and yeah so I'm just gonna
+get started with a really simple
+explanation because I'm just gonna skim
+through this because you've already
+learned this in Swift database part 1
+this is just going to be the API that I
+explained to you so I'm just gonna go
+over this and as you can see we have the
+class review controller that conforms to
+UI view controller UI tableview
+datasource and UI tableview delegate
+after that we have our table view which
+is thank you my table view and this
+unfortunately has to be an optional do
+to swift telling us that we have to then
+we have the data as an NS array which we
+are not currently using yet but we will
+in our view did load function in our
+view did load function we set the data
+to the date of JSON and then his API
+Emirates API if I open this up in Google
+Chrome you will see that as you can see
+it gives you a lots of JSON again I came
+to understand this I copy this into a
+JSON viewer okay I format first of all
+so it's a little bit easier then I go
+into the viewer and then it tells me
+exactly what I need to do in order to
+parse this out okay so now let's get
+back to our code so now that we're back
+on our code I'm just going to make this
+full screen and as you can see we have
+the URL here and then this returns a
+nice dictionary so then I want to get
+the result out of that as you can see
+from our JSON viewer we want the result
+as an MS
+right and then I just want to print that
+data so if we need to bug something we
+always have that information then when
+we reload we just do the same thing
+except we also reload the table your
+data when touches begin we want to end
+our editing we actually don't need this
+since we don't use any text fields in
+this after that we just have our table
+view number of rows in section function
+that is required from UI tableview
+datasource and we are just returning
+data count here and in our data of JSON
+function we are just setting request to
+a new TBS DB which I will explain in
+just a second in it with URL and then
+the URL that I give it then I'm just
+returning the requests dictionary value
+and this will be nothing in the
+dictionary if there is nothing in the
+JSON that it can get the dictionary
+value of so it's pretty safe in that
+manner after that we have our table view
+cell for row index path index path
+function which is again required by the
+UN table in your data source class so
+basically this will create an additional
+info cell which you should already know
+how is used and then everything else is
+just classics with databases stuff which
+I don't want to go into too much depth
+with right now after that we just have
+our memory warning and now I will just
+give you a quick demo of the app just to
+show that it actually works and then
+right as you see that it actually works
+I will show you the API as you can see
+it shows all of these people their
+images their names and their IDs and
+their ages including Emirates and then I
+can always reload if I want to even
+though there's nothing new that'll come
+in and then of course I'm going to
+explain exactly how this API works I'm
+just gonna go into my API first so as
+you can see I have a swiftie networking
+not Swift file actually this is supposed
+to be TV SD me renamed it so then in
+this file
+I'm just importing foundation pretty
+simple then we are creating a global
+variable color request which is a blank
+TBS DB with no Ling
+in it currently and then we have our TBS
+DB class that's something I found a
+little bit weird about to it but
+sometimes it's pretty helpful you can
+declare this class before it's even been
+made but if this variable comes before
+the class declaration and it works so
+that's amazing
+so after that let's just get back to our
+coding so now we have a VAR URL inside
+of TBS DB and this is a string and we
+have no value in it currently whenever
+we initialize with no value we just want
+to set the URL to nothing so that we
+don't have an optional just laying
+around there and whenever we init with a
+URL just set it to the URL then when we
+get data we just return some NS data and
+this will be an optional since we don't
+want to handle optionals right now so we
+just return an estate our contents of
+URL nsurl the string URL however we do
+have forcefully unwrapped this and as
+URL because there's nothing that could
+possibly happen here then there's two
+functions dictionary value enter a value
+the action area value will return the
+diction of the JSON value for the link
+in a string any object manner and array
+value will just return an array of any
+objects and yeah this code will be in
+the description so if you want to
+improve it if you want to work on if you
+want to include it in your app you're
+completely free to do that just keep my
+name over here as you can see after that
+that's really it
+and so yeah that was it for Swift
+databases part 1.1 everything you to my
+channel and you like my content you want
+to see more of it like this video if you
+really liked it comment down below if
+you have any questions or maybe some
+suggestions for future videos I will get
+back to you as soon as possible
+you could even email me at Tai Chi mani
+at gmail.com if you didn't get that my
+email will be down in the description
+and yeah that's it good bye

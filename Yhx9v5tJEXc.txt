@@ -1,0 +1,829 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is Tammy Bakshi and
+this time we're going to be going over
+well a really special tutorial and why
+today we're going to be actually
+unlocking car doors by facial
+recognition on Apple's Coromant library
+but before we continue I'd like to
+introduce to you my mentor Ross power
+from Darwin ecosystem he's the chief
+innovation officer hi how are you not
+too bad how are you doing absolutely
+great so I'm using IOT innovator
+software architect a neutral like to
+tell the viewers a little bit more about
+yourself sure I work for a company
+Darwin ecosystem we are a US company
+that works with pattern detection
+algorithms within artificial
+intelligence
+so today the collaboration that Timmy
+and I are working on is the benefits of
+integrating artificial intelligence with
+IOT technology that is taking advantage
+of that pattern recognition and taking
+it into a real-world existence so that
+we can actually utilize that in our
+day-to-day lives exactly and in order to
+actually demonstrate this we're showing
+you an example that practically everyone
+can relate to how you can use facial
+recognition that is really really fast
+and really accurate on core ml on an
+iPhone 10 and in order to use that with
+IOT to unlock your car doors
+automatically now before we continue
+though I'm sure that everybody here is
+familiar with the face ID feature on the
+iPhone 10 of course on the iPhone 10
+you've got features like face ID that
+allow you to automatically unlock your
+phone by facial recognition but the
+thing is now of course this is
+absolutely great but it's specific to
+the iPhone 10 you can't use this on an
+iPhone 7 or 6 or any other iPhone for
+that matter
+because it's really dependent on the
+true deaths camera system however today
+what we're going to be showing you is
+how you can actually run a male model
+that is not dependent on true depth
+whatsoever and is only dependent on the
+actual facing camera on your phone
+and it runs machine learning algorithms
+to see whether you are the same person
+who trained the system or not more
+specifically we're going to be using
+deep neural networks the exciting thing
+about a lot of this is that this
+technology in a portable format such as
+the iPhone 10 was not available to us in
+previous years we had to use much more
+robust systems at a server level
+integration taking that technology and
+boiling it down to a portable device now
+gives us the ability to apply these
+extremely robust algorithms in a
+portable nature and again bringing that
+into our day to day lives so that we can
+actually reap some benefit from this
+technology exactly and now especially if
+with the 11 biotic tip of this iPhone
+the press were able to run this within
+4.8 milliseconds per inference that
+could be 208 frames per second if you
+were to do real-time classification
+faces if I were to just have a little
+camera application where you can move
+around and it'll automatically classify
+put bounding boxes on people's faces and
+tell you who they are
+that was one at around 200 frames per
+second that is how fast quite a few
+people out there that are used to the
+gaming industry can understand the feet
+of the frames per second ratio typically
+your eye can only understand 30 frames
+per second that's what we in our bodies
+can actually picture as an interval
+between frames so now when you have an
+artificial intelligence with the ability
+to process faster than what your own
+optic nerves and process now you're
+talking about something that could come
+by the aggressive power and really
+beyond what our own brains limitations
+are exactly and so now though let's talk
+about how exactly the neural networks
+are implemented and down over to Ross
+we'll talk about the IOT aspect all
+right so let's start talking about the
+neural networks shall we and of course
+in order for this application to work we
+have to have deep neural networks that
+actually understand people's faces how
+does this work
+well before we get to that I'd recommend
+you watch my video on convolutional
+autoencoders video link down in the
+description below however let's watch
+the tutorial if not you'll probably
+still understand though now if you used
+convolutional neural networks before you
+know how they work right of course we've
+got your convolutional blocks right so
+your convolutional layers imagine you've
+got your entire convolution that work
+here now right after this though you're
+feeding this into a bunch of dense
+layers and these dense layers summarize
+all of the features that the
+convolutional neural network actually
+extracted from the image and put them
+into a single effector and then
+eventually classify them into the actual
+categories that they're supposed to be
+classified in now what if we took a
+convolutional neural network like this
+and we took a data set like labeled
+faces in the one all right now this
+allows us to do is say we have a
+thousand celebrity's there's no
+abundance of these people's photos
+online because they're celebrities right
+so it's really easy to get that training
+data and so for every one of those
+thousand celebrities we have numerous
+images
+and now we got a neural network that
+takes in an image of celebrity say
+celebrity so that yeah so feed that into
+the convolutional neural network and
+outputs which celebrity that is with a
+measure of confidence but what if we
+removed the classification look what
+happens is this dense block is actually
+someone at the classification block
+right we've got a feature summarization
+and then the classification that
+actually takes all the features and
+classifies them into which deliver it is
+thank you so move that dense block
+they're not what we've got it's right
+after the convolution layers we have got
+an array of features all right now these
+features are really special that's what
+imagine exactly now the features what
+they do is they summarize what your face
+looks like in a single vector now what
+that means is we're not looking at the
+color of your shirt we're not looking at
+what your ears look like we're not
+looking at the background of the image
+we are just focusing on your face and it
+will actually summarize that entire
+semantic of your face into that one
+factor and so in theory what you can do
+is you can take multiple images of
+yourself alright and you can feed them
+into a convolutional neural network
+that's the way you do that array so
+please
+remove the celebrity block you can input
+say 32 of your own images 32 images
+alright and then what happens is you
+have 32 sets of features and now when
+you take a new picture of yourself you
+find that for yourself you compare it
+against every other feature set you find
+out how often is from every feature set
+get average of how often is and if that
+is below a certain threshold then you
+are the same person
+as who trained it that is how the system
+works and so that is how we're able to
+do facial recognition now of course
+though the reason we can't have like a
+Siamese neural networks actually taken
+the older few too much Dave that will
+take around say hundred to other images
+to train the neural network fully
+however in this case we require 32
+images and so that's why we're using
+this technique though the wonderful
+thing about the features is that it's a
+contextual reference it's not something
+that says I'm looking at the pixel by
+pixel densities and comparing them with
+this system we're able to understand the
+concept of this it's in context what is
+the ratio between both of your eyes and
+your nose so that even in an image
+recognition where you are off angle or
+dissimilar in some ways to the original
+training set the system is still able to
+make an accuracy assessment and judge by
+that vector coming out what the distance
+is between what it's known entity is
+that's again where the magic is we're
+not doing pure pixels
+pixal averaging this is the where the
+the artificial intelligence comes in
+where it's not assuming but it's not
+doing direct binary assessment and so
+we're not just saying okay which pixels
+are equal to the other pixels we're
+saying look at both of these images in
+their context by filtering out
+information that's not important to
+facial recognition only keep the
+information that is important to facial
+recognition tasks and then classify them
+saying okay is this the same person like
+for example right now I'm wearing black
+glasses if I were to wear our blue or
+red glasses
+it would still classify correctly
+because it has experience like where my
+nose is so that is how the neural
+network and of things works process rely
+upon the human judgment at the end to
+understand what is the threshold of
+acceptance when we when he talked when
+team a talked about that earlier as at
+the end we establish what is a viable
+distance yes so there still is a human
+judgement we can teach the system in a
+secondary neural network to refine that
+process so the more that it learns it
+will tighten the gap of distance but the
+initial pass we have to manually say you
+know what there's enough similarities in
+the rest of his face to disregard the
+distance because of the color difference
+in the glasses
+and actually take a look at how that
+works let's just say I mean currently
+these feature vectors are actually 128
+128 individual numbers inside of that
+future vector however let's take a look
+at that example let's just say that
+these are only three feature vectors we
+just just three inside the vector C zero
+point 6 negative zero point four and say
+okay these this is my feature vector in
+the training date okay of course we've
+got thirty one other feature vectors but
+this is one of them all right now let's
+just say that I just took a new image of
+myself and I want to classify let's just
+say they're ever so slightly off zero
+point five five
+they're ever so slightly off but they
+are not and these could mean in great
+mass that you're into person but if
+every single element is just a little
+off that was person and so in order to
+ that difference all I need to do
+you say for example one zero point five
+five minus zero point six that is
+negative actually negative zero point
+zero then this would be and then over
+here this would be zero and so this is
+how off our feature vectors are or
+negative yeah that's not good
+all right that's a negative zero point
+zero and then what I do is through this
+program actually find the absolute value
+so these are actually not that you're
+just finding absolute value so we're
+able to
+and so then what I do is I actually take
+the average if we were to add those
+together we get a perfect 0.23 and so
+we're 0.23 off three off with this
+vector and then of course we divide that
+by three and then this would be let's
+calculate that hey Siri what 0.23 five
+by three
+0:07 that is how off this individual now
+what we do is we calculate this value
+for all the other future vectors and
+then we get the average of those and if
+it's either is certain threshold in this
+case say the threshold is zero point
+zero four nine okay this is our
+threshold this as long as your
+similarity or your difference how much
+you go off from the facial semantic
+factor is under this you are going to be
+allowed in the system which
+theoretically no one else should except
+for you one of the wonderful things that
+we've found out is through the training
+sessions the more training information
+you give the system initially you can
+start narrowing down this threshold
+we're just like an infant learns from
+the beginning of its life it knows very
+basic information that's a very large
+threshold as the system is trained and
+learned you can narrow down that
+threshold to be much more accurate
+exactly now why is that though that's
+because the more images you give it the
+better idea it has of an average facial
+semantic vector because it's getting all
+different lighting conditions clothing
+background everything it's getting all
+different variations of your face and
+with more variations there's more
+normalizations normalizing to the actual
+concept of your face
+and not just your face in a very
+specific condition awesome or images you
+have the better but usually thirty two
+strikes a good sort of midway between
+performance between accuracy and between
+ease-of-use you don't want to go around
+taking you know a hundred pictures of
+yourself in there at a lot of people use
+the word normalization exactly when it
+comes to what is normalization so our
+layman's so what that means is like for
+in this context at least I'm absolutely
+definition totalization but in this
+context it means it's let's just say
+that I'm sitting at my table right
+there's a library book and I take a
+picture of myself to train the facial
+semantic vector system this might change
+my skin tone a little bit due to the
+lighting and the neural network may not
+be until rewinds that's due to the
+lighting but if I walk to my table and I
+go over to the kitchen where there's
+lighting behind it worn front of me
+where it's actually lighting on face and
+still wearing different glasses like
+take a picture now what that means is
+that if I get images of myself in all
+different types of noise then when I get
+the average of the differences that
+noise could cancel that with each other
+the one where I'm darkening one round
+light they get cancelled out and it only
+focuses on the information that is
+contextually relevant to
+and that's in layman's terms that's
+boiling down to contextual averaging
+exactly and it's not averaging in a
+standard mathematical manner again
+because of all of those variants there
+may be a proliferation of a much
+brighter context so that's going to move
+that bias if you will further away from
+the dark scale and again average but
+it's not a virgin 50% it's averaging
+within the data pool that it has great
+so that is completely correct and so
+let's take a look at how you translate
+[Music]
+all right we've done the heavy lifting
+the heavy lifting is the actual logic
+that's behind making that deterministic
+view is it a yes or is it a no that's
+what the AI what Tammy is Mabel to
+execute with the core ml model and all
+that sort of stuff so once that heavy
+lifting is done now we have to get the
+piping to the real world because that
+decision is still in an ethereal context
+where it's just the number sitting
+within an application once that number
+gets produced and we can literally do it
+yes or no statement on that we output or
+we decide to communicate that
+communication in this particular case we
+need to communicate via Bluetooth
+communication
+and we are going to communicate to a
+hardware device which is our IOT
+Internet of Things that Internet of
+Things now has to actuate or move
+something in a physical world because
+this at this point is that ethereal
+existence in a hardware manner the same
+as the AI now we have to get into the
+mechanizing of this process Internet of
+Things is is moving the concept down in
+to the real world so from here we know
+if we are going to open a door we need
+to have some movement we need to have
+some kinetic energy transferred from
+this decision process so we decided as
+an experiment we're going to do two
+things modern cars already have an
+electrical system where there's already
+inherent alarm systems and electrical
+systems we can simply turn on a relay so
+in one of those outputs as IOT indicates
+you have inputs and outputs sensory
+input and operational outputs we can
+just literally use a relay and in that
+relay is our yes or no if it is yes we
+turn the relay on which creates a
+connection between our door system and
+our actual door actuator that's in the
+car that's all the relay does it's a
+very simple switch if you will it's an
+electronic switch we decided to take it
+one step further and say if we took a
+trip back in time there are quite a few
+automotive industries different mic
+makers in mics that did never even had
+trying to actuate in doors so we took
+one step further and said we're going to
+create a system that has a servo with
+Lingle actuator that is going to be able
+to physically either push a button in
+the car for an electronic system or
+physically pull our doorknob people with
+a little bit of gray hair will remember
+the days when you actually had to reach
+up and pull that handle on the door we
+are taking a completely modern
+technology and applying it in a
+situation where it's pure analog
+wonderful concept that's the exciting
+thing so in this case it's a servo
+lineal actuator which literally just
+takes rotary motion and turns it into
+lineal action which is a push-pull so if
+I have my doorknob at my door and when
+it's locked
+this is down my linen actuator will pull
+and unlock the door very it's that's a
+very simple diagram of what we're doing
+just as much as we have software running
+on the AI we have firmware which is
+software that runs on the hardware
+device so now so now this is how the
+actual backend of the physical world
+works here now we have to have a bridge
+from the software world into the
+hardware world now our bridge was
+originally going to be bluetooth of
+course to release this and sort of
+explain what exactly we're dealing with
+you
+now of course this is actually great
+novel I mean this worked perfectly if we
+had you know great support but the thing
+is if I would take
+here we have iOS an iOS has core ml
+which is why of course we're using that
+it works and we've gotten something
+called an hc-05 device why don't spend a
+little bit more about that sure HD HD 0
+5 is the original Bluetooth protocol it
+is not be L e or Bluetooth low-energy
+Bluetooth Low Energy came in a few years
+ago and it is a much more modern
+protocol which requires quite a bit less
+mojo most of the original Bluetooth
+requires 5 volt input Bluetooth Low
+Energy only requires 3.3 volts of power
+is also an entirely different
+communication protocol and so what we
+actually found out is that there's a
+road block here because iOS doesn't
+support legacy devices it only supports
+the new protocol it does not support
+hc-05 there is no way to communicate
+over this bridge but there is a solution
+not a solution I mean this wouldn't be a
+practical solution you're never gonna do
+this if you want to block your car but
+what you can do is you can actually have
+another device to bridge these two
+communication protocols now the thing is
+Bluetooth Low Energy we didn't have a
+device on us to actually do this epitope
+so what I'm actually doing is having iOS
+communicate with my Mac over HTTP and
+this is an HTTP connection and this is
+also by the way just by MGR okay okay so
+viagra we have an HTTP connection to my
+Mac and my Mac has physical bluetooth
+access to this hc-05 advice over a
+serial terminal
+so why Mac can't access the image to 0-5
+which can access there do we know which
+access
+now once more I'd like to repeat this is
+not a solution that you're going to be
+using an actual practical application
+this is a workaround just to show you a
+direct communication bridge iPhone to
+Arduino to physical movement just like
+the reason why we chose this is to prove
+the point that an exceptionally modern
+device can communicate directly to older
+technology there is new technology
+that's available there's a new one here
+that is called an ESP 266 that is a chip
+that you can program within the Arduino
+environment that has a built in HTTP or
+tcp/ip protocol built into it we could
+have bypassed going from iOS to the Mac
+and then to the Bluetooth which
+communicates to the main Arduino
+processor we could bypass that all
+together and talk directly to the chip
+we wanted to prove the point that we can
+bridge the gap between older technology
+and new technology and so that is how
+exactly this entire facial recognition
+system works and so by a facial
+recognition we should be able to send a
+trigger from iOS to HTTP 20 and for my
+Mac to Bluetooth to the Arduino and it
+should unlock our movement or relay
+which actually wires and in fact you can
+actually see the contraption over here
+that will actually do the physical shall
+we do it demo I think we should do a
+demo this is for just for breaking it
+out so people can understand it better
+this is called a blue a breadboard a
+breadboard is used to prototype the
+system I try to tip it down just so we
+don't roll it off there but let's see if
+we can see it in a breadboard system we
+have an Arduino pro micro this is a five
+dollar processor
+we're not talking about a $200 device or
+even a $15.00 raspberry pie we're
+talking about a $5 device this is our
+Bluetooth communication these are the
+relays and this is a lineal actuator
+part of my role in Darwin ecosystems is
+to prototype various different
+developments on a 3d printer so I've
+developed a small lineal actuator that
+uses a hobby level servo so when we'll
+get into how we actually communicate
+with that within the software so we know
+how we're talking the right language
+exactly from here you can see that this
+is a self-contained environment there's
+no wires connecting it there's nothing
+that's directly connected to anything so
+so now let's come here and let's get
+over to the demo all right so welcome
+back to the demo and now before I show
+you the facial recognition and let's
+take a look at the hardware and how it
+can be controlled from your computer as
+you can see we've got this great
+hardware here this servo which allows us
+to actually run the the actual you know
+actuator knob which allows us to unlock
+the door this is actually a 3d printed
+custom case from Ross that converts that
+servos motion into the motion that will
+allow us to pull that knob however let's
+take a look at the Mac where we're going
+to start connecting to the module now as
+you can see the sexually having a bright
+red flashing light right now and that
+means that it's in pairing mode it's
+looking for a device connect to and now
+if I click on connect on my Mac you can
+actually see that if I give it the
+correct passcode then if I click on
+connect it stops having that bright
+flashing light it actually just calms
+down and now I can actually go into an
+application of mine with this is from
+the internet it's a great app it's
+called
+serial and I can actually connect to
+hc-05 Debbie which I am currently
+connected to and now what I can really
+do whatever I'd like to do but in order
+for me to actually send a pulse to the
+servo the command is dollar sign
+one row so just a little bit more light
+on why exactly that is sure when we when
+we are dealing with Bluetooth
+communication we are doing basic serial
+TTL communication particularly for
+something such as this when there is a
+security measure in place we are
+allowing somebody access to our private
+world we want to make sure that there's
+some inherent security built in and we
+also don't want stray signals being able
+to do something that potentially is
+harmful for the system so by putting a
+command bit or a command bike - excuse
+me into the system that dollar sign is
+telling the system ah I'm a valid
+communication I need to now listen to
+say what are you telling me to do
+because now I know I'm being taught to
+by an authorized service and so now if
+we actually take a look here that's
+actually got a shot on both the keyboard
+and the actual contraption here now the
+reason that is is because on the serial
+on my Mac is you can see whenever I type
+in dollar sign 1 1 you can't see it on
+my Mac but right as I type that in it
+sent that information over to the
+Arduino which moved the serial let's see
+that again dollar sign 1 1 just like
+that and the servo moves in fact dollar
+sign 1 0 then look at this the relay
+activates let's look at that one more
+time dollar sign 1 1 I'm sorry not 1 1
+that's uh 1 0 you can see that the relay
+activates you can hear that switch sort
+of activating this particular firmware
+that we decided to use this first time
+is to really replicate the action of the
+human pushing the button on your door if
+we were actually pushing that button
+obviously we're not pushing the button
+and holding it down we're pushing the
+button and releasing it afterwards
+exactly that if we just told the relay
+to turn on it would constantly be
+drawing a short in the car if we told
+the
+Circle and lineal actuator to pull and
+keep pulling it'll cause an overheat in
+the circle because it's constantly
+pulling so we want to do our action and
+then return to a stable state exactly on
+so in this case this would be something
+like it's just like a little button to
+keep the thing actually or if there's
+actually a knob that if you were to
+reverse the direction of the sermon you
+can actually pull the knob really
+whatever your cars like you can adjust
+using either of these methods if you
+don't actually want to open it up and
+wire it in you can use the servo instead
+so that is how the entire system works
+but now let's take a look at Apple
+scripts now you may not have used Apple
+script in quite some time because of
+course I mean there's some very very
+specific use cases or evening to use
+Apple script this is a simple Apple
+script what it does is it activates the
+serial application and it tells the
+system events application to keystroke
+dollar-sign one one into serial and so
+in theory whenever I click this
+triangular button to run the script
+look at this servo here I click the
+triangular button and just like that
+it's an automated script that runs the
+servo now I can convert that automated
+script into a terminal command how well
+I can actually go over to my terminal
+and I can actually see in this Python
+directory or in my home directory
+actually all right I have a lot of stuff
+here but what I can do is OS a script
+serial da po sa script and this actually
+contains my app script I run it and
+watch the surveillance for I run the
+script and just like that from the
+terminal from from that bash terminal
+zsh kernel I commanded and controlled
+that circle now let's take a look
+now what I can do is I can host an HTTP
+server in Python that allows me to
+control the servo from anywhere in the
+world and so I've actually hosted a
+Python server that does just that and so
+in theory I can actually eat who will
+crawl go to localhost nine nine nine
+eight and if i refresh watch that that
+HTTP server controls that there were two
+commands in the queue there but yet the
+the HTTP command controls the movement
+of that servo by an indirect method and
+so that is how exactly we're going to
+have iOS communicating with this entire
+system from facial recognition on
+software to hardware that unlocks a car
+door but now yes all right let's do all
+right so now as we can see on screen I
+have my iPhone 10 open and this has an
+application that allows me to run facial
+recognition by a core ml now in order to
+train the facial recognition software
+I'm going to feed in numerous different
+images of my face around 32 of my images
+you can also screen see on my Mac screen
+that we've got into your okay Python and
+serial opened up and those should allow
+us to contact the servo if I have the
+correct face and as you can see I'm also
+capturing sober servos and you can
+actually see this all happening in real
+time let's take a look all right so now
+what I'm going to do is as you can see
+there's simply one button on this UI
+it's called find face I'm going to click
+on find face and as you can see it
+brings up an image via or a viewer UI as
+you can see we've got an image of me if
+Ross and a few other things as well but
+now there are lots and lots of images of
+me so I'll select those images as
+training data select select select
+select select select we'll probably
+speed this part of the clip up
+there we go
+now as you can see I've selected 34
+images of myself
+and now I'm going to click on the done
+button now what I want you to realize is
+start counting down what happens when I
+click done and how fast the next screen
+appears did you count it
+that was probably less than a second why
+was that less than a second
+I just finished training the entire
+machine learning system I fed all 34 of
+those machine all 34 of those images
+into the machine learning model
+sequentially not in a parallel way
+sequentially and they all completed
+within four point eight milliseconds and
+it trained the system it now knows what
+my face looks like and now in theory if
+I take a picture of myself again it will
+let me unlock the car meaning it will
+move the servo if I take a picture of
+Ross it will not work so now let's take
+a look at the servo and see if it moves
+now you can see on screen right now the
+servo you can see the servo and screen
+right now and you can also see my face
+alright now I'm going to flip this
+camera over so you can see my face
+alright
+now let's take a look at the servo live
+here and I also went to look at my face
+and now I'm gonna take a picture okay
+I've taken a picture of my face now all
+I need to do is click on done and now
+you can see my Mac the servo and the
+phone on-screen I'm gonna click on done
+just like that what happens yes this is
+all magic this is all happening by the
+power of AI plus IOT it found that the
+average distance of the facial vectors
+we're 0.03 it realized that the car
+should be unlocked contacted energy R
+okay which contacted the original HTTP
+server which contacted Apple script
+which contact with serial which
+contacted Rd Arduino which finally moved
+the server but as the real proof of
+whether or not this works let's take a
+picture of Ross and see what happens
+all right Ross's face here perfect we've
+got Ross I'm going to click on done and
+I'll see what happens
+nothing servos not moving he doesn't
+have access into my car exactly as you
+can see our difference on screen right
+now 0.06 way above the threshold and as
+you can see on the map as well exactly
+but that is how you can actually train a
+facial recognition system with core ml
+all right so that's going to be all we
+add this through this tutorial thank you
+very much everyone for joining in today
+I really hope you did enjoy if you did
+please make sure to leave a like down
+below and also share this with family
+friends or whoever else you think maybe
+effort from this video again once more
+thank you to Ross for actually joining
+in this video because this chief
+innovation officer at Darwin ecosystem
+in fact there will be your contact
+details down in the description below in
+case you like cotton Ross as well has
+mine but apart from that any more
+questions suggestions or feedback you
+can either reach down in the comments
+below or you can contact either wrong
+for me or you can email me or tweet to
+me at a Jean Vanier gmail.com or a
+teenager respectively or of course
+Ross's contact in description as well
+apart from that though if you really do
+like my content you want to see more but
+please do consider subscribing to my
+youtube channel as well as it really
+does help out a lot and apart from that
+turnaround vacations if we'd like to be
+notified whenever I release new content
+thank you very much everyone for joining
+in today
+goodbye

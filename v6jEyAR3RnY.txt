@@ -1,0 +1,92 @@
+hello and welcome to my little
+presentation that I made on probability
+and I'm doing this mainly for the grade
+sixes and I'd like to introduce about 40
+things to probability and two of them
+are some things you should already know
+and two of them are you so number one
+just normal probability that you should
+know I'm a to adding probability number
+three independent events and number four
+dependent events thoughts do not normal
+probability let's say I had a spinner
+that had okay four red sections Green
+was three sections and yellow is two
+sections what's the probability I will
+spend either one now this is going to
+your fraction this number the top number
+the numerator right here will have to be
+the number of red so I can put four
+there well the numerator is all these
+added so like in total number sections
+so that's nine so 4 over 9 1 now let's
+see green green would be okay over nine
+because there's a total of nine but
+let's just put these here I just make it
+3 over 9
+again we know that you're going to be
+over nine but the 2 goes right there and
+then it's 2 over 9 simple enough but
+let's say we want to get the probability
+of ending a red or a green
+so there's four red plus three green so
+that's just a little line there so we
+have seven total so he's going to be
+refraction nine total sections so urn
+total sexist total sections are plus G
+that goes there so seven out of nine is
+our final fraction now let's talk about
+independent events now if there's a 25%
+chance of rain on Saturday and a 50%
+chance that it will rain on Sunday
+is there a 75% chance and it will rain
+on like the entire weekend well 25 plus
+50 is 75 well that does not mean that
+the probability will be 75 percent let's
+think of this a different way let's just
+clear this and let's say that I wanted
+to let's say okay so 25% we know is 1/4
+okay
+75 I mean 50% 50% is 1/2 so what we
+would do is we would take 1/4 and
+multiply it by 1/2
+now it's just like the answer 1 1 what 8
+so 1 over 8 slap and 1 over 8 or 12.5
+percent chance that you that will rain
+all weekend so there's a 12.5% chance
+over the weekend / 1 / 8 now let's talk
+about dependent events so there's three
+bags okay see that this one has a rotten
+element so it's a good apple and a good
+Apple Timmy and Tim and Tom won't want
+to choose a fresh Apple obviously but
+what's the probability that they will
+both get a fresh apple so let's think
+about it like this let's just say that
+Tim where'd you get a good Apple now
+what was the probability of that we know
+that there's two fresh apples and one
+bad apple so what's the chance that you
+get a fresh Apple obviously two over
+three there's three to level two fresh
+ones now and then let's just say that he
+were to get a good Apple a fresh apple
+then there would be one fresh chocolate
+and one bad apple so Tommy's choice was
+affected by tens choice
+and Tom stress so he has a half chance
+50% chance of getting a fresh chocolate
+and same for a bad apple now so Tim had
+tip so ten times Tom equals our answer
+and so the probability of Tim getting it
+in beginning two out of three times one
+over two which is the probability Tom
+getting the Apple now again same
+position effective Tom's decision so
+this will equal 2 times 1 that's 2 over
+3 times 2 that's 6 so 2 over 6 what's
+going to use 2 1 over 3 1 over 3 chance
+there's one with 3 probability that Tim
+and Tom will both get a fresh apple I
+hope you learned something from this and
+I hope it helps you goodbye

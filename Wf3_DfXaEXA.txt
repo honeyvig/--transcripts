@@ -1,0 +1,254 @@
+so welcome back to part three of the
+Drone series uh and of course this time
+is an extension of part two with my
+mentor from IBM Marcus van kempen uh and
+today we're going to be showing you how
+you can instead of just using a
+dashboard online to control the Drone
+you can use a car dashboard which was a
+sort of default example of Watson
+conversation to actually use a drone so
+you can literally Converse uh with a bot
+and have it control the Drone for you
+let's begin shall we so now to begin let
+me explain sort of work here's a here's
+a high level overview from from from our
+scenario and you jump into more details
+now yeah so essentially uh we have a few
+components here so to begin we of course
+have our Watson car dashboard so I'm
+going to write here we have the Watson
+car dashboard right this is one of our
+components uh and of course we have more
+Watson services for example Watson
+conversation uh so I'm just going to
+call this
+conversation all right so that's one
+more of our modules I guess you could
+say we also have speech to text and text
+to
+speech so these are all of our wats
+components that do most of the
+conversing converting your speech to
+text converting the text of the IB Moon
+conversation to speech and all of that
+sort of stuff and of course the Watson
+uh car
+dashboard uh now of course we do have
+our node red
+end we also of course do have our
+Raspberry Pi which I'm just going to
+call Pi for now and we of course have
+our drone
+all right so this is our drone uh so now
+essentially how does this work uh what
+we're going to do is let's say you talk
+to the Watson car dashboard what's going
+to happen is it's going to send an mqt
+message to node red so this is bya
+mqtt all
+right now essentially just in case you
+were wondering what we do in order to
+get back to Watson the Watson car
+dashboard we actually send a message
+through websockets so I guess you could
+say we're sort of cheating there but uh
+it works all right it's uh much simpler
+than setting an mqtt message back to
+wats and card dashboard uh so now uh
+essentially what happens is wats and
+card dashboard is able to then
+communicate with a few things first of
+all Watson conversation uh it's able to
+communicate with speech to text and of
+course it's able to communicate with
+text to speech and they're all able to
+communicate back uh via http
+uh so they're able to communicate back
+via
+HTTP and to to and from HTTP
+here now that's essentially how the card
+dashboard works and how the node red end
+Works however the pi as you probably
+know from part two uh is essentially
+able to send mqtt messages to and from
+node red these are both ways mqtt
+messages being sent through the iot
+platform and of course uh the pi is
+connecting to our drone here as well via
+WiFi and of course every around second
+it's grabbing new data via Wi-Fi as well
+sending that to node red which in in
+turn sends it to Watson car dashboard
+puts that into the context of Watson
+conversation which is really the
+interesting part if you think about it
+uh when when the pi finds out what the
+battery level is in the Drone currently
+it notifies node red which in turn
+notifies Watson car dashboard which
+again in turn notifies Watson
+conversation which adds it to its
+context so now Watson is quite literally
+aware that the that the drone's battery
+percentage is so many perc and of course
+Watson currently knows whether the Drone
+is turned on turned off connected or
+even disconnected uh and so that's what
+makes it really interesting because
+Watson actually knows what's going on
+with the Drone and where it is or not
+where it is it doesn't have GPS location
+just yet but what it's doing all right
+right so now we're going to be showing
+you a quick demo of the car dashboard uh
+you've probably already seen this uh car
+dashboard uh it's as I said one of the
+default examples of Watson conversation
+uh but we've essentially modified uh the
+Watson conversation flow uh to include
+how to use a drone or how to or how to
+control a drone let let's go back to
+that yeah let's do it so first of all we
+still have the the little program
+running on on our Rasberry Pi with which
+sends all the uh Telemetry data from the
+Drone to our node red this is from part
+two this is from part two as you know
+remember still the same thing the one
+thing we we changed is um obviously we
+added this car dashboard right so the
+card dashboard as T May said it's it's
+actually sending whatever we have as
+input and also the interpretation from
+our input to no dreat so if I say uh um
+you know
+let's say uh turn lights on I hope the
+Drone is not
+starting uh probably won't yeah okay so
+it's going to it's going to turn the
+lights on it's actually talking back to
+us and uh we do see these messages also
+coming into our not rad now you can ask
+it drone status we could we could ask
+drone status do we type it in yeah right
+I have to let me type it in here or
+check drone status
+status like this yep and as you can see
+it says the Dr status is currently
+online says it's online so Watson or the
+car dashboard whatson the context is
+there he knows that the the car
+dashboard is on on online right exactly
+all right so now let's try asking what
+the battery level is so we know if it's
+good enough for flight is the battery
+level you think like
+this that question is out of SC for this
+application enhanced application to the
+battery remaining in the Drone is 64% as
+you can see it is contextually aware of
+what's currently going on with the Drone
+which as I said makes this really
+interesting yeah so now let's say we
+wanted to take off the Drone what's
+going to happen is we're going to be
+able to talk to Watson card dasboard in
+that case that'll send the request
+Watson conversation which will do its
+sort of processing and come back with a
+response which will go back to node red
+via qtt uh or uh yeah by mqtt uh and so
+essentially uh node rad will then be
+able to do its processing send that to
+the pi VI mqtt and then finally it'll be
+able to send a request to the Drone via
+Wi-Fi to do something so yeah let them
+show real quick like you know we did
+create these uh these intents right yes
+in um in the conversation workbench as
+well we created a new entity and we
+added a you know Appliance we added the
+Drone as an appliance to the car
+dashboard yes and then you created this
+dialogue for dialogue where was it stus
+or battery battery yeah battery for
+example so battery and here you can see
+that we
+actually we used some of the content or
+the context which we shot back via um
+websockets to to the car dashboard right
+yes so let's try do you want to try
+flying this thing now sure why not okay
+so if you go to the Watson car dashboard
+if we can look at the Drone as well for
+a second like zoom out so we can see the
+TV of the Drone if
+possible uh so okay you T you type it in
+all right sure so now let's say we
+wanted to tell the Drone to take off
+we'd say uh take off for example pretty
+straightforward as you can see the Drone
+takes off all right so as you can see
+the Drone has taken off and now let's
+say we wanted to rotate counterclockwise
+or rotate clockwise actually
+not sure
+s things turn on my lights are all right
+so as you can see I'm going to tell to
+rotate clockwise do it man okay rotates
+clockwise and if I tell do one more
+other other
+way all right now if I tell it to rotate
+counterclockwise it rotates
+counterclockwise for a second Super and
+if I land then it will land the Drone ah
+excellent exactly her Demo's never never
+usually go that smoothly but yeah I did
+this time that was fun so so again the
+flow I mean you can see this here we we
+orchestrate this here in U in node red
+so we get we get the messages from the
+cboard from the car dashboard we filter
+out some of the the the data and then we
+have a switch basically for the four
+intens or the five intens we have and
+then we can either take off uh rotate
+clock
+or counterclockwise land we also
+experiment tweeting a picture and so
+forth and uh that's where on here on the
+bottom we shoot back the the the context
+about the the the the Drone itself uh to
+the car dashboard okay exactly that's it
+so that was it for part three of the
+Dome series and much more is coming up
+quite soon uh so make sure you look out
+for that stuff here if you're interested
+in drones and now you can program with
+them let us know if you have any
+questions and let us know what our
+t-shirts say right yeah just in case you
+didn't watch part two tweet to us what
+our pictures mean I mean what our shirts
+mean sorry uh so yeah that's going to be
+it for part three today I really hope
+you enjoyed thank you very much if you
+have any questions suggestions tweet us
+email us yeah yeah if you have any sort
+of questions suggestions or feedback you
+can email or tweet to us at our contact
+uh and of course uh if this video uh
+helped you out you might even want to
+consider liking the video and if you
+think of help someone else maybe even
+share the video that's going to be it
+for this tutorial thank you very much
+and again if you really like my content
+and Marcus content and you want to see
+more of them uh well please consider
+subscribing to his channel and my
+Channel or come to the world of Watson
+actually yeah exactly Marcus has a few
+sessions there okay ciao all right thank
+you goodbye

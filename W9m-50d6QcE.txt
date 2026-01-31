@@ -1,0 +1,205 @@
+so hello there and welcome to another
+tutorial my name is Taylor Bakshi and
+today I'm joined by Sanjeev thank you
+for joining today
+I'd say would you like to quickly
+introduce ourselves sure thanks for
+having me of course
+my name is Sanjeev and I'm going to blow
+for advocate at IBM I work on creating
+old patents so your parents are
+basically a complete application that
+solves real programming challenges by
+integrating IBM services even through I
+am cloud it's code Adam has detailed
+information about how to run the
+application not only locally but also in
+the onion cloud yes
+and integrate those services so that way
+any developer can come in and some start
+running that application if you want to
+know more about old patents you can go
+to the developer I am calm this last
+code and you'll get well for patterns
+that start off that's perfect thank you
+very much Sanjeev now more specifically
+today we're talking about an iOS
+platform technology it's in fact a
+compound that you send you've developed
+of course and so today we're talking
+about how you can integrate IBM Watson
+visual recognition with augmented
+reality experiences on an AR kit so
+Julie to quickly tell us a little bit
+more about the code pattern that we're
+gonna see today
+sure so the for pattern uses gate which
+is part of I was 11 I think they
+introduced size 11 on June
+yeah so it makes use of a Orkut and also
+uses face recognition to identify a
+person using the picture of the face
+yes so on either side we use Watson
+visual recognition and for the data that
+gets displayed on the screen we use a
+database called Cloudant database that's
+perfect
+that's great all right so in essence and
+the components basically an opulent
+reality resume I guess you could call it
+where basically again we're using lots
+of visual recognition for facial
+recognition and so with an augmented
+reality experience you can basically
+hold up your phone to anyone's face
+that's in the system right it'll
+recognize their face search of their
+contacts in the database and display it
+in the real world on your phone yeah
+that's great let's dive into the code
+and understand how we can combine air
+kit and visual recognition to create an
+augmented reality app that can identify
+a person using face revolution there are
+six steps first we create an augmented
+reality app using Xcode then we
+configure and run our session using the
+ARCIC framework that we are using we add
+3d content to the detected plane we use
+vision API for face detection will be
+using IBM visual recognition API and ml
+model to classify the face and display
+the information of the person in the
+augmented reality bill to create an
+augmented reality app let's create a new
+project from Xcode and select the type
+as augmented reality you can go to file
+new project and you can see an option
+saying augmented reality app and once
+that's created you will have a project
+setup that uses in our kit and you can
+utilize all the api's that yagi provides
+to create your augmented reality app
+once the project is set up we need to
+configure and run the error session
+there is a scene we already set up in
+the main story board as you can
+here the air season object manager is
+motion tracking and image processing and
+to run this lesson we need to add air
+wall tracking configuration to the
+session the following code sets of the
+system with the configuration and run
+the error code add plane detection
+conviction to the horizontal and runs
+the session as you can see here you
+create a object of air world tracking
+configuration and add horizontal as a
+plane detection and you add that to the
+session and run the configuration we'll
+also need to configure cloud in no
+sequel database which stores information
+about the face and visual recognition to
+train and classify faces the following
+method reads credentials from the pedis
+file and creates instances of Cloudant
+and VR api Cloudland instance is used to
+get information about the face from the
+database and visual recognition instance
+is used to classify cropped image of the
+face that is captured from the camera
+now let's set up face detection using
+the visit API the vision API will detect
+the face drop the face and send the file
+to IBM visual recognition API to
+classify the face the following camp
+code gets the image from the camera
+categorizes the image as being faced
+observation if the face is not detected
+in the image the app continues to look
+for face but the face is detected the
+face is captured and cropped to the
+rectangle that generates the face and
+next step is to send that cropped image
+to be our API for classification using
+IBM visual recognition API you can
+upload a cropped face and API will
+classify and send you a JSON response to
+use IBM Watson visualization API you can
+register to IBM bluemix console and
+create a visual recruiting service then
+you can create credentials which you can
+use while calling the API you can use
+the Watson Swift SDK in your app to use
+the biz
+revolution api's since the vir API also
+supports core ml model you can actually
+download the model from IBM cloud and
+use the model locally into your app this
+way you can classify the images locally
+without having to make a round trip to
+the server
+the following code actually gets the
+craft emails and classifies the emails
+locally using the ml model once the face
+is classified by the visual reference in
+API the response of the API is the JSON
+the response of the visual
+representation ID which is then used to
+get more information about the
+classification from the IBM Cloudant
+database the data is retrieved using the
+classification ID and the JSON response
+looks like this so it has the primary
+keys and classification ID and there are
+other information that is used to
+display it on the AR view the following
+code makes a call to the cloud and REST
+API and once it retrieves the JSON the
+jason is used to now update the scene
+view with the information by creating
+series of nodes called sen node SA node
+is a structural element of a scene graph
+representing a position and a transform
+in a 3d coordinate space to which you
+can attach geometry lights cameras or
+any other display of content for each
+side node we need to define its font
+alignment and its material material
+interest properties for 3d content like
+diffuse content color specular contents
+color double sided etc to display the
+information received as a JSON to the
+node we need to create a new of type Sen
+node in this case we'll be creating a CN
+text as the display only involves text
+then we configure the text with things
+like fonts and materials the following
+selected code creates a node of
+as in text and configures it to display
+in DAR view so this is done all right
+status we have to show in this tutorial
+today thank you very much sandy for
+joining in if you do have any questions
+suggestions or feedback you can reach
+out to either me or say to you but seems
+you how can people contact you um you
+can contact me at my IBM's email thanks
+Sanjeev Dottie me ray at IBM calm down
+to the right day exactly I will put your
+email down in the description below as
+well as my contact but if you do have
+any questions you can also leave them
+down in the comment section below and
+Sanji where i would be would love to get
+back to you so that's what we have to
+show for this tutorial today thank you
+very much everyone for joining in today
+if you do enjoy these kinds of tutorials
+please do make sure you subscribe to my
+channel and Sam Hughes channel that will
+be a link to it down in the description
+below again thank you very much everyone
+for joining in today that's what we have
+for this tutorial
+good bye thanks

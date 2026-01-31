@@ -1,0 +1,1883 @@
+hi welcome my name is James archery
+I'm with IBM and we have as you guys are
+probably familiar now it's because it's
+our fourth installment of the Watson
+made simple with Tanmay oh wait I stole
+your thunder it's yours so as you now
+know my name is Henry back sheep and so
+starting off welcome to the fourth
+episode of Watson made simple with
+Tanmay now today is actually going to be
+a very very special episode because
+we've got some very very special stuff
+to show you now I've been able to use
+darvis and the actual deep learning
+behind chorus and I'm going to show you
+how to build a visual recognition
+application but not only do we have
+something special to show you today we
+have someone special to show you today
+and so as I've been saying for the past
+few episodes we're going to be having
+some special guests on the show this
+year but today we actually have a
+special guest on the show and who can
+guess what it might be well today our
+joint mentor is that may be our joint
+mentor all right all right it's our
+joint mentor my mentor James mentor Rob
+hi he's an IBM fellow and the CTO and
+vice president of IBM Watson I'd like to
+welcome him on to Watson made simple and
+of course he actually made it here to
+Toronto I mean let me thank you for
+actually making it to Toronto in the
+midst of a hurricane in Austin in the
+midst of you know all the meetings that
+he's got and everything so thank you for
+for joining us and Watson made simple
+yes but would you like to all quickly I
+sort of introduce yourself and tell
+everyone a little bit about what you do
+okay yeah I'm Rob hi I'm the CTO for IBM
+Watson I've been with the team now for
+about four and a half years helping
+drive some new technical strategy
+helping a line across our IBM cloud
+portfolio trying to make sure that we
+got a good synergies both with what we
+have is where we're going that sounds
+absolutely great and I think the topic
+of today's Watson made simple episode
+will definitely get you interested
+because today we're talking about the
+deep learning that goes behind systems
+like IBM Watson so we're going to be
+talking about something by I mean
+research called darvis which
+four deep augmented representation
+visualization and verification of deep
+learning models and in essence what that
+all sums up is that you can build train
+validate test and save your own deep
+learning models with a cross Tiano or
+cross back or cross front end with a
+piano return to flow back end or calf
+code or torch code or torch I believe is
+still being implemented right now so no
+no not yet but it is currently an item
+research project and I would also like
+to say a big thank you to the developers
+of IBM's darvis for actually making this
+possible in fact we've got some more
+special guests on the show and if you've
+got any questions for the darkness team
+please do keep them in mind because at
+the end of this session and at the end
+of this show we're going to be joined by
+a new son current Naveen pan whare and
+shreya car but to actually actually were
+questions about darkness and tell us a
+bit more about darvis itself so that's
+what we're going to be doing nextel
+let's talk a little bit more about what
+darvis can actually do well in essence
+the point of darvis is to make it simple
+for you to build train validate test and
+save your deep learning models and so
+essentially read right now you know that
+when developers want to get in deep
+learning it's very hard for them because
+I mean you've got all these barriers to
+overcome you've got to learn you know
+the language that you'd like to code in
+for example Python for working with Tana
+or chenza flow Lewis you're working with
+torch see if you're working with CAF and
+then on top of that you've got the
+barrier of entry to deep learning itself
+and so you have to learn about all these
+different model types all the layers how
+to build these models if you're gonna
+receive how to read these papers there's
+so many barriers of entry but darbus
+tries to take all that and really
+simplify it for the end developer for
+them to be able to incorporate deep
+learning into their apps in a very very
+simple way it's really I'd like an IDE
+for data scientist is quite literally in
+fact you could say it's a rapid
+development environment in this case
+you're rapidly developing deep learning
+models that you can keep on testing with
+keep on experimenting the models with
+keep prototyping with until you found
+your right the right model for you in
+your use case
+and in fact to show you a very simple
+example of how darvis can actually tie
+in with deep learning and how you can
+build an entire end-to-end system I'm
+going to show you how you can build a
+dog cat classifier using darvis and a
+tensorflow back-end carrasco oh well
+these are for humans it's easy for you
+but you can never implement a cat dog
+classifier without some sort of computer
+vision algorithm or technique and the
+ones that have found the greatest
+success so far is of course deep
+learning systems because you know with
+these other sorts of you know other
+algorithms that we've got for computer
+vision you can reach up to a certain
+accuracy but then more data just doesn't
+help them get better but with neural
+networks more data better models
+actually do help them get better and
+better as you train them in at least in
+theory in all seriousness even though
+this is about dogs or cats you can take
+the same idea and almost anything that
+we experience in real life where there
+is exactly perhaps a lot more need to go
+solve those four problems exactly
+problems for social problems exactly the
+exact range of things here this could be
+applied to precisely and so there are a
+few more interesting use cases which
+we'll talk about in a bit once I show
+you how to build this application but I
+won't just leave you at that I won't
+just leave you at the back end that's
+built in Python no in fact I'll show you
+how to take that saved model from darvis
+and convert it to a Coronel model and
+how you can implement a front end for
+this deep learning model in Swift but
+before we continue for those of you who
+aren't familiar with it what in the
+world is Coronel well in essence core ml
+is a library by Apple it's currently in
+beta and as the tradition goes in
+September it will be released and so in
+essence Coronel allows you to create or
+not create take GP or deep learning
+models that have been trained on GPU
+enabled hardware or hardware that's you
+know powerful enough to train the models
+and essentially it allows you to run
+inference tasks against that model on
+iOS devices like iPhones and iPads and
+other iOS devices that supports iOS 11
+and
+course in fact this actually uses metal
+to in the back end so you're getting
+very very fast GPU acceleration
+performance and so you'll be able to do
+your inference very very fast on even
+some really really deep models now I
+have been emphasizing though that
+darkness lets you build your own models
+which is really the hardest part
+training it it's just you know a few
+lines of code and do the data
+pre-processing and everything but really
+the hardest part is building that model
+finding out how to build it and actually
+getting those suggestions on what to
+build it within your model and so what
+exactly does the custom model that we're
+building today look like well today's
+model is actually quite deep it's
+essentially if you were to take the vgg
+net convolutional neural network and if
+you were to minify that a little bit and
+personalize it towards CatDog
+classification i do know that some
+people though do like to you know take
+pre-trained cnn's like image net and
+actually find to them towards CatDog
+classification with for example to
+kaggle data set that we're currently
+using however i'm actually going ahead
+and custom training it for now to keep
+it really simple for you and to show you
+how darphus works so explain why vgg
+sure definitely now i can think about
+vgg it's sort of this middle between
+something like inception and if you were
+to go really primitive than alex now
+because you see the thing is inception
+is extremely deep right it's actually
+process on it you need a lot of
+performance you there are too many
+layers and you can't actually achieve
+better performance by pruning or
+whatever you might want to do but still
+it's it's it's very computationally
+expensive Alex that's too primitive
+nowadays at least uh and so Ricci is
+sort of that nice in-between where with
+VG gene on what you're doing is you not
+these you're not very computationally
+expensive and especially once I minify
+to work with my data set but yet it's
+very very accurate in the way that it's
+structured in fact this is how it's
+structured this is a model diagram of
+what the neural network looks like now I
+know you probably can't see this it's
+way too long for you to possibly see it
+so I've broken it down into chunks and
+this is the very first chunk within the
+neural network now essentially each
+chunk will take the data from the last
+chunk and then actually go ahead and do
+more processing on it up
+can see on the top of this model you can
+see that there's a little dotted line
+died blind just means coming from the
+last slide the first one actually means
+that we're taking input from the user
+and originally I was actually looking at
+creating an inception style net but
+again do you got mutational e expensive
+so the input of vector size is actually
+299 by $2.99 RGB image meaning three
+channels and essentially the first block
+over here what it'll do is it's got two
+convolution 2d layers with a drop out of
+35% in between I just found two 35% to
+be a good sort of mid way not too much
+drop out to the point that under fits
+are not too less to the point that it
+over fits good exactly exactly before we
+go further down this route for other
+people you know I love that you explain
+a little bit vgg yeah but also you know
+convolutional neural networks like if
+someone's never heard of that before
+yeah what what is it what's the value
+behind that sure definitely now in
+essence well first say though is if
+you've not heard of convolutional neural
+network and not just that I think in
+that case if you haven't heard of these
+neural networks then the use case that
+you're trying to probably program in is
+a little bit more simple to the point
+that you don't need to implement these
+and you can go ahead with something like
+Watson visual recognition which is very
+very robust as you know of course to the
+point that we could easily do this cat
+dog classification with visual
+recognition it's just that to show you
+how you can do things like convolutional
+autoencoders how you can do really
+custom things like for example
+paraphrase detection which i'll talk
+about in a little while as well and
+though you can do other tasks like that
+Darvey is becomes very very important
+because then you can design your own
+deep learning models so C and H are
+exactly well C n n stands for
+convolutional neural network and in
+essence what they do I won't get into
+too much detail it so we can go really
+deep into this but essentially they
+consist of a few different types of
+layers convolution max pooling and all
+these sorts of things but basically
+these convolutional neural networks
+times try and take images for example an
+image of a cat or dog and I try and find
+individuals
+features in these images for example if
+you were to have say three layers deep
+convolutional neural network and if you
+were to train it to recognize either
+cats and dogs or say a school bus in an
+airplane right what'll happen is the
+convolutional neural network will
+eventually generalize to these concepts
+after training would say back
+propagation and it'll generalize to say
+the first layer alright it'll it'll
+automatically start detecting things
+like edges and little curves and little
+little tiny really well-defined features
+the second layer though it gets a little
+bit more abstract it'll try and find
+groups of layer groups of edges groups
+of curves that might make something that
+resembles a tire or resemble this and
+resembles a jet jet engine so it
+resembles an airliners you know body or
+something that resembles a a tail
+something you're that sort then the
+third layer will get even more abstract
+it'll try and it'll try and find
+combinations of all those as well and so
+in what will happen is then let's just
+say that the last layer looked at the
+tail it's higher looked or the jet
+engine it'll try and find combinations
+of those and it'll try and find entire
+airplanes for example and it tries to
+represent that image in as many ways as
+it can and it reduces the dimensionality
+of the images as it goes along and so
+we're removing noise keeping the signal
+removing noise keeping the signal and
+only keeping the most important signal
+none of the unnecessary signal and then
+from there once the convolutional neural
+network has done that reduce it to a
+very small vector or not very small
+sometimes it can be you know a few
+thousand or a few hundred thousand
+vectors long or or individual numbers
+long and so that would make a big vector
+after that that would go into say a
+dense neural network were fully
+connected players and so these will act
+as a regular sort of classification
+neural network and they'll try and take
+all of the features of the convolutional
+neural network extracted and it'll try
+and actually classify them using a
+neural network aim to of course the
+categories and in this case our
+categories are cat and dog but in the
+example that I was just giving it would
+be school bus or airplane over it or
+whatever else you ain't exactly exactly
+there's a little bit metaphorical so
+you're actually some some references to
+things that we as human beings would
+recognize but exactly the reality the
+abstract
+aside than your own networker yeah good
+call to actually recognize exactly
+exactly uh and so that's why exactly
+we've got such complicated algorithms
+like back propagation to train them
+there I mean there used to be a time
+when we didn't have such robust training
+algorithms that people would go into
+these filters and do this thing called
+feature engineering where they manually
+create features and so like for example
+if I've got 64 features here each one's
+three by three I've got to manually go
+in there and make every single feature
+and the next one I've got 128 in the
+next one I've got 256 you're creating
+all those features manually and that
+just didn't achieve high enough accuracy
+because humans okay they're good at
+feature engineering they're they have
+years of experience and feature
+engineering still they're unable to
+achieve that type of performance and the
+type of accuracy that a computer can
+reach just by looking at all the input
+examples and trying to find features
+within fact is very time consuming error
+right you see what that works you tried
+the error detection go back and revise
+the feature analysis exactly it mean
+it's literally what took four and a half
+years for the Watson jeopardy team -
+come up with a system that was able to
+compete yeah at the levels of the what
+has all that time was spent really
+trying to come down right to the center
+features right exactly exactly then from
+there how we can actually have these
+computed approach help us out there is
+really amazing so we moved well beyond
+that exactly exactly
+but getting back to the model uh-huh I
+was definitely a master class I want
+convolutional neural network sorry
+go read his book there's there's more to
+come I only explained the convolutional
+layers so far so there's more to come
+but for now though as I mentioned we've
+got two convolutional 2d layers 2d just
+means two-dimensional we're not working
+with one dimensional data we're working
+with a two-dimensional image now
+essentially the first two convolutional
+2d layers that I've gotten this model
+will actually take in one image the
+actual image of the cat or dog and it
+will convert it to 64 different
+representations of that image and these
+these representations are created by
+filters these filters are three by three
+little pixel groups that try and find
+individual features in sections of an
+image I won't explain how it does things
+like strides and everything right now
+but in essence it converts the image
+input into 64 different versions
+itself each filter in this case is as
+you see can can see a 3x3 filter you can
+actually choose really whatever size you
+like depends on exactly what your neural
+network is and how it works and what
+data you're working with but in this
+case yeah I've inherited this from vgg
+and it works well with cats and dogs so
+I've gone with a 3x3 filter size of
+course we're using the rectified linear
+units activation which will basically
+just take negative numbers and convert
+them to zero okay so you don't need to
+know too much about that it's all right
+and so those continuity layers will
+essentially do that and of course in
+between we've added dropout if you're
+familiar with how neural networks work
+they prevent overfitting by for example
+randomly during training only not
+inference
+they'll take or some of the neurons and
+they'll do basically just strip them out
+so during one back propagation iteration
+it won't actually train those neurons
+meaning they retain their older
+knowledge meaning it doesn't over fit to
+one specific class or one specific you
+know or the training set itself and so
+we've got internal networks I don't
+over-under fit when you've got the good
+probability like 35 percent just quickly
+yeah the probability that it's going to
+only understand those kinds of images
+exactly do all the other variations that
+were likely exactly like exactly like
+for example let's just say there's a
+scenario in which cats are much more
+common on earth than dogs as a human
+you've seen more cuts than you have dogs
+all right and so you're able to still
+recognize though that when you see a dog
+it's a dog when you see a cat it's a cat
+but a neural network when you're given
+this data imbalanced to a neural network
+where you've got say 25% dogs and
+there's 75% cats they're not good at
+this at all it might over fit towards
+cats and under fit towards dogs meaning
+it really only looks at cats and will
+always output cat and see what's still
+gained high accuracy because in the
+validation set as well you've got more
+cats than dogs and if it's able to you
+don't get enough of those cats and not
+enough those dogs it still has high
+enough factors but it's if you'd like to
+find out more about that you can on my
+youtube channel but after that though
+we've got to max pooling 2d layers now
+what's the pooling where well in essence
+a pooling layer tries to take in the
+output of a convolution 2d layer or any
+sort of layer
+I actually reduce its dimensionality and
+what it'll do is let's just say in this
+case we've got a 3x3 pooling size now
+what this means is that there'll be a
+3x3 little grid a little window that'll
+stride across the image and every single
+little window of the image it takes this
+is max pooling so it'll take the maximum
+pixel value and it'll output it as one
+new pixel in an image as it'll reduce
+the dimensionality of that image by
+quite a bit per run in the sense that
+with some rays and what it's seen in
+that was exactly eventually what happens
+is these making an image so small that
+the dense layers can actually handle the
+image and can actually handle all the
+data that they provide now usually these
+sorts of CNN's even in vgg they only
+have one max pooling 2d layer however in
+this case I've actually used two reason
+being that of course when we don't use
+to this neural network isn't deep enough
+to reduce the dimensionality enough to
+the point that the dense layers can
+actually understand it or work with it
+because of the end the dense layers have
+such a huge trainable parameter size
+that of course there's not enough
+complex data to work with and it all
+right there over fits or under fits to
+the training data and it's not good
+so to my exploiting 2d layers do reduce
+the noise and reduce a bit of signal but
+the neural network still understands all
+of the data yes exactly exactly however
+the next block is practically the exact
+same thing just 128 filters instead of
+64 imagine how long that would take with
+feature engineering and then getting 256
+in the next block and then in the next
+block of course after this we've got
+more than enough of the representations
+of the images to actually work with and
+so I start my dense block stuff there so
+go back this is why the progression so
+why is the chart for 128 256 Char Char
+now you see we are the reason is that I
+mean in general with most neural
+networks what you're doing is you have
+filter sizes across these neural
+networks that increase over time and the
+reason being let's just say we've got
+you know one representation of the image
+we don't immediately want to create 256
+different representations of it even
+though we're just attacking little edges
+or detecting little circles we're
+detecting a little you know shapes in
+the next layer
+the abstractions might become more
+complexed a point that we need more
+filters to actually able to represent
+such abstractions and so with 64 that's
+just enough to handle sort of edges then
+128 we're handling things like are we
+finding some sort of long circular
+object a tail
+finding a really thin circular object a
+whisker something of that sort and then
+the 256 becomes even more abstracting it
+requires more ways to represent it so it
+gets it right in one of those filters
+and that's usually why filter sizes
+increase over time with these sorts of
+convolutional neural networks there are
+some exceptions but mostly this is how
+it works there are a little you know
+things like for example the inception is
+it's very complicated with how it works
+sort of these these really deep models
+that get you know merged and they split
+off in fork but I won't be going into
+that right now
+for now though just kind of make this a
+bit more practical so you know if you
+think about the sort of subtle
+distinction between a cat's arm versus a
+dog's arm and paws yeah how do we as
+human beings recognize that one looks
+like a cat well it's a dog very very
+subtle the subtlety right exactly in the
+details exact you know maybe the right
+the shape of the paw of the lack of pads
+or that yeah the the extruded claws is
+that those things are what's going to
+trigger and that's what the complexity
+exactly that we're trying to deal with
+in these in these more abstract model
+exactly exactly and then with that
+abstraction comes things like for
+example it could be really really subtle
+differences in some cases it can be very
+obvious like the color could immediately
+give it away if it's a specific color
+then we know it's just a dog it can't be
+yeah right although there are hardly any
+of those cases there can be some obvious
+givers away like for example size color
+yeah exactly
+oh we could go for things like AI is the
+shape of the face is it more circular as
+it were you know point is it it really
+depends and again the more you train
+some more quality data you given the
+more fine-tuned this model is to work
+towards such such AI abstractions and
+this actually ties in with more filters
+it should be able to achieve higher
+accuracy yes hopper then from there once
+we've got all of those representations
+of the image we're ready to actually
+feed it into a dense block now the dense
+block as I mentioned will take the
+output of the cnn's
+and actually classify them using a dense
+neural network of course so I have to
+take the two-dimensional output of the
+convolutions and convert them to
+one-dimensional output that these these
+dense layers can understand and that's
+where flattened layer comes in the
+flattened layer starts off it flattens
+that output and then I have a dense
+layer with 1024 outputs and a sigmoid
+activation 1024 choosin just due to you
+know how how how vgg networked it went
+490 to 4096 4096 1024 I removed the 4096
+because that's way too much for me to
+work with right now it's not that
+complex because we G gene that was
+trained on image net so remember they
+needed a much more complex model so for
+now I just decided to keep 1024
+after that 30 percent drop out doesn't
+need as much drop out because it's not
+as prone to overfitting as the cnn's
+although theoretically can be and
+theoretically can be but in this case I
+found that 30 percent does work nicely
+after that I incorporated a 512 output
+dense with another sigmoid activation
+another 30 percent dropout and finally a
+dense layer with two outputs and a
+softmax activation
+sauce max of course meaning that it'll
+give you a probability matrix as output
+and so each neuron will represent the
+probability value of their individual
+class and so saying you're on one is for
+cat and you're on two is for dogs neuron
+one will represent the probability value
+for it being a cat and neuron two with
+probability you really kind of think of
+that has been confidence exactly exactly
+so confidence size is essentially what
+that would mean and that's what the
+confidence that the neural network would
+be I in fact using this a training
+overnight and one more thing I'd like to
+add here I said I was able to achieve
+ninety four point four six percent
+active ala Dacian accuracy so that's
+actually relatively high for a new model
+that was trained from scratch and so one
+more thing I'd like to say though is
+that this episode actually would not
+have been possible at all if Rob I
+hadn't actually given me a Tesla P 100
+server to train these neural networks on
+on SoftLayer so thank you very much Rob
+for that
+I'm not talking about the car and you'll
+understand that once you actually take a
+look at my channel there's a new video
+out you'll you'll see that very soon
+I've I've got some questions from like a
+business real world application
+standpoint you know my mind was churning
+I'm already thinking about you know the
+different varying details in an MRI scan
+why you keep the subtleties right we're
+talking about that abstraction layers
+and capabilities right I think there's
+applicability there right that's
+potentiality I think there's also if
+you're working in the industrial
+industry right and you're trying to
+identify the rust and corrosion of your
+pipes and looking for identification sir
+you know there's a subtle nuances of
+maybe things are rusting more than they
+should right and that's a capability
+there and then those are just some areas
+that are thinking is that is that yeah
+yeah I mean another company that we're
+working with right now that's actually
+using visual recognition to go out and
+look at properties using imagery that
+has been taken from the air looking
+across different properties to determine
+how much of that property is occupied by
+by permeable materials impermeable
+materials have have you know swimming
+pools in their yards and so forth as a
+way of estimating how much water they're
+consuming these are all visual
+recognition tasks that can be enhanced
+through classification and and
+measurements of what they're actually
+saying Amanda yeah you know what
+interesting to you especially like let's
+say it's a drone looking or they're
+taking these images yeah you know the
+abstractions gonna be so important
+because okay you may see you have this
+like a cylinder like above-ground pool
+right and so it's got the blue water
+reflecting whatnot but what if it was
+just a tarp that's so one laid out that
+was blue yeah right so the importance of
+having the abstraction levels to that
+far yeah yeah would have to be that's
+where that comes out right isn't it just
+be like oh that's an image it needs to
+know more than one that's right which is
+why of course with visual recognition
+you can have those sorts of abstractions
+well the thing if you want extremely
+deep models and very specific models
+that are fine-tuned towards your use
+case which is where you use darvis and
+your own
+custom hardware on IBM of course yes
+exactly
+I've been cloud is not yeah and so from
+there now I'm sure a lot of you are
+excited we've spent around 26 minutes
+actually talking about the back end here
+and a lot of you are actually really
+waiting for the source code you want to
+get to the code so now I'll listen to
+you let's actually start coding now and
+let's start I'd like to show you how
+exactly you can actually build this
+model using darvis let's get started now
+this is actually very interesting
+because if you've never worked with IOT
+before I am IOT or use no dread in
+general this IDE might seem a little bit
+familiar to you because this was
+actually based off of an open source
+known read flow editor and so that means
+they basically repurposed this node-red
+editor to work with deep learning flows
+and so all I really need to do to make a
+simple deep learning app is go ahead and
+go through these nodes there's an image
+data node and so this will actually give
+my model input I just opened this I just
+drag that into my flow double-click it
+give it my properties for example my
+image size is 299 by 299 Oh 99 channels
+3 channels because RGB red green blue
+meaning it's an it's a colored image
+data format in this case is folder of
+images in fact uh fun fact here they
+actually
+corporative a folder of images feature
+when I requested for that in one of my
+videos because I prefer working with
+folders of images so thank you for
+implementing that apart from that though
+batch size 16 again you can set this to
+whatever you'd like to in this case I'm
+working with 16 you can give it where
+exactly you'd like to you'd like it to
+find your data in this case I'll do
+slash route slash cat dog and to make
+sure you put the slash in the end
+because they don't use the actually you
+know path dependence just um plus plus
+the folder name so make sure you put a
+slash at the end there I'm just going to
+give these same data for validation and
+testing since I'm not gonna
+differentiate between them that'll
+become too much data but for now we're
+gonna go for the same data with
+validation and testing just to see what
+our accuracy looks like but training is
+of course separate from there you can
+give it some data augmentation
+properties off for example you can tell
+it like let's just say that you have a
+very limited data set like for example
+we've only got around 11,000
+999 images per class and so that's uh I
+mean if we were to multiply that that's
+twenty three thousand nine hundred and
+ninety eight images which is relatively
+limited for CNN's Anna's like millions
+of it I mean the more you give them
+they're they're happy with as much as
+you give them and so they never have
+enough so with the CN n sometimes if you
+want more data you can actually do data
+on vent Asian especially with cross and
+so that'll allow you to essentially do
+things like scale the image a bit flip
+it rotate it crop it a little bit so it
+means the same thing but it's a
+different representation of it so you
+have less overfitting and more data to
+train with from there though I won't
+change this right now that'll get a
+little bit too complicated will click on
+done as you can see an error is gone and
+I can actually go ahead and start
+building the model itself I'll start off
+with a convolution layer now as you can
+see by default it does tell us
+sixty-four filters 3x3 kernel size or in
+this or filter size you could say we're
+not gonna change the stride at all
+border mode valid initialization bias
+trainable about what you need to care
+about is the tensor dimensionality
+because the thing is if you're working
+with Tiano then you need to set this to
+th because the thing is with Tiano
+your channels come before your image
+size but with tensorflow
+your channels come after your image size
+so it's it's confusing when you want
+this because then it works with both
+back ends but whatever else it might be
+in this case I'm working with tensor
+flow as it as I prefer its performance
+so I'm going to click on tensor flow
+click on done and there we go we've got
+the first layer ready this should be
+exciting in fact everybody can actually
+follow along as I build this model so
+you can actually get absolutely exactly
+and in fact it's completely free to sign
+up for you just go to Darby's don't mind
+bluemix.net sign in with a Google
+account and there you go you've got
+darvis yep from there though what's
+add-on activation in this case a
+rectified linear unit while dragging the
+really layer and i'll go ahead and drag
+in a pooling where mm-hmm
+there you go the pooling layer will have
+a three by three filter size in this
+case and we'll add one more of those
+pooling layers
+now before we continue here though as
+you can see I've made a mistake
+I forgot my second convolution to D
+later again this is based off of the
+extremely powerful node-red
+editor so I'm going to take my
+convolution 2d layer drag it in between
+these two layers and there we go I've
+badly made my connections I can actually
+drag these to the side to make this a
+little bit neater and there we go we've
+got that in fact I also forgot my
+activation so I'm gonna take my rectify
+linear unit
+drag it in between and there we go just
+like that we've got the activation and
+there we go the first batch of layers is
+complete now quite literally all we need
+to do is take all these layers copy and
+paste drag them down and make the
+connection that's it
+I just make this connection change the
+filter design yes yep well you the
+filter is the same but the amount of
+filters will change to 128 then copy and
+paste once more change it to 256 and we
+should have our CNN model drag that
+there changes to 256 256 and there we go
+we've got the model now the dense layers
+of course it does have the support for
+for example over here the flattened
+layer so we're gonna drive them pooling
+to flatten all right from there we can
+also go ahead and take a dense layer
+that's what it's called
+uh-huh we can take a dense layer of
+course we're gonna start out with 1024
+nodes and we'll also have a sigmoid
+activation didn't forget it this time
+aha and copy and paste move that over
+there make the connection it's that
+simple change it to 512 just like that
+copy and paste move this over move these
+over two outputs moves Oh removes
+sigmoid replace it with softmax make the
+connections and there you go
+you've got your model that's nice yeah
+you've got your model like that and then
+all you need to do is take
+an accuracy layer as a metric to
+calculate the accuracy see how are you
+doing there we go you've got it you've
+got your entire model completely ready
+and if you click on save on the top
+right as you can see the Unicorn is
+satisfied and darvis likes the model
+there are no errors and theoretically we
+should be able to convert this to source
+code now this is the really really
+interesting part so if I click on this
+little blue arrow arrow arrow over here
+create source code of course darvis
+gives you these really great random
+names to begin with for example for the
+model I was just working on a little
+while ago he's admiring Harding heli and
+this one that I would that we just
+worked on was a jovial Sanusi so change
+it exactly so I'll just give it a job
+name huh this is a job name for creating
+source code I'll just take the first two
+letters of both words Jos I and then
+give it a job ID one I'll choose a
+platform tensorflow in this case I'll
+work with halters the hardware
+availability in this case I've got a GPU
+yeah thank you and then I'll create my
+job and as you can see within a few
+seconds theoretically it tells me that
+it's like it'll like to download a file
+I'm going to open this up with archive
+utility and as you can see if I open
+this up with Xcode this is how many
+lines let's say 228 lines of code that
+incorporate deep learning that runs on a
+GPU uses 10 to flow as a back-end and
+cross as a front-end and I didn't mean
+to type a single line of that code just
+here it does the damn pre-processing it
+does the model building everything in
+fact at the end it even does the
+validation in the model and the testing
+of the model it's not just amazing you
+need to no longer spend time going
+through your cross code and layer by
+layer putting these implementations
+especially with the functional API
+really really really really hard not
+hard really really tedious and
+repetitive and chorus or darvis does all
+this for you so that you don't have to
+yes spend all your time you spend your
+intellectual power on the actual model
+structure and how you want to design
+you're not spending your your your
+concentration more on actually building
+the model itself instead on how the
+model should be built so yep darkness is
+extremely useful
+now of course though I have to copy this
+over to my GPU server and I've already
+copied because I don't want to do secure
+copy right now so I've already got this
+set up as you can see here so--but why
+you did no do you want me to say one
+thing so to get a shout-out to the
+darvis team for doing a job I do remind
+all the viewers that this is research
+code this is a nitrogen alpha or
+experimental code so you know use it I
+think it's really powerful yeah
+recognized
+evany it's still in development and run
+into any issues please do feel free to
+tweet to the IBM or the DAR visit a No
+yeah and they will of course get back to
+you I'm sure and actually try and fix
+that in fact I'd like to say a big thank
+you to Anu shun the darvis team because
+for the past few days I've been trying
+to clear I'm trying to push the edge
+with what I can do with darvis multiple
+inputs I've been trying to do inception
+models and merging and everything and
+he's been staying up all night and
+really helping me Ivan it's a vacation
+week in India using remote area a little
+internet access but luckily he was able
+to help me and I mean thank you very
+much for that as well and you'll be able
+to hear more from him in just a little
+while as well but as you can see back to
+the server on this server I have got a
+the code already copied on in this
+specific file a PC 1py now inside of
+this as you can see we've got all the
+code ready and so all I need to do is
+actually run the code however what I
+will say is that this takes around 200
+seconds per epoch and so what that means
+is that when you're running with around
+200 seconds per epoch and you're running
+say 100 epochs
+that's gonna take a little while so I'm
+not gonna spend a few hours on
+livestream if you'd like to find out
+more about that and how exactly you run
+the code or any other information you
+can find out on my youtube channel
+however for now though I've got a pre
+trained model called best model vgg
+CH 5 so this H 5 model or this hdf5
+model has been saved by chorus and now
+ready to go to the next step the next
+step is actually going ahead and taking
+this darvey's model this model that I
+build with darvis trained with chorus
+and then saved to my disk now how can we
+implement this in an application we
+don't want to have the users check for
+the if it's a cat or a dog in the
+command line right we can't keep secure
+copying and checking how do we create a
+very friendly to use application behind
+this model or in front of us model
+especially one that's gonna bring your
+smartphone exactly exactly
+so this is where coronel comes in now as
+I mentioned core ml allows you to run
+inference tasks on deep learning bottles
+pre-trained on your iPhone or iPad or
+other iOS device now in order to do this
+though you have to convert this cross
+model into a so into something called a
+core ml model now the file format for
+this is NL model luckily Apple didn't
+invent they're sort of you know sort of
+exotic file format they're working with
+protocol buffers in the backend and so
+if you'd like to convert really any
+model to put two more Cornell you just
+protocol buffers and then write your own
+translator from protocol buffer to to
+Cornell remote however it does have
+built-in support for things like chorus
+I could learn I'm quite a few other
+types of models however one thing I'd
+really like to see you from the Apple
+team big feature requests please
+implement tensorflow checkpoints tend to
+flow checkpoints there's a lot of hidden
+sort of lots of things like for example
+darknets yellow you only look once
+neural network and stuff like that that
+are only currently mainly available in
+tensor flow checkpoints if we get that
+on iOS I'd be very very satisfied with
+that however for now we're going to work
+with chorus so let's get back to point
+now as you can see this is a simple
+script that goes ahead and takes in a
+chorus model in this case this is our
+model here and converts it to a core ml
+model the way it does this is by using
+this thing called core ml tools
+coronel tools is a Python package by
+Apple and so in essence it allows you to
+take chorus models or other types of
+models
+I convert them to Coronel models this is
+actually very very simple it's only
+three lines of code it'll automatically
+take the cross model using this line of
+code here and it'll convert it and save
+it using this line of code here then so
+as you can see that it saves it to test
+or to dot ml model however I've gone
+ahead and renamed that to dog cat vgg
+dot ml model should be somewhere here I
+know I actually rename that with from
+within Xcode so you'll see that in Xcode
+however once you've got your ml model go
+ahead and copy that back to your local
+machine or you can continue doing iOS
+development now this is going to be very
+interesting because now we can actually
+go ahead and open up max code I knew the
+next code implementing quorum L is as
+easy as one two three just a bunch of
+clicks that's it that's actually what I
+love about Carmela first I thought okay
+when he really complicated you're gonna
+import the model you're gonna tell him
+how to inference you're gonna do all
+this stuff but luckily it's actually not
+very difficult at all all you do is you
+take your ml model file you dragon into
+Xcode execute generates code that will
+help you interface the ELMO
+automatically in fact as you can see
+over here it recognizes that the type of
+the input is actually an image and the
+the dimensions are 299 my 299 is an RGB
+image and the output should be a double
+array which with the two values and so
+as you can see it's great doing that it
+automatically detects exactly picked it
+up the model and generates this code
+over here
+that'll help you run predictions against
+that model and so I won't be going for
+this right now but if you'd like to
+implement things like for example
+getting the output of intermediate
+layers which is another thing that I
+hope gets easier eventually with caramel
+you can implement that here as well I've
+gone back to view controller which if
+you're familiar with iOS development
+which I'll assume you are you'll know
+what this is and so I won't be
+explaining this extension for the UI
+image class it's just a bunch of you
+know repetitive iOS code not really into
+deep learning at all in essence it'll
+actually it actually has two different
+functions the first one's actually a
+variable that will be able to give you a
+CV pixel buffer for UI image I'll assume
+the stands for computer vision pixel
+buffer it's a part of core ml and
+essentially
+see a pixel buffer will will allow us to
+send the image to Coronel without
+actually converting it to an array of
+pixels or anything you just pass it as
+an image through the CV pixel buffer
+apart flap there's also a function that
+will help us resize the UI image really
+easily $2.99 my $2.99 loose of the deep
+learning model actually understands it
+to the hub course but from there let's
+talk about view controller a new
+controller conforms to the UI view
+controller a uiimagepickercontroller and
+UI navigation controller delegates and
+to begin we actually declared some class
+level with constants and variables in
+terms of constants we've got the image
+picker itself that will help us choose
+an image or actually take an image and a
+classifier not in this case I've named
+it dog cat final all right so I just do
+this it's that simple
+I've my mom's name was dog cat
+underscore final dot a null model
+drag it into Xcode generates the source
+code for you and that's how you
+initialize your model that's it from
+there
+I create two ID yelets that'll actually
+show you the confidence values for both
+the classes the cat and the dog using a
+UI progress for you and a display view
+which will show you the current image
+that you just took in fact actually
+showing you the UI here this is what the
+UI looks like it'll show up in just a
+moment it's actually very very simple
+specific uh yes basic UI it'll show you
+the image that you took over here in
+this UI image view it'll show you the
+dog cat confidence over here and the
+button to actually take the picture with
+now from there of course in the view
+controller within muted load the we set
+the picker delegate itself that's only
+done once when the view of originally
+loads after that and they take picture
+IB action we tell the picker that you
+are not allowed to do editing to the
+photo the source type is a camera just
+become simpler with no editing and
+source type camera and then we present
+the picker with an animated transition
+and no completion handler because
+there's nothing we need to do after it
+but you just did that for simplest
+there's no reason why you couldn't have
+allowed them
+because if you wanted to edit you can
+yeah there's nothing stopping you just
+go simplicity I'll let the model is cut
+the pace the the cat's paw onto the dog
+see if they still recognize from there
+of course the image picker controller
+function from the UI image picker
+controller delegate and so essentially
+what this will do is it'll take the UI
+image put it into a variable resize it
+to 299 by 299 run that run actually can
+run out to a buffer first of all a CV
+pixel buffer using the extension and
+actually just to classify up prediction
+it's not easy you do classify our
+prediction
+you passed the simi pixel buffer and you
+get the first output yes that's it and
+then you of course force try it and then
+this is bad programming practice I
+should be doing you know the do catch
+but for simplicity and because I'm
+assuming that you will just pass it a
+nil image um I'm gonna force try this
+and then what I'm gonna do is extract
+the output put them into the confidence
+values or confidence conference sell you
+I progress views to show the user the
+confidence values and I will put that
+image into the display view so the user
+knows which image they talk from there
+I'll print out the predictions and I
+will dismiss the view controller this
+will be animated and no completion
+Handler and that's all that's quite
+literally all there is to it I've
+already run the code and as you can see
+I'm actually gonna switch over to my
+phone now now my phone has got a version
+of this application where actually this
+exact application running on it and it
+has the core ml model on it it's got so
+sometimes it takes a moment to show but
+it's got the core ml model running on it
+it's got everything on and so in theory
+if the TV leaves which are cooperate we
+should be able to show you this demo and
+so if not they'll don't worry I will
+show it to you by a quick time on my Mac
+so no need to worry about that if it
+doesn't work or it feels like not
+cooperating
+so apparently we cannot quad that it did
+that's my point
+right now native connections over the
+tape
+sorry for the technical difficulties
+everyone just give us a 1 to 300 just
+give us a little a little bit of time
+here maybe one more input let's try this
+all right maybe I was actually going to
+the wrong input let's see does it wish
+to cooperate or should you just use
+Quicktime all right let's use Quicktime
+let's just switch back over to my Mac
+here honestly if the one oh that's it
+that's a perfect ah so there we go my
+Mac is back on screen theoretically
+correct uh-huh so I should be able to
+then open up QuickTime Player create a
+new movie recording start caching for me
+count here and then I should be able to
+change this over to my phone not as long
+as it's not connected to an external
+display like so because of course
+that'll only allow me to do data
+transfer there we go
+or power transfer technically uh and
+then from there I can choose my phone as
+a camera it'll show you my phone screen
+on my Mac and the demo can go on so I
+will go ahead and search up a dog and
+cat in two separate Firefox windows open
+this up with my phone so you can see
+both at the same time and and this is
+what it looks like now now let's just go
+over to images with cats and images of
+dogs now Rob strong do you like which
+one would you prefer
+oh let's go with the puppy all right
+well I'm gonna take picture with my
+phone here as you can see on QuickTime
+it shows up a new a my a UI image picker
+as you can see I should actually be able
+to take a picture of this oh that's not
+good I couldn't spacebar all right take
+a picture of the puppy and just take the
+picture like so and if the model
+understands this might be confuse you
+can see huge continent of it being a dog
+this is how the deep learning model
+works this is actually running at less
+than 0.2 seconds per inference so this
+is extremely fast rating on the GPU
+itself from there I can go ahead and say
+cat so James which can't you like I'll
+play around the tree yeah I mean it
+might confuse its ride so what's the try
+let's see what it's generalize to I'm
+not sure that memes supposed to mean but
+cats they're eating a banana a happy
+banana too then that was a power of
+CNN's they're amazing and removing noise
+and understanding the features that they
+were trained to work with and so that is
+a demo of how this entire system works I
+really do hope you enjoyed thank you
+everybody don't leave just yet though
+because we've got a lot more coming up
+so do stay tuned until then though just
+to tell you if you like to contact me
+you can on any of the following social
+media and of course I'd be glad to get
+in touch apart from that Rob if people
+would like to contact you how can they
+actually get in touch you hold me in my
+LinkedIn account which is a high are hid
+HR and and or on on Twitter which is our
+hi there that sounds good
+apart from James okay alright going to
+the clouds yeah you've got the Q&A
+session coming up now before we continue
+though I like to introduce you all on to
+the darvis team that's right we've got
+some more special guests on today not
+only Rob hi the CTO of Watson my mentor
+here but also some people if some of
+those from the team at darvis so I hope
+we can get them on the stream right now
+hopefully they'll be on they're actually
+live calling us on a zoom session from
+the IBM India research research lab
+where I was just uh I mean I believe
+this team's in Bangalore but I was in
+the Delhi and then we were doing a
+remote session there sorry guys
+so Tammy so it actually happened what if
+it's a picture of a dog and a cat
+oh well there's only one way to find out
+that's right let's see again advance on
+which one is more prominent in the image
+most probably or whichever one it's more
+tits train to you know or whichever one
+that's slightly over fitted towards like
+for example this sort of cat yeah I mean
+there's a picture of both here so this
+might uh this might stumps in your own
+network here maybe it's around half half
+no the dog was much more provenance in
+this case right so we might want to
+choose one though where the cat might be
+more prominent than the dog and most of
+these though we can see that the cat is
+usually less grumpy cat so let's try
+don't feel like the dog's gonna pop up
+more yeah I believe the dog will as well
+because again it's much more prominent
+in this image yeah again it's the dog so
+you know depends if you're able to find
+an image where the cat is actually more
+prominent than the dog as long as the
+neural network hasn't slightly over
+fitted towards dogs which in some cases
+will have some classic balance then you
+should be around here or there yeah this
+one seems around equal we could try it
+out that's a big dog
+so either the neural network is adjusted
+itself a little bit more towards the dog
+or the dog itself as you can see I mean
+the dog's head as you mentioned huge in
+this image so that might be another
+cause for that so it really depends of
+course on the image and the neural
+network and house-trained yeah and so I
+think part of the experimentation and
+this is really again going back to the
+beauty of darvin's because you then go
+back and start experimenting with some
+assessments to see whether you can't
+retrain this model to have a little bit
+better you know equality and exactly
+dogs are not more important exactly
+but then again though if you would like
+to find models that can do things like
+for example how many dogs are in the
+image where is the dog how is there
+Hannah dog where are the cats where are
+the dogs if you'd like to do models like
+that then you're looking for image
+detection not just recognition and sort
+of like localization that type of stuff
+and that's what darkness yellow comes in
+again which I've been trying to get work
+on iOS and if you don't want if you
+don't want spend any time kind of
+figuring that out and that's where
+visual recognition comes exactly yes oh
+the face detection by default
+yeah no the I think you can you can't
+pay that yeah yeah well I certainly have
+to go back to make sure that we're not
+that that's not a feat of this coming
+bit yeah all right so that is of course
+how visual recognition works how darvis
+ties in with it and that was a question
+any more questions for me before we get
+to the Dharma's or me or rob high or you
+until we get to darvis from what i can
+tell i think there's just a lot of
+people are just blown away by the
+capabilities that I've seen so that's
+definitely something we should you know
+consider and take out um another thing I
+think though that we've you know a lot
+of people whether it's the fourth first
+time seeing our fourth session or
+whatnot you know tan man I think it's
+still always relevant is you know we
+talked about this is you know for any
+age someone getting interested in
+programming you know what is your
+recommendation on where they start
+because you know they've got these text
+books and whatnot but I think you have
+your own perspective on it and Rob you
+probably bearest I'd love to hear your
+your guys is individually yeah sure no I
+usually mentioned there are lots of
+different ways to do it and it really
+depends on the way that you learned the
+pace at which you learn but really what
+I mainly recommend as of course you have
+to start off really simply have to start
+off small
+you start easy start playful and really
+learn at your own pace what I mean by
+this is like for example you might want
+to start off with something really
+simple like scratch say block based
+programming in general and then from
+there depending on how fast you learn
+you might want to advance to something
+like say Swift playgrounds if you learn
+a little bit slower I will let which is
+you know sort of that perfect mix
+between block-based and text-based
+programming its text-based Swift but
+still a little block-based with
+auto-completion that type of stuff apart
+from that if you learn a little bit
+faster you might want to string code a
+scripting language like Python or Ruby
+then from there you'll get to a real
+programming language like swift or Java
+or something of that sort
+[Music]
+so I mean by definition but there's an
+advanced scripting language is it turned
+out because you can iterate on so
+rapidly exactly that's actually why
+things like tends to flow Tiano these
+two libraries are built in scripting
+language even torch built in the Lua
+scripting language like these are all
+built in these so it's rapid development
+sort of languages so you're completely
+right they do have the advantage there
+but they're also simpler for beginners
+to learn with right because it's not as
+it's not as strict you can say in in
+Python you could say a 0 to 10 then a is
+equal to hello and it would say nothing
+you would just declare right oh it's
+Swift it would say women you'd is very
+close so yeah so that's that's why
+scripting languages sometimes you have
+that leg up but again it really does
+depend on the way that you learn the
+pace at which you learn and of course
+then you have to be passionate about
+programming you have to program because
+you want to and not because you need to
+not because you want to get a job or
+something because you want a program and
+you understand what really why it's
+important in the first place and of
+course from there really just starting
+that starting with those small steps
+starting with those easy steps and of
+course starting playful with block based
+programming uh I mean I think that last
+comment is exactly right on I mean you
+guys start with something you care about
+here you guys have got some passionate
+and what I find is it well you know for
+a certain category people you know just
+doing it you'll learn that you'll you'll
+realize that passion pretty quickly and
+the fact that you can especially in an
+iterative language like like Python oh
+yeah scripting language where you can
+iterate through that and with just the
+joy of being able to sit down and take
+an idea put it on sort of code try it
+see what it does and have it do
+something for you so rapidly and then
+realize that having done that you can
+now build on it but you know my
+experience is that people kind of fall
+into different categories of learning
+style and so you can't
+generalize this or certainly cases where
+some people just learn better by reading
+yeah but at the end of the day you're
+not really going to know what you've
+read until you've done it
+hands on keyboard oh whether whether
+you're the type of person that likes to
+read and then do or the type of person
+that just learns by doing either way
+yeah get there and get there as quick as
+you can
+there's no substitute hands awkward you
+know writing a line of code you know
+executing it and see what it does and
+then realize that there's either you did
+something wrong you can adjust it or
+there's something else that you can do
+you know that whole process is what it's
+all about
+and I don't know very many programmers
+who when they start that process don't
+get so absorbed in that they find
+themselves doing it and hours later
+realizing that they've been completely
+engrossed in the most of what they've
+been doing and they even know that they
+haven't eaten and haven't drank and
+haven't slept and haven't anything else
+you know because it does sort of just
+take take that little bit of passion you
+have and just expands on it so rapidly
+exactly just do it and I think for me
+I'm definitely nowhere close to y'all's
+level of programming but for I'm more of
+the architecture of the solution behind
+the decisions you know for for customers
+for me getting it started was the visual
+stimulation like you know connecting a
+Raspberry Pi with LED yeah and then
+usually no dreads easy flow and connect
+ability to you know Watson conversation
+I'm saying and connecting it to the
+weather data API NSA you know ok pullian
+geolocation point weather pulling in the
+watson conversation and then saying okay
+you know if it's you know cold outside
+you know what temperature is it in if
+it's cold outside it becomes a cold then
+the light goes blue yeah representing
+cold weather yeah right so that was like
+a really cool way for just me getting
+engaged for that that type of like you
+know quick wins or the short wins I
+think that's another thing to it to your
+point yeah Tammy you said like you got
+engaged in it because you saw it solve
+problems and then the breast just you
+know we're here now today so still
+solving problems it is and you know but
+like you said I mean just seeing with
+the idea that with that one line of code
+yeah you can turn on a light it's such a
+notice right and just gives you the
+sense
+power and strength they do that with
+that one line of code
+it's demystifying programming it is
+inside it's also a sense of extending
+yourself right you have control over
+your environment your world green it's
+all soft but still it's it's just uh and
+that gets you hooked right and then it
+goes from there and it problems that we
+really want to solve are the ones that
+really didn't matter to society into
+business and to kind of our world that
+we live in and you know being stewards
+of the world that we live in and when
+you get to that level of thinking you
+realize that you can have that kind of
+impact through what you've learned that
+is what really then takes you the rest
+of the way
+so do we have any more questions for us
+today before we get to the Dharma's team
+or surrogate ID entries should probably
+get to the darvis team and if we have
+anything all right sounds good so now
+I'd like to introduce of the Dharma's
+team from the IBM India Research Lab
+joining us live from there thank you
+very much for being able to join today
+how are you I've been and I have some
+wonderful smart colleagues with me
+and I guess that sounds great now I know
+you've all been you know trying to help
+me for quite some time now with getting
+darvis up and running the multi input
+like for example actually another thing
+that I'm trying to do with Dharma is
+that I like to quickly note here is that
+I'm trying to build using dargahs a
+neural network that can actually do
+deduplication of questions on Stack
+Overflow and quorum that's something
+that's coming soon so do be tuned down
+tuned down sorry do be attentive for
+that on my github twitter and youtube
+that'll be coming out soon it'll be used
+aren't using surveys great yeah it's
+very powerful idea thank you thank you
+and so of course I'll thank you for
+helping me out with that but apart from
+that tell us a little bit more about
+darvis what do you think that the users
+or the viewers should know that I
+haven't already talked about as that
+make this mention is just to make life
+easy for developers to get into
+be planning as most of us will be aware
+that deep learning is the go-to
+algorithm or the technique for solving
+lots of computer vision as well as
+natural language problems and since more
+and more developers are trying to do
+deep learning these days becoming
+difficult for them to write those amount
+of code like 200 300 lines of code in
+different libraries such as
+tensorflow cafe in Theano whereas Exedra
+so that's where this visual ID of
+stubbles becomes highly important and
+useful for people to come in quickly and
+very intuitively design
+deep learning models and extract code
+from them but that's not where we stop
+we go even a step further dream big and
+make Douglas a little more intelligent
+and highly user-friendly where if you
+are such say take this example for SNU
+ski site if you are going to any
+research paper and reading what dab is
+what deep learning is about um for
+example the same cat versus dog problem
+if somebody has proposed a different CNN
+kind of a model where it gives a better
+performance and you're trying to read a
+research paper or a document or an
+article that explains hey this is the
+CNN model that I've used one way is you
+could obviously read that article and
+come into Douglas and design the deep
+learning model by yourself but that's
+too lame right
+it takes a couple of minutes of your
+time we won't even save those couple of
+minutes and reduce it to a couple of
+seconds so why don't we just upload the
+PDF or the document to us and we will
+understand what they have explained in
+the research paper and completely get
+the source code of the deep learning
+model that they've explained in the
+research paper
+Douglas goes through the title the
+abstract the text of the document the
+tables they put in the document as well
+as the architectural figures that we
+explain the document and completely
+understands what is the deep learning
+model they're trying to explain in this
+particular document and give you the
+deep learning model message so it's what
+you're saying is that I can actually
+take like a paper that describes a deep
+learning model like for example if I had
+a paper that described a model that's
+amazing at taking two inputs of text and
+can actually go through an extremely
+deep Alice TM model understand the
+natural language go through you know
+word vectors whatever
+also my beam it can actually convert it
+to whether or not they're duplicates and
+it'll actually darkness will take that
+entire paper and convert it to a darvis
+flow which can then be converted to
+source code yes and in few seconds
+something
+and absolutely it is actually quite
+ironic how machine learning people do
+machine exactly exactly
+that I dunno there's also another
+feature in darvis that allows developers
+to see like for example let's just say I
+have lots of convolutional layers in in
+parallel or you know one after another
+and I didn't put any drop out there the
+darvis gives me some suggestions would
+you like to put drop out between these
+layers ah how's that how does that work
+the brain of Douglas
+so Douglas is this not a dump IDE when
+you just go and develop stuff that uses
+inclusion at the backend as in when
+you're developing deepening models it
+validates your deepening model for the
+given data and tricks
+hey for this given data is this the
+deepening follow the bike model that
+you're developing or is it some bugs or
+errors in the deep learning model and
+very much in real-time it tells you what
+are the works as well as how to rectify
+those books so even before you want to
+just a source code for your deepening
+model it says what are the possible
+books and how do you fix them and money
+I'm gonna fix them it lets you generate
+the source code of deep learning
+absolutely amazing I can imagine this
+being very very powerful for developers
+that are trying to you know generally
+deep learning models for the first time
+for example like instead of having to
+you know actually go through and
+manually add drop out and manually say
+okay should I add drop out darvis we'll
+use I can machine looking to say you
+know okay well you should be adding drop
+out here you should be adding activation
+here you should be adding this here at
+Center etc so I think that's absolutely
+great how darvis is able to do that do
+we have any more questions for the
+audience James no not that I can see at
+the moment all right so do you have
+anything else to add before we go keep
+you interested with lots of interesting
+because is coming in so I'm pretty much
+sure that like whereas intensive blow
+backend and that's what you're
+comfortable with and say for example I
+am here working on Catholic code on some
+problem say for example cats versus dogs
+problem itself so I've written a whole
+deep learning model or a CNN model in
+traffic code and I'm trying to share it
+with you and I send you the NTA traffic
+code and your work with tensorflow and
+Cara's right so you can probably use
+that code as a training model but with
+Douglas you can
+you just input the cafe codes and get
+the taoist designs there and you can
+export it interest in the float you know
+whatever program you want so you can
+just interoperate across multiple
+libraries in multiple languages and get
+any good converted from library to
+another library in just a second
+absolutely great so I can imagine this
+being very easy because there are lots
+of models that I know that like for
+example work with you know plain cafe
+plain tensorflow or are playing torch
+and then I mean I'm sure that you'll
+eventually add support for more deep
+learning libraries like torch cetera and
+eventually once you deal be able to
+convert between them you know convert
+them to darkness flows which can be
+converted to any other type of deep
+learning library it's gonna be really
+really interesting and I cannot wait
+this is gonna keep me occupied for a
+long time thank you
+which explains don't work well in this
+particular language library then you try
+a different one exactly exactly
+I have to spend all your time working
+through these hands alright so that sums
+up what we had to go through thank you
+of course very much the darvis team for
+my I mean the ever actually joining in
+for actually taking out the time to be
+with us at the Watson made simple
+they've actually been fun for the entire
+session now so thank you very much for
+joining everybody yeah thank you guys
+and thanks for staying to play for this
+thank you you know so yes and also of
+course thank you very much to all Rob hi
+for actually you know being a part of
+this Sun actually making it away all the
+way over to Toronto for again yeah teri
+my hurricane and all this all this other
+stuff that's going on no thank you very
+for having me today and thank you for
+the opportunity to do just spend time
+with you and get a chance to see some of
+the things that you've been doing this
+really outstanding thank you thank you
+for all your support
+you know IRA your your interest in
+evangelism your your compassion and
+thank you and passion for what we're
+doing I think is really outstanding
+thank you thank you
+apart from that they'll apparently
+that's all the questions we have some
+Facebook live today thank you very much
+everybody for joining in that's all we
+had to cover in the event today anything
+else you'd like to add James stay tuned
+because we're gonna see you out actually
+you know what if you're interested in
+seeing what else Tammy don't you have
+other events speaking Oh
+yes I do uh-huh so I'm speaking actually
+next at the open source summit at the
+Linux Foundation actually and so this is
+September 11 to 14 I'm actually covering
+a lot of really interesting stuff I'm
+covering my new application deep Spade
+part seek waseela find out more about
+that there you know I'm also talking
+more about a Stan may and depth I'm
+talking about a lot of really
+interesting machine learning
+applications oh it you'll find out much
+more about at the Linux summit over the
+open-source summit by the Linux
+Foundation as well
+apart from that I'm also speaking at the
+Big Data ignite conference hosted in
+Michigan and in fact what's going to be
+really interesting is that James is also
+going to be a speaker at Big Data ignite
+so it's gonna be really interesting
+we're gonna have you know shared
+sessions together we're gonna talk about
+some really interesting stuff
+unfortunately we're going to invite rob
+high but Rob I has to do something on
+the other 28th so unfortunately he's not
+able to join let him in green if we all
+three do this it would have been amazing
+but anyway next time hopefully yeah
+that's right
+and we still remain evolving in the
+cognitive story yes I would do and then
+Menace some is really great update zero
+find out more soon on the github that's
+good sounds great thank you very much
+again thank you thank you very much for
+everyone for joining it today that's
+going to be all good bye
+yeah good also working closely on that
+and yes we will reach out to you on

@@ -1,0 +1,375 @@
+[Music]
+so hello there and welcome to another
+tutorial
+my name is Tenma Bakshi and this time
+we're going to be going over darvis now
+what is darvey's let's begin Dharma's
+stands for deep abstract representation
+visualization and verification of deep
+learning models now what does all that
+mean well in essence darvis is a deep
+learning ide by IBM which allows you to
+create train and of course do instancing
+tasks on your deep learning models in a
+very simple way in fact without even
+touching a single line of code you can
+create your entire deep learning models
+and in fact have them again have the
+product give you advice about those deep
+learning models and as to what you
+should be doing with them and of course
+all of this without creating a single
+line of deep learning code it's all
+going on in the back end and you can
+convert your deep learning models to
+cross code with either a Tiano or
+tensorflow back-end as well as cast code
+now this is a very very interesting IDE
+and in fact I would like to say a big
+thank you to the IBM Research Lab in
+Delhi India for actually telling me more
+about this in fact just earlier this
+month I was in India for a keynote
+workshop for NAS coms big data and
+analytics stomachs and while I was there
+IBM invites me to their research lab in
+Delhi to find out more about what IBM's
+actually doing behind the scenes would
+beat learning technologies and while I
+was there I would like to say a big
+thank you though
+to Ashish and Shriram course their
+entire team for actually arranging so
+many different great sessions for me and
+in fact one of those sessions was about
+darvis and how you can use a deep
+learning ide to create all of your
+different deep learning models
+in fact I would also like to say a big
+thank you to the entire Dartmouth team
+for actually making this possible
+especially enough for actually
+introducing me to all these concepts and
+telling me more about the internal
+technology of darvis but now let's get
+into how you can use darvis decree your
+own deep learning models essentially
+with darvis you can create your own deep
+learning model representations and so
+you can actually drag and drop
+individual widgets and these little
+widgets or essentially in an old red
+flow you can actually drag in these
+boxes in these boxes can be
+convolutional layers pooling layers
+activation layers dense layers all these
+different layers are supported by this
+API and so in essence you can drag in
+all these boxes you can connect make
+connections between them you can make
+parallel looking layers you can do a lot
+of different things with darphus and
+then once you're done and you created
+your entire deep learning model you're
+ready to then go ahead and actually
+convert this to CPU or GPU Tiano
+tensorflow
+or cat code now when you convert the
+piano or tensorflow it's powered by the
+cox sdk with either that 10th channel or
+tend to flow backend and so that is how
+you can actually build this system in
+fact not only will it do these layer
+definitions for you it'll even create
+the entire code for reading your data
+training the model do validating the
+model and testing the model in fact
+there are lots of other amazing features
+that this application provides and just
+one of those features being a paper to
+deep learning code conversion that's
+right you can take diagrams of deep
+learning models from papers and actually
+can work them instantly to actual deep
+learning code and one your training
+inferencing or whatever else you might
+want to do on that deep neural network
+but now though let's get over to the
+muck part where I'll show you how you
+can actually integrate darvis with your
+deep learning development and how you
+can actually use darvis in order to do
+extremely quick deep learning
+development in this case i'll show you
+an example of how you can train a
+convolutional neural network on the MN
+isp data set let's get to it
+alright so welcome back to the last part
+and now I'll show you how you can
+actually implement these convolutional
+neural networks with darvis now if you
+actually go ahead to the darvis home
+page you will see a page a little bit
+like this one where you're going to see
+their original home page once they're
+there can actually log in and it's
+actually as simple as log in with a
+Google account hon so of course they're
+going to be going over here to Darvin by
+bluemix.net and you will just log in
+with your google account your gmail
+account and you will be given access to
+the darvis ide once you're in darvis
+you're ready to actually start first of
+all designing these learning models and
+then from there you can go ahead and
+create your source code let's talk with
+actually designing the deep learning
+model once we design it will create the
+source code and then actually train the
+model let's go ahead and start drawing a
+design for our model now of course there
+are actually lots of other predefined
+design that we can go off of let's
+actually take a look at some of them you
+can start off would say vgg 19 which is
+of course an extremely advanced 19 layer
+convolutional neural network that change
+high high accuracy at the image net
+challenge or the image net dataset in
+fact as you can see here this over here
+is how the vgg 90 neural network is
+defined without code using the darvis
+IDE from here I can go ahead and edit
+this neural network however I want to
+now what I mean by this is that I can
+either edit this neural network I can
+create an entirely new neural network I
+can do whatever I want to but let me
+give you a quick example by say creating
+a very simple convolutional neural
+network that will work on the EM nest
+data set now there are lots of other
+predefined designs that this actually
+provides you for example in
+the ICL are striving for simplicity
+paper there are two models a and B they
+provide both models here you can
+actually take a look at Model A over
+here and model B over here as well you
+also have a basic CNN design which is
+extremely extremely simple and so
+essentially these designs are meant to
+get you familiar with the interface that
+darvis provides but now that you're a
+little bit familiar with it I'll bring
+you a little bit more to depth and show
+you what this actually consists so let's
+take a look I'm going to create a new a
+new flow a new darvey's ide slow and of
+course is based off of the node-red
+editor which is why these are called
+flows and ones might be a little
+familiar to some of you however you can
+actually go ahead and start with say a
+data layer and of course it starts off
+with bringing in your data now in this
+case let's just call this MN ISP data I
+won't tell it to them using a
+pre-existing data source but I'll tell
+if there are 28 rows 28 columns and 3
+channels to these to this image
+currently only the Python pickle forma
+is supported at the time of recording
+however leveldb LMD me and i'm sure many
+more are to come one thing that I do
+personally really hope actually does
+come through a support for essentially
+just a folder of images and within the
+folder you have many sub folders each
+sub folder containing the images for a
+different class at the the higher level
+folder containing all these sub folders
+for those classes however from there you
+can actually tell us things with the
+batch size you can tell it where exactly
+yeah the the data set will be found you
+can tell things like the validation pass
+and of course a test pack and so you can
+tell it essentially where it will find
+the training data validation beta and
+test data you can also tell it some more
+data augmentation features for example
+the crop size or the rows columns and
+channels whatever else you like to do
+there
+and from there you can just click on
+done and there you go you've got an
+amnesty data sets there now of course
+now your convolutional neural network
+will start off with a convolutional
+layer so I'm just going to drag in a
+convolutional layer
+I'll let make a connection with from the
+data set to the convolutional layer I'll
+then open up this convolutional layer
+and change this to suit my needs now
+let's just say that sixty-four filters
+sounds good maybe we want to go for a
+5x5 kernel maybe a 2x2 stride or 1x1
+stride we can keep that one by one
+boredom oh just keep that valid
+initialization we don't need to change
+that bias in same and the rest are
+really internal things that we don't
+need to worry about
+of course now darvis does support
+retrain so you can actually set this to
+true of false and you can learn more
+about that in another video that will be
+there will be a link to the in the
+description too once it is released
+of course that's coming up soon as well
+and then you can just go ahead and click
+done and you'll be done designing your
+convolutional neural lawyer or at least
+this convolutional layer now after this
+you can go ahead and see what comes
+after your convolutional layer which in
+this case of course is an activation
+layer so let's take the rectified linear
+unit later and make a connection between
+the convolutional layer and that layer
+well then go ahead and take a pooling
+layer and attach it to the end after the
+rectified linear unit later I'll just go
+ahead and take a look at its parameters
+this all seems good max pooling is good
+trainable is okay yeah of course it
+doesn't need to be triples that is
+technically trained on the layer name
+and there we go that's perfect and so
+from here it's as easy as quite
+literally selecting those nodes pacing
+them in and then just making connections
+that's all I need to do make that
+connection and then change the
+parameters however I'd like to say that
+I want to 3x3 kernel now and say 128
+filters on
+copy this one more time paste it in put
+them wherever I like them make the
+connection between cooling and
+convolutions change the parameters
+however I'd like to and from there you
+can see that we have designed most of
+the convolutional neural networks at
+after this you can actually go ahead and
+get flattened where go from cooling to
+flatten this time get a dense layer
+drive from flattened to dense you can
+change the parameters within your dense
+for example if you say I only want to
+see six nodes drag in another dense
+layer say that yes I want 512 nodes now
+drag in one more dense layer and let's
+just say that this only has ten nodes
+this will be your output drag and from
+there you've got your convolutional
+neural network set up but of course
+though you have to have activation
+functions between these layers and so
+not only does it of course this supports
+many different activation layers
+including sigmoid and softmax
+so I'm just going to drag sigmoid in
+between these two dense layers and
+another sigmoid between these two dense
+layers and then drag a soft Max to the
+very end over here drag the dense output
+to the soft max bring that over here or
+we can actually bring that over here and
+then finally we're going to take I mean
+actually you know this is a great time
+to show you one of those pictures of
+darvis if I were to go ahead and save
+this model you can see that darvis is
+unicorn has forecasted some errors in
+the design and so the sauce max node
+cannot be a destination node it cannot
+be the output node you have to have a
+separate dedicated output node in this
+case a loss or accuracy layer in this
+case I'm going to go for it
+see there so I'm going to take one of
+the accuracy layers dragged from softmax
+to accuracy and if I go ahead and save
+you can see that the Unicorn
+says that the design model is perfectly
+fine and it will work with our code so
+now I fit from here I can actually go
+ahead and convert this model to source
+code and the source code will be used in
+front of Python with curraghs in order
+to give me the results that I desire
+let's take a look at it now from here
+just click on create source code and
+it's literally as simple as that you
+just type in your job name I'll call
+this test 3 I tell it which which model
+we're going for in this case it
+automatically made it as modest enough
+so we'll go for that one I wanted to
+work with tensorflow I have a GPU
+available on my system and I will create
+this job and as simple as that you have
+finished your deep learning task that's
+it if you open up the code and say Xcode
+it's a simple Python script 7 kilobytes
+and as you can see you've got this
+efficient Python code and of course
+there always work not to make it even
+better and all of this allows you to I
+mean it's automatically generated a
+hundred and fifty-one lines of code for
+you and of course all of this code will
+be used to train your convolutional
+neural network you didn't have to type a
+single line of code and yet it will
+trade validate and test your model for
+you in fact very soon darvis is actually
+going to be releasing a bunch of new
+features including a deep learning model
+supervisor and advisor as I like to call
+it that is of course powered I have more
+deep learning ok so that's what I had to
+go over today in this video thank you
+very much for joining in I really do
+hope you enjoyed and of course we were
+able to learn from this video and its
+content today so thank you very much for
+joining in that's going to be all I had
+to cover if you liked this video please
+make sure to leave a like down below and
+of course share it with your friends and
+family if you think it could help them
+as well
+apart from that of course if you have
+any more questions suggestions or
+feedback please do make sure to leave it
+down in the comment section below email
+it to me at Fatima new gmail comm
+we have tachi many apart from that if
+you have any more if you really do like
+my content you want to see more of it
+please do consider subscribing to our
+youtube channel as well as it really
+does help out a lot and of course if
+you'd like to be notified whenever I
+release new content please do make sure
+to hit the bell icon beside the
+subscribe button below to be notified by
+a Google notification and email whenever
+I release new content so thank you very
+much for joining in today that's going
+to go for this video good bye

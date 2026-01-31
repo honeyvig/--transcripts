@@ -1,0 +1,586 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is t Baki and this time
+we're going to be going over how you can
+use the IBM Watson knowledge studio in
+order to create custom classifier models
+for the natural language understanding
+service even though you can actually use
+it to create custom models for many
+other services and now let's talk about
+how this works so let's actually begin
+now to start off what is the I Watson
+knowledge Studio well the I Watson
+knowledge studio is basically as the
+name suggests a studio where you can go
+to train Watson services that can
+normally not be trained for example the
+natural language understanding service
+now if you're not familiar with the
+natural language understanding service
+well it's actually a quite new service
+and it's basically a rebranding of
+alchemy language from the Alchemy brand
+to the IBM Watson brand and to bring it
+into the Watson developer Cloud family
+where it fits in with all the other apis
+so that's what IBM is doing with the
+natural language understanding service
+and they're now deprecating Alchemy
+Language by using the same engine that
+powers Al Alchemy language uh inside of
+nlu natural language understanding and
+so basically uh what I'm here to tell
+you today is how you can actually use
+that very IBM Watson knowledge studio in
+order to train natural language
+understanding service even though it
+cannot be trained so let's talk about
+that now before I actually get into how
+we're going to be training the natural
+language understanding service let me
+talk a little bit about what the nlu
+does by default so for example if I were
+to take a sentence like um oh I don't
+know um Tim Cook
+is
+the
+CEO of
+Apple
+and
+was
+born
+on
+November
+first first
+[Music]
+1960
+okay so it's happening here is we've got
+this sentence that has information that
+Tim Cook is the CEO of Apple and was
+born on November 1st
+1960 now we've got a lot of information
+here and what the natural language
+understanding service will do is it will
+actually label this information so that
+we can actually make use of it and use
+it in our applications in order to make
+decisions so what it's going to do is
+it's actually going to label Tim Cook in
+the text as
+person and it'll name
+CEO as job
+title and it'll name apple as well as
+you guessed company
+okay and I'll talk about the rest in
+just a moment but the nlu service is
+basically going to tag all the important
+pieces of text from this sentence and in
+fact that's actually what my application
+ask tme uses in order to give people
+their answers now in case you're not
+familiar with ask tan may ask tan May is
+actually this nlqa system or natural
+language question answering system that
+can take your questions uh and answer
+them for you and it's powered by IBM
+Watson's natural language understanding
+service and the way it works is by
+running an eight-step algorithm but the
+the core step basically uh once it once
+it create some candidate answers from
+which to you know choose answers from in
+order to filter out those answers the
+main filtering is done by nlu by saying
+okay if the user is looking for a
+company we shouldn't be giving them job
+titles or persons instead we should only
+be giving them company results results
+and that's what the nlu service will
+help us do but you see there's just one
+thing let's just say I wanted to program
+ask 10 May to actually give date answers
+it can say you know when was Tim Cook
+born and it'll return November 1st
+1960 but currently that's not possible
+and the reason is because the nlu
+service does not support giving you
+dates it will not classify this as a
+date because it doesn't understand this
+as an entity date entities are not
+supported with Alchemy language or the
+natural language understanding Service
+as they were in the past with
+relationship extraction which was then
+replaced by Alchemy
+language and so basically what the
+Watson knowledge studio will let us do
+is it will actually let us train our own
+natural language understanding service a
+custom model for the service which will
+have date as an entity and we will train
+it to understand dates and sentences
+where they usually show up sentences and
+how to recognize a date and the way this
+is going to work is we're going to give
+it many examples of sentences like these
+and we're going to label
+this as the date in every
+sentence and eventually what's going to
+happen is let's just say we do this 10
+times the Watson knowledge studio will
+train the nlu service using its machine
+learning capabilities so on to actually
+understand where the date occurs and
+then we can implement it to as t a
+feature to give date answer types
+because now it can find the date as an
+entity within natural language with the
+nlu service and that's what the
+knowledge studio will let us do it's
+going to allow us to find those entities
+in our text using the natural language
+understanding service before this the
+Alchemy language service was uh of
+course uh compatible uh with this but
+the only thing is the Alchemy language
+service is now going to be deprecated
+and so there's practically no point you
+know ching how to do it with Alchemy
+language instead we're going to be doing
+with the natural language understanding
+service which is now in general
+availability phace this can also be used
+to train Discovery and of course there
+will be in future videos train telling
+you how you can train the discovery
+service to understand your text using
+the knowledge Studio but for now let's
+go over to the coding part where I'm
+going to show you how exactly you can
+use the knowledge studio in order to
+create a date parser through natural
+language with the natural language
+understanding service all right let's
+get to that now all right so welcome
+back to the coding part and now I'm
+going to be showing you how you can
+actually train the custom model using
+the Watson knowledge studio so let's
+begin by actually opening up the
+knowledge studio so as you can see over
+here I've got the knowledge Studio open
+and once you've actually signed up for
+trial or maybe even actually bought the
+act the real version of the knowledge
+Studio whatever whatever floats your
+boat here uh once you have access to the
+knowledge Studio then you're ready to
+begin in building your project so to
+begin what you're going to do is you're
+going to create your project by clicking
+on this little create project button now
+in this case our project is all about
+parsing date from natural language so
+we're going to call this the date
+knowledge Studio
+project once that's done we're going to
+keep the language of documents as
+English and then click on
+create wait for a moment while it
+creates our project and once it's done
+creating the project it will
+automatically take you into the project
+View and inside of this view you are
+able to of course modify really all the
+attributes of your project and of course
+deploy it to the natural language
+understanding service now to begin
+though we have to first Define what
+exactly is going to be inside of this
+project so in this case entity types
+basically what we mean by this is
+basically what types of entities this uh
+this classifier or this uh this natural
+language understanding model should be
+able to uh to identify
+so what we're going to do is we're going
+to click on the add entity type button
+here and we're going to give the entity
+type a name called date because we want
+it to be able to select or uh of course
+parse out dates from our natural
+language once you're done that click on
+Save and don't give it any subtypes or
+roles it'll automatically fill those out
+for you and once that's done you should
+have a new entity type called
+date now before you go any further you
+have to have some training data and this
+is where this little Tech file comes in
+I've actually prepared some training
+data that can be used with the knowledge
+studio in order to train it as you can
+see it says I was born on March 17th
+1987 Apple was founded on 0104 1976 or 1
+April
+1976 IBM was created by Charles ranlet
+Flint on June 16th of 1911 in New York
+City tanay was born in 2003 tanway
+teaches Tam's YouTube channel was
+created on 1225 2011 etc etc it
+continues on quite a few examples here
+and this is actually very very small
+training data compared to what you
+should be feeding into the knowledge
+Studio you should actually be giving it
+a lot more data but just as an example
+of how you can use this this is what
+we're going to be using today all right
+so once you've got that down then you're
+ready to head over to the knowledge
+studio and once you're there head over
+two documents on the top right corner
+here uh and so basically beside the type
+system which is where you're currently
+at there should be a button called
+documents click on to it and you'll
+switch over to the documents pane over
+here click on import document set and
+click on the import gray
+boundary then what you need to do is
+import your knowledge Studio training
+data and then click on the import
+button once you've imported that text
+then you're ready to do something called
+create an annotation set an annotation
+set basically means that the this is a
+document that we're going to be
+annotating basically what we're going to
+do is we're going to tell it to take
+100% of all the documents we have which
+in this case we only have one document
+full of training data and what we're
+going to do is we're going to set me as
+the annotator and we're going to set
+this as the date
+annotate and so what this is going to do
+is it's going to assign me as the
+annotator for this document over here
+that we've imported and tell me that I
+have to put in the data from inside of
+this
+document once that's done click on
+generate and it will create an
+annotation set once you're there you can
+skip dictionaries and rules because
+we're not doing anything preset we're
+doing you know machine learning stuff
+here and Skip right over to human
+annotation here what we're going to do
+is we're actually going to annotate that
+document that we just uploaded as
+training data in order for the natural
+language understanding service to find
+patterns in where dates are and what
+dates are in in our sentences in order
+to do this click on add task and enter
+in date annotation task that's just what
+I'm calling this this
+task you can set a deadline if you wish
+and click on
+create make sure you you select your
+annotation set that you created at the
+beginning and then go ahead and click on
+create
+task once that's done then go then click
+on the task itself
+and click on the annotate
+button once you're there it'll take you
+to this new page and this new page will
+have our document click on the document
+and it'll open up this annotation view
+once you're in The annotation view then
+click on the date button on the side
+here the right side and this will mean
+that you are now tagging date entities
+within your text once that's done then
+start clicking on the dates that are
+inside of your text for example this
+first one is I was born on March 17th
+1987 so what I'm going to do is I'm
+going to click on March I've clicked
+March I'm not I'm not you know currently
+clicking or anything and then once
+that's done I'm going to just separately
+click on
+1987 click the space bar and it'll note
+this as a date do the same thing for the
+rest of the dates in your
+text and once you've noted all of your
+dates then you should be good to go as
+you can see I've noted all of the dates
+in this text each line has one date and
+there're in many different formats and
+in many different places in sentence and
+with many different wording formats in
+the sentence as well this is going to
+give the knowledge Studio a good idea of
+what a date actually is and not just say
+oh well if the word born isn't a
+sentence then well whatever comes at the
+end is a date no it'll actually
+understand the concept of a date and
+then give you your results because it
+has that variation in the data once
+that's done then just click on Save here
+click close And then click submit all of
+course if you have more documents then
+you're going to annotate all those
+documents and then click on submit
+all once that's done click
+okay and then you are done you can now
+close this new tab that was opened and
+come back here and click on
+refresh as you can see this has now sub
+been submitted but now we have to
+actually accept the changes in the
+annotations that I've made into the
+training data so I'm going to click on
+this annotation set and click on accept
+because I know I did this correctly I'm
+going to accept it and click okay to
+confirm that I want to accept the data
+that has been now been completed and it
+is part of the ground truth we can now
+go to the annotator component tab of our
+knowledge studio and create a new
+machine learning annotator this is going
+to allow us to actually deploy a new
+machine learning annotator to the
+natural language understanding service
+and you can of course use the rule
+dictionary or alemy language pre-
+annotators or annotators but I'd
+recommend just using the machine
+learning one for now and that's what I'm
+going to teach you how to do so I'm
+going to create this type of
+annotator and of course since we only
+have one document uh we're going to
+select the document set and of course
+since as I as I was saying since we only
+have one document we have to use that as
+our training document and we have no
+test set and no blind set so 100% % of
+our documents are going to be in the
+training zero in the test set and zero
+in the blind
+set once that's done click on
+next and then what's going to happen
+just keep everything here default and
+click on
+train once you click on train it's
+actually going to start training your
+knowledge Studio service here and once
+it's done training this machine learning
+annotator then we will actually be able
+to deploy it to natural language
+understanding in the meanwhile let's
+actually head over to Blum miix and in
+your Blum miix catalog you're going to
+go over as I said to the catalog and
+you're going to search up for the
+natural language of
+understanding
+Lumix
+[Music]
+oops okay so we're going to search up
+understanding and find the natural
+language understanding
+service click on the Serv service I'm
+going to be choosing the free plan and
+then we're going to call this service uh
+let's just say something like Watson
+knowledge
+Studio date parser nlu for natural
+language understanding we're going to
+leave this Unbound to any application
+choose the free pricing plan and then
+click on
+create now what's happening is it's
+creating our our natural language
+understanding service and with this
+we'll be able to actually use that
+custom
+model all right so we've created our
+natural language understanding service
+and now that we're here we're ready to
+actually use the service and in order to
+do this you're actually going to head
+have to head over to the API Explorer
+for Watson and open up the natural
+language understanding API Explorer page
+now in the natural language
+understanding API Explorer page you can
+basically create requests to the natural
+language understanding services run them
+and and actually test them out on a web
+interface but before you do that you
+actually have to fill out your
+credentials so go back to Blu miix and
+find your service credentials for the
+natural language understanding service
+so as I was saying you have to copy the
+user name into the username field here
+and then go back to Blu miix and copy
+your password into the password field
+once you filled out those credentials in
+the API Explorer you're ready to
+continue and
+analyze now what you're going to do is
+you're going to actually click on one of
+these analyze buttons here and this will
+call the analyze service for the natural
+language understanding service once
+you're here you can actually just use
+these default filled out uh these filled
+out Fields here and the text we're going
+to be giving the nlu service is my name
+is t or uh my name is Tim Cook or just
+Tim
+Cook is the CEO
+of
+apple and was born on
+November 1st of
+[Music]
+1960 so as you can see what we've done
+is we've given it a date we've given the
+job title the company and the entity
+which is person and then what we're
+going to do is we're going to tell the
+natural language understanding service
+to only return
+entities and then from there to actually
+try it
+out now as you can see in our response
+box we get Tim Cook as a
+person we get CEO as a job title and we
+get apple as a
+company but the thing is we don't get
+our date and that's because we haven't
+told the nlu service to use our custom
+model to train with or to use as you can
+see the knowledge studio is still
+training so what I'm going to do is I'm
+going to actually let this train and
+once it is done training we will be
+right back in the video and then I'll
+show you how exactly you can integrate
+this with a natural language
+understanding service all right so as
+you can see the knowledge Studio says
+that it is now done training this
+machine learning annotator so I can then
+just click this little close button here
+and as you can see it says we are
+complete now what we can do is we can
+actually head over to the details pane
+here and we're going to click on create
+takes snapshot what this is going to do
+is it's going to take the first version
+which is the only version of this
+annotator that we've created and it's
+going to take a snapshot of it we're
+going to give it a small description
+maybe something like date
+parser nlu
+V1 I'm going to click on
+okay and then what happens is it creates
+that 1.0 version creation date and etc
+etc gives it a description and what
+happens is it creates a 1.1 version and
+it allows you to take a snapshot but
+instead what we're going to do is we're
+actually going to click on deploy and
+what this is going to do is for version
+1.0 this will deploy it and what we can
+do is we can select natural language
+understanding to have it deploy to well
+natural language understanding I'm going
+to click on next and once I click on
+next I can actually choose my space in
+bluex and the instance that I'd like to
+deploy it to once I choose those options
+click on
+deploy and then as you can see it's now
+deploying to the natural language
+understanding service you can then take
+this model ID which is the ID of your
+custom model that you've just created
+and click on okay go back to the Watson
+API
+Explorer and you should see something
+called entities. Model inside of
+entities. model paste in your model ID
+and once you've pasted in your model ID
+go down and click on try
+it now you should get an error and this
+is error code 500 and it says model
+temporarily not available and this is
+because it's currently working on
+deploying this to the natural language
+understanding service it's been trained
+it just needs to deploy so what I'm
+going to do is again I'm going to take a
+quick break for around 2 or 3 minutes
+wait for this to become available and in
+around 3 minutes I will be right back
+and then we will be able to actually use
+this service I'll be right back all
+right so let's see if the model is now
+available with the natural language
+understanding service let's click on try
+it out once
+more and as you can see the model is
+available and it gives us back the
+entity of type date November 1st of
+1960 and this is absolutely great
+because we've again never given this
+exact sentence to it in the training
+data yet it was able to parse out the
+date which proves its machine learning
+capability and now if we were to give it
+a lot of different types of dates it
+would eventually generalize the concept
+of a date and it would be able to it
+would be able to parse a date from
+almost any sentence you would give it
+and that is exactly how this application
+works I really do hope you enjoyed this
+video and hope you were able to learn
+something from it but all right that's
+going to be it for this video today
+really hope you were to learn something
+and hope you enjoyed and if you did
+please make sure to leave a like down
+below uh and of course if you believe
+this could help anybody else you know
+like your friends or family please do
+make sure to share the video as well if
+you have any questions suggestions or
+feedback you can leave that down in the
+comment section below email them to me
+at tajim Manny gmail.com or tweet them
+to me at tajim manyi but of course if
+you really like my content you want to
+see a lot more of it please do consider
+subscribing to the channel as well as it
+really does help out a lot and if you'd
+like to be notified whenever I release
+new content please do make sure to turn
+on notifications as well by clicking the
+little bell icon beside the Subscribe
+button all right that's going to be it
+for this video thank you very much for
+watching goodbye

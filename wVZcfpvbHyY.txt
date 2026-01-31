@@ -1,0 +1,394 @@
+[Music]
+welcome
+the reason I'm recording this video
+today is because I wanted to show you
+the benefit of having parallel compute
+power when training in designing using
+deep neural networks and why when you
+are using AI or doing an AI development
+you need the sort of extremely powerful
+parallel processing power which these
+sorts of multi-core CPUs and GPUs
+provide now in this video I will be
+talking about the differences in terms
+of benchmarks of performance of one core
+eight core 24 and 32 core CPUs to show
+you a little bit behind the scenes of
+how parallel processing works its
+benefits and of course what it allows
+you to achieve in terms of deep neural
+networks their training and performance
+so low there and welcome to another
+tutorial my name is Taylor Bakshi and
+this time we're going to be going over
+how you can do random number generation
+on a CPU in Python in a massively
+parallel manner the way this will work
+is of course you will be generating
+millions of random numbers in a variety
+of different ways let me explain
+but the start off let me tell you a
+little bit about what's happening today
+first of all I will tell you a little
+bit about the task that I want to
+accomplish today
+now in essence why I'm going to do is
+always create a Python script which can
+generate any amount of random numbers
+say that you want 5 million random notes
+but this possum script will generate 5
+million random numbers in between
+different ways first of all I obstacle
+just try doing of one by one ok on the
+CPU it will one by one generate use
+random numbers using one core and so of
+course the random number generator
+really use one core of the CPU however
+since of course most Macs have four core
+CPUs meaning a threads become a power
+writing what I'm also going to do make a
+Python script I'll also do this in a
+slightly parallel way we mean it will
+actually generate eight things that we
+don't generate eight read numbers at
+once and so it will do is in an
+eight-core way meaning eight processes
+will be launched at the same time even
+though it will do eight at the same time
+so it'll do fine meal it will create
+five million hundred numbers for the
+time of only five million divided by
+eight individual random number creations
+plus some because this is the way you
+know doing the result however there is
+something else
+five million random numbers still isn't
+really a lot because of you know CPUs
+are really moving fast in the site and
+so doing these you know a to the time is
+very very fast for five million however
+when you start scaling up say fifteen
+million
+I need to get 50 million CPU start
+struggling a little bit and when even
+100 million it really starts heavily
+breathing I'm so stop sitting around you
+know for years seconds for the eight
+core to generate a hundred million
+random numbers however there's more now
+I'm going to run a different version of
+the Python script on a different machine
+entirely and this is where service
+provider polled digitalocean comes in I
+want to create a video about this for
+quite a quite a while and this is the
+perfect opportunity to if motion is a
+great cloud service provider that offer
+bear little servers online I bet you can
+use of course for your servers for your
+applications whatever it may be to
+actually do development on things like
+Linux and BSD environments and so what
+I'm gonna have done if I created a
+digital ocean droplet or you know there
+I created a bare-metal server I'm so
+what is I used there hi hi prosector
+sort of environment which has twenty
+cores of bare metal CPU power and what I
+was able to do it's actually pretty
+melon run the Python script I use the
+same code as the eight core version but
+are they will scale it up to twenty
+course
+and as you can imagine when we're
+generating a 100 million random numbers
+this becomes a lot easier we get all
+away from 40 something seconds - exactly
+30 seconds for 100 million random
+numbers so as you can see this is
+absolutely great how you're able to
+deploy a cloud bare-metal server and
+instantly run these sorts of
+applications on that server now the
+reason the one it screams video today
+the reason that I've always wanted to
+create this video is because I want to
+show you a little bit of the highlights
+of parallel processing now this is
+actually a very small example however
+I'm actually having relatively a small
+example however I'm really releasing a
+much bigger and for example of much more
+interesting in a little while little but
+for now I'm going to get over the code
+part where all show you how you can
+actually implement this entire system
+and run these benchmarks yourself for
+five million 50 million a hundred
+million random numbers of course again
+since you've got more cores the wool
+random numbers are generating the
+greater benefit you get from those extra
+cords it's a generally really
+interesting concept and I cannot wait to
+share it with you all right now I'll get
+over to the coding part where I will
+show you how you can code it this entire
+system let's get to it all right so
+welcome back to the Mac part and now
+let's take a look at how you can
+actually implement this benchmarking
+system you take a look at how
+multiprocessing can be used to speed up
+operations that need to be done so many
+times I'll actually go over here's my
+terminal as you can see I've actually
+gone ahead and create something called a
+digital ocean droplet and of course
+these droplets allow you create are
+basically cloud servers that allow you
+if I just open up the devotion here
+allow you to host servers in the cloud
+so you can do development on them and of
+course they have locked in different
+types of droplets for example this one
+right here I've created is a high CPU
+instance
+meaning that you can actually create
+instances with more CPUs more RAM
+whatever really fits your needs and of
+course on on actual Hardware on bare
+metal but what I plan ahead and done for
+now is chosen Debian 8.8 64-bit and of
+course I've gone over to high CPU and
+chosen this option right here and so as
+you can see now they do also provide 20
+core instances in the standard instances
+which are easier yet they've also
+benchmark the 20 CPU instances and the
+32 s of CPU instances the 48 CPU
+instance is not available yet but once
+it is out I will benchmark that and put
+the results in the description as well
+alright so those are the sizes available
+to you for your droplets of course this
+is the highest one that you can actually
+currently choose and that's the one that
+I've gone ahead and used for the
+benchmark I'm actually going to go right
+back over to my terminal as you can see
+this is what looks what it looks like
+when I SSH into my droplet I can
+actually go ahead and one Nano on this
+Python script that will allow us to run
+this benchmark and this is what it looks
+like as you can see it's a very simple
+Python multi processing script and what
+it does is people could generate a bunch
+of random numbers in parallel and you'll
+find the optimal number of processes to
+run aspect at a time using the multi
+processing that pool function and so
+what happens is using this scripts all I
+need to do is run the time command and
+if you don't know the time command is
+it's a bash command that allows you to
+time the education of a script so let's
+just say you wanted to time the
+execution of an echo script you could do
+this and you can see it was so quick
+that it wasn't able to report the time
+but if we were to do something a little
+bit more long running for example python
+grand par and if we were to ask it to
+generate 50 million numbers our excel so
+I've just entered 50 million and the
+Python script shouldn't take over you
+know around 11 seconds because of course
+we're doing this in a massively parallel
+way and so even though there are 50
+million happening it's really 50 million
+by 32 you're doing it for the time of
+this plus some on a single course
+because of course the results have to be
+stitched back together and every
+management the center setter up however
+again this was around the time of to be
+taking and as you can see it was able to
+give us the result in around 10.0 two
+five seconds it also gives you a number
+of minutes that the system took to
+process this command and so that is how
+I actually run these benchmarks and
+manually get all these results and then
+log them out but once you've actually
+gone ahead and actually gotten these
+result
+make sure you the results now I've
+actually created this little spreadsheet
+here indicating the sort of you need
+benchmark sort that I've created and
+their loot these graphs here as well and
+I explained the graphs in just a minute
+but first of all take a look at the
+results now if you can see four five
+million ah of course the c-team is very
+very quick at this because the thing is
+each operations the CP does is very very
+fast ah
+and of course it's doing only around
+five million which for the CPU is not a
+lot it might seem like it but again it's
+not a lot to the CPU so for one core
+you're looking around six seconds which
+still actually is quite a bit but for
+eight cores are immediately at around
+two seconds which is which is a split we
+just fast enough at some point that I
+did not need to benchmark the twenty and
+thirty two core CPUs however when you
+get fifty million results are a little
+bit different now with one core meaning
+that you're generating red numbers one
+by one you're sending around a minute or
+more specifically on 57 seconds from
+generating those random numbers
+however with eight cores look at this is
+getting down to just 20 seconds and then
+with twenty course your shading off an
+extra second you're getting down to
+around 18 seconds and then with 32 years
+shaving off about eight seconds you're
+getting to around ten point nine three
+so as you can see what's happening here
+is it's proving how multi processing is
+able to work but you mean you probably
+guessed this that doesn't require me to
+create a video about it because I mean
+of course if you do many things at the
+same time it will be much quicker
+why have I create this
+well that's because I wanted to show you
+a little bit of an interesting structure
+of multiprocessing
+because take a look at this what's
+happening over time is one core isn't
+increasing to the point where I've just
+you know just made this not applicable
+I'm not done you know benchmarking on
+one core after one hundred million
+because it's just taking way too long so
+we're on two minutes to calculate one
+hundred million random numbers however
+look at this eight cores took 40 seconds
+24 so 31 and 32 cores took 18 seconds
+now what does this mean well I think in
+order to explain this to you better take
+a look at these charts and you can see
+over time the gap or the the amount of
+improvement that the 32 core provides
+over 20 core or that 20 core provides
+over 8 core or that 8 core provides of a
+1 core is increasing and the reason that
+it is is because you're doing more
+operations in parallel and you benefit
+from more cores when you're doing more
+things in parallel and so what happens
+is the strength of the CPU of for its
+exact say for example a 32 course really
+starts to shine in the 700 million
+example because over time what's
+happening is you're really using the
+high parallelism with the 32 course if
+you provides you're using it to the
+point that it's much much more powerful
+than 20 core and 20 core itself is
+actually much much more powerful than
+what eight core is providing as you can
+see it's almost you know have the 20
+core isn't twice the speed almost of
+eight core here 32 core does it and even
+even faster than that
+and you can see what happens eventually
+is once you start stacking up operation
+where operation 32 quarks doesn't get
+faster over time in some what's
+happening is getting slower at a slower
+rate but 20 cores you getting slower and
+slightly faster rate in 32 core and so
+when you want to scale up massively
+parallel operations the more cores you
+have the better it is for your system in
+fact here is a chart explaining that
+very concept on as you can see this blue
+line here represents the speed that the
+eight core CPU takes along
+all that all the different benchmarks
+that I run so as you can see for example
+fifty million there's not very much
+variation between the amount of time
+that eight core twenty-four and
+thirty-two core CPU take however when
+you scale start to scale up you can see
+that the distance between them increases
+and the speed at which the distance
+between them increases also increases
+over time for it you can see happens
+over here is to work at the end with 800
+million you're seeing if there's a huge
+gap between acorn 20 core and then of
+course a big gap between at 24 and 32
+core and of course he were to continue
+to do this for say 900 million a billion
+at center etc these gas would just get
+bigger and bigger and the rate at which
+these gaps get bigger would also
+increase now of course this is just a
+very very quick introduction video to
+multi processing in Python and how can
+we use with things like these reduction
+servers however what I am going to do is
+release a much more full and better
+example of multi processing in just a
+few days when I explain to you exactly
+how you can use multi processing in a
+much more practical example using these
+types of servers I cannot wait until
+that video but that's going all for this
+video today I really do hope you learn
+for this and able to learn a little bit
+about how exactly these systems work on
+how multi processing can be used in your
+applications of course I will be
+releasing a much more and more in-depth
+tutorial very soon I'm technically of
+course I'm mostly than 32 cores here AHA
+and that will be out soon so thank you
+very much for joining today really do
+hope you enjoyed the video if you did
+please do make sure to leave a like down
+below I of course share the video if you
+believe this could help anybody else you
+know like your friends or family and of
+course those if you have any more
+questions or suggestions or even
+feedback please do leave it down in the
+comment section below you can email it
+to get Taji maybe Gmail comm or tweet to
+tweet it to me act as humanity of course
+so can really do like my content you
+want to see more of it so you can
+consider subscribing to my youtube
+channel as well and it really does help
+out a lot and of course turning on
+notifications if you'd like to notify
+whenever I will be new content again
+it really does help out again thank you
+very much for joining you today that's
+going to go for this video second part
+is coming up soon and all the source
+code and benchmarks will be available in
+the description and a link to this
+google sheet will be available as well
+thank you very much for joining you
+today goodbye

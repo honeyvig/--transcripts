@@ -1,0 +1,2221 @@
+hi James archery here with Tammi Bakshi
+we're here for episode three of Watson
+made simple with Tanmay Bakshi
+I'm Tammy's big brother IBM cloud and
+cognitive adviser Ives you all familiar
+with by now if you're not are you
+sleeping under a rock
+hey Maybach she is the 13-year old that
+has loves algorithms and in particular
+thank you natural name is classification
+ones machine learning ones and actually
+around for this episode we're playing
+around with the Watson TJ bot and we've
+used which API stand me okay so this is
+really interesting but we're actually
+talking about the API so let's talk a
+little bit about what we're doing so as
+you mentioned we're using the IBM TJ
+bought for this episode so this is
+actually quite exciting you can actually
+see we've got the TJ bot here which you
+will be seeing a lot more of in just a
+moment as you know if you've worked with
+a TJ bought it's named actually after
+the first chairman and CEO of IBM Thomas
+J watched a walk just like the IBM
+Watson services are but it's alright so
+now though I'd like to introduce you to
+the project that we're working on
+definitely
+this project is actually called T Thomas
+and it allows you to create a news
+grabbing chat bot via IBM Watson
+services through the TJ bot but just
+before we actually start talking about
+IBM Watson though and the TJ bought
+itself I'd like to introduce you
+actually to Mardy Murie the creator of
+the TJ bought and of course actually
+thanks to her she sent in a video clip
+for this live event so you can all watch
+this and talk a little bit about the TJ
+Mariam yes thank you and so this is that
+video clip Miriam and I created TJ ba
+last year my team started investigating
+something that we call cognitive objects
+these are the objects that we make smart
+and intelligent by adding different
+sensors actuators microcontrollers and
+IBM Watson services the concept that
+everyone really fell in love with was a
+paper robot that we called
+TJ path TJ path is a cardboard robot
+which you can also 3d print we released
+TJ but last year in November at Watson
+developer conference and with that
+release we targeted to communities
+makers and students makers because they
+like building and contouring with takes
+and students because we believe TJ bud
+has tremendous potential for teaching
+programming artificial intelligence to
+kids but now it's your turn
+check out IBM that bees slash mighty
+Chiba you can easily build your very own
+TJ bond and I can't wait to see what you
+build with him
+of course I've gone ahead and built this
+system when to teach I bought in fact
+just before we continue I'm not exactly
+sure but this is actually a TJ bought
+that over here that I got from my mentor
+Rob hi the CTO and vice president of IBM
+Watson and I actually like to play I
+wish I could have it
+they bought sign my brother and so now
+I'd actually like to play a quick video
+clip of our innovation talk at IBM
+interconnect 2017 or he actually gifted
+me this Rob this this TJ bond why and
+while you pull that up for anyone again
+we're gonna include the links for how to
+get the TJ bot as you heard it was IBM
+bids for slash might teach a bot mmm-hmm
+all the things that you hear can maze
+github repository will include at the
+end so hold those questions for later
+definitely but you know if you want to
+go buy one now I just revealed where you
+can go get it
+why don't you show us a bit sure let's
+take a look at the video clip and what I
+would like to do mark if you don't mind
+hand me that little box right there this
+little box right here this little box
+right here of course is what you would
+receive if you were to buy this from any
+anybody online but in honor of all the
+great work that you've been doing and to
+thank you for your passion your
+commitment your undying brilliance
+I wanted to o honor you with this key to
+the gift this is one of the first
+production thank you copies of TJ bought
+off the way ice ice this time next year
+you'll all be checking into the Mandalay
+Bay and the bots will be doing the
+second I can just see it now this is
+just a digital simple Sketchup file or
+the equivalent and you can take take
+this file we'll send it to you you can
+go into a tool like illustrator or an
+open source tool and changing you could
+resize it you can add different features
+and legs etc and then you can go to a
+maker space that we have in you network
+most because it is have them and you can
+actually cut it out with your own laser
+this is so much fun it's about 90
+seconds to cut out both end
+signs of it and it even smells good what
+you're doing always the enthusiast
+definitely all right so now that we've
+talked a bit about the TJ bought you're
+probably wondering a bit more about the
+technical side of this entire project so
+I guess let's start getting into the
+t-thomas system on so t-thomas is just
+the name of the project it's also the
+name of the TJ bought Thomas which is
+also the wake word for this TJ bought
+and we'll talk about that in just a
+moment project you've built so - Thomas
+yes exactly and so it's basically again
+as I mentioned a news grabber chat bot
+that allows you to filter news by
+specific by specific filters which I'll
+which I will talk about in just a moment
+as well and of course to do this through
+the TJ bot and so of course today we're
+actually going to be using as you were
+mentioning the natural language
+understanding knowledge studio Discovery
+News conversation text-to-speech and
+speech-to-text services for this
+application to function quite a mouthful
+yes and actually this is the best part
+this actually shows us how you can
+actually combine a bunch of different
+Watson services that generally aren't
+related to each other and actually
+combine them into one very powerful
+application I like that a lot so you're
+taking the recipes the foundations again
+for people that are thinking Watson is
+this all-powerful you know AI it's
+actually built a bunch of recipes the
+foundational that you can then customize
+that applied to the business were sees
+fit
+anime said you wanted to combine certain
+ones together conversations so you can
+kind of interact in a conversational
+language and then communicating through
+speech to text so if you want to add
+those elements to your your apps we can
+definitely do that and Tammy how do they
+access this type of stuff
+sure so of course all of these services
+are available publicly for you to use on
+IBM bluemix you can actually sign up for
+30-day trials on IBM bluemix actually
+start working with Watson services if
+you'd like to just like these and so now
+if you don't have a teacher buy-in or
+even if you do and you've got a bluemix
+account even if it's a trial you can
+definitely go ahead and make this make
+this application try it out experiment
+with it and actually follow along with
+the code this live stream I will add
+though the knowledge studio I don't
+believe that's on limits yes yes the
+knowledge studio is actually one service
+that is not available for bluemix on
+bluemix but that is actually a separate
+Watson developer cloud offering and you
+can actually just Google up why
+IBM Watson all in studio and you should
+receive and there's a 30 days free trial
+and that one is exactly and then of
+course you can also get a free unlimited
+account as well I believe that also
+exists so it's a little limited but it
+does allow you to create those those
+models for this application all right so
+you've told us about the software what
+are you gonna tell us about next well
+I'm gonna tell you a little bit more the
+software okay
+and so this software will actually allow
+you to filter your news by its topic by
+its date of publication by its keywords
+and also by its author and the best part
+is that it actually also not only
+conveys to you all the news that it
+found but also the sentiment of this
+news and I'll talk about that in a
+moment but of course this has actually
+been built in nodejs
+and this is actually becoming you know
+nodejs becomes very convenient for me to
+program with because the tea-table
+helper library and a lot of other
+programs were created in ojs and so of
+course watson and IBM love nodejs as
+well so it becomes a great to program
+and nodejs for this ok mm-hmm
+but now though i guess let's take a look
+at a demo so we can see how the system
+works and then we'll talk a bit more
+about the TJ bought itself and then once
+we talk about the TJ bought then we'll
+get over back to the code ok great
+let's do that then alright so what I'm
+gonna do really quickly this might take
+me a second but I'm going to unplug this
+HDMI cable plug this into my TJ bought
+so we can actually take a look and what
+the Raspberry Pi inside of the TJ bought
+is is is outputting and so we can we can
+actually run this demo so you can just
+put the face of the thi pot back on and
+write as the TJ BOTS
+wakes back up as you can see it woke
+back up and in just a moment we should
+be able to actually run our demo alright
+so now we're ready and as you can see
+I've actually opened up a terminal
+window and inside of this terminal
+window I'm going to run a no js'
+application called index J yes quite
+simple I'm going to run this and it
+should actually start listening to my
+voice hopefully ok thankfully it is so
+it's not listening to my voice and
+theoretically I should be able to start
+talking and right now the tea anybody's
+listening to me and it's actually
+outputting whenever I say to the screen
+or at least it will ok so I just gave a
+pause there so now it knows it has to
+find out what I just said to the screen
+as you can see just in that so but then
+you're probably wondering well why am I
+talking aren't we confusing the system
+aren't we confusing this TJ but oh well
+actually no we're not because as I
+mentioned the t-thomas system has a weak
+word and so it's passively listening and
+then it'll actively listen once you
+activate it through your Wake word which
+we can't really say right now but it's
+explained with a TJ box it's not open
+sesame' or something that no yeah well
+you'll find out right as I actually into
+this query so let's just say that I
+wanted news about IBM ok and so what I
+would say is Thomas give me news about
+IBM give it just a moment it'll actually
+get it'll you know it'll actually take a
+little actually listen to what I was
+saying before well the actual query and
+as you can see it count I searched for
+it news and I received the following
+results IBM brings Watson to mobile
+device management New York IBM faller
+don't Star Trek bridge crew heading IBM
+Watson's VR speech sandbox Activision
+Blizzard Universal display IBM news
+today chafers Investment Research and
+blogs IBM big data and analytics hub can
+we ask it anything else not really ma'am
+definitely yes something since we're in
+Toronto can we ask about sports yeah
+sure I just like to say one thing here
+though if you noticed and if you were
+looking at the TJ but as we were doing
+this you'll probably saw that the LED on
+top of the TJ bought actually turned a
+little bit more yellow than it was
+before when I actually asked the query
+and what this means is that the TJ
+bought is actually trying to convey the
+sentiment of all of this news through
+that our GB LED and so what happens is
+when Discovery News actually returns the
+top 5 news articles to the T Thomas
+system then what happens is the I'll run
+some fancy math that I won't talk about
+right now but I'll show you in the code
+and then I created that little sort of
+algorithm that'll take in all the
+sentiment of those documents and it'll
+actually do some you know
+number crunching and it'll actually
+generate a color value for that
+sentiment and it'll actually output that
+color value on to the TJ BOTS RGB LED
+and so what happens is the more yellow
+this color is the more positive this
+color is the more red it is the more
+negative this color is so if you get an
+orange color you know that you are you
+know in between happy and sad sort of
+thing well let's see what it picks up
+we're in Toronto yeah the Toronto Blue
+Jays played the Yankees and got crushed
+12 2 so let's see if there's any
+negative sentiment around that so what's
+the wake word again it's time it so I'm
+just gave it around what five seconds to
+to to you know listen to what we were
+just saying and then we can continue
+okay Thomas
+give me news about Toronto Blue Jays oh
+you see what happened is there a few
+features that allow this to work and so
+the TJ pod itself though listens in one
+continuous one continuous burst it
+doesn't allow pauses in between as
+you're talking so you have to say in one
+continuous sentence let's try that again
+give me one second here
+right as I why does it say go you can
+start Thomas give me news about Toronto
+Blue Jays perfect okay so apparently it
+didn't understand you properly it said
+you know Thomas deep well it says Tura
+Thomas did mean use and not give me news
+so let's try that one more time okay and
+see if we're able to get it let's get my
+mouth prepare to properly enunciate the
+words is it ready Thomas provide news on
+Toronto Blue Jays it kind of understood
+him there let's try that with one last
+time so give this time or else okay I
+give tell me one
+Thomas give me news on Toronto Blue Jays
+for some reason though it's not really
+it doesn't really want to work with the
+sentiment right now apparently okay so
+what's happening is when discovery
+returns these results sometimes these
+documents don't actually have sentiment
+attached to them and the nodejs script
+currently what it does is it will
+forcefully try and check for that
+sentiment in the JSON that discovery
+returns and what happens is when when it
+doesn't find the sentiment it crashes
+okay so then let me try one more yeah
+let's try another query right as I say
+go
+Thomas give me news on Cleveland
+Cavaliers this one worked I've searched
+for Cleveland Cavaliers news and I
+received the following results Cleveland
+Cavaliers vs. Toronto Raptors playoff
+preview leveland Cavaliers vs. Toronto
+Raptors playoff preview 2017 Eastern
+Conference champions Cleveland Cavaliers
+Cleveland Cavaliers Darren Lewis the
+bank and Tavares alright so as you can
+see that was actually successful because
+discovery actually returned sentiment
+for each document this time and so of
+course that that's something we're going
+to be working on uh-huh and so but as
+you can see though this led is actually
+very very it's actually completely red
+there's practically no yellow in this
+and actually in also in order to see
+what what sentiment returned I can
+actually scroll up here and as you can
+see it said that the positive score is
+zero point zero eight one four five
+cetera and the negative score is zero
+point two six so the negative score is
+way higher than positives where can we
+see the where the majority of the
+negativity is coming from unfortunately
+that's not a feature just yet okay it'll
+show you the average sentiment of all of
+these documents or it won't show it to
+you individually and what documents is
+discovery pulling from there's actually
+if you've worked with the Watson
+discovery service before you know that
+you can create these little collections
+or clusters of documents and these
+clusters of documents what you do is you
+feed them in and discovery will do
+something called in
+cheating the data and what it'll do is
+we'll put a bunch of metadata about that
+data and so for example let's just say
+we're two feet in 15 documents about
+news right and so what would happen this
+discovery for each document would add in
+things like entities taxonomy the author
+date of publication and so so much more
+for each and every document so is it are
+you saying that it creates its own
+corpus like this little or is it like a
+web crawler does it can you integrate
+like Twitter and social media or is it
+something like you have to build a list
+that's what I'm trying oh well you know
+what there yeah definitely well you know
+in theory you could build your own
+corpus but currently Watson discovery
+actually provides a pre-built corpus
+called the discovery News where
+thousands of documents are actually
+added every single day and curtain now
+it actually has I believe 17 million
+documents over 17 million documents of
+news or at least that's the last time I
+checked and so of course it's able to
+query from that corpus in quite
+literally a fraction of a second it's
+able to give you such relevant news to
+your query and of course the filters for
+this query are actually built up in this
+conversational manner using the TJ box
+so you can also then kind of like tweak
+and edit the type of stuff it's
+considering sentiment from exactly
+because you obviously don't want
+necessarily did stuff to the cleaving
+exactly they're only a little bit more
+about supports exactly in fact then
+what's the discovery services mostly you
+know smart enough to automatically
+adjust for this but if you want to
+really if you really wanted to get even
+more specific what you could do is you
+could actually specify a keyword when
+asking the TJ bot for news and you could
+say news about Cleveland Cavaliers with
+keyword and then specify a keyword we
+won't be trying that out right now that
+will take a bit too much time because
+you know there are a few different
+things on the microphone sensitivity and
+it doesn't understand the word with
+correctly but you know and this should
+this should but that that's how the
+system works and you should be able to
+specify and get really really close to
+the news that you actually do want okay
+so now that we've kind of demonstrated
+seeing what a negative sentiment and a
+positive sentiment looks like what else
+are we going to show oh well before we
+actually show a little bit more of the
+actual demo
+let's get back over to the coding part
+and before we get to the coding part a
+little bit more about the TJ BOTS
+hardware okay I want you to do that I
+may have misspoken saying you could
+purchase it I know right now actually I
+don't believe you can purchase however
+as john cone alluded to there is a file
+available that you could download for
+yourself and go and 3d print at a local
+makerspace I would use Google to search
+for makerspace near me and that way you
+could print out the file that way and as
+even alluded to you could increase the
+size for now we have a tiny TJ but we
+could make a smaller TJ by I can make a
+big huge CJ Bob wants a life-sized TJ by
+and you know about this I think most
+people Tammy are probably well why don't
+I just use like an Amazon echo or
+something like that what you the purpose
+of I think this and what we're trying to
+demonstrate is that you know you
+necessarily wouldn't have an Amazon echo
+reading people in a hotel lobby anybody
+necessarily have an Amazon echo as a
+concierge right
+it's more of an informational what we're
+demonstrating here is the underlying
+software exact elements of a hardware
+that you can literally build yourself
+into the representation or manifestation
+of what you want it to look like right
+and so you can add more capabilities
+that you wanted to you can add in things
+whether speech in text you can even do
+language translation exactly and then
+let's say you're at a hotel you probably
+need multilingual exactly like even you
+could very easily implement the language
+translation service with this with the
+TJ bot library that's already built in
+and you could easily just create an
+application where you speak in English
+and it'll speak in french or whatever
+else it might be yeah so the thing is
+it's not an apples to apples comparison
+they both have different functionalities
+and purpose I mean obviously you
+wouldn't even have like a TJ but no
+matter how cute it is
+this is a great people in front of a
+hotel right
+I mean it really depends on the hotel
+stay tuned Tammy's opening up hotel's
+nice well I mean okay so I don't feel
+your plan for world domination in some
+regards anyway yeah sure so let's
+actually get over to a little bit of I
+guess an unboxing sort of thing of the
+TJ Bop because I really want to show you
+a little bit about the technology behind
+and under the teacher I bought and what
+it's capable of
+so if we actually switch over over here
+as you can see just before we actually
+show you the unboxing part though this
+is actually the original box that Rob hi
+gifts me on stage so again thank you rob
+for gifting me this this is absolutely
+great I can't wait yeah again I just
+cannot wait to create even better even
+more interesting stuff with this but all
+right so if I want to move this to the
+side here you can probably just take
+this yeah sure we can just do that yeah
+and then I can just go ahead and take
+this box here as you can see this box is
+actually a fresh Watson maker kit box
+which contains a completely new TJ pod
+has not been opened before and so
+basically inside of this box I should be
+able to open it up and show you what
+all's inside and what all the TJ pod can
+actually consists of so if I blow this
+up here as you can see there are quite a
+few components that you see when you
+open it up first first of all you can
+see that you've got this little paper
+from from IBM talking a little bit about
+things like project into the TJ bought
+itself and the Watson maker kit but
+apart from that of course we've also got
+a few more things first of all you've
+got this little envelope from IBM which
+in fact James you can actually go ahead
+and open while I while I show the rest
+and then we'll take stuff out of that as
+part of that of course you've got the
+brains on the TJ bought your Raspberry
+Pi
+I mean you've probably seen a Raspberry
+Pi before it's quite simple inside of
+this box you've just got you know there
+this whole Raspberry Pi and this is the
+Raspberry Pi 3 also and so it has
+integrated Wi-Fi and Bluetooth which
+becomes of course much easier for your
+program with apart from the Raspberry Pi
+3 though we've also got a Bluetooth
+speaker from anchor with your TJ pop
+and of course this this Bluetooth
+speaker will allow the TJ bot to
+actually speak and so of course if you
+were to open this up quite simply you
+can see inside of course it's it's it's
+quite regular inside of here you've got
+your Bluetooth speaker and the smoochies
+speaker goes on the very back of the TJ
+pot and allows it to speak speech to
+text yeah that's the best part about the
+TJ bought it comes with everything it
+needs it becomes this really great you
+know
+integrated package by default of
+although apart from that let's actually
+get back over to the anvil thank you
+if I were to show this right here
+actually you can see that inside of this
+envelope you get a bunch of accessories
+I guess first of all of course you've
+got your power cable for the Raspberry
+Pi to power it with microUSB also just a
+quick note I'd like to say here that if
+you're actually powering your Raspberry
+Pi though this was actually causing a
+lot of problems for me when you're when
+you're powering your Raspberry Pi make
+sure you're using at least a 5 volt 2
+amp power supply because otherwise their
+Bluetooth won't work your speakers won't
+connect it's it's really painful to have
+to find out how to find out that it's
+actually you know the problems caused by
+5 volt to amp power supply but
+eventually I did Timmy back soon yep
+so now that that tips over let's
+continue
+so next of course you've got the camera
+which allows the TJ buck to see in this
+unmarked box and inside of this box as
+you can see we have here in this
+anti-static bag a Raspberry Pi camera
+version one this is just you know
+there's not too much difference between
+version 1 and version 2 really just a
+few mega pixels of a difference not too
+much it should allow the TJ bought to
+see however and so this is the Raspberry
+Pi camera apart from that though you've
+also got something a little bit more
+interesting here you've got the
+microphone and of course which will
+allow your TJ bot to quite literally
+hear that's actually quite small which
+is the best part about this
+I just snaps into the USB if I may so
+the cool part now that it also includes
+a camera you could even add in could you
+add in the Watson visual recognition
+exactly and that's actually been done
+that size that's again one of the points
+of Watson of the Raspberry Pi camera
+being part of the CJ BOTS so you can
+actually program it to see do things
+like facial recognition in fact actually
+it could be quite interesting to see how
+when we could tie in something like my
+project project zebra or something of
+that sort with the TJ bought to create a
+great interface for that so again really
+interesting what that what that's able
+to do but apart from this microphone
+over here as you can see that's the
+microphone there it's actually quite
+small again that's the best part it just
+snaps into your USB and then from there
+you ready to go or surplus audio and
+anymore apart from that of course you've
+got this led here you're probably not
+seen that properly with this anti-static
+bag but if I want to take this out you
+can see it first of all they provide of
+course some jumper cables here to allow
+you to connect the led to the pipe and
+apart from that they also provide the
+actual RGB LED itself this is a neopixel
+eight millimeter RGB LED and so this LED
+will allow you to actually of course
+convey things like the sentiment that we
+exactly yes
+apart from that though we've also got
+lastly a servo and the servo allows you
+to actually move the TJ BOTS arm if you
+would actually look our TJ bot has an
+arm and that arm can be controlled and
+moved by this here's servo so of course
+this also becomes pretty convenient with
+the recipes like TJ wave which allow you
+to control the VR of the TJ bond right
+apart from that now I've got the main
+part itself which you've been probably
+wondering about apart from all this
+bubble wrap here uh-huh which is the TJ
+bought itself exactly exactly now this
+is the TJ BOTS outside as you were
+mentioning quite literally the skin at
+the TJ bought now if I were to unravel
+this you can see this is quite big I'm
+gonna actually just slide the silver as
+you can see this is the cardboard of the
+TJ bot and of course inside of here
+you've got individual components like
+for example right over here you've got
+this component that you can actually
+just snap out and then you can actually
+fooled there are instructions on the
+instructables page for the TJ bot you
+can actually go ahead and fold this fold
+everything inside of here sap it out
+fold it and then combine everything
+together
+in order to make nothing and that's the
+best part about the TJ but all you need
+is this this cardboard and some tape
+because it's a little fragile I'd
+recommend having a little bit of tape
+around this point just to make sure it's
+doesn't rip but apart from that this
+should be good and that is what the TJ
+ball looks like inside that's what it
+consists of and that's what it that's
+what its inner technologies look like
+apart from that though I can actually go
+ahead and just put everything back into
+the box here we can organise this later
+but I'm just gonna put everything back
+and for now because I really quickly
+want to get into the next part here
+because this is really interesting but
+if we actually go back to my Mac once
+you're done unboxing your TJ but you're
+gonna start setting it up and you can
+actually start seeing a few pictures of
+how I was able to start setting up my TJ
+bot and a few steps along the way orlie
+that's actually those are actually a few
+steps I followed when sending up one of
+my TJ BOTS and so next I can actually go
+ahead and put this over there okay
+alright though as you can see all on
+screen right now we've got a few
+pictures of me building my TJ button
+this is actually sequential this is what
+sort of the the building process of the
+TJ ball looks like how it evolved over
+time you can actually see the final step
+actually plugging it in to test if it
+actually works but apart from that
+before you actually complete that final
+step and before you actually put the
+head on the TJ pot this is what your TJ
+pod is going to look like and so this is
+basically a half completed TJ pod
+everything's on here except for this and
+this is the head piece from the Siege I
+bought that gives it eyes a cutout for
+the LED a speaker hole in the back and
+the hole for the wires but apart from
+that before you put on its you know
+final piece of skin you've got a few
+more pieces here first of all of course
+you've got your Raspberry Pi as those as
+I was
+the actual brain of the TJ bot you also
+got a camera which allows the TJ bought
+to see and of course that's connected
+into the dedicated camera port on the
+Raspberry Pi 3 the DisplayPort is
+actually not used currently but I will
+not be talking about that right now
+you've also got an LED on the top and
+this LED again 8 millimeter neopixel RGB
+LED which is actually it has four four
+prongs on it three of them are actually
+connected to the GPIO pins or a new
+Raspberry Pi and so of course apart from
+that though we've also got the servo and
+the servo is also connected to the GPIO
+pins on this Raspberry Pi
+apart from that on your Raspberry Pi
+itself though you've probably already
+worked with one of these but if you
+haven't let me just tell you this apart
+of the micro USB for power and the HDMI
+for video output
+you've also got this little 3.5
+millimeter headphone jack that you're
+probably used to with most phones
+however I will tell you this unless you
+don't want your LED to work or at least
+you don't want your LED to be
+controllable do not use the headphone
+jack for audio because the thing is
+there's actually a special chip a
+special driver that's used for the 3.5
+millimeter headphone jack that's used to
+control and drive the LED okay so it's a
+little confusing how that works but the
+same chip that's able to generate the
+you know the signals to send to the
+headphones actually generates signals to
+send to the LED and so if you're using
+that chip to actually generate signals
+for headphones you're not gonna be using
+it for the LED so the LED will not be
+controllable apart from that you've also
+of course got your speaker on the back
+and with the speaker of course I didn't
+want to have to keep taking it out and
+charging it and pulling it back in and
+so I actually set it up in a relatively
+tight manner so that as you can see the
+speaker actually has a microUSB coming
+out from it and the microUSB is coming
+all the way up front and into the
+Raspberry Pi Z that's me port apart from
+that though we've also got the
+microphone plugged into the USB port and
+up on the top you can see might be a
+little bit hard to see right there
+but the micro SD which becomes the
+memory
+of the teach a pot and so you can you
+know have these different that's new
+cards with different programs on them
+with different operating systems on them
+whatever you'd like to again if you have
+already worked with a Raspberry Pi you
+probably know what this all is but then
+of course when you want to complete
+building your teach I bought you well
+you finished the final step you take the
+head piece out of the frame that I was
+just showing you you actually go ahead
+and fold it together build it
+and then you just finally put this
+headpiece on the TJ bought and there you
+go you should be done and ready to go
+just slide that on there place the LED
+and as you can see there are cutouts for
+the eyes or in this case I there's a
+cutout for the wires that will go in
+like the HDMI output the speaker and of
+course for the arm
+it's my question for you is how long
+does it normally take maybe two
+something like this oh well it really
+depends on how many you've said it
+before but if this is your first time
+then you might of course experience a
+few bumps along the way because it's you
+know not because it's you know you're
+something I've quite a complicated
+system with cardboard and so it might
+take you I'd say like three or four
+hours to set up your first one but after
+that once you gain more experience and
+once you've set up a few of them then it
+should become relative and then start
+playing and training it should be
+definitely fun but apart from that now
+we can actually continue over to the
+main part that I think if you're
+developer you've been waiting for for
+quite some time now which is the actual
+coding part and how that's going to work
+and so now though before we actually
+start coding I'd like to show you a
+quick sneak peek or glimpse into the
+actual technology and systems that go
+behind the t-thomas system so if I were
+to I'll show you this diagram here now
+the starting crimp seems a little bit
+complicated but it's actually not so let
+me let me explain this in chunks what
+happens is there are a few main
+components to this to the software and
+in fact you can actually see a little
+legend on the bottom right here which
+actually shows you a little bit about
+all these squares the blue squares are
+Watson services the red squares are
+software services that run on the
+Raspberry Pi and the purple squares are
+Hardware individual you know a piece of
+hardware that are on the TJ baat like
+the led the microphone and the speaker
+so the way this entire system works this
+it begins with the T Thomas system T Tom
+this is actually quite simple
+it just takes plain text input and use
+plain text output that's it
+although it does do a little bit more
+than that and I'll talk about that in a
+moment once T Thomas receives its plain
+text input then it'll send that over to
+the natural language understanding
+service annalee you will then go ahead
+and run that through some entity
+extraction because we want specifically
+entities and the exactly the reason we
+have to do this though is because
+natural language understanding actor
+will actually allow you to extract
+entities dynamically whereas with
+conversation you do these simple you
+know sort of dictionary searches which
+which natural language understanding
+allows you to create these dynamic
+models that classic or that you know
+exactly apart from that of course the
+knowledge studio is trained by a trainer
+or or you know usually that would be
+some sort of subject matter expert but
+you have to be no expert to actually
+classify news queries and so I was just
+able to classify around five hundred
+different news queries and so in old
+studio weren't how to then extract and
+to see that you use based on that
+information train ok and with knowledge
+studio it's actually pretty intuitive
+and easy to annotate things what you're
+looking for and so what that Ben does is
+well as you then dumping in information
+it's accelerating the entity
+identification and it's exactly action
+there exactly but then what happens I
+don't think that's almost direct coding
+anymore you're literally almost
+drag-and-drop
+I mean you are it's I mean you are
+actually dragging and dropping you're
+actually you know clicking on the entity
+and you're clicking all the occurrences
+actually coding in same entity equals
+exactly exactly
+but next then what T Jane what T Thomas
+does is it'll take the entities returned
+by and I'll you and it'll actually you
+know go through them extract them it'll
+it'll do some you know processing on
+them and then once it's created this a
+query and filter for discovery it'll
+send them over to the discovery news
+service discovery will
+returned five news articles and those
+five news articles will be the of course
+news articles that that it that it
+should give that conversation should
+reply to the user with then T Thomas
+will actually send your query
+Discovery's response and I'll use
+response over the conversation and it'll
+do this by the conversation context
+variable and of course the conversation
+message what will happen is in
+conversation will reply a message to T
+Thomas and then T Thomas will send that
+message over to the TJ pot library and
+this is actually where the interesting
+part comes in this is where the TJ Bob
+comes in now originally what happens is
+the user doesn't want to have to type
+things into a TJ bot that defeats the
+entire purpose of having a TJ box
+because then why even have a TJ pot you
+can do this on a computer and so the
+user wants to have a natural language
+speech interface for this and so the
+user will actually start talking to the
+TJ bot and of course they will give
+input to the microphone of the TJ pot
+the microphone will then give audio
+input to the TJ bot library here the TJ
+mount library will send that audio to
+the speech to text service speech to
+text will then go ahead and turn text
+for that audio and that text will be
+sent to T Thomas where whatever I just
+said will actually be executed then what
+happens is T Thomas returns a result and
+that goes to text to speech which comes
+back as an audio file which goes to the
+speaker and the users from receives his
+result however there is one more one
+more you know form of output that the
+user gets or form of input for the user
+from output for the program and so that
+is that T Thomas will actually provide
+led output for the user to actually try
+and understand I mean as you can see
+here the sentiment of the documents that
+you a visual representation exactly a
+visual representation of the sentient of
+the documents that discovery returns now
+the thing is though that's the TJ about
+library is great and it provides support
+for actually shining the LED a specific
+color pulsing it for a few seconds and
+it does a lot of things but there are a
+few issues with a few open issues on
+github
+I believe about
+how it's you know it's not very bright
+when I try and shine shine an RGB color
+via that library however yeah no no no
+what happens is the code that powers the
+LED doesn't you know should make it
+shine as bright okay but what I kind of
+haven't done is actually worked around
+that and so I've integrated Python code
+into this nodejs code you would that's
+what it doesn't work he creates a
+workaround right away I like it and
+that's how you should - if you want to
+be a programmer or coder you don't take
+no for an answer right mm-hmm
+okay so then what happens is I basically
+built this I guess you could say rapper
+and this rapper he's a very simple
+Python script it's it's it's called LED
+rapper that's it
+in fact what I can go ahead and do is
+maybe if we can take this HDMI cable
+plug it back into the T j-bot great and
+then I can actually show you we can put
+that back on and we can switch over to
+any TV right as you are ready oh I can
+actually show you this Python script and
+becomes this rapper to actually in
+essence all I ever wake it up okay and
+basically what happens is you just pass
+an RGB value to the Python script and
+it'll actually display that on screen
+and so what I can do it's actually been
+listening to us since we've been to uh
+for a while but what I can do is
+actually run a Python script cold st
+okay and st what it'll do is take an RGB
+value like say say give me a color like
+red green blue white blue blue okay so
+RGB is red green blue and each value can
+be from 0 to 255 and so that means that
+the RGB value from blue is 0 0 255 and
+so if you were to take a look at the TJ
+bought right now you would see that it's
+currently red you would see that the LED
+right now is red because it's still from
+that negative it's still exactly exactly
+so you're probably seeing the TJ bought
+right now and then what happens is let's
+just saying we want it to turn blue I'm
+gonna just click enter on the keyboard
+here and as you can see it turns blue
+magic so what happens
+he's the Python script will actually
+call something called RPI ws2812 well
+it's actually I haven't named it and I
+haven't created it either it's actually
+created by a bunch of people on github
+it's an open source library that allows
+you to crew to control neopixels strips
+of LEDs via the GPIO pins on a raspberry
+and so I've created a wrapper around
+this that allows me to access it in a
+very simple way and then what happens is
+if we can actually switch over back to
+my Mac now which would require me to
+unplug this I can actually switch back
+over and you can see over here that's
+what happens is t-thomas goes ahead and
+sends a command it'll do this again that
+and fancy logic with the with the
+sentiment and it'll send that command
+over to the LED wrapper the LOD wrapper
+will send that in turn to RPI WS 2 8 1 X
+and then that will send the command via
+the GPIO pins to the LED and the LED
+will give that output to the user for
+for them to see these and
+straightforward and so that is how the
+entire system works and how you're able
+to and and again
+I mean imagine this this entire system
+that's entire cognitive system is
+running even though it's you know in the
+cloud and everything it's running within
+a fraction of a second it's just so
+great how you're able to combine all
+these Watson services creates such a
+powerful application and just have a run
+so so so great
+alright so ago finally what you've been
+waiting for we can get to the coding
+part so now I'm using these developers
+data but now now we can actually code so
+so now if I actually open this up here
+this is the entire code for the T Thomas
+stand from beginning to
+and it's around 238 lines - some because
+of you know brackets and new lines but
+this is the this is the essential part
+of t-thomas before we get to that let's
+talk a little bit about the dependencies
+of this system if you want to take a
+look here in the package J yes and JSON
+file I'm actually defined that the
+dependencies for this project our mainly
+chrono node date format
+TJ Bhatt and Watson developer cloud I'll
+talk about chrono node and date format
+in just a minute but they'll allow you
+to essentially filter news by their by
+their date of publication because
+Colonel node will actually run natural
+language processing
+apart from Watson to actually try and
+find a date management text and see the
+really really fun part about this is the
+reason I recommend Cornell the speaker
+just turned off is because chrono
+actually has relative date support and
+what this means is you can say last
+Friday okay and it'll actually
+understand the specific day that you
+mean depending on the current date you
+can say next Monday you can say the
+first Monday in July and it'll
+understand what you're saying using
+natural language processing and using
+its own pre-built rules in fact this is
+open source and it's available on NPM
+apart from that date format is actually
+quite straightforward it takes a no js'
+date object and it's formats it as a
+string in a very specific way that you
+specify TJ Bhatt is of course the TJ
+about helper library and Watson
+developer cloud allows you to use Watson
+services in your node.js applications
+now we can get to the main code now the
+main code consists of quite a few
+different imports including the
+conversation service natural language
+understanding discovery prompt Crono
+format read line which is actually no
+longer acquired that was from a earlier
+version of the system
+TJ bought the configure the config dot
+JS file the system library the child
+process not execute library and of
+course the child variable and so what
+happens in the beginning though is I've
+also got another file
+called conflict and config if you've
+ever if you've ever used an TJ bought
+before you know that this contains your
+credentials I won't be talking about
+that right now because of course those
+are just a bunch of credentials but you
+can actually find out more about the
+config dot JS file at the IDM TJ market
+hub so you can actually go to github.com
+slash IBM T j-bot / TJ pot and you can
+find out more about this ok and again
+we'll be posting the links for all this
+information Lee I'm at the end
+in fact this code has already been open
+sourced the led changes are being pushed
+to github they will be up there soon
+because this was actually quite a
+last-minute change I actually added this
+feature yesterday to the to the exactly
+yeah the Python led sentiment part and
+so it's it's really totally new feature
+coming to get hub but it is open source
+and you can actually go ahead and
+download it right now in fact this is
+actually a featured recipe on TJ pop
+github and so actually thank you to
+Mario for actually making this a
+featured recipe thank you that's
+absolutely great alright but next let's
+find the hardware of the TJ bot that
+we're going to be using and so of course
+for now the hardware is just going to be
+the microphone and speaker because the
+LED has not yet been initialized and see
+what happens
+since we're not using the TJ bought
+helper library with this LED we don't
+need to define this LED or else it'll
+actually go ahead and define and
+actually set up the LED to work with a
+CJ bought helper library apart from that
+I've got a variable called TJ config
+which is a dictionary and that
+dictionary contains another dictionary
+called log which contains a key in
+element called level and that value is
+verbose and now the thing is this
+actually uses I I forgot the exact name
+for the library but it uses a library to
+actually log out the TJ pop library uses
+another library to actually log out
+whatever you know the TJ box is you know
+trying to trying to communicate and so
+there are a few different levels of
+logging but what this means is that if
+you've got this sort of you know runtime
+or a little normal level of logging then
+the thi bot will only log out very
+simple things if you've got verbose than
+the TJ bot will law
+more advanced things like the microphone
+I started listening and stopped
+listening and initialized and microphone
+that sort of thing but then there's
+actually the most verbose level of them
+all the one that'll print out every
+single little thing it's called silly
+hun so you can actually change your
+locking level to silly and it'll
+actually just print out every single
+thing that the TJ Bhatt is thinking
+about whether that be they might the
+microphone he is hearing silence or it's
+hearing something or whatever it might
+be
+everything will be logged out apart from
+that though you can then initialize your
+TJ bot and of course we're going to pass
+it all the hardware that you're using
+the TJ config in the credentials from
+your config file this is again some
+earlier code from a different version
+that we do not need anymore and then you
+define a function on the class array in
+this function it's actually quite simple
+its public codes from Stack Overflow
+and what it'll do is it'll actually go
+ahead and take an element or a specific
+element from an array and it'll remove
+all occurrences of it after that if
+you've ever used Watson conversation
+before you probably know what this is
+but I'm defining the context variable
+and the context back and explain the
+importance of that for those that are
+listening so you there radios yeah sure
+what happens is when building the IBM
+Watson discovery filter there are a few
+different pieces of logic that tie in
+with how the filter is supposed to be a
+string but I declare as an array because
+the thing is this is completely dynamic
+you could ask for a date of publication
+but you might not you could ask for
+keywords but you might lie you might ask
+for the author you might ask for so many
+more things but you might not and so
+there's always a chance that that
+element doesn't exist in the array okay
+and instead of having you know what for
+example let's just say that I were to
+log out you know filter a filter B
+filters C and let's just say that D is
+missing he's missing but F is is there
+right it doesn't stop the function baby
+yeah and what happens is the reason that
+this wouldn't the reason this allows the
+application to continue functioning is
+if you want to take an array like this
+and if you were to call something called
+a join function on it and the join
+function would actually take every
+and put a separator in between every
+element and join it into one string if
+you were to join this we would become
+specifically a lesser said to the
+separator or there's a comma and become
+a b c comma comma and then f okay and
+that you know or another comma actually
+and and that you know we don't want that
+watson discovery will not be able to
+parse that but if we remove these two
+blank elements here using this remove
+function then these extra two commas
+exactly and then watson discovery is
+able to understand this filter and is
+able to return use mm-hmm which is
+really important because you're
+gathering lots of different types of
+information exactly and there is a
+chance that something is missing
+exactly and you don't want that to then
+just stop exactly in fact you know like
+for example we asked for news we didn't
+specify a date a keyboard or an author
+yeah and yet it was able to give us news
+because of this function nice but after
+that of course we've got the context
+variable and you probably know what this
+is if you've worked with watson
+conversation before it'll basically
+allow us to keep track of how the
+conversation is going and allow watson
+to understand what the user asked for
+before this and more in fact using the
+context variable in conjunction with
+something that i like to call the old
+filter variable whether it'll what it'll
+allow you to do is essentially create
+this function or create this create this
+feature where and this is actually quite
+interesting so that I asked for news
+about IBM okay and so I'm asked for news
+about I'd even returns a bunch of
+results but it's not specific enough I
+want to get even deeper I want to say I
+want use about IBM with key word chess
+can we do that right now I mean we can
+try sometimes the speech-to-text because
+the thing is a microphone isn't very
+sensitive right now
+but we can we can go ahead and try
+definitely and so what happens is in
+theory we should be able to ask for news
+on a specific date and so say you were
+to ask for news about IBM and the next
+message if you were to ask for news
+about IBM but you didn't specify the
+topic I mean
+anyone to just say on date March 26 to
+2016 I would have okay then what'll
+happen is it'll remember that you asked
+for the IBM topic before but it'll
+basically able to combine those two into
+one query and send that again and create
+that as of course then you query all
+right in fact if I were to wake this up
+as you can see it's up again and I can
+go ahead and run it so let's see how
+about you say this and what you'll say
+is Thomas gave me use about oh I don't
+know
+Darwin ecosystem and then after that you
+will see in the next message Thomas with
+keyword
+I don't know cognitive okay okay keyword
+talkative I'm going to run the script
+and then run as I say go you can start
+Thomas give me news about Darwin
+ecosystem it understood this and it
+should be able to find that and it's
+absurd for Darwin ecosystem news and I
+received the following results
+Darwin ecosystem announces Tanmay back
+to you the world youngest I began one
+set me up and an algorithm this joins
+bar when ecosystem research the world
+youngest IBM Watson developer and
+algorithm mist joins Darwin ecosystem
+research and development team interact
+with Darwin as never before
+Cambridge University library evolution
+selected letters of Charles Darwin 1860
+to 1870 Darwin correspondence project
+and inside the tech support stand
+ecosystem now can you tell it to stop at
+a certain point because it does keep
+going on and on there oh you are right
+and see that's one of the more
+considerations that we have to put into
+this because the thing is the T j-bot
+actually stops listening when when when
+it's speaking and so there there are
+workarounds that of course and that
+that's again another feature to
+implement more training is what you're
+saying exactly if you make it more like
+a complex application yeah exactly
+now you wanted me to ask with the key
+word now arguing okay so you're gonna
+say Thomas with key word
+right just say with keyword or just
+sometimes just say with a keyword Thomas
+keyword cognitive okay so what you have
+to say this is actually quite
+interesting how it works
+see the knowledge studio hasn't been
+trained enough because it's only 500
+examples it needs thousands of them it's
+actually work properly because it's of
+course machine learning it doesn't work
+you know just like that and so you have
+to say keyword quickly so it understands
+it as one word and not two words and
+have to say Thomas clearly so thomas
+keyword cognitive see the thing is it
+understood you but another so keyword is
+two words so let's try that one more
+time this time disaster just just like
+gave me news about IBM with keyboard
+cognitive all right Thomas give me news
+about IBM with key word cognitive some
+thing is you really emphasized key and
+word there you have to say key word okay
+yeah so let's try that one that's time
+here just a moment and go ahead Thomas
+Jimmy news about IBM keyword cognitive
+it works I've searched for a news when I
+received the following results IBM top
+software trials and demos IBM driving
+cloud video innovations with IBM
+Budapest lab IBM marketplace data IBM
+marketplace austria IBM marketplace
+vision conference as you can see it
+worked absolutely perfectly actually it
+was a problem with the user not the
+software that's and well what happened
+is as you can see first of all you can
+see that the LED is very very yellow
+it's bright and yellow meaning it's
+highly positive the brightness of it
+indicates the strength of the emotion
+and the color indicates the actual
+emotion itself it's bright and it's
+yellow meaning it's highly positive and
+you can see that that result is it
+actually matches up with a positive
+score 0.5 for 1/7 power you gotta have a
+with it ya know to talk to things yeah
+yeah they do okay so after that as you
+can see actually understood James
+correctly it says Thomas give me news
+about IBM keyword cognitive and it
+correctly understood them which is why
+knowledge to do part stick correctly and
+we were able to have the system run
+that's a demo of the keywords okay so
+now we can get back to the code let's
+talk a little bit about the coup now I
+guess so I can just actually switch over
+here and then we can continue all right
+so I'm just going to wait for this to
+get back onto the screen and then we
+will continue I'll give that one second
+and we all right okay so as you can see
+after the old filter variable I declare
+a function called display LED and the
+display LED function is actually a
+wrapper around a wrapper and so the
+thing is the wrapper itself is actually
+hard to call from nodejs because there's
+a lot of confusion and and this it's not
+very easy to call bash scripts with and
+in this case Python will be a bash
+script with nodejs and so what I do is I
+build a wrapper around bash which will
+be which will enable me to call a
+wrapper around Rp iws to a 1 X and so
+that will allow me to call the Python
+script which will allow me to display a
+specific RGB value on the LED after that
+of course I'm declaring the conversation
+and LUN discovery services and after
+that I'm declaring a function called add
+now this is quite simple and you
+probably won't understand why I'm
+declaring this just yet but basically
+the point is that I could declare this
+function called add and it'll take two
+numbers a and B and it'll simply return
+a plus B I'll tell you why in just a
+moment after that I declare a new
+function called read and this read
+function will take an input called an
+answer although technically that should
+have been called a query ation of
+program that is a query although I did
+call that answer because of the way that
+the older system worked about it but
+essentially this function will take
+input as plain text
+and output will again be plain text and
+so of course what happens is in the
+beginning I declare this debug variable
+and a bug will by default be equal to
+false as you can see here and the bug
+will essentially allow me to know if the
+user wants to go in debug mode and they
+want to actually find out whether or not
+you know the specific things are
+happening with this code like for
+example as you were say as you could see
+that application was sometimes crashing
+with different queries if the error
+response wasn't you know clear enough
+I'd in abled the bug mode and it would
+allow me to print out a lot more
+information that I just do not get in
+normal mode and so I check if the second
+process argument is mine - - to bug and
+if it is then we print out extra
+information by setting the bug to true
+after that we start the first step of
+the t-thomas system which is to call a
+natural language understanding service
+specifically I tell it to analyze I pass
+it the query from the user I pass it a
+specific model ID for entity extraction
+trained by the knowledge studio I give
+it the English language and then I
+declare a function that takes an error
+and an Lu response what I do then is I
+create a few variables including the
+sighted topic decided date decided
+author and the sighted keyword all of
+these are equal to blank strings by
+default I then create a new variable
+called specified params which is equal
+to undefined by default now there's
+actually a special reason for this what
+happens is whenever you specify a date
+author or keyword specify parameters
+Pacific's will exist in the watson
+conversation context and if it exists in
+the context then watson conversation can
+derive meaning from that and give more
+personalized responses apart from that
+what I do is I go to into the NLU
+response and I take all the entities
+from this response and I loop through
+them using for each then what I do is I
+check if we're in the bug mode if so
+then print out the entities type in the
+entities text however not regardless
+what you do is you check the entities
+data type if it's a topic then you set
+the design a topic variable to the text
+to the to the entities text
+then you do the exact same thing for
+date author and keyword except when
+you're doing it for date author or
+keyword you set specified params to one
+after that you are done your natural
+language understanding step and you're
+ready to get to the discovery step but
+before you can actually call discovery
+you have to build the filter for
+discovery so that it can actually of
+course query discovery news so what I do
+is I create a new filter and filter it
+is by default blank and so what I do is
+I check if context news is a does
+actually exist in the context if it does
+great if it doesn't then create it then
+I check if the decided topic is not
+equal to nothing meaning that the user
+has actually specified a specific topic
+that they want to search for in the news
+if they have then it'll actually reset
+the context on use variable and set
+context context and use that topic they
+author and keyword to decide a topic
+decided they decided author and decided
+keyword respectively after that if the
+user has not specified a specific topic
+meaning that they are just continuing
+from their past context then this
+current filter will be equal to the
+older filter and what I do then is I
+check if the decided topic is not equal
+to nothing again meaning that there is a
+decided topic then I set them this
+context I'll use that topic to this
+decided topic I do the same thing for
+the date author and keyword after that I
+set the context not use that specified
+params
+to of course a specified paramananda it
+will exist meaning that watson
+conversation can understand that i then
+declare context news dot title one two
+three four and five and these are of
+course all blank strings and this means
+that this can only give you five total
+news results after that what I do is I
+check the decided date is not equal to
+nothing if it isn't equal to nothing
+meaning that there is a decided date
+then I actually push something to the
+filter and this will be a specific
+filter that allows me to filter news
+articles by their date now the date has
+two
+formatted as ýÿ ýÿ mm DD and so what
+happens is I actually take that aside a
+date and remember the decided date can
+be in any format not just yoi mm DD hit
+me in any format I could say you know
+October 16 2005 randomly in any format
+but the segment but the thing is I want
+to get into this specific format the way
+I do this is by running natural language
+processing in order to convert this to a
+structure no js' date format using
+Cornell I parse it then what I do is I
+convert it back from a structured data
+format to an unstructured but still
+slightly structured data format so what
+I do is I take that data I take that
+date and I convert it to a string in the
+why why why why mm DD format and then I
+put double quotation marks around it
+here and here and then I append why why
+why why mm DD to the beginning of it and
+that becomes the filter however if that
+does not exist meaning decided date is
+is is equal to something or decided
+decided date is not equal to something
+then what happens is we just append a
+blank filter to the array which will
+then be filtered out in the end by the
+remove function then what happens is a
+similar logic actually gets applied to
+the cited author and they decide a
+keyword and the old filter is then set
+to a new filter so it's again passed
+along through context then what happens
+is I check if we're in debug mode if we
+are that I could print out the actual
+filter and I named this as a filter so
+we can actually debug if something wrong
+is happening on the filter and how that
+logic is determined after that what I do
+is actually call the discovery service
+the discovery service will I will run a
+query function on and I will pass it the
+default environment and collection IDs
+after that I will pass it a query which
+in this case is context and use that
+topic which is the topic of the news
+that you want after that I will pass in
+a filter and in order to create this
+filter as we were just mentioning I will
+actually take the filter array remove
+all blank elements and then join the
+array
+months then finally I have a function
+that takes an error and a discovery
+response then I have some simple but
+long logic I check it for in debug mode
+and if so print out the discovery
+response I then go ahead and set a new
+variable called index to one I create a
+new positive and negative array which
+will help us determine the sentiment for
+the LED what I did was I then take the
+results variable from the discovery
+response and loop through it using a for
+each function then what I do is I check
+it for in the bug mode again and if so
+then log out the index just again for
+the bugging purposes after that I check
+if the index is less than or equal to
+five meaning that we can have only up to
+five indexes if so then I check if this
+documents sentiment
+it starts with positive meaning as
+document sentiment is positive if so
+then to positive I will push the
+absolute value of the full value of the
+actual score of this positiveness of the
+document and to the negative I'll push
+just a zero value I'll do the exact same
+thing for negative were actually very
+similar logic for the negative part so
+of course if these sentiment is negative
+then push the parse the float value gone
+through absolute value to negative and
+just push a zero to positive in fact
+we're gonna fix that crash that we were
+actually dealing with before all I need
+to do is say if valve dot doc sentiment
+doc sentiment and then run all this
+logic here Oh lost the where was okay
+then paste and all is that logic and
+then say else o else then negative dot
+push the zero zero and do the same thing
+or positive and there we go the crash
+should be fixed in fact another
+improvement could be to run this as well
+like so
+and that should be improved Kota which
+would fix a lot of different crashes
+with with different types of news
+apart from that though what I do is I
+set that context on news that has
+results variable to one and I then set
+the specific title of this index inside
+of news to this current title I then
+increment the index by one and then
+we're ready to actually create the led
+logic now inside the led logic what I do
+is I first of all create something
+called a positive sum in this case this
+is actually a positive average what I do
+is I take all of the positive scores
+inside of that array and I add them all
+together using a reduced function which
+is why I was declaring that add function
+before and I divide it by how many
+elements there actually are in the
+positive array it's a for example if
+we've got five different news documents
+and they're all positive and say they
+have score 0.3 0.5 0.1 0.2 and 0.7
+well what happened is without all those
+together and divide it by five to get an
+average value and we do the exact same
+thing for negative but in this case what
+would happen is since they would all be
+zero
+Awesome's there would be no no
+individual negative document it would be
+you know divided 0 divided by 5 0 and so
+there will be 0 negativity and so much
+positivity and so of course what I do
+then is I print out the positive and
+negative scores and then once I'm done
+printing those out
+I run a quick execution here for a bash
+script which will allow me to send an
+RGB value to the rapper to the actual
+LED rapper and so of course what I do is
+this LED rapper does a bit more than
+just controlling the LED however this
+LED rapper will actually take the
+positive average and the negative
+average it'll actually do the math to
+calculate the RGB values in fact what I
+can actually go ahead and do is bring
+you back over to the TJ pod again and
+actually show you the code that handles
+the RGB now I actually got I haven't
+done this and as you can see there's
+actually a different Python script which
+allows me to
+there's actually a different Python
+script which allows me to have to pass
+the average values I'm get the LED at
+the RGB so if I click enter here
+you can actually see this is the code of
+course after importing assists and OS
+and I'll talk about that in just a
+moment what happens is I calculate two
+separate RGB values the positive RGB and
+the negative RGB the way I calculate
+positive is by one assumption that
+positive is always yellow and yellow is
+a mixture of red and green and so what I
+do is I as you can see over here I
+actually go ahead and take a vert the
+positive average to a float value
+meaning a decimal value and I multiply
+it by 255 and that becomes the red value
+I do the exact same thing for the green
+value and the blue value is equal to
+nothing for the positive and then what
+happens is for the night of red I again
+take that same float value multiplied it
+by 255 and burn and blue to nothing
+however again I've taken the negative
+average here and not the positive
+average then what I do is I've got two
+separate RGB values but since we don't
+have to separate out LEDs and so we
+don't want to print two separate values
+I combined them into one value which
+represents the sentiment and so in order
+to find the final red value green value
+and blue value exactly I find the
+average of the positive and the negative
+fret the average is the positive green
+the negative green and the average of
+the positive blue and the negative blue
+I then convert those to integers and
+then I call another wrapper which which
+will finally print out or display that
+RGB value on the LED that I was just
+mentioning and that is the code that
+allows you to say no here and that's the
+code that allows you to convert these
+average values into our GD values and
+show them on your LED from there I can
+actually go ahead and unplug this get
+back to iMac and we'll get back to the
+main code once no js' is actually done
+and has passed those average values to
+the node J to the pi Python script and
+once python has done its
+magic and none it's you know work then
+what'll happen is no Jess will check if
+we're in the bug mode if so it'll print
+out the context variable that's going to
+be sent to Watson conversation then
+you're finally ready to send a message
+to Watson conversation what'd you do Dex
+is you actually take the query from the
+user and you pass it to Watson
+conversation you pass a word space ID
+and a context variable then don't you do
+is you check if you're in the bug mode
+if so print out the response and the
+error if there is one and then finally
+you take the response from Watson
+conversation and you call the TJ dot
+speak function and there you go you're
+TJ bot speaks out whatever Watson just
+returned you also just print out what it
+returned and you set the context
+variable to what Watson responded away
+that's context and finally you actually
+call the TJ dot listen function which
+will actually call a function with a
+parameter whenever it listens to
+something that you say and then I
+implement a wake word which means if the
+message start with starts with Thomas
+then I remove Thomas from the message
+and then I call T Thomas on that message
+and that's all of the code that makes
+this entire system run let's do another
+demo and then we're done when it was fun
+so really fun building it as well and so
+now let's actually go ahead and do one
+more demo so what do you want to ask me
+about this time well you say I want to
+do the date and the time thing right
+yeah so we can try out that yeah ok so
+let's do I BM and then do a date right
+March 20th 2016 so how do how do we do
+that do we say yeah you can actually say
+date yeah so you can say Thomas give me
+news about IBM on date March 20th 2016
+or whatever
+connecting his brain in this case the
+okay anyone know and then we will begin
+right as I say go Thomas give me news
+about IBM on May 16 1989 I've searched
+for sixteen to nineteen eighty nine news
+I received the following results okay
+what happens is first of all it doesn't
+understand what you just said as numbers
+so what you have to say is what they did
+to you it again may 16th 1989 ok ok so
+let's say see here let's see what it
+understood your speech as so it said ok
+so I understood 1989 as words and so of
+course the knowledge studio isn't
+trained to understand words and so you'd
+have to say 1989 just for speech detects
+to understand you of course if you want
+to create a custom vocabulary for speech
+to tax this would work perfectly around
+there is a workaround workaround
+it's what's supposed to be done it's
+just that I haven't done that yet you
+can create a custom vocabulary little
+work alright so I have to say give me
+news IBM May 16 1 6 1989 yes
+so May 16 and now 16th May 16 and I'm
+probably let's hope this works
+okay go Thomas give me news on IBM May
+16 1989 Oh actually there's some bad
+words as well so the text-to-speech
+service actually 16 okay so what happens
+is this text-to-speech service actually
+takes text and as sometimes able to say
+in one go like 1098
+nine one nine eight nine when you put
+you know appropriate commas and stuff
+but apparently speech-to-text doesn't
+have that support just yet
+so maybe see well we get the point I
+believe so but uh but please do not to
+know just yet because we've got a little
+more cut out coming up about what do we
+got ah well I mean first of all if you'd
+like to contact me account any of the
+following social media because I'd be
+glad to hear from you and I'd be glad to
+go to you know collaborate with you help
+you out with your problems questions
+one-to-one wherever it might be
+oh we also have to squish they switch
+the screen back my back over here from
+the Raspberry Pi and so apart from that
+though now we for anybody has any
+questions please do ask them in the live
+chat and I'd be glad to answer them so
+James do we have any questions we do
+actually so some what it actually has a
+TJ about already
+mmm-hmm and it comes from Henry will I'm
+just wondering what to install on my TJ
+pod mmm-hmm I want to use it for a demo
+at a local high school next week when a
+bunch of us are going to visit for
+discovery under hurdles which is a it's
+an exchange it's to explain STEM careers
+so he's like thinking of using the
+conversation recipe to demo to them what
+recipes do you think would be a cool
+demonstration to people interested in
+stem yeah you see well there are
+actually quite a few different things
+that I recommend here two of them mainly
+though one that's not very I guess you
+could say practical but it would be
+really fun especially because you have
+to do this inside of a high school is if
+you were to implement a system like my
+tans row right with a TJ baat and if you
+were to create a drone control by Watson
+conversation through a TJ box so you
+could actually talk to the TJ bot and
+the TJ bought would mean you know using
+IOT and raspberry PI's to actually
+control a drone that could be a very
+interesting idea but apart from that one
+thing that I really liked well I mean
+apart from the conversation recipe
+that's also great because that really
+shows you the capability that the TJ bot
+has to actually
+you know the capability the Chi about
+has to become an interface for such
+powerful machine learning services
+however what would also be very very
+interesting is if you could implement
+something like as we were mentioning
+that language translation Bach where
+what you do is you you speak in one
+language and this can be any language
+that language translation sports and
+speech-to-text and what will happen is
+language translation will translate your
+text and it'll actually speak that back
+out to you the reason I absolutely love
+that demo is it shows I mean it's
+actually great for stem the sign said
+actually great for steam as well you
+know science technology education arts
+and math so I think these acronyms now
+we're at it let's just glued everything
+in there right well I mean I know you
+have to have great so I I think that's a
+really those three those three ideas I
+think those amazing mainly tandro that's
+one that's good that could be very
+interesting although again that's
+actually on my github you can actually
+download the tandro source code and
+actually load it on to after a little
+bit of porting you could probably just
+load it onto a TJ bot and have it
+actually control a drum for you you
+could create a language translation bot
+the where you can speak in one language
+and it'll speak out in another in fact
+you could actually do custom deep
+learning on that that would be really
+fun yeah exactly
+apart from that you can of course as I
+mentioned implement that conversation
+recipe I think that's also a very very
+good idea really because it highlights
+how the theory Bach can be used as this
+very powerful interface for even more
+powerful cognitive services nice thanks
+Henry we'll for that question next one
+would be and a lot of people want to be
+like again asking how old are you oh my
+gosh I want him to marry my daughter
+unfortunately Timmy you're not in the
+market right now this type of thing he's
+not sorry kids his love right now is
+technology and of course his family yes
+you know so those are that's that's
+certainly occupying all his time but
+Timmy how are you and actually to get
+started again
+I'm actually currently 13 years old and
+I got started with programming when I
+was 5 years old and with simple language
+is like foxpro batch that type of thing
+at eight years old I created my first
+sort of major iOS application and at
+nine years old it was accepted into the
+iOS App Store it's called t-tables which
+helps you learn your multiplication
+tables and 11 I stumbled upon IBM Watson
+and it's cognitive services and of
+course so that was actually quite
+interesting how I stumbled upon it how I
+actually stumbled upon a documentary
+about IBM Watson and that documentary
+led me to find out you know how it was
+able to play jeopardy and when from
+there I was really interested in
+services
+I created my very first Watson
+application asked handmade in November
+of 2015 after creating many different
+videos about it on YouTube
+in fact after I de created those videos
+about it there were lots of IBM errs who
+found out about it and actually reached
+out to me but two of the most notable
+ones were actually now my mentors my
+brothers James Archie Arry and Timothy
+Duncan and so they actually reached out
+to me
+and then from there they invited me to
+speak at Ivy American I 2016 and I've
+been you know using Watson's cognitive
+services ever since we actually have
+someone that says his name is Sami Abbas
+he said you helped him with his global
+safe happily Sami he says it's going
+really well that's absolutely great I
+can't wait it's actually a an
+application for internally for UNICEF
+and so it's it's it's actually great I'm
+not sure if I can you know talk too much
+about what it does but um Sami you can't
+feature to give it a shout out about
+your application and then we can't talk
+about it but anyways that's awesome that
+even that and that's again another great
+thing about TNA is he's he's serious
+about connect with him on Twitter Email
+just github YouTube he will respond he's
+usually pretty good about that he
+responded back to me when I responded on
+is a YouTube channel so I think some
+people would love to know what have you
+done be seen that was really fun and
+then what do you have coming up because
+I know you've got a lot of travel right
+yes oh well I mean what I've been doing
+recently generally I mean of course this
+Watson made simple series is absolutely
+great it's going nicely of course
+working with the TJ boughten
+technologies like it as you know but
+apart from that one of the main things
+that I think it's really interesting is
+how I've been using cognitive
+technologies in places like for example
+I mean just just a few days ago I was
+actually at Twilio signal conference
+keynoting about cognitive
+technologies and actually was part of
+the of Geoff Lawson the CEO to Leo's
+closing keynote and I was actually doing
+that tandro demo live on stage when we
+were actually flying the drone via text
+message powered by Twilio so it was
+actually really fun how you're able to
+fly Joan's using cognitive capabilities
+and it's not like those sort of
+self-driving Jones it's actually you
+know one of those drones actually
+powered and and and you know driven by
+humans but through this really great
+interface that humans love but apart
+from that what's coming up I'm talking
+you know mainly about I'm actually
+working on mainly projects like the
+cognitive story I'm talking about it at
+places like TEDx which was which I was
+actually just about to forget about TEDx
+actually I have a TEDx talk in
+Cincinnati on the 17th of June apart
+from that I've also got a keynote in
+India or many events in India for
+NASSCOM on the 22nd and 23rd of June
+actually I'm going to be in Hyderabad
+pew a Delhi gergõ and many other cities
+around Delhi and I've also got webinars
+and seminars actually on-site seminars
+for companies like HSBC Fargo Chris and
+many more
+so definitely if you want to follow
+Tanmay journey definitely follow him on
+all the channels mentioned because he's
+promoting the new code that he's working
+on the projects like I said he's
+actually going to be June 17th right yes
+in Cincinnati Ohio to do a TEDx there
+check them out there if you guys are
+local bring your kids out to be great
+opportunity for him to connect with them
+and then you're gonna be and you said
+Hyderabad a-leapin I in India June 22nd
+til July almost right at IBM developer
+conference yes I might actually be at
+the IBM roadshows developer conferences
+in Bangalore I'm not exactly sure if we
+can yeah I'm also going to be I might
+also be at the IBM research offices in
+Delhi this is gonna be really fun little
+tour exactly yep so I thought I wasn't
+doing a lot with my summer but Tammy
+clearly loves to be more busy than I so
+anyways that's some good stuff that you
+got going on there I think you know a
+lot of people that watch they have kids
+or
+children your age or aspiring you know
+they want to set them on the right path
+you know where how what kind of guidance
+would you give parents that are
+interested in you know having kids
+develop oh well this will be our last
+question yes well I mean there are many
+tips that I'd like to give with since
+we're short on time
+the main one that I'd like to give here
+is first of all that you have to I mean
+as I like to say you have to be
+passionate about programming for it and
+computing in general before you can get
+into it you can't just say you know I
+want to do program and get into it and
+you're not passionate about it that's
+just not possible you have to you know
+do it and follow your heart follow your
+passion as you do this and and you
+really just have to you know start a
+small start easy and start playful
+because I believe that until you you
+know start at your learning at your own
+pace you will not be able to learn
+properly that's just one of the things
+about learning and of course apart from
+that one more tip a while you're
+learning programming is that you should
+learn by example learn my practice
+because just like every other field in
+programming as well practice makes
+perfect and really it's just what I
+believes like for example when I was
+learning Swift right what I would do is
+I would just randomly implement simple
+applications like from watching number
+generators I would implement prime
+number checkers you know LCM and GCF
+generators and etc etc so I think what I
+would get practiced as a programming
+language and really every time I would
+create something I would learn something
+new learn how to make code more
+efficient learn how to use arrays more
+more efficiently learn how to use map
+instead of a loop and it's just so much
+more that you just cannot learn just by
+reading the documentation it's kind of
+like the situation where when parents
+want kids to play sports they kind of
+throw them in there and the kid didn't
+say they don't they don't enjoy it yeah
+right and so you have to like ask your
+child hmm hey what are you passionate
+about and then see where that
+potentially relates to programming
+lately and then you know you can't just
+buy them a book right and if I learned
+how to program from a book black and
+white text or whatever I would yeah I
+would be bored so quickly exactly yeah
+which is actually why you know I really
+do promote this sort of learning by
+example in for example my book hello
+Swift iOS app programming for kids know
+the beginner
+because not only do you have to teach
+these kids you know and the youth and
+beginners you know the the basic
+programming essential sort of thing and
+also the code and syntax behind the in
+Swift and programming languages like it
+you also have to teach them how to use
+these uses and applications that they
+relate to that they can understand and
+and that of course that they're
+comfortable with and so I again I really
+do believe that this sort of practice
+makes perfect attitude in programming it
+really makes it work
+alright well on that note guys go
+practice go download the file that's
+available for you to 3d print find your
+local makerspace you know go check out
+Tammy's github to help walk you through
+there I think there's a tutorial he's
+got going on and how to implement what
+he's created a little bit more
+explanations on what makes up the TJ pod
+and everything about that so with that
+being said we'll be correct coming up
+with the video soon again probably in
+the next month or so but your table
+I don't know when's the next but we're
+going to do a series for coming up soon
+so stay tuned look out for us we love
+interacting with you guys anything you
+want to say to the people ah that's all
+if you want to find out what about the
+TJ I bought you know setting it up the
+wiring and everything that goes behind
+it please do keep a note on my youtube
+channel you can actually find out more
+about that there it will be uploading
+that soon so thank you very much for
+joining in everybody thank you very much
+actually James archery signing out bye

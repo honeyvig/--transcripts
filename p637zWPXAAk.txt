@@ -1,0 +1,411 @@
+so hello there and welcome to another
+tutorial my name is Henry Bakshi and
+this time I'm going to be telling you
+how you can use genetic algorithms to
+convert a random nonsense string like
+this into an actual sentence such as
+this height and may now just before I
+begin I know that this technically isn't
+a sentence by definition but I guess you
+could use it you could call this a
+phrase I'm just loosely using the term
+sentence here because I don't want to
+use another word I mean I'd you could
+get you could you say that this is a
+phrase interest that I'm mentioning it
+as a sentence in this case that's
+continuing though so today I'm going to
+be showing you as I said how you can use
+evolutionary or genetic algorithms in
+order to convert something like this or
+this into this so how will this work now
+if you don't already know what is a
+genetic algorithm or an evolutionary
+algorithm an evolutionary algorithm is
+essentially as it sounds a copy of
+actual real life evolution just like for
+example humans started out as little
+bacteria in like a little pond now we've
+like evolved to humans literally that's
+essentially the child the kind of thing
+that we're trying to imitate on a much
+much much much much smaller scale and so
+essentially what's happening here is
+we're taking something like this so have
+this string here and we're finding the
+most minut of similarities between this
+random string here and this over here
+for example if you see here quite
+coincidentally by absolute random chance
+these nm are in the same position as
+they are in the actual string this
+endless M okay and so essentially what's
+happening here the reason this is so
+great is because now what can happen is
+this is a little bit better of a string
+than this one and so this one has more
+of a chance of spreading its genes and
+those genes may include an
+and so that of course does mean that
+it's going to be spending on that good
+for its species which is sentences and
+its species is a sentence essentially
+and so of course eventually with these
+little random chances and random
+mutations and random crossovers which I
+will explain in just a moment you will
+be able to eventually evolve into this
+string over here alright so take a look
+at how this will actually happen so now
+there are actually quite a few stages to
+this to begin a genetic algorithm needs
+to have a population size what is this
+now first of all I'm going to tell you
+what a population is a population is
+essentially a group of individuals in
+this case an individual is a sentence
+usually it would be like an individual
+like a person or a neural network but in
+this case an individual is a sentence
+and each character is a gene alright it
+is one of the genes that make up it's
+that that individual and so essentially
+let's say we have height animate as our
+target this is what we want our genetic
+algorithm to reach we're going to take
+its length and essentially all those
+genes for this round of genetic
+algorithm evolution will have the same
+length as this string so now essentially
+now we have our population which is a
+group of individuals but how big is our
+population well in this case I decided
+to make it around 2,500 or 3,000 in this
+case so now we have 3,000 individuals in
+the first generation alone and so there
+are 3,000 randomly strings like
+absolutely random and of course as I
+said they're the absolute most minut
+similarities between these random
+strings and the final string which we
+have bred and read and read together
+over many generations until they're very
+similar and then eventually the exact
+same as this sentence let's take a look
+at how this works
+shall we now first of all what is
+evolution so to begin we have our random
+strings now how do we determine what
+string is better
+other strings well this is how we do it
+if you don't already know there's an
+algorithm called Levenstein edit
+distance which I have used in previous
+videos quite a bit actually it's a very
+very interesting algorithm I do
+recommend you check it out there will be
+a link in the description to ah rosetta
+code article where you can see how to
+implement the 11 shine edit distance
+algorithm in a multitude of different
+programming languages rosetta code is
+amazing in that sort of aspect and so
+that's actually where I'm using that's
+where I'm getting my eleven shine at a
+distance out for them implementation and
+so essentially what's going to happen is
+we are going to get the Levantine added
+distance of this random string and this
+actual final target now the Levantine
+edit distance is essentially how many
+characters you'd need to change this
+string into this string you know from
+one state to another how many characters
+would you need to change in order to get
+there okay now of course the more the
+worse and so essentially what this means
+is if you need to change more characters
+to get to a final result that means it's
+bad because that's way off that's very
+different if you need less characters to
+change that's good because of there's
+more similarity for example in this case
+it would say 1 2 3 4 5 6 7 8 9 10 11
+okay so this is an 11 character string
+all right and so essentially let's say
+let's just pretend that they're
+absolutely no similarities between this
+first string and this target the the
+Levenstein edit distance will be 11 you
+need to change all 11 of these
+characters in order to get this final
+target but the 11 shine edit distance
+for the second random string here would
+be 2 less 9 and that's because there are
+already two of these characters that are
+correct you only need to change nine
+others in order to actually get the
+final string and so for for this case we
+are using a fitness type now if you
+don't already know fitness is how fit
+one of these individuals is and so
+essentially in this population we have
+lots of individuals and those
+individuals have their own
+which is what make them up and of course
+they have their own fitness levels as
+well which is how good they are at what
+they're trying to achieve and so in this
+case we have a fitness type of unnatural
+now there are two fitness types or two
+main fitness types natural and unnatural
+natural means that a higher fitness type
+is better unnatural means that a lower
+Fitness type is better in this case
+we're using unnatural because the less
+characters that you need to change from
+the 11 find it edit distance algorithm
+the better it is for that creature and
+for its species survival now let's take
+a look here so as you can see how would
+we continue so essentially one more
+thing I'd like to explain these are
+these genetic algorithms actually have a
+lot of steps and I go into them so let's
+say we're able to calculate the Fitness
+for all 3,000 individuals in this
+population set now essentially what's
+going to happen is we will have ok so
+let's say these are the two individuals
+that we have but we actually have 3000
+of them others now we're going to take
+the top 0.85 or sorry 85% of these of
+these top fitness creatures so we're
+going to sort all this population by
+their fitness the lowest first because
+of course as I said that's better lower
+the fitness the better in this case
+we're going to sort of buy that we're
+going to take the first 2550 organisms
+from here or creatures or individuals
+from here and we're going to set those
+aside and the rest 450 will be trashed
+after that will generate 450 new
+individuals and add those to those 2550
+to create 2 3,000 more individuals once
+we have these final 3,000 individuals
+those first 2550 that i was talking
+about that we actually did create that
+we created or that we extracted from the
+original generation 0 we're going to
+take those alright and we're going to
+separate those out and we're going to
+blue alright so we're gonna see the zero
+element and we have two options now
+either we take this individual and we
+breathe this individual or we mutate
+this individual okay there's another
+option but I'll tell you that in a
+little bit so let's just say we choose
+mutate what would this do well let's
+actually go across over first since it's
+a little bit simpler in the in the way
+that I'm explaining it so now what does
+cross over me what's going to happen is
+we're going to take that zero as element
+that we're currently on and we're going
+to choose another random element from
+the array and then it'll be two random
+strings that need to be bred together or
+cross over in technical terms it's
+called cross over but you can also call
+it breed or me or something like that so
+now as you can see over here we have
+these two random strings and let's just
+say that these two are the ones that we
+need to cross over now it's there across
+their points so now if you don't know a
+crossover point is at what points who
+are going to be crossing over these two
+strings to create two children so now
+let's just say that in this case our
+crossover point is over here and over
+here now in this case I'm using two
+crossover points but you could use as
+many as you want you can use one you can
+use two three four five six seven eight
+however many you want
+I prefer usually two maybe three one
+usually isn't enough but two usually
+works good for me so now event again it
+always depends on your sentence how
+you're trying to evolve it your other
+parameters as well but again as I said
+on average two works for me best now how
+are we going to go about doing this now
+first of all we have two children that
+we're creating
+so usually how I go about doing this is
+let's say okay let's we we have the
+first children the first child here and
+the second child here the first parent
+here in the second parent here so we
+have parent one parent to child one
+child - okay so now first of all our
+crossover point is at number three and
+and at seven all right that means that
+the
+first three characters from parent one
+can go to child 1 capital R capital Q
+small m and the first three characters
+from parent to can go to child to xgy
+alright so how these have been copied
+from parent 1 imperative to their
+respective children next as you can see
+we are past this crossover point now
+we're looking at number 4 here y and y
+now actually what we would usually do is
+we would put the first parents in the
+second child and the second parents in
+the first child for example we would
+swap them y and y but you can't really
+see that because they're the same thing
+but if I show you here now as you can
+see this is 2/4
+this is the fifth now we're still in
+between these two crossover points and
+so what I usually do is I again reverse
+these so I do M gene-gene coming from
+the second parent and I mean it's G
+coming from the first parent to the
+second child and I'm coming to the first
+child from the second parent so they're
+being swapped again let's do this for
+the drug three sorry tilde and for the T
+all right so those from swapped now we
+are back at another crossover point A
+Lot seven sorry seven now what I want to
+do is I'm going to start doing it
+naturally again I'm not going to swap
+these genes anymore I'm just going to do
+it in actual order so you have quotation
+marks here I know it looks like like a
+like an 11 but don't worry that's
+actually a quotation mark and then of
+course we have an exclamation mark and
+and a you and two over here we have an
+end M an exclamation mark a period and a
+a question mark alright so this is
+essentially how it works now this these
+two children are sort of mixes exact
+crossovers of both of these parents and
+of course these crossover points are
+completely random every time two of
+these sentences are bred now they're
+completely random every time and so
+essentially that allows for extreme
+random
+the gene pool and the more random the
+better because of course when it's more
+random you have more options to choose
+from more genetics or more individuals
+to breed to make the eventual result
+much faster and much easier all right so
+now let's take a look at something now
+as I was saying I was mentioning
+something about mutation mutation is
+essentially sort of altering the genes
+at a random chance so first of all you
+have a chance whether or not to actually
+mutate the gene which I usually keep it
+around 2030 percent that's whether or
+not to actually mutate the gene as I
+said next there's the amount to mutate
+it which is I mean in this case I just
+keep it like one maybe two characters
+but I'll tell you about that in just a
+second so let's just say child 2 is
+randomly chosen it had a 20% chance of
+being chosen and it was chosen to be
+mutated all right now the thought we'd
+have it is it's going to choose a random
+gene out of all these genes and in this
+case let's just say it land on well Y
+I'll end on Y all right so I have landed
+on the gene Y which is actually gene
+number four now what I'm going to do
+again that was completely random what I
+want to do is I would completely random
+even if it's another line maybe a
+capital y it only sets up something
+completely random once more so let's
+just say that in this case I choose that
+I want to set this Y to a dollar sign
+okay and now this Y has between two a
+dollar sign this has now been mutated
+and it's going to go to the next
+generation the next generation well then
+again use the 450 that I was talking
+about nearly random generated
+individuals and the 2550 crossover and
+mutated individuals together another
+3,000 population it's going to use all
+of those see again hiya and okay it'll
+repeat exactly what I just did many many
+generations until it finds an individual
+that has evolved itself to reach this
+exact string
+and actually it's quite satisfying
+actually to watch these actually evolve
+because as these evolved they slowly
+start to look a little bit more like the
+target string like if I were to type int
+a name actually it's not so like
+absolute nonsense but then eventually it
+starts to understand the may and the KS
+H it eventually starts to learn how
+exactly to shape the actual words and
+eventually it gets to ten and actually
+or in this case hi ten me and this is
+essentially how you're going to be
+implementing this genetic algorithm so
+now I have two more parts of this
+genetic algorithm video for you ready
+they're going to be on YouTube suits now
+essentially in the first part you will
+be using the nodejs and genetical
+library in order to implement this exact
+concept however any second part I'm
+going to be showing you how you can
+implement genetic algorithms in Swift
+using an API that hi of hand built from
+scratch and you will be able to actually
+use that API to implement to implement
+genetic algorithms however you'd like in
+Swift whether it be with string
+evolution neural network evolution or
+really whatever else you'd like is
+completely customizable and can be used
+for really anything and that's going to
+be it for this tutorial thank you very
+much I hope you enjoyed if you did
+please make sure to leave a like down
+below of course if you think it could
+help someone you know please do share
+the video as well and of course if you
+really like my content and you want to
+see more of it please do consider
+subscribing to my youtube channel it
+really does help out a lot of course if
+you've had any suggestions feedback or
+sort of questions you can leave them
+down in the comments below or tweet them
+to me Taji many and that's going to be
+it for this video of course you can also
+email me at touch me on each email comm
+but anyway then that's it for today
+you'll see me in the next part 2 & 3
+where I'm sure you're going to enjoy
+genetic algorithms in no js' and Swift
+anyway then goodbye that's it for this
+video

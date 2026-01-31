@@ -1,0 +1,506 @@
+so hello there and welcome to another
+tutorial my name is tammy bakshi and
+today
+we're gonna be going over well the third
+episode in the learn deep learning from
+scratch series
+now today's episode is actually really
+exciting because we're finally gonna get
+to take a look
+at some code of course first episode was
+an introduction
+last episode was all about derivatives
+and how function optimization works
+and now we finally get to cover actually
+implementing that function optimization
+in python and i'm going to be showing
+you some actual use cases
+for technologies like gradient descent
+it's gonna be really interesting stuff
+uh now before we begin i do just want to
+say that if you enjoy content like this
+and you want to see more of it please do
+consider subscribing to the channel as
+it really has helped
+a lot and please make sure to like the
+video as that does help out too
+of course any questions feel free to put
+them down in the comments section below
+and i'll get back to you as soon as i
+can alright so now to begin today
+as you may recall from the last episode
+i had shown you
+an example of a couple of different um
+a couple of different functions that we
+use gradient descent to optimize
+so what that meant was we wanted to
+reduce the value of the output of the
+function
+and therefore we actually found the
+derivative of the function
+with respect to its input and using that
+derivative
+we were able to reduce the value that
+came out from the function by changing
+that input a little bit
+now we're going to be doing something
+similar today and we're going to
+actually implement a perceptron
+in tensorflow specifically we're going
+to implement what i call
+the number negator we're going to
+implement a super simple perceptron
+that all it does is takes a number and
+gives us back
+the negated input let's get started now
+quickly before we begin
+just to recap if you remember from the
+last episode i had shown you that
+perceptrons
+are very simple units they take an input
+and they figure out their output by
+multiplying the input by a certain
+weight
+now the thing about perceptrons is that
+we don't really know what the value of
+the weight should be
+right we know what input we can provide
+and we know what output we expect
+but we don't know what value of a weight
+to provide to make it so when we give
+new input where we don't know the output
+the perceptron can predict the output
+for us
+we don't know how to figure that out but
+with the power of some mathematics
+specifically the same function
+optimization that you learned in the
+last episode
+you can actually figure out that weight
+automatically
+now i'm going to be showing you how to
+implement this exact same concept
+in tensorflow so let's take a look at
+this code as you can see what i've gone
+ahead and done
+is i've pulled up google colab now
+google call lab is
+great environment where you can actually
+run python code in the cloud
+you know you don't have to have a you
+know really fancy computer run all this
+it
+comes with a lot of dependencies
+pre-installed and so just to
+get started right off the bat and not
+need to sit down and install your
+dependencies and
+set up your docker containers do
+whatever um we're just going to be doing
+this
+um through collab in the future then
+when we get to slightly more complex
+examples
+i will show you how to set up
+environment locally to make it so you
+don't actually need to
+keep pulling a collab to run this code
+now as you can see though we are already
+in collab
+and this entire first example for
+today's tutorial is just
+three cells of code um and i think it's
+pretty incredible just how simple this
+is and we start off of course with the
+classic
+import tensorflow as tf so we're
+basically just importing the tensorflow
+library
+telling python that we can refer to it
+as tf within the rest of our code
+and then what i do is a little bit of
+setup so
+i'm first of all setting up some of the
+inputs and outputs and the weight
+for the perceptron now of course the
+input can be anything
+in this case i just gave it the number
+three and the output is what we expect
+the perceptron to give us if we were to
+feed in this three
+in this case that is negative three
+remember we're doing the number
+negator now technically if we were to
+feed in negative 3 then the output would
+be positive 3
+because negative i and i is negative 3
+so negative negative 3 is positive 3.
+so the output would automatically become
+positive 3. but in this case
+we're just starting off with three going
+to negative three but you know both of
+them are
+both ways uh the multiplication of the
+perceptron would be mathematically
+equivalent
+uh so then what i've got to do though is
+i've got to
+start off with some sort of guess as to
+what the weight for the perceptron
+should be
+this doesn't need to be a good guess of
+course if it is a good guess it helps
+but it doesn't need to be a good guess
+it can just be a completely random
+number
+and in this case i decided to start with
+just 0.5
+again it doesn't really matter what it
+is um but
+in this case i did choose 0.5
+now if you were to do 3 times 0.5 you
+would get 1.5
+but what we want the perceptron to
+output is negative three so as you can
+tell
+the outputs vary off so we're going to
+actually fix that in just a moment in
+the next cell of code
+and so what i'm going to do quickly here
+is run this cell and just like that i
+define my input output and the weight
+for the perceptron now let me tell you
+what this next cell does but before that
+really quickly
+just in the previous cell this last line
+of code what that's doing
+is it's taking i o and w three values
+that we did or created
+and it's converting them to floating
+point values so they're no longer
+integers
+and then after they're all converted to
+floating point values
+um they are converted to tensors now a
+tensor is essentially what tensorflow
+uses to
+wrap individual numbers or even arrays
+of numbers
+such that tensorflow can actually track
+the operations that you run
+on those numbers now why exactly
+tensorflow needs to track them
+i will show you in just a moment but for
+now think of a tensorflow tensor
+as almost like a numpy array except it
+can be a scalar value so it can just be
+a single you know the number three
+or it could be an entire array or array
+of arrays
+or three-dimensional or four-dimensional
+it's n-dimensional arrays
+you have as many dimensions as you want
+it to or even
+none so scalar value um that's that's
+for now
+that's what your conception of a tensor
+should be not 100 technically accurate
+but we'll get to exactly what a tensor
+is again at a later time
+for now i want you to understand the
+number negator
+so going back uh to the example in the
+next cell i'm doing something a little
+interesting so first of all i've just
+got a for loop from 1 to 40.
+and you'll see why it's a for loop in a
+moment but for now you can just sort of
+ignore that
+then what i'm doing is i'm creating a
+new
+instance of something called a
+tensorflow gradient tape
+and i'm defining a block of scope in
+which that tape is valid and its
+internal memory
+is still fresh now what what i'm doing
+here
+is this gradient tape is going to allow
+us
+to tell tensorflow that hey look
+i've got a tensor and i'm gonna run some
+operations on this tensor
+after i run my operations i want you to
+give me
+the gradient of the operations that i
+ran all right
+so if you go back to the last tutorial
+uh
+just you know last week you'll realize
+that i had shown you
+a plot of a function and that function's
+derivative
+now i had manually calculated that
+derivative function
+or rather i used tensorflow to help me
+figure it out
+but here's the thing with computers
+when you're writing a complex function
+you don't want to have to
+manually write out the complex
+derivative
+so what you can do is you can simply
+tell tensorflow all right
+i'm doing these operations on my tensor
+now i want you to give me the derivative
+of these operations
+as a function with respect to some
+tensor in
+as part of that operation so it's really
+interesting the way this is
+the way that this works and let me show
+you what i mean
+now after i create this gradient tape
+what i'm doing
+is i'm telling the tape to watch the
+weight
+all right so think about it the
+perceptron function has two inputs
+it has the input that we want to give
+the perceptron and it has the weight and
+the output is the input times the weight
+now if we want the output to match what
+we want it to
+we can't change the input because that
+doesn't make any sense right
+instead we have to change the weight and
+in order to optimize the function we
+have to change
+the inputs that we give it so we somehow
+have to modify
+the weight using function optimization
+techniques
+in order to make the output of the
+perceptron closer to what we want it to
+be
+okay that's why we're telling the tape
+to watch the weight
+because when it's watching the weight it
+can find the gradient of our operations
+with respect to the weight telling us
+how to move that weight in order to make
+the perceptron output
+what we want it to now then what i'm
+doing
+is i'm calculating a value known as a
+loss now
+what's a loss function you may ask well
+a loss function is pretty simple a loss
+value is pretty simple
+it's basically just telling us how bad
+is the neural network's output
+so just how off is this neural network
+now here's what's really interesting the
+loss function
+although you as a human can think of it
+as how
+off is my neural network or how bad is
+my perceptron
+really what the loss function is doing
+mathematically is it's telling us
+where should i move the weight in order
+to make the neural network or the
+perceptron
+less bad or more good that's what it's
+telling
+us because take a look at this
+mathematical little function that i've
+put together
+you might already start to see some of
+the
+you know patterns here for example i
+times w
+what is i it's the input what is w it's
+the weight so this
+is the perceptron prediction function
+right over here right
+that part is what the perceptron is
+predicting according to the current
+input and the current weight
+then if you go ahead and take the output
+and do output
+minus the prediction suddenly you've got
+the distance
+between the output that you expected and
+the actual output from the perceptron
+now this can be a negative or a positive
+number so what we do
+is we square it and what this does is
+first of all it increases the magnitude
+of that error
+but it also makes sure that it's always
+positive all right
+now what does that mean that means that
+the lowest this value can
+ever be is zero it can never be below
+zero so what we want to do
+is we want to bring that loss value to
+zero because if the loss value is zero
+that means that we did zero squared and
+how can we get zero squared
+only if the output is equal to the
+prediction from the perceptron
+therefore the same two values minus each
+other
+zero so if the output is equal to i
+times w
+then uh the output minus that value is
+zero zero squared is zero
+therefore the loss is zero and we have a
+perfect percentron
+so we want that loss value to be zero
+but as you can tell
+initially of course that's not going to
+be the case
+now here's what's really interesting
+what we've done is we've defined this
+as you know a bunch of operations that
+we do on a tensor
+but right after that tape goes out of
+scope and we tell tensorflow all right
+we're done running operations now
+what i can do is i can say all right now
+go back in the tape
+and find the gradient of the loss
+with respect to the weight now
+it's actually giving me that gradient
+value
+and just like how it would do the
+previous input plus
+the derivative times the negative
+learning rate i'm doing something
+similar here
+so i say that the weight is equal to
+itself
+plus the gradient multiplied by negative
+0.01 so what i'm doing is i'm reducing
+the magnitude of that gradient and i'm
+making it less steep remember the
+gradient's telling us how steep we're
+moving
+i'm making it less steep and then i'm
+flipping it to the opposite direction
+and by doing that i'm able to make it so
+the gradient tells us where to go to
+reduce the loss
+not increase it right we want to do
+gradient descent not gradient
+ascent so by doing that i have a better
+weight value
+and then guess what all i do
+is do the same thing another 39 times
+and each time we update that loss value
+each time we update that weight
+we're getting better and better of a
+perceptron
+it's getting closer and closer to what
+we want that value to actually be
+now take a look at this when i run this
+code it's going to continuously print
+out the current loss
+and the current weight after the update
+from the loss
+so at the beginning the loss is a huge
+value it's 20.25
+and the weight has gone from 0.5 to 0.23
+all right and of course that weight
+continues to get smaller and smaller
+and the loss also gets closer and closer
+to zero
+you can see over here that the loss is
+at 0.007
+and over here the weight is starting to
+approach negative one because that's
+what we want it's a numbered gator
+and so we scroll down and scroll down
+and now
+we're at 3.8 e minus six and the weight
+is nearly at negative one
+now it's not they're exactly sure but
+really in deep learning and with deep
+neural networks this kind of precision
+doesn't really matter
+if you're 0.001
+percent less confident that this image
+contains a cat or a dog
+it's not the end of the world as a
+matter of fact for the sake of
+performance we usually do
+sacrifice a lot of precision with our
+floating point math
+and so you really don't need to worry
+about that but if you really really
+wanted to push the limits i guess
+sure you could give this a thousand
+iterations and rerun it and you would
+get like
+super super super close but you're
+always gonna hit a limit
+it's floating point precision it's you
+know it's one of the things that
+programmers hate most
+and so um you you can get close but
+you're not really gonna get there
+exactly
+although that doesn't matter just to
+sort of recap
+what we did is we took that perceptron
+sort of prediction
+function and we wrapped that as part of
+a larger function
+which is differentiable meaning we can
+find the derivative of this function
+and this function was able to tell us
+how off that prediction function which
+was a component of it
+was from what we expected and when we
+find the derivative
+of this larger error function with
+respect to one of the components
+uh from the predictor which in this case
+was the weight we can figure out how to
+optimize that weight
+to make it so the output is what we
+expect so
+that is the power of gradient descent
+in action but now that you've learned
+about the world of perceptrons
+i would like to invite you to join the
+next episode of the series where i'm
+actually going to be showing you just
+before we get to the more
+advanced neural networks and multi-layer
+perceptrons how you can actually run
+what's known as dimensionality reduction
+as a real world example of where you
+might want to use gradient descent
+the number indicator was a pretty
+contrived example just to help you learn
+but this is something that you might
+actually end up doing in real world
+scenarios but it's also
+not as complex as a real neural network
+so it's going to be a great
+learning experience apart from that
+though if you do enjoy this content you
+want to see more of it please do make
+sure to subscribe to the channel as it
+really does help out a lot and also make
+sure to like the video
+if you did enjoy it i would love to
+answer any questions you may have down
+in the comments section below
+so feel free to leave them there and i
+will get back to them as soon as i can
+thank you very much for joining
+goodbye

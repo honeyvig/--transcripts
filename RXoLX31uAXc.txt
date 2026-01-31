@@ -1,0 +1,1075 @@
+so hello there and welcome to another
+tutorial my name is hannah bakshi and
+this time we're going to be going over
+well
+drawing with blocks
+multiplayer uh and so
+well the i just told you the title uh
+and so this app may sound weird at first
+but after you see it you'll see why it's
+a little bit practical i mean not
+exactly this app but you can i'm just
+teaching you a method uh of basically
+creating multiplayer games uh on how you
+can update players x and y uh and their
+player id in a database uh retrieve it
+use it in your app uh and so essentially
+this is sort of swift databases part
+four
+uh and so basically what we're doing is
+it's simply put an app where people are
+a little square you are a little square
+other friends of yours are little
+squares also on the screen on their own
+little computers all of you can move up
+right
+left or down
+you can even place blocks you can
+continue to move
+and then all of you have to collaborate
+together to draw something with those
+little squares uh you always appear
+right on your own screen and all the
+other players uh
+look black uh and same on other screens
+and you can relay this anywhere in the
+world some person in india could be
+could be on a computer playing this and
+some person in like the us could be
+playing this in some person in canada
+and some person italy in some person
+wherever else
+uh and then
+uh so they're all going to be uploading
+their information to a database
+retrieving from a database every one
+second uh and so it's going to be pretty
+nice uh and due to the fact that if i
+were to refresh every one millisecond
+which i did try
+it just gets so laggy to the point that
+you can't even play the game i have to
+refresh every one second which does
+create a little bit of stop in between
+everyone's uh everyone seeing the
+players move but again it's a pretty uh
+rudimentary sort of just moving so it
+doesn't make a big of a difference there
+anyway so now let's explain exactly how
+this thing works uh and then we will get
+to the mac part where we will see all
+the source code
+and so again as with all of our swift
+databases we have three n's swift
+php
+and of course
+mysql
+now
+how exactly
+are we going to
+make an entire game out of these
+three different things mysql is going to
+help us store everything
+php is going to help us access all those
+all that sort information and swift is
+going to do all the main stuff
+and so first of all let's just explain
+we have
+one database
+called let's just say
+drawing
+under that we have two tables and so
+this is a database
+but under this we have two tables first
+of all we have our blocks table
+and we have our
+second
+players
+table
+now in our players table
+we store the players x
+y
+and p id
+in the blocks table we just store x and
+y of each block
+now in swift
+what we're doing is every one second
+we are first of all
+actually let's just now sit down first
+of all we have
+a lots of php files
+set player
+we have get player
+that players
+we have get blocks
+and we have remove blocks
+okay so now how are we going to work
+with four php files
+one that sets stuff inside of our
+players gets stuff inside of our players
+gets stuff inside of our blocks and
+removes all of our blocks
+first of all what we're doing is in
+swift
+actually let's just make this one second
+so it's not confusing for you
+first of all what we're doing is we are
+getting all players from the database
+and
+then
+actually
+we are getting all players
+and putting them on screen
+or actually wait just a minute
+just remembered something if you get
+players before you set them you can't
+actually move
+so
+what we're doing
+is we're taking our oh yeah one more
+thing this is optional but just because
+i wanted to i actually used the ns
+speech recognizer class
+and i included voice control so you can
+say up up up left place right left down
+upright up down something like that
+uh and you can control this app with
+your voice but anyway continuing
+uh so what we're doing first of all is
+we're taking your own player
+own player
+we're taking all the information about
+this player
+and we're uploading it to our set player
+function
+or actually php file
+what this is doing is it's going
+to our players
+and setting
+or actually
+what it's doing is first of all we are
+giving it the player id our own player
+id
+our x and our
+y
+and so what will happen
+is it'll take that
+delete
+the pid that's already there
+and insert it fresh
+so it'll delete the already existing pid
+and insert a new one fresh every one
+second
+into our players database
+in our get players which is next
+what we're
+doing
+is we are basically putting these on
+screen basically
+and we are just putting all these
+players on screen
+and so what's happening is we are
+contacting
+this php file which will give us the
+result
+and what this is doing is it's taking
+all this information from the players
+database
+and so swift is able to put all the
+players on screen
+but in between there's a little step
+which isn't related to database
+databases is we are removing the players
+we're moving all the players off screen
+we're wiping them putting them new from
+the database every one second we're
+doing that and so every one second their
+positions are being changed
+next what we're doing
+is we are essentially
+just getting all blocks again
+so what's happening is our get blocks
+php file is going to give us information
+from
+our
+blocks database so if i just
+do this
+now this is a bit messy but i'm just
+trying my best to just really quickly
+explain this to you
+so what's happening is our blocks
+database which with the x and y for each
+block is going into our php which is
+giving it to swift
+which will draw all the blocks on screen
+again
+again blocks and players are different
+blocks are the things that players are
+placed down players are the actual live
+people that move
+then finally there's an extremely
+different function
+called remove
+so let's say you're done drawing that's
+it
+and let's say you all are done drawing
+and you say okay that's it let's start
+fresh now
+what's going to happen is this remove
+function
+will go over here
+to the remove
+blocks function
+actually i'm just gonna make this dotted
+real quickly
+so that you can see it
+okay so what's happening is this remove
+function is going down to remove blocks
+and what this is doing is it's wiping
+the database clear
+it's going over to this database and
+it's saying okay delete everything
+everything
+every single little detail inside of
+that database will be wiped out
+like that
+and so with all these combined
+we have an efficient way
+of creating a multiplayer
+app
+which allows you
+to move around
+place down blocks
+and allows millions of other people as
+well to move around and place blocks
+there's really nothing else to explain
+so we'll get right to the mac part now
+uh but there is one more little demo
+that i want to give you
+and so what i'm going to do is i'm going
+to switch over to my projector after
+just a second it's going to work to my
+projector uh and i'm going to simulate
+this with my mac mini and my my normal
+mac uh and so
+there's going to be two different macs
+uh i'll label them uh on top
+and then we'll be able to see how this
+app actually works where i'm going to
+demo the actual voice feature etc etc so
+let's get straight to the demo now
+so welcome back to the demo and now that
+we have two macs on the projector uh
+over here my friend and me
+uh and so let's get started i'm going to
+open up my app and then he can open up
+his app so
+right as i open up my instance oh load
+it up quite quickly this time anyway he
+can open up his as well
+and then we can get to the actual demo
+of things
+okay as you can see we can move around
+uh we're completely free to do that
+i can move wherever i really want
+and as you can see my square on my
+screen is red his square on his screen
+is red
+so that i know who my block is and he
+knows who his block is all the other
+blocks will be black
+so you know that they're not yours as
+you can see over here though uh we have
+the x y and player id values uh for both
+of us
+so
+i am pid 3 he is pid4
+and then of course we can move wherever
+we want we can place down blocks i'll
+make a quick 2 by 2 square
+uh and so that was actually quite quick
+but i'm going to do that a bit slower
+now i'm just going to move to the right
+just to show you that you can even
+do whatever you want really i'm just
+going to place
+good move up
+then place
+move right
+then place
+move down
+then place
+it's that simple to add stuff then we
+can add some corners to our drawings
+to make it look
+nice
+right so then we can do this sort of
+stuff
+place
+and my friend can also help me that's
+the best part about this app you get to
+collaborate
+and so it doesn't take that much time
+now it wouldn't be an app without a
+special feature and what's that special
+feature in this app well it's voice so
+now i'm just going to demonstrate the
+voice feature really quickly
+and i'm going to actually sit a bit slow
+so you can understand
+so there are commands for like up down
+left right upright up left down left
+down right
+there's also place block uh actually
+just place there's also clear and
+there's also stop to stop voice
+recognition
+anyway let's get started so let's just
+move our character up for a second so we
+can see him
+uh and so now uh let's just continue to
+control with voice
+place
+up
+place
+up right
+right
+place
+place oh wait no
+right
+right
+down
+place
+down right
+place
+down
+place
+down left
+place
+left
+place
+left
+left
+place
+left
+place
+up left
+place
+up
+place
+stop
+as you can see that was a simple
+demonstration of the voice uh and so i
+demonstrated most of the commands but
+there are still
+there is actually this still one command
+left and so i'm going to finish this
+cube
+actually this rectangle uh and also show
+you that last command
+so let's just control its voice now
+again and as you can see my friend can
+also move again it's multiplayer we can
+do whatever we want i'm just going to
+continue to control a voice
+upright
+place
+stop
+my friend can place the other one and
+now let's just move on out of the way
+up
+up
+up
+stop
+now my friend can also move out of the
+way so we can actually see this feature
+and now watch this
+clear
+stop
+and it removes all the blocks
+stop
+okay there
+and stop also stops the voice
+recognition from happening and that was
+actually really simple uh a
+demonstration it makes the app look easy
+to program but it's not that easy i'm
+gonna tell you that much so now we can
+actually get to the mac part in which i
+will be explaining the code behind all
+of this uh and then i will also be
+explaining the database and behind all
+of this and let's get right to it
+so welcome back to the mac part now i'm
+going to be showing you the code for
+this app
+sorry uh and so let's get right into it
+as you can see i already have the xcode
+project open and this is a very simple
+ui just two lines to separate this part
+from this part uh the little controls
+the remote features i call it over here
+uh the blocks over here the database
+gets printed onto here
+and then the player's database gets
+printed onto here
+it's the simple sdy i could think of
+nothing really
+extraordinary
+in here
+but the code is where it's at as you can
+see in our code we are actually i'm
+blocking the commands with my face so
+let me move my face around uh so we are
+first of all importing cocoa nothing
+else required or kokoa uh
+not sure how you pronounce it i just say
+coco
+uh for app delegate i am implementing
+from s object ns application delegate
+normal but then i'm also implementing
+from ns speech recognizer delegate so i
+can recognize the commands
+up up left upright down down left down
+right left right stop place and clear
+all those commands in this array over
+here
+but just before that we're also creating
+a variable called sr which is a new ns
+speech recognizer so that we can
+actually recognize our speech
+and next we are just declaring our
+window nothing special that's automatic
+from xcode
+but then we're also declaring our up
+button down button left button right
+button and space button and actually uh
+this used to be where you can actually
+click the keys on the keyboard but that
+didn't really work out
+so i just renamed uh sp uh space on the
+keyboard uh to space as an ns button so
+that's why it's called space and not
+like place or something but that doesn't
+really matter
+continuing we have our blocks text view
+and our players text view know what are
+these well it's uh these little database
+printing text views
+next we are creating a var players which
+is an ns image view array which is blank
+at first same thing for blocks then we
+are creating players data as an nsra and
+blocks data as an nsra
+then we are creating this player meaning
+your own player as an ns image view
+then we are creating x for your own
+player as zero and y for your own player
+is zero you are setting your own player
+id by default to two
+i mean i could set it to one i mean
+nothing will happen
+uh then we are just defining a bunch of
+urls now first of all our first url uh
+is the players get url which is simple
+it's just
+www.tenbashi.comgetplayers.php nothing
+special but then we have a computed
+property first the setting url because
+of course when i'm actually setting i
+don't want to have to give the x and the
+y and the pid i just want the computed
+property to automatically make a url
+with the x y and player id inside of it
+so what i do
+is i create a computed property called
+player set url as a string
+when gotten
+it will actually just return
+setplayer.php but with the parameters x
+as the x variable
+y is the y variable and pid as the p as
+the player id variable
+then same thing for blocks get urls just
+a simpler url 10abac2.com
+getblocks.php this will return in json
+format all the blocks as x's and y's
+however the set url is a bit different
+here when it's gotten we are just
+returning tenant action.com
+setblock.php
+with the parameters x as the x variable
+and y is the y variable
+or the coordinate variable
+and in order to remove a player uh we
+are giving uh the
+uh url for tanningbackshoe.com
+deleteplayer.php with the pid parameter
+as the player id let me check my diagram
+yes i told you about that
+uh and then uh for our block removing um
+php uh script we are just saying uh
+attended actually.com slash delete
+blocks.php
+now
+actually before this used to be
+a computed property because
+it used to ask you which block to remove
+but now that that's not required we can
+just change it to this
+next as you can see we are creating our
+game timer which is equal to a new ns
+timer which we will be talking about in
+just a minute then i'm just declaring
+some rudimentary functions called data
+of url first of all this will return the
+ns data of any nsurl
+but you just need to give the url as a
+string so this will essentially just run
+any url but it will also return the data
+returned by from that url so you can use
+it
+anywhere else then a data to json uh
+function which will take any data as ns
+data
+uh return any object because we don't
+know what's going to be returned uh and
+then it'll uh do use a do statement and
+it'll return
+try ns.json serialization.json object
+with data the data and then give it just
+dot mutable containers options
+we're not
+converting this to anything because of
+course we're just returning any object
+but if there is an error that is caught
+just print out that error uh and then if
+nothing gets returned then just return a
+blank array
+next i'm just going to scroll down here
+and over here we see
+our application did finish launching
+function
+now first of all what we're doing is we
+are running our players set url
+uh so what this is going to do is it's
+going to take our own player at x
+coordinate 0 and y coordinate 0
+and it's going to push that into the
+database
+along with our player id
+then what's going to happen
+sorry
+is we're going to say 4i in data to json
+specifically the data of the url our
+players get url
+so what this is going to do is going to
+get the data of the json the data
+from the website
+that returns all the players x y's and
+pids and it's going to take that data
+and and ambiguous data convert it into
+json or an ns array
+and then what we're doing is we're
+looping through
+all of that um
+data
+and then all we're doing really
+sorry we don't need this extra parameter
+okay
+so next uh what we're doing is we're
+creating a var vowel
+uh which is equal to an integer of i as
+ns dictionary
+uh we are getting specifically the
+player id as a string and then
+converting that to an integer as i said
+and then we're forcing that as an unwrap
+then we're taking the date of url uh
+first of all we're deleting this
+specific thus
+we're deleting all players from the
+database
+now you might be asking
+how does our app work if we're deleting
+all the players from the database
+well it's simple
+the client
+from which that player is running from
+should be able to within a second
+upload himself
+back onto the database
+so it doesn't make a difference
+and then once this is all done we have
+our own final player id
+the reason we're also removing the
+player is let's say there's an inactive
+player that has quit their game
+this also acts as a refresh meaning
+inactive players that don't have a
+computer don't have a compliance don't
+have a client still playing will be
+removed but the ones that are still
+playing will be added back onto the
+database from their own client
+so it also adds a quick refresh
+after that we are setting our game timer
+to a new ns timer with the scheduled
+timer uh with time interval every one
+second we're targeting ourself or to do
+the update function with no user info
+meaning nil and we're making sure that
+it repeats
+after that we are just removing our own
+player from the database
+next what we're doing
+is in our update function first of all
+we're setting the player's text view and
+the blocks text views string values to
+nothing
+then we are setting our own player back
+into the database and so this is going
+to do is going to delete our player from
+the database put it back on from the php
+end
+then what we're going to do
+is we're going to map through all of our
+own windows sub views
+and then what we're checking is if
+the
+current
+uh
+thing we're on in the map if the current
+object or on in the map
+is kind of class and as image view
+meaning it's a player or block just
+remove it from our view
+wipe all the players and blocks off of
+the view
+then set this player to a new s image
+view with a frame of an nsrect of our
+current local x and y values coordinates
+and set the width and height to both to
+50.
+then reset our players array to just
+nothing like a blank array set our
+player's data to the data json of our
+data of url for getting our player for
+our player get url
+and then convert that to an nsra
+then loop through all of our player data
+create a final dictionary
+the final x out of that dictionary take
+the final y out of that dictionary take
+the final pid from that dictionary
+add it all to our player's text view
+with x as the final x then a pipe etc
+etc
+and then append
+this
+an ns image view
+with the specifications that we just got
+from the database into our players array
+then also append our own player into the
+players array
+after that just map through the entire
+players
+array and just check actually first of
+all
+set
+all of them
+to that they want a layer meaning they
+uh they want to have a layer so we can
+set their background color
+then take their layer
+uh force unwrap it
+and send its background color to first
+of all
+if it's your own player red or else
+black
+simply put
+loop through the entire players
+if it's your own player set it to red if
+it's someone else's player set to black
+simply
+next we're just looping through our
+players array and we're adding all of
+our players onto our view
+then we're doing the exact same thing
+for our blocks we take our blocks uh we
+get our blocks data
+as data json of the date of url of the
+blocks get url as an nsra
+we're setting our blocks to an to a
+blank array
+then what we're doing is we're looping
+through our blocks data again we're
+getting the final dictionary the final x
+the final y putting it into our blocks
+text view appending it to our blocks
+array as an ns image view with all that
+data that we just got we're mapping
+through our blocks and setting them all
+to a blue color
+and then we're just looping through our
+blocks and adding them to our view
+and that's all that we're doing in our
+update function and no wonder sometimes
+it takes up a bit too much memory
+anyway continuing then we have just a
+few functions first i'm going to show
+you my ib actions
+so this is the first one when you click
+on the up button all it's doing is it's
+increasing your y value by 50.
+that's all it really needs to do because
+then the update function will take care
+of uploading it to the database etc etc
+that's it
+that's not the up buttons job
+after that if you click on up left
+it'll just simulate clicking the up
+button once then the left button once
+that's it
+upright same thing simulate the up
+button then simulate the right button
+if you click on down however uh it will
+actually decrease your y value by 50.
+if you click on down left
+i will click on it will simulate down
+and simulate left
+if you click on down right it will
+simulate down and it will also simulate
+right
+if you click on left it'll decrease your
+x value by 50.
+if you click on right it'll increase
+your x value by 50.
+if you click on space however or not
+space the place button it'll run the
+place block at position function
+which will just get uh the data of url
+for the blocks set url which will
+automatically put in the x and y values
+for us and so that will append a new
+block into our database and then our
+update function will take care of
+drawing that on the screen for us we
+don't need to
+and then if you want to delete all the
+blocks it's just going to get the date
+of url for our blocks remove url then
+what's happening is this command it ib
+action is when you click on start a
+voice recognition
+uh it'll actually set the sr's delegate
+to self it'll set the sr's commands to
+the commands that we allow it
+and it'll tell the sr to start listening
+or the speech recognizer
+then we have an inherited function uh
+from ns
+speech something
+yes and a speech recognizer delegate
+uh and it is speech recognizer from a
+sender did recognize command
+and so it's going to happen is this
+function is always called when it
+recognizes a command inside of that
+command list
+and so if it's stop it'll just uh stop
+listening the sender
+that's it
+however if it's not if it contains up
+then it'll simulate up if it contains
+down it'll simulate down if it contains
+left it'll simulate left if it contains
+right it'll simulate a right click
+and if it uh cont if the command is
+equal to place uh it'll place a block at
+the position
+however if the command is equal to clear
+it will just delete all blocks
+that simply
+anyway so that was actually pretty much
+all of the code there was here uh and
+again if i didn't already show this to
+you in the application will terminate
+function
+uh we have the date of url uh player
+remove uh thing and so
+that means whenever you exit your app
+it's going to just remove your player
+from the database because we don't want
+to cluttering up and then whenever
+someone joins they're going to have an
+entirely different pid just because you
+couldn't uh close your own instance
+uh and so
+uh next i'm going to show you actually
+i'm not done code sorry about that
+i'm just going to make my face bigger to
+talk to you for a second
+uh yeah so now that i've shared the
+xcode part with you
+i'm actually going to be showing you the
+database
+and php and well not really the php the
+php way too many files to go over but
+again there will be the php files down
+in the description uh but i will be
+going over the database i will be
+simulating using php meaning i'm going
+to open up an instance of the app
+then i'm going to insert something into
+the database and you'll see it magically
+pop up on the app as well
+uh so i'm going to make my face a bit
+smaller i didn't want it that big
+uh and i'm going to come over here
+and now over here i'm going to go um
+yes godaddy because that's where i host
+i love godaddy
+then if i go to sign in uh into my
+tenure backstreet account
+yeah might just take a little time
+sometimes my wi-fi is just
+out of this world
+okay
+so now if i click on my web hosting
+go into here
+let's just go straight into our database
+uh and yep of course
+showing my password
+it's going to load
+uh and now i can go to phpmyadmin
+and it will automatically redirect
+me over here
+and then
+we have
+over here
+uh where'd it go drawing players
+database and as you can see we have our
+database as you can see there's no
+players online right now so it's of
+course going to give me an empty set but
+our blocks
+are also empty because i had cleared it
+in the demo
+but let's just say i run my app okay
+and let's just go to our players
+nothing right now right just wait for
+the app to load up
+uh and you will see that our players uh
+get populated with one entry uh which is
+the new entry that we just put in right
+now so
+for that to load up
+yeah sometimes it'll take a little while
+to load up
+i just memory clean real quick
+okay there we are
+now that it's loaded up uh we can see
+over here that there is an automatic
+little block there and i'm just going to
+move
+up sorry i'm just checking if my
+camera's in sync okay uh so now i can
+move up i'm going to move up right a bit
+uh and now
+i'm going to go to my database players
+boom
+i have my own player id my x and my y
+value which is also being displayed over
+here in the database
+now watch this
+magic
+i'm gonna make this block
+go down without clicking a button in the
+app i'm just going to change this y
+value over here can i change this here
+no
+but what i can do
+update
+uh
+this so
+oh wait i think there is a different way
+so if i
+no
+better idea what i can do
+is go to
+tanmaybakshi.com
+set player
+with a player id of 2 to x 0 y 0. now my
+player should theoretically
+just jump down
+well that isn't really the case and this
+is due to the fact the update function
+is running so rapidly with the local
+variables that it does move down but in
+just one second it moves the thing back
+up
+uh and so i can't really demonstrate
+moving that with database because then
+our app wouldn't really work uh but then
+yeah so let's just uh
+idea let's add a block
+at
+x zero y zero and watch this no block
+over here right no block over here
+go
+and a block
+just appears
+amazingly
+and now if i were to do 50
+50
+it should appear i'd say
+over here yeah just a diagonal across
+from it
+and it worked because of course we're
+inserting these blocks into the database
+and because we're inserting these blocks
+into the database it's like yeah i
+should
+totally put these on screen now because
+they're in the database probably someone
+else put these in but it doesn't know
+that i'm just inserting these injecting
+these into the database
+now if i delete these all from the
+database
+of course
+um
+uh it will say two rows deleted and then
+they're all gone
+and so it's pretty much that simple i
+guess i could also emulate putting in a
+new player uh that should work as well
+pid 3
+0 0
+and then
+uh yeah and as you can see it emulates a
+little player and so yeah this instance
+of the app is actually regularly
+updating the database uh and so what's
+happening
+while it's updating we have local
+variables that are storing the x and the
+y
+now the local variables completely
+override what's in the database
+and so what's happening is when i change
+try to change the location of my player
+in the database
+my app is taking that local x and y
+coordinate and it's uploading it back
+onto the database overriding the change
+that i just did
+so there's really nothing i can do
+even if i were to delete the player off
+my app would just be like nope local
+variables rule it just insert it back
+into the database i don't care sort of
+thing
+and so i don't really have much control
+over it
+but of course
+i can continue to control my voice
+like this so watch if i go if i place uh
+there will be a block here and i can
+show you my blocks array on my database
+that it will come up so
+place
+stop
+now as you can see our app says that at
+150 300 we've placed a uh blue block
+let's just see what our database has to
+say
+exactly the same if i were to change its
+coordinates to x0
+which i cannot do
+but if i were
+then it would actually just move it
+to the center to the edge of the screen
+if i were to move it to zero zero
+down to the
+bottom corner over here of the screen
+and of course uh a really nice way to
+refresh as i said uh is if there's
+something that i like to call dead
+players for example
+i have this app
+command option escape i have to force
+quit this app for some reason okay
+now what happens
+is this app does not have enough time
+or at least i haven't tested this it
+shouldn't have enough time to call
+application will terminate
+and so what will happen in turn
+is the database still has this player id
+now this is completely unnecessary other
+players will be annoyed because there is
+they have to join with one player id
+ahead for no reason
+and so a really nice way to remove this
+due to the fact that our app is
+constantly updating into the database
+if you go to the sql side click delete
+now if there's any players that are
+that are actually on their client it'll
+just immediately push it back on if
+there aren't it'll remove
+all those access players and so that's
+just a really quick uh nice feature for
+that one more thing really quickly let's
+just say i restart this app
+just to show you that the php end also
+works i'm just going to run the
+getplayers.php
+get players.php and it shows us that
+there's a pid 2 with x0 and y0 i can
+also get the current blocks
+uh so x 150
+y 300 i think i can also set yeah i can
+definitely set them
+i'm not exactly sure if this is the name
+but let's just try it anyway
+yeah so let's just see what our urls is
+there
+set block sorry
+so now this should add a block at 0 0.
+it did
+due to the fact
+that our php file actually works and
+inserts stuff into our database
+and that was it for this video again if
+you enjoyed please make sure to leave a
+like this did take me quite a bit of
+time to develop
+and so again if any of this help you the
+speech recognizer part
+pretty much anything please leave a like
+down below of course you can even leave
+comments down below if you have any
+suggestions ideas questions concerns
+pretty much anything you can even email
+these all to me at tajmani gmail.com my
+email will be in the description if you
+cannot spell that uh and you can even
+email me video questions of you asking a
+question and i will almost surely uh
+feature that one of my next videos uh
+and so
+that was pretty much it again if you're
+new or you like my content you want to
+see more of it please subscribe to my
+channel it does help
+and that's going to be it again follow
+me on twitter at tajimani uh there will
+be a
+uh my twitter handle will be in the
+description all source code will be on
+github in the description as always
+and that's it
+goodbye

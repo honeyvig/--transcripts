@@ -1,0 +1,445 @@
+[Music]
+hello there and welcome to a special
+video my name is ken devaki and today
+i'm with two very special guests two of
+my mentors Timothy Duncan and Thierry
+you her let's begin today so but will we
+actually get let me tell you a little
+bit about what we're going to be covered
+today now a lot of my subscribers send
+in questions about platforms like IBM
+bluemix Mannion's watson and a lot of
+those questions are actually quite
+redundant so today what I want to do is
+I want to be getting some of those
+questions to of course the experts of
+those platforms themselves I'm not
+seeing what Hans's they actually have
+for us but actually again stop to enjoy
+sex consultants yeah thanks am I am I to
+the Duncan and I have been with IBM for
+about 300 over three years now and the
+last few years I have been specializing
+and bloonan I am a bloomin specialist
+and basically what I specialize in is
+helping clients take ideas off their
+brains and and deliver them as as
+applications in the cloud I help them do
+the value it can be a complex solution a
+lot to take in when you first come into
+something like Watson and bluemix so I
+help coins break that down in efficient
+manner understand what services they
+might need to use internalize on ideas
+and then develop those ideas on the
+cloud by connecting them facilitating
+connections with people like tiry tiry
+would you like introduce yourself all
+what a segue yes so let him say oh you
+bet I'm the CEO of Darwin ecosystem and
+I built cognitive solutions basically
+based on Watson and bluemix and we
+specialize on detectable tolerance and
+what happens when the standard changes
+but surely what we do so we're in the
+heart of this in terms of the algorithm
+and how we use this technology and what
+it really means and we do this for
+clients and we build micro
+services we build solutions and we
+augment people's ability to interact
+with computers absolutely perfect so now
+that you have been introduced to both my
+mentors let's begin with the questions
+that I subscribers understand again
+first question but I actually received
+quite a bit is actually questionable
+what is blue all right I'm a bloomin
+specialist I will answer that question
+typically speaking the analogy I use
+when describing bloom is to a client or
+first-time user of the platform is first
+my stones will look at the platform by
+her trial fee like the others have a
+chance to look at the UI but then once
+you've a chance to experience that then
+is good to hang on to an analogy
+something very simple to break down that
+concept in a way where you can hold on
+to that while you're progressing through
+this journey because there is a lot
+taken as a lot of different sections a
+lot of different types of services micro
+services that you can use the
+application development process I can
+make your life a lot easier
+so understanding the overall concept
+before diving into them is very
+important in the concepts and algae that
+usually use is I describe bluemix as the
+home depot of the IT world and vensim so
+it's a place where developers can go and
+began aqui that there are tools
+available to them to build applications
+much like a builder would go to Home
+Depot to get maybe two boys to build
+something but then I said and then some
+and the reason why is that and then some
+if you went own Depot as a builder and
+then you have all the tools you compile
+them all together that you needed to
+build a certain project and then there
+was a back door and you went outside
+that back door and you had all of this
+space to build your creations on top of
+but not not only added space but
+scalable space can be moved around it's
+portable
+there are all different types of
+advantages to having on-demand
+consumption and computing power that you
+have on boom so very simply put it's a
+place that houses a bunch of tools and
+then you can take those tools to build
+applications and host them and I an IBM
+public cloud now iBM has a lot of
+different technologies allow different
+application and a lot of different
+clouds that you can go into there is the
+system Z cloud there is a quantum cloud
+now there's a 50-quid constant cloud
+that has just got released which will be
+commercially available in the near
+future so this particular cloud is ibm's
+premier public cloud there are other
+places where you can connect with
+servers and host your hose or
+applications but this this one in
+particular which is bluemix
+is the public is the generally available
+public cloud that IBM had yeah so
+hopefully that's a good name so clean up
+the connect with a well as a visible
+purpose over I built I built things like
+the right cell design going to your shop
+right that's what I do so
+lumic's is it's really a platform as a
+service I will need to have the
+equipment on that machine anywhere from
+the servers which are in the cloud
+obviously so I don't have to have them
+and for your audience try to understand
+to break down like what it is right so I
+have a served on top of that server I've
+got the ability to build applications
+mobile application web application
+basically service in databases and then
+I make sense of those databases right
+and I can run statistics on them and
+whatnot and here is where it's fun the
+fun part of bluemix is that there is
+these incredible cognitive services
+it's incredible Watson it will talk
+about Watson a little one right but
+these services work I can make the
+computer do things that humans do
+naturally and this is a unique
+environment a unique playground for
+developers to experiment and bring more
+intelligence to solution absolutely
+perfect
+now you mentioned about basically
+different
+cognitive services that Munich's
+provides or need watson importance want
+to continue and dive more into
+Washington let's talk a little bit about
+what types of services dmx actually
+provide removal of that yeah that's good
+good conversation of dive into so
+there's generally three pieces in
+bluemix they need to be aware of that is
+categorizing and you have compute apps
+and services so compute is your
+infrastructures of service offerings
+which the bare metal servers or via size
+or networking or storage those you know
+basic fundamental components you needing
+application development process now you
+progress up the stack a little bit and
+you automate a little more of that
+compute and process that needs to host
+an application then you get what we call
+the apps section now acts have compute
+options such as docker containers IBM
+Dugger containers while boundary and
+then open with which is probably the
+most progressive circle is computing
+event driven model computing and then
+you have a globe application so those
+what we call the the title of apps and
+what that means is that you're
+progressing up up the stack and managing
+less of the stack when hosting your
+application do you have something you
+want to add to that theory let's say
+that one of the one of the modules which
+are great when you say what it does is
+the ability for instance to troll
+TextEdit with your application and
+receive the personality of the text the
+sentiment of the text or through words
+and get concepts so that you can expend
+and build really cool solutions or even
+sense to send like voice but let's say
+we were taking this podcast and we would
+throw it through the system and it could
+tell you exactly where I spoke in what
+concept by spoke and even analyze the
+personality these are wonderful things
+the two tools that you have no abilities
+these incredible applications and those
+tools are generally broken up into
+categories so we just talked about
+infrastructure we talked about apps now
+let's talk about services a little bit
+services you touch on micro services
+go now IBM and other third parties have
+micro services which are blocks of code
+that performed work for people now there
+are certain blocks of code that are very
+useful so why reinvent the wheel over
+and over again why don't we just make
+that a micro service and app developers
+can then embed that service into their
+application now there's lots of
+different types of micro services data
+analytics blockchain IOT Watson is one
+of them you want to talk about fuses of
+the categories and more to spread in
+some of those or you having you
+mentioned you mentioned a major category
+right I think this is where you write
+the micro services a little black box
+that does some magic and your
+information into transforms it and it
+gives you all these wonderful things you
+are talking about IOT like HN I think
+the ability to just through that blocks
+on to bluemix connect objects smart
+objects right and then analyze
+information and look for patterns if
+things different or how can i for
+instance correlate what an object is
+telling me with what somebody is telling
+me this is like longer it off right and
+I don't need to build it and that's
+abuse I just need to connect them
+together so we analytic services you
+want to you want to be able to put a
+whole bunch of data into the system and
+text or give you projection for instance
+things that would require complex
+analytical skills and whatnot that you
+can reject easily in your decision
+Rachel Commerce I mean think about
+understanding customers behavior what
+would be reliable because like put the
+data models into it and save a lot of
+time coding with best practice services
+and then span across so many different
+ways of doing it so that's how we use
+data finding is very powerful
+yeah I agree and you know let's let's
+let's take this back to the analogy we
+use at the very front which is bluemix
+being the home depot the IT world and
+then some having all that capacity to
+build on top of so what do we consider
+services within Home Depot so if you
+with the Home Depot and you bought some
+tools that would be comparable to buying
+services or compute options you wouldn't
+expect to go to Home Depot
+and build your services your tools from
+scratch sprinkle build right look so IBM
+has IBM and bluemix at the same
+mentality where you can go into the
+storefront and you can have to be
+guaranteed those enterprise grade
+tooling and you can count on to build
+scalable innovative applications in the
+cloud I'm going to wake up
+yeah so now that were on the topic of
+bluemix now say for services it provides
+it wasn't Watson self-evident let's
+check back a little Watson another
+question a lot of people actually ask me
+is what is the relationship between
+Watson and lyrics I don't think that one
+yeah all right okay so think of Watson a
+single phrase like we all have right and
+we were anything right so there's a
+whole bunch of very smart people that
+have taught Watson how to do certain
+things and those particular things can
+be accessible to lumix just that simple
+so typing Swanson how to be a
+psychologist and this is one of the
+services right a personality analytics
+whole bunch of psychologists went ahead
+and say hey Watson you empty silly
+brains can learn very well it was the
+new empty filling brain can learn very
+well I hear it was a fiery personality
+looks like here is somebody who's really
+smart what they look like when they
+express themselves but if it what is the
+evidence of emotionality and whatnot so
+all these scientists and all these
+experts psychologists marketing experts
+Tom Watson house arranging like these
+things LTS very complex and I couldn't
+teach a system to do that you could not
+teach us and them but these are generic
+I would say assessment no they are in
+Watson and then we have a lude service
+that goes in and that's a difference and
+basically I said to LuAnn you know what
+take this text give it to Watson to
+understand the personality of the tanks
+and bring it back to me so I can use it
+okay yeah so we'll be facing back to the
+gate with the cake with the links it is
+the interface between the brain and its
+specialty and a service that has been
+built elaborate and the size of the same
+coin
+exactly well yeah it says your brain
+would be useless if we did eyes I
+resolve and a mouth right and here to
+receive information and express
+information it's the same thing right
+right completely and now that we're on
+that topic of bloomix services not
+limited what they are and how they work
+one more question last question the
+lawmen crabbers ask me how does the
+typing wallet for writing for bloomin
+okay so let's dive into that a little
+bit so what's unique about clouds in
+terms of pricing that you wouldn't get
+over the past few decades from on print
+pricing so I'd really look at that cafe
+catback cost for object cons so
+generally speaking over the last two
+decades people would buy software
+licenses and you would post those
+licenses on print and generally those
+licenses come with a sizeable feet now
+within cloud that completely flips the
+model on its head now you're only paying
+for what you use you don't you don't you
+don't have the license it's not on Krim
+you're essentially renting it from IBM
+or wherever your cloud provider is and
+backpacking is on demand so the pricing
+is an aggregate of everything you use
+down to the visits to the smallest
+decimal so for example using if you're
+using a Watson ap on you would be
+charged for watching speeches X you
+would be charged for the number of
+minutes that you process through that
+API data analytics you use a database
+you would be charged so the databases
+are charged by how much stores you have
+over a length of time that's also how
+compute is also measured how much how
+much computing capacity are you are you
+dedicating to your application over the
+amount of time so something like a
+gigabyte an hour or that Cloud Foundry
+operates on so the main thing about
+pricing they got to be that you have to
+key in on is your own
+paying for what you use and nothing less
+and you generally pay either monthly or
+you can pay yearly because IBM deals
+with enterprise customers so we
+understand that many of our customers
+have procurement systems so we have
+flexible pricing models which can meet
+variety of different use cases if you
+like a credit card bank account we have
+that option if you like an account that
+sends you an invoice every month that
+you can process with your procurement
+system we have that option if you want
+to budget upfront for a year's worth of
+spending if you are a large enterprise
+customer and you all you operate on a
+yearly budget and go on a budget that
+upfront we also have an option as you
+can do that for it so we're very
+flexible and how you pay for it
+but how you're charged is an aggregate
+of only what you use exactly exactly
+in that time back into technology I
+believe it would basically be like
+instead of buying those tools you're
+lending them out and paying for whatever
+use those tools yeah so I mean you would
+take those tools and immediately go back
+in the back and build with them and then
+when you're done I mean they would
+operate if the tool was needed to
+support the application or your house
+out there and that real estate the tool
+would stay there and support it but it
+was still yes it was still chemically be
+owned by Home Depot or IBM bluemix in
+this case experiment completely and
+those were the four questions that a lot
+of my subscribers easily ask me about
+bluemix and Watson in fact we do have
+another positive video coming out very
+soon about artificial intelligence as
+well and so that's going to be it for
+this video today so I really like to
+thank both of my mentors for allowing to
+be Miya
+for grinning early to make my guests
+today on the YouTube video and I'm sure
+you love them in this video
+all right so if you have any questions
+for them you can send them to the
+contact solution I will tell you in just
+a moment and I will be glad all of those
+questions to them and then direct them
+back to you all right so thank you very
+much for watching video that's perfect
+today that's going to be a cool video
+and importantly like the video please
+make sure to even like a few things that
+help
+buddy else you know please do consider
+sharing the video as well of course if
+you have any more questions comments or
+feedback really you can leave them down
+in the comment section below in your
+room to me at tagging on intercom or
+tweet them to me attaching any even if
+you have any questions where inventors
+as I said you can send those to me and
+all for them to them and I'll send those
+into the answers back to you alright so
+thank you very much for watching today
+and snow of course you really like my
+content you want to see more of a system
+consider subscribing to the channel as
+well and that purpose is yeah there you
+go
+alright thank you very much for watching
+today
+goodbye

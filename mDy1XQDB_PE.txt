@@ -1,0 +1,214 @@
+[Music]
+in reality my name and I run an overlap
+for that brbr for the other with IBM
+technology in one of them now I'm
+directing the interface with unity about
+unity researches a tech demo put it over
+with the help you guys to the point
+yeah but user going for reality and
+create modifier destroy objects with
+their or we can do pausing this video
+here and open a solution absolutely
+vr headset i like splitting exactly up
+let's cut here i'll show you back and
+then we'll be right back so the IV
+increased and off and essentially a tech
+demo for developer to showcase how you
+can implement internet and speech
+interfaces in virtual reality
+and we're showcasing specifically the
+unity that's the greater we have to
+watch it which allows you to drag and
+drop some of the functionality right
+within the genie and we're calling to
+Watson services
+peach detects obviously or translating
+when you're saying protect turning on
+this streaming option so it's always
+listening to what you're saying showing
+up use awake word and then we're passing
+that text
+Princip using Watson conversation
+service then parses out the intent of a
+user so it will understand and even do
+everything like if you're saying
+something long why's that make me pick
+dragons it'll know you mean create the
+incentive modifier is large not big and
+dragon is the object when you can do
+jump small yellow car basically modify
+the in this demo the object size and
+color for most of the 200 in the game
+but it's essentially extensible and what
+we want it to be is an idea clutter for
+developers so they can then go to this
+house you guys this actually lets you
+rebuild it entirely from scratch help or
+alter it and adapt it to work with
+whatever system you want to implement in
+your experience and it's not limited to
+VR so and it's also not limited to you
+could use it because their REST API with
+any programming language or our editor
+you prefer it could be a art to see game
+you could be non-gaming use tables like
+productivity guys the limit but we think
+that extends it but things like what did
+you say we said pretty easy to do and
+it's very useful for a lot of different
+applications right now you're wandering
+around in VR and most experiences and
+you're touching you're looking you're
+seeing you're hearing you're not really
+speaking and is there a few but every VR
+headset has microphone so there's a lot
+of white space and we'd love to see what
+developers do like finding all right
+you're welcome - that was a demo on now
+we're like soul for questioning my own
+about my privileges with a little bit of
+us what any project pretty fun sure so
+it is represent our intensity jitters of
+flooding tRNA our Excel community we
+think that we have twenty very
+interesting to offer and in the form of
+interacting reached interfaces for VR
+and AR use cases but really it goes
+beyond that we've got that to the HTC
+vive here
+pull Greendale functionality along the
+voice control is letting say some crazy
+things like create a large black dragon
+or create a small car or any other
+combination of an object that exists in
+the game world and modifiers that you
+can do return size and color we think
+that you know it's precious okay to the
+promise of a system like this and then
+we have a how-to guide that shows how
+simple it is we actually built if you
+use to search dovey and use the duty
+once in one museum today you drag and
+drop that community and developed
+environment in this case that's how
+happy you do your prep your gut and then
+you have a full voice interaction system
+this could be for a chat box for
+insulation or could be for you know
+controlling the interface or you know
+any other level of granular
+functionality week yeah exactly
+question why do you suppose yes I think
+there's a couple of things uh pluses but
+from the big head for some job you want
+to keep it cloud platform and that means
+that whatever your developers market you
+can basically deploy anywhere to any
+device has internet connectivity because
+you're making REST API code that leases
+so it's very scalable you're right one a
+lot of the work happens on the back end
+in particular with this usage I would
+say that what we had is incredibly
+accurate piece of tech he's sorted it
+also is very feature-rich so for example
+you've got functionality like three
+weeks we don't say a week word like
+boxes or whatever you just start talking
+it will understand of course thanks and
+then your posture you can serve it
+actually what we use to train pull chat
+box and that lives in the cloud and you
+can still dial on trees and it doesn't
+really advance here anyway for you so a
+lot of the hard parts that actually
+building instance like this are
+obfuscated from the user and it's really
+kind of underrepresented in the vrl
+because when you're looking around
+walking around and inhabiting world kind
+of want to talk and we have something
+that is an offer for developers well
+actually we have we can let's do that
+so yeah so the Watson conversation
+service actually does really advanced
+originally kind of automatically in the
+back and so for example if I say give me
+a huge donation dragon it's very well
+likely going to parse that has the
+intent is to create not you in the
+context that's really the only matching
+thing that expect and then the modifiers
+are large not being in black not awning
+and in the object interaction so when a
+user accepts that in the game it's
+invisible to them and it's also by the
+way invisible developer of the electron
+just appears so that's kind of the
+promise or subject is in the UK is for
+it are kind of endless you can imagine
+if you're doing a tilt brush or an
+autodesk type of sculpting vr what if
+instead of having a michael for menus
+just say give me the brush I had three
+breasts ago make it two points bigger in
+black and have that appear you're here
+with the house to guide here if you were
+to rebuild it the system adds it would
+actually support that function a lot of
+really you know stuff we haven't even
+discovered that we really want to get
+this into the hands of developers and do
+the great black thing what I have for
+you doesn't work
+oh so this is going to be open source
+the HTC vive built on already available
+for free download from HTTP our App
+Store which is called live port the name
+of the demo is the IBM peach sandbox of
+Google ad and five port you can get that
+but we're also going to be open source
+we can code on github so developers take
+and forked for this film and all these
+we've done a Google daydream field which
+we'll probably never see the light of
+day in the Google Play services they
+don't release that demo point but it
+will be open for forgiveness really this
+is meant to be in a neighborhood light
+for 12 versions day okay cool let me
+take and modify that one other thing
+I'll say about open sourcing
+there is a house you guys so I'll just
+shamelessly plug that visit quickly
+while we're getting the code cleaned up
+and make it up before we do have a comp
+ready house the guys of cheese
+developers yourself actually
+to rebuild it and that is that IBM viz
+flash
+what's an underscore of yong-pan the
+answers gonna be great Oh music tracks
+um no pleasure to finally meet you in
+person that was yourself and gimmicky
+new to do it alright doesn't reveal
+thank you very much so Twitter michael
+underscore my last name bloody michael
+hundred cornell you GG even um well yeah
+that'll do for now
+alright perfect the clip project Michael
+makes content plan for science
+departments people we never see below
+for some email attachment an email back
+up feedbacks distance comments questions
+that's complex flow analysis we can't
+catch many as well on one speakers to
+help anybody else helps their shared
+fear well and Robles video games
+well of course of you will watch my
+channel over Iran's online
+authentication service very personal
+relatively uncommon want to let me know
+microphone under change notification
+sponsorship as well are Equestria swaps
+make with us

@@ -1,0 +1,535 @@
+so hello there and welcome to another
+tutorial my name is tammy bakshi and
+today
+let's have some fun you know recently i
+was taking a look
+into the game of sudoku and it's
+something that i've never really played
+before
+i've known of the game but i've never
+really played it um
+and so i was taking a look at the game
+and you know me being a technologist the
+first thing that comes to my mind
+whenever i see any kind of game really
+uh is how can i automate this
+how can i build a computer program to
+play it for me
+um kind of weird that's the first thing
+that comes to my mind but anyway that's
+what i find most fun
+um and so what i wanted to do was
+essentially bring that same logic to
+sudoku
+i wanted to build my own bot that could
+play the game for me because of course
+the only thing more fun than playing a
+game is building the bot that does it
+for you
+uh now as i was doing this i had a
+couple of different ideas
+of of how exactly i could build a bot
+like this
+i took a look at some online resources
+that also did similar things
+this was back a couple months ago um and
+so while i don't remember the exact
+details of exactly how other people
+implemented their bots
+i thought you know what that's for the
+better uh let's see if i can try and
+implement uh a bot from scratch today uh
+based off of nothing but what i already
+know from what i've seen on the internet
+um really quickly
+i want to do go over i do want to go
+over some of the sort of basic logic of
+sudoku first
+and sort of what my idea is and then
+we'll get to actually implementing
+before we start though i do want to say
+that if you enjoy this kind of content
+you want to see more of it please do
+make sure to subscribe to the channel as
+it really does help out a lot
+and of course please do make sure to
+turn on notifications so you know when i
+release new videos and like the video if
+you did enjoy
+of course if you have any questions or
+suggestions feel free to leave it down
+in the comment section below and i'll
+get back to you as soon as i can
+now digging a little bit deeper into the
+world of sudoku as you can see
+right over here i've got myself a pretty
+simple game of sudoku written out on
+this piece of paper here
+essentially the idea is this you have
+got a nine by nine
+grid uh and within this nine by nine
+grid
+uh each uh each individual tile has a
+value
+uh this value would be um either one of
+the numbers from one through nine
+effectively each tile needs to have a
+number
+that is unique to its row column
+and three by three section that it's in
+there are nine total three by three
+sections
+over here top left here here here
+and so on and so forth these are all
+three by three sections
+that need to have unique numbers uh now
+of course it is pretty obvious through
+this explanation
+that the numbers need to be you know one
+through nine uh again because there's
+only
+nine um there's only nine either in the
+row or the column or the individual
+three by three grid and each um each
+sort of row column and
+and subsection needs to contain
+uh all of the numbers one through nine
+and so based off of all of those rules
+and given an incomplete board like this
+one
+you have to somehow predict what these
+numbers would be
+now as a human your strategy can can
+really vary right there's there's lots
+of experts that i've seen
+with like really tremendous strategies
+and you can just see them sort of
+speed run these things that's really fun
+um but of course i'm not a human expert
+at sudoku and this in particular was
+taken from online as one of the harder
+puzzles to solve
+at least for a beginner like myself and
+so
+i thought why not go ahead and build a
+bot to play this for me
+in particular i wanted to use what's
+known as the recursive backtracking
+algorithm
+so effectively what you would do is you
+start off in the top left
+and sort of scan through the board one
+tile at a time
+and what you're going to do is let's
+just say you start off here since this
+one's already filled
+when you start here you're gonna be like
+okay
+what are the valid numbers for me to put
+here right which one
+what would be my legal moves so i know
+that i cannot have a six
+five or seven i know i cannot have uh
+four one two or once again six
+so instead of maybe thinking about what
+we can't have let's think about what we
+can have
+can we have the number one no we cannot
+uh can we have the number two
+no we cannot can we have the number
+three well yes we can because it's not
+within this 3x3 grid
+or its row or its column so let's just
+call this
+uh a and if i were to make a note for a
+over here
+then we can say that hey for for
+for this tile a we are allowed to have
+the number three what about uh four
+that's not allowed
+um five isn't allowed six isn't allowed
+seven isn't allowed
+but nine uh eight and nine are allowed
+uh so i can go ahead and note those down
+so 3 8
+9 are allowed now what i'm going to do
+is i'm going to create three separate
+copies of this board because if you see
+there are three total legal moves that i
+can make i'm going to make three copies
+of this board
+in each one of those copies i'll assign
+a different value to a
+so i'll create one where a is equal to
+three one where it's equal to eight and
+one where it's equal to nine
+then i'm gonna call the same function
+that we that we use to create this
+uh once again so it'll be recursive on
+each of these boards
+uh now what's going to happen is we're
+going to start doing the same thing for
+b right so we're going to see the same
+thing for b
+when a is equal to 3 8 and 9. and here's
+the interesting part
+right as we go through so we do a b then
+c then
+d right as we reach a node where we
+realize
+oh wait there's no more legal moves for
+me to make
+that means one of the moves that we made
+before it
+made it so that there's no longer a
+legal move for this one so one of these
+moves needs to change
+so when we reach that base case in the
+recursive function
+we'll sort of recurse back through the
+call stack and we'll be like all right
+let's move on to the next child of c
+if we've exhausted all the children of c
+then we go back to b
+if we've exhausted all of its children
+then we go back to a and then we go to
+a's next child so if this entire sort of
+recursive call stack was based on a
+equals three
+then we do a equals eight and retry
+everything else from there
+of course everything will need to be
+recalculated because now a's value is
+changed
+and so in theory using this technique i
+should be able to automatically figure
+out what all these values need to be
+and of course i'm very excited by that
+opportunity
+and so let's go ahead and see if i can
+implement this sudoku bot from scratch
+and i'll explain
+how the code works as i go along
+implementing it
+all right so i've gotten some code ready
+and basically what it does
+uh is it allows me to initialize and use
+sudoku board
+and it can calculate the children the
+way that i told you so
+essentially finding where the first sort
+of empty slot is
+and then figuring out which numbers
+would be valid there uh
+one one sort of change that i will make
+is make this an
+optional variable and in this case
+return nil so that we can tell the
+difference between there being no
+children
+and the game having been won if it's nil
+meaning there are no more empty slots
+then we won the game that's great
+um but if there's no more children and
+this is just empty because nothing from
+this loop
+actually gave us any children then we
+know that we've lost the game like
+there's no way we can continue
+um so so that's i think an important
+addition
+uh now one thing that i will do is
+optional chain here and let's verify
+that this actually finds the children
+that i expect uh
+so the way that i'm gonna do that is i'm
+going to assume that we do get children
+so i've tested that out we do get
+children but i don't know what their
+boards are like
+um so for each one let's go ahead and do
+like a little forage here
+um and for each one i'll take the board
+for each board i will do a 4i
+in 0 through less than 9 and we'll call
+this one y
+for x in the same thing i will take
+board x y and i will print it
+with the terminator or what what's that
+called in swift
+um let's find the uh oh it is called
+terminator perfect so terminator
+uh being just a space i guess uh or
+rather a pipe actually
+um and then what i will do is between
+each
+row i'll go ahead and print out um
+how many dashes it would be so nine for
+the actual characters then eight for the
+separators
+so yeah just just 17 dashes
+and i think the easiest way to do that
+would be to do
+this like so and then between each one
+we'll just print like a little gap so
+let's go ahead and see if it comes back
+with the right
+boards okay that's definitely not how we
+wanted it
+um maybe then i can just do
+this and we should be good to go all
+right
+um so now let's see here
+so over here as we can see this is the
+empty slot
+the one beside top the top left uh is
+the empty slot that we're trying to fill
+in which is right here
+and the children that we predicted were
+three a and nine
+and as you can see this code is filling
+in three and
+eight and nine hooray this code actually
+works
+all right so now we should be able to
+actually implement the recursive
+backtracking logic
+and if i'm correct after that we should
+have
+self playing sudoku let's see
+okay so i've gone ahead and attempted to
+implement a
+solving function in theory i mean i
+think this should work i haven't
+actually tested it yet so i'm not sure
+but let's see
+um so effectively the way that this
+works is you know it's a solve function
+uh it checks if we do have children
+if we return nil from this function that
+means we've won the game because there
+is no more empty slots
+there are no more empty slots so we just
+return self because we know self is the
+solution
+but if we did attempt to calculate
+children but we weren't able to find any
+meaning this array is empty
+then we return nil so there is no
+solution from the specific you know
+branch of the recursive call that we're
+going through
+then we loop through all the children
+that we that we have for this node
+and for each one we attempt to do that
+recursive solution call
+if we do find a solution from that
+recursive call then we return it
+otherwise if no children
+return a solution then we return nil so
+let's see if it works
+so in theory i should just be able to do
+board dot solve and let's just see if
+this even gives me a result before we
+attempt to print it
+um okay index out of range that's not
+good let's see what's wrong with this
+um so here we're attempting to access x
+at uh the value nine which is obviously
+not correct
+um and let's see why this is the case
+okay yeah that makes sense because if
+we're in a three by three
+and if we try and access like the if if
+let's just say the very
+we're trying to check uh if a number is
+valid um
+in the very last sort of uh column of a
+row
+then it's gonna try and go three ahead
+so my current my is valid logic
+currently is not correct i feel like the
+way i could solve that
+is by modding three um in
+point on x and point dot y so i could
+just do
+mod three um and that could solve
+that logic by um
+automatically figuring that out as a
+matter of fact i actually
+might need to do a mod 3 times 3
+yeah i think that would work okay so mod
+3 times 3
+should give me the beginning top left
+index of each three by three
+um let's see if this runs okay so we get
+nil i wonder why um so i guess it's time
+to do
+some debugging uh the first thing i'm
+going to check
+is if the is valid function is even
+working in the first place
+um so the way i would do that uh is by
+putting a
+break point over here so that we know
+when we're sort of entering into that
+uh in into that area and then let's see
+over here
+when we do a get we would probably want
+to print out the indices
+of that get then so let's just actually
+print out
+um x and y
+uh and let's over here print out
+um or we're already getting the x and y
+so let's go ahead and
+check that out okay so we're gonna run
+this
+uh and we hit a break point here so
+we're about to start querying
+the board for x and y values uh
+the point that we're looking at is one
+zero so theoretically our mod three
+times three logic should give us
+0 0 which if i were to run
+um let's see that doesn't seem to be
+what we queried
+so 1 mod 3 oh
+of course that is 1. uh maybe we need to
+do divided by
+three i think it might be divided by
+three not mod three
+uh let's check to see if that's correct
+okay so now it gives us zero zero
+zero one and zero two which is correct
+and then it should give us 1 0 1 1
+1 2 and then 2 0 okay let's see if this
+works now
+we're going to continue running it's
+printing out a lot of stuff which is
+adding a lot of latency so i'm going to
+remove the
+print um and fingers
+i think we might have done it let's see
+i will uh that that's easier than i
+expected i'll say that
+um so let's see let's go ahead and wrap
+this
+in a call if let's solution equals board
+dot solve
+um and then if we do find a solution
+then i'll go ahead
+copy in this code that i have over here
+and then i'll just go ahead and replace
+board with solution here
+okay let's see what it gives us so i'm
+going to go ahead and run this
+this is the filled out sudoku board that
+it gives me
+let's see if this is actually valid so
+i'm gonna go over to web sudoku which is
+where i'm gonna run the test
+so it gives me nine two
+and then one three four eight so let's
+try and fill these out um
+[Music]
+nine two uh one
+three four eight how am i doing so far
+everything's okay all right uh eight
+four
+five six so eight four five
+six uh and then the nine's already there
+three two one
+seven three two or let's see here
+three two three two seven one okay so
+that was just me misreading it
+and then the next row is three seven one
+two three seven one two
+uh and then eight four six nine eight
+four
+six nine and then five how am i doing so
+far
+everything's okay let's see five
+one four three six
+seven and then eight two
+nine i'm gonna go ahead and speed up the
+process here for you
+okay moment of truth i've gone ahead and
+filled out the whole board
+let's see if it worked there we go
+i solved the sudoku puzzle that is
+really interesting that is easier than i
+expected it would be going to be honest
+uh you know i looked at the game and i
+was like
+you know maybe maybe this would take a
+little bit of time to solve but
+apparently that was easier than i
+expected this is the first time i'm
+doing this um
+ever um you know i've seen a little bit
+of documentation online some time ago
+around like recursive backtracking the
+first time i'm actually implementing it
+um not too bad let's go ahead and get
+some like
+harder sudoku puzzles and and see if
+uh and just see what the performance of
+the bot is like um
+so let's just uh let's just go ahead and
+find something hard
+okay so i found a quora question
+asking what's the hardest sudoku puzzle
+ever created
+and looks like this is it so i'm going
+to go ahead and feed this into the
+program let's see
+what we get this time
+all right so i've gone ahead and
+transcribed the board into my code i
+believe this is correct let's see
+if the code can find a solution
+looks like it has all right
+uh now let's go ahead and uh maybe check
+if the solution is correct
+all right so i found this online sudoku
+checker let's see if i can
+feed in the output of my program and see
+if it thinks it's correct
+all right it looks like the sudoku
+checker says it found
+one solution which makes sense because
+i've filled out the entire board
+which means that this in itself is a
+solution that is incredible you know i
+thought it would be a little bit harder
+to build a sudoku bot but apparently
+that's all it takes
+um and so hopefully this was helpful to
+you to see a little bit of sort of what
+goes behind the scenes but i have an
+idea
+of to sort of implement something i'm
+going to go ahead and put this code down
+in the description below for you to go
+ahead and check out
+uh feel free to use it maybe a little
+challenge for you can you repurpose this
+code to go ahead and generate new sudoku
+puzzles
+let me know in the comments if you're
+able to figure it out well thank you
+very much everyone for joining today
+hopefully this was helpful to you
+uh and of course again any more
+questions suggestions feel free to leave
+it down in the comment section below and
+of course if you enjoy this kind of
+content you want to see more of it
+please do make sure to like the video
+subscribe to the channel and turn on
+notifications
+so you know when i release videos just
+like this one today and thank you very
+much for joining me today
+goodbye

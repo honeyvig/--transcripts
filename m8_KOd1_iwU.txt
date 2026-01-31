@@ -1,0 +1,273 @@
+so go there and welcome to another
+tutorial
+my name is Tenma Bakshi and this time
+I'm going to be going over a topic that
+I've really wanted to go over for a long
+time now actually this topic is running
+bash on Windows 10 at the anniversary
+update of 2016 so actually I've been
+wanting to do this since Bill 2016 and
+no I promise it's not I I haven't done
+this not because I'm too lazy to do this
+or because I have too much work but it's
+actually because Microsoft hadn't
+released it until just now so Microsoft
+has actually just released another beta
+build of the windows in of the Windows
+10 anniversary update for insiders of
+which you can easily sign if I don't
+even know why they even have that sort
+of thing
+I literally just sign up for Outlook
+sign up for out insider done ok then
+you're an insider and you get beta
+builds now ok so now there's a windows
+insider preview build one four three one
+six which actually has bash capabilities
+in it finally I've been waiting for this
+again since Bill 2016 ok so I have some
+really interesting stuff to show you
+and let's not waste any more time shall
+we so to begin what is bash on Windows
+lets me let me explain bash or
+bourne-again shell which i'm not going
+to get into right now is essentially a
+UNIX shell a linux shell and if we know
+a bun to run up not a boom T that's not
+right okay so a bun - as we all know
+runs bash okay
+it is based off of Linux and by default
+it has bash installed now we know that
+Windows alright
+loves DOS okay
+now Dawson bash are completely separate
+windows is one of the only operating
+systems that's not Unix
+and so das and Bosch are not equal to
+each other at all
+okay so know things that wrong das do
+not run on Bosch and things that aren't
+on Bosch do not run on das okay now
+that's a big problem for developers
+because things like nodejs are harder to
+install in Windows whereas on a bun -
+you just say sudo apt-get install no js'
+done okay
+on dal-su have to ins you have to
+download the Installer then install it
+I'm going to be you reboot your computer
+that's a long that's a lot of work so
+now what has Windows done to sort of
+make fix this well basically what
+they've done is they've started running
+Ubuntu on Windows they've actually
+partnered with canonical which is the
+parent company of a bun soup and now
+they're running ubuntu on Windows itself
+now this isn't just a virtual machine or
+anything like that you know just me
+write that down it is not a VM if you're
+thinking this is just a virtual machine
+well you'd be wrong
+because the thing is with this there
+would be severe performance issues say
+so the thing is we don't want to
+sacrifice on performance and so we
+aren't running this on a virtual machine
+but then what are we doing well we're
+taking something called wine if you
+don't know what that is well I'm not
+going to go into it right now but I will
+leave a link to it down in the
+description is this essentially n
+inverse of one wine converts Windows
+kernel calls essentially into Linux
+kernel calls and so you can run Windows
+programs on Linux or Mac however what
+Windows has done is they've taken Linux
+kernel colt and converted them to
+Windows and so essentially bash almost
+completely I'd say around around 99% has
+support on Windows so now um basically
+what Windows has done one more thing is
+they're taking the actual binaries for a
+bun to 14 point oh four point four
+and then they've actually taken them
+then just loaded onto windows somehow I
+don't know I guess they change their
+source code or something I have I'm
+still a bit confused as to how it works
+not completely sure again but then again
+it's really complicated and I guess
+we'll see over time because now what I'm
+going to be doing is I'm going to be
+switching over to the Mac port in which
+I will actually show you how you can
+install bash on Windows then in the
+second part of this series which is
+coming out at the exact same time as
+this is I'm actually going to be
+explaining how you can install a very
+special software that I know you're
+going to love on vash on Windows so
+let's get into how to install bash on to
+Windows 10 build fourteen three one six
+now let's get to it so welcome back to
+the mad part now I'm going to be showing
+you how you can actually install bash on
+to Windows 10 build fourteen three one
+six so let's begin shall we
+so to begin I'm actually running this
+off of VirtualBox a virtual machine
+software I know if you are using a
+virtual machine I do not know about
+VMware and stuff but if you are using
+VirtualBox there is an issue with the
+actual do call it's a Windows 10 bash I
+guess so what you're going to want to do
+is before you even start your virtual
+machine you're gonna gonna go into the
+little virtual machine listing click on
+your virtual machine click on settings
+you're going to go to network and under
+adapter one say attached to and make
+sure this is a bridged adapter and then
+the name could really be anything you'd
+like anything that's connected currently
+but I'm going to use Wi-Fi and then
+click on ok and then you can continue
+like so however you have to make sure
+that is it is running off at bay bridge
+adapter and then after that we're going
+to still do some tweaking because there
+are again some issues with the API but
+let's continue so let's begin by first
+going over to our little Cortana box
+over here and let's type in uh what was
+it cold settings sorry
+settings all right I'm going to open up
+settings and I'm going to go to update
+and security and I'm going to click on
+for developers all right now you want to
+click on developer mode and then click
+on yes all right
+so now you've enabled developer mode on
+to your computer or at least a virtual
+machine I'm going to close this down and
+go back to your little Cortana box over
+here and type in Windows Features and
+then click on turn Windows Features on
+or off all right now wait for it to load
+scroll all the way down and then
+checkmark this little folder windows
+subsystem for Linux beta all right
+who cares what beta so just click on OK
+all right so now it's going to search
+for the required files classic and then
+it's going to say yours might take a bit
+longer but it's basically say that it's
+completed the things it's completed
+uninstalling and so now we need to
+restart our computer so I'm going to
+click on restart and now we're basically
+going to have this Windows 10 insider
+boot up again let's speed up the clip
+okay we're back so to begin let's go
+bail let's just click on here I'm going
+to type in my pin alright and
+okay so we're back into Windows and now
+what I'm going to do is I'm going to go
+back into the Cortana box type in CMD
+then enter okay enter or return then
+you're going to reach to this command
+prompt so I'm going to type in bash and
+then click on enter that's going to ask
+you for some permission and also terms
+but those don't really matter then you
+just click on Y and then enter and now
+let's speed up the clip because this
+will take a few minutes alright so this
+is taking a few minutes actually my Mac
+is actually starting to heat up well
+let's continue to wait let's speed up
+the clip again alright so as you can see
+it is now done preparing a file system
+and now Bash has opened so you can see
+this is the sort of Microsoft bash over
+here and so let's begin messing around
+with it so now this was essentially how
+Microsoft Bash works but there is again
+as I said a network problem and so what
+I'm going to do is I'm going to show you
+a quick way to get around this so in
+order to do this type in sudo nano uh
+slash eighty Slee slash I forgot the
+file name why must I forget it but
+anyway let's go over to the github issue
+shall we so I'm going to go over to my
+little web browser over here Windows 10
+bash and turn that alright so I'm going
+to go to the github issue there will be
+a link to the github issue in the
+description by the way just in case
+you'd like to go there
+all right okay there we go this is the
+one issue number five all rights and I'm
+gonna go down resolve or is it I think
+it's different I see yeah this one so
+we're going to copy this file name and
+we're going to paste it into our
+terminal just by right-clicking and it
+pastes in my itself right new feature
+click on enter and now my sort of what
+you call it some on second please name
+server my name sure I believe yeah so my
+name server is actually 192.168.1 I do
+believe that this varies per router
+though so you might want to check the
+configurations for your router first
+basically probably go to this link
+192.168.0.1 I can actually administer my
+router on how it works and stuff like
+that
+so where you're gonna have to find your
+own unfortunately I do not know yours
+but continuing let's go this down it's
+now what we're gonna do is we're gonna
+say control and X type in the letter Y
+and then click enter exactly in that
+order okay once you've done this we
+should be ready to go now basically
+let's just do a quick test by the way
+pings for some reason do not work if I
+were to ping google.com as you can see
+the socket type is not supported but the
+Internet itself does actually work I
+don't exactly know how I could prove
+that does this have Python green stalled
+yeah so I mean I could import URL Lib
+and you are print URL Lib dot open
+HTTP colon slash a little BW google.com
+alright close
+is this down dot read let's see module
+has not read open ah it was oh you are L
+open sorry alright as you can see it is
+got the HTML code for Google so that's
+how you know this as sort of pot this
+internet actually works just ping
+sockets aren't supported but I mean the
+rest mostly does work so that's going to
+make for this tutorial I hope you
+enjoyed if you did this will light down
+below and also comment down below if you
+have any more questions suggestions or
+feedback and I mean you can even send
+those things to an email to Gmail Gmail
+comm or even tweet me at touching many
+my contact info will be in the
+description hope you enjoyed it
+again if you did leave a like and please
+subscribe it really does help a lot in
+each other video if you really enjoyed
+it that's gonna be it for today's
+tutorial hope you enjoyed good bye

@@ -1,0 +1,789 @@
+so blow there and welcome to another
+tutorial my name is Tammy maxi and today
+we're gonna be going over how you can
+use cross totally within a swift
+environment in order to create two core
+mental models that can help you
+interpolate between two digits that
+users write on an iPad application now
+in essence the point of this app is to
+interpolate between two ms digits now
+the way it works is by using
+autoencoders if you don't know what an
+autoencoder is go ahead and watch my
+video on the topic at the link in the
+description now in essence auto-encoders
+allow you to well encode and then decode
+information to have the same output as
+there was input in a neural network the
+interesting part about autoencoders is
+that it forces the neural network to
+create a compressed representation of
+the input you give it in order to
+decompress that into the output because
+of the neural network architecture now
+though let's take a look at how you can
+actually go from step one training your
+neural network to the final step to
+pulling it on an iOS application
+directly through Karass and entirely
+within a swift environment now you're
+probably wondering well curraghs is a
+python library why would you actually go
+ahead and run it on swift and well
+there's actually a very interesting new
+library available for swift called
+python kicks it's available with the new
+Swift five and the interesting part is
+that it lets you bridge between python
+swift directly and natively within your
+swift code and so we're gonna be
+training across model directly through
+Swift using python kit you can find out
+more about this swift bridging of Python
+at my first episode of swoop today again
+in the link in the description but now
+let's take a look at how exactly will be
+doing the interpolation now let's start
+off by discussing neural network
+architecture now let's take a look at
+how the encoder works of course the
+encoder is a very simple neural network
+that takes in an image the image is
+going to be
+28 by 28 with a little bit of an
+exception now you see Carmel is a great
+library but Carmel isn't necessarily
+very versatile when it comes to working
+with Swift and it is a very versatile
+when it comes to working with images the
+reason is because it was originally
+developed for Apple by Apple in
+objective-c
+and has not been completely ported to
+Swift therefore working wit is not very
+pleasant because you need to transition
+between doubles and NS numbers and tons
+of different types of variables however
+there is a great library on github
+called core ml helpers it makes life a
+lot easier when you're working with core
+ml specifically with images there will
+be a link to that in the description
+below as well now because of how core
+Mel helpers work because now Cornell
+works it needs to be a third Channel at
+the end of this village now usually you
+would only have one channel at the end
+of the image because well you only got
+grayscale balance you only not scale of
+values in the skills you're the one in
+one channel because m-miss is a
+grayscale it's not red green blue
+requiring the main channels or grayscale
+however because we are working with core
+ml as I mentioned we're going to be
+duplicating that grayscale Channel three
+times to create a pseudo RGB image
+that'll look the exact same at the exact
+same which is has a few extra parameters
+in the neural network to deal with two
+extra channels and so there's not really
+that much happening here except for the
+fact that we're gonna do a few numpy
+tricks to turn this array from 28 by 28
+by 1 to 28 by 28 by 3 because Karass
+comes with a twenty eight twenty eighth
+one formatting that's really really
+simple I will show you how to do it
+within swift again but from there
+there's going to be a simple
+convolutional neural network and a CNN
+that goes ahead and takes this image and
+outputs a very simple vector now this
+after will be say three country right
+it's going to be a tuple of three
+hundred lengths this is what the input
+or the output shape would be of the
+final convolutional neural network when
+it has a dense layer and of course a
+flattened layer before that attached now
+this vector over here it's 300 vector
+perfectly represents the input that you
+gave the model now one thing you should
+note though is that 28 by 28 right
+colleges that ones 28 by 28
+that's 784 okay so we're dealing with
+784 values here
+now this 784 is being compressed into
+300 that contains essentially the same
+information however that information
+needs to be decoded by another neural
+network and this is the interesting part
+essentially this will undergo the
+reverse to get back to a 28 by 28 5 3
+image essentially this 300 size vector
+we've bent back into another
+convolutional neural cork which we'll go
+ahead and convert that into 28 by 28 by
+3 image now at the end we should have
+almost exactly when we put into the
+neural network in the beginning to get
+this vector now the interesting part
+though is that let's just say you can't
+you take two different digits say we
+have these two boxes over here and if I
+were to draw a 5 in one of them and I
+have another box over here where I draw
+the 7 now when these go through the
+encoders right what happens is you get
+an encoding for each one you get a 300
+size vector for each number ok now once
+you've got those 300 length vectors you
+can go ahead and interpolate between
+those vectors okay now let's just call
+this one a and this one B okay we've got
+these two different vectors now let's
+just say you want to go from a
+to be every point within a of the vector
+space and be in the vector space you
+want interpolate between there's a
+custom function that I've put together
+for that again in Swift and what you can
+actually do is tell it how many steps in
+between you want from A to B now let's
+just say we want say a thousand frames
+in between a and B we go ahead and
+generate those 1,000 vectors that are
+individual stepping stones that go
+slowly from A to B and then in total
+we've got 1,000 and two and a total
+frames including a and B now the 1002
+frames can individually be decoded with
+the neural networks that we built in
+order to generate a thousand two proper
+images of what looks exactly in between
+and be just a little bit of a fan page
+just a little bit towards B we can
+generate all of that and create a very
+very smooth animation that runs at 60
+frames per second for length around 17
+seconds and gives us a really nice
+interpolation between those two digits
+again this is all happening directly on
+device there's no cloud involved here
+and those 1,000 inference operations are
+happening in under second using Cornell
+batch predictions on the iPad pros that
+are alleging all right so now it's gonna
+head to a demo of how the application
+works and after that demo we'll take a
+look at how you can actually implement
+this application all right now let's
+take a look at a demo of the application
+in action this is the user interface now
+over here we've got a black patch now on
+this patch you can actually go ahead and
+draw as you move your finger it it draws
+and these are the same proportions as
+the 28 by 28 image that we're going to
+be scaling down to now of course because
+the iPad pro is such a high-resolution
+display this is highly scaled up to 28 -
+28 28 528 so when you go ahead and use
+any of the function
+it'll go ahead and scale it down to 28
+by 28 and then when it gets output from
+the neural network it'll scale it up
+therefore making it blurrier so if I go
+ahead and clear this I can go ahead and
+actually draw on the display itself so
+if I go ahead and draw a digit say 5
+right now if I want to see what the
+neural network thinks this 5 looks like
+I just clicked the first button called
+encode decode it'll run it through the
+auto encoder and do nothing else so I do
+that and this is what that 5 looks like
+to the neural network essentially the
+exact same thing that I draw except a
+little lower resolution but it still
+retains the shape the general idea and
+how exactly I was trying to create that
+5 so I'm gonna go ahead and clear and
+let's draw the number say 6 right so I
+draw 6 now let's just save this 6 as
+number 1 okay so same encoding number 1
+is what I'm gonna click now let's go
+ahead and draw another number say a 4 ok
+now a 4 and a 6 look very very different
+in fact if I were to go ahead and encode
+to code this for this is what the neural
+network thinks this looks like I'm gonna
+go ahead and draw one more all right and
+I'm gonna save it as number 2 ok now
+what I'm gonna do is I'm gonna tell the
+iPad to actually go between those two
+numbers calculate a thousand friends in
+between and run that animation at 60
+frames a second and watch how fast it
+shows me the first digit it'll take just
+around a second and just like that it
+starts the animation now as you can see
+it starts off as a 6 but slowly but
+surely in under 17 seconds it goes
+haven't slowed interpolates from that 6
+to the number 4 that I wrote in the same
+style as I wrote it and just like how I
+would have expected it to turn out but
+still animating the right as it's done I
+should see the final four now this is
+what I'm going to be showing you how to
+build with the help of Cornell cross an
+autoencoder with the architecture I
+described just a moment ago
+and of course running in real time
+directly on your
+bro so now let's go ahead and take a
+look at how you can go ahead and build
+this application alright so welcome back
+to the code part and now let's take a
+look at how exactly you can implement
+this entire autoencoder system let's
+start out with the actual neural network
+model itself the main part now we're
+gonna be using two different Swift tool
+chains as you can see right now I've got
+the latest Swift 5 tool chain installed
+however for the iOS application you're
+going to need to use the default Xcode
+10.1 or whatever Xcode you're working
+with toolchain reason it's because these
+snapshots don't come with the iOS
+development frameworks pre-installed and
+therefore you will not be able to build
+iOS applications with these tool chains
+but let's get into the code now this
+over here is the actual command line
+application currently loading up here we
+are that's going to enable us to train
+the model and then convert it to a
+coronel model now let's go through this
+code and take a look at how it works
+first of all you'll notice that we have
+two main functions the Train function
+and the convert model to cor ml function
+now the train function is meant to use
+Karass to train a model and then from
+there save three different models the
+full auto encoder just the encoder and
+then just the decoder the next function
+is meant to take those two three models
+and take just two of them the encoder
+and the decoder and then save them as
+core ml models or ml models now over
+here I've got a little bit of code in
+the script that basically will go
+through the command line arguments that
+were passed to the Swift program and if
+the argument is trained then it'll go
+ahead and train if it's core ml then
+it'll go ahead and convert to core ml
+now let's take a look at the train
+function now in the train function the
+first thing we're doing is we're doing a
+few basic imports so just to give you an
+idea this is what the equivalent would
+be in Python so let Karass is equal to
+Python import Karass in python of course
+this would just be import cause the next
+layer or the next line would be from
+chorus or import chorus dot layers as
+layers the next one would be something
+like from cross dot datasets import and
+nest and the next one would be from
+harris models import sequential and i
+made a typo here but we can fix that
+sequential and then this one of course
+would be very simple important than pi
+as NP so we're able to translate that
+python code directly to swift again if
+you have not seen my swift to the
+episode where i cover this kind of
+bridging you need to take a look at that
+before you get back here but i went back
+to the point let's go ahead and actually
+import the amnesty data itself now this
+in Python would quite literally just be
+this much code m nest data is equal to m
+nest dot load data
+apart from that everything is the exact
+same the only thing you're really adding
+here is the let to tell Swift that
+you're creating a constant next you're
+creating x train and x test again this
+would be the exact same code in Python
+it's that nice which are translating
+from Python the swift the only thing
+you're adding is var to tell Swift that
+this is a variable those comments since
+I don't need them but that gives you an
+idea as to how convenient that bridging
+truly is now just to tell you here over
+here I'm loading the X train I'm
+dividing all those images that are
+providing the X train by 255 in order to
+reduce from a you into eight which is
+you know the standard RGB 255 range over
+to zero to one range and I'm doing the
+same thing for the testing data and then
+over here I change the shape as I
+mentioned from twenty eight twenty eight
+one two twenty eight twenty eight three
+that's what we're doing with these two
+lines of code now then I just go ahead
+and print out those two lines of or the
+with these two lines of code the shapes
+of the X train and X test arrays and
+then we go ahead and do the interesting
+I declare two different models my
+encoder model and my decoder model the
+encoder model is essentially going to
+take these layers over here and it's
+going to encode the input which is of
+size 28 23 or shape 20 23 and it's going
+to encode it into a length of 300 in
+terms of a vector now something you
+should notice here is that there's a
+little bit of you know sour syntax here
+luzhin tactic sugar provided by Python
+kit is great in most circumstances but
+kind of breaks down here because we're
+doing a relatively complex query you see
+what I'm trying to do is I'm trying to
+take this layer that I defined here
+right and do encoder dot add call that
+function and pass it here now this is
+something that for some reason crashes
+not just Python kit but the whole Xcode
+environment so if I remove that code and
+instead I were to dynamically get the
+add function and then call it manually
+with the dynamically for call function
+it goes ahead and works so to give you
+an idea for this line of code the
+equivalent Python would be encoder dot
+odd and then this halt this whole I
+guess you could say layer yeah this
+layer definition and then you would just
+be changing these colons to equal signs
+oh and then you would have very very you
+would have completely normal Python code
+however this is just most probably a
+temporary inconvenience as they're still
+working on swift v and Python kit and I
+do expect that within the months to come
+there will be fixing these issues but
+next though I also declare my decoder
+model of course the decoder model is
+essentially the encoder flipped around
+it'll first of all go ahead and take
+this 300 vector convert it up to 390 to
+reshape into 7 by 7 by 8 and then run
+the whole neural network backwards
+essentially at the end instead of having
+16 channels in the final air I have 3
+channels for red green and blue with a
+sigmoid activation in order to bring
+each value from a scale of 0 to 1 then
+this auto encoder model essentially just
+puts the encoder and
+a coder into one model this isn't
+necessary but I just saved it for
+convenience if I want to test it out
+with chorus then I go ahead and all and
+also for convenience of training then I
+go ahead and compile now I use the
+bottom in terms of the optimizer and
+then the binary cross-entropy loss now I
+don't use of course the accuracy metric
+because that wouldn't give me much
+useful information next I go ahead and
+get a summary of the model just to get
+an idea of what it looks like and then I
+go ahead and fit it on X train X train
+reason I'm not using y trainees because
+of course there are no labels I'm trying
+to predict X train based off of X train
+as input same thing for validation data
+X for test in and out I run this from
+just three epochs then again you've got
+to realize that we're running this whole
+network on Pro this is not being sent to
+any cloud and it actually works very
+well better than you might expect
+however again you do have to realize
+that it's still a mapper Pro and for
+that reason if I want to spend only
+around 10 minutes training or even less
+than that
+I'm only gonna do three epochs you could
+of course do more and it will just take
+more time
+however from there I just go ahead and
+save those models again this would be
+the exact same Python code for these
+three lines in specific now the next
+function the convert model coronel
+function is where we do a little bit
+more of the interesting stuff so I first
+of all go ahead and import the core ml
+tools and just by the way pretty
+ironically and Apple themselves created
+a toolkit for their own software that
+only runs in Python and not in Swift and
+then they had to build a bridge from
+Python to Swift to get their own
+software to run on their own language
+it's a pretty interesting situation but
+it's one that arises because of course
+so many people use Python but now a
+swift developers you can leverage all of
+this within Swift as well so let's go
+ahead and take a look at the encoder
+essentially I'm calling core ml tools
+I'm calling its chorus converter and
+converting specifically this model at
+this path now these three parameters are
+gonna do one thing they're gonna make it
+so that instead of taking an ml multi
+array which is
+painful to work with instead quorum L is
+going to take a CD pixel buffer which
+quorum L helpers will help us convert to
+from there the decoder of course this is
+going to output an ml multi array of
+shape 28 by 28 by 3 but again thankfully
+quorum L helpers will help us convert
+from that ml multi write to an image
+that we can show on a UI image view from
+there the encoder and decoder models
+will be saved and then of course that
+same little script that I was talking
+about now if I go ahead and build this
+with command B it says build succeeded
+and now we can go ahead and actually use
+this code so if I go ahead and show the
+resulting binary and finder as you can
+see this is where it's located now I can
+go to I term which is my preferred
+terminal environment make this a little
+bit bigger and then let's go ahead and
+change directories into where this
+binary is located now this is where the
+binary is located and it's called auto
+encoder interpolate so if I go ahead and
+run that binary I can go ahead and give
+it a command like for example the train
+command now this is almost all happening
+within Python and as you can see that
+goes ahead and gives me an exception
+let's go ahead and take a look at why
+it's giving you this exception okay so
+apparently the reason is because my
+tensorflow version is too new or yes
+it's using python 3.7 so in order to fix
+this i'm gonna go ahead and do brew and
+install python at 3 i'm gonna go ahead
+and speed this clip up so you don't need
+to see paint dry all right so now we're
+back I have uninstalled and unlinked
+Python 3 because of course it's it's not
+impossible but it is relatively
+difficult to tell python kit exactly
+which Python environment you're looking
+to run in but anyway let's get back to
+the point of course this is running
+entirely within Python but we didn't
+have to write a single line of Python
+code it's all right through our Swift
+code as you can see it goes aking prints
+out to this description of the model
+which isn't next
+Sara Lee very descriptive because it's
+just telling us we've got one encoder
+and one decoder but it works it tells me
+the number of parameters only 240,000
+parameters now of course I could let
+this keep going it should only take like
+two three minutes maximum for each epoch
+and as you can see the loss is steadily
+going down so we do have a good
+architecture
+however again I don't want you to have
+to watch paint dry so I've already
+trained these models however I will show
+you the way I convert to Coronel so I'm
+gonna go ahead and run ctrl C to stop
+this training and now let's go back and
+give it the next command the Coromandel
+commit
+so with this Cornell command they should
+go ahead and use the pre trained models
+to convert to Kor ml format as you can
+see the encoder and the decoder are both
+done this is where the decoders model
+starts and ends and this is where the
+end coder starts and ends all right now
+let's do the interesting part let's take
+a look at the iOS app I'm gonna go ahead
+and open up a new Xcode project called
+digit interpolator now for this of
+course we won't have a successful build
+because we're using the wrong Swift tool
+chain if I were to switch back to my
+Xcode 10.1 then go ahead and clean just
+be on the safe side and build as you can
+see we should get a successful build any
+moment now and almost 47 to 50 tasks
+there we go build succeeded now in the
+view controller dot Swift file we've got
+a lot of code but we'll get into it in
+just a moment first of all let's take a
+look at the ml models first of all I've
+got my encoder interpolate model now of
+course this is only 484 kilobytes which
+is basically nothing it takes in an
+image and returns a multi array of 300
+this is the encoded vector same thing
+for the decoder now if I go ahead to my
+main dot storyboard in the main
+storyboard you can see that I've got a
+very simple user interface in the middle
+I've actually got two elements over here
+of course it looks like one but it's
+actually two
+I've got one UI image view and I've got
+one UI view okay this UI view is black
+and it's actually a custom class called
+draw view and the see my image view
+currently has no image now of course
+hard I just drag this UI image view on
+to the UI view it would become part of
+the UI view however if I were to just
+you know inside of the metrics part of
+Xcode change its X&Y to the same or to
+that of the UI view it just stacks both
+of them on top of each other now by
+default this image view is hidden as you
+can see I have ticked the hidden element
+over here and so you will not be able to
+see this you will not be able to
+interact with it you will only be able
+to interact with the UI view underneath
+however let's get to the buttons for
+just a moment
+I've got five main buttons the encode to
+code button which will just run it
+through the auto encoder save encoding
+number one which will save this as well
+the first digit save encoding number two
+which does well the same in the other
+direction and the interpolate button and
+of course a Clear button to clear your
+draw view now if we go to the view
+controller about the swift file make
+this code a little bigger as you can see
+first of all I've got an extension to ML
+multi array which will essentially take
+the current multi array and convert it
+to a double array along request this is
+a computed property as part of the
+extension and of course you can access
+this to get a double array now from
+there I've also got an extension to
+array but only if the element within the
+array is a double if you've got an array
+of this type over here so okay double
+then this extension will be valid and
+you'll be able to convert whatever array
+you've got to an ml multi array and
+you'll also be able to pass it a shape
+in order to create that multi array and
+then provide it values and then return
+it to you now from line 40 onwards to
+round line eighty seven including struct
+line and class draw view this is code
+inspired by youtubers names Mac heads
+101 there will be a link to his video
+also in the description below
+essentially it's a very hairy
+simple view that enables you to draw
+based off of the points on which you do
+the points where you're touching on
+screen it's actually very very simple
+class but I've gone ahead and added my
+own custom function here now this
+function essentially allows me to
+convert this UI view into a UI image
+that cor ml helpers can convert into a
+CV pixel buffer to feed into the actual
+ml models we'll talk about where this
+fits in in just a moment next though
+let's take a look at the actual view
+controller class of course it inherits
+from uiviewcontroller and doesn't need
+to conform to any other protocols but it
+has simply two IB outlets the draw view
+or you're gonna draw in the interpolate
+view which is where we're gonna be
+showing all those frames in the
+animation it's a UI image view then I
+declare two different models the encoder
+and decoder models as well as two
+optional arrays double arrays encoding
+one and encoding two by default they're
+nil no value is given to them then I
+declare three variables over here
+interpolated images which are all the
+different UI image frames interpolation
+index which is the integer that actually
+covers the the index of interpolation
+which is which frame you're currently on
+in this array and then of course there's
+the animation timer which runs once
+every sixtieth of a second to show you
+the next frame in the array by
+incrementing the index now there's
+nothing we need to do in viewdidload
+everything is done by the user over here
+I've got a simple function that goes
+ahead and takes two vectors and
+interpolates between them now this clear
+function is where the interesting stuff
+starts happening so in the clear
+function essentially what I do is if the
+UI image view the interpolate view is
+currently up that I hide that and I show
+the draw few then I tell to draw you
+that there are no lines that the user
+has created and I tell it set needs
+display which is a class and UI if it
+works it's a function in the class of a
+UI view that tells draw view to redraw
+whatever it is that it needs on screen
+of course over here if the animation
+timer is actually not nil it'll go ahead
+and invalidate it as well just to stop
+it from a demeaning in case you want to
+stop the animation in between now
+there's also another function over here
+to get the current and coding
+essentially this will convert the
+current image on the draw of you into
+well a UI image and then it'll run that
+image through the encoder again using
+core ml helpers I can convert that to a
+pixel buffer of width and height 28 and
+then forcefully unwrap that optional
+again I highly recommend that you handle
+errors but for the sake of simplicity
+I'm not doing that I go ahead and take
+the output which is the encoded
+representation and then I go ahead and I
+actually set that encoded representation
+to 255th
+of that encoded representation so
+basically divide that by 255 I then go
+ahead and return that encoded
+representation with 2 to whatever called
+this function now after that I've got
+the IB action for the function that does
+the encode decode essentially we call
+the function that we just talked about
+get current encoding it'll run that
+through the decoder it will go ahead and
+hide the draw of you it'll go ahead and
+show the interpolate view and then it'll
+set its image to whatever the decoder
+neural network gave it and of course
+again using Caravelle helpers to reduce
+whatever it is that I would need to do
+to one symbol simple line of code now
+there are two functions over here that
+do basically the same thing same
+encoding 1 and same encoding to except
+save encoding one will get the current
+encodings double array into encoding one
+and then clear whereas save encoding two
+will do that to encoding two in that
+clear then we've got the really
+interesting function this function goes
+ahead and actually interpolates between
+two different encodings the first of all
+it'll go ahead and make sure that you've
+actually put both of the encoding x' if
+you haven't it won't do anything then
+it'll go ahead and take those two
+vectors and it will interpolate between
+them manually then it'll go ahead and
+take those interpolated vectors and
+provide them as inputs to the decoder
+model here I'm using the batch
+prediction API to do it really really
+fast instead of sending predictions one
+by one from there I go ahead and
+actually convert those to UI images I
+actually set each of those images to
+each of the frames and the interpolated
+images variable that we were talking
+about in the actual class I hide the
+draw of you show the interpolate view
+and then I set the animate timer to run
+a block of code every one sixtieth of a
+second I tell it that it should repeat
+and it should call this block of code
+essentially what it's going to do is
+it's going to show the next frame if
+there is a frame if there are no frames
+it'll invalidate itself and it'll go
+ahead and nil that timer of course we
+don't need to necessarily make it nil
+but just for the sake of cleanliness and
+memory management I can go ahead and do
+that and that is surprisingly all the
+code there is to the digit interpolator
+of course I'm not counting all of the
+code that goes behind core ml helpers
+thank you too much cash before for for
+actually putting that up and making that
+accessible through github sorry I'm not
+pronouncing your name correctly but that
+was a quick tutorial on how you can use
+Swift a complete Swift environment no
+but Python involved whatsoever to create
+a complex machine learning model using
+only a few lines of code that enables
+your users to draw digits and
+interpolate between them the
+possibilities here are really almost
+endless in terms of what you can do but
+that was a quick tutorial on how you can
+do so using Swift and Python I do hope
+you enjoyed if you did make sure to
+leave a like down below and also do make
+sure to leave a comment if you have any
+feedback or suggestions or any questions
+and I'd love to get back to you apart
+from that if you really do like my
+content you want to see more of it
+please do make sure to subscribe to the
+YouTube channel is it really just helped
+out a lot and apart from that if you
+would like to see this Conte
+right as it comes out make sure to turn
+on notifications to be notified of
+course whenever I release new videos
+again thank you very much for joining
+and that's what I had for this tutorial
+I do hope you enjoyed good bye

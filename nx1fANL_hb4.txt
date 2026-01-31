@@ -1,0 +1,255 @@
+so welcome back to the math part now I'm
+gonna be telling you how you can
+actually use generics in your functions
+then in the next part I'm going to be
+teaching you how to use generics in your
+classes and then finally how to use
+generics in extensions I believe that is
+a feature that switch has added you can
+now use generics with functions okay so
+let's get started first of all as you
+can see I have a playground here in
+which I have three functions which are
+function equal integer which takes a as
+an integer and B is an integer and
+returns a boolean and it just returns a
+is equal to B and same thing for equal
+STR meaning string and also equal double
+so those are quite generic functions as
+you can see they just say a is equal to
+B inside of them but they take different
+types parameters equal int takes two
+intz equal STR takes two strings and
+equal double takes two doubles and so
+you know it just gets repetitive imagine
+if there are 50 or 60 types you don't
+want to have to make fifty to sixty
+functions for those fifty to sixty types
+and so instead of creating functions for
+all those tediously all you do is this
+now this line over here this is a
+classic example of a generic function
+this is the most like simple explanation
+you could possibly find for a generic
+function what this is is it it says
+function equal it takes and then as you
+can see there's this new thing that
+you've never seen before
+instead of taking parameters in
+parentheses we're taking them in angular
+brackets and so we're saying T and then
+a colon and then equatable meaning T has
+to be or inherit from equatable okay
+then what we're doing is you see inside
+of these brackets where we usually put
+our parameters we're just saying we're
+doing same parameters except for
+specifying it's int string or double
+we're only saying T so whatever they
+choose as T is inputted here that's it
+it's that simple
+and then we just return a return boolean
+and we just say a is equal to B that's
+it
+it's that simple
+okay so now let's just try this out and
+let's say equal int five and six as you
+can see this gives us false if we say
+five and five it gives us true now we
+could continue like that but let's try
+giving it a string hi and hello as you
+can see it gives us an error that we
+were expecting and integer but you gave
+us a string and so there's really
+nothing we can do about that now however
+let's try this let's say we were to run
+equal strength and we were to say hi
+hello right it says false because
+they're not the same if I say hi or
+actually hello hello as you can see it
+says true okay now let's try the double
+so if we say equal devil and if we give
+it five point six seven and five point
+six six false if we give it six point
+six six if we give it seven and now
+let's finally make these equal seven
+point seven seven and seven point seven
+seven and as you can see it gives us a
+true however again that's very tedious
+for all these different types of types
+literally okay so then we use the
+generic equal function now this takes to
+equal parameters and so I believe we
+could actually yeah let's just test this
+out so if we give it five and six and it
+passes the first test it gives us false
+if we give it five and five it gives us
+true perfect now if we give it five and
+high false as you can see it took two
+different types of parameters they just
+have to be inheriting from equatable and
+as you can see gave us false if I do
+hello and hi it also gives us false if I
+say hi in hello I mean high and high it
+gives us true now again let's see what
+happens when we give it a nine point
+45 and 4.53
+false however let's just set this to
+five point three two and five point
+three two one
+four still and five point three two five
+one three two it gives us true perfect
+so as you can see our generic equal
+function works perfectly and we could
+theoretically really use this for any
+other type let me just think of one off
+the top of my head actually I can't
+think of any right now but this will
+work for any credible type literally any
+okay now let's think of some more
+practical examples because I mean there
+is already an equals operator that's
+generic and swift and so you don't
+really need a function to do your equals
+for you
+and so here's one a little bit more
+practical example
+now what this example does is it's
+actually an array randomizer
+so essentially what will happen is you
+give it an array containing any types
+and it will completely randomize the
+array okay now the reason I'm saying
+this is only a bit more practical is
+because you could just say type of
+generic array instead of using T here
+but it still works and so essentially
+what we're doing here is here we're not
+even checking of T's equatable because
+we're just randomizing it so what we're
+just doing is we're just taking T in our
+angular brackets we're saying var array
+in our parameters is equal to array of T
+and we are also returning an array of T
+from from this function okay then inside
+of here we just have a generic really
+just normal array randomizing logic
+there will be a Wikipedia link to this
+in the description and I think I'm
+already talking about this in a video
+before if I have not then I will make a
+video on this probably with my quicksort
+video which I'll be talking about next
+and so yeah this is a bit more practical
+example than the one on the top equals
+however there is one more even more
+practical example which is a quicksort
+algorithm now you might be wondering why
+would we need really any sort of
+generics for
+quick sort all it does it takes it
+arrived integers and it sorts them well
+that's exactly you just said the answer
+itself it's only sorting arrays of
+integers we wanted to sort arrays of
+floats and decimal and dumb double sorry
+strings billions etc actually boolean
+it's not really strings which I'll
+explain in a while how you can actually
+compare strings but yeah I'll tell you
+in a while
+okay so now let's get started with a
+simple example let's say we were to take
+actually let just because a is equal to
+now let's just fill this up with
+completely random integers okay
+now let's run our array randomizing
+logic on a new random array which we
+call array randomized and we give it a
+and as you can see it gives us an a
+totally randomized array over here as
+you can see this is our original array
+and this is our randomized array now if
+I were to just change a character in the
+playground and put it back it causes it
+to rerun and as you can see it's been
+refreshed again now if I were to just do
+this as you can see it shuffles once
+more and now it's in a completely
+different order and that's essentially
+how our array randomized looks now let's
+do this
+let's run quicksort on our randomized
+array and also let's run quicksort on
+our array that we already had and as you
+can see it quick sorts these integers
+for us and also the randomizer array
+okay
+now let's actually try creating an array
+of let's say decimals and integers and
+as you can see it is able to sort them
+and randomize them using generics okay
+now let's try something even harder
+let's try something actually not harder
+really but let's try this a list of
+random
+decimals I don't exactly know how to
+randomize this properly but let's just
+say we were to do this and a bit of this
+okay now this is going to completely
+randomized them and as you can see
+quicksort is able to sort these numbers
+from least to greatest
+and okay so that's that
+now there's something really interesting
+about the about something that Apple
+just releases a new feature in Swift
+which is now if you were to take
+something like hi and say it's greater
+than hello it would give you true
+because it's saying that in alphabetical
+order hi would come after hello it's
+greater than it scores greater than
+hello and if we were to say bless then
+it says of course false and if we were
+to say equal to false okay so now down
+out of the way as you can see I've
+prepared this little example for you
+which just takes a letters array in
+which we have letters A to Z it
+randomizes them then quick sorts both
+the randomized array and the non R and
+the non randomized array the one that's
+already in order which doesn't really
+make sense but it works so now what I'm
+going to do is let's say we do something
+like let's make this a bit harder let's
+say we do a 3 a 1 and a 2 this should
+theoretically sort this in the correct
+order oh yeah forgot that comma so it
+should say oh yes it did
+a 1 a 2 a 3 then the rest of the letters
+and so that was a quick example of the
+quicksort algorithm using generics in
+Swift 2 specifically and so that was it
+from this tutorial now in the next part
+just quickly already can jump tell you
+some extra information all the source
+code will be available in the
+description on a github repository
+that's first of all
+next if you have any questions you can
+just leave them down in the comments or
+email me at a g-man a gmail.com and that
+will be in the description as well or
+contact me at my twitter handle
+attaching any and also in the next part
+of this video we're going to be going
+over how you can use generics and with
+classes and so I was actually it for
+this video if you enjoyed please leave a
+like and subscribe to my channel if
+you're if you like my countenance or you
+want to see more of it and that's going
+to be it for this tutorial
+goodbye

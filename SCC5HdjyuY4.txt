@@ -1,0 +1,1797 @@
+hey everyone thanks for joining us my
+name is James arery and you probably
+know it's Tade boxy again hello um we're
+actually excited to announce a new
+series this year called um building that
+t May Watson Made Simple series um where
+Tam is going to be taking you through a
+journey throughout this year on some of
+these awesome Technologies and
+capabilities that we have but from a
+real world's perspective and how to
+apply that exactly and you know Tam May
+quickly introduce yourself sure I mean
+hi hi there uh I'm tanway bakshi uh I
+live just outside of Toronto in Bramton
+Canada uh and I'm an honorary IBM Cloud
+advisor and an IBM Champion for cloud so
+as James said this is going to be our
+first episode of many in the new Watson
+Made Simple with tanm series uh we're
+going to actually be doing some regular
+episodes and this year we're going to be
+having some special guests on the show
+as well so I guess now without any
+further Ado should we begin yeah and you
+know Tam I would love for you to help me
+figure out how to get solve my Hunger
+I'm really hungry right now and I have a
+hankerin for pizza Ken Watson helped me
+get a pizza definitely in fact that's
+the point of this Facebook live event
+today so and so today we're going to be
+showing you how you can build a chatbot
+that could actually order pizza for you
+through a rest API on an iOS application
+so basically we're going to have an iOS
+application where you can converse with
+IBM Watson through speech and IBM Watson
+will actually be able to help you build
+your pizza and then order your pizza
+through a rest
+API now just before we actually get into
+a demo though and before we actually get
+your
+pizza let's talk a little bit about the
+technical side okay please sure so to
+begin the Watson apis we're going to be
+using today uh first of all Watson
+speech to text for input as you can see
+behind me uh and so speech to text we're
+going to be using in order for the user
+to be able to speak to the application
+and have that converted to text that
+Watson conversation can then understand
+and Watson conversation can then of
+course act as our chatbot and then
+Watson conversation can give output to
+the user using IBM Watson's text to
+speech U so that's how we're going to be
+giving output to our user through our
+iOS
+application of course though as I said
+this is an iOS application so the
+language I've coded this application in
+is Swift however I do have a surprise I
+guess you could say at the end uh as to
+how I was able to integrate node.js with
+this as well so make sure you stay tuned
+to the end of the alive event in order
+to see what I was able to do with no JS
+and this application as well all right
+so now finally I think we're ready to
+actually start ordering your pizza using
+this chat box please let's let's make
+this thing work all right sure so now
+let's get to the demo so as you can see
+what I'm going to do uh is behind me uh
+you should be able to see my phone here
+okay and so this is a the my my phone
+screen being mirrored onto this
+television behind me uh and so as you
+can see this is a simple application
+that I've set up and this is the UI for
+our chatbot it's extremely simple all we
+have is a text View and a button the
+button will allow us to control the
+recording status of speech to text uh to
+see when speech to text is and isn't
+listening to me and I'll show you how
+that works in just a moment uh but of
+course we've got an invisible text view
+on here as well and this text view will
+allow us to see the input that we're
+giving one Watson and the output that
+Watson is giving to us along with that
+speech to text and text to speech input
+and output let's actually try it out so
+let's actually start the conversation
+with Watson by saying something
+like hello Watson I would like a
+pizza so I have stopped and as you can
+see hi what size pizza would you like
+all right so I I'm really hungry can we
+do a large sure definitely uh so as you
+can see Watson asked us what size we
+want so now uh Jam wants a large so
+let's
+do we would like a large
+pizza large pizza got it any toppings
+today all right so as you can see uh it
+all it's uh tells us that it's
+understood that we want a large pizza
+and it asks us for the toppings that we
+would like uh and so you know let's just
+say that we've never been here before
+and we don't know which toppings are
+provided so we can actually ask Watson
+conversation since we're in this context
+Now what are my
+options and as you can see now I'm done
+talking to Watson and have cheese olives
+pineapples and chicken as toppings you
+can have three toppings tops all right
+so as you can see Watson has responded
+to us and it gives us those four
+different types of toppings that we can
+have in our pizza of course in an actual
+chatot you would probably have many more
+options but in this case since we're
+going for uh sort of like an example we
+have cheese olives pineapples and
+chicken as our toppings and you can have
+maximum three toppings uh so let's
+actually try out maybe I guess first
+topping is cheese please sure got to
+have cheese I like my first chopping as
+cheese topping sorry
+but all right
+first any preference on crust size okay
+so Watson still understood what we said
+even though uh our speech to text didn't
+exactly go that nice so got the int
+exactly it stands that intent that's
+where that machine learning aspect comes
+in uh with Watson conversation uh and
+then it asks me if I have any preference
+on cr- eyes but just before we go to
+that let's actually specify our second
+topic sure well I want some protein so
+can we get a chicken on that definitely
+so I'd like chicken as my second
+topping as you can see now speech texal
+understood what I said and watch all
+right chicken as your second topping any
+preference for crust eyes all right so
+now I think we can get to cross SI um I
+think maybe we should go for normal I
+mean I'm trying to watch my carbs can we
+go thin crust sure let's try that
+out I'd like a thin crust
+please all right thin crust it is any
+sauce requirements all right so speex
+luckily understood what we said uh and
+so Watson conversation has replied to us
+and now it's asking us what we like to
+do in terms of sauce so let's ask it
+what our options are here and let's uh
+decide according to that what are my
+options okay and then you can have no
+sauce we can go easy on the sauce you
+can keep the normal amount of sauce or
+we can add extra sauce all right so
+Watson has replied to us now it gives us
+those four options in terms of sauce
+that we can have so James what you do
+what would you prefer here let's go easy
+on the sauce all right so please go easy
+on the
+sauce and so Watson says all right we'll
+go easy on the sauce would there be
+anything
+else well I mean I think that's it for
+today I'm good I'm hungry I'm really
+hungry so am I so this works perfectly
+so that's all for
+today all right great you will be able
+to pick up your pizza soon all right so
+as you can see Watson has sent in the
+order and it actually shows us those
+final specifications of our pizza the
+size is large the crust is thin the
+sauce is easy topping one is cheese
+topping two is chicken and Topping three
+is nothing and that's the application
+I'm going to be showing you how you can
+coat in today in a live coating session
+uh but just before we actually get into
+that I guess uh it's Pizza time
+then yeah so we actually do have a pizza
+here so that's good
+great
+so this is nice so we can uh start
+eating now since we're hungry but now
+finally we can get into the technical
+part of this demonstration so if I
+actually switch back to my computer here
+as you can see behind me we're going to
+start building a diagram of how this
+application actually works uh so now the
+first thing is that we've got a few
+components of this entire system uh and
+so the first most important ingredient
+to this application I guess you could
+say is our hungry user in this case
+James yes who is actually trying to
+order the
+pizza of course I just took my pizza
+away well though of course we've got the
+application which is going to help us
+order the pizza of course we've got our
+Watson Suite of apis which will actually
+help us have the application order the
+pizza itself and understand what the
+user is saying but of course the rest
+API will actually order the pizza itself
+and receive the specifications from our
+application now basically the way this
+works is obviously the user gives us
+some input uh to the application now
+again the application will be doing all
+of the orchestration here and so the
+application takes this input uh and once
+the application has input from the user
+voice input we can't just directly give
+that to conversation unfortunately so we
+have to convert it to a string so what
+we need to do is we need to take that
+voice and we need to convert it to text
+by running it through text to speech uh
+sorry speech to text speech to text will
+then take that wave file of the user's
+voice and it'll convert that into a
+string that string can then be sent back
+to the application and the application
+now has some input data that
+conversation can actually work with this
+is the thin crust that those exactly
+exactly like for example when I would
+say please go easy on the sauce that's
+my voice that speech detects then
+converting to a string please go easy on
+the sauce
+which can then be sent to and is sent to
+Watson conversation Watson and of course
+we are sending a little bit of metadata
+about the actual conversation context on
+how our conversation's going what was
+said last uh and so uh once we have that
+context in order then conversation is
+going to return to us a response now
+this response not only contains what it
+wants to reply to the user but it also
+contains some new metadata about the
+conversation which is then sent back in
+the next request so you'll actually see
+a bit more of that about how that logic
+works in the actual live coding session
+but that's basically how that works but
+then in order to make sure that the user
+doesn't even need to read the screen we
+send what Watson conversation told us to
+Text to Speech Text Speech will then
+synthesize what the US what conversation
+is trying to say to the user and that's
+sent as a wave audio file back to the
+application the application then plays
+that out through the iOS devices
+speakers and then finally the user can
+have their output the user will then
+continue this cycle over and over and
+over again just as we did in the demo
+until they're done specifying what their
+Pizza will contain and once that's done
+of course we call our rest API which is
+going to actually order the pizza as it
+did today all right so that's exactly
+all how the technical part of this
+application will
+work now though let's actually get into
+a live coding session where I'm going to
+show you how you can actually implement
+this code but before we get into that
+what you should do is you should
+actually head over to my GitHub page uh
+and so yeah so you should head over to
+my GitHub page tan may1 123 is the
+username there uh and there's a starter
+code for the first Watson made simple
+event uh what you're going to do is you
+you probably want to download that
+starter code because as you can see
+behind me uh it's actually completely
+blank there's no code or any interface
+for this but what it does do do is I've
+already included these IBM Watson
+Frameworks in this application namely
+rest kit conversation speech to text and
+text to speech and so that you don't
+need to install them from Carthage from
+scratch at this time so you can follow
+along with us I'd recommend doing this
+because it's much faster but of course
+if you'd like to manually install via
+Carthage your choice you can do that if
+you'd like as well all right so now
+though we are actually ready to begin
+coding but before we actually code let's
+start with develop in the UI of the
+application itself now the UI is as you
+saw extremely simple we just have a text
+View and a button on screen and so what
+I'm going to do is I'm actually going to
+drag on first of all a button from my uh
+objects controller here uh and I'm going
+to label this button as start as you can
+see right there and what I'm going to do
+is I'm actually going to have another
+text view as well uh in this text View
+and just going to drag this on screen uh
+and this is going to be almost as big as
+the screen but just before hitting the
+button uh and basically this text view
+as you saw will allow us to see what
+yeah exactly you'll see that Watson
+conversation uh going on uh what you're
+what you're saying to the chat button
+what it's saying back to you uh but
+another thing you're probably going to
+want to make sure is that the user can't
+change anything that's in that text view
+because we don't want them changing
+anything this is just to show them
+what's happening and so what you want to
+do is click on your text View and in the
+attributes inspector uh deselect
+editable and deselect
+selectable so once you've done that the
+user will not be able to edit or select
+any text in the text view so it becomes
+really convenient because then we don't
+need to implement keyboard hiding logic
+when they hit return that type of stuff
+so it becomes much much easier all right
+so that's really all we had to do for
+the UI extremely simple now though we
+can actually get into the code of the
+application all right so let's begin
+with viewcontroller.swift and this is
+where we're going to be doing all of the
+coding for this application uh and so
+well the first thing we need to start
+off with though is our Imports now in
+terms of imports uh again we are we are
+uh in this application recording and
+playing audio and we're doing this via
+the AV Audio record and the AV Audio
+player and by the way for this
+application I'm assuming you have some
+at least little experience with iOS
+development uh through Swift uh so it's
+much easier for you to follow along all
+right so now the AV AIO player and AV
+audio recorder classes are accessed via
+the AV Foundation framework so what
+we'll need to do is import that first so
+right after import UI kit you're going
+to want to type in import AV foundation
+on your screen and then you're going to
+want to import your Watson apis so you
+can actually use them in this
+application so I'm going to be importing
+uh importing sorry conversation we're
+going to be importing speech to text and
+of course we're going to be importing
+text to speech now once you've got all
+those all those Imports down you should
+be ready to actually start coding in
+your application let's begin with a few
+variables that are going to be used
+throughout this class so if I go into my
+view controller class here I'm going to
+declare some class level variables and
+constants and let's actually begin with
+our IB Outlets which will actually let
+us uh communicate with our interface
+Builder or our UI throughout this code
+uh so I'm going to create a new IB
+Outlet a variable uh and so this is
+going to be called let's just say start
+stop button because uh as you can tell
+uh by the self-explanatory name here uh
+this is the button which will allow us
+to start and stop our voice recording of
+course though we have to declare uh our
+text View and so we're going to be
+calling this the conversation list and
+this is a type UI text view once you've
+got those IB Outlets down that's all you
+need to do in terms of IB Outlets but
+we've got a few more variables that
+you're going to need to create today in
+order to create this application so two
+of the most important ones though would
+be our av audio recorder and our av
+audio player so let's create those so
+first first thing we're going to do is
+create a new recorder so variable
+recorder and set this to a new AV audio
+recorder uh of course this is going to
+be a forced optional so it's equal to
+nil by default uh and of course we're
+also going to be creating a player or AV
+Audio
+player once you've got that down you're
+done with your AV classes in terms of or
+audio video Foundation classes uh in
+terms of class level variables now
+though let's start working with some
+conversation logic now the first thing
+in terms of conversation logic that
+you're going to need to take care of is
+your last context variable as I said
+when I was explaining in the diagram of
+this application what we're going to be
+doing is sending Watson in the first
+message no metadata about the
+conversation and also the users whatever
+whatever the user said but then what
+happens is when Watson returns stuff
+back to us it returns a little uh it
+returns a variable called context
+variable uh and it also returns a
+response so the response we can of
+course show that to the user and give it
+to text of speech but then what we need
+to do is in the next request that we
+sent to IBM Watson the next uh message
+the user sends we need to take that last
+context variable that Watson gave us and
+send it back to it and do that every
+single time to make sure that Ian Watson
+knows what of course is going on in the
+conversation and is able to reply
+accordingly uh and so the way we can do
+this as is by creating something called
+the last context variable and this is
+going to be a of type context and this
+is going to be a normal optional so by
+default it's nil uh and of course we're
+going to be passing this to IBM Watson
+conversation the first time as a nil
+object so it'll know that there's no
+context and this is the first time that
+we are of course sending a message to
+Watson from this
+application once that's done though
+there's a little bit more conversation
+logic left and what we're going to do
+now though is we're going to create the
+very variables that will help you keep
+track of how your pizza is actually
+being ordered and the structure of the
+pizza order so let's actually take a
+look at how that will work so what are
+the things that the user can change
+about the pizza well they can change the
+size the crust size the sauce the
+topping one two and three right so all
+we need to do is create variables for
+each one of those so I'm going to create
+a variable called size empty string uh
+of course crust size uh again empty
+string uh we're going to create
+something like um sauce empty string
+again uh we're going to create the
+topping one and Topping two and of
+course topping
+three once we've got all our toppings
+down we're done over all of our
+conversation logic and there's just one
+last con uh sorry uh constant that we
+need to create in the class level scope
+uh and what this would be is our output
+file URL now this URL will actually be
+the URL to the file that our AP audio
+recorder will record files to and Watson
+speech to text will grab audio from the
+way we're going to do this is we're
+going to create a new output file URL
+constant here and this is going to be
+equal to a new URL okay uh and that
+we're going to be using the file URL
+with path initializer here now this
+takes a string and in order to get the
+string we're going to run the NS search
+path and then wait for it to fill out
+and then NS search path for directories
+in domains function and this will return
+an array of strings and so we're going
+to ask it to find the document directory
+through the default user domain mask and
+of course we're going to ask it to
+expand the till day now this returns an
+array of strings so we're going to get
+the last element by forcefully
+unwrapping the last element in this
+array and then to this we will append
+slw Watson audio. wav or wave or wave
+technically and so now this is the URL
+that the that the recorder will actually
+record your audio too whenever you click
+on start record your audio and then
+click on stop of course though this is
+also the URL that speech DET text will
+grab your voice from when it's trying to
+understand what you said and that's what
+these two what that's that's what this
+constant sorry will be doing and that's
+what we had to do to initialize
+basically this entire class uh and have
+our base variables down in order to get
+started with the actual code but to
+begin with our actual code though we
+need to start off by sorry initializing
+our av audio recorder and the way we can
+do this is by going into our viewed load
+function and over here we're going to be
+of course initializing our av audio
+recorder so it's ready to record some
+audio so the way we can do this uh is by
+first of all we need to create a new
+session okay uh and I'm going to create
+a new AV Audio session in a new constant
+and I'm going to be getting a shared
+instance meaning the default in instance
+of an AV Audio session once that's done
+I'm going to create a new variable
+called settings and this is going to be
+a new dictionary of type string any
+object uh and of course this is going to
+be a blank dictionary by default but
+then what we're going to do is we're
+going to go to the settings dictionary
+and we're going to be setting the AV
+sample rate key to a new NS number and
+this NS number will be using the float
+literal initializer and we'll be using
+44100 as our number here again you don't
+exactly need to know what this means uh
+we don't really care about that all this
+is doing is It's recording it's
+initializing our recorder so it works
+with Watson speech detex that's all we
+care about right now this is not related
+to wats in any in any way though uh but
+then we're going to go back to our
+settings variable and we're going to be
+setting the AV number of channels key to
+a new NS number uh this time we'll be
+using the integer literal uh initializer
+and this will be equal to one that's it
+just one channel in our av audio
+recording once that's done though well
+I'm going to um be a little bad here and
+I'm not going to implement error
+handling uh because I want this to be as
+simple for you as possible but in your
+applications I would highly recommend
+you implement error handling uh because
+of course it's important and you don't
+want your application to crashing uh and
+so I'm not going to be implementing a do
+catch statement here uh although you
+could in your applic appliations uh
+right now I'm going to forcefully try to
+do all of this so what I'm going to do
+is I'm going to forcefully try to set
+the session category that we
+created I'm going to be running the set
+category function uh and what I'm going
+to be doing is I'm going to be setting
+this to AV Audio session category play
+and
+record once that's done I'm also going
+to forcefully try to set the recorder to
+a new AV audio recorder I'm going to be
+initializing this new AV audio recorder
+uh and of course going to be using the
+URL settings initializer right over
+there the URL will be the output file
+URL because this is where we want our av
+audio recorder to save the recordings
+and settings will be the new will be the
+settings variable that we had just
+created once that's done though we're
+going to tell the recorder to set
+metering enable to true and then finally
+what we're going to do is we're going to
+what we're going to do is we're going to
+set the recorder to prepare to record
+and once we're done preparing that
+recording we are done initializing our
+recorder and we can finally get to
+working with Watson nice yay okay let's
+get to that now so now you can get out
+of your viewed load function and you can
+create a new IB action and we're going
+to create a new IB action function and
+we're going to call this start stop
+recording now this is actually the
+function that's called whenever you
+click that start stop button and so
+inside of here we're going to create a
+new if statement and we're going to
+check if the recorder is recording but
+if it's not recording which is what that
+little exclamation mark at the end over
+there does if it's not recording then
+what'll happen is it'll run some block
+of code and this block of code what
+it'll do uh is it'll first of all uh
+make sure that first of all we create a
+new session which is our AV Audio
+session uh this is our shared instance
+by the way uh and then what we do is we
+forcefully try to set the session active
+by doing session. setactive
+true once that's done uh and again I'm
+not implementing error handling that's
+not good you should do that in your
+applications uh but then once I'm done
+that I tell the recorder to record by
+running recorder. record that specific
+record function uh and once that's done
+we're ready to set the start stop button
+title to stop because now we are
+recording the user uh and when they
+click on stop now it'll stop recording
+them uh and of course we're going to be
+using a normal UI control State and so
+that's what we're going to be doing in
+this block but what if the recorder was
+recording and the user just clicked on
+stop well in that case we actually want
+to start using IBM Watson and so now
+let's Implement that so let's actually
+put an else into our little if statement
+here uh and let's actually start
+implementing what happens if the user
+was recording their audio uh and now of
+course they get to send that audio to IB
+Watson and continue those steps in the
+pipeline now the first step we have to
+work with is speech to text and in order
+to do that we actually have to to have
+that audio file in a real way file on
+the in the documents directory and the
+way we can do that is by telling the
+recorder to stop recording uh by saying
+recorder. stop over there once that's
+done what I'm going to do is I'm going
+to get a new AV Audio session again our
+shared instance and I'm going to set
+active to false once again I'm going to
+forcefully try
+this once that's done though finally we
+can actually start working with Watson
+and specifically speech to text so let's
+actually create a new speech to text
+constant here and since we've already
+imported speech to text I can actually
+create a new speech to text object and I
+can initialize this with my credentials
+and since I already have some
+credentials and I don't need to create
+them in Blu miix what I'm going to do is
+I'm going to paste them into this
+application and these are my speech to
+text credentials here and this is what
+we're going to be using in order to of
+course understand what the user is
+saying once that's done we're going to
+actually create a new settings uh
+variable though and well basically the
+speech detect service needs to know what
+it's going to be given is it going to be
+given a w file and uh some other sort of
+file like some other sort of audio file
+in fact you can actually check this
+numeration are you giving it a basic
+file an F Lac file an muula file an opus
+file or wave file so there many
+different for file formats that speech
+to text works with uh but in this case
+we're using Wave so we're going to
+create a new recognition settings object
+over here put that in the settings
+constant and the initializer we'll be
+using for recognition settings is the
+content type initializer and we're going
+to be using wve as the content type once
+that's done though we are ready to go to
+the speech to text uh constant that we
+created and call the recognize function
+on it and we're going to be using this
+initializer right here uh the one that's
+uh really short the shortest initializer
+uh but of course this takes the audio as
+URL and not data once that's done the
+audio will be giving it will be the
+output file URL and it'll automatically
+grab the data from that URL the settings
+will be the new recognition settings
+that we just created and once that's
+done we'll be creating a success
+completion Handler and of course the one
+parameter we'll be taking this
+completion Handler would be the speech
+recognition results and we're going to
+be calling this the results variable
+now inside of this completion Handler
+we're going to be putting in some code
+and the first thing we want to do once
+we receive some text from speech to text
+is show the user uh that they have said
+something and as you saw in the demo it
+says like for example I said please go
+easy on the sauce and it said you colon
+please go easy on the sauce it showed me
+what I said uh and so the way we can do
+that is by appending that to the text
+view but when this code is called we
+will be in a background thread and that
+that means we're not in the UI thread so
+that we've basically got this main
+thread we've got a few more threads here
+and we've deviated from the main thread
+which is our UI thread to another thread
+and this is a background thread and that
+means that this code is going in
+parallel with our UI code so we're not
+freezing the UI while we're waiting for
+speech to text but the only thing is for
+our background thread we can't change
+the UI since we're not in a UI thread so
+what we have to do is we have to just
+Fork back into the UI thread and we
+actually have to change that text View
+and get right back to our back backround
+thread so the way we're going to do this
+is we're going to go into ios's
+operation queue and we're going to go to
+the main operation queue which is our UI
+a thread and so what we're going to do
+here is we're going to add an operation
+and the code for this operation is
+actually quite simple we go to the self
+conversation list which is the text view
+that we just created and then we set its
+text to this and I'll tell you what this
+does in just a moment so we set it to
+the text that was already there and then
+we add uace and then we add what you
+just
+said and then we add a new line so
+basically this code over here this line
+of code that I just added will append
+what I just said to the microphone or to
+to speech to text onto the screen so I
+can see if speech to text actually
+understood me correctly that's what this
+code over here is going to do but then
+you're going to go after the ending
+bracket or brace for your operation Q uh
+added operation and once you're after uh
+that little line a code we're ready to
+start working with conversation this is
+actually quite a simple service to use
+speech to text uh now though we get to
+work with conversation now the way we
+can do this is by creating a new
+conversation context and this is going
+to be equal to a new conversation class
+and of course as I said we can
+initialize this with my own parameters
+or with your parameter or sorry your own
+credentials uh and so what you're going
+to do is you're going to fill them out
+in this initializer here that you've got
+for the conversation class
+however since I've already got my
+credentials uh ready I'm going to just
+paste them in from the other screen and
+as you can see those are my credentials
+there of course though we are also
+specifying the version of the
+conversation uh model to use and so this
+is as far as I know the latest model uh
+in existence here uh and so that's the
+one that we're going to be using finally
+though once that's done all we need to
+do is create a message request and this
+message request is actually going to
+help us send a request to the
+conversation service so let's create a
+new MSG request here and let's set this
+to a new message request object and
+we're going to be using the longer text
+string initializer over here and once I
+uh put in that initializer I'm going to
+be setting the text to results. bestest
+transcript and this is the best
+transcript that speech to text believes
+that it could provide of the user's
+Voice once that's done I'm going to be
+giving it no alternate intents but then
+and you see that there's this little
+context parameter that it wants uh and
+so this is actually going to be to uh be
+equal to self. last context but you must
+be wondering though last context is by
+default nil why would we want to pass it
+here well you're right in some in a way
+but the message request actually takes
+an optional context specifically uh and
+so what happens is it's if uh last
+context is nil anyway it's just as good
+as saying nil to it directly uh however
+if last context is full of some metadata
+about our current conversation then of
+course that will be sent over to the
+message request and that can be sent to
+conversation so the logic behind that
+you'll understand in just a moment when
+I add in the next few lines of code
+that'll actually update that metadata
+but you'll see that in just a moment of
+course I'm going to be giving it no
+entities no intents uh and of course no
+output as of right
+now once that's done though finally what
+we need to do is call the message uh
+sorry we have to call the message
+function on conversation uh and so we're
+going to be using the longer initializer
+down there uh I'll paste in my workspace
+ID in just a moment uh message request
+we're going to be using the message
+request that we just created I'm going
+to again not Implement any failure
+initializer you should be doing this in
+your applications but I'm not right now
+but then in terms of success initializer
+I am and of course the one parameter
+that will take in this completion
+Handler will be called response and
+there will be some code inside of this
+message uh completion Handler here uh
+and so I'll tell you what exactly that
+code will do now so the first thing we
+need to do though is update the
+conversation
+metadata and the way we can do this is
+by setting self. context to the
+response. context so basically the
+context that Watson returned to us we're
+putting that into the self last context
+variable and the next time we send a
+message to conversation this message
+request over here will actually pass
+that into the context and then this will
+repeat and repeat and repeat until the
+user's done ordering their pizza and
+until then conversation will actually
+keep track of the pizza
+specifications so that's that logic
+might seem a little bit confusing but
+again if you've worked with conversation
+before I'm almost sure that you'll uh uh
+that you'll understand exactly what this
+means uh and so then once you're done
+that you can actually start working with
+some entity and intent logic so let's
+actually begin with our entity logic so
+let's create a new response entity
+constant over here and we're going to be
+sending this to the response entities
+and I'm going to be getting the first uh
+from this array of entities now of
+course there's always a possibility that
+there's nothing in the entities array
+and so first is nil and that's why it's
+optional uh and so that's why we're
+storing this in a temporary constant
+right now uh and I'll be talking about
+how we'll of course find the actual
+output of entity in just a second here
+so after that though we're also going to
+do the same for the intent so response
+intent is equal to the response intents
+and again this is an array and we're
+getting the first from this array again
+could be nil and this is why we're going
+to be putting some IFL statements here
+so now let's put an IFL statement and
+let's see IFL entity is equal to
+response
+entity this means that response entity
+actually has something inside of it and
+is not nil and so whatever if it's not
+nil that value will be put into the
+entity constant and the code inside of
+this block will be called and so then
+inside of this block we can use that
+entity and the first thing let's do is
+let's extract the entity's label by
+doing entity.
+entity and then let's extract the
+entity's value by doing entity.
+value then let's check if the entity
+label
+over
+here was equal to
+topping if the entity labels equal to
+topping well I have to pause right here
+there's a line of coder missing and I
+purposely missed that out and the reason
+being I have to explain some uh sort of
+logic to you so if you take a look at
+the screen now and just really
+concentrate on that screen I'm going to
+put in a few comments here and so as you
+can see basically what what the logic is
+behind this application is that int
+topping numbers are handled by intents
+and specific toppings are handled by
+entities what I mean by this is let's
+just say you say I'd like my first
+topping as cheese or you know you could
+phrase this however you'd want but this
+is basically what you'd say this is what
+you'd intend to say the intent here
+would be topping one but the entity
+would be topping cheese and so if we
+were to combine these we would know
+first topping cheese uh and so that's
+what what what we're trying to implement
+in terms of logic but there's one more
+thing that you should see here though uh
+which is that let's just say you were to
+say I'd like cheese you wen't say you
+wouldn't say I like my first topping
+this cheese then who knows what the
+intent will be we don't know because
+Watson conversation hasn't been trained
+to understand that uh but could be a
+cheese crust right if that was one of
+the opportunities exactly so you know
+you you wouldn't know what this would
+mean but our intent would know that this
+is topping cheese because it sees the
+word cheese inside of here and so what's
+happening here is we get confused the
+code gets confused and it doesn't set
+your first topping to cheese because it
+doesn't know which topping it should be
+uh should be your first second or third
+topping doesn't know uh but then let's
+just say you say I'd like my first
+topping which I'm not sure why you would
+say something like that but if you were
+to then your then your intent would be
+topping one but there would be no entity
+because there is no topping mentioned in
+the sentence there's the word topping
+but you're not specifying chicken cheese
+olives or pineapple you're not
+specifying any of that stuff so entities
+don't come into account here and so
+that's why that becomes a little bit
+more confusing and so what we need to do
+is before our if let statement we need
+to create a variable called topping type
+uh and this topping type variable will
+be an optional uh string and so the
+reason this is going to be an optional
+string is because by default we want
+this to be n okay however if our entity
+contains a topic then what we're going
+to do is we're going to set this to that
+topping so inside of our new if
+statement where we say if entity label
+is equal to topping then what we do is
+we set as you probably guessed tobing
+type to The Entity value not the label
+and so in this case our label would be
+topping but our value would be something
+like cheese and then when we're handling
+the intense later then we can see okay
+which number of topping were they
+talking about were they talking about
+their first topping second or third uh
+and depending on that we can of course
+continue and Implement our logic so
+that's how that works and since we're on
+the topic of intents anyway let's
+Implement our intent handling uh so
+after your IFL statement for the entity
+let's implement the IFL statement for
+the intent uh and so we're going to say
+if let intent is equal to response
+intent and if this is true again if
+response intent is not nil uh then the
+value of response intent will be put
+into intent and then this this block
+code will be executed so let's actually
+say um maybe something like uh intent oh
+sorry no we have to actually check
+something first uh so what we need to do
+is we need to create a new constant
+called contextual intent and set this to
+the actual string value of the intent
+the actual name of the intent uh and so
+then what we do uh is once we've got
+that down we have to put in a few if
+statements unfortunately a lot of if
+statements uh so the first one we're
+going to do though is say if contextual
+intent
+is equal to size small now the size
+small intent means as you probably
+guessed the user wants a small pizza and
+so we can say small pizza and we can set
+self. size to
+small now of course we can continue this
+exact pattern uh for all the rest of the
+I'd say around 10 and T here uh but of
+course as you can probably guess that
+would take a lot of time uh and I don't
+want to of course spend your time on the
+live stream right now uh and so instead
+of spending your time what I've gone
+ahead and done is I'm just going to
+paste in these if statements from
+another screen
+here so I'm just going to copy and paste
+and for those wondering we've provided
+this also via your GitHub exactly so you
+know you don't have to worry about
+missing out on that it'll be available
+to you to follow along exactly so right
+after this event the actual final source
+code will be open sourced uh however
+though uh the uh starter code you can
+actually find on GitHub right now and if
+you'd like you can actually follow along
+with us right now have any questions or
+issues you can leave them in the live
+chat uh James will be giving me some
+more questions later of course we're
+going to be doing a great Q&A uh but
+let's continue as you can see we're
+getting an error and I made this error
+on purpose uh but why well there's a
+simple reason I need to explain some
+more logic to you so so it's happening
+here we're getting an error because log
+Pizza is a variable that hasn't been
+defined yet but what's log Pizza well
+when the user's intent is done and that
+means they're done ordering their Pizza
+they finalized their specifications then
+we want to take the actual Pizza
+specifications and print them out onto
+the screen for the user to see just as
+you saw in the demo how at the end it
+said size large sauce easy you know
+crust thin topping one cheese topping
+two chicken topping three nothing uh
+when it said that it was because of the
+log Pizza variable and the log Pizza
+variable is saying okay the next time we
+go into the main operation queue we're
+actually going to paste out all of those
+pizza specification onto the screen and
+so the way we're going to do this is by
+before our if let for the intent we're
+going to create a new constant uh or
+variable sorry called log pizza and this
+is going to be equal to false and Swift
+will type inference this as a Boolean uh
+and so after your IFL let though you can
+actually go back into the main operation
+queue in order to change the UI we're
+going to add an operation here and here
+we're actually going to do a few UI
+changes the first one is again as you
+saw in the demo when Watson replies to
+us it doesn't just say out what it said
+it also says watson colon then says what
+Watson said and so basically what we're
+going to do now is we're going to say
+okay uh we get to the conversation list
+self. conversation list and we append to
+its text again another row that has what
+Watson conversation uh replied to it so
+response uh.
+output. text tt. first and of course
+we're forcefully unwrapping you should
+be implementing error handling in your
+actual application though and so this
+will actually add out what Watson
+replied to the user in this onto the
+text View and of course I forgot to put
+do text here so that's a must here all
+right so once you've got that done then
+we put in an if statement to see if log
+Pizza uh and if log pizza then we want
+to put all those pizza specifications as
+you saw onto the screen
+and so quite simply all you need to do
+here uh is do something like maybe copy
+this line of code here paste it in and
+change this to size and change this to
+self. size and again since we have quite
+a few Pizza specifications uh and this
+is still a small application uh I'm just
+going to paste in those other Pizza
+specifications from another screen of
+code as you can see these are all our
+pizza specifications so it'll print out
+the size crust sauce topping one two and
+three once that's done though after log
+Pizza you're finally ready to work with
+the last final step in the pipeline and
+this is your text to speech service and
+finally after this you can actually go
+ahead and order some pizzas using this
+poot uh so all you need to do in order
+to work with text to speech you create a
+new text to speech constant set this to
+a new text to speech object and again I
+have my own credentials for this service
+so I'm going to be pasting those in
+right now
+as you can see here I've got my
+credentials here uh and then what I'm
+going to do is quite simply no message
+request or settings or anything to be
+done just do text to
+speech. synthesize use the smaller
+initializer give it the text as what
+Watson returned by going to the response
+getting the output getting the text and
+then of course getting the first in that
+array and then your success completion
+Handler will contain an object of data
+and just call this audio for example uh
+and then you have some code now I'm
+going to be pasting something in here
+let me let me show you this so basically
+what I'm going to do here and this is
+actually pretty important uh is I'm
+going to get a new shared instance of an
+AV Audio session uh and I'm going to be
+overriding the audio ports to make sure
+it plays audio through the speaker but
+what does this mean well it's quite
+simple so with an iPhone specifically an
+iPhone not iPads don't do this iPod
+Touches don't do this only iPhones when
+by default when you tell them to play
+audio they'll actually play it through
+the earpiece so the audio will be very
+dim and so you won't be able to hear
+anything but we want really loud audio
+so you can actually hear something uh
+and so what's going to happen is we need
+to actually override the earpiece and go
+directly to the speaker but there's a
+little problem now let me actually tell
+you a quick story here so while I was at
+ium developer connect 2016 I actually
+had my ass tme application which had
+speech to text as well and it would use
+code or text to speech sorry and and it
+used code similar to this and so one
+thing you must note here is that this
+won't just override the earpiece it'll
+override the headphone the HDMI
+lightning everything and so uh you will
+be able to hear the speaker but the
+audience won't be able to hear the
+speakers at all so you might want to
+stay careful of that so if you'd
+actually like like to play this to
+speakers or headphones or something of
+that sort you'd want to implement your
+own Logic for overriding specifically
+the earpiece going to the speakers if
+there are no headphones phones or
+anything else plugged in so you're
+probably going to want to implement that
+if you want that
+functionality all right so once that's
+done though we can actually play our
+audio and the way we can do this is by
+going to the self. player as you know we
+created in the beginning of this uh live
+event and we're going to be forcefully
+trying to set this to a new AV Audio
+player we'll be using the data
+initializer and we'll be using the data
+that Watson text to speech returned to
+us in the audio variable once that's
+done done we're going to be telling the
+a self. player to prepare to play and
+then self. player to actually play and
+from there you are done coding in this
+application but one last line of code
+all you need to do I'm hungry I know but
+just one last line of code I promise and
+then sell uh sorry so all you need to do
+is set the start stop buttons title to
+start sorry not star start and then set
+it to a normal by control State and you
+are done coding all you need to do now
+is go back to your main. storyboard
+connect the IB Outlet to the text View
+and of course the button so I've
+connected my IB Outlets to the text View
+and the button and then I connect my IB
+action from the button to the uh View
+and then we are completely done our
+button now knows how exact oh sorry I
+didn't connect the ibaction properly
+anyway so now our button knows exactly
+what to do when it's clicked our text
+view knows what output to give when it's
+done uh and of course this application
+is ready to be tested would you like to
+test this out now all right so what I'm
+going to do is I'm going to first of all
+uh connect my phone to my Mac because we
+can't do that um we can't test this
+application out without connecting uh so
+it's going to be a little bit of uh lag
+between putting this phone on screen so
+what I'm going to do here is I am going
+to run this onto my
+device and then
+we
+will okay so right okay so it's going to
+run on my device you'll be able to see
+it on screen in just a moment uh
+unfortunately these lightning to hdmis
+don't allow you to transfer data through
+the lightning Port that they give you
+only Power so that doesn't work come on
+Mac Apple okay so then we can continue
+I'm going to plug this back in as you
+can see on the TV right now we've got my
+phone and there we go as you can see now
+this is the application that we just
+coded in live Let's test it
+out
+hello as you can
+see it
+says or at least should say in just a
+moment here oh one thing I forgot to do
+in the code is we have to paste in the
+workspace ID for conversation of course
+or else how will it know where to go so
+you have to do is go back to the code uh
+so you already know where this is I've
+already shown you this I'm just going to
+paste in the conversation ID uh and then
+we will switch back to the phone uh so
+workspace ID right there all right so
+then we
+just put run this back right back onto
+our phone and then we should be able to
+test out our
+application all
+right run the
+app and in just a moment it should run
+onto my phone and then you'll be able to
+see it on the screen once I plug it
+in all right we've got this running and
+switch
+over so you can see here shows my phone
+and now we can actually test it
+out
+hello so in theory the recording works
+fine what size pizza would you like all
+right so Watson is able to reply to us
+using text and speech it's able to so so
+we've seen that the recording works
+works perfectly speech for text works
+perfectly conversation Works nicely uh
+what the text view Works nicely and of
+course text to speech works perfectly as
+well and this is our live coded in
+application I'm not using the older
+application right now and that is how
+you can Implement your own little pizza
+ordering chatbot that will actually call
+a rest API when it's done ordering the
+pizza in order to actually get your
+pizza all right so I guess it's Pizza
+time again uh but now just before we end
+off with this application as I said I
+have another little surprise I guess uh
+with node.js and this application so
+let's take a quick look over here back
+at our uh presentation here uh and so
+this is our system before or no we have
+to switch back to the Mac uh this was
+our system before all right uh right
+over here uh and so this this allow the
+user to order a pizza using the
+application but there are a few problems
+with this first of all you have to keep
+you know updating the software uh
+according to the newer Swifts that come
+out uh of course we have to have you
+know the user has to have have an iOS
+application specifically they can't have
+another type of device uh like they
+can't order it from a flip phone for
+example uh so there are just a few
+problems with how this is implemented
+which can't really be solved by creating
+more and more and more applications for
+different types of devices and so the
+way that I've decided we can combat this
+is by instead of using my own custom
+application we use twio and so twilio
+will allow us to actually order these
+pizzas through SMS that's right we can
+actually use twio in this case and
+through that means we could really order
+a pizza from a flip phone we could order
+it from an iPhone really anywhere where
+you can send an SMS from anywhere around
+the world uh and so now as you know with
+SMS speech to text and text to speech
+don't really come in because of course
+we have direct SMS uh so those have to
+go so those services are no longer in
+use uh now of course though we can't
+have twilio directly communicate with
+the rest API and conversation so we need
+to implement a node.js server in between
+and twilio will contact the node.js
+server whenever it receives a request
+from the user and that then then the
+node.js server will send that to
+conversation conversation will reply to
+the node.js server and it'll send that
+back to twilio for the user and of
+course once the user is done ordering
+their Pizza the nodejs server will
+actually send that request to the rest
+API in order to have the rest API order
+their Pizza in fact now let's take a
+look at a demo of how that can itself
+can be uh can be implemented uh and so
+now if I just open up my messages here
+I'm going to compose a new message then
+I'm going to switch over to my phone uh
+and then while it switches over I'm
+going to go into my Linux
+um box over here and I'm going to start
+a nodejs script if it'll load that is um
+sometimes the internet doesn't want to
+cooperate with you so just give it a
+moment so as you can see this is behind
+me uh but it might just take me a moment
+here to set up
+the
+actual Linux so basically what I'm going
+to be doing now is I'm going to be
+opening up or you know opening uh that
+to no Js that comes in between uh the
+twio conversation and the rest API all
+right so it should work technically uh
+so as you can see behind me we've got my
+phone once again uh my text message and
+so I'm actually going to be composing a
+new message to my Twi out number that
+I've got set up and as you can see what
+I'm going to do is again just like we
+said to my application I'm going to say
+hi to twio and it returns to with hello
+what size pizza would you like and of
+course from here we can continue our
+conversation of course just like we did
+last time we'd like a large pizza uh
+sure what uh what toppings do we have
+just to prove though that this is
+actually keeping in track of the context
+uh and the flow of our conversation I
+can ask it for the options which
+otherwise it wouldn't be able to tell me
+about the toppings unless I was keeping
+track of the conversation and the
+context which it has and it says we have
+cheese olives pineapples and chicken is
+toppings you can have three toppings
+tops and from here of course I can
+continue my conversation with lson and I
+can continue to order my pizza for my
+SMS and the best part is though that
+this will actually keep track of each
+phone's context variable independently
+so you could have 500 people messaging
+it at once and each one would remain
+separate and it wouldn't get those
+orders mixed up ever and so generally
+the the implementation of this is very
+very interesting and in fact you can see
+this source code on my GitHub page as
+well nice all right so that's what we
+had for this Facebook live event today
+but just before we go though uh I mean
+we would like to do a quick Q&A uh but
+one more thing is though uh that I'd
+like to say first of all a few
+conferences of ibms uh first of all oh
+sorry we've got connect 2017 here uh so
+connect 2017 is going to be a conference
+all about IBM Watson uh so this is going
+to be held in San Francisco from
+February 20th to 23rd it's going to be a
+really interesting conference so I'd
+recommend you check that out uh but of
+course apart from that we've also got
+interconnect 2017 which you'll be at
+right exactly I'm going to be presenting
+at interconnect 2017 it's going to be
+held from March 19th to 23rd in Las
+Vegas so I'd recommend you check that
+out as well might even be interesting to
+meet some of you uh at interconnect
+he'll be doing a book signing hopefully
+yes so maybe let's see U so apart from
+that uh of course we've also got amplify
+which is going to be held almost at the
+same time as interconnect again Las
+Vegas March 20th to 22nd uh so of course
+again all about IBM Watson and IBM Blu
+miix and uh basically how you can
+combine things like cloud and cognitive
+uh to your application Advantage now
+before we get to questions can you pull
+up um like your contacts or where they
+can follow you on the social media sure
+so as you can see here this is my
+contact information uh so this is my
+GitHub as well if you'd like to see my
+open source projects and the code for
+this application uh of course my YouTube
+email Twitter and Linkedin but of course
+though you can actually uh also this is
+my book hello Swift that I've written uh
+hello Swift iOS at programming for kids
+and other beginners uh and of course you
+can actually pre-order this online on
+the Publishers website and many other
+bookstores as well if you'd like to uh
+and of course you can actually just
+search up hell Swift and pre-order that
+if you'd like all right so now I guess
+we can actually uh start the Q&A of
+course our pizza was ordered uh so
+that's nice uh thank you so let's begin
+quick Q
+all right let's see what we
+got all
+right so Tammy while I'm looking for
+questions why don't you um get them
+interested in like how you got started
+with Watson sure definitely uh well the
+way I actually got started with Watson
+is actually quite interesting and quite
+coincidental uh so what happened is
+around one and a half years ago I was
+really interested in you know General
+programming really uh and so what
+happened is actually this was in uh nove
+just uh just before November of 2015 I
+was really interested in things like uh
+programming in general and so I was you
+know on YouTube I was creating YouTube
+videos and so in my recommended pain I
+actually saw a documentary about the
+smartest computer in the world and I was
+like okay what's this it was a 42-minute
+documentary and it highlighted exactly
+how Watson was able to play Jeopardy how
+it learns what machine learning is what
+AI is and I was just so so interested by
+all of this and so I was immediately
+hooked to I Watson uh and so I couldn't
+resist myself but to see what IBM Watson
+is nowadays and I was absolutely
+thrilled to see that Watson actually
+provided things like developer apis uh
+and so what happened is I actually
+started working with those those
+developer apis my first API was
+retrieving rank that I used uh so it was
+generally very interesting how I got
+into IBM Watson uh and of course though
+uh apart from that I actually released
+my first IBM Watson video in November of
+2015 uh and so of course I actually
+presented my very first Watson
+application at interconnect 2016 2016 uh
+which I had developed called as tme
+which is an nlqa
+system so that's how we got uh started
+off with
+Watson great no um tamy are there any of
+the services that you enjoy most from
+the Watson well I actually got asked
+this I don't exactly remember when but
+um I got asked this a lot uh and so what
+I have to say there though is that I
+don't necessarily have a favorite Watson
+API but the reason being here though is
+that they're all completely different
+they're all good in their own use cases
+uh but if you were to say the one that I
+find would be best for most use cases
+really interesting and really fun to
+work with I'd say visual recognition and
+the natural language classifier would
+have to be uh and so the only thing is
+though you know things like retrieving
+rank natural language classifier they
+have such different use cases that I
+can't really compare them uh with each
+other and see which one's better
+necessarily uh but in terms of
+interestingness I think visual
+recognition and the natural language
+classifier take the cake there nice do
+what um projects do you have working on
+right now that you maybe are interested
+in sharing with the team uh well I am
+actually working on quite a few projects
+most of them uh are quite secret for now
+though of course I am of also working on
+a lot of projects to make the like kids
+and their parents lives easier uh of
+course I'm working towards uh helping
+people with disabilities as well which
+you'll see more about this type of stuff
+at interconnect 20177
+so again that's what I'm saying uh you
+might just want to check that out as
+well um one of the questions I see is
+regarding the apis from Watson's if
+someone was to get started yes what
+would you recommend for someone to get
+started with no JS if that's their
+programming language of prefence sure
+yeah in order to get started like the
+Watson API to get started with Watson
+I'd say the natural language classifier
+the reason is because it's extremely
+simple to train requires very very
+little training data so if you don't if
+you're not like a data scientist and you
+don't have a lot of data available you
+don't have like an abundance of data
+natural language classifier is great to
+start off uh and so it just generally it
+trains very quickly trains nicely and
+it's accurate so I believe that the
+natural language classifier is a great
+starting point at least uh and from
+there though and it also has a lot of
+use cases so you won't have trouble uh
+like deciding for example uh what you
+what example you might want to create uh
+but apart from that if you've already
+experimented with a natural language
+classifier and you're looking for a
+little bit more challenge next I'd
+recommend the conversation service
+because again it's practically the
+natural language classifier and dialogue
+combined dialogue already wasn't really
+hard to use natural language classifier
+extremely simple to use combined they're
+really powerful and simple to use uh and
+of course provide a lot of use cases so
+natural language classifier and
+conversation would have to be
+it um so some of the other things that
+we had so some people
+um someone said what if the web services
+stop supporting the API do you jump onto
+another
+language well okay so uh sorry could you
+repeat the question yeah I don't know if
+it came out right um it says what at the
+web services well actually you know I
+had one because as they saw you were
+having to manually enter things yes
+right okay how would you want to work
+around that so that way you know is
+there way to deliv the web sockets
+exactly so speech DET text the Watson
+speech DET text service uh in fact the
+Watson speech detect Swift SDK which I'm
+using in my application actually
+provides support for web sockets in
+their applications uh and so what
+happens is like for example here since I
+didn't want to of course complicate all
+of this and show you how to do things
+like websockets with this what I did is
+I created this very very barebone and
+simple application where we've got this
+recorder that records a wave file and
+that wave file sent a speech to text but
+what you could do is you could have this
+websocket uh that would of course listen
+to you and stream transcripts back to
+you uh as you say them so like as you
+were to say sentence uh each word would
+be sent individually back to the
+application and added to the text View
+and it would automatically stop right as
+you're done speaking and it detects that
+you're done speaking and so of course
+Watson speech detex does actually
+provide that support it's just that I
+haven't implemented it in this
+application due to Simplicity I wanted
+it to be as simple as possible for you
+to be able to understand the concept
+behind it someone asked so you've done
+about a year now with us right when we
+first met each other I found you online
+Yes actually we interacted that way and
+we've been brothers ever since actually
+a lot of trips and Journeys um so but
+someone want to say that why did you go
+with like Watson from IBM standpoint
+versus I don't know you've got aure and
+you've gots or Google well there are
+actually quite a few reasons and I
+actually get asked this quite quite
+often uh the reason I'd say number one
+that I prefer IBM Watson over something
+like Google's cognitive cloud or maybe
+aour as you said would be that Watson
+first of all focuses a lot on natural
+language that's what that from the
+beginning as you know Watson's main goal
+was to understand and reason with
+natural language and that's one of the
+reasons and plus Watson really allows
+you to work with your own data where you
+know like Watson's visual recognition
+service allows you to use its own
+default classifier in order to do things
+like take a picture of a bird and it'll
+tell you there's a bird in the picture
+but you can also create your own
+classifiers for example where with
+Google's cognitive Cloud you can do that
+very easily at least you can but it's
+not intuitive is it's just not it's not
+as simple to do with Watson and it's not
+as powerful in in that context uh and so
+and Watson also provides a wide a much
+wider range of services than any other
+cognitive Cloud uh that I I've seen at
+least until now so that's really why I
+prefer Watson uh over most of these
+other services that are provided by
+other
+companies let's see some other ones is
+so Tammy you're um you're you just
+turned 13 or yes 13 October 16th I
+turned 13 um I know you've had
+interactions with some of the other
+companies especially regarding Walmart
+right and I think Walmart asked you
+something specifically like how did you
+learn so much about analytics data
+science machine learning yes so I think
+it's a good question for a lot of people
+out there that are really hungry to grow
+their knowledge there how how can they
+follow in your recommendations yeah you
+know there's actually this one thing
+that I'd like to tell you it's pretty
+much all about doing stuff so like for
+example when I found out about Watson
+Not only was I hooked to how these
+Watson apis work I was hooked to
+something else that came much before
+Watson apis which was the original
+Watson that played Jeopardy I was very
+interested in how that worked and I
+wanted to create my own nlqa system for
+example and so I created as tme after
+many many months of research and reading
+about I'd say 15 entire papers about
+nlqa systems I finally got to one called
+ask MSR which is what ask tan is based
+off of or ask Microsoft research which
+they developed in 2002 uh but you know
+basically what I like to say is like for
+example the nlqa system I developed uh
+that led me to finding out more things
+about machine learning and finding out
+more things about machine learning led
+me to learn about things like neural
+networks and once I had things like oh
+what's a neural network once I knew what
+a neural network is and once I know what
+what all these different machine
+learning algorithms are I start to get
+interested in like hey what's a neural
+network and then I do a few weeks of
+research on neural networks and I start
+to find out how they work and then in
+the process of learning how to use
+neural networks I learn about some other
+concept entirely and I get so interested
+and I just one thing leads to another
+and I just you know continually uh learn
+through uh basically learning one thing
+and then having that teach you another
+thing and then continuing like that
+that's usually how I like to of course
+learn uh with machine learn with thing
+topics like machine learning uh
+especially due to the fact that there is
+actually quite a bit of I guess you
+could there are quite a few resources
+online to help you do that uh so I think
+it's really interesting uh how it's How
+uh basically um if you think about it
+compar it to other topics machine
+learning doesn't have the most material
+online but whatever material is out
+there is extremely useful so it just
+turns out to I found out about feed
+forward neural networks it takes me to
+convolutional then recurrent Etc ET
+so just continuing in a cycle like that
+really does help me learn as much as
+possible great answer unfortunately
+we've got a lot of comments here but
+we've got to wrap it up so for anyone
+that has asked questions like I saw the
+one on about when do we you know what
+needs to be installed on Windows 7 to
+start with Watson and Blu miix and
+another one says what languages do you
+use for wats and programming what are
+available we'll respond back in the
+comments so that way you guys we make
+sure you get set in the right direction
+definitely and please stay tuned because
+tan May is going to be doing a lot more
+of these throughout the year and again
+come to interconnect next month if you
+can um to see Tam live again further
+program he's going to be doing some us
+some other Technologies um and he'll be
+able to meet you all and you can ask
+some more questions there again thank
+you again I'm James R an IBM cloud and
+cognitive technical leader and tan may
+you are an honorary IBM Cloud advisor
+and an IBM Champion for cloud thank you
+thanks everyone

@@ -1,0 +1,30 @@
+back for another tutorial SQL Server
+2008 2012 sorry um so come back we are
+last time we did creating tables now
+we're just gonna create a sample
+database so what these syntax would be
+for that create now don't think it's as
+complicated as create table it's
+actually really simple great database
+name that's it that's how simple it is
+so what I did for this new database we
+have that's it that's what I ain't
+skated it's gonna give me an error
+because I already made this database but
+what if I make youtube too then I can
+make another table in there but again it
+this is still YouTube why is it not
+YouTube too that means whenever I make
+will go on YouTube not YouTube too to
+fix that just go use YouTube YouTube too
+and then you see this changes but since
+it has this little arrow and you can
+tell by how it's made you could just
+simply click this arrow and then go to
+the database you want and now it's using
+that database without you having to type
+that in you can do whatever you want
+there okay goodbye
+next though we're doing insert commands
+to insert data into a database and good
+guy

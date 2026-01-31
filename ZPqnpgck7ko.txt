@@ -1,0 +1,345 @@
+[Music]
+so just before we begin the actual video
+today I'd just like to say that an early
+access copy of my book hello Swift IOS
+app programming for kids and other
+beginners has been released you can find
+it on many bookstores online such as
+Amazon chapters and Indigo as well as
+the Publishers website I really do hope
+it helps you along your journey of
+learning the Swift programming language
+for iOS development all right so let's
+get into the tutorial now so hello there
+and welcome to another tutorial my name
+is Tam bakshi and this time we're going
+to be going over asynchronous tasks in a
+variety of different programming
+languages in fact just before I actually
+go over what we're going to be talking
+about today I'd like to say a big thank
+you to shant chadri uh who is a medical
+engineering student in Germany for
+sending in this question uh and of
+course giving me the idea for this video
+so basically I'm going to be talking to
+you about today well quite a short video
+uh but basically it's going to be about
+how you can use asynchronous tasks what
+they are and why you use them uh so
+let's talk a little bit about that so
+let's actually begin with uh something
+like Watson okay if you've ever used IBM
+Watson or Google or really any rest API
+any rest API you've probably use
+asynchronous tasks and basically um what
+this means is let's say you've got the
+internet okay so you've got this thing
+called the Internet it's really
+big
+okay and you've got this thing called
+let's just say a a connection to the
+internet okay so you got this connection
+to the internet internet uh and let's
+just say you make a request now I'm not
+going to go through actually how the
+internet works uh how you're sending a
+request to the internet and how it's
+coming back to you but quite simply what
+I'm going to abbreviate it as is you're
+sending a request for
+google.com oh sorry
+google.com to this
+internet and the internet is coming back
+with you with some response with some
+HTML and that is being displayed on your
+web browser uh but there is a small
+problem here so when you load a website
+on your web browser you probably notice
+that hey like uh the thing doesn't just
+freeze up or at least hopefully what
+happens is it shows a little loading
+indicator like in Google Chrome shows
+that little you know spinning Circle uh
+and it just spins spin spins until you
+actually get the result on screen it the
+UI doesn't just freeze up and that's
+called using an a sness task in fact let
+me explain this in a bit more detail now
+what's happening is inside of your
+computer you've actually got these
+things called threads so you've got this
+let's just say CPU all right you've got
+this nice little processor and the
+processor has let's just say four CH
+okay uh now sometimes some processors
+can do things do things like
+hyperthreading which will make this you
+know simulate eight cores and then each
+core could have two threads meaning it
+would have 16 threads uh and so what
+would happen
+is let's just say for the sake of
+Simplicity you've got three threads on
+your computer although you've probably
+got many many many more uh so what we
+can actually do is we can draw a little
+graph
+here this is our execution
+time as we go along
+here this is like a few milliseconds
+increasing increasing increasing and
+then over here we've got our
+threads okay so this is these are our
+threads these this is our execution now
+and I'm just going to draw three threads
+and you know continuous execution but
+then again as I said you probably have
+many more
+threads so now that one let's just say
+this is our main
+thread okay in fact you can actually
+call this your UI thread now the reason
+it's called your UI thread is because
+this is actually this thread is
+basically like a big string okay and
+this
+string basically allows for the
+execution of UI tasks for example when
+you see a button on screen and when you
+click on the button and some something
+shows up all of those tasks are being
+handled in the main thread all of that
+code is being run in thread number one
+and so what's happening is that's
+allowing you to see what's happening on
+screen and it's the main thread process
+so like for example what this means is
+let's just
+say um you stop the thread over here and
+you do something that'll you do an
+operation that'll take let's say 3
+seconds to complete what'll happen is
+you'll have this little block here this
+3 second Block in execution 1 2 3 and
+during those 3 seconds since the UI
+can't be updated your UI will kind of
+freeze whatever was loading what was
+animating will stop and it just will
+absolutely freeze because for those 3
+seconds you're running an operation
+that's taking 3 seconds and not allowing
+the UI to continue and be executed but
+once that 3 second block is over the
+execution will continue like
+normal but as you can imagine that's not
+a very good user experience at all and
+let's just say that this 3 second you
+know wait was accessing a rest API for
+example going to the internet waiting
+for the server to respond etc etc etc
+that would take let's just say 3 to 4
+seconds maybe five and that is a block
+on the UI thread meaning you cannot
+display any animation saying that hey
+wait I'm getting a result uh your users
+might think that hey the application's
+Frozen force quit it uh if the internet
+takes too long to load for example it'll
+just be absolutely Frozen you won't be
+able to use it and it's just generally
+not a good user experience uh and that's
+not a good experience for you either
+okay uh and so this is where
+multi-threading comes in and so
+basically the point of asynchronous
+tasks is to delegate long running
+operations off of the main UI thread and
+onto a background thread uh and so
+basically what we can say is number two
+and three threads here are things called
+background threads they are threads that
+the UI doesn't run on meaning that by
+default there's not anything running on
+them and that also means that well if
+you were to run something long running
+on thread number two number one would
+just keep going on in terms of execution
+and number one would not be affected
+let's actually take a look at that so
+basically the point here is we've got
+this
+execution Okay so we've got this UI nice
+nicely going uh and then out of nowhere
+we need to run something called a long
+running operation let's say a call to
+Watson what we're going to do is we are
+going to
+Branch off from this thread onto thread
+number two and we're going to put our
+long running operation and block This
+Thread
+however thread number
+one can keep
+going without any interruptions and what
+this means is while thread number two is
+held up for 10 20 seconds really however
+long your UI continues to animate your
+UI continues to be drawn uh and you can
+continue to do any short running
+operations without your users believing
+that your application is completely
+Frozen that's a big advantage in fact
+what happens is let's just say uh you're
+done here
+okay uh you're done with this operation
+what happens is you basically merge back
+in to your older thread number
+one all right uh or I mean I guess you
+could say a more realistic sense here uh
+would be that this thread just basically
+ends okay so it basically ends here but
+what happens is just as it
+ends there'll be a little I guess you
+could say block over
+here all right and this will run some
+code that was supposed to be
+run after thread number two's work is
+done now the reason this becomes so
+convenient is what happens is okay so
+you've got thread number one calling
+Watson branches off into thread number
+two thread number two does the long ring
+operation UI is still completely
+perfect thread number two Branch like
+just hops back into number one changes
+the UI however displays the result of
+the web call displays really whatever it
+needs to displays a message does
+something on that UI thread and then
+continues like normal on thread one
+whatever you would usually do and this
+here is something called a short running
+operation uh and so it's not very long
+it's basically just taking whatever the
+result was of that long running
+operation uh and basically displaying it
+on the UI or doing something small with
+it like adding the adding stuff together
+a parsing Json or something of that sort
+that doesn't really take too long and
+won't freeze up your UI for like 10
+seconds so you so your users are very
+very happy with that in fact what's
+completely possible is actually
+branching back and forth between
+background UI background UI so let's
+just say for example we continue this
+thing here we continue thread number one
+on and on and on and on what can happen
+is we basically um Branch back into the
+thread number one from thread number two
+and we take this and we
+basically continue as if we never
+stopped and what we can do is we can
+essentially do a long running operation
+we can Branch back in display something
+on the UI do something while we pause
+our long running operation thread they
+continue with something else that's a
+long running
+operation for example and then continue
+and continue and continue until you are
+finally done and you can merge back in
+to your first UI thread in fact another
+thing that's really interesting here is
+that you can actually run background
+threads from background threads so like
+for example I could then once this is
+done once we've returned back from our
+UI thread I can then spawn another
+thread okay and this could do another
+long running operation and then this
+thing could come back or it could just
+end and I could continue with my second
+thread but then again there's another
+thing you could do where for example
+instead of having uh for the uh second
+thread wait for the Third third thread
+you could have the background thread do
+something in the background for your
+background thread what this means uh is
+basically we would have this still of
+course going oh sorry not supposed to
+come here uh but we could still have
+this going on while this continues and
+then we could of course have thread
+number three branch into thread number
+two
+again
+and continue like so now this might seem
+a little bit complicated but basically
+the point is that what's happening is
+let's say you want to run something
+that'll take some time instead of
+freezing up your application by stopping
+This Thread from executing we just
+delegate that work to a different thread
+then you just don't run any code on here
+and just wait naturally for this thread
+to respond back here give you your
+updates and continue from there in fact
+I've actually used this in a number of
+my applications however I usually like
+to go for synchronous tasks that usually
+just block the UI for the sake of
+Simplicity to show you how the actual
+rest API itself Works however you will
+be seeing a few examples of this in the
+description below that's right in the
+description below I'm going to attach a
+few examples of
+applications uh that can use this type
+of asynchronous uh asynchronous Behavior
+Uh and and those will be uh in node.js
+uh Swift and maybe some python as well
+uh in fact I guess you could say not
+just the execution this is the execution
+time uh so this is the time that it
+takes to execute and this is you know
+overtime you're executing these actions
+uh and of course we can just continue
+continue continue use as many threads as
+You' like and just the logic seems a
+little bit complicated but once you see
+the examples in the description below
+this should be much much clearer to you
+all right so that's actually going to be
+it for this short tutorial today of
+course I really do hope it helped you
+and helped pant as well uh so of course
+though that's going to be it for this
+tutorial if you liked it please do make
+sure to like the video down below and if
+you believe it could help anybody else
+you know like your friends or family uh
+please do consider sharing the video as
+well of course if you have any
+suggestions feedback or even questions
+leave them down in the comment section
+below email them to me at tajim man
+gmail.com or even tweet them to me at
+tajim Manny all right so that's going to
+be it for this video but just before I
+go today of course if you really like my
+content you want to see a lot more of it
+please do consider subscribing to my
+channel channel as well as it really
+does help out a lot and if you'd like to
+be notified whenever I do release new
+content then please sure to be uh please
+sure um please make sure to turn on
+notifications as well all right thank
+you very much for watching today that's
+going to be it for's tutorial
+goodbye

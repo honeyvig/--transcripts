@@ -1,0 +1,44 @@
+hi there Jenna here for another tutorial
+on a spell server today we're going to
+be creating a table for the first time
+so here's syntax now in order to create
+table you need to have all the columns
+what their data type is going to be how
+big they're going to be at the maximum
+etc and even the name and an extra
+database etc so here's the syntax
+now here's I have this little command
+here written already so I'm in this new
+database I made and that create database
+command is coming up next so create
+table that's the syntax for creating the
+table but that's not all you also need
+to include the name of the table that
+you're going to create and then after
+that in brackets comes all the columns
+and their data types there and how big
+they're going to be now I have these
+columns ie
+first name last name and email so ID is
+just a simple integer you don't need to
+specify how big or small that's going to
+be first name however will be a string
+and or bar car and SQL so I said the
+name could not be bigger than 25
+characters last name is saying a string
+in SQL Bakar and 25 at the maximum so it
+cannot be more than 25 letters but it
+can be less or equal to 25 meters and
+then an email that email could be about
+ten letters bigger so 35 and again it's
+a string now let's see what happens when
+I run this command completed
+successfully
+now what if I go select star from test
+table
+there's nothing in here now we will
+learn how to fill this up after the
+create database video that you're going
+to watch next
+goodbye make sure to watch the next
+video

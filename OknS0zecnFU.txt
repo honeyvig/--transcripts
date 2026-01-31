@@ -1,0 +1,673 @@
+so hello there and welcome to another
+tutorial my name is tim mubakshi and
+this time we're going to be going over
+how you can use sirikit with the new ios
+10 frameworks that apple released in
+order to create a messaging application
+let's begin so now to begin first of all
+siriket now with ios 10 apple has
+released a new like just numerous new
+apis for developers uh and one of them
+is actually siriket and personally and i
+know a lot of other developers have been
+waiting for this for a long time in fact
+since ios like seven or maybe even six
+uh and so
+of course
+finally in june of this year apple had
+released sirikit kiss
+and now the iphone 7s have released
+i just thought you know what why not
+create something that makes use of this
+new hardware and software so i created a
+simple application that can help you as
+a sort of proof of concept of how to use
+siri kit let's begin
+so now to begin uh what is syria what
+will what will it allow you to do
+so now to begin
+let's take a look at the apple website
+and you can see the apple website right
+now
+and the apple website it says that there
+are only a few sort of ways you can use
+siri with ios right now
+and a few and one of those ways is
+messaging which we're going to be using
+today however in later videos i may be
+covering other types of series uses as
+well such as ride booking
+continuing though
+so now today we're going to be talking
+about how to use sirikit for a messaging
+application let's begin so now
+essentially we're going to be creating
+an application called chatter
+now uh essentially what we're going to
+be able to do is say to siri
+uh hey send a chatter message to timothy
+saying hi tim how are you
+that's essentially what we're going to
+be able to say to siri and then our
+application chatter will parse exactly
+or technically siri will parse what i
+said uh and give that information to my
+application which it will then use to
+actually send uh to i mean they can send
+the actual message if it wants i could
+just display it on screen depends on
+what it wants to do with the data but
+once it has the data it's free to do
+whatever it wants with it
+continuing though
+so now as you can see of course we have
+our chatter application now how will
+this work
+essentially
+i'm going to create first of all our ios
+application
+i'm also going to create an intense
+application extension
+intense and there's also an intense ui
+which we won't be covering today but
+essentially we're gonna have our ios
+application and our intents
+which will of course i mean uh by the
+way on screen right now there's another
+video that i had released about mm
+wormholes
+you should go check that out before you
+watch this video if you're going to be
+following along with the code so i'd
+recommend you go watch that now
+all right continuing
+so as you can see we're going to have
+sort of this ios and the intense end
+and using the wormhole
+we're going to be able to communicate
+um
+with intents
+all right
+and that's how we're going to work now
+essentially what is intense if you're
+wondering uh now essentially if we take
+a look at the apple website again as you
+can see there are many types of siri use
+cases uh and in this case we're using
+messaging again and so uh now when
+you're messaging there can be many user
+intents there can be a user intent to
+look up for messages that are unread
+there can be intents uh to
+like the user could intend to look at
+all unread messages from
+timothy for example or from james
+or the user could want to send a message
+or a you know there's so many types of
+intents that or things that the user
+could want to do
+and that's what intents will allow us to
+do with siri uh and so essentially
+we're going to have this uh function
+this class uh which will inherit from or
+conform to
+a delicate uh for this sort of siri kit
+or intense and so
+what's going to happen is it's going to
+make us sort of create these functions
+which will handle what happens when we
+receive an intent and that intent data
+so let's say the intent so let's say
+we a function is called and we're past
+an intent to send a message
+all right
+okay and this message is supposed to go
+to i don't know john
+to john
+all right this is going to be from
+yourself of course uh but we're going to
+say what else what do we say in the
+message the content
+that's going to be let's say like hi
+john
+that's going to be the content of the
+message uh and that's essentially what
+we're going to receive in the intent
+and so what we can do with this is of
+course we can send the message we can do
+whatever we want but essentially siri
+has parsed this out and given it to us
+let's say the user wants to search for
+messages they can do that as well and
+that's handled in a separate intent and
+that's essentially how it's going to
+work
+all right so that was a quick rundown of
+siri kit itself and
+now let's get to the mac part where i'm
+going to be showing you how you can
+create a simple chatter application
+with siriket and of course i may just
+integrate this with my chatting
+application video that i created a
+little while ago uh so you can of course
+there's a link to that in the
+description uh and so you can check that
+out and check that out if you'd like to
+uh and i'm going to be integrating siri
+with that soon all right let's get to
+the mac part where i'm going to be
+showing you how to implement this
+so welcome back to the mac part and now
+i'm going to be showing you how you can
+actually use siriket in your
+applications and of course as an example
+today i have the chatter application
+open so as you can see here uh on my mac
+screen uh i have my iphone mirrored uh
+to the actual to
+my mac
+uh and so let's begin so now essentially
+what i'm going to be able to do is talk
+to siri and have it send a message for
+me through chatter and then chatter
+should be able to display who the
+message was supposed to be sent to
+and what the message said so let's try
+it out shall we
+send a chatter message to james archieri
+what do you want to say to james r siri
+hi james dash how are you question mark
+i was just wondering when you have time
+to come down to toronto for the facebook
+event period
+ready to send it
+yes
+it's sent as you can see we were able to
+tell it to send a chatter message to
+james archieri
+it asked us what the what to say in the
+chatter message
+i told it exactly what i wanted it to
+say it showed me a quick little ui here
+uh that shows us it's going to james
+archieri uh and the actual message with
+a nice little interface there then i
+told it that yes i do want to send the
+message and of course it's been sent and
+then i can actually go to my application
+and if i click anywhere on the screen of
+this application here you probably
+cannot see this on the camera but if i
+click anywhere on the screen of this
+application
+it'll update and as you can see my last
+message was sent to james archery and
+this is exactly what it said hi james
+how are you i was just wondering when
+you have time to come down to toronto
+for the facebook event which is exactly
+what i said
+all right so that was a neat little
+example but now let's go over the code
+and then i'll show you some more neat
+examples of how you can actually sort of
+rephrase what you're talking about and
+siri will still understand how and who
+to send the message to
+all right continuing
+so now let's begin with how we begin so
+first of all you create the chatter
+application uh and once you do you have
+to you i mean you start out with general
+so now here uh you don't really need to
+do much uh so when you go to
+capabilities however uh you need to
+begin you have to you have to enable the
+siri capability uh in your app id uh and
+of course the app groups uh capability
+uh now again if you haven't already i'd
+again really recommend that you watch my
+wormhole tutorial first uh this will
+really help you out but continuing so
+now uh with ad groups i can essentially
+say okay so the current app group that
+i'm using is
+group.com.tbss.sirikit example uh
+because i mean this is the sirikit
+example that i'm creating however you
+can really use whatever you want i'd
+recommend using your app's name
+because that just really makes it simple
+when you need to find your app group in
+the future uh but essentially of course
+i'm using this uh so it would have a
+hole or a sort of way to transfer data
+between the siri kit
+app extension and the actual ios
+application itself
+continuing however
+now once you are done this you need to
+also go to your info.plist file
+and add this row privacy siri usage
+description and in this case i just have
+chatter here you should actually
+probably put in a real uh description of
+why you want to use siri in your
+application uh if you are planning on
+submitting this to the app store however
+i just have a chatter written here
+continuing though
+as you can see i have also integrated
+the files from the mm wormhole source
+code
+and as i said in my wormhole tutorial as
+well once i dragged these in i selected
+all three of my targets chatter chatter
+intense and chattery intensity y which i
+will get into in just a moment
+and as you can see uh it has created
+three bridging headers one for chatter
+one for chatter intense and one for
+chatter intense ui
+and for each one i've imported
+a wwe wormhole.h and m oh sorry mmw i'm
+sorry m m wormhole dot h and m m
+wormhole session.h
+these are the two sort of essential
+files that you need to use wormholes in
+your application
+continuing however
+what your next step is is to go to
+general again
+go to this little uh tab here as you can
+see
+click on the plus button
+down there
+and click on an intense extension under
+ios
+call this really whatever you want in
+this case i'm just going to call it
+chatter intense
+all right
+and so the rest can stay the same make
+sure that the include ui extension is
+selected i'm not actually currently
+creating a ui extension uh but in the
+future with a part two if i do want to
+create one it just really helps out to
+already have the ui extension there and
+linked to your project
+continuing though
+if i continue now
+essentially what i can do uh is if i
+click on finish
+oh well i mean the uh target already
+exists but yeah yeah what i can
+essentially do uh is i can um just a
+second uh so i can essentially
+uh sorry so i can essentially uh have
+those two targets for the chatter
+intense which is essentially the main
+siri kit uh thing that you want
+visible
+for siri and of course the chatter
+intense ui which is what i mean as i saw
+as you saw in the ios and when you
+actually use siri there's that little ui
+that pops up once you tell it to send a
+message
+and so essentially
+you can actually design that ui
+which i will be covering in a separate
+tutorial today i'm just teaching you how
+you can actually integrate siri with
+your application
+continuing though
+now let's go over the uh interface shall
+we so now in the interface uh very very
+simple uh just two labels over here uh
+one for who the message was sent to one
+for what the message said
+and of course the actual labels that
+contain the content themselves one is to
+label
+and one is content label and if i go to
+my viewcontroller.swift file as you can
+see those are the ib outlets for those
+two labels
+i'm also of course creating the constant
+for my wormhole in this case i'm using
+my uh app group that i created and my
+optional directory is sirika example
+i'm also creating two variables two and
+content that will store whatever comes
+back from the wormhole
+uh and in my viewdidload function uh now
+there's something here
+essentially what you need to do is on
+your first run of your application you
+need to ask the user if they want your
+application to be able to be compatible
+with siri uh and so essentially this is
+what this code does it'll use the
+intense preferences and it'll request
+siri authentic authorization uh and so
+of course you're going to need to import
+intents for this
+uh and of course this will essentially
+and uh this will of course request for
+authorization to use siri uh using that
+description that you provided in the
+info.plist file and it'll also make sure
+not to ask twice if it's already asked
+and if it has permission it will not ask
+again which is just great so i don't
+need to implement logic for finding out
+if it's the first run of the application
+really convenient
+next in the view did appear um
+function uh which i'm overriding of
+course from uiviewcontroller i've
+essentially allowed the wormhole to
+listen for a message that has the
+identifier to message uh so now this is
+essentially the channel i guess of the
+wormhole which will contain
+who we're sending the message to
+uh and of course content message will
+contain uh who what the content is of
+the message that we're sending
+and so essentially what i can say is in
+each of these code blocks as you know
+from the wormhole tutorial which again i
+highly recommend you watch uh there is a
+sort of
+parameter or variable that comes in with
+this asynchronous function or code block
+called result or in this case i'm
+calling it res for result
+uh and so i'm just checking really
+quickly uh making sure that's not nil so
+i'm checking if let message is equal to
+res uh in which case this will run uh
+it'll set the two variable that i
+created uh to the message as a string
+because this as i mentioned my previous
+tutorial is an optional any and so i'm
+converting this to a string
+and same thing for content message
+except this time i'm setting the content
+variable to my message as a string
+and then in the touches began function
+which is where i do most of my updating
+i'm just sending the two labels text to
+the to variable and the content labels
+text to the content
+but now how does siri actually integrate
+with this well that's where as you can
+see i created my chatter intense target
+and using this chatter intense target i
+have the intent handler.swift file
+and this is essentially where all the uh
+heavy lifting happens for siri and this
+is where all the calculations are not
+calculations necessarily but this is
+where you
+handle what happens with siri in your
+messaging application
+and so let's begin so now i'm going to
+just run down this code uh and so as you
+can see uh we are at the beginning uh
+importing intents and foundation uh and
+there are a few comments already created
+by apple as to how you could use uh this
+code
+but continuing now first of all we're
+creating a class called 10 handler
+which uh inherits from or conforms to uh
+intense extension intent send message
+intent handling uh intense search for
+messages intent handling and intense set
+message attribute intent handling now
+you don't exactly need to know what
+these mean it's essentially sort of the
+delegates or the handlers
+for creating a messaging application
+which is compatible with siri and siri
+kit
+now in this class of course i'm creating
+my constant for the wormhole which is
+again using the same app group that i
+gave it in my viewcontroller.swift
+and the same optional directory as well
+in this case called sirikit example
+now this is just you know the default
+implementation we don't really need to
+uh worry about this function
+but this is the first really uh useful
+function that we need to uh worry about
+now essentially this is the resolve
+recipients function now this function
+will allow me
+uh to essentially take uh an intent
+called intent send message intent uh and
+it'll have a completion which i'll get
+into but essentially what this is going
+to do is it's going to be a method that
+will choose which contact uh you are
+sending your message to now
+in this specific case it's just going to
+go with whatever you give it if you tell
+him if you tell siri to send a message
+to um i don't know
+tim
+and let's say tim isn't in your contact
+list it'll still go with it but you
+could integrate some sort of logic to
+tell siri that hey tim isn't in the
+contact list did you mean timothy or
+something of that sort but in this case
+it'll just go with whatever you give it
+in siri
+continue i mean in a future tutorial i
+can of course uh tell you exactly how
+you would uh do that but for now it just
+goes with whatever siri gives you
+next the resolve content which is
+actually very very simple uh this is
+just uh now also one more thing really
+quickly these resolve functions
+essentially take
+whatever you gave from siri
+and it's sort of asking you hey did the
+user give enough information in what he
+said
+and let's say the user said send a
+chatter message to james archieri
+well then he said the recipients but he
+didn't say what exactly he wanted to say
+to them which is the content
+and so in this case in the resolve
+content as you can see we're checking if
+they've actually given
+that content if they have then great
+success
+if they haven't then we need that value
+and we're calling that completion
+handler for siri which will handle what
+happens next and then of course apple or
+siri specifically handles all that
+natural language processing uh and all
+those steps in between as well which
+makes it very very convenient for
+developers
+but then once you're done resolving all
+those things you are done handling all
+the recipients that we need to send to
+done handling the content and in
+different types of applications there
+could be more things to resolve or less
+things to resolve then in this case
+we're going to confirm
+that of course do you actually want to
+send this message
+and
+if the user says yes then great we're
+just going to continue with whatever
+siri wants us to continue with
+and then this is the actual logic that
+sends the message itself now this is
+where it gets a little interesting where
+uh now before if i show you this is the
+code that i've added before it was just
+this much uh but with my code added in
+essentially what this does is it'll
+check uh
+first of all we do have the message
+content we have the message recipients
+and once we have determined all that
+it'll create a two message variable and
+it'll take the first recipient and get
+the display name of that recipient uh
+because i mean this application isn't
+designed to send to multiple people only
+one person uh and so it's going to take
+the first recipient uh and get the
+display name which is a string of course
+and then what's going to happen this is
+the really interesting part it uses the
+wormhole and passes a message object
+which is to message as an ns string to
+the to message channel and so you know
+view controller will get this variable
+and sort in the two variable that i've
+declared in view controller
+and then the wormhole pass message
+object message content sns string now as
+i said in my wormhole tutorial the
+reason i'm converting these to ns string
+is because it has to be ns coding
+compliant again if you have questions
+about that just check out my wormhole
+video and you'll find out
+and of course i'm sending this on the
+channel content message if we go back to
+view controller as you can see two
+message and contact message our content
+message sorry
+and after this it has sent through the
+wormhole and we are calling our
+completion and then siri can continue
+with whatever it needs to continue with
+then finally uh there's one last handler
+uh which is let's say the user asks uh
+let's search uh through my unread
+messages uh and so this is essentially
+the function that will get called for
+that
+i n search for messages intent uh and
+then of course you can sort of give it
+the messages that it needs to search
+through or the unread messages that it
+that siri should respond with which is
+an in message which in turn takes the
+identifier the content of the message
+the date sent uh the sender which in
+this case is uh sarah and the recipients
+which in this case is john
+and that was it for that uh code walk
+through uh so now let's actually i'm
+going to show you really quickly a quick
+demo of a a few more siri phrases here
+uh so now let's try this out let's uh
+try out this time um
+chatter marcus kempen
+what do you want to say to marcus kempen
+hi marcus dash i was able to practice my
+table tennis serve comma so do you have
+time this weekend to meet up question
+mark
+ready to send it
+yes
+it's sent
+all right great us now as you can see
+essentially what i was able to do
+is i was able to uh say chatter marcus
+kempen as a verb this time uh and so i
+could say chatter and it would
+understand that hey chatter marcus
+campin means send a message to mark's
+campaign via chatter
+it asked me what i wanted to say to
+marcus kempen so i told it exactly what
+i wanted to say it asked me uh it just
+you know confirmed and once i said yes
+it was sent and so in that step it got
+sent through the wormhole and if i click
+on the application
+it says your last message was sent to
+marcus kempen and it said hi marcus i
+was able to practice my table tennis
+serve so do you have time this weekend
+to meet up
+all right let's try out one last thing
+let's say
+chatter john maxwell cohn
+what do you want to say to john maxwell
+cohn
+hi john
+dash i had some really new and
+interesting watson iot ideas come on so
+do you have any time to meet up soon
+question mark
+ready to send it
+yes
+it's sent
+and as you can see if i click on the
+application it will the application was
+given information by siri uh and it was
+able to uh parse that uh and display in
+a label
+all right so that was pretty interesting
+so now again really quick recap siri
+does all the natural language processing
+you can phrase it really however you
+want you can use it as a an action in
+this case like for example you can say
+chatter john maxwell cohn instead of
+just send a chatter message to john
+maxwell cohn uh and then it'll be able
+to parse that out uh and tell chatter
+that we want to send a message through
+your application uh and then siri will
+do as i said all the nlp and give you
+who the message is supposed to be sent
+to even if there are multiple recipients
+uh it'll choose from the contact list
+for you it'll do all that sort of stuff
+and it'll even take out the content and
+plus you can uh create your own little
+ui for siri uh so you know you have your
+own little message interface
+and that is very interesting and of
+course a more detailed look at surrogate
+is going to be coming soon uh to the
+channel but that's going to be it for
+today thank you very much i hope you
+enjoyed uh if this video helped you out
+or if you think it could help someone
+else out please try please uh you know
+share the video with whoever you think
+it might help and maybe even leave a
+like down below and also if you like my
+content and you want to see more of it
+please subscribe to my youtube channel
+it really does help out a lot again if
+you have any suggestions uh comments or
+feedback or even questions uh leave them
+down in the comments below you can email
+me at tagimania gmail.com or even tweet
+to me at tajimani that's going to be it
+for this tutorial thank you very much
+goodbye

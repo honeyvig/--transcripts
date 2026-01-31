@@ -1,0 +1,50 @@
+how do I learn to code this sounds like
+a very basic question but when you start
+exploring and you ask yourself how do I
+learn to code
+you start to realize it's actually not
+very straightforward as a matter of fact
+it's just the tip of the iceberg for so
+many years people would come to me and
+ask questions like how can I make my own
+apps how can I learn to program or how
+can I get into the world of technology
+this is why I wrote my book hello Swift
+it's my journey of learning how to code
+in book form and I wrote it keeping in
+mind beginners of all ages it's the
+perfect combination of science
+technology and mathematics working
+towards better steam learning my goal
+through hello Swift is not just to teach
+the syntax of a programming language
+because that's not what development is
+all about development is about
+leveraging computational thinking in
+order to use the fundamental building
+blocks that computers provide in order
+to solve problems since I've had very
+little coding experience
+hello Swift helped me to think like a
+programmer it really had to focus on the
+kid so the way the way the child would
+learn it really tuned its teaching
+towards that so it didn't use high
+language and it didn't use things the
+kid wouldn't understand it made it fun
+and it made it interactive so that they
+could actually become more and more
+excited as they read the book I believe
+that everyone can code as long as you
+believe if your learning language and
+simple counting and simple geography
+straight from when you're four years old
+then why not code we shouldn't be
+treating code as this exotic and next to
+unachievable subject it's just another
+thing to learn so you're prepared for
+the future
+hello Swift is a perfect example of the
+way I believe everyone should learn you
+should start small start easy and of
+course start playful thank you can they

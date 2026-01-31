@@ -1,0 +1,365 @@
+so hello there and welcome to another
+tutorial my name is Tammy Bakshi and
+this time we're gonna be going over the
+unknown and you could also call it
+hidden and undocumented Google
+dictionary API uh now this is pretty
+special API since hardly anyone knows
+about this because Google does not
+document this feature and hearts so
+hardly anyone knows about it however it
+is a thing and if you're looking to put
+free dictionary API into your app if you
+need or something then this is the way
+to go so today I'm going to be
+explaining exactly how it works a class
+that I made called tea dictionary
+that'll automatically connect to this
+and get all the definitions for you in
+an array of strings and yeah we'll see
+the app then so and I'm going to explain
+exactly how this works and then we'll
+get into the code so let's start first
+of all this sort of works like Swift
+databases however the thing is in this
+app that we're using JSON to convert to
+strings instead of a dictionary or an
+array so as you can see but it does use
+dictionaries and raised in the process
+to getting the string but the end result
+is a string not a table of things so as
+you can see I have the unknown Google
+dictionary API title written here and so
+what happens first is that our NS data
+will get the contents of the URL for the
+Google dictionary API and I'm just gonna
+call that GD API for now okay so this is
+a Google dictionary API over here so our
+app let's just say it asked for the
+meaning of something like colorless okay
+so what would happen this Google
+dictionary API would result in some JSON
+for us so then this comes over here and
+oh by the way this is also a PHP so it's
+basically a PHP N that's helping us
+however this is an external API not
+controlled by us
+okay so this is external not controlled
+by okay so this is external and it's not
+controlled by us so we can't really
+customize this at all
+but Google gives you enough information
+in their API anyway so then once we get
+in JSON we parse it with Swift then
+after parsing we get an array of strings
+so that's basically how this will work
+and so it goes from the Google
+dictionary API go through a lot of steps
+comes to the array of strings so that's
+basically how this is gonna work and yes
+I'll meet you at a Mac part of the video
+and so yeah let's get to it
+so hello there and welcome back to the
+Mac part of the video and now I'm going
+to be explaining the code behind this up
+and the actual app itself so now I'm
+going to be debugging the app so that
+you can actually see how this works and
+I'm going to give you an example by
+finding the definition for a symbol word
+maybe something like Apple let's just
+click on the find definition button here
+as you can see it'll take a few seconds
+but this goes to the Google dictionary
+API and it will find all three
+definitions for the word Apple and in
+case we want to confirm this is from
+Google we can just go into Google and
+type define space Apple and then they'll
+give us or at least it should give us
+that too or here it gives us an extra
+definition but let's just see here yeah
+as you can see it gives us three
+definition so this means it's exactly
+from Google it just copy it's basically
+just searching to find in Google you get
+the same result so if you really want to
+include that in your app I've created a
+really simple class to use that will
+allow you to find the definitions for a
+word as a string and returns an array of
+strings which is
+the Aldi definitions so that really
+works out and so let's just get
+definition for another one so you can
+really see how this works
+water as you can see it finds all the
+meetings I can do something like USB not
+exactly sure if it'll get a definition
+for this maybe it does
+yeah it doesn't anyway but it does work
+with most words whatever Google has and
+now I will be going into the code so we
+can actually see how this thing works so
+let's start with DUI it's an extremely
+simple UI it doesn't really have much in
+it it's just a text view where we can
+put our output another text field where
+we can put in our input and a button
+where we can click on the find
+definition and word for to find a
+definition after that we just have our
+normal act delegate class that we
+usually do with Mac apps so I've just
+created a little extension tennis we
+know that we no longer need in our app
+that should work okay perfect so in the
+beginning we just take the IV outlets a
+word input and word outputs as both NS
+text fields and then we create a new T
+dictionary which I will explain in just
+a moment this is the custom class that I
+created that allows you to get the
+definition for any word that the Google
+dictionary has then we have the function
+application did finish launching from
+NSA plication delegate I think it must
+be not exactly sure which classes from
+or what we can do is just command click
+on it and it tells us that this is
+actually from our own class so that's
+that
+this will run wherever we start the app
+and what we want to do is we want to
+create a temporary frame which is equal
+to our windows frame we can create we
+can change its size to something that we
+want and in this case I'm setting it to
+width
+816 height 600 and then I'm setting a
+windows frame to that tenth frame that
+we just created and I do want it to
+display on the screen then after that we
+have an eye reaction which is hooked up
+to our button which will find the DEF
+mission for a word and fortunately Xcode
+requires us to take the sender so I do
+that after that we have the word output
+with dot string value is equal to
+nothing because I want to clear whatever
+is already in the word output text field
+after that I am creating the definitions
+array which is basically my dictionary
+over here that we have dot find
+definitions for the word input dot
+string value so we're taking whatever
+was in the word input and we're finding
+the definitions for it after that we are
+creating the VAR formatted definitions
+is equal to first of all we want to put
+in whatever definition they asked for as
+you can see if I open this up it is
+let's just get some random as you can
+see it shows whatever they put in and
+then a colon as you can see over here
+and then a new line so it formats that
+then we are going for in vowel in death
+star and numerator so we are new wording
+the definitions array and then we are
+looping for every index and value inside
+a better right then we're checking if
+the index is equal to deaths count minus
+1 meaning this is the last definition
+then all you need to do is add a tab a
+dash and then the actual definition
+itself if it's 0 meaning this is the
+first one then you just do the same
+thing tab - diksha
+or the definition then also you put a
+new line and then we do the same thing
+for the middle the reason I separated
+the first thing middle is let's just say
+you want to do something different for
+the first one the last one the middle
+one you should be able to and that's why
+I just it and then so after that what I
+did what I went ahead and did was if the
+formatting definitions is just equal to
+the word input and then a new line with
+the colon then that means it didn't find
+any definitions so then we just said it
+- did not find any different definitions
+for word and then we give it word input
+dot string value so then if that ever
+happened if that does not happen
+however then word output string value is
+equal to formatted definitions so that
+if there were no end definitions we
+should be able to tell them that hey
+there's no definitions here but if there
+are then we just put them inside of the
+word output text field after having
+formatted them and I'll show you the
+custom costs that I created called T
+dictionary and this will be in the
+description for download I'm just gonna
+click on it
+and so this is the class T Junction area
+it has one function and only one sole
+purpose which is to go to the Google
+dictionary API and catch the meaning of
+any word that you give it so as you can
+see this is a really long google api's
+link which will allow us to go to the
+dictionary in Google and it will query
+out the word that we wanted to in order
+to give you an example I've already
+opened up Google Chrome here and if I go
+to the link as you can see I've put the
+Google API link over here and I've set
+my query to Apple it gives us a JSON
+result which has the kind and then the
+kind it has the TTL and it has all the
+data this is the data type the meanings
+the type of the form actually and stuff
+like that so that's really interesting
+how it does that and so now how do we
+parse all of this complicated JSON this
+is way too much for me to understand and
+this is just so much how do I do this
+well it's really simple all you do is
+you go to Google and you type in JSON
+reader and then you want to go to this
+website JSON viewer stack hate you and
+then once you go into this one you just
+copy in all of your JSON okay and then
+you just go to this little viewer tab
+okay and then it formats this JSON so
+nicely for you you can see that okay
+these are curly braces this means that
+this is a dictionary so I'll look into
+that
+I'll convert to dictionary first then
+I'll look oh I want the data that's an
+array so I'm going to convert this to an
+array after that I look okay I only have
+one element so I want to create that I'm
+going to loop through and convert them
+all to dictionaries then we're gonna see
+that okay under 0 we have data type
+dictionary and also the curly braces as
+I said so the this is a dictionary we
+will be converting to dictionary and
+then I just go back into into the
+dictionary and then we see our word that
+we got the definition data and there's
+keep going on until we reach all of
+these definitions here and then we have
+a little nice tree to follow that we can
+convert an Xcode so now as you can see
+I've done just that I've created the
+variable JSON data the variable JSON and
+then I using a new block to be able to
+use the try statement in order to find
+the JSON data and the JSON itself so
+what I'm checking is if we have a
+correct URL and if we can get the
+contents of the URL of the URL that we
+just got then what we want to do is the
+JSON data is equal to contents of that
+URL in a state of format and then we're
+forcing an unwrap here and also here
+from the NS URL then we have the JSON
+variable where we will try to do NS JSON
+serialization JSON object with data
+we're giving the JSON data and we're
+using the options and as JSON reading
+options mutable containers and then we
+are forcing this as a downcast 2 NS
+dictionary but if there's an error while
+we do this it will just catch it and
+print it so this is one of those sorry
+excuses for a try-catch in Swift the
+reason I said that this is this isn't
+the best is because think about this
+it's a it's basically a try-catch but
+it's been renamed to do catch that I'm
+okay with that because I can always
+adjust to newer keywords but and the
+problem is if you think about it
+whatever you put in the do statement
+that has to be checked has to be marked
+with try and that's really annoying if
+you have code in a do statement the only
+reason you have it there is because you
+want to check if this is actually
+executing nicely or else you want to
+catch it and print it but it's a
+I mean we have to do this so then we are
+just trying to do the NSA's on
+serialization so after that we are
+checking if in the JSON we have a member
+called data if we do or else we just
+return a blank array okay if we do then
+that means everything else has to be
+correct due to the way that the Google
+dictionary works so then we just look
+through the entire we just create the
+entire tree as I said so we go into data
+so okay I'm just gonna minimize
+everything for you so that you can see
+it from scratch okay so we have the JSON
+which we get then we're going into the
+data as an NS array over here then we
+are going into data 0 as an NS
+dictionary then we are going into
+dictionary as an NS dictionary okay then
+we are going into definition data as an
+NS array and then we are going into we
+have the definition data sorry and then
+we want to get the definition that data
+0 from it so you'll want to go to the 0
+then we want to get the meanings as an
+NS array ok so now we're going to do is
+we're going to create a final meetings
+array of strings
+we are going to loop through all the
+meanings and if if there is actual
+meaning for that current meaning that
+we're on then we want to append it to
+our final meanings array and then we
+just return those final meetings so
+that's basically how this app works I'm
+just gonna show you another quick demo
+so you can really see how this works so
+let's just say something like it doesn't
+have a definition for JSON let's see
+nope it doesn't really have much for
+stuff like computers but does it have a
+definition for maybe something like
+computer so then this should be able to
+perfect it gives us an electronic device
+for storing and processing data
+typically in binary form according to
+instruction
+given to it in a variable program so
+yeah that's basically how my teen
+dictionary app works my API will be down
+in the description and a github
+repository so we'll the example source
+code so you can just look in the
+description for that I will also be
+uploading the source code for the last
+video I did that I did not yet but I
+will be now and so yeah you can
+subscribe to my channel if you're new
+and you like my content too I want to
+see more of it you can like my videos if
+you like them and you can please
+actually comment down if you haven't any
+questions that I will get back to as
+soon as possible you can always email me
+at my email tag emini at gmail.com if
+you didn't understand that that will be
+down in the description as well and yeah
+goodbye

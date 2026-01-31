@@ -1,0 +1,525 @@
+[Music]
+now before I begin I would like to say a
+big thank you to dr. Anna fan for
+actually being a part of this video and
+of course taking me more in depth into
+one of my favorite topics quantum
+computing and now let's get into it so
+hello there and welcome to another
+tutorial my name is Tammy Bakshi and
+this time we're going to be going over
+well an entirely new series that the
+first video in a new series about
+quantum mechanics from physics
+especially quantum computing before we
+begin I want introduce even Anna's was
+actually a part of IEM research lab in
+Melbourne so for begin with just meet
+yourself hi I'm Anna one of the
+researchers at IBM Research Affiliate I
+am looking into clone computing that is
+absolutely great and now let's run off
+but a little bit about what cloud
+computing is and really what quantum in
+the first place
+so before we again which one feels a
+quick introduction to quantum mechanics
+but for example it was a beginner who's
+never heard of quantum physics before
+how would you explain quantum to me so
+quantum mechanics is a theory that
+explains how things interact with each
+other on a very very small scale so it's
+very interesting very interesting thing
+is at a very very small scale things act
+very differently yeah you would expect
+compared to the real world
+for example if you had a bunch of pool
+ball you expect them to hit off each
+other and weave around and you can press
+well with them sort of a set of quantum
+pool balls may not act like that
+sometimes they'll go through each other
+sometimes they'll hit each other some
+builders ignore each other
+it's exactly now that's basically the
+where world of quantum mechanics and so
+today we're going to show you a little
+bit more into the world of quantum
+mechanics and quantum physics with a
+bunch of different experiments including
+proving static
+mechanics or more specifically
+entanglement actually exists using the
+audience to experience we'll talk about
+that it just on as well but before that
+let's talk a little bit more about
+duality quantum mechanics is absolutely
+great for something knows dualities yeah
+so the start of corner case really came
+about in amount of 1900s where they were
+looking at light the line was really
+confusing because in some stages what
+acted like a particle it's like a bunch
+of protons little discreet packets of
+life but then in other experiments it
+acted as if another wave yeah so one of
+the experiments that that looked in was
+they've done a flip one yeah yeah looks
+a little bit more about the double slit
+experiment actually oh sure so now
+imagine that you've got essentially one
+world water right so this is just a
+liquid and so if you're a little board
+with two slits beside each other in the
+water and if you were to throw a pebble
+in the water just in from the board the
+very middle and at the very end you have
+a little sort of measurement board where
+the higher the higher whole wave that
+touches the board it'll make a brighter
+line and it the way is this sure they're
+like a different one also is actually
+some animation to that on screen right
+now if you're not completely getting my
+my description but essentially for the
+pebble and of course that creates a wave
+the propagation thrown throughout the
+liquid now when I actually was that when
+you travels to to through the truth to
+two slits what happens is a currents to
+separate links up in those lips and
+those two way to go ahead and travel
+interfere with each other and create the
+sort of interference pattern on the
+measuring board or the other side
+however if you do something similar with
+saying marbles and so you've got no
+liquids this time but you've got this
+this board to slip it in our measurement
+board which is just a piece of cardboard
+and your marbles at that double slit
+board randomly that's arcing this double
+slit board just bounce it back however
+some are actually going to slip and this
+time instead of seeing an interference
+pattern you're just seeing two lines on
+the back
+piece of cardboard and so in this case
+you can see that we're not seeing an
+interference pattern
+however with quantum mechanics it works
+a lot lot differently and so let's say
+that you're selling electrons one by one
+from one side to the other to another
+before we're able you know explain where
+the electrons hit and of course it's
+going through these two slits now you
+expect the electrons little particles to
+act like the model and you see two
+individual lines measurement board
+however the really interesting part is
+that you do not see those two one you
+see an interference pattern using the
+particles now the way this works is
+really confusing the particle acts as a
+wave and a particle at the same time
+until it was observed by the variable
+and it actually depends on where that
+measurement takes a takes place as well
+because if you measure it before the
+board
+yeah the electron has actually decided
+which way it goes and with and did you
+can actually see in heavier if you do
+the measurement before the truth laying
+around crazy exactly so that means that
+if you're several electrons even one by
+one so you're not coming like a bunch of
+them they're interfering with each other
+you're only from them one by one it
+exists as a waste probabilities that
+don't feel it that interferes with
+itself and I creates the interference
+pattern but it's centered but if you are
+looking to the camera or something that
+actually ended that interferes and
+actually observes before it goes to the
+Swift it doesn't go through both slits
+at once it decides which will go through
+in discrete two lines and there are lots
+of other you know experiments talking
+about how the house observed with a
+quantum eraser experiment so much more
+so we'll talk about that just yet
+doesn't get a little bit too complicated
+if you're interested in that I might
+only some new video about those sorts of
+experiments you can leave that down in
+the comments below
+but graph of that let's go ahead and
+talk about another really interesting
+concept known as superposition another
+very interesting thing about quantum
+mechanics is that when while particles
+can also be waves all particles they can
+also have some very
+interesting properties so one of the
+parties of fundamental particles is spin
+and interesting thing about spin is that
+a particle can either have a spin up or
+spin down and in some situations it can
+be inverse spin up or spin down and we
+won't actually know which one it in
+until we make a measurement and this has
+some very interesting thought experiment
+about that yeah and so that's a little
+bit more about those showing your tax
+revenue doctor and so essentially
+showing your experiment ah basically the
+starting to see how I think they need
+quantum particles actually affect us in
+our you know bigger world where regular
+business enjoyment emits actually no
+become works out so essentially this is
+this experiment is a box and we thought
+a we've got a cat inside of the box and
+we've also got a radioactive particle uh
+with some sort of you with some randomly
+ran a vegetarian decay okay so if this
+part was case a poison gas release which
+killed the cat within a box there's no
+way of knowing that this happened from
+the outside and so in theory and so this
+is where the super pollution comes in
+that's a quantum particle and so it can
+exist in the state of decayed and not
+decayed at the exact same time and then
+oh it's observed in existence or 50:56
+and then the whole campus also involves
+it within a 50-50 state of maybe being
+alive or maybe being this long the gas
+solar particle exactly and so until we
+look inside of the box somehow and
+observe what's actually happening within
+the box we will never be sure whether
+the cat is dead or alive it could be in
+slow states at the same time in theory
+inject it separate now I won't going to
+be actual interpretation of the
+many-worlds interpretation the cat
+consciousness goes down a different
+blood but anyway we don't get to that
+right now but again if you request that
+in the comments
+we'll create a separate video about that
+as well however for now well as you
+mentioned spin is another very
+interesting aspect and we sorts of
+fundamentals or quantum particles but
+there's also on your apartment spinning
+in superposition there's also a really
+other interesting aspect of these sorts
+of quantum particles and how the actual
+sidelines with quantum computing so
+we'll talk a little bit more about in
+Tanglers of how quantum particles can be
+entangled yes sir there's as well as
+particles having being unique you can
+put a particular particle in a
+superposition ask what you can also do
+is set up a quantum mechanical system
+whereby two quantum mechanical particles
+can be entangled with each other so this
+means that when you look at one or you
+measure it or you compute with it or you
+do some sort of experiment with it
+you're going to affect the other one and
+this actually doesn't matter how far
+away they are apart well how good they
+are so once they're entangled they're
+always going to be entangled quantum
+mechanically which means that if one has
+been up yes the other one might always
+be spin up or when it's been down the
+other one has always been down and you
+can do some very interesting confucius
+computation with that and it's actually
+caused another type of paradox similar
+to surgeon is passed around a
+communication issue so if you have a you
+set up a quantum system of two consoles
+here and instead of super super file
+part yeah
+and then sum of X measurements one you
+instantly know what lives in the other
+ones yes so this was the question of can
+you actually have fun than like
+communications yeah between two
+different particles yes yes about that
+yes I looked that was actually cool but
+I'm saying
+um popping telemarketer remember the
+Southern Nevada by Topher and you can
+actually do an experiment to test
+whether the particles are entangled or
+they actually have a hidden there's
+exchanging hidden information behind the
+other they decided beforehand that were
+both going to be spin up were both going
+to be spin down our weather is going to
+be probabilistic and so on called this
+spooky action
+okay yes okay awesome elbow let's go a
+little bit deeper into hug connection
+use I'm still entanglement superposition
+with quantum computing so now look at
+how you can actually use IBM q but
+before we get into the action lots of
+experiment itself let's talk a little
+bit more how can actually use the
+supercomputers quantum computers
+themselves that was all about quantum
+computers ourselves first how do they
+work what exactly are they okay they're
+coding computers are computers that use
+qubits to computer other than things so
+the interesting thing about qubits is a
+little bit a quantum business sorry one
+of this is that you can put them in
+superposition and then you can entangle
+them they work by the laws of quantum
+mechanics involving eternity and cilia
+which is how all about you know laptops
+today work and it's really interesting
+because we think we can compute very
+very different things on quantum
+computers than we can on classical
+computers it's all a really new exciting
+era of computing yes yes I talk about
+how these things actually work like a
+little earlier how exactly these
+processors work whether they look at how
+having communicate with quantum bits
+exactly sure so we can make quantum bits
+in may different ways yes so one of the
+easiest way to do it because atoms or
+particles themselves have spin and we
+try to interact with those spin yeah
+that is one way to do it or if it's very
+hard to get down to a clinical level and
+and move them around and people actually
+do that today using lasers okay okay at
+IBM we actually use superconducting
+circuits to act as our qubits okay so in
+these little circus if the current is
+going one direction that means it's in
+the ground state or spin up or spin down
+example or if the current going the
+other direction that means our spit-up
+yes and the problem with the
+superconducting qubits is that you have
+to have them at very very low
+temperatures okay so they're actually at
+a couple of nearly Kelvin okay sorry not
+cool designer Jericho back to
+perspective that is a lot lot lot colder
+than for example out
+okay Alex paces at about 2.7 Kelvin
+we're at sort of 25 is nearly Kelvin
+okay so you can see actually quite much
+cooler than outer space and so now
+though
+Josefa new programs we all know that
+sort of as a very bare level for
+training where you work programming
+computers using assembly assembler so
+what exactly are we using for quantum
+computers that is actually a new
+interesting area of research right so we
+program computers using first logic
+gates yes and then assemble yeah and
+then your higher-level like there's
+there are going to be quantum computing
+or you program your cutest using quantum
+gates yes and on top of that we're
+starting to build quantum assembly
+languages IBM one is caught into the
+closet and in the future we want to
+figure out how to write those high-level
+languages to go on top of that like C or
+for Channel passes or on our Java these
+days but at the moment we can also use
+Python to write open closets to then
+access our quantum computer yes is
+really interesting but now though since
+the head can actually use this quantum
+computing will be angry MQ experience so
+let's get over that now and as a
+computer the point of power this
+experiment is actually owned by IBM and
+there in your town Research Lab yes so
+in our youkai Research Lab anyone in a
+freezer at almost a colder than outer
+space we have a five qubit machine as
+well as a 16 qubit machine which is free
+for everybody to use on what is called
+the IBM quantum experience and so I'll
+be showing you here today yeah some
+quantum experience actually I'll do
+program in open glasses as well as this
+great graphical user interface that
+allows you to actually program these
+quantum it to quantum computers that are
+powering it to actually create different
+forms and applications in fact it has
+lots of different features like
+simulating a quantum run run and
+actually running it on a quantum
+computer so for to actually go and
+wonder a result you might want to
+simulate it because the simulation just
+gives you cleaner result because about
+no error so it's very your finale wait
+so that's where we've been you've got
+one five machine and 116 qubit machines
+ever'one something you have to go join
+the queue yeah and you don't ever know
+how long that he was going with it
+exactly exactly
+however now they'll get over to screen
+recording or showing you how you can
+actually use the queue experience okay
+so this is the class of experience this
+is how you can program two different
+qubit floozies q0 and q1 and are two
+different cubes and you can see down
+here we can actually show you what our
+quantum computing chip looks like I've
+added currently active which is great
+which means you could run on it if you
+wanted to and you can see the particular
+errors that we're getting on the on the
+qubits themselves the error the readout
+the qubit error as well as the current
+temperature of the fridge so actually at
+our 15 really Kelvin our cremeux is
+lured a little high before when I said
+25 so this particular experiment that
+I've got running here or showing you
+here is putting so here is a two qubits
+and with time going along the x-axis
+then this is called the composer and
+what we do is you over time you put
+Cupid escapes onto the qubits and then a
+measurement at the end ah yes I actually
+also just wanted that just to put that
+two more push spectra for everyone as
+around negative 273 degrees Celsius oh
+yeah and we can talk very very cool
+yes sorry that I forgot there were
+neither would I want to cover your ear
+right okay so this is actually one of a
+four-part experiment that you do to try
+and prove that quantum mechanics is
+actually what causes entanglement and
+not perhaps a hidden theory or hidden
+information behind two entangled
+particles because when the coil
+mechanics first came out people given
+the spooky action in the distance were
+all thinking well maybe I'll apply for
+the change information beforehand then
+they went to two different places and we
+just measuring the information that was
+already there but they came up with an
+experiment to try and test whether there
+was actually information shared
+beforehand or whether was entangled
+particles and the way you do this is you
+set up an entangled state and then you
+do as a cup four different sets of
+measurements on
+entangled states this is one other sets
+of measurements but of course you don't
+want to have to drag and drop and check
+and look at all the graphs to compare
+for each of the 40 mistake that's why
+we've created the we've got of FDA they
+call it a piss kit sdk so you can
+program the client experience or the
+quantum computer using prison
+okay so let's look over to that okay so
+here um so this act this experiment it's
+called the CHCs inequality named after
+the four people who came up with it and
+so the idea is you set up these space
+and you measure them and you if with
+quantum mechanics is actually a theory
+and the qubits are entangled that we
+should see some of this inequality being
+above zero
+this was actually some very interesting
+research a couple papers were actually
+written about this earlier
+decentering of 2009 it's actually pretty
+amazing that these days you can just
+take the clothes and run it and get the
+same back but it would have taken a team
+of people helpful phd's probably to do
+and that was only but eggs are using our
+new so this is actually what a closet
+looks like they're very assembler near
+back yeah quite loud that you could we
+can program the heisman to make the
+assembler here that actually lined on to
+the clone computer so he loved a lot so
+does early are committing what they have
+to wait during the video and you can see
+here in this graph the red line there is
+this theory and the blue dots are what
+we get from the experiment and the two
+blue lines are with pop and one is two
+are okay so you can see that some of the
+dots are actually above and below too
+which proved that the theory is not a
+hidden information yes very much so it's
+possibly probably isn't angle
+that is absolutely great so is there
+anything else you want to share nothing
+you experience when I'm in provides also
+online through if you don't think that
+Tommy is giving you enough information
+there's also a lot of tutorials and
+information about how to use the common
+experience and some of the quantum
+mechanics behind it for both people who
+know linear algebra as well as people
+without any to this background at all if
+you want to go for a gamete you're that
+sounds good okay so that wraps up this
+video and of course there are many more
+come in this series so thank you very
+much everyone for joining in that's
+going to be awesome this video really do
+hope you enjoy it or you move in to
+learn something from this course don't
+you do have any more questions please
+when we put down the comment section
+below you can even want to me at Avenue
+G or calm or tweet them to me at 10 G
+baby Eric can have the questions for
+anywhere for me to contact you also I
+want Twitter at dr. F at all um yeah I
+think I was about this perfect will put
+your contact in the scripture as well so
+you can actually go ahead and reach out
+to her if you've got any more questions
+for her as well and that's going to go
+through this video of course so if you
+do like my content you walk see more of
+its needs to consider subscribing so
+channel as well and it really does help
+out a lot so thank you very much
+everybody for joining in that's going to
+be all good bye

@@ -1,0 +1,369 @@
+hello there so just last week um or this
+week I was working on an app where you
+were able to access a MySQL database
+from online in my case I'm using a
+GoDaddy database basically I've hosted a
+website from GoDaddy and I got the MySQL
+database and basically access it um and
+use commands with it basically now I
+found a really bad problem which was I
+wasn't really able to get it done easily
+straight Swift MySQL so I searched a
+little bit and I found out that I must
+use a PHP bridge in between so that
+Swift toxic HP the PHP basically takes a
+response from the MySQL and then gives
+it back to the Swift but then after that
+I realized that you cannot really do
+anything else with the database well you
+can't really like add things to the
+database so then I tried to fix that it
+took me a while but I eventually got
+that done too so I saw this hardly any
+tutorials for this online so I decided
+to create one for Swift I haven't seen
+one too Swift yet but let's go on so
+here's the principle of the app all
+we're doing is we're going to an online
+database called friends in my in my data
+in my server and then we're going to a
+table called friend and then gathering
+old friends of mine additional
+information and printing it on to a a
+custom table view cell so first of all
+before I go into the database part I'm
+going to describe a little bit on how
+the custom table view cell works in the
+receiving end so what we're doing is
+we're creating a
+separate class and you file well I'm
+doing it a new file i importing uikit
+obviously I'm going class additional
+info cell and this is the subclass of a
+uitableviewcell
+and then we're creating two outlets
+friend name and friend info and then we
+are creating a cell here
+with this height and basically later
+we're create making this a subclass a
+clot the custom class of additional info
+cell which is exactly what this class is
+and then we're putting a label and where
+the additional info will go so they
+destroyed flow and the name of that
+friend so this
+oh so we can sort of my screen recorder
+stop so here we are so as I was
+explaining the friend name which is the
+name of the friend is hooked up to the
+friend name outlet in the custom cell
+and there's also a friend info which is
+also connected so now all we need to
+basically do is hook this up into our
+view controller make sure the view
+controllers all a subclass of
+uiviewcontroller your table of your data
+source and the do a table view delegate
+so it can actually communicate with the
+table view so now you just need to add
+these few functions IB action function
+reload which is what you need to add I'd
+also add this just in case somebody
+decides to click on this but I guess
+what you could do is this text view is
+the editable so you can't edit it but
+still the I think the keyboard pops up
+so in our view controller and we just
+want to do whatever they touch somewhere
+it'll end all editing meaning it'll hide
+the keyboard no matter what now also we
+need to add this function which is the
+data of JSON function that I created it
+takes a URL as a string and it turns on
+array of JSON and that's what I'll
+explain later but you need to have this
+in so inside of here VAR data is equal
+to NS data contents of URL NS URL string
+the URL that you gave it so basically
+this is getting the NS data of that URL
+you gave it so the data and then we're
+returning NS trace on centralization
+JSON object with data we're giving it
+the data to convert to JSON and then
+we're converting that JSON to an array
+and then we're attorney
+and we also want to add these two
+functions and so what you want to do is
+on the top but before you go on you want
+to add sorry
+not these all you want to add these IB
+outlets again not even these ones just
+this IB outlet and this variable and
+whatever errors you had from the reload
+should be gone or wherever else should
+be gone then inside of your viewdidload
+you want to do data is equal to data of
+JSON and then whatever website you have
+in my case this is my PHP file on my web
+server which I'll explain in just a
+moment and then just for the sake of it
+I am printing the data
+good I'm really sorry about my screen
+recorder I'll stopped again so now as I
+was saying I'm just printing this
+because I want to see if it's giving the
+correct data or not or is it just a
+table of you so that's basically pretty
+much it and then you just want to
+connect the table views delegate and
+data source to new controller and the
+table view outlet also - view controller
+and then the reload action to this that
+we just created and here so hook up the
+reload button to this
+so basically of you should look like
+this and everything should be hooked up
+now let's all look at the website for a
+second so first of all I have this
+website tender-back ChiCom I'm looking I
+got that but inside of here I'm gonna go
+to files any other a file manager so as
+you can see I it asked me what director
+I want to open I'm assuming you already
+have knowledge for this if you don't I
+will soon post another video which
+teaches you exactly how to use the
+website so I'm gonna go to document root
+for 10 or max calm and go so it's gonna
+fetch the directory contents and this is
+the PHP that returns exactly what is in
+the database so if I go in here and I
+click code editor and then I click Edit
+it should show me the exact code of my
+PHP script now this PHP script will be
+available for download in the
+description below I'm gonna give you a
+I'm going to give an entire zip file
+with all the files or the code that you
+may need even maybe the source code for
+this and this on github so this is the
+code that's basically going into a
+database and returning the JSON object
+of any friend in the database it's
+basically checking for any connection
+it's making a new connection to our SQL
+using the host the user in the past
+we're also checking if there's no
+connection then die because the database
+server connection failed but if there is
+a connection then again check if it can
+select the database by creating this
+variable putting this inside of it
+checking if it can actually go into that
+database if it cannot then we will go
+die unable to connect to that database
+specifically but if it can connect then
+it's going to go select star from the
+table it's going to give us a result set
+for the query using the query and the
+connection we're going to make the
+records variable which is an array loop
+as always my screen recorder will stop
+so here is the fourth part so yeah so
+then we're looping through the results
+set then it gets from the MySQL and then
+we're making the records equal to
+whatever it's fetching from MySQL and
+then we're basically just JSON encoding
+the records and printing it out now this
+is basically the PHP script and so let
+me just show you my database for a
+minute okay so this is the database and
+you see it's an empty database let's say
+I were to insert one of my friends let's
+just take my dad for example okay so I
+entered in his name and now I'm gonna
+enter in some additional info so dad and
+you can keep adding more tags so
+basically I'm gonna click go and then if
+we go into browse you can see we have
+all the friends their name and
+additional info so the entire content of
+the friend database so basically now
+what I want to do is I want to see this
+and how it's actually going to my app
+but if I run this right now on the if I
+run this right now on the simulator it
+should pop up any second built succeeded
+similar pop up the app should run and it
+should show my name
+I hit my friends name and dad but let's
+say I were to insert my other friends
+name and I were to click go so as you
+can see I go browse it's still there and
+now I can come here and I can click
+reload it'll go to the database and
+it'll fetch the new friend so I'm gonna
+click reload and boom it caught the new
+friend and put it in the date in the
+table view
+so now that's basically how that works
+and now let's continue on and watch this
+this is how it's basically getting it as
+you can see in this app we're going data
+equals data of JSON so the data is equal
+to this so this is this is where it's
+the PHP script of words getting on its
+information from and if we put this in
+our URL bar watch this Wow so it's
+showing the JSON encoded info that this
+app is taking and converting into this
+so that we can actually clearly see it
+because right now
+screen screen recorder again but as I
+was saying a normal person would be able
+to understand this but it won't be the
+most glamorous thing to say however this
+is much more you would want to see this
+much more than this so it's taking this
+information the app and it's putting it
+into this so now let's continue on and I
+would see how I was able to insert now
+what you do to insert using my URL is I
+will show you quickly I can close this
+in my extra folder I have and code
+editor edit so I have this file which
+will also be in the description below
+which connects a friend's database does
+the exact same thing but the query is
+equal to this so it's inserting into the
+French database not the friend table
+name and additional info the values and
+then it's getting the X parameter from
+the URL and it's getting the Y parameter
+from the URL so the X parameter means
+okay their name and their what then the
+Y parameter means their you know they're
+basically additional info and then it's
+sending out that query and it's echoing
+successfully added and then the query so
+we know it's been successfully added so
+let's just test this out real quick
+mom and I can't really think of any uh
+their tag so that's the command I'm
+going to send and it's not really
+comment it's a PHP script with
+parameters in the URL so I'm going to
+click enter and hopefully it show insert
+into friends dot friend name additional
+info values my mom's name and mom has
+the additional information
+so yes it's successfully taken out the
+values from the URL and put it on to
+here so if I take my app and I reload
+now it should also show the thing that
+we just put in and if I even refresh the
+browser in the PHP myadmin
+it'll also show this so that's basically
+how this works
+anyway um this is over with let's see
+the code of it which I've already shown
+you
+you
+okay so now let's see the code of how
+you actually use the app of the
+inserting to database so now this is
+what took me the longest time because I
+had no idea how to go and execute a
+website PHP on PHP without actually
+getting it returning JSON now I did know
+I just didn't think of anything so
+eventually I thought and I thought and I
+thought and I came up with this code
+it's the function add friend
+but first I'll explain the GUI behind it
+basically there are really hope this
+doesn't crash okay so basically there is
+a label name so you enter your name the
+name of that friend the info of that
+friend here and the add to database
+button which basically execute the add
+friend so basically um there's different
+name for an info the UI text fields and
+so the function is doing this so we're
+making the URL which is an NS string
+which is the URL to the PHP script I
+made and we're giving it the parameters
+X is equal to and then the friend names
+text and the y is equal to different
+infos text now there's a really big
+problem that was one of the most
+challenging parts if they enter a space
+it's gonna stop at that line so or even
+in it so I had to do URL is equal to you
+are all that or string by replacing
+occurrences of string
+so we're basically replacing all the
+spaces in here with percent 20 so what
+the user doesn't need to do it and I
+really didn't find a way to do the enter
+so I came up with this solution if the
+user ever wants to put an enter so a new
+line they can put /n
+and it'll count that as a new line for
+them and it's basically in the code
+generator
+percent in zero a and then I'm just
+printing the URL to see whether it's a
+correct URL or not just in case I need
+to troubleshoot something then we're
+getting the data of that URL making the
+result a string and I'm just printing
+the result since that's the only way you
+can access that website oh so now that's
+done I'll quit show you a quick demo
+sorry that's a really bad Xcode glitch
+I'm not sponsible for that whatever you
+try to click the play button it'll
+actually somehow go up here and click
+yeah so as I was saying it'll
+automatically for some reason click the
+exit button except it'll play the debug
+button
+but anyway it's okay for now I'll run
+this on the simulator using command R
+and on the simulator we should get the
+app running in just a minute so just
+wait for it to load okay it says that
+these simulators and you still have to
+stop this
+yeah see then stop button whatever it's
+okay for now
+so stop okay good so now I can run this
+and it'll run this successfully and okay
+let me go into my database and you can
+see there's nothing like this and so I'm
+just gonna put some information here and
+yeah so I'm gonna put in the name of my
+friend let's say I put in and then for
+info I guess I'll put in friend so as
+you can see I've put in all the info I'm
+still gonna go here and you see nothing
+well you shouldn't see anything but in
+the iOS simulator if I click Add and I
+wait a few seconds while it does
+something and I go back here it added
+Gursharan
+so here I'm going to quit the add to
+database app and I'm going to run this
+one and then you can see it's going to
+the database and getting every single
+database entry and formatting it in a
+good way so the user can see it
+this is just a demo application now it's
+up to you to actually modify it create
+things out of it so goodbye yes that's
+it if you have any questions please
+comment like the video subscribe to my
+channel if you'd like and goodbye see
+you later

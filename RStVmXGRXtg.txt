@@ -1,0 +1,938 @@
+so hello there and welcome to another
+tutorial my name is Tammy Bakshi and
+today we're gonna be going over how you
+can use the new Siri shortcuts feature
+in iOS 12 to create an application that
+can use custom intense with the Siri
+kick it's really really interesting it's
+a new feature by Apple and it really
+allows developers to make much better
+use of Siri than they ever could've done
+before I'm sure you probably know that
+last year were actually blessed last
+year with iOS 10 Apple introduced Siri
+kicks and developers can actually
+incorporate their applications into Siri
+so for example you can send say a
+whatsapp message directly from Siri in
+this instead of having to open up the
+application allowing other developers to
+use it but there's just one problem
+unlike the Google assistant or Alexa or
+any of the other personal assistant
+libraries out there
+sirikit helped refined intense with
+their own entities that you as
+developers could use however you could
+not define your own custom intense or
+entities and therefore you were limited
+to the domains that Apple provided you
+and if you try to use a workaround it
+wouldn't be you know binding by the
+human interface sidelines and so you
+were very restricted with what you could
+do
+but with series shortcuts iOS becomes a
+whole lot smarter even with your
+application series shortcuts actually
+enable the user first of all not only to
+access your application and other
+applications through Siri
+but it also makes the whole of iOS more
+intelligent for example let's just say
+that you like to perform a certain
+action maybe go to a certain website or
+check your email at a very specific time
+of day every single workday what's gonna
+happen is eventually an iOS will learn
+that pattern and after a few days or
+weeks it'll automatically start
+recommending to you and straight on the
+lock screen or on spotlight whether or
+not you actually want to jump straight
+ahead to that action in fact users can
+actually define their own custom
+shortcuts as well for example what they
+can do is actually put together these
+really complex series shortcuts or
+workflows and that's what I'm going to
+be showing you how many you can do today
+today I'm gonna show you not only how
+you can actually develop a custom Siri
+shortcuts application but also how you
+create different Siri workflows and how
+they actually work let's get into it
+now first of all though let's focus on
+the application and how it's gonna work
+now I decided to give you a very simple
+use case but one that's fun it should
+really highlight where Siri shortcuts
+are useful getting information or giving
+information to applications now if you
+are watching WWDC this year I'm sure
+you've seen the demo of Ceres shortcuts
+this one was specifically with the tile
+application where you can say hey Siri I
+lost my keys and it'll actually contact
+the tile application to ring up
+specifically your keys tile so you can
+figure out where it is however what you
+need to realize that Siri shortcuts is
+that they are very very literal and
+specific to the tasks that they've been
+assigned to for example let's just say
+you were following another one of my
+tutorials on the Watson assistant or the
+Alexa or the Google assistant and you
+know that they can create interactive
+chat experiences where you can actually
+interact with the application so if you
+were watching just by just one video
+that I published very recently with Mark
+Sturdivant we actually implemented the
+Watson system onto the Alexa and Google
+Google assistant and so you can actually
+talk to the Watson for example rent a
+car application and it would go through
+a whole conversation workflow Siri
+shortcuts is not like that so for
+example let's just say you have five
+titles and there's one series shortcut
+to find a tile that Siri shortcut is
+going to be hard-coded to find
+specifically one kind of title or
+whatever else you may be finding or
+doing and so that's something you should
+definitely keep in mind it's very very
+specific to what you're trying to do and
+so every different action that your user
+takes in your application will need to
+have a separate shortcut attached to it
+nonetheless let's take a look at how you
+can implement it in your applications
+with a simple example
+gathering rent
+trivia fact about numbers from the
+numbers API it may have heard of the
+numbers API before it's a really really
+interesting API that gives you all sorts
+of fact about trivia about all around
+numbers but because you also subtracts
+around the current date or specific
+number that you give to it or a random
+number practically anything and it also
+has a very very simple to use API it's
+quite literally just a get request to a
+single endpoint and it doesn't even give
+you JSON it just gives you plain text
+that you can go ahead and display in
+your application so the app that we're
+gonna build from scratch is very simple
+it's just a button on a screen that you
+click and it shows you in a message a
+random trivia about another any ranked
+number and then what happens is that can
+also be extended to a series shortcut so
+for example let's just say that every
+day after you come out after you're done
+work you exit your workplace and you
+like to look up a random trivia fact
+amount of numbers well Siri is actually
+going to learn that and start
+recommending to you whether or not you
+want to do that completely automatically
+and directly from your lock screen all
+right you can actually add that shortcut
+to Siri as a voice command so you can
+raise up series say hey Siri show me
+something new or tell me something about
+a number and it'll automatically tell
+you some kind of trivia about a random
+number from the CPI however before you
+can get to that though there are three
+main steps that you need to handle in
+your application number one is of course
+the most important and that's meeting
+sore sure that Siri knows exactly what
+you want to do with Siri kicked it needs
+to know what your shortcut is going to
+do in the first place now this is called
+defining your in text so essentially
+what you're going to do is take your tag
+to all the parameters that it needs from
+the user and all the parameters that
+it's going to give to the user and
+you're going to define back so Siri
+knows exactly what the user is talking
+about and how your application is going
+to handle that user input and then when
+you define the intent it
+important to let Siri know that this is
+something valid something that the user
+actually wants to do so what you're
+gonna do is you're going to donate
+intent that means that you're going to
+take the intent that you just defined
+and you're going to provide to Siri as
+an iamb interaction object and what that
+means is that Siri knows that this is
+something that the user has done and you
+can also provide supporting information
+or data that can be helpful in making a
+prediction we won't be getting into that
+in this tutorial that's a very very
+complex but we'll get to that in another
+tutorial very soon however what you can
+do from here is again as I mentioned
+donate mutant but let's just say that
+you've got a really complex app would
+say five different possible series
+shortcuts now let's just say there are
+only three features of your application
+that your user ever uses then that case
+are only going to ever donate three
+shortcuts or you're going to donate that
+shortcut every time the user uses that
+specific feature in your application if
+they don't use a feature do not donate
+the shortcut that is Apple's guideline
+and that will ensure the Siri only
+recognized shortcuts that are relevant
+to the user and what they want to do
+back to what we were talking about then
+once you've defined and once you
+understood exactly how the donation
+scheme is going to work then you go
+ahead and donate the intent so let me
+give you an example with trivia now in
+terms of premium this is really really
+simple it's just we define the intent
+once which is essentially just saying
+all right the intent is that a random
+trivia about a number and we're going to
+provide a string called trivia and then
+after that every single time the user
+not only open the application but every
+time they specifically query for a
+trivia and every time they do that we're
+going to donate that shortcut over to
+Siri so that Siri understands that hey
+this time is when the user was actually
+trying to look for some trivia after
+that is what the really interesting part
+comes in then you've got to implement
+some code that actually handles the
+intent because you see if you're not
+handling the intent then Siri has no
+code to call in your application to
+actually figure out what the intent
+means and what the user should be given
+so first you're gonna define then you're
+gonna donate and then you're going to
+handle the shortcut it's as simple as
+that and then once you've got this all
+in London you're ready to go ahead and
+implement your app with Siri shortcuts
+for intelligent predictions on iOS and
+custom voice commands of the Siri
+connector that the user can actually use
+in their custom series shortcut
+workflows and so that is just a quick
+example of how you can create your own
+series shortcuts of course there is a
+lot more that you can do in Syria
+shortcuts you can actually create your
+own custom UIs as well with Siri
+shortcut what that means is that you can
+actually go ahead and say display a
+graph or display a certain image on your
+Siri shortcut so right as the user
+actually activates the voice command or
+force taps on the shortcut a lot on the
+lock screen it'll automatically show
+them a custom user interface that you've
+designed for your shortcut but now know
+let's get into how you can actually
+implement this intent but before that
+let's get into a demo of how it works so
+you understand the application that
+we're going to be building in fact I'm
+going to show you how to build this
+entire application from scratch and from
+the ground up let's get into it
+let's take a look at a demo of the
+application in action as you can see on
+my home screen over here I can go ahead
+and click on the number trivia
+application it's a really simple user
+interface essentially I just click on
+the give me some trivia button and it
+instantly queries the number API in
+order to tell me that one three six two
+three one zero one five five is the
+total number of items of mail that went
+through the Canadian postal system in
+1950 how randomly fitting so I click on
+OK and I can just keep doing this I can
+keep on keep on asking for some trivia
+it says over here 600 is the maximum
+credit score considered poor thus
+limiting available credit in the u.s. a
+I can just keep going here
+from there though what I can do is take
+a look at the shortcuts feature in
+action now usually of course you can
+swipe up and take a look at series
+suggestions for different shortcuts that
+it thinks you may want to execute
+however in this case we haven't donated
+the intent enough times or Siri doesn't
+think that the intent is relevant enough
+to my needs right now to actually
+display it over here in spotlight but
+since I'm a developer and I want to test
+my application what I can do is go to
+settings and scroll down to the
+developer page once I'm there I just
+scroll down and I click on display
+recent shortcuts and display donations
+on lock screen what this is gonna do
+it's gonna actually show me right as I
+go into spotlight the recent shortcuts
+that were donated in the Siri kit system
+as you can see on the top is the get
+random trivia shortcut in fact if I were
+to click on it it would instantly
+provide me some trivia without needing
+to open the application directly from
+spotlight in fact it says over here
+here's some trivia 441 is the number of
+squares on the super Scrabble board
+pretty interesting now if I were to exit
+this we can do something even more
+fascinating let's open up the shortcuts
+workflow application I'm gonna create a
+new shortcut now this is where you can
+build your own custom with Siri shortcut
+workflows now inside of here I can
+search for different kinds of actions
+that I can apply inside of my Siri
+shortcut workflow now either I could
+search for something or I could click on
+Siri suggestions and it would suggest a
+bunch of different shortcuts that it
+thinks would be relevant to my needs
+now I search for some kind of shortcut
+or I could click on searing suggestions
+right over here and it would show me
+suggestions that are important to my
+needs but I'm not gonna click that
+button right now I'm gonna search for a
+shortcut in this case I'm going to
+search for trivia now as you can see it
+recommends in the series suggestions
+pane get random trivia so I'm going to
+click on it and essentially this
+shortcut is now going to run my number
+trivia application I'm gonna click on
+the options menu on the top right and
+I'm gonna give this this shortcut a name
+let's just say number trivia app gonna
+click done and then I can even provide
+it a Siri phrase I've already recorded a
+phrase for this one it's called show me
+a numbered trivia if I want to click
+done and then done again and we're done
+once more it should register the
+shortcut in the series system and so now
+not only can I go into spotlight and
+take a look at those suggestions but I
+can actually activate this through Siri
+let's take a look
+show me a numbered trivia that is pretty
+interesting and now as you can see I do
+not need to do anything I don't need to
+open up my application directly within
+Siri voice interface I will to ask my
+application for some entered information
+or even adjust what my application is
+doing based on some information that I
+provide it inside of the shortcut now
+what I need you to realize is that this
+is a special kind of shortcut as you can
+see the shortcut did not open my
+application it just queried some
+information from the application in
+order to run it inside of the Siri Siri
+voice interface over here now what that
+means is that this is a shortcut that
+supports background execution my
+application can be closed or in the
+background while searing is able to
+query it now serious shortcuts provides
+priority to
+specifically shortcuts that actually
+have support for background execution
+meaning that if you're able to always
+make sure to enable background execution
+to enable a better interface for your
+users allowed to be more flexible but at
+the same time make it so that well you
+can have this kind of priority access
+inside of the Siri shortcut system first
+there are many other ways to access it
+like through the lock screen and I've
+already shown you spotlight as well all
+right and so that is a quick demo of
+seeing shortcuts in action now let's
+actually go ahead and build this entire
+application from scratch let's take a
+look all right so as you can see on
+screen right now I've got the latest
+version of Xcode Xcode 10 installed on
+my Mac running Mac OS Mojave so now what
+I can do is I can create a new Xcode
+project for the application this Xcode
+project we can just create a simple
+single view application and we call it
+something like number trivia YouTube
+edition I click return and create it and
+save it on my desktop that's created as
+you can see it's creating a very very
+simple application structure for me
+however I don't want this application
+structure or this Xcode project
+structure because I want a version of
+Xcode that's actually able to support
+cocoa pods now if you haven't used cocoa
+pods before essentially they allow you
+to install libraries like for example a
+lamo fly or frameworks in this case
+frameworks like a lamb on fire ink you
+switch applications and so what I'm
+going to do is I'm going to run pod in
+it and it's gonna initialize a cocoa pod
+file for me which I can then go ahead
+and edit now in this case I'm just going
+to remove all the unnecessary lines and
+there we go I've got a very very simple
+pod file and I'm going to pod Alamo fire
+I'll go I already do have a few videos
+on the Alamo fire framework which you
+can take a look at on my channel as well
+essentially Alamo fire will let us make
+the very simple network connection
+that's required to get to the numbers 8
+I'm going to save this and then I'm
+gonna go ahead and do pod install pod
+install will install these cocoa pods
+and actually delete my not delete it's
+gonna change not change its going to
+create a new Xcode workspace instead of
+my current Xcode project and this
+workspace also includes a new Xcode
+project for the pods I'm gonna go ahead
+and open up that Xcode workspace and
+there we go it opens it up in Xcode now
+as you can see I should be able to I
+open this up once more maybe close it
+wait just a moment and there we go as
+you can see I'm able to access my number
+tree via YouTube Xcode project from here
+now what I'm going to do first of all is
+let's get the trivia handling out of the
+way first
+so before we concentrate on the view
+controller or the storyboard let's
+create a new file it's gonna be a swift
+file called trivia okay create that file
+and import Alamo fire with it then
+create a new class called trivia and
+create a function called get trivial now
+there's going to be a completion handler
+because this is going to be run in the
+background and I'm just going to define
+that completion handler right now it's
+going to be passed a string and it's
+going to return nothing that string is
+going to be the trivia then what I'm
+gonna do is I'm going to make an Alam of
+fire request this is gonna be a really
+simple request we'll fill in the URL in
+just a moment
+and let's get a string response so let's
+get trivia response then let's do a flat
+trivia is equal to trivia response dot
+result dot value so if this does indeed
+exist then call a handler with the
+trivia and there we go the trivia
+class is done we just need to fill in
+this this the this URL over here that
+should be very very simple you can't
+just open up Safari search up numbers
+API trivia and as you can see pretty
+high up in the list there should be
+numbers API there we go
+now as you can see it tells me a random
+slash trivia is the endpoint to call so
+I'm just gonna do slash random slash
+trivia and it gives me this plain text
+I'm gonna copy this URL and paste it
+over here but Oh what do we have here as
+you can see this is not an HTTP endpoint
+it's not using SSL encryption and
+therefore iOS does not trust the link so
+you have to kind of force iOS to use
+this link and this is not an optimal
+solution by any means I'll tell you that
+right now
+there are definitely better ways to
+handle app Transport Security is what
+it's called but a way to sign could to
+kind of circumvent this for now since
+we're not dealing with even anything
+important is go to your info property
+list file add a row and call it
+application transport or just app
+Transport Security settings it's gonna
+create a new dictionary for you right
+now and then inside of that dictionary
+you're gonna add a new row and this is
+gonna be allow arbitrary loads and
+you're gonna set this to yes essentially
+to tell the iOS application doesn't care
+don't care whether or not it's encrypted
+just make the load doesn't matter and
+there we go your trivia class is now
+successfully done now you can go to your
+view controller in fact I don't even
+think we need the foundation it for do
+we no we do not from there you can go to
+your view controller and actually start
+implementing some interesting code so
+you don't even need to override view too
+low because it's so simple you just need
+to do IB action function get trivia and
+there we go then once you created this
+IB action all you need to do is say
+trivia dot get trivia get the trivia
+variable and then you're gonna create an
+alert so everyone say alert is equal to
+UI alert action we're gonna give it a
+title something like random trivia let's
+just set the UI oh wait you're not going
+to create a UI alert action you're going
+to create a UI alert controller then
+you're gonna give it a title this time
+once I actually give it a random trivia
+title Oh trivia then the message is
+gonna be something like just a trivia
+maybe and then the preferred style is UI
+alert controller dot style dot alert in
+fact because we're using Swift we don't
+need to specify where that email is now
+you're going to add an action to this
+this time you're actually going to
+create a UI alert action let's just call
+this okay let's have the default style
+and let's give it no handler because I
+don't care what happens when the person
+says ok from there we should be able to
+present that action let's animate that
+and I don't want any completion handlers
+so now you should have a really simple
+application that just displays random
+trivia here ten you click the button you
+just need to create the user interface
+now so you just get some kind of button
+again you can design this however you
+want to you can just say something like
+query trivia and then you can just
+customize the interface however you want
+to and once you're done you go ahead and
+run the application on your following so
+I'm gonna run this directly onto my
+device as you can see I am indeed still
+screen sharing over here so Xcode is
+running the application and once it's
+done installing the application to my
+device it's going to launch in theory I
+should just be able to click the button
+and instantly get some trivia there we
+go the application is launching I click
+the button and any second now
+we should get trivia if not we go back
+to Xcode and figure out why exactly it's
+not working
+in this case I forgot to connect the IB
+action and so it's not actually doing
+anything when the button is clicked or
+you run the application go back to quick
+time to take a look at what my
+who's doing and there we go Xcode says
+build has succeeded of course and now I
+should be able to actually click on
+queer trivia and get some trivia so I'm
+gonna click and there we go just like
+the application that I was showing you
+it says 39 is the traditional number of
+time citizens of ancient Rome if they're
+slaves of being there refer to as 40
+save one okay so random trivia from
+there we can go ahead and improve this
+with Siri shortcuts now is when the
+interesting part comes in of course we
+have to start off with actually defining
+the shortcut I'm three main steps define
+donate handle the shortcut so let's
+start off with defining the shortcut so
+I'm gonna go ahead and just under this
+folder here create a new file and if you
+just scroll down you should see a Siri
+kit intent definition file right there
+you can call this whatever you want I
+usually just call it intense because it
+contains all the intent so you're gonna
+need and let's create a new intent
+called
+get trivia let's just say get random
+trivia because you could get specific
+number trivia as well okay so get random
+trivia now there's a category for these
+in this case we're just doing like a
+view information of course there are
+tons of other different categories
+really depends on what your application
+needs in this case you are viewing some
+title let's just say get random trivia
+and then description let's say random
+trivia from numbers API I'm not going to
+provide an image and I do not a user
+confirmation to get trivia parameters
+the usual provide none however if there
+were some parameters that you wanted the
+user to provide like for example I want
+trivia about this specific number then
+you would add those parameters here like
+so you would add a parameter you would
+say something like trivia topic you can
+choose a type let's just say in this
+case it's string of
+course you can even say if it's an array
+and then from there you would create
+different shortcut types there are like
+for example if someone would only be
+able to ask for trivia if they provided
+the trivia topic then you would click on
+the plus button here so a trivia topic
+ad shortcut type and now unless the user
+provides that specific parameter they
+cannot use a shortcut however if they
+can also do it without providing it then
+you just add a shortcut type without any
+parameters and your code will just
+handle it from there
+but in this case you don't need to write
+a trivia topic because there's nothing
+to provide and you can just work with no
+parameters of course it does support
+background execution because the
+application itself does not need to open
+every time the response however still
+needs to be built and in the response
+the application is going to provide a
+property called trivia it's going to be
+a string and this is the result of the
+API and here are some response templates
+for a failure let's just say sorry I
+wasn't able to complete the request to
+numbers API but in case it actually did
+succeed which we're hoping it always
+exceed succeeds I should be able to do
+here's a fact for you something of that
+sort and then just add in this trivia
+variable and Siri will respond with that
+trivia and so that's exactly how the
+application is going to respond to
+different kinds of input that the
+application gives it now though we have
+to handle the intent itself so we'll
+talk about how exactly you can donate
+intense a little later first let's talk
+about handling the intent so go back to
+your Xcode project and add a new target
+to your application in this case we're
+going to add an intense extension
+extension and you can call this whatever
+you'd like to let's just say trivia
+intense now if you'd like to create a UI
+for your shortcut you can include a UI
+extension I do not usually and your
+starting point kinds we're messaging or
+none let's start with none that'll be
+easier click on finish as you can see it
+asks you to activate the scheme activate
+it
+and then it creates these two files for
+you inside of the intent handler this is
+what's gonna to actually handle the
+intent itself
+now let's ignore this class for a minute
+first let's create another class this is
+going to be called well the get random
+trivia intent handler it's going to
+inherit from an Assad or it's going to
+conform to and this object and get
+random first let's build and one more
+step you should definitely take is go to
+intent definition file and I actually
+add it to the trivia intense target
+because what's happening right now is
+that the intense definition art is only
+part of your application intent it's not
+part of the Sirikit oh sorry it's only
+part of the application target it's not
+part of the scene you get target so you
+need to make sure to add it's a
+surrogate target so we can apple that we
+can actually access that intent from
+here as well anyway so as I was saying
+create this class and make it also
+conformed to get random trivia intent
+handling then inside of here you need to
+actually implement two functions first
+of all the confirm function and also the
+handle function these two functions will
+actually control whether or not your
+handler can actually provide output for
+what the user gave now over here though
+in the intent handler what you're going
+to do is say something like guard intent
+is get random trivia intent else create
+a fatal error unhandled intent otherwise
+just return get random trivia intent
+handler so essentially what this is
+saying is every time a intent that's
+linked to your application is called
+this intent handler will be called now
+this intent handler will this specific
+function will be called and it's going
+to provide the intent that was called
+another thing is the only intent that
+I'm actually working for right now is
+the
+get random trivia intent so if the
+intent is a get random trivia intent
+then go ahead but if it's not which is
+where this else and the guard comes in
+then just create a fatal error and crash
+the application because for some reason
+we're getting an intent that does not
+that should not be linked to the
+application however there is a little
+bit more stuff we need to do for example
+go over info dot list under NS extension
+under NS extension attributes and intent
+supported make sure that you add the
+extension or the intent that you are
+creating in this case it's going to be
+get random trivia intent just exactly
+what your intent name is here just let
+Siri knows and then you're also going to
+need to add the app Transport Security
+over here as well so we're going to add
+that dictionary then add that row so
+you're gonna say oh no you don't want to
+add that row there you want to add that
+row inside of this dictionary allow
+arbitrary loads yes then go back to your
+intent Handler and now you can actually
+start working with the intent now inside
+of confirm for this very simple use case
+we're going to assume that the
+application will always be able to deal
+with the intent so I'm just going to say
+completion get random trivia intent
+response code dot ready so that Siri
+knows that we're ready and we're not
+going to provide any user activity now
+handle is where things get interesting
+now first of all how serious it can
+handle the intent it's not gonna access
+this IB action what it's going to do
+it's going to access this trivia class
+but there's a problem
+see when sirikit queries the application
+its querying the trivia intents target
+but the trivia class is inside of the
+numbered trivia YouTube target so either
+I could copy and paste the code which is
+not an elegant solution or I could
+create an embedded framework which is
+the most elegant solution but for a very
+simple application like this one with
+less than 20 lines of code that is
+overkill so all I'm gonna do
+is I'm going to go over to the right of
+my screen over here and get a checkmark
+trivia intense that means it's gonna add
+this trivia class to the trivia intense
+target now if I were to build this you
+should get an error as you can see no
+such module ammo fire but you may say we
+added a lamo fire in the cocoa pod file
+but you have to realize that this air is
+not being thrown by the application it's
+being thrown by the Sirica and handler
+target so what happened here is if I
+were to go back to my terminal and open
+up the pod file you'll realize that only
+the target number trivia YouTube
+actually has the Atlanta Fire pod so
+what I need to do is go ahead and add a
+new target in this case trivia intense
+and tell it to use frameworks and also
+tell it to pod a level fire there we go
+just like that I have created this this
+new pod file I can run pod install and
+theoretically one spot is done
+installing again cocoa pods is a great
+tool but if I were to go ahead and run
+this I shouldn't get any errors now but
+we're not done just yet
+so give that just a moment to build
+there we go build succeeded now I can go
+over to my intent handler and actually
+handle the intent so I should be able to
+just simply create a new trivia instance
+get some trivia save it in the trivia
+variable and then just say completion
+dot success provided the trivia and
+there we go that theoretically should be
+all you need to implement series
+shortcuts oh there's a problem
+shorts implemented short works but
+series still doesn't know that this is a
+thing because we're not donating it so
+go back to your view controller and
+writers are done providing trivia to the
+user donate this intent to Siri except
+Siri knows that the user has gotten this
+trivia so I'm going to create a new
+interaction object called iam
+interaction after I import the intense
+framework
+to create a new I in interaction with an
+intent called get random trivia intent
+and there's going to be no response
+and I'm gonna donate this with no
+completion and just like that it should
+donate the intent to Sirikit and it
+should therefore theory at least work
+now we're ready to test out the
+application and make sure that it
+actually does function the way that we
+want it to I'm going to run the
+application target on my phone and as
+you can see it opens up just like so
+there's a little bit of lag between what
+you're seeing on screen and what's
+actually happening on my phone but if I
+were to click on query trivia it shows
+me trivia and it does not crash the
+application meaning that it is
+successfully at least donating the
+intent
+it says 56 age of Mayo Zedong sorry if
+I'm not pronouncing that correctly when
+the People's Republic of China was
+established on October 1st 1949 actually
+so there we go
+that's done now remember in the
+developer tab I had already turned on
+the in the show recent shortcuts and
+donations options so if I were to scroll
+up as you can see it should show you in
+just one moment that indeed there we go
+the number trivia YouTube over here this
+new application that we just developed
+is showing me the get random trivia
+intent if I click on it the intent is
+handled perfectly it says three years a
+number of notes in a triad the basic
+form of any chord now we can go ahead
+and develop a new shortcut let's create
+inside of the series shortcuts workflow
+application a new shortcut and this time
+let's go ahead and search for something
+like say trivia so now we have to figure
+out exactly which one is the new
+application so the second one is the new
+application because this is number
+trivia YouTube so I'm going to click on
+this
+I'm gonna say add to this shortcut and
+just like that as you can see in a
+second now it should add this as an
+action in the shortcut workflow I can
+then go ahead give it a name new trivia
+go back if I want to I can add it to
+Siri I can say something like show me
+new trigger there we go
+I can just click on again there's a
+little bit of a lag between the actual
+screen share here I'm going to click on
+done and done and as you can see it
+provides me a new shortcut I'm going to
+click on new trivia and within the
+application it is handled successfully
+but what's interesting is if I go into
+Siri any second now of course sometimes
+it does take a second to register in the
+actual Siri sort of application but I
+should be able to say show me a new
+trivia and just like that a new
+application that uses Siri shortcuts and
+is able to recommend to me exactly what
+I want to do what I want to do it
+completely automatically without you
+having to do it manually so for example
+if CEO recognizes a pattern and when you
+like trivia it'll automatically
+recommend that to you in spotlight and
+their home screen on your widget screen
+all that kind of stuff and so that was a
+quick tutorial as to how you can use
+Siri shortcuts and the new custom
+intents that Apple lets you use in your
+applications I do hope you enjoyed that
+tutorial thank you very much everyone
+for joining in today of course all this
+code will be available in the
+description below if you'd like to
+follow along click download the code or
+use it in your own applications that you
+have any if you do have any suggestions
+feedback or questions please do feel
+free to leave it down in the comment
+section below as I'd love to answer any
+questions you may have
+from that if you did like this video
+please make sure to leave a like down
+below and if you believe this can be
+helpful to anyone you know like your
+family your friends please do make sure
+to share in the video as well apart from
+that if you really do like my content
+you want to see more of it please do
+make sure to subscribe to my youtube
+channel as it really does help out a lot
+and if you'd like to be notified
+whenever I release new content click on
+a little bell icon beside the subscribe
+button and you will receive an email and
+a Google notification every time I
+release a new video again thank you very
+much everyone for joining in today
+that's gonna be what I had for this
+tutorial goodbye

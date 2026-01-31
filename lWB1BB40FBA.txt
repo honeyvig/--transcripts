@@ -1,0 +1,317 @@
+[Music]
+so go there and welcome to another
+tutorial
+my name is handmade Bakshi and this time
+we're going to be going over how you can
+use cross to retrain your convolutional
+neural networks so now let's talk a
+little bit about what the concept of
+retraining actually is in the first
+place the Sun off a conditional neural
+network contains a lot of knowledge and
+this knowledge contains things like
+filters and and of course dense layers
+that are able to take those on some lots
+of filters and actually convert it to
+essentially probability matrix of what
+could be in an image or in some sort of
+text or whatever else you're feeding
+into your convolutional neural network
+however there are few problems with
+extremely deep and in this case
+extremely advanced convolutional neural
+networks and this problem is that of
+course they need an abundance of a flood
+of data hundreds of thousands or
+millions of images to slightly
+understand to even slightly understand
+the concept of what goes behind these
+images and to actually understand these
+images there are lots of different
+techniques to try their best and make
+Continental neural networks and deep
+neural networks in general take less
+data like one-shot learning but then
+that gets to extreme far end of no data
+where you only have a few examples of
+images but what if you're in the middle
+you don't have less enough to do
+one-shot learning but you don't have
+enough to do regular deep conformational
+neural networks you're in the middle
+like for example you had a half of NIFT
+dataset only 30,000 images in total what
+would you do
+how would you train and in this case
+let's just say that you've got two
+Kaggle cats and dogs in the data set how
+would you train on only those many
+images and well it
+quite simple retraining is the answer
+and well the concept behind retraining
+is that never waste knowledge never
+waste what you know and so instead of
+training new convolutional neural
+networks on new data
+you old convolutional neural networks
+that already have enough knowledge and
+just tie them in with new data let's
+talk about that now let's just say that
+you've got a convolutional neural
+network in the CNM you say vgg 19 ok so
+you've got a bunch of you know layers
+nineteen layers in total and in this
+case that would be your convolutional
+neural network or not maybe not even
+specifically vgg nineteen just a generic
+convolutional neural network that's been
+trained on the image net dataset now you
+probably know of image net it has tens
+of thousands of different class
+categories and it having millions a
+different image to images to train off
+of their convolutional neural networks
+and so this CNN takes in a 224 by 224
+image which is what internet what image
+net provides and so this convolutional
+neural networks output which is of
+course the output of a bunch of filters
+is then flattened to make it
+one-dimensional instead of it's
+two-dimensional original version and
+then finally it's sent over to a bunch
+of dense layers on so in essence let's
+just say you've got a two layer deep
+dense Network so you've got the first
+dense layer which will go ahead and take
+all the output of that flattened and
+let's just say this has 512 nodes 512
+notes there unless just say you've got
+one more dense layer and then you've got
+your output so this dense layer over
+here has say 1024 and then you've got
+one last dense layer which has simply
+say of course those tens of
+let's just estimate around 10,000 of
+those different classes although it
+probably has many many more um and so
+this is what your convolutional neural
+network looks like in its entirety
+now you train this for days on end and
+of course you get very high accuracy on
+this data set and for your convolutional
+neural network has all the knowledge
+that it needs to actually understand
+pretty much all the animals it could
+birds packs the cats and dogs your pets
+you can understand vehicles it can
+understand the sky cannot shine a
+computer keyboard print or monitor
+everything it can understand everything
+in the image that data set at least but
+from here you know that your CNN has a
+lot of knowledge and it can understand
+many different things including cats and
+dogs now how can you take the knowledge
+that this has and apply it to a
+different dataset entirely well it's
+quite simple say that you train this
+entire convolutional neural network back
+to end for records and you gets a 97%
+accuracy ok so you've got a very good
+cognition Allura network with 97%
+accuracy on image net now except that
+that's pretty good actually very good
+actually for for these many classes but
+then again you train a convolutional
+neural network say on the cats and dogs
+data set and looking good you'll you'll
+get safe no no 94 only 5 percent
+accuracy at best and of course there are
+ways technically that you could get a
+higher accuracy but then again you're
+only training with a few 10,000 images
+and it's a very complex task cats and
+dogs look very much alike
+for a computer at least because
+convolutional neural networks don't look
+at me to myut detail I mean they do
+technically because of course their
+computers but I don't understand
+abstract concepts there's a certain
+individual patterns and when patterns
+are extremely similar they get confused
+for example it's a convolutional neural
+we're looking at a TV remote or keyboard
+it's not looking for buttons and a
+rectangle around it and something may be
+holding it maybe a TV in the background
+it's just looking for a sheet of buttons
+that's it and if it's looking for a
+keyboard it's literally only looking for
+another sheet of buttons except these
+buttons are bigger and so you can
+probably tell the convolutional neural
+networks aren't necessarily the best for
+understanding extremely abstract and
+vague representations or extremely
+abstract vague and related concepts
+which is why you're not able to get very
+high accuracy however if you take some
+of the knowledge from the sienna and
+apply it to a relatively simpler task
+like the cats and dogs you can get high
+accuracy I think 90 89 90 percent
+accuracy on such a data set and so how
+do you achieve this the sounds like
+magic doesn't this how do you achieve it
+well take a look at this you've got two
+different parts to your serum you bought
+this part you've got the actual
+convolutions okay and you've also got
+all the dense layers then players asked
+is a feed-forward neural network it'll
+actually take output from the CNN and
+convert it to the actual output that the
+user wants and not just a bunch of
+filtered outputs and so how can you
+apply this to retraining well it's quite
+simple which knowledge here is required
+for cats and dogs well obviously not the
+dense layers because that's applied to
+everything so the ventilators are left
+out what's left the convolutions the
+convolutions have the main knowledge of
+neural network they know how to extract
+individual of pieces out of the image
+they know how to extract a cat space of
+dog's face the cat's tail a dog tail all
+from an image so it knows how to
+classify cat's whiskers etc Sara it
+knows it already has that knowledge of
+how to classify between different
+just cats and different types of dogs
+except that you want to fine-tune its
+weights to work with a different data
+set so what you do is you go ahead and
+take what's relevant the convolutions
+and you keep it
+but you delete all the rest you delete
+all of the dense layers they are gone
+completely an entire they no longer
+exist and so the weights that were you
+for those dem players are also just
+completely gone from here you're ready
+to fine tune your weights however you're
+not going to be fine tuning your
+convolutions so what you do is you tell
+them that they are not trainable because
+you're out trying to train the
+convolutions they're already trained
+they know how to do this they're experts
+at this but you are trying to train new
+dense layers so you apply new dense
+layers to old convolutional layers and
+so you've got knowledge having
+convolutional layers but you've got
+completely new dumb and random and
+Slayers and so you go ahead and draw in
+more dense layers see that this time you
+want a similar network architecture 512
+ah to say 1024 and then to this time
+instead of 10 and since of course
+they're working with many less of these
+classes you might not even want such a
+wide network architecture you might only
+need another 512 here and two outputs
+whether or not the image contains a cat
+or a dog and so from here though your
+dense layers are trainable your con
+solutions however are not trainable and
+so if you were to take a look at this
+what this means is that your dense
+layers are going to gain new knowledge
+however your convolutions will keep
+their older knowledge what they'd known
+for so long and so what this means that
+now you can go ahead and retrain this
+neural network the convolutional neural
+network stays as it is it stays as a pre
+trained feature extractor and then once
+it extracts features off of an image
+those features will go to a neural
+network which will classify and will get
+better and better over time at
+classifying between whether or not it is
+a cat or a dog and now you've solved the
+main problem while training
+convolutional neural networks which is
+that you're not training the
+convolutional neural network in the
+first place because you see these parts
+require a lot of data these quartz
+require quite a bit of data and so what
+what this means is that your
+convolutional neural network does not
+does not need to be trained in the first
+place and because of this you do not
+need as much data and that's why when
+you preserve older knowledge you're able
+to go from 94% all the way to around 98%
+accuracy which is actually a big jump in
+accuracy they went from 94 to 98 it's
+four percent more accurate and
+classifying between a cat and a dog
+which is a very very noticeable change
+especially when the users uploading
+their own images and I'd be completely
+different from the data set when they're
+moved around and especially when you use
+data augmentation and you sort of crop
+it start to transform your image in so
+many different ways you can get even
+higher than the eight in some cases and
+in fact that's why I'm going to be
+showing you how to do in this video
+series now this was part one to an
+entirely new video series dedicated to
+convolutional neural networks and in
+this case retraining your convolutional
+neural networks however in the next part
+I'll show you how I actually implemented
+this with an image net neural network
+like vgg 19 or vgg 16 or ResNet or
+something of this sort maybe even image
+net but we'll get that back yet
+in part two where I'll show you how you
+can actually implement this and create a
+CatDog classifier like this one it'll
+take an image of your cat and dog and
+tell you whether it's a cat or if it's a
+dog
+and so that's going to be it for this
+video today I explained to you what the
+actual concept behind retraining so
+thank you very much for joining today
+that's going to be all for the video if
+you really do like the video please make
+sure to leave a like down below share
+with your friends and family if you
+think it could help them as well if you
+have any more suggestions questions or
+feedback please leave in the comment
+section down below to H me at Taji
+Mannie gmail.com or email to me attached
+if any channel comm or twin to me at
+Taji Mannie
+of course so if you really like my
+content you want to see more of it
+please do consider subscribing to my
+youtube channel as well as it really
+does help a lot of course turn on
+notifications if you'd like to be
+notified whenever I release new content
+by clicking the bell icon beside the
+subscribe button below so thank you very
+much for joining it today that's going
+to be all for this video goodbye

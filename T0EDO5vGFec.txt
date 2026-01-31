@@ -1,0 +1,400 @@
+[Music]
+so Walter and welcome to another
+tutorial
+my name is Timmy Bakshi and this time
+we're going to be going over how you can
+use a year off neural network in order
+to classify it between two different
+types of hearing disorders now actually
+this is going to be the first video in a
+new series that I'm going to be doing
+called healthcare and the range from
+anything related to healthcare and of
+course we're going mixing in a lot of
+Technology and AI to make it really
+really interesting alright selectman so
+today what we're going to be doing is
+we're going to be taking a data set from
+the UCI machine learning repository and
+we're going to be using it to train a
+neural network powered by the near off
+API in order to create a neural network
+that can take some actions about a
+person and classify whether he has a
+normal ear an ear or a nearly two
+different types of hearing disorders and
+now let's talk about that alright so
+basically the data set that I'm going to
+be using was actually donated in 1992
+and so basically what within you is the
+data set consumes around 200 different
+rows of training data and what we're
+going to be doing here is we're actually
+going to take like Golden Rose not
+treating data and by the way there are
+69 input attributes about the people
+that are in this data set so 69 training
+attributes and so basically the neural
+network is said 69 attributes about the
+person who is who is going into or who
+is going to be classified by this neural
+network and what's going to happen is
+these 59 attributes will of course go to
+a little hidden layer the hidden layer
+will calculate somatic values that we
+really don't care about just yet
+and then those values will be given our
+out will give us our output
+this output will classify what type of
+hearing further they have so basically
+as a fiddler going to input 69
+attributes of hot our patient or really
+any person and we're going to send that
+the neural network over here this is our
+neural network phase and then we are
+going to output either if the user or
+the patient has a normal ear or if their
+cochlea has aged and that's their
+hearing problem or if it's something to
+do with their cochlea but we don't
+exactly know what it is all right so
+that's basically what would we be doing
+today and I'll explain a lot more about
+what's going on in the middle of the
+neural network in the actual coding part
+but I get to go to a little science
+explanation right now
+ah so if you're wondering what exactly
+cochlea means here what's actually quite
+simple the cochlear is responsible for
+well your hearing and so what happens
+easy cochlea is actually powered by
+something called the vestibular cochlear
+nerve and the vestibular cochlear nerve
+basically is one of the one of the
+twelve this is the eighth cranial nerve
+which goes from your inner ear in your
+cochlea to your brain and so basically
+what color of white cranial nervous
+cranial nerves they're actually twelve
+cranial nerves and so these are nerves
+that don't originate from the spinal
+cord but instead originate straight from
+the inside your brain and so this is
+what that would be one of those nerves
+and so basically the vestibulocochlear
+nerve can also be called the auditory
+vestibular nerve and as the name
+suggests not only does it does it
+control your hearing and yeah your
+hearing it also does I handle things
+like your balance and of course the
+equal equilibrium of your body and
+making sure you don't tip over as you're
+standing up straight and so that's neat
+agree what that does although the
+cochlear is only cancer
+hearing in the labyrinth does all the
+Elda balancing this nerve transmit that
+transmit sound information from inner
+ear to the brain but now though without
+any more further ado what we're going to
+do is I'm actually going to go over to
+the code part now where I'm going to
+show you exactly how you can implement
+this neural network and of course we're
+going to be reaching around a ninety
+eight point nine percent accuracy on
+this data set all right so let's get to
+the color part now where I'm going to be
+showing you how exactly you can do all
+this
+alright so welcome back to the code part
+and now I'm going to show you how
+exactly you can import your data sets
+and train this neural network that I
+have created
+alright so let's begin our now I've
+actually got two data sets the training
+data set the testing data set so one man
+is only the certain links down in the
+description actually download those two
+data sets but if you'd like to even
+actually attain your own neural network
+on this exact same thing as well because
+what I thought I had done by taking back
+down non-standard data that was provided
+with this data set and I convert it into
+my standard data so you can easily
+import it into your neural networks
+because right now is also troublesome to
+get it into your neural networks due to
+the fact that it's not a standard data
+sets it's not a bit sorry not a standard
+format for data set but now I've
+converted it to one so that you can take
+a look at that alright so let's take a
+look at how this is going to work I
+thought I already got my data set and
+one of the training one of the test set
+and by the studio here what I start
+having done is we're going to create a
+new data set under training set we're
+going to call this audiology training
+and we can have 69 on Friday 59 69 input
+and we are going to have three output
+course one into normal ear okapi or
+eight or so clear something we're going
+to be loading with is that from a file
+and all of course this file will be for
+my downloads here although I have
+created this on Marcel
+pinnacle and it's called ring final
+audios rcfe I'm going to click on finish
+them and as you can see we successfully
+imports my 99 rolls of training data I'm
+going to click OK
+and I'm going to tell us to save with
+new data set under test steps I'm going
+to create another new data set and I'm
+going to call this audiology testing of
+course we're going to have 69 inputs and
+three outputs once more and it's going
+to be loading this up from a testing
+file that I've created called testers
+svse and you can see successfully
+imported my few rows of training data
+I'm going to click OK and tell it to
+save this is then what I'm going to be
+doing is I'm going to try to note on
+your onion feed forward neural network
+or in this case T is called a
+multi-layer perceptron network and so
+once seen on main your network I'm going
+to call this audiology on 9 neurons
+because we're having we're going to have
+nineteen-year-old in our freedoms layer
+and so building in a color network and
+of course it's a multi-layer perceptron
+type network we're going to click on
+next and force within a 16-9 put me off
+and you've all forgotten 90 15 year-olds
+as well as 3 output we're going to make
+sure we do use eyes neurons the third
+thing help us make generalizations and
+we are going to connect our we are not
+going to connecting our input to alpha
+you're on after that we're going to
+begin a new transfer function or the
+activation function as it's more
+commonly known as sigmoid instead of
+hyperbolic tangents that are really
+lowly normal back propagation
+full-on sex on we're going to click on
+finish and you can see it creates our
+nice little neural network here has 69
+in for CTL books as well as 19 years in
+between now if we were to do the math
+here as you can see we've got this come
+to 6970 connections from ankle to
+feeding and competed alphabets activism
+semi-sweet and since we've also got bias
+neurons you mix if we want to do 70
+times 91 times
+this should be exactly how many neurons
+in half folk are and this to be nine now
+sorry how many connections between
+neurons that we have in total and it
+should have between nineteen thousand
+month the hot 100 in ten different
+connections between our neurons from the
+layers where is that is how we or are
+technically actually this should not
+have been agent efficient have been
+calculated that way it should be seventy
+times nine one which is that and then
+Plus that 91 times three operator
+actually how many connections we have in
+total sorry Elsa incorrect past there
+Bob this is actual total number of
+connections we have between our neurons
+and so are actually the guilty pleas
+network for these many connections now
+line in D is I actually want to drag in
+my training dataset from the training
+set here to Mia's neural network and you
+can see it grabs that training dataset
+and I'm going to click on train button
+and then it with a maximum error to 0.01
+and what I'm going to do is a
+millisecond learning rate in young men
+comes to normal values and currently
+that is 0.2 in 0.7 respectively of
+course I'm going to tell if you stole my
+error graph so I can actually see how
+the how the training is going for now
+I'm going to go to click on train now
+this may take a moment or maybe not
+depending on how the computer wants to
+teach us and it ok you can see it was a
+key very quick Bob just under 150
+iterations required to uses error rate
+what I'm going to do then is I'm going
+to actually drag in our testing data set
+and I'm going to click on the test
+button and you can see our total mean
+square error here in there that 0 159
+here - tssss but we're going to do 1 -
+live and then multiply this by 100 and
+you can see what's currently leaking
+nine eighty three percent accuracy but
+as re many points in percent accuracy
+and so this is actually quite good
+accuracy imagine for just a 0.01 error
+rate which is actually quite high
+technically not high
+but it isn't a Louis area that you can
+hope work and we were able to achieve
+quite a very nice accuracy actually and
+as you can see that for example black
+foam here the desired output was 0 1 0
+I'm the real networks outputted almost 0
+0.99 in an almost 0 even though these
+numbers here are not in the training
+data set the swimming I really like the
+test those numbers were not serious
+training data sets attack training and
+test a completely separate the neural
+network has never been exposed to these
+into supports never been sold with the
+outputs are for these inputs and we were
+still able to achieve such a nice error
+rate in fact if I just saw note this
+down 98.3% and if you would a train
+again about what I can do is even
+further decreases error rate let's just
+say 0.05 but the thing is I'm going in
+increments here because it's already and
+the reason going in increments here and
+another thing opening 100 also a really
+small error rate oh and I need a mistake
+I tend the neural networks on the
+testing set that's something you should
+never do let's create a new neural
+network here let's create this second
+Network I can say network configuration
+so wait to bring in a trance again and
+we're just a cheap a slightly lower
+error rate on the training set now again
+the reason other thing for the reason
+going in these sort of influence here
+and they're not just rates going for a
+really small error rate is because the
+thing is I don't want to over fit to my
+dreams that that my test set gets hardly
+in the accuracy at all because right now
+we're going 98.3% but if my neural
+network would have just memorized within
+my training set and not really
+generalized to the fact that ok these
+parameters means normally release
+parameters in your cochlear and you can
+these parameters means normal cochlear
+issues then what happened means it's
+really 1 or if there's no point it's
+just memorizing the inputs and outputs
+to everything that's why you want to go
+in increments here and in fact if you'd
+like to know more about what I'm doing
+called it really swapping algorithm and
+you can actually see video about that
+that I created that's on my youtube
+channel a link to that will be the
+description below
+Oh
+but now as you can see we've gone to a
+slightly lower error rate I need to drag
+in the testing set and click on tests as
+you can see if I just paste this in here
+we have now launched a 98.7% accurate in
+rounding that by the way 98.6 70 more
+precise and our percent accuracy and you
+can see we're just going up and up and
+up as we are continuing to Train it's
+just that again what could happen is
+like for example if I were to go back to
+my neural network click on the train
+button and then get maybe too low of an
+error rate but maybe not exists well
+let's try this low for example now that
+was quick
+I'll just test it once more then where I
+trained it all the testing set again but
+you know you probably do get my point
+where we want to Train it to a certain
+point where the accuracy on the training
+set doesn't really matter to us
+it's the accuracy on the test set
+because the training set is something
+that the neural network can always just
+memorize if you think about it we want
+the neural network to be able to take
+inputs that it's never seen before there
+to being a completely unique case and
+it's never referred for someone who's
+let's say 23 years old and has these
+parameters it's never heard from that
+type of person before it but we still
+want people to think that ok usually
+these attributes are associated with
+cochlear age be that successful see with
+normal ears and then weigh those
+together and then finally find our
+answer but if we're just memorizing a
+few casings is no point release is no
+bug that's why I recommend you always
+clean these things in increments unless
+you have some default implementation of
+an early stopping algorithm in place in
+which case that is absolutely perfect
+and you can continue to train until you
+believe that your accuracy on the test
+set is going up and then down to stop it
+at its peak in fact you can find out
+more I'm not going to go into too much
+detail about this algorithm but you can
+find out more about that in a separate
+video that I created about overfitting
+neural networks and memorization versus
+generalizations oh but that is going to
+be a full this video too okay so I have
+to buy one but that would be it for this
+video today thank you very much for
+watching of course
+like the video please - make sure to
+LIKE the video and if you think this
+could help anybody else for emails like
+your friends or family please do
+consider sharing the video as well of
+course though if you have any more
+questions suggestions or feedback please
+do make sure to leave them down in the
+comment section below email them to me
+attaching any gmail.com 420 something
+you xnt many of course so if you'd like
+to be notified whenever I only see new
+content you can do that by clicking our
+little Bell button beside subscribe
+button in order to be notified by email
+and across Google platforms on a little
+notification button in the corner
+whenever I release a new video or
+content of course though if you really
+like my content you want to feel a lot
+more of it we need to consider
+subscribing to our YouTube channel as
+well because it really really does help
+out a lot zoom alright so thank you very
+much for watching today that's going to
+be it for this tutorial
+goodbye

@@ -1,0 +1,653 @@
+so hello there and welcome to another
+tutorial my name is tan backi and today
+we're going to be talking about how you
+can train multi-label image classifiers
+without multi-label data and in fact how
+you can do so with very little label
+data to begin with now before we get
+into that I do want to say that if you
+enjoy this kind of content you want to
+want to see more of it please do make
+sure to subscribe to the channel as it
+really does help out a lot and turn on
+notifications so you're notified
+whenever I release new content like this
+like the video If you enjoyed it and if
+you have any questions suggestions or
+feedback leave it down in the comments
+section below or feel free to reach out
+to me directly my contact info is in the
+description now diving right into it
+effectively what we're going to do today
+is build a machine learning model that
+helps tell not only which dog breed is
+in an image but if there are multiple
+dog breeds which dog breeds are in the
+image now we're going to do this with
+only a couple of labeled examples per
+class and we have many classes how are
+we going to do this exactly well we're
+going to use a special kind of image
+classifier architecture I haven't
+actually seen any uh research papers
+around this kind of architecture this is
+something that I came up with for
+another project although I'm reasonably
+certain that there must be other neural
+networks that Implement something
+similar um and basically the idea is
+this we take a very large pre-trained
+model in this case we're going to be
+taking conv next from Facebook research
+specifically we're going to be using the
+tensorflow carass version of this model
+and what we're going to do is take all
+of our data and pre- extract a bunch of
+features from this classifier we're
+going to use the convolutional neural
+network to get a buch bunch of image
+features for every single image that we
+have then we're simply going to train a
+multi-layer perceptron on top of those
+features to distinguish between the
+different classes in our data set now
+what makes this special what makes the
+training architecture special is that we
+do not have one final layer where we
+slap on a softmax and calculate
+probabilities because then we couldn't
+do multi-label classification if you've
+got a Golden Retriever and a husky in
+one image you wouldn't be able to
+determine that there's both you would be
+splitting probabilities against the two
+and the biases may not work out it's
+it's you you wouldn't get a good
+distribution if you want to determine
+separately whether or not the gold Nutri
+and the Husky appears in the image then
+here's what we're going to do we're
+going to have a multi-layer perceptron
+we're going to you know modify the
+features a little bit we're going to do
+some nonlinear Transformations and then
+we're going to take that new set of
+features and feed it into individual
+binary classifiers right so what we're
+going to do is we're going to take that
+final set of features from the head of
+our Network and we're going to feed that
+into say you know for 10 different dog
+breeds 10 different classifiers Each of
+which is is trained on a binary
+objective as to yes or no does the image
+contain this dog breed now here's what's
+really interesting about this
+architecture if you fed an image that
+does not have any dogs then even without
+seeing any negative examples the neural
+network should automatically be able to
+tell us that there are no dogs because
+they've all been independently trained
+on their own binary objective meaning
+that they would all naturally just say
+no this dog breed doesn't appear in the
+image which implies sort of a negative
+category but apart from that if multiple
+breeds showed up in the image then those
+classifiers once again would tell us
+which ones do and which ones don't and
+the likelihood of that being the case so
+it's a pretty interesting training
+architecture we're going to be training
+on a Linux machine with 2390 TI which is
+kind of Overkill because we're already
+extracting features from the images but
+it's going to be very fast so let's go
+ahead and take a look at how you can do
+that all right let's go ahead and take a
+look at the code see how this model
+works and What it lets us do now once
+again the idea of the model is that we
+want people to train a multi-label uh
+classification problem uh so for example
+given an image we want to determine
+which dog breeds are within the image
+and I prefer to do so without having to
+train the neural network on data that
+for example actually contains multiple
+dogs what if I just had a folder like I
+do here with a bunch of folders that
+contain images of dogs uh but only those
+IND idual dog so for example the golden
+retriever folder only contains pictures
+of golden retrievers um and the uh
+Walker Hound folder only contains
+pictures of Walker hounds well in that
+case we can use the technique that I'm
+about to show you this is the Stanford
+dogs data set I will link to it in the
+description below for you to go ahead
+and download it it's free for everybody
+to use um to build their own sort of
+neural networks and to research with
+each class has at minimum 150 images
+however just to make this a little bit
+more challenging we're actually going to
+limit ourselves to using only 60 images
+total at most from any class this does
+two things first of all it standardizes
+the number of images per class which
+makes things easier it also makes it so
+it's more challenging we're only going
+to use 40 images for training and 20
+images for testing for every class so
+that's what our data looks
+like now as you can see here I've
+already prepared a little bit of code
+and some testing data so we can go ahead
+and uh and work with this with this data
+so we start off at the very beginning of
+the pipeline as I mentioned we're going
+to be using features extracted from a
+neural network called Conex by Facebook
+now Conex is a really interesting neural
+network um it beats a lot of vision
+Transformers it's really it's really a
+very modern neural network hence the
+name con next um and I'm using the
+extra-large version which has a couple
+hundred million parameters uh although
+this should work just as well on like
+the base model um so feel free to modify
+that according to how much compute power
+you have available to you we cannot
+start a model like this one from scratch
+because we simply don't have enough
+images for it to get really good
+features um to extract so we will start
+off from a pre-training model so let's
+dive let's dive uh sort of into what
+this code looks like um and how we
+actually uh work with the model so the
+first script that I have that I have
+over here uh is responsible for loading
+in all the image data data and simply
+using Conex to actually extract the
+features now of course in order to
+extract features we need to load the
+model but we need to do that multiple
+times across multiple scripts not just
+extract and that's why I have
+model.py model.py simply contains two
+functions it has the get model function
+over here which enables us to load um
+the actual Conex model uh we actually
+don't need to print the model summary we
+just need to call model summary for
+summary so we have get model over here
+that actually loads Conex using TF
+carass and we also have the get
+pre-process function over here this will
+return the pre-process image function
+that you're expected to call on your
+images in order to pre-process them for
+um the neural network this includes
+basically Center cropping at the 224x
+224 as well as running a
+standardization um pass just to make
+sure that all the individual inputs RGB
+are within the range of the images that
+the neural network was originally
+trained on so that's how this works the
+pro the pre-processing code is copied um
+from the actual uh repo that does um
+that contains con next so I can go ahead
+and close this and we can go back to
+extracting features So within this code
+over here we start off by of course we
+we we have our Imports and then we get
+the pre-process function from from from
+the model script um then I just have a
+function over here that loads all the
+different classes that we have in this
+case we effectively just glob data/ star
+so all the different folders within the
+data folder um I have a utility function
+for loading an individual image and then
+pre-processing it into a numpy array uh
+and then I also have another utility
+function that's responsible for loading
+an entire class so what this will do is
+it will glob all of the files inside of
+that class's folder and only choose the
+first 60 files from the folder then it's
+going to go ahead and for each one load
+those images concatenate them into a
+single numpy array and then return them
+from the function then inside of our
+little main guard over here to make sure
+that we're not running this code when
+the script is imported all I do is I go
+ahead and get the model the actual Conex
+model and then I have a bit of an if
+statement if I do pass a parameter to
+this script then instead of actually
+putting together a data set I actually
+take the individual parameter that was
+passed to the script I assume it's an
+image I load that image and save the
+embeddings this is just a little utility
+that I found that's useful because
+sometimes what I want to do is for
+example take a couple different images
+simply embed them maybe run like a PCA
+or something to do some dimensionality
+reduction and see where they land in the
+embedding space so this is just a little
+bit of a utility we don't actually use
+this for this example but I thought it
+would be helpful if you would like to go
+ahead and extract the embeddings for an
+individual image however most of the
+time you're not actually going to be
+passing any parameters in instead you're
+just going to move on to this section of
+the code what this section of the code
+does is it goes ahead and loads all the
+different classes um so this is all of
+the um all the different kinds of dogs
+that we're going to be classifying
+between we load each class's images in
+for every class we run model predictions
+um and these predictions are the actual
+feature vectors that we get these
+feature vectors are stored in the list
+we go ahead and convert that to a numpy
+array and then we save all of the
+features that we extracted and all the
+different classes these are the strings
+that were returned by this function over
+here we save both of those into their
+own npy files on the file system and so
+as you can see I actually have those
+right here um and these files contain a
+for classes at npy the name of all the
+different classes and then for features
+at npy it contains all of the feature
+vectors from the model I can actually
+show you what that looks like by simply
+going into python loading up classes.
+npy oops so if we were to go ahead and
+take a look at this say if we looked at
+five uh of the values from classes you
+see that we have the first five classes
+um this is just so we can keep track of
+which class index corresponds to which
+data folder um and then if I were to go
+ahead and load feature . npy and just
+print out the
+shape you can see that we have 120
+different classes which also checks out
+for the classes array so 120 different
+classes each class has 60 images each
+image is described by a feature Vector
+in 20 in a in a space of 20 48
+Dimensions so that is what that uh numpy
+array looks like it's pretty large uh
+although at the end of the day
+um we end up dealing with let's see here
+about 57 megabytes worth of data so not
+not not that much um so now we're going
+to go ahead and actually train with it
+so let's go ahead and see how we do that
+now this is this is in my opinion the
+interesting bit this is this is where
+the magic happens right so we start off
+with our Imports of course pretty simple
+just numpy intensive flow then I have a
+bit of a utility here for actually
+labeling data I will get to how this
+works in just a moment but effectively
+what this does um is it puts together
+our inputs and outputs for uh carass to
+be able to train with uh so we'll get to
+this in a second but first let's start
+off by focusing a little bit more on
+this function over here this is really
+the secret sauce this is the build model
+function so this is effectively building
+the sort of head of the model this is
+building um the little bit that we're
+going to place on top of the feature
+vectors that we've already extracted in
+order to then further classify them into
+the individual dog operates so we start
+off with our input which we know is a 20
+48 dimensional feature vector and then
+we simply have two more layers so we
+have one layer with 512 units another
+layer with 256 so 4X reduction so we
+have like a fourth of the um sort of
+size then a half of the size from there
+uh each time I do have pretty
+significant Dropout the reason I'm doing
+that is because we only have 40 images
+per class to train with and there's a
+lot of Fe feature vectors and those
+feature vectors are really good right
+they are Conex features especially Conex
+extra-large features which have been
+trained on a lot of imag net data and
+what that means is that if you don't
+drop out this neural network will very
+easily memorize a lot of your training
+data which is not good now to be fair
+the feature vectors are generic enough
+that like even then you get pretty
+decent performance but you get way
+better performance if you force this
+model to learn different paths through
+from the feature vectors to um the uh to
+the classifications so and then of
+course we sprinkle in some layer
+normalization because that just helps
+with uh performance uh then I have
+another 30% Dropout again you can what
+these exact probabilities are are
+effectively hyper parameters that you
+can tune I found that 0.3 works well
+here so then to do one last Dropout and
+then we have
+120 separate dense layers with two units
+each being activated by softmax that
+connect to this little bit of the head
+the reason we do that is because once
+again the entire goal here is to have
+120 separate binary yes or no
+classifiers for each dog readed to say
+yes this dog breed does or no this dog
+breed does not appear in the image we
+group together all those layers into a
+list and then construct our model with
+one input the feature vector and 120
+different output layers we then compile
+that model to have 120 different sparse
+categorical cross entropy loss functions
+we optimize with atom and we measure for
+accuracy we print a model summary and we
+return the model pretty dense
+code uh from here on out what we do uh
+is we simply go ahead and load the
+features um we could put together
+training and testing set the training
+and testing set is quite literally just
+train with the first 40 and then test
+with the
+remaining 20 because there's 60 total um
+then we go ahead and build the model we
+fit with the data that we're given and
+we save if you're wondering how this
+labeling function works it's quite
+simple in terms of the X the input
+that's just kept you know as is uh we
+simply take uh each individual numpy
+arrays or or each individual classes
+like input data the image and we just go
+ahead and put them all into a
+effectively flattened across the first
+two Dimensions um list for the Y's
+though for the output it's a little bit
+more complicated what we do is we make
+it that for you know every class we have
+to have a separate output expectation
+array so for every class we put together
+a list of what we expect the output to
+be and then append that um however it
+differs right so if we're currently
+putting together the expected output
+array for the class that we are
+currently looping through then we go
+ahead and say you know one we we expect
+this to be one um we we we want the yes
+not the no for output but if we're not
+currently putting together the expected
+output array for the current class then
+zero which makes sense because uh we
+want to make it that for example when
+we're putting together the expected
+output array for a Golden Retriever if
+we're not currently you know using input
+images of the golden retriever if J is
+not equal to I then we don't want to say
+yes so we use zero as our no class one
+as our yes class and then we go ahead
+and convert those to numpy arrays and
+return this is not being converted to
+num High Ray outside of the list
+comprehension because again when you
+have 120 different outputs in caras
+caras will expect 120 different numpy
+rays of expected output being passed to
+it as a list that is just what carass
+expects when you run this script we end
+up saving the final model that we train
+as model. H5 now running this training
+script verbose is somewhat ugly I will
+say because because when you do you end
+up with uh I mean first of all the model
+summary in and of itself is not the
+greatest uh but even when you actually
+start the training process you will
+notice that you have a lot of loss and
+accuracy values being printed but if you
+were to sit here and sort of parse
+through it a little bit I'm actually
+going to hit C control C so we can stop
+it from moving you start to see that
+pretty much immediately our accuracy
+values are very high if I scroll up to
+the previous Epoch here if that's even
+something that's still here yes it is
+even our validation accuracies across
+all these different dense layers are
+nearing
+100% um there is of course some uh level
+of error but that's to be expected with
+the fact that I mean first of all we're
+training in their own network they're
+usually never perfect um some classes
+may be very similar to others uh and the
+fact that we're only using 40 training
+images to begin with so it is a little
+bit ugly to run but when you do run it
+you end up with a model that is nearly
+perfect and it's saved in model. H5
+kass's model serialization format now we
+can run predictions this is also another
+fun bit the predict script uh is quite
+simple uh we of course start with our
+Imports and of course our script Imports
+I've also implemented another function
+to get the classifier model which is the
+head that we're implementing on top we
+go ahead and load con next to get
+features load the classifier model to
+classify on top of the those features I
+load all of the images that were
+specified as command line arguments to
+the script we go ahead and extract all
+the embeddings and then we go ahead uh
+and run the prediction against them once
+we've got the predictions then we can go
+ahead and print them out so we just Loop
+through all the images that were passed
+in once again as command line arguments
+um we go ahead and print out the name of
+the image file uh we load all the
+predictions from the numpy arrays and
+then I go ahead and load in all the
+different classes that we have which I
+mean technically we could actually just
+do here be more efficient um so once we
+have the list of the different string
+class names uh we just Loop through them
+uh and if for that class our prediction
+was yes this does exist um in in the
+image then we go ahead and print um
+otherwise well then we print yes
+otherwise we print no um I have however
+effectively prevented this from
+happening by saying an LF false so we
+don't get a bunch of nose um the reason
+I've done this is because we have 120
+different classes and if you were to
+feed in like an image of a golden
+retriever here the problem is that you
+end up with like 120 lines 119 of them
+being no but only one of them being yes
+and you can't find the yes so um if
+you'd like to revert this code to its
+normal state where it will do yeses and
+NOS then just change this to an else
+otherwise that's effectively commented
+out by me saying else if false because
+that's never going to evaluate the true
+um and then we just go ahead and print a
+new line separator for the next image so
+we can invoke the script like
+so what I'm doing here is I'm passing it
+an image of a golden retriever an image
+of a German Shepherd an an image that
+contains both a German shepherd and a
+Golden Retriever and then finally an
+image of just a bunch of fields
+containing no dogs at all let's go ahead
+and take a look at what that gives us of
+course we start off with initializing
+tensorflow with all of its wonderful
+warnings Conex loads in the classifier
+head loads in and we run all of our
+predictions just like that that was fast
+let's go ahead and take a look at what
+this means really quickly we start off
+with a golden retriever of course we see
+the only classifier the only binary
+classifier that actually gave us a yes
+was the golden retriever classifier
+which is exactly what we expect same
+thing with German shepher the only
+classifier that gave us a yes was the
+German Shepherd classifier here's what's
+really interesting though this entire
+model was never explicit L trained on
+you know here's an image of both a
+German shepherd and a golden retriever
+well the initial underlying model may
+have been but our head was never exposed
+to that still because of the training
+scheme because of the training regime we
+were able to determine that separately
+we have high confidences on both the
+German Shepherd and the golden retriever
+categories and what's even more
+interesting in my opinion is that we
+were able to take an image that does not
+contain any dogs and actually get the
+model to tell us that indeed there are
+no dogs in this image because none of
+the binary classifiers individually came
+back and said here's a dog or this dog
+does exist in the image right now there
+are some things to keep in mind there
+are some potential pitfalls with the way
+that I've architected this training
+regime one of the ones that immediately
+comes to mind for me is the fact that we
+are inherently introducing bias into the
+way that these classifiers see the data
+that we feed them what does that mean
+exactly well if if we go back to the
+training script you notice that whenever
+a classifier is classifying a no the
+only reason it's ever classifying a no
+is because well of course the dog that
+that that is associated with that
+classifier doesn't exist but a different
+kind of dog does the problem with that
+is that it's very possible that
+individual binary classifiers will not
+only associate the absence of their dogs
+features with a no but also the presence
+of others other dogs features with a no
+as well now that can be somewhat
+problematic for some use cases because
+multi- classification May somewhat
+suffer from that I've personally found
+that it works well enough for my use
+case especially because my primary goal
+When developing this model was to get an
+effective negative class to know when no
+dogs if appear in the image um versus a
+priority on multi-label classification
+so sort of you get multi-label
+classification as an added benefit but
+it's not going to be the best
+multi-label classification in the world
+cuz you are introducing some bias
+because once again the No Label for all
+these individual binary classifiers is
+not just the absence of what we want but
+also the presence of other things that
+we don't and that can be somewhat
+problematic so even if for example you
+had an image with a golden retriever and
+a husky it's possible that like
+maybe the Husky no node was somehow you
+know just in the right place in terms of
+the weight space to be negatively or to
+rather for its no node to be positively
+affected by the presence of golden
+retriever features since that was
+technically something it was trained on
+an image that contained a golden
+retriever that it was trained to say no
+on now
+ideally its yes node should be more
+strongly correlated with the presence of
+husky features versus the no nodes
+positive correlation with the presence
+of gold NRI features however I can't
+guarantee that because this is
+technically the training objective that
+we're giving it so that's just something
+to keep in mind you know I find that
+whenever you're training machine
+learning models it is really difficult
+to keep track of all of this sort of
+bias that you're providing to the model
+even when you don't intend for it to
+happen that way right like off off the
+top of my head I thought you know this
+would work perfectly for multi
+classification but when you really think
+about it the there are some pitfalls
+like this so always keep that in mind
+when you're developing your machine
+learning models but there you have it
+that is a uh sort of trading regime I
+came up with enabling you to do uh
+negative classes um or a negative class
+and multi-label classification using um
+a uh a pre-trained neural network and
+fine-tuning it on very little data
+really hope you enjoyed this tutorial
+once again thank you very much for
+joining today uh if you have any
+questions suggestions feedback leave it
+down in the comments section below feel
+free to subscribe to the channel it
+really does help out a lot and turn on
+notifications so you're notified when I
+release videos like this one once again
+thank you for joining and goodbye

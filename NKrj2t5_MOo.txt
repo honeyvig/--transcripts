@@ -1,0 +1,215 @@
+now just before I get into the actual
+video today I just like to say that an
+early access copy of my book for the
+first two chapters hello Swift iOS
+programming for kids and other beginners
+has been released you can find it at the
+link in the description I really hope it
+helps you along your journey of learning
+iOS development don't know there my name
+is Timmy Bakshi and this time we're
+gonna be going over how you can use the
+IBM Watson text-to-speech API in Swift
+using an iOS app all right so today
+basically as I already said we're gonna
+using Swift in order to communicate with
+the IBM Watson text-to-speech API let's
+see how we're gonna do that so again
+just like to speech-to-text we're gonna
+have if you've already watched that I
+mean you'd know but I'm just gonna go
+over this once more so basically we're
+gonna have an iOS and an iOS app over
+here all right now we're also going to
+have bluemix over here which will
+provide us with our credentials and
+stuff that we need to access Watson the
+Watson developer cloud but specifically
+we're gonna be accessing the
+text-to-speech API that's fun isn't it
+all right so now basically that's gonna
+happen is we're going to be talking with
+bluemix and back and bluemix will
+because I feel so with Watson yeah
+that's basically what we're gonna be
+doing so now let's see exactly how we
+can do this when for the iOS SDK for the
+Watson developer cloud and let's get to
+the Mac part now we're going to be
+explaining to you how you can actually
+do this let's get to it so welcome back
+to the back part and now I'm gonna be
+showing you how exactly you can use
+text-to-speech Watson API in Swift so
+let's begin shall we
+so I'm just gonna make my face a bit
+smaller and let's head over to Xcode so
+now basically now in this application
+unlike if you've already watched the
+speech-to-text video
+you're not going to have to install any
+API so I mean you have to but I wasn't
+able to get that working for some reason
+so I've just done it the harder way huh
+so let's just make my face a bit smaller
+and let me explain so to begin let's
+start with the interface of this
+application again it's really simple all
+we have is a UI text view and then
+essentially all I do with this
+uitextview is it's it's just where the
+user puts his input in and then
+essentially I have a speak button which
+allows the user to actually get this
+spoken up by Watson so now that's the UI
+and essentially if we see then the this
+uitextview has input text as a reference
+or referencing outlet ID outlet and the
+speak button has a say button clicks a
+button clicked IB action all right so
+now let's look at the code shall we so
+now first of all as you can see I have
+an extension to the string class and
+this is really simple all that really
+does is it adds this URL encoded
+computed property and essentially it'll
+just return the self string but URL
+encoded basically as you can tell by the
+name then essentially I have an IB
+outlet called input text which is a UI
+text view which is what we were looking
+at in the interface and then a class
+level variable class scope variable
+called audio player which is of type av
+audio player all right so next the IB IB
+action function say button clicked all
+right so not basically all I'm doing
+here is I have a function called say
+something which takes a string and says
+L in Watsons voice and so that we're
+just calling that say something function
+with that input text text that's simple
+and now in say something I essentially
+use the REST API for Watson in order to
+actually give
+text and download the file from Watson
+and speak it out all right sounds
+complicated it's really not that
+complicated
+basically if we go over to the iOS SDK
+for IBM Watson and on github if I
+searched up text-to-speech dots Swift
+alright as you can see if I go in here
+now basically from here there's quite a
+bit of code like for example you went
+alright as you can see the this function
+for example data to you and 32 also data
+to UVA and utf-8 string which are this
+function this function along with this
+repair wave header this function I've
+all copied these functions from that
+file from the iOS SDK and put it into
+this function alright then I have the
+rest of the code this is this code is
+all from me I actually have another
+function inside of this function called
+say it alright and it takes that as NS
+data of what it should actually speak
+out the NS data of the file alright and
+so basically first of all what I'm doing
+is I'm trying to set the current av
+audio sessions instance we're actually
+I'm actually trying to override the
+audio port and ensure that we speak
+through an iPhone speaker not the
+earpiece because the thing is I actually
+had some problem with this and it's like
+why is this volume this look this is not
+very loud it's very dim sound then I
+realized it's speaking out of the
+earpiece not the speaker and this line
+of code allows me to actually get over
+that and speak through the speaker
+however if there's no speaker on it
+meaning it's like an iPod Touch or an
+iPad meaning it doesn't have an earpiece
+I'd only has a speaker then this is
+gonna fail and it's gonna go into the
+catch and I'm going to print out could
+not force to speak through device
+speaker alright next what I'm doing is
+I'm trying to set audio player to a new
+audio player and we're giving it the
+data of DAT which is the argument that
+we were passed then I'm going to prepare
+it to playing way to set itself to
+delegate I'm going to set
+one to the volume and also of course
+play the audio but before that functions
+are yeah yeah before that function we
+actually have to call that function with
+the data so in order in order to
+retrieve the data I actually create a
+constant called da which is NS mutable
+data out of normal data which is an
+estate and contents of URL and as URL
+string and then this huge string that
+contains our credentials and also a list
+of arguments etc etc once that's done I
+force unwrapped the nsurl and of course
+born before son rap ye and I stayed up
+and then we get that converted to an
+estimated data then I run the pair wave
+header or insert prayer the wave header
+of the actual data that was returned for
+my name lots and and then I press print
+this this is not required at all if you
+want you can have it really and then I
+run the same function with that data
+that we have retrieved and it's that
+simple to run text-to-speech with the
+IBM Watson SDK on iOS let's actually run
+this now and see how the app works out
+so as you can see let's zoom in here and
+this is the application that we're going
+to be using in order to demonstrate
+text-to-speech using Watson alright so
+I'm gonna click over here in this little
+text view and I can actually type out
+what I want Watson is sake for example
+hello world this is wasn't using
+text-to-speech
+API
+all right so let's see if it can speak
+that out in order to test for that I'm
+actually going to be taking my
+microphone and putting that on to the
+iPhone speaker let's see just one second
+please
+all right so you can see my microphone
+is now going near my iPhone and I'm
+gonna click on the speak button now
+hello world this is Watson using the
+text-to-speech API and as you can see
+that was IBM Watson in its official
+Jeopardy voice which is actually called
+us Michael now and that was it's saying
+exactly what we wanted it to say and
+that was the app let's head over back to
+the code now so I hope you enjoyed that
+and if you did please make sure to leave
+a like on the video and if you really
+enjoy my content and you want to see
+more of it please do subscribe it really
+does help out a lot and of course you
+can even share it with some people who
+you think might be able to benefit from
+it all right that's gonna be it for this
+video today if you have any questions
+suggestions or feedback you can actually
+email it to me at Tai Chi Manny at
+gmail.com you can even tweet to me at
+Taji Manny and you can even leave a
+comment down below in the comment
+section that's gonna be it for this
+tutorial today I hope you enjoy good bye

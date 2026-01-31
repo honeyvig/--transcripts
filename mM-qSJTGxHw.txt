@@ -1,0 +1,141 @@
+welcome to another tutorial my name is
+Henry Bakshi and this time we're going
+to be going over how you can control a
+parent ar.drone 2.0 using a Raspberry Pi
+the IOT platform the IBM IOT platform
+and Watson so let's begin now first of
+all again this is actually a part two in
+my series if you've already seen my
+other drone video which shows you a
+quick demo of how you can control a
+parrot ar.drone 2.0 with Twilio then
+this is the sequel to that I guess you
+could call it at this time I'm joined
+with my I'm a mentor from IBM Markus van
+kempen Thank You Danny
+ok do you want to go through the
+scenario which we came up today alright
+sure ok so this is the scenario we
+basically did today and as time I said
+like we used the Raspberry Pi and we
+hook this guy up to the drone and to the
+Internet and then we use some MQTT
+messaging to the Watson internet
+platform and then we used load rent to
+for orchestration and then Tanmay
+actually took all this information and
+created this nice dashboard from the the
+the telemetry data from the network yes
+and also just in case you were wondering
+since the AR Drone actually for it's a
+Wi-Fi network to control your drone with
+instead of just using like for example
+bluetooth like most Shone's do in fact
+we've actually used our a spray pi and
+we've added another network interface to
+it since there has been pie threes they
+already have one Wi-Fi a sort of dry or
+Wi-Fi my friend yeah there's Wi-Fi Wi-Fi
+network Wi-Fi networks installed into
+them already
+I'm sure yeah and so we all have we have
+put in another one by USB alright and so
+this allows us to connect to the drone
+and the Internet at the same time and
+that's our PI over there so here you can
+see we've SSH into the PI and these are
+our two IP addresses first one it
+working
+to the onion guess Wi-Fi because well
+I'm recording with the IBM blue office
+again and so also we have another IP
+address for the drum at which yeah so
+we're these are the two IP addresses we
+have here and then we wrote this little
+little program which is basically
+pulling every two seconds or so and the
+data form the drone and we just print
+out the message here and then it pulls
+it basically shoots it into into here
+into node-red and here we see these
+messages coming in and then what we did
+is we basically take those messages
+apart and we then put them on this on
+this dashboard which sometimes crashes
+and we should see here that the data the
+data which comes in from the drone which
+of course here we go sorry so here you
+can see the battery level we can see
+some of the telemetry data we had some
+issues with the pictures at the moment
+and then Tanmay created this this
+control panel come on this control panel
+here which which will allow us to
+actually start and land and maybe rotate
+the drone if we're lucky
+so Tommy you why don't you try to do
+this the dashboard loads so you know
+what we never mind it's decided to load
+alright let's begin
+that's no one let's do one thing like
+why don't you click a lend and we show
+them the flow coming back from the
+dashboard yeah so now I've got a land
+button here what's gonna happen is if
+you go over back to the place where we
+were SSH into our pie first of all the
+message comes in here from the from the
+from the drone or from the dashboard we
+basically shoot this to the drone and if
+we go to the SM I said if we go here to
+the
+this is a chatter nature exactly as you
+can see it has given the action to land
+and if the drum were flying it would
+have landed so now are we gonna do this
+for we're exactly go ahead
+so now if we can also focus on the drone
+as well it's now as you can say I'm
+going to click on take off no and right
+as I do that oh yeah hopefully at least
+you click it yes so there you go all
+right take off this noise anyway
+take off all right so now as you can see
+the drone is taking off and I'm going to
+rotate it clockwise I put the body
+sometimes it's a small delay yeah you
+can see it's rotating clockwise
+a little bit too much downward right
+rotate anti-clockwise and maybe that
+will work as well
+no no maybe do it do one more clockwise
+shuffle it do one more okay it's landed
+yeah be good
+the Jonas landed and they didn't hit the
+table so didn't crash
+alright so that was essentially how that
+worked
+listen to me so if we actually see this
+also we should have seen this also on
+the dashboard actually the day actions
+and the last action obviously is that
+the drone is landed so this was our path
+to the drone serious so we're gonna
+we're gonna stop here for a bit
+and then we're gonna start part three
+exactly explain what party is exactly so
+we'll see you next in part 3 we're at
+we're going to actually show you how you
+can use the car dashboard example in
+your video in your the car dashboard
+example of the Watson conversation
+service in order to actually control the
+drone and sort of modify that to become
+a drone dashboard alright so I guess
+we'll see you in the next part and just
+in case you were wondering what our
+shirt or mean well I mean find out what
+they mean and tweet it to us yeah we to
+us the ants off the t-shirt exact
+Hankins related to this project alright
+we'll see you in part 3 now kiss goodbye

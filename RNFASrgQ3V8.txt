@@ -1,0 +1,811 @@
+[Music]
+all right so just before I start the
+actual tutorial today i' just like to
+say that an early access copy of my book
+hello Swift has been released for the
+first eight chapters you can find it on
+many bookstores online such as Amazon
+chapters and in the go as well as the
+Publishers website I really do hope that
+this helps you throughout your journey
+of learning the Swift programming
+language all right so let's get into the
+tutorial
+now so hello there and welcome to
+another tutorial my name is tamry Baki
+and this time we're going to be going
+over how you can use the breath first
+search algorithm in order to Traverse a
+hierarchical graph or tree now now let's
+actually begin today by saying first of
+all thank you to Nicholas one of my
+subscribers for actually sending in this
+question in fact you can see a picture
+of him on screen right now now Nicholas
+actually originally came to me and
+emailed me with a question that said how
+can you use the AAR algorithm in order
+to Traverse a an arbitrary graph or a
+hierarchical graph uh and so I thought
+that okay this would be a great video
+idea and so I started doing some
+research SE Arch but I realized
+eventually that it's actually slightly
+harder to let the AAR algorithm uh
+Traverse a hierarchical graph than it is
+to have AAR Traverse a maze something
+like this is harder to use AAR with than
+to do things like a maze and in fact you
+can see a link to a video where I tell
+you how to use the AAR algorithm with a
+maze in the description below um and the
+reason it's so hard is because you can't
+just directly say okay what's the
+distance between Toronto to Milton over
+here on this little graph
+uh you'd have to calculate it using
+another uh using another algorithm but
+we'll get into that later but now you're
+probably wondering well what is this
+well today I'm going to be using the
+question that Nicholas asked me and I'm
+going to be answering it using this
+graph now I've actually created this
+graph and this graph essentially
+highlights uh a few of Ontario cities uh
+very very few of them they're very
+they're I guess you could say in the
+greater Toronto area
+uh and near Toronto uh in Canada uh and
+so we have cities here like marham vaugh
+Bramton msaga Oakville Burlington hton
+Hills Aurora and more uh and so
+basically what we're going to be doing
+here uh is as you can see I've actually
+highlighted in kilometers the distance
+between any two cities that are
+connected by Road um but there's one
+small problem these distance values
+aren't distance values based off of
+Roads these are distance values from the
+latitude and L longitude of from the
+center of Toronto to the latitude and
+longitude of the center of vau for
+example uh the reason I'm doing this is
+because I didn't want any complications
+where the roads go through other cities
+uh and that's the length that we're
+taking so in basically skipping all of
+that these are the kilometer distance
+values between cities that are connected
+by road but instead of getting the road
+distance we get the air distance from
+the centers of those respective
+cities um that's basically what this
+graph consists of in fact since this is
+a little bit small to have on the
+Whiteboard and we're going to need a lot
+of whiteboard space to go through the
+algorithm what I'm going to do is
+throughout this video I'm going to have
+this actually popping up on the video
+screen so you can take a look at what
+I'm talking about in fact there's
+actually going to be a link to this
+graph in the description below so what
+I'd recommend you do is you open up half
+of this on your screen and half of the
+actual video so you can take a look at
+exactly what I'm saying in bit more to
+tail and stay in sync with what's
+actually on the graph if you wouldn't
+like to do that though don't worry I
+will be showing the graph throughout the
+video in intervals all right let's begin
+now today what my goal is is to show you
+how you can use the Brett's first search
+algorithm to Traverse to from Toronto to
+Aurora now there's another question you
+might be wondering and well why is the
+breath for search algorithm named the
+breath for search algorithm well it's
+quite simple the breett ver search
+algorithm will actually check a nodes
+neighbors before checking that those
+nodes neighbors neighbors uh basically
+what's going to happen is it's going to
+check its own surroundings before
+checking the surroundings of its own
+surroundings uh unlike how the AAR
+algorithm work Works uh and so in some
+cases I guess you could say the breath
+for search algorithm is sometimes more
+efficient in some cases the AAR
+algorithm is more efficient but that's a
+topic for an entire different video for
+now though I'm going to be showing you
+how exactly we can use the breath for
+search algorithm in order to Traverse a
+hierarchical graph however soon in the
+future I will also create a video of how
+you can use the AAR algorithm to do this
+as well and how you can use the breath
+first search algorithm in order to
+Traverse a maze so I'm going to be
+creating a lot more pathfinding videos
+in the near future as well all right but
+let's begin so now as you can see uh on
+the graph screen right now uh we've got
+two cities Toronto and Aurora and we've
+got a few cities in between these two
+cities and we want to find the shortest
+way to get from Toronto to Aurora uh by
+going through some cities uh and so the
+way we can do this is by first of all we
+note down Toronto Okay
+so we've got Toronto noted
+down now where all does Toronto take us
+where all can we go directly from
+Toronto
+on this graph so what we do is we draw
+an arrow and we say okay we can go from
+Toronto to marham Von Bramton and Miss
+Saga okay but if you take a look at the
+graph on screen you see that Miss Saga
+is 22 km away rington is 32 km away Mark
+is 24 and vau is 24 as well and so miss
+Saga is the least distant from Toronto
+then Markham and vaugh and then Bramton
+so what I'm going to do is I'm going to
+list it in that order Miss Saga Markham
+Von
+Bramton so miss
+Saga
+Markham
+V
+Bron okay now sometimes since like M
+repeats for Miss Saga maram Milton and
+more I'm just going to put an extra
+letter to signify Miss Saga um Markham
+ml for Milton and more uh same thing for
+Brandon as well
+okay so once we've got these down then
+we're ready to move on to the next step
+so we've actually noted down where
+Toronto can take us uh and so what we're
+going to do now is I'm actually going to
+add a little super script to each one of
+these and I'm going to say t meaning
+Toronto and this means that this node
+was visited by Toronto I'll tell you why
+this is helpful to us in just a moment
+but here's a hint we're going to be
+backtracking how we were actually able
+ble to get to our destination and these
+superscripts will be extremely helpful
+in a programming sense what would happen
+is let's say you've got Ms as a node
+class You' have a came from variable or
+something of that sort which is another
+node and that's where you would store
+the superscript that's how you would
+implement it but this is how we're going
+to show it on the
+Whiteboard so once you have drawn this
+out then we're ready to move on to the
+next step which is seeing well where can
+these four nodes take us then uh so if I
+continue
+here as you can
+see what we're going to do here is let's
+take a look first of all at Misa Saga
+but one last thing we do we need to do
+before we move on to the next step is
+over our superscript for Toronto let's
+make another superscript that notes down
+the distance between these two nodes so
+Mrs to Toronto is
+22 then this is 24 oh sorry
+not M it's 24 so markam to Toronto and
+Von Toronto are both 24 so I'm going to
+note down 24 and
+24 uh and then for Brandon we've got
+32 all
+right so now that we've noted this all
+down we're ready to move on to the next
+step so our next step is going to be and
+also just so you don't get confused I'm
+going to draw a quick Green Line that'll
+signify
+this is one set and now we're working on
+our second set of
+nodes
+okay all right so let's begin now miss
+Saga where can miss Saga take us to so
+let's actually note down Miss Saga on
+the side of our whiteboard over here and
+we know that Miss Saga can take us too
+and you can see the graph on screen
+right now it can take us to Oakville it
+can take us to Milton it can take us to
+Halton Hills it can take us to Bramton
+and it can also take us right back to
+Toronto uh and also by the way in case
+you were wondering uh you can see that
+there's some arrows between these nodes
+as well like for example there's an
+arrow between the connection that goes
+from Toronto to miss Saga and that Arrow
+points from Toronto to miss Saga however
+another thing I'd like to note is that
+these arrows don't really mean anything
+this is like bidirectional you can go
+from Toronto to Mississippi using this
+route and from Miss Saga to Toronto
+using this route these these arrowheads
+mean practically nothing at this point
+uh But continuing so now we know that
+Mrs sag can take us to Oakville Milton
+hton Hills branches and Toronto now if
+you take a look in these two lists here
+and not the list that we've already
+created because it's blank anyway uh if
+you take a look at these two lists
+Toronto is already in
+one so we remove it Brandon is also
+already in the list Milton is not opal
+is not and hton Hills is
+not so we know that we cannot re-include
+brandton and Toronto in our new list so
+we of course erase those but hton Hills
+Oakville and Milton do seem like good
+candidates so let's actually not down
+their distance value so Oakville is 14
+km from Miss Saga Milton is 21 and hton
+Hills would be 31 and these are actually
+perfect and the reason these are AB
+absolutely perfect uh is because these
+are already in order so 14 21 31 so all
+we need to do now is erase
+these and then go back to our list over
+here and say
+Oakville which comes from Miss
+Saga all right and since Oakville comes
+from Miss Saga we're going to note down
+its distance value we're also going to
+say Milton here
+which comes from Miss Saga uh and this
+is 21
+km from Miss Saga then we've got hton
+Hills which is from Miss Saga and this
+is 31 km
+away all right so we've noted these down
+and they are in order for Miss Saga now
+let's take a look at how Markham handles
+this so let's
+begin sorry uh so Markham uh as you can
+see I want to note this down and we've
+got Markham over here now Markham can
+take us to Richmond
+Hill it can take us to vaugh and it can
+take us back to Toronto that's it now
+vaugh and Toronto are already part of
+this list so we cannot include those
+however Richmond Hill has not yet been
+included in any of these lists so what
+I'm going to do is I'm going to add a
+comma and we're going to say in this new
+list we're going to add Richmond Hill
+that comes from
+Markham uh and this is a 8 km distance
+uh and so that's how we know that down
+uh then we are done working with Markham
+so we can remove this little area of our
+whiteboard then finally we can take a
+look at V so now van has quite a few
+different cities that it connects to so
+V does marham
+Toronto uh V's Richmond Hill again
+uh vau does
+King V does kadan and it does
+Bramton quite a few it quite a few
+different cities uh so now let's take a
+look at this so Markham already exists
+in this set Toronto already exists in
+the first set Richmond Hill I'll talk
+about in a moment King does not already
+exist kaladin does not exist but Bramton
+does so we've narrowed it down to
+Richmond Hill King and
+kaladan but then you take a look and say
+hey but wait Richmond Hill already
+exists in this set well we don't remove
+this Richmond Hill oh sorry we don't
+remove this new Richmond Hill just yet
+what happened is like for example
+Markham marham wasn't in this set but it
+was in this set and this set well sorry
+it was in a set before this one and so
+what we do is we take a look at okay if
+Markham or this node was in a set before
+this one then we cannot re-include it in
+the new set
+however Richmond Hill isn't in a set for
+this one it is in this set and so what
+we're going to do is we're going to take
+a look at both of these Richmond Hills
+uh in the first Richmond Hill we're
+going to take a look at how far away it
+actually is from Toronto and the way
+we're going to do this is by using these
+super scripts I mentioned so if we take
+a look over here this Richmond Hill in
+the current set ignore this
+one currently we go Richmond Hill to
+where did Richmond Hill come from from
+Markham so we go to Markham where did
+Markham come from Markham came from
+Toronto okay and what's the distance
+between Richmond Hill and Markham that's
+8 km and what's the distance between
+Markham and Toronto as you can see that
+is 24
+km then we just add 8 and
+24 and then we get a good uh that would
+be
+32 all right so we've got 8 + 24 that's
+32 so in total from Richmond Hill to
+Toronto using these superscripts as you
+can see that's a 32 km
+distance now if I were to take a look at
+this new Richmond Hill that's in the
+vonet let's take a look so Richmond
+Hill in the new one goes to vaugh and
+then this vaugh goes to Toronto is our
+plan now vanau to Toronto distance is 24
+km and Richmond Hill to vanau distance
+is 7 and when we add 7 and
+24 we get
+31 and so as you can
+see if we were to include the Richmond
+Hill from the vaugh set and not the
+Richmond Hill from the Markham set then
+we would have a shorter path we have a
+shorter path meaning a less number of
+kilometers to get back to Toronto from
+Richmond Hill and so what we're going to
+do is since we've decided that the
+Richmond Hill from the Von set is
+shorter than the Richmond Hill from the
+Markham set I'm actually going to erase
+this Richmond
+Hill and in place I am going to uh of
+course replace this with Richmond Hill
+from vgh and this is a 7 km
+distance there we go then we can erase
+all this extra work that we've done over
+here
+okay all
+right so we're done with that that but
+then we see we also have the king and
+kaladan uh over here so we take a look
+at King so King is how many kmers away
+he 16 km away but kaladan is only 29 km
+away so of course we know that King
+comes after Kaled King comes before
+kaladan in our final set so we note down
+that we have King from vaugh with a 16
+km distance uh and we've also got
+kaledon from vau uh and this is a 29 km
+distance uh and then we are done with
+our V set and we can erase this van
+information from
+here but then finally in this set over
+here we've got Bramton and bmon is our
+last node uh and so what I'm going to do
+is we're going to take bmon
+here okay where does Bron take us to
+well again quite a few cities so Bron
+can take us to kaladan on Toronto it can
+take us to hton Hills and it can take us
+to miss Saga now of course we can see
+that V already in one of our older lists
+Toronto is already in one of our older
+lists Halton the hills we'll talk about
+in a minute Mrs Saga already in our
+older list kaladin we will talk about in
+a minute as well now let's talk let's
+start by talking a little bit about
+cadan so as you can see over here our
+older path with kaladan what would
+happen here is we would go from kaladan
+to
+vaugh and this was a 29 kilometer
+distance and then from vaugh to Toronto
+which was a 24 kilom distance and so the
+distance between uh from from the from
+the older kaladan already in our set to
+Toronto uh would be 29 + 24 and that
+would be 29 24 uh so we would
+do 53 km apart uh and so what we should
+do now though is let's just take a look
+at our new cadin so our new cadin uh
+over here so our kaladin to Brampton
+distance would be 15
+km then our Brandon Toronto distance
+would be uh oh sorry I wrote Toronto in
+the wrong place uh but our brand to
+Toronto distance would be I can actually
+check that from the super script that
+we've already written and that's why
+it's so useful uh 32
+km 32 to Toronto
+so now if we add those up though so 15
+32 we've got 47 so as you can see the
+distance between kaladan to Toronto
+through brandton is actually shorter
+than kaladin to Toronto through vau uh
+and so what I'm going to do uh is as you
+know we are going to take kaladan and we
+are going to erase it and do an inplace
+replacement uh meaning it stays in the
+same uh it stays in the same um I guess
+you would say element it stays the same
+element uh in the array it stays the
+same index sorry in the array uh however
+we just change its value so kaladan
+comes from
+Bramton with a 15 km
+distance all right so once that's done
+we can oh one more we've got hton Hills
+then we can also of course erase our
+work for kaladan
+all
+right so now let's take a look at our
+older hton Hills so hton Hills currently
+goes through Miss Saga and then from
+Miss Saga to Toronto so if we were to
+write hton
+Hills to miss Saga which is a 31 km
+distance then from Miss Saga to Toronto
+and that is a 22 km distance uh if we
+were to add those up so 3122
+uh we've got 53 km again so hton Hills
+is currently 53 km uh away from uh
+Toronto through Miss Saga but if we were
+to by chance you know replace hton Hills
+with Bramton oh sorry Miss Saga with
+Bramton and go through Bramton for hton
+Hills to get to Toronto what would
+happen is let's say our hton Hills to
+Bron distance uh is 23
+km uh sorry
+so our hton Hill to Bramton distance
+would be let's just make sure yeah
+that's 23 km as you can see on screen
+right now then brandton 2 Toronto as I
+noted before would be 32 and so as you
+can see uh if we were to add those up
+23 on
+32 as you can see that would be 55 but
+currently we've got a 53 distance so if
+we were to replace Miss Saga with Bron
+uh as the thorough far for hton to
+Toronto uh we would be we would be uh
+driving 2 more kilomet and so we're not
+going to replace hton Hills and so we
+know it's not worth it to go through
+Bron to get from hton hills to Toronto
+or from Toronto to hton Hills and so we
+can of course erase our work for Brandon
+as we know we're not replacing hton
+Hills now and we are done with the next
+step but we still haven't reached our
+destination yet we want to reach Aurora
+which is another city uh and so in order
+to get there we've got to do a few more
+steps uh so what we're going to do now
+is I'm going to once again create a
+little separator for you here between
+the next set and this current
+set and then we can continue
+so let's begin with Oakville now where
+can Oakville take us uh now if we take a
+look at our map though uh and if we were
+to draw out temporarily Oakville takes
+us to uh I'm just going to see here so
+it takes us to
+Burlington it takes us to Milton and it
+takes us to miss Saga now Milton now of
+course this is our new set over here
+this is our new set this is our old set
+this is an older set and this is the
+oldest set and so this one uh Now look
+for example this Oakfield can take us to
+Milton but this is already in an older
+set and so what we do is we set Milton
+won't work neither will Mrs Saga because
+that's also in one of the older sets so
+Mrs Saga gets crossed out as well so the
+only place that Oakville can take us to
+is
+Burlington uh and so what we're going to
+do is we're going to note down
+Burlington uh in our set so Burlington
+which comes from Oakville and our
+distance between would be 18 km uh and
+so once that's done though we can move
+on to Milton from our older set over
+here now where can Milton take us let's
+see so Milton can take us to now again
+quite a few cities it can take us to the
+hton hills it can take us to Oakville it
+can take us to Burlington it can take us
+to Mrs Saga uh and so basically what
+we're going to say is okay Oakville
+already there hton hills already there
+missa already there all we've got is
+Berlin lington uh now though
+Burlington uh is in our new set our
+current set I guess you could say and so
+we're going to do is we're going to
+calculate the total distance using these
+superscripts and so
+Burlington currently goes through
+Oakville and then Oakville if we take a
+look at our subscript I mean superscript
+goes to Mrs Saga which goes to Toronto
+now the Mrs Saga to Toronto distance is
+22 km the Oakville to miss Saga distance
+is 14 and the Burlington to Oakville is
+18 so if we were to add these all up 18
+I'm just going to draw this a little bit
+higher um so we've got our values 18 14
+and 22 basically as you can see we've
+got a
+um 54 km distance here so this is these
+are basically Burlington to Toronto or
+Toronto to Burlington using Oakfield and
+Miss Saga as thorough far you're going
+to be going uh you're going to be
+driving or flying in this case for 54 km
+however this is for our old uh old
+Burlington let's just see by chance if
+we were to replace um this Oakville with
+Milton what would happen is Burlington
+would go to Milton which would go to
+miss Saga which would go to Toronto
+again the Miss Saga to Toronto distance
+stays the same 22 I'll just draw that
+slightly clearer for you so you can see
+it's a 22 um but since that value stays
+the same we don't really care much about
+that value so 22 Milton to missaka
+however uh will stay 21 and then
+Burlington to Milton will of course be
+22 now you can obviously already tell
+that this is much higher let's just
+still add to make sure so we've got 22
+21 and 22 so 22
+21 sorry 21 and 22
+now as you can see basically we're me to
+say five and six so 65 kilm uh so this
+is much much more than what our current
+Burlington is so we can successfully say
+that Burlington should not be replaced
+uh I mean Oakfield should not be
+replaced with Milton in order to get
+from Burlington to Toronto so Milton
+cannot offer anything for us to add to
+the set and so we erase all of our work
+for Milton
+there we
+go there all right so we're almost half
+done and now we take a look at hton
+Hills where can hton Hills take us well
+let's draw that out so hton Hills uh can
+currently take us to in total Bramton
+kaledon Milton and Mrs
+Saga okay uh so now if we take a look
+Mrs Saga again is already gone Milton is
+already gone kadon is already gone and
+bton is already gone so hton Hills can
+take us nowhere and so hton Hills is
+immediately
+deleted then we take a look at Richmond
+Hill you're probably getting excited now
+because it's very close to Aurora let's
+actually try this out so Richmond Hill
+actually takes us to uh Aurora
+it takes us to marham it takes us to
+vaugh uh and it takes us to King now
+even though we've reached our
+destination with this our point is to
+not um of course continue basically
+we're not going to just stop here and
+say that okay we're done uh because
+Richmond Hill takes us to Aurora that's
+not going to happen so what we're going
+to do is um okay so sorry uh so Markham
+is already in our list V is already on
+our list uh then King and Aurora aren't
+so what we're going to do is we're going
+to take a look at King uh and so first
+of all uh King and Aurora so Aurora uh
+from Richmond Hill is 14 km uh and King
+is 16 km so what I'm going to do is I'm
+going to add these in this order so
+Aurora 14 and King 16 so Aurora comes
+from Richmond Hill uh with 14 km of 14
+of distance uh and then King comes in uh
+to from Richmond
+Hill with 16 km of
+distance once that is done though
+finally uh we can continue now the only
+reason that we're not just stopping at
+Aurora though uh is because well let's
+just say that for example King uh we've
+already got King in our set so King can
+also take us to Aurora let's just say
+that by chance of King is a shorter path
+to get to Aurora we don't just want to
+stop at Richmond Hill we want to
+continue and see and make sure that none
+of our other nodes can take us to Aurora
+in a much quicker way uh but one more
+thing we have to take a look at is as
+you can see I added King to our set but
+in our older set we've already got king
+so I'm going to remove this King
+here all right so now we can continue
+continue uh so as you can see we've got
+this set and we're done with Richmond
+Hill then we take a look at King from
+our older set so King goes to in total
+again quite a two cities it goes to New
+Market it goes to kaledon it goes to
+Aurora it goes to Richmond Hill and of
+course it goes to V now Richmond Hill is
+already in our older set V's already in
+one of our older sets Aurora I'll talk
+about in a minute kadan's already there
+and New Market isn't uh so let's take a
+look at Aurora first so our current
+Aurora goes through Richmond Hill so it
+basically goes like this Aurora to
+Richmond Hill uh to vaugh H sorry yeah
+Richmond Hill to vaugh and then vaugh
+finally goes to Toronto now the Von to
+Toronto distance is 24 km Richmond Hill
+to vaugh is 7 and then aora to Richmond
+Hill is 14 okay uh so if we add this all
+up 14724
+as you can see this basically becomes 5
+one here and that's 45 45 km currently
+uh if we want to get from Aurora to
+Toronto through Richmond Hill and vaugh
+however let's just say we were to
+replace the Richmond Hill with King what
+would happen is we would be going from
+Aurora to King and then from King we
+would be going to van and then from vgh
+sorry we will be going to Toronto this
+is 24 km King to would be 16 km and then
+Aurora to King would be uh 28 km so if
+we were to add 28 16 and 24 as you can
+quite obviously tell it will be way way
+higher so this would be around um eight
+and then one more here uh and so this
+would be 68 kilm in total if we were to
+go through King and vaugh instead of
+Richmond Hill and vaugh and that's why
+we are are not going through King and
+vaugh and so we know that it's not worth
+it to replace this current Aurora path
+with the new Aurora path so cing can
+only take us to New Market uh and that
+is with a 16 km distance so I'm going to
+just note that down it can take us to
+New Market from King with uh 16 making
+sure yeah 16 kilm distance and then of
+course we can erase our work for King
+and we are almost done hooray after so
+much work just almost done then finally
+kaledon so where can kaladan take us
+well it can take us to quite a few
+places so begin kaladan takes us to uh
+let's see so it can take us to brandton
+hton
+Hills it can take us to King and vaugh
+got to make sure nothing else and there
+we go all right so we can take these
+four cities now Bron already in our
+older set hton Hills already
+um yes sorry uh cadin uh hton Hills
+already in a roller set King already in
+our older set and vau already in our
+older set so cadan can take us nowhere
+and we are done finding neighbor nodes
+for all of these nodes here and so we
+are done our third step now one thing
+you should notice here though
+is we don't need to go another step
+further because we've already found our
+destination we found Aurora in the set
+and that is exactly where we want to go
+and so all we need to do now is quite
+simply back Trace from Aurora to
+Richmond Hill to vaugh to Toronto and we
+have found our destination so the way we
+need to go is we take a look at Aurora
+and we write down okay
+Aurora where does Aurora come from well
+Aurora came from Richmond Hill with a 19
+km dist oh sorry 14 km distance so it
+came from
+richond Hill and the distance here was
+14 km then you take a look at the
+Richmond Hill from the other set and
+Richmond Hill came from vaugh with a 7
+km distance so it came from vaugh
+with a six seven sorry kilm distance and
+then Von came from Toronto as you can
+see up there uh and as you can see the
+distance is 24 km and we have found our
+path to get from Toronto to Aurora and
+Aurora to Toronto all we need to do now
+is calculate the distance so
+14724 and finally as you can see if I
+quickly do the calculations here here we
+end up with a
+sorry
+45 km
+distance and there we go we have
+completed our breath first search
+testing here and as you can see what
+we've done is we've taken this
+hierarchical graph along with the
+distance values it represents and we've
+been able to go from and Traverse from
+Toronto to Aurora
+via V and Richmond Hill using the breett
+first search algorithm all right so that
+was it for this video today of course
+I'd like to say a big thank you to
+Nicholas for actually sending in this
+question and giving me the suggestion
+for this video today of course I will be
+creating many more videos about how you
+can use this with the Maze and how you
+can use a star with this hierarchical
+graph all right so that's going to be it
+for this tutorial however in the next
+part of this video you're going to
+seeing an actual implementation of this
+in Swift along with my own
+implementation of how a hierarchical
+graph itself can be implemented in Swift
+all right so that's going to be it for
+this video thank you very much for
+joining today if you really like the
+video though and you want to show your
+support for it please do consider
+leaving a like down below as well as if
+you think if it could help any of your
+friends or family uh do consider sharing
+the video as well of course if you have
+any questions suggestions or feedback
+you can leave them down in the comments
+section below email them to me at tagim
+Manny gmail.com or tweet them to me at
+tajim
+Manny all right so that's going to be it
+for this video but one last thing before
+I go if you'd like to be notified
+whenever I release new content please do
+make sure to subscribe to the channel
+and turn on notifications to be emailed
+whenever I release new videos all right
+that's going to be it for this tutorial
+thank you very much for watching today
+goodbye

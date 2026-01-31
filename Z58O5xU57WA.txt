@@ -1,0 +1,436 @@
+[Music]
+so water is welcome to the tutorial
+my name is Tammy backseat and this time
+we're going to be going over how you can
+use the Facebook Messenger API in order
+to create a wonderful conversation chat
+box that works through Facebook now I've
+actually got many many requests to
+create a video like this one and that's
+imagine working on the point in time
+melty and now I'm going to show you how
+I was able to implement a check box
+powered by Watson conversations through
+the facebook messenger platform let's
+take a look at that okay so we begin now
+what I'm going to do is bring my marker
+and so basically the point of what we're
+doing today is we're going to hear the
+chat bot that you can actually chat with
+on Facebook through facebook Messenger
+so basically the way this could work and
+I know this might sound a little
+complicated whether showing you and the
+only reason is because Facebook forces
+you to have your web hook which actually
+connects to your server as a secure SSL
+tunnel to that server however I want to
+show you how you can basically have a
+workaround to do that for you so let's
+take a look at that so what actually
+begin with a little rundown of what all
+we're working with here so we are
+working required to fix here turnoff of
+the user our main ingredients in this
+application is our user will actually be
+using facebook Messenger in order to of
+course send messages to our check box so
+this is our user once we got our user of
+course we've got the Facebook
+application or whether this is mobile or
+desktop or whatever is a Leon that they
+are using Facebook and a platform to
+chat with our box so we've got Facebook
+as our platform now of course I got
+these massive your API set on the
+Facebook Developer website that were
+doing as well and so we got a messenger
+API suite that we're working with and
+apart from that wake up one more thing
+I'll talk about the other thing that I'm
+missing just moments and what we have
+here is basically a nodejs server an ljs
+Express server to be more specific and
+basically what's going to happen is
+we're gonna have the jeweler
+alliteration it's going to receive
+messages from Facebook send them to
+watch them get response from Watson
+Constance silver respond back to the
+user through Facebook so the way I want
+you to do this is actually quite quite
+interesting now when you use your
+contacts Facebook wins a message for our
+chat bot there are quite a few things
+that have first of all the Facebook
+Facebook will actually contact messenger
+the messenger API with our reviews
+message because it knows that messenger
+is linked to this page that listens to
+the page as a using messaging and also
+engine server has mentioned we're going
+to set up a page for users to actually
+message oh they want to message our chat
+box so that's blue teenage they are
+calling or they want to message the chat
+box now say in facebook deltas human
+HTTP requests okay does mr. HTTP this
+ring is really up to the user but
+usually this HTTP as well and so what
+happened is messenger not only expects
+but also forces the connection between
+the messenger web hook and the actual
+server to
+secured through ends of them so it's
+HTTP but the only thing is I don't want
+to have to set up an SSL certificate for
+a notary a successor too much work so we
+want to speak HTTP but messenger doesn't
+allow so not allowed to make this
+connection without to try out
+PHP shouldn't beat yourself up as well
+be to the kiss when you're working with
+only like GoDaddy or Heroku but that is
+where kinda becomes HTTPS if you bonking
+how it handles this so what I would him
+did I'm use this amazing tool called ng
+our own age and no me a link binding ROK
+in the description below
+basically we interview an auntie auntie
+and you element on our workspace here
+and mkr okay use it's really interesting
+enough not a empty or okay theory
+they're interesting command-line tool on
+basically what it allows us to do and
+basically what to say we've got this
+nodejs server running on port my dump
+what could you do if we actually had MGR
+ok host a web server on its own domain
+ng are ok calm and we can have it host
+on sub domain any sub domain da MGR
+ok.com
+and there's this well indirectly linked
+to our mojo service through HTTP because
+trk doesn't have any limitations for
+whether you have an HTTP or HTTPS
+connection it will happen to the
+messenger in like contact this fill
+domain and the best part in it support
+HTTPS so that's right you are running a
+secure SSL to do searches SSL protected
+sub domain on angelakane.com which
+messenger and then you will be Col Miami
+HTTP on hold and when then you will have
+to indirectly linked back to our real
+server through HTTP we're then able to
+have our nodejs server once we have the
+data that we want to send back of course
+this can go watts and do whatever it
+wants you and then what happens is this
+will go back to Facebook and it will
+give us an HTTP this this isn't
+necessarily necessarily need to be
+secure and we're going back to Facebook
+so we can have HTTP here for so HTTP
+also does warn it's not any harder to
+come in HTTP request header of course
+Facebook's will send that back to the
+users on the actual interface and this
+entire pipeline works out absolutely
+flawlessly until now it so basically
+what's happening is a user is connecting
+Facebook is managing a Facebook page
+which represents our walking boss
+Facebook and contacts the messengers API
+which over HTTP and then that will in
+turn color ngrick a custom web server
+that's also learned on HTTPS which will
+interfere link back to our own server
+and run for five thousand again through
+HTTP and then this will contest basil to
+HTTPS so basically everything here is
+secured through SSL except for
+and the arm pain to the no chance server
+and that's why this is such an
+interesting concept and now though
+without any further ado let's get
+straight into how how do you think code
+in this application but shuffle when we
+get there quick quick little note the
+node you have code in practically the
+exact same code from our Twilio that I'd
+shown you in the other in another video
+of how you can actually link the
+Washington Station jackpot
+instead of Facebook with Twilio it's
+almost the exact same code and backing
+will be linked to that video down in the
+description below in the link to that
+code in the description below as well
+however what I've done is I've just
+modified it to instead of sending
+messages to Twilio in general send
+messages to Facebook and then also
+change the parameter names from things
+like some to and body to the message
+that are received and I'm really telling
+you exactly how that works in the math
+part from now without any more further
+ado let's get straight into the coding
+part where I'm going to show you how
+exactly you can let this entire pipeline
+lexif alright so welcome back to the Mac
+part and now I'm going to be showing you
+how exactly you can actually implement
+this facebook Messenger chat bot so
+let's talk about back now let's actually
+begin by taking a look at the Facebook
+Developer page and you can see over here
+we can take a look at how exactly we can
+set up our Facebook Developer to develop
+a profile what is our page that's going
+to be basically representing our chat
+bot so basically once you've gone ahead
+and set up your page which will act as
+basically homepage your chat bot and
+it's what people will message in order
+to access a chat bot once you set that
+up and once you have connected your
+developer account to that page then
+you're going to set up your web hooks
+now in order to set up something called
+a web hook we actually have to do a
+little bit of coding and a little bit of
+this code actually based off of Timonium
+IRA's code from
+this blog here goes Mac and so basically
+this code shows you exactly how you can
+use and rock with facebook Messenger and
+so a little bit of missus code is based
+off of this blog and so basically the
+way this works is if I came over to the
+code what happens means if I nano the
+index ljf code again this is no js' code
+and as you can see most of this code
+after this point right over here this is
+all this is all a culturally Twilio
+example that you saw last time and so
+basically before that though we've got
+yet for a get and post request Handler
+and let's talk a little bit about what
+get request handler for now so we have a
+get request handler for the slash web
+hook endpoint so basically what happens
+here is we are checking and mainly
+though we're checking if you requests
+query specifically we verify token value
+is equal to tuxedo cat and if it is then
+we respond with a 200 message and
+respond with Hub challenging so
+basically this tells the Facebook web
+hook API that yes this is an authentic
+URL that we do want to provide access to
+or else it will give us a 403 error and
+or I will connect our web hook to the
+Facebook developer platform and so what
+I can do is I can actually go out of
+this manual page here and if I just take
+a look at what this is here okay so I
+can actually start an NGO wrote a
+session for HTTP on port 5000 and then
+what happens
+anyone safe okay so anger off starting
+up
+[Music]
+okay so ng ROK has begun and I'm going
+to go back over to our code here and I'm
+going to actually run that index rjsmith
+and as you can see what I'm going to do
+we're going to go back to NVR okay and
+I'm gonna copy this forwarding URL here
+at the HTTPS URL and then what we're
+going to do is we're going to go back
+over to our web hooks and we're going to
+add the callback URL
+as that URL that you just got slash web
+book and once you filled that out you
+can fill the real fight open which in
+tuxedo cat click on verify and save and
+as you can see it updates our callback
+URL now when you're setting up your web
+home screen or social you'll also be
+asked what field you'd like to enable is
+what hope to receive event messages for
+now what I recommend you do is do not
+click anything except for messages the
+reason I'm doing this is because of
+course we don't want the in finite
+message glitch so instance we only need
+method receives event to be sent to the
+let books only celeste be messages
+option once you have saved your web hook
+and once you have closed this up with
+your page you are ready to continue but
+just before we continue let me show you
+a little sneak peek into the actual code
+it is going to handle when a user
+response to or messages our page and
+that's actually where the post request
+comes in that we are implementing and
+this post request is actually a post
+request that's being implemented for the
+slash web hook again endpoint and so
+basically the point for this is
+basically when uses for the message this
+this endpoint will be called and so the
+way to basically the way that this works
+is we are then using some logic which
+will then parse our JSON and then it'll
+parse our JSON to find the message and
+the text of the event and and basically
+what this does is it'll paint me of the
+message events that we were sent via a
+web look and I'll send that to a
+function called get locked now get
+Watson is actually very very similar to
+the Twilio code in fact it's almost it
+is exactly the same even though a herald
+context is exactly the same the only
+difference is that instead of at the end
+having a little code that goes Twilio in
+terms of message we've got some code
+that goes to the Facebook API
+and a message by going to the graphical
+comm giving it an access token giving it
+a net post request then in making the
+message what wants to return to us and
+of course the recipient is whoever sent
+us that message of course though we have
+slightly different logic for gathering
+the person's the person's unique user ID
+who has contacted us and of course their
+message instead of you know finding new
+trillium from and body what we do is we
+earning the event that send the ID and
+have then got message text because those
+are parts of the event JSON that was
+passed to us when we have that post
+request called
+for flash-flood hope when user stamp
+their message all right so now in
+complete theory what we should be able
+to do is close down this code and run it
+once more remember oh yes remember you
+don't need to restart MGR okay that that
+is continues to run and then what you
+can do is you can actually head over to
+Facebook Messenger and start chatting
+with your Co with your page and in this
+case I set this off as Watson Sunday but
+little over than I paint here but them
+alright so technically this should work
+exactly with the Twilio example it
+should handle context variables
+separately for all users that are
+currently interacting with the Watson
+conversation bot and so we should be
+able to say hello and as you can see the
+Watson Sunday bought should reply to us
+in just a few seconds but before we take
+a look at what it applies to them to us
+Oh actually our blind so the hello my
+name is Watson and I can help you order
+an ice cream sundae what size would you
+like today and then from there we can
+continue our conversation as you can see
+angiography you think they receive those
+post requests to slash web hooks and of
+course our no dress code is printing out
+what it's receiving all right then of
+course if you can change converse with
+Watson and in order to prove that we are
+taking care of context here I can
+actually say something like what are my
+aunt
+[Applause]
+and it knows that buy options on meaning
+what types of what's that what types of
+sizes are there and it tells me I can
+have a small medium or large Sunday I
+can mentor I want to learn from you and
+then of course from here I can continue
+to oral an ice cream sundae from
+Facebook of course people work on many
+different platforms really all platforms
+that run messenger including iOS Android
+load any platform that runs Messenger
+will be able to use this chat box
+however if you'd like to make this a
+public chat bot that other people can
+use and not just administrators of the
+page then of course you're actually
+going to have to submit this to Facebook
+has go through an approval process and
+then of course you'll be able to create
+this as a public chat bot and not just
+for you that is exactly how this is
+going to work
+a portion asking for my flavor I've
+asked it for strawberry because I like
+strawberry ice cream and then of course
+Watson should leave and replies the
+message and it says would you like
+nothing Sunday no I don't like that for
+my Sunday but I do like Terry so I'm
+gonna say yes and then asks if that's
+going to be oh and I just ate that's all
+for today thank you and of course it
+tells me I'll be able to pick it up soon
+and of course another great thing about
+this clone is that I've actually
+included a little template where you can
+actually call a REST API with the
+context of the conversation in order to
+actually order your ice cream sundae if
+you suppose I don't have a REST API that
+actually ordered ice cream sundaes we
+come implement that but it's completely
+possible just like a Twilio example
+we've got that little section of code
+where you just plug in a REST API and
+it'll immediately fit in and you will be
+able to of course find the way to - of
+course order your ice cream sundae and
+of course send that request to the REC
+API and that's what I have to cover in
+this video today I really do hope you
+enjoy course
+we'll be down in the description below
+all resources to reach to Tamales vlog
+as well it's all of me in the
+description but of course though I
+really do hope you enjoyed this tutorial
+today boys if you did it would be great
+to clean right down the loaf of that of
+course if you believe that this could
+help any of your friends or family we
+need to consider sharing the video as
+well alright thank you very much for
+watching today if you've got any more
+questions suggestions or feedback you
+can leave them down in the comment
+section below
+email them to meet Adam a neat email
+comm or tweet them to me act as many of
+course so if you really like my content
+you want to see a lot more of it please
+do consider subscribing 22 channel as
+well as it really does help out a lot
+but if you'd like to be notified
+whenever I release new content you
+should make sure to click on a little
+bell icons by the subscription box and
+of course you'll be notified by via
+email whenever I release new content
+alright so thank you very much for
+watching today goodbye
