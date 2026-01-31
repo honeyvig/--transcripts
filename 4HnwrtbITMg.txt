@@ -1,0 +1,95 @@
+hi there t back for another SQL Server
+2012 tutorial so here we are um as I
+said in the last video we're doing
+insert into now um we're starting to get
+a little bit more advanced into the SQL
+Server commands not just there yet
+though so um let's say you had this
+table in your
+database sorry
+and there's nothing in
+it and you wanted to add let's say a few
+rows
+now uh let's say you had some example
+information it's not very simple
+actually what you can do is insert
+into and then the table name so mine
+would be test table
+then what you're going to do is if you
+just uh want to um insert into all these
+rows just go
+values and then start typing in what the
+values are one by one so my ID let's say
+um
+13 or just
+three fet first name
+t last name
+actuallyy um
+email
+gmail.com there we
+are so we just made this little sample
+and it said one row is affected now
+let's select sorry U select star from
+test
+table let's execute
+this what if
+um now what if you just wanted to enter
+let's say first name last name then the
+ID and email you can update if you
+didn't see my update command video
+please surely do uh the link will be in
+the description as a reference to that
+command what you do then is you don't
+just not put this in and then not put
+this in what will happen then is it'll
+think this will be the first one this is
+uh uh first name and then it just
+glitches very badly what you do then is
+you'd specifically
+say okay I'm just going to copy this uh
+to save some
+time before
+this make some brackets and then go f
+name and L
+name so I just want to enter those two
+and
+then just
+remove so let's say I want to add
+in watch
+this
+execute
+select null and
+null now again um watch the update video
+if you didn't update to
+oh wait sorry we don't need that update
+um test
+table set uh ID equals let's say six and
+uh email
+equals uh the
+email
+where F
+name
+equals
+Andals right
+there I'm just going to execute the
+select statement at the same time so
+that um it updates and then shows us
+what just
+happened
+uh
+sorry um I'm a little okay so then here
+we
+are and as you
+see it took backi two times so it
+duplicated that's why I always say to be
+careful with update and delete
+so
+uh then you can just revert that by
+deleting two of
+these so that was the insert into um I
+guess
+tutorial uh make sure to check out the
+update video if you haven't
+already uh goodbye make sure you watch
+my next few videos that will come
+tomorrow

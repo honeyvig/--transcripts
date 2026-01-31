@@ -1,0 +1,666 @@
+so hello there my name is tammy bakshi
+and today
+we're going to be talking about why
+exactly bert performs
+better on downstream tasks if it's
+trained
+twice in the pre-training stage once on
+a very large corpus of text data
+and then once on domain specific text
+data
+now one thing i do want to say before we
+actually start today's tutorial
+is that if you do enjoy this kind of
+content you want to see me make more of
+it
+please do make sure to subscribe to the
+channel as it really does help out a lot
+and turn on notifications
+that way you're actually notified when i
+release videos like this one
+apart from that if you do enjoy this
+video please do also make sure to hit a
+hit the like button
+and if you have any questions feel free
+to leave them down in the comments below
+now personally this is something that
+i'm really interested in because i've
+started to see this shift
+from training architectures and training
+regimes really for neural networks
+that are mostly hey let's train a
+network on our task
+um and then we saw this evolution
+towards well maybe we can fine-tune some
+neural networks and get them to do other
+things like for example if we train a
+network on imagenet then maybe we can
+you know specialize it to cats and dogs
+or something of that sort
+and now we're seeing this full-on sort
+of transfer learning approach
+where we're trying to say how much
+insight can we extract
+from just data right from just as much
+data as we can get
+and then how can we go ahead and
+specialize these neural networks to work
+really really well
+on other kinds of sort of domain
+specific data
+now personally i find this really
+interesting and sort of the field that's
+been leading this evolution i believe
+is the field of natural language
+processing now depending on how many of
+my videos you've watched before
+you probably know that a i'm really
+passionate about machine learning
+technology
+and that b natural language processing
+and natural language understanding and
+specific
+is my favorite sort of subfield within
+machine learning technology
+reasons for that are you know many
+different reasons actually but really
+it's because
+natural language is so complex not only
+do we need people to
+sort of encode within machines generic
+and
+sort of imaginative thoughts that we
+have as humans
+but we also somehow have to make it work
+across domains right no matter what
+exactly
+that language is about and that can be
+really difficult right it's like
+for example bert was trained on just
+hundreds of gigabytes of just text from
+the internet
+and that enables bert to be a really
+good natural language understanding
+engine
+which we can then fine-tune on what are
+known as downstream
+tasks things like question answering or
+natural language classification or
+aggression or things like this
+but then in between there's a sort of
+i would say rarer step that not as many
+people do
+but can be incredibly helpful and that
+is the same sort of pre-training stage
+but once again for your own
+domain-specific data so
+before we get into that let's take a
+little bit of a step back
+what is bert now if you're watching this
+video i assume you already know a little
+bit about the bert network
+but just as a quick recap burt is a
+natural
+language understanding or a transformer
+built with the goal of being able to
+understand natural language
+this was developed by google a couple
+months ago
+and it's really brought a revolution
+into the world of natural language
+processing technology right now
+pretty much every nlu solution out there
+is powered in some way by
+this bert neural network or its
+derivatives
+now the thing about bert is that it's
+trained with a really really interesting
+scheme
+well there are technically two of them
+but the main one is called masked
+language modeling
+now you may recognize the term language
+modeling from
+neural networks that can generate
+language so for example being able to
+take a word
+and then predict the next word and then
+take those two and then predict the
+third word and so on and so forth
+until you reach the end of a sequence
+well masked language modeling is similar
+but except in instead of going from left
+to right and continuously generating
+more words
+what's fed into bert is a whole sentence
+with a certain number of tokens or words
+just randomly removed
+and then what they actually train bert
+to do is fill in the blanks
+so bert is going to learn the sort of
+internal representation of natural
+language
+just based off of filling the blanks
+that is incredible
+who would have thought that we can train
+neural networks to not only understand
+natural language
+but even structure it internally
+mathematically similarly to how we as
+humans do
+just by training them to fill in the
+blanks i think that's really interesting
+it's kind of like how we teach kids to
+to read and write now
+bert is also trained on what's known as
+the next sentence prediction task
+uh which enables it to take two
+sentences and basically predict uh is
+sentence b
+what comes immediately after sentence a
+or is just some completely random
+sentence
+however the the researchers over at
+facebook sort of determined that wasn't
+really necessary didn't really help out
+the training process at all
+and so with the roberta network they
+kind of just didn't do
+the next sentence prediction um and so
+whether or not that's needed as a whole
+sort of debate it sort of helps out some
+downstream tasks but the vast majority
+of them it doesn't
+and there are other kinds of training
+objectives that are better but
+regardless
+what we're focusing on today is masked
+language
+modeling now after the mass language
+modeling objective
+usually what pretty much anyone would do
+is they would go to the google website
+or
+github repo for bert they would download
+the bert model
+they would use their own data and they
+would just fine-tune
+bert and its generic natural language
+understanding engine
+on their data and that's what i've been
+doing that's what everyone's been doing
+but if you'd like to go the extra mile
+if you have for example
+lots of unlabeled text data that is
+specific to your domain
+but only a little bit of labeled data
+then you can do what's known as a
+second step of pre-training
+you can take the pre-trained bird and
+run mass
+language modeling once more on your own
+data before you run
+your downstream task now the reason for
+this is not because you want bert to
+play film blanks with you but because
+what what's going to happen is
+burt is going to adjust its data
+distribution or the way that it expects
+the data to be distributed as input
+to match your domain specific language
+now i've been working on a couple of
+different you know projects that are
+based on this foundation of very
+powerful nlp
+one of them is in the field of music
+it's something that i haven't really
+talked about just yet
+but one of the components for this
+project requires utilizing birth
+as you can imagine it's really difficult
+to get access to large amounts of
+labeled data
+when i'm working with this sort of the
+sort of field and it's not very generic
+language either it has a very specific
+theme to it sometimes it you know
+ignores grammatical rules and
+punctuation and spacing
+and therefore i need a very custom
+version of bert to work here
+so what i've gone ahead and done is i
+have actually put together a real
+example
+of how that secondary stage of
+pre-training helps bert
+and we'll talk about why exactly this
+all works as we take a look at the code
+as well
+so let's quickly dive into this now to
+start off i'm going to tell you what i
+did
+as i said bert's already been trained
+with masked language modeling
+what i've done is i've gone ahead and i
+have downloaded
+a couple ten thousand song lyrics
+from the genius website now what i've
+done is i've taken
+each set of lyrics and i've split them
+by the individual line so just line by
+line not section by section just line by
+line
+then what i did is i put together a
+little script that would automatically
+go through each line
+and make two versions for each one where
+15
+of the tokens were just masked out
+randomly and removed and the other one's
+just the original
+then i retrained bert to do that fill in
+the blank task
+and before we take a look at why exactly
+this was so useful for me
+let's just take a look at some of the
+outputs from the network to begin with
+now we're going to start off with what i
+think is a really interesting example
+it's an example where the network it's
+competent but you can see that the
+second step of pre-training didn't
+really help out that much so
+i'm gonna go ahead and take this line
+over here from genius and i'm going to
+feed it into both neural networks
+you can see both pieces of output on
+screen right now
+on the left you can see the top 10
+predictions from the network that i
+fine-tuned to be really good at filling
+the blanks for lyrics specifically
+on the right you can see the output from
+the network that wasn't fine-tuned this
+was just
+directly downloaded from the hugging
+face repository for neural networks or
+transformers to be specific as you can
+see looking which is indeed the gold
+standard label
+is the top prediction for both models to
+give you a bit more context this is the
+base model for bert
+i'm not really using the large model
+here so looking which is the gold
+standard label
+is indeed the top prediction
+now this is a bit more subjective but if
+you were to go down in the
+you know top two three etc you might
+notice that the network that was
+fine-tuned for music lyrics
+comes up with words that would still be
+more plausible to be part of a song
+rather than the non-fine-tuned bert
+which is just trying to fill out the
+sentence as if it's just
+somewhere random on the internet but
+then again that is a bit more subjective
+so i'm not going to
+try to do an objective analysis of that
+right now instead
+i want to move on so we've seen an
+example where both networks achieve
+pretty much the same outcome and i'm
+showing you this because i don't
+necessarily want to
+cherry pick the results that i show you
+here now i want to show you an example
+where
+both completely fail all right and
+it's it's not because the neural
+networks aren't competent once again
+it's because the context is just too
+varied
+all right so what i've done is i've gone
+ahead and taken this specific
+line from this song all right and i
+masked out the word lining
+and i fed this into my neural network as
+well as the original bert network
+and both of them had absolutely terrible
+output
+now again you might say that the one
+that's fine-tuned has
+slightly better output as in you know it
+would make a little bit more sense for
+uh picking to be here instead of brought
+which is the second top prediction um
+respectively for both models but then
+the word
+lining isn't there at all however i will
+say the fine-tuned model
+did get a lot closer as you can see
+down at rank number seven we do have the
+word
+lined which is close to lining
+again it doesn't really mean the same
+thing in context here but you can argue
+that the fine-tuned network was in a
+sort of closer ballpark or radius
+versus the model that wasn't fine-tuned
+at all so you've currently seen an
+example
+where both networks are pretty much the
+same both networks pretty much fail
+so you're probably saying well what's
+the value here why would i go through
+all that extra
+extra effort to actually do the extra
+parade training step
+now remember you haven't seen actual
+downstream performance just yet
+but i will show that to you in just a
+moment now i want to show you some truly
+mind-boggling examples
+examples that i think really prove why
+this is such
+an important step let's take a look at
+them on my computer right now
+now as you can see what i've gone ahead
+and done is i've gone ahead and taken
+this line from this song now as you can
+tell
+in in sort of general context on the
+internet you more than likely wouldn't
+see this kind of line if you were just
+browsing reddit or if you were just
+browsing facebook or twitter you
+probably wouldn't see this line anywhere
+but in a song you wouldn't bat an eye at
+it it's just there
+of course it wouldn't be it's it's it's
+music
+so i'm gonna go ahead and feed this into
+uh both my fine-tuned and the original
+network and i'm gonna mask out the word
+sheets now as you can see
+the fine-tuned network just blows the
+original one out of the
+water now the gold standard label is the
+number one
+prediction for the fine-tuned model and
+the original
+doesn't even get the gold standard in
+the top ten i think that is
+absolutely incredible now you can see
+that bird is trying its best
+it's like where could a stain be well
+maybe there would be a stir stain on the
+floor maybe the walls maybe a
+counter or a carpet but it's unable to
+get the word sheets
+because well that's very you know song
+domain specific context extension
+but what i think is an even more sort of
+extraordinary application of this
+is when we move the mask to the very
+beginning
+of the sentence now it's going to be the
+exact same sentence we're going to
+remove the mask from the word sheet so
+we're going to put that back there
+but then i'm actually going to go ahead
+and have the models
+uh predict on the first word masked
+instead
+and as you can see once again the
+fine-tuned model just
+absolutely shreds the original model's
+performance
+the original model isn't even close in
+what it's trying to
+fill whereas the fine-tuned model
+instantly right there
+it's got the word lipstick first
+prediction it's god
+now what i personally find so incredible
+about this
+is is think about it the word
+lipstick stains and the word sheets
+didn't appear
+in the same context that this neural
+network was trained on at all
+it was actually taking these different
+pieces of data that referred to
+different concepts in different contexts
+and it's able to sort of generalize them
+in its internal structure
+in order to make it so when we refer to
+something as a brand new imaginative
+concept
+just like that it's able to predict what
+the masked word should be
+now while the fill in the blank
+performance may be amazing
+you're probably wondering well does it
+really help you in a downstream task
+and well yes it does because think about
+it
+if you're able to better predict what
+words should be
+that doesn't mean you have a better word
+predictor that means you have a better
+and better
+you have a better every single layer in
+burke before the last one
+that is working towards embedding your
+entire sequence
+into a space in which it makes sense in
+your domain
+and the networks that are responsible
+for taking the output of those
+embeddings
+and actually doing something with them
+in a downstream task
+will then have better more
+contextualized embeddings to use
+i mean think about why brit is so
+powerful in the first place it's massive
+contextualization
+and with this technology we're getting
+further and further
+contextualization now what's absolutely
+amazing about this
+is just how simple it is to fine-tune
+networks themselves
+i mean take a look at this in order to
+add this pre-training stage they're
+really just
+two main steps i have to do first of all
+i put together
+the following data python file what this
+does
+is it goes ahead and takes of course the
+hugging face libraries uh the the
+transformers library specifically from
+hugging face
+um and it goes ahead and imports simple
+bass bert model as well as its tokenizer
+i define a couple of functions like for
+example function that's responsible for
+tokenizing input
+a function that's responsible for
+actually masking out some of those uh
+some of those values at random
+another function that's responsible for
+sorting and batching a bunch of
+different inputs
+into batches where burke can actually go
+ahead and and use them efficiently on
+the gpu
+and then all i got to do is go ahead and
+save those outputs to my disk
+and then what i do is i've got a little
+bit of a training script here
+and what this training script does is it
+uses the power of the library known as
+pytorch
+lightning in order to do what it is that
+i'm doing
+which is training this burp model in a
+way easier way than i could ever
+implement from scratch using pi torch
+and hogging face library
+um and specifically what i mean by that
+is if we go to the end of the code i'm
+using what's known as a
+pi torch lightning trainer module in
+order to automatically just say you know
+what
+i want to use distributed parallel back
+end i want to run four epochs and i want
+to run on four gpus on this machine
+just like that pie torch lightning is
+handling it and
+i've got my model training on four gpus
+and it's using distributed data parallel
+which is
+way more difficult to implement than the
+regular data parallel in pi torch
+but it's so much more efficient so it
+makes it worth it and pi torch lightning
+makes it that easy for me now if you
+take a look at the actual code that goes
+behind training the basic concepts are
+pretty simple of course
+i've got the data set module which is
+basically just over here to enable me to
+load in my data
+which is essentially just loading in a
+pickle that i had already created for my
+data processing script because of course
+every time i run the training i don't
+want to
+re-reprocess my data because that takes
+some time
+and then i've got this little pie torch
+lightning module over here that's
+responsible for opening up a pre-trained
+burp model from honking face
+going ahead and feeding my data into it
+along with the mask that prevents me
+from
+actually attending to padding tokens and
+then from there i'm just going ahead and
+running a training step which is
+feeding data into the network getting
+the loss based off of the mass language
+modeling objective
+and then returning that loss over the pi
+torch lightning where it can determine
+what exactly my new neural network
+weights need to be
+and it does that using the atom
+optimizer that i define
+over here so the basic code for fine
+tuning is incredibly simple this is
+already on
+github and there will be a link to it
+down in the description unfortunately
+i cannot provide you with a data set for
+this but if you do have your own data
+set you can easily repurpose this code
+and make it work for your own data and
+for your own tasks
+and of course just to show you once more
+you're probably
+finally wondering well i clicked on the
+video to figure out what the performance
+difference is
+and here it is the performance
+difference for me here
+uh is is usually a difference in loss
+from about
+0.52 for my usual downstream tasks
+to 0.49 when i'm training
+on uh with a with a fine-tuned
+pre-training objective uh now you're
+probably wondering
+what do those numbers mean well
+unfortunately i can't tell you what the
+task
+is that i'm training on because once
+again this is a uh this is um
+an objective that i can't i can't share
+with you just yet but
+the idea is that i'm using in general a
+triplet
+loss function customized version
+nonetheless um but it is
+a it is a triplet loss function and this
+triplet loss function again i train it
+on the pre-trained bert
+and the fine-tuned bert when i train on
+pre-trained burke
+loss comes out to usually about 0.52 and
+on the fine-tuned burke comes up to 0.49
+now you're probably wondering well great
+it's about a 0.03 difference
+why exactly does that matter well it
+matters because of two things first of
+all
+when you're dealing with limited amounts
+of data as much generalization and as
+much
+shaving off the losses you can get the
+better second
+i only trained this for two epochs and
+we're already seeing a difference
+and remember one more thing my burp when
+it was
+fine-tuned was only trained on line by
+line
+whereas this next task that i'm training
+on downstream
+is trained section by section so lines
+separated by separator tokens within
+birth
+and so keep in mind that my task isn't
+particularly ideal for pre-training and
+yet
+i'm getting such a great performance
+boost so with your domain specific tasks
+where you're actually pre-training on
+data that makes sense in your domain
+you can only imagine the kinds of
+performance boosts you're going to get
+and so
+this was a demo of why exactly it makes
+sense and how you can go ahead
+and sort of fine tune bert on your own
+data in a mass language modeling sense
+all the code will be in the description
+uh and hopefully that helped you realize
+what sort of training regimes you should
+be using for your neural networks of
+course
+every task is different going to require
+a completely different regime
+but this gives you a pretty good idea of
+what direction to look at
+i really do hope you enjoyed that
+tutorial once more if you did please do
+go ahead and subscribe to the channel it
+really does help out a lot and make sure
+to like the video as well
+if you did enjoy it now of course feel
+free to leave any questions down in the
+comments below i'd love to go ahead and
+answer them or as a github issue on the
+repo
+in the link in the description apart
+from that thank you very much everyone
+for joining in today i really do
+appreciate it and
+goodbye

@@ -1,0 +1,179 @@
+[Music]
+solo there and welcome to another
+tutorial my name is Tamara Bakshi and
+this time we're going to be going over
+how you can use a Lambo fire in Iowa and
+switch it wanna make HTTP GET request
+and in this case we're going to be using
+the HTTP band example ref API in order
+to basically send a very simple HTTP GET
+request through Valero fire to a sheet
+to be bare and then we're going to route
+some information from a tree via HTTP
+band such as these headers of the
+request as well as the IP address and
+much more and plus what we're going to
+do is they're going to take that
+information from JSON format parse that
+UPS JSON serialization and then we're
+going to split to the user ID privy help
+to the console in Xcode now there isn't
+much to explain here but what I would
+say and thank you to labels for sending
+in the question for this video and of
+course I really hope do hope is we'll be
+able to answer your question and force
+you actually ask how you can use LMO
+fire in Swift and iOS or image
+asynchronous issues if you request there
+will be other parts coming up soon about
+post delete update request and more I'll
+but for now let's go ahead and simply
+sit with the request the get request
+alright so now go over to the coding
+part where I want to show you exactly
+how you can actually code in this simple
+iOS application let's get to it
+alright so welcome back to the coding
+part now I'm going to show you how
+exactly you can actually implement this
+ulema fire application now if I go back
+to Xcode over here as you can see I've
+got this little Xcode window set up as
+well as this short code now if I go to
+my iOS simulator which is actually
+running this code and if I click on the
+screen once and go back to Xcode as you
+can see Xcode has printed out three
+different objects the first object is
+the raw JSON value received from HDTV
+bin the second one is the IP address
+origin from HTTP bin
+and of course the third one is the URL
+or the request that we sent to HTTP bin
+all right not me flame what's actually
+going on behind the scenes in the code
+now what's happening here is first of
+all in touch us again whenever you click
+on the view the make requests function
+called invited me request
+I then call something called the request
+function the request function is a part
+of the Olin mo fire framework i packet
+the URL that i'd like to call and by
+default this may get requests and that's
+why I'm calling
+slash get on HDTV been org I then look
+for a JSON response
+what's a lamb a fire gathers this JSON
+response order swans in general then we
+store the response and variable called
+response and recall this callback
+handler and they say what this means is
+that this function or this block of code
+will be called right as a responsive
+gained from this request
+now remember something about this which
+is that let's just say I want to make a
+long-running request where let's just
+say I have to upload files this can't
+request or to this get in Oh HTTP server
+if I want to say print hello this is
+message to and inside of the block of
+code I were to say hello this is method
+one then what would happen even message
+to a print first and then misses one
+this is because when you call request
+this isn't called mmediately request is
+called and now allow a fire has started
+to make the request to the HTTP server
+then what happens is it go ahead and run
+this code while in the background it's
+actually still making the HTTP request
+once the HTTP request is over then this
+line of code or whatever main code is is
+stopped and this code is then run and
+then it continues from there and so what
+happens is number two will be printed
+and then number one will be printed this
+might not happen right now because the
+HTTP vendor or request is practically
+instant but sometimes it may happen
+depending on the internet speed now this
+is going to run on to my iPhone
+simulator and if I just click on and
+screen here oh as you can see if there
+happen luckily my internet speed wasn't
+fast enough and it said hello this is
+message
+you it then printed everything else that
+I wanted it to and then said hello this
+is message one alright so that is how
+you can implement that but just one more
+thing I'd like to show you here is how
+we are actually parsing our JSON now the
+point here one parsing the JSON is
+actually that the fact that a lambo
+choir already uses ash trees on
+serialization in the backend to parse
+the JSON for us and then returns the
+JSON as in any object not in any object
+but on any on any type and so what we do
+is I mean this can be optional because
+LMO fire may not have received json from
+the request or from the HTTP server and
+so what i do is i reminisce LED on it
+and I say it's the value of the result
+in response it's not mailed and put that
+in JSON and then create a new variable
+called JSON object and set this to the
+JSON as a string and object dictionary
+then we then have constants origin and
+URL inside of origin we are setting
+origin to the origin object from the
+JSON object and what's important is to a
+string as you can see that's what that
+is in our JSON right there and then of
+course our converting the URL object to
+a string as well and then once we've got
+bells we are then able to have these
+print messages they'll actually print
+out all that data and that is how you
+can use a lamp wire in Swift free in
+order to actually parse JSON responses
+from HTTP servers and that was the
+tutorial today I really hope you enjoyed
+I hope this was able to solve your
+question Vaibhav alright so thank you
+put me in your question of course and I
+really do hope you were able to learn
+from this and of course if you did
+please make sure to leave a like down
+below as it really does help a lot and
+of course if you'd like to share this
+video with anybody else you know or
+anybody else you think this might help I
+can friends a family please to make sure
+to do that as well
+but of course so if you have any more
+questions suggestions or feedback leave
+them down in the comment section below
+you can email them to me Academy and
+Ageing alarm or tweet them to me
+activity many shell the contact
+information will be down in the
+description below in case you can get
+hacked
+all right so thank you very much for
+watching today but one last things well
+if you'd like to be notified when I
+release new content please make sure you
+subscribe the channel and the Ezek when
+we just help a lot and of course you
+turn on notifications by clicking the
+little bell icon beside the subscribe
+button to be notified by a Google
+education and email when we release a
+new video
+all right so thank you very much for
+watching today goodbye

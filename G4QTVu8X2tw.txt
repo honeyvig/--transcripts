@@ -1,0 +1,776 @@
+[Music]
+so hello there over there and welcome to
+another tutorial my name is Tammy bakshi
+and this time we're going to be going
+over how you can use Cuda kudazi for
+general purpose GPU Computing now this
+is actually a very interesting new
+series that I'm about to be working on
+uh this is actually the first part of
+this of the uh of this of this new
+series uh very first video in the series
+uh in today's video I'll be talking a
+bit about generally uh how gpus work how
+they compare to CPUs uh and how Cuda
+itself Works uh now Cuda is actually a
+programming language uh that has C
+syntax that allows you to actually run
+general purpose code on gpus to use
+their enormous parallel compute power uh
+now I will be talking about that in just
+a moment but just before we begin I'd
+like to tell you uh that if you have if
+you've already watched my video where I
+actually show you uh benchmarks of
+Highly parallel random number generation
+on CPUs using digitalocean servers I'd
+recommend you actually go see that right
+now uh there's actually going to be a
+link in the description if you haven't
+seen that already because cause that is
+a good primer to this video to introduce
+you to the concept of multi-processing
+and parallel parallel Computing but
+today
+I'm going to talk about how you can
+actually use Nvidia gpus in the Cuda
+programming language to implement simple
+Cuda applications and later we'll get
+much more advanced and I'll show you how
+to integrate things like neural networks
+and more and even other programming
+languages like Python and Swift with
+Cuda to create GPU accelerated
+applications uh in all of the all these
+different use cases
+all right but today let's talk a little
+bit about the concept of this in the
+first place also by the way you need to
+know C for this to actually work and for
+you to actually understand what's going
+on in the first place uh so if you don't
+already know C do not worry because in
+the next few weeks I will be releasing
+an entirely new series also about how
+scene General Works uh beginning to end
+sort of uh tutorial series on the scene
+C plus specifically programming
+languages and how you can use them all
+right but now let's get started with
+Cuda first of all GPU CPU what's the
+difference
+well gpus are meant for graphics
+processing quite literally as you could
+probably tell uh their name is a
+graphics Processing Unit uh and so the
+real difference between the GPU and the
+CPU is that since gpus are meant to
+drive monitors with sometimes millions
+of pixels uh of course it needs to be
+able to do uh tens of thousands to
+hundreds of thousands of things at once
+to quickly uh sort of you know calculate
+all the values for all these sort of
+pixels uh that are on your marker right
+now uh and so what happens they say that
+you've got an average CPU okay
+and your CPU can do a lot of things they
+can do them very very quickly uh so say
+of course you know the average CPU I
+don't know maybe you've got you know a
+Mac or you've gotten Intel i7 uh usually
+these things are you know quad core uh
+so some average CPU that you might use
+um I have four cores uh however Intel
+has a technology called hyper threading
+meaning that each core can have two
+threads on the chip at once uh now
+theoretically you can have many more
+cores than just two on a chip at once uh
+however they would have to keep uh
+coming into and out of the cache of the
+CPU uh due to the fact that of course
+the CPU can only hold two in each core
+uh and so what that means is that at
+maximum at one time our eight threads
+can exist on the CPU so times two
+because each core can hold two and of
+course that turns out to be eight
+threads on uh on the chip at once
+uh however this is a little bit
+different for gpus because of course
+CPUs weren't necessarily meant to drive
+displays say 5K displays with hundreds
+of thousands to Millions to tens of
+millions of pixels forget multi-displays
+however gpus were built to do this
+so gpus however
+are quite different
+and not only in what I'm about to tell
+you but they're also different in other
+ways and I'll talk about that in a
+moment
+now say that you've got a GPU and say
+this is an Nvidia Titan XP or say yeah a
+Titan XP
+a Titan XP oh yeah let's do the example
+of a GTX 1070 that's a better one uh so
+a GTX 1070 GeForce GTX 1070 regular GPU
+buy-invideo uh has around 1900.
+of course that is a lot
+but the best part is that each core can
+hold 12 threads
+and so what this means at once 12
+threads at once at least and so what
+this means is that 1900 times 12 I mean
+what is that uh what is 1900 times 12.
+um you know or whatever that is but
+you're holding tens of thousands of
+things uh of of threads on the chip at
+once and what that means is that of
+course you can do tens of thousands of
+things at once
+uh and so there are a few limitations
+though because then you're probably
+wondering and you might even have seen
+the static overflow question uh well
+then why don't we just replace all these
+CPUs or gpus then if these GPS are so
+great then why don't we just create
+these sort of GPU CPU hybrids or just
+use the GPU for the CPU well there are a
+number of drawbacks uh from the GPU side
+first drawback is of course operating
+systems just can't run on them there are
+some basic core features of a CPU that
+the GPU just doesn't have and that's the
+reason that the GPU can do so
+so uh and in fact here so
+this would be around 22
+000
+um 800
+threads on the chip at once
+uh and so what's uh that's a round
+though because it doesn't exactly have
+1900 cores it's actually a few more uh
+plus or minus like two or three uh but
+still you get a pretty good idea of how
+many tens of thousands of things you can
+actually run at once on a GPU
+uh but the second limitation however is
+that gpus can do a lot of things at once
+but each thing that it does it does with
+less precision and it does it slower
+than a CPU let me explain the reason the
+GPU is able to fit so many cores into
+such a tight space is because it it
+removes some of those is checks that the
+CPU makes to make sure that it's very
+very precise in its calculations for
+example if you were to do a calculation
+on the GPU you might be ever so slightly
+off with your floating Point Precision
+uh due to the fact that of course it
+doesn't have those checks that CPUs have
+which is why it's able to do so many
+things at once
+and also second each individual thing
+that it does it does slower than a CPU
+meaning that if you're only running one
+task on a GPU and one task on a CPU
+you'd be way better off running it on a
+CPU because it can do that one task much
+faster than a GPU ever could
+in fact the gpus each core can only
+really be used when you're using almost
+all of them at once or at least a
+considerable amount of these threads to
+make sure that you're using the GPU to
+its full potential
+oh but that's just new radically what
+they're capable of and why we don't just
+replace all these CPUs with gpus in fact
+a sort of good analogy here uh would be
+a CPU is a collection of say four uh
+extremely intelligent people who can do
+things very quickly and they can do a
+wide variety of tasks and in fact
+they're so good it's to the point that
+each person can do two things at once
+meaning of course hybrid setting so you
+can do eight things at once with this
+group of four people and each thing is
+going on very fast however when you load
+these four people with a billion tasks
+or even just say 10 million they will
+get stressed however imagine that you've
+got a group of 22 800 slightly less
+intelligent people uh what's going to
+happen is you might have a few errors in
+the calculations that these people make
+uh these people might be slower running
+the calculations themselves but you're
+doing it in parallel everybody's doing a
+task uh and that means that of course
+you're going to get to 10 million or
+even a billion much much quicker than
+you ever would with the CPU and this
+really explains the concept of how one
+task is fast on the CPU and slower on
+the GPU because one intelligent person
+doing a task uh is of course going to be
+faster than one slightly less
+intelligent person doing a task and of
+course much more precise
+overview of the GPU versus CPU sort of
+comparison
+but one thing I would like to tell you
+to tell you here is that gpus of course
+are meant for graphics processing the
+entire concept running general purpose
+code on a GPU is very very new or at
+least relatively very very new
+uh this has actually not been around for
+too long uh it's a very New Concept
+which is why the community is still sort
+of building around this although it has
+a very big sort of following the Deep
+learning and machine Learning Community
+which is in fact why I'm not interested
+in this topic and why I'm creating this
+series today or you know the series on
+my YouTube channel because I want to
+show you how to incorporate deep
+learning Technologies with gpus in order
+to accelerate your deep learning
+workloads uh and also one more thing I'd
+like to mention here imagine and I mean
+if you're familiar with the concept of a
+neural network you'll probably get this
+I imagine you've got a very deep
+convolutional neural network with
+recurrent layers etc etc or you know
+just imagine a convolutional neural
+network say Inception V3 okay by Google
+now this is a huge convolutional neural
+network layer after layer after layer it
+is just absolutely huge
+but it's also huge in the in terms of
+individual trainable weights
+imagine this you're doing a feed forward
+pass through this neural network so
+you're giving input into the neural
+network and expecting output from it now
+say that you've got of course uh a few
+hundred million uh trainable parameters
+now these few hundred million trainable
+parameters if you were to run that on
+CPU that would be very very slow however
+if you were to run that on a GPU that
+would be much much faster faster than
+the point that deep learning becomes
+practical in fact that's the only reason
+why deep learning is used today and why
+why it wasn't used in the past because
+now we have this computing power to
+actually run deep learning networks and
+have it practically run uh in terms of
+time because you don't want to have to
+wait for a month uh training your neural
+network model just to bound up just to
+find out that it has you know it
+overfitted to your data uh you do not
+want that to happen you want to do
+things very quickly so you can of course
+do the you can sort of you know deploy
+these models very very quickly
+oh but that's the first concept I wanted
+to explain
+second let's talk a little bit about
+memory shall we uh now there are a lot
+of different uh a lot of different
+terminology that I'm going to be using
+as I as I explained memory so let's talk
+about terminology first and even before
+we get to terminology I have to explain
+how you can actually run code on a GPU
+in the first place
+now theoretically this should be very
+very hard however thank like I mean
+thank you Nvidia and the great people
+who are developing uh Frameworks like
+opencl uh because now thanks to
+Frameworks like opencl and Cuda it's
+very very or at least much more easy uh
+to create these GPU enabled applications
+let me explain there are two sort of uh
+mainstream GPU acceleration options
+available in the market today uh the
+first one is of course opencl it's an
+open source uh platform that allows you
+to do GPU development general purpose
+GPU Computing uh on our wide variety of
+different processors now this can
+actually be uh your your CPU opencl runs
+on CPU as well by the way it also runs
+on the integrated Graphics of your CPU
+it also runs on AMD gpus it also runs on
+Nvidia gpus although it's not very
+performance efficient
+however Cuda is basically a replacement
+uh to opencl the Nvidia has developed uh
+and so basically the difference between
+this is that it's proprietary it's not
+open source code has not open source
+it's developed and maintained by Nvidia
+uh and it is specifically optimized down
+to the core to work on Nvidia processors
+and Nvidia gpus and Nvidia code is not
+compatible with AMD gpus or any other
+GPU only Nvidia gpus
+however Cuda is a lot simpler program
+for which is why I'm explaining that
+right now I might have another another
+Series in the future about opencl and
+its development and of course if you'd
+like a tutorial about that please do let
+me know and of course I will be glad uh
+to create those sorts of tutorials uh
+Bucky team for now let's talk a little
+bit about terminology now that you know
+a little bit about Kudo open CL there
+are a few more like metal uh there
+there's stuff like Vulcan but I won't
+talk about that right now uh for now
+let's talk about the terminology that
+goes behind this development
+and now there is actually quite a bit of
+terminology that goes behind this
+but one that you there too that you'll
+hear very very often the first one is
+host
+the second one is device
+let me explain
+now in essence host and vice are just
+fancier terms for CPU and GPU
+respectively the host is the CPU because
+it's hosting the entire code uh the
+device is the GPU it's the device that
+all this code is running on uh and
+that's why it's called host and device
+there is a little bit more terminology
+though one main one without being kernel
+now at first uh this might scare you uh
+that you know we're doing kernel
+development now
+uh all this is is
+um when you develop the uh the the
+actual function or the code that will be
+run on the GPU it's called a kernel uh
+just like for example your operating
+system has a kernel uh it's the same
+thing it's just a code that's going to
+run on the GPU nothing more about that
+uh however now let's talk a little bit
+about the steps you have to take towards
+GPU development to actually incorporate
+Technologies like GPU acceleration into
+your applications
+now of course it has begin with creating
+a CPU version of your parallel
+application now what I recommend is
+actually creating a CPU version of your
+application before you try porting it
+over to Cuda however there are a few
+challenges with that which I'll tell you
+in just a moment but let's just imagine
+that I want to do something like oh I
+don't know matrix multiplication which
+is something that of course deep neural
+networks require or even if I'm going to
+create a simple function that can take
+an array of you know millions of values
+and run sigmoid on each value that is a
+huge help to deep neural networks and
+even even if it's not sigmoid it can be
+you know rectified linear unit
+hyperbolic tangent it's a soft Max
+whatever it might be basically just find
+a specific activation for all the values
+in this array gpus can do that very very
+efficiently but again depending on how
+many of these elements you have which
+I'll talk about in a moment as well
+uh so imagine you wanted to build a CPU
+version of this application the first
+step you would take
+uh is you would of course initialize
+your variables uh by initialize I mean
+you would declare or you would Define
+and allocate memory for your variables
+because again this is C you're going to
+have to do this sort of manual memory
+management sometimes
+uh but what you do is you would
+initialize
+your variables
+uh I will fix that uh but once I've done
+initializing your variables
+there's still quite a bit left
+however again you're probably used to
+CPU development so this shouldn't be too
+hard
+what you do as you would initialize your
+variables
+uh you would fill
+uh the variables or I'll just call them
+vars with the actual values
+then once you're done filling it up with
+values uh you would go ahead and then
+run sigmoid on the entire thing using
+something like a for Loop so you use a
+for Loop
+to run sigmoid
+on all the values
+sigmoid the values
+now once you've run sigmoid on the on
+all the values you're almost done all
+you need to do now is actually use those
+values in your application
+foreign
+you're ready to continue to the next
+layer or do whatever else you need to
+however with GPU development up there is
+quite a bit more so get ready
+um because with GPU development it's not
+that easy because with GPU development
+you've got all this sort of memory
+copying allocation uh and you know
+transfer issues which let me talk about
+that
+when you're doing GPU development you've
+got two entirely separate memory spaces
+you've got something called device
+number and you've got something called
+host memory the host memory is your
+system memory you're familiar with this
+you use it every day when you're
+programming this is the memory that all
+of your you know applications or code
+for the CPU run on then you've got your
+graphics Ram or your you know the the
+graphics vram now this is the actual Ram
+stored on your graphics card in the case
+of a GTX 1070 you've got around 12
+gigabytes of this DDR ddr5x I believe
+memory
+uh and so that again this is very fast
+memory but you have to understand though
+that the GPU cannot necessarily quickly
+access uh the variables stored on CPU
+memory and CPU memory cannot quickly
+access uh what's on the GPU memory
+because again you're linking this via
+PCI or pcie uh and so what happens uh is
+there is a there's quite a bottleneck of
+that PCI uh from the GPU to the CPU it's
+not as instant as RAM in those dim slots
+and so you have to uh you have to
+account for that sort of bottleneck
+because Imagine This
+what you've got is you've got this thing
+called a device and of course the device
+is your GPU
+and inside of your device you've got
+this thing called you know DVR
+or or dram you've got this
+dram in your GPU
+and this is where you're storing of
+course all the variables that will be
+used in your kernel in your kernel of
+course being the function that is
+actually called on the GPU
+uh however of course you've also got
+your hopes and you have to account for
+the host
+and the host will actually do all the
+data generation
+uh and so you have to have some sort of
+way
+to copy the variables from the host over
+to the device
+now of course you've also got memory
+inside the host but there are two
+separate types of memory
+there's pageable memory
+and there's pain management
+these are two separate types of memory
+the pageable memory is actually I guess
+you could say uh not it's not very
+performance efficient uh it does this
+thing called paging which I won't talk
+about right now that'll get very you
+know low level and Technical uh well
+we'll have to get too deep into that
+maybe for another time maybe in the C
+tutorials however what this means is
+that sometimes you could be using real
+Ram sometimes you could be you know I
+mean you will be paging uh you might be
+using swap rang you might be using you
+know your hard disk as virtual Ram sort
+of thing is what swap means
+uh however with pin memory there's
+actually a dedicated block of system
+memory dedicated towards this this these
+objects or this specific object that you
+that you have
+uh and so the pin memory is the only
+type of memory that can actually
+communicate uh with the dram on the
+device and so somehow you have to use
+pin memory to send data up to the dram
+and down back from the dram
+uh however in order for this to happen
+uh if you store your variables in
+pageable memory which by default sees
+malloc function from the standard
+Library
+uh and generally whenever you allocate
+you are allocating on pageable memory
+because of course the operating system
+doesn't want you to take up a lot of
+memory they're the operating system will
+automatically give you this pageable
+memory
+uh and so you got two bottlenecks uh in
+this case you got the bottleneck of
+pageable depend and then the bottleneck
+of the of pinned to dram now the reason
+this becomes a problem uh is because
+Cuda has to do a lot more work uh to
+actually copy from pageable to pins to
+dram and from dram to things to pageable
+it's not good it's not efficient
+you have to have a more efficient way of
+doing this memory transfer and that's
+actually the hardest part of GPU
+Computing uh while each core might be
+ever so slightly slower than a GPU core
+what happens is an even bigger
+bottleneck is actually introduced by the
+fact that you have to copy variables
+from CPU to GPU you have to do
+processing on the GPU and then copy them
+back to the CPU it's not efficient which
+is why you need to be doing a lot of
+tasks in parallel for GPU Computing to
+even be worth the extra time that you're
+spending
+however there is a way you can make this
+quite a bit more efficient from say 12
+to 13 gigabytes per second
+the way you do that is by quite simply
+erasing the pageable memory you're just
+not going to use pageable memory only is
+pin memory and it will create a
+performance difference of positive
+performance difference you will get
+performance gains
+now the reason this is is because kuna
+is able to do a direct transfer without
+another bottleneck in the way uh and so
+you're just doing direct dramed pendant
+dram converter transfers uh it should be
+theoretically much faster and cuda's mem
+copy or memory copy function becomes a
+lot lot faster this way now if you've
+already used C and standard Library you
+know about all these functions that I'm
+mentioning I'm mentioning malloc I'm
+mentioning mem copy uh I
+and it's a great internal functions uh
+but Cuda has their own version uh of of
+all these functions so for example when
+you need to copy a variable from say you
+know the host to the device there's
+actually a function called cuda mem copy
+which will allow you to copy from the
+host to the device
+uh however theoretically
+of course if you were to just use a
+native C function uh to to allocate your
+memory it would as I mentioned allocate
+and pageable memory however there is
+actually a Cuda function called cuda
+host alloc uh or there's also cool
+malloc host but I won't talk about that
+right now and the Cuda host analog uh
+will actually allow you to to on the
+host
+uh basically create or allocate uh this
+direct this ping memory that can
+communicate directly with the GPU for
+much faster transfer speeds whenever
+you're using this variable to copy to
+and for the GPU
+and so that's exactly how all the memory
+memory logic works and that sounds a
+little confusing and you probably don't
+get it entirely right now however in the
+next part when you actually see the code
+which is coming out very soon uh you
+will understand this in much greater
+detail it's actually quite simple it's
+not as complicated as I'm making it seem
+it's really just one-liners for example
+when you need to allocate you do Cuda
+host analog you'd point you pass in a
+pointer to your variable you tell it how
+big your variable will be and there you
+go you've done it you've got variable in
+pin memory on your host
+that when it needs a copy all you need
+to do is pass it the desk a pointer to
+the destination variable in your device
+a pointer to the uh tar the you know the
+source variable on your host you pass it
+the size and where you want it to go to
+the host or to the device
+and that's really all there is to it uh
+they're really just a lot of one-liners
+in terms of code but getting back to the
+point from this memory sort of tension
+here
+um
+now this is how you would code in a
+batch sigmoid on the CPU you can
+initialize your variables you'd fill the
+variables with values you would use a
+for Loop to run sigmoid on all values
+and then you would use your values
+and support that's four steps and of
+course there's no real complete
+bottleneck with sort of you know memory
+copies from from one piece of Rand to
+another to another no it's it's all
+mostly at least mostly clean except for
+step number three step number three
+becomes a huge bottleneck now because
+now you've got say 10 million values and
+you're individually running each one of
+those 10 million values and trying to
+run sigmoid on them not efficient at all
+this is where the GPU comes in if you
+were to implement the same application
+on a GPU there would be a few
+differences let's take a look the first
+two steps would remain the same you
+would first of all initialize
+I'm going to call them vars now
+initializer bars or variables
+then what you do all right I'm just
+going to space it out so you can
+actually take a look at the all these
+steps
+uh second what you do uh easy to
+actually fill up those variables with
+values
+now once your variables have values it's
+time to get to GPU Computing because
+what you have to do now is actually
+initialize
+and remember initialize
+meaning
+defined clear uh and of course allocate
+memory four your variables
+on the GPU so you need to initialize
+variables on the GPU
+on its dram
+once that's done
+step number four is to actually copy
+the variables
+from host
+to device memory
+so as you can see basically what this
+will do is it will take the variables
+that actually have values in them that
+you create in Step number two
+uh and it will copy them onto device
+memory into the variables you initialize
+on the GPU this will allow the kernel to
+access these variables very very quickly
+after that of course will copy those
+variables onto the device from The Host
+after that you have to run your kernel
+so you run the kernel
+which will do sigmoid operation on all
+of the arrays elements
+and then number six is you copy the
+result back onto the host from the
+device
+so from device of course to
+post
+and then once that's done you are ready
+to use
+the values that you get back in your
+application that's an entire three extra
+steps uh now of course this might not
+see that's a lot uh however think about
+this there are a lot of bottlenecks and
+if you're not doing nothings in parallel
+you will run into performance issues and
+you will find that the CPU is way faster
+than the GPU in some operations
+for example if I'm only running say 10
+sigmoid values then initializing the
+variables in the GPU copying variables
+from a hosted device running the kernel
+itself and then copying those variables
+back onto the host from the device will
+actually take more time than just step
+three or really the entire program
+itself is just not worth the extra time
+unless you're running highly parallel
+applications that require a highly
+parallel power of the GPU
+okay now I do know that that sounded
+like a lot and you probably are starting
+to understand a little bit of the
+concept and the sort of you know uh
+these these sort of beginner aspects or
+the the starting aspect of Cuda and how
+you should begin queer development now
+of course there will be a part two where
+I'll show you some actual code I think
+this video is long enough for now you
+might just want to you know go ahead and
+want to see some more Cuda blogs just
+want to digest all this all this Con all
+this content uh that I just gave you uh
+but that's going to be all for this
+video thank you very much for joining it
+today I really do hope you enjoyed
+today's video if you did please do make
+sure to leave a like down below and
+share the video with your family and
+friends if you think it could help that
+help them out too of course if you have
+any more questions suggestions or
+feedback please leave it down in the
+comment section below email it to me at
+teddymania gmail.com or to read it to me
+at tajimani of course if you really like
+my content you want to see more please
+do consider subscribing to my YouTube
+channel uh and of course turning on
+notifications if you think these videos
+help you out and you want to be notified
+whenever I release new content all right
+so thank you very much for joining me
+today that's going to be all for the
+video uh of course do do make sure to
+leave a like down below and subscribe if
+this content helps you out uh and you
+want to see more of it thank you very
+much goodbye

@@ -1,0 +1,417 @@
+so lover and welcome to another tutorial
+my name is Henry Bakshi and this time
+we're going to be going over how you can
+create a Watson conversation application
+which includes contextual features which
+essentially piece well let me actually
+simplify this so to begin we're going to
+be using IBM Watson conversation
+more specifically the context feature of
+the service and let's just dive right
+into what this means today so just
+arriving in though I like to say a big
+thank you to one of my subscribers who
+Daiya for sending in this question and
+so of course thank you much for
+reminding me to create this video so
+this is actually kind of a part two I
+guess you could call it to my earlier
+drone videos where you could ask loss in
+conversation for example what's the
+battery percentage in the drone and it
+would be able to answer you that was
+using IBM Watson conversations context
+feature so let's take a look at what
+that is and how it works so to begin
+let's say we've got our Watson
+conversation Watson conversation little
+service over here okay so we've got our
+service and let's also say that we've
+got our node.js application and of
+course we've got our drill now I'm not
+going to get into how you know the
+Raspberry Pi is able to send messages
+from the drone into the a ask them back
+instead I'm just going to simplify it
+all by saying that the drone just sends
+nodejs it's valeria for it's but a drone
+keep sending no js' a lot of information
+actually about itself but one of those
+keys would be battery percentage okay
+and so what's happening is that lets say
+that Watson conversation let's say
+actually that you say that let's say the
+users input to Watson conversation would
+be
+um what's the battery level okay and
+they were to send this string - no - as
+input what would happen is before
+sending the request to IBM Watson now
+it's not just going to do that what's
+going to happen it is going to form a
+request and so it'll create this little
+request and that request will be sent to
+lots of conversation the request
+contains quite a few things namely the
+input
+it contains the input which would be of
+course this string and we've also got of
+course something else like for example a
+context which is a JSON and also this is
+a string and there are a few more things
+but I will get into that right now so
+these are two piece that are very
+important to us so no js' will form a
+request which contains the input in the
+context and these two are sent to watson
+conversation so how does this work
+though well essentially the context is a
+JSON value and this JSON value contains
+a key called battery P okay and this so
+if I just draw this contains something
+called a key called battery P and the
+value is really however much battery is
+left in the drone for example 65 for
+first 65% we're just going to say 65
+sorry and then we're going to close our
+curly brace and this is essentially our
+JSON value we've got a battery P 65 and
+so this is the context that's being sent
+to IBM Watson conversation and Watson
+conversation like the dialogue that I've
+created here what it does is let's say
+it needs to send let's say it needs to
+find the battery percentage the it'll
+actually go through its contacts and if
+it contains
+the battery p-value then it'll give
+something else that contains that
+battery P tell you but if it doesn't
+have this in its context where this is
+equal to a null value what's going to
+happen is it's going to go through
+another dialogue chain but it it can it
+can return back to no just no J sorry
+essentially that sorry I don't have the
+battery information right now
+please try asking again later or make
+sure that your turns and drum turned on
+that's a good thing
+same thing for altitude information same
+thing for all this type of information
+that lots and conversation can give you
+if you ask for it but then again without
+any further ado let's get straight to
+the Mac part now we're I'm going to be
+showing you how you can code in a simple
+nodejs application using the same pizza
+example that I gave you a little while
+ago in my last Watson conversation video
+and now we're going to be incorporating
+context so it Watson actually knows
+about the pizza that you're building and
+is then able to send that pizza over to
+really any sort of a nodejs API so that
+they can actually request the pizza
+company to create the pizza for you all
+right
+let's actually do that now let's get
+straight to the knock part where I'm
+going to be showing you how to build
+that nodejs application let's go now
+shall we alright so welcome back to the
+Mac part and now we're going to be
+covering how exactly you can create this
+Watson conversation but so now remember
+the entire point of this Watson
+conversation boss is to essentially tell
+you the current hour and minute and of
+course say hello and goodbye to you and
+so let's begin shall we
+so you can see over here I've got a
+terminal window open right here at
+figure something agency oh and then of
+course over here on this side I've got
+the lots and conversation workspace open
+here so now let's actually begin by
+going over the Swanson conversation
+workspace it's actually quite simple I
+just have a by intent which has by
+goodbye I must go I will go now see you
+soon time has current time I eaten all
+the time please tell me the time time
+what's the time when is it and then of
+course greeting contains hello hey hi
+how are you how do you do nice to meet
+you now these are all the intents that
+we have in this application quite simple
+of course we have no entities because
+there's nothing complex that we're doing
+here but the dialogue is extremely
+simple as well we basically just have a
+greeting where Watson can respond with
+hello a by intent where wasps can
+respond with by I hope to see you soon
+and then of course we've got another
+intent which is okay if you want to know
+the current time and I currently have
+time meaning that the our context
+variable is greater than negative 1 and
+the minute context variable is greater
+than negative 1 now before I explain
+what that means that I know this is
+essentially a tutorial that will teach
+you how to actually use context with IBM
+Watson before I tell you how this know
+it works here let me show you a demo of
+this application in action so again this
+is coded in nodejs here so if I run this
+application as you can see I've actually
+salvaged some of this code from my
+Facebook live event with IBM so you can
+actually go check that up and check that
+out if you like there will be a link in
+the description now once more so it's
+essentially Watson says hello to us as
+you saw in this greeting node and then
+we can say to Watson hey what's the time
+Watson responds with the time is
+currently 2/3 one amp all right so now
+we can also ask you to tell us by and
+Watson says bye I hope to see you soon
+then you can exit the application
+and so that is essentially how this
+application works now as you can see
+that was actually the correct time over
+here if you look at the watch now one
+more thing to note here is that what's
+happening is every time you send a
+request to Watson whether it's saying
+bye or what's the time or anything you
+are sending the current time to IBM
+Watson ok in this current time is that
+used by IBM Watson to either give a
+response or it's just story ok and so
+essentially the point is here that let's
+just say I wanted to use this
+application do ring let's say I mean
+inside of this workspace ok so it says
+let's just clear this and so let's just
+say I say
+or hi in in this workspace it knows that
+this is a greeting intent and it says
+hello but let's just say I say what's
+the time it's going to give me an error
+okay or or let's just say sorry your
+application is not provided me with a
+current time the reason is because this
+workspace over here doesn't have the
+code that I've implemented in order to
+give Watson conversation the context
+which is the current time however over
+here are no js' application it is
+sending Watson the current time in the
+context and so Watson is able to parse
+that out give it to you as a response if
+you've asked for it and just because you
+don't work here let's take a look at the
+source code itself so once again as you
+can see quite simply just with any other
+you know just with any type of node.js
+application we are declaring our imports
+or requires and in this case we're just
+importing Watson developer cloud library
+we are also importing or we're actually
+defining the variable conversation which
+is equal to a new Watson conversation
+we're giving it the correct username and
+password we're giving a good version and
+a version date and this is where the fun
+part comes in so as you can see I'm
+actually declaring an object here
+okay this object is called context and
+inside of context of setting the hour to
+negative one and the minute to negative
+one this means that if Watson has have
+not been provided with the current hour
+a minute for some reason even though it
+should be then they will be negative one
+and as you can see from this node over
+here we are checking if these values are
+91 if they're negative one then we're
+going to say that sorry your application
+is not provided me with this information
+but if they're greater than negative one
+then we know that we can actually idiot
+we have this current latest information
+and we can give it to the user next in
+our nodejs application we've got a
+prompt function man this prep function
+again this is actually been taken from a
+stack overflow post and so there will be
+a link to this prompt function down in
+the description essentially what this
+allows me to do is just essentially ask
+the user for input and so essentially
+this will allow me to say okay let's say
+I want input from users
+you want some conversation as you can
+see I just say you as what I'm asking
+the user and then the user types in what
+they want to send to Watson that's
+simple but of course we've also got a
+time convert function again very very
+simple this is from a stacker or so I'll
+post the link to the stack overflow post
+will be in the description and this will
+essentially convert 24-hour time to a.m.
+p.m. time okay
+and this a.m. p.m. time is actually
+pretty important because of course I
+mean for this example I wanted to give
+you 24 I mean sorry 12-hour time not
+24-hour time and since no js' by default
+gives us 20 that 24-hour time we have to
+convert that to 12-hour so this is again
+just a very simple function
+not too much related to the core
+workings of this application or Watson
+context then we have one more function
+called conversation message which takes
+a message and so this is actually the
+core function that allows us to well try
+to use this application and so here we
+did good as you can see this logic over
+here basically gets the current date and
+it gets a 12 hour time format using the
+time convert function okay then in the
+context object that as you know we have
+set right here we are telling the hour
+to be we're just you know parsing that
+out of the T convert result and then of
+course we're setting the minute to
+another you know we're parsing out the
+minute from the Tekin result once more
+once that's done we're calling
+conversation dot message on this
+conversation variable that we had
+defined in the beginning of this
+application essentially this will be
+given a workspace ID some input which is
+your current message which was passed to
+conversation message and then of course
+the context and this context contains
+the I guess you could say well it's
+quite literally context that I need
+Watson should know to continue from if
+they're asked something related to that
+context in one of the dialog notes or as
+the intent and so once we've sent this
+request to Watson and we've given it the
+new context and the workspace ID and the
+input we wait for its response and if we
+got an error we just print out the error
+and continue but if we got our response
+and then we're going to print out this
+is what Watson said that we're going to
+parse out Watson's response and then
+we're going to ask for another prompt
+again our input is you we want the
+question to be you and so basically the
+callback is once the user has provided
+some input which is in this input
+variable we will call conversation
+message with that input which becomes
+undefined I type it will keep asking me
+questions
+you give Watson some input it'll give
+you output and it continues after that
+we set the context to the responses
+context but why we do this well
+essentially let's just say that in the
+dialogue note Watson had actually
+modified the context or there's some
+update in the context well in that case
+we want to set our current context to
+this new context in order to keep both
+applications in sync both Watson and
+ourselves and that is basically how it
+works and just to you know kick start
+the conversation we call conversation
+message with hi and that is basically
+how this entire application works in
+fact let's actually take a look at one
+more demo here let's just ask lots of
+what's the time bye or and as you can
+see it says the time is currently 247
+a.m. all right as you can see then of
+course it continues in that infinite
+loop it asks me for more input but what
+I can do is just ctrl C and exit that in
+finite loop now one more thing that's
+absolutely critical to understanding
+context with Watson conversation is how
+it's actually used in the dialogue so as
+you can see I'm in the dialogue pane of
+the Watson workspace here if I and if I
+click on this node which handles giving
+time to the user as you can see this
+note is triggered by if their intent is
+to find the time and if the our context
+variable is greater than night negative
+1 now you already know what the greater
+than negative 1 means great and negative
+1 is the default which means that at
+this point we do not have time if it's
+negative 1 ok
+but it's mo it is if you're writing from
+the node.js application with
+code then it's for sure that will always
+be greater than negative one
+we're spreading listen as a protective
+measure and so essentially what this
+means is as you can see over here if I
+just zoom in maybe a little bit yeah so
+as you can see I'm actually calling I'm
+actually getting this context variable
+with a dollar sign here now for an
+intent you put a hashtag symbol for an
+entity would put an at the rate symbol
+but for this context variable we're
+putting a dollar sign as you can see
+right at the source code here you can
+see in the context we're setting the
+variables hour and minute and that's
+what we're doing dollar sign our dollar
+sign minute those are our context
+variables and if you can say if you have
+these variables that means that Watson
+is getting this context correctly and of
+course we are checking if it's greater
+than negative one then we know in that
+case that we currently do have a time
+and in the response with the actual
+response here we can see that the time
+is currently and then give it the
+context variable per hour and the
+context variable per minute in order to
+give the user the current correct time
+and that is essentially how this entire
+application works and how Watson
+conversation deals with context of
+course thanks to Diane for sending in
+this question originally I hope this was
+able to help you out but of course
+that's going to be it for this tutorial
+all right so if you have any more
+questions suggestions or feedback please
+do feel free to leave that in the
+comments down below she emailed them to
+me at Teddy mini gmail.com or tweet them
+to me at Taji betty if you like you can
+also subscribe to the channel as it
+really does help out a lot and also like
+the video and share if you think it
+could help someone else you know
+alright so that's gonna get from this
+video today thank you very much goodbye

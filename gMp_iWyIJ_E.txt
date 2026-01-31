@@ -1,0 +1,391 @@
+so go there and welcome to another
+tutorial my name is Henry Bakshi and
+this time we're gonna be going over well
+searching through data sets and so this
+time let's just say we have a little
+data set with a few people's names or
+movies names or any data set now we want
+to search for something inside of that
+data sets now I already know I have
+associated visas part two on this which
+there will be a link to in the
+description but this time it's a bit
+different in Swift databases part two
+and also in this method I have my own
+little package where I just essentially
+keyword search meaning I take the thing
+that you're searching for everything
+inside of the data set and everything in
+the data set that contains what you're
+searching for will become result now I'm
+also doing it in this method but there's
+a catch I'm using a Levenstein string
+distance algorithm from a set of code
+org in order to rank those final results
+and give it to you in order of relevance
+and so what's essentially going to
+happen let's say you have a data set
+like something like test
+Frank and tester just to show you how it
+works now let's say you want to search
+for everything in this data set that has
+the word test in how would you do it
+first of all let's just say this is my
+function my search function okay now
+what you need to give it in is a data
+set and something to search or a search
+search word I'll just write that a bit
+better so you actually understand that
+so it needs a search word what you want
+to search inside of that data set and
+then this function will output a final
+array of results
+so let's say you were to input this data
+set into the search function this data
+set sorry and let's say you want to
+search for the word test so this is what
+we're searching for
+how would we do it inside of the search
+function now well first of all we're
+going to do is we're going to go into
+each keyword first of all we're going to
+rank will actually determine does test
+contain the word test yes it does so
+this is a successful candidate next does
+Tanmay contain the word test no it does
+not
+does Frank contain the word test no it
+does not
+does tester contain the word test yes it
+does now what can we do in order to see
+which one of these two elements is more
+relevant and so just as a little example
+I can also put the word testing and this
+would also be as well considered as a
+candidate because it has the word test
+in it now the thing is how are we going
+to rank each individual word well first
+of all we need to understand is we have
+to use the Levenstein string distance
+algorithm and again one more time this
+is from rosetta code org and there will
+be a link to it in the description and
+so what happens is the levenshtein
+distance algorithm will tell us how many
+characters at minimum we need to change
+in a string to convert it into another
+string for example if I wanted to do
+testing and test
+how many care Kurt sorry how many
+characters wanting to change in testing
+in order to get tests well we can easily
+see that if we were to remove in we
+would have test this means three
+characters removed that means it has a
+Levenstein
+score of three and this means that the
+more score it has the less likely it is
+the less score has the more likely it is
+and if it's a score of zero it's spot on
+accurate and so all we really need to do
+is create a dictionary first of all to
+actually an array in the dictionary an
+array that says okay
+there's test tester and testing so let's
+just write these down test tester and
+testing and then in a dictionary we all
+right there Levenstein scores for test
+it's zero for tester it's two and for
+testing is three we know it's two here
+because er removed that's two characters
+are moved and we get test three
+characters are moved and we get test now
+all we really need to do is rank the
+array actually sort the array because
+dictionaries can't be sorted they're
+just completely random sort the array
+depending on their actual dictionary
+values and that is least at the top most
+at the bottom and you're done display
+that in the UI tableview and you're done
+searching and so theoretically our app
+currently if we give it this data set
+and research for test it will give us
+these three results in this exact order
+so now that I've actually explained the
+algorithm to you why not actually go to
+the Mac part and show you the code
+a little demonstration and then there
+will also be source code if you want to
+check it out in the description yourself
+so without further ado let's get
+straight to the Mac part so welcome back
+to the Mac part now I'm going to
+actually give you a quick demo of the
+app then we'll go to the code of the app
+and see exactly how it works
+again we are using a custom string
+matching just a little if statement and
+then we are using the 11g I now agree
+them from rosetta code org which will
+rank our results by relevance so let's
+just search for as you can see quickly
+though I have a UI tableview with tons
+of movies names I have a little text
+view over here where I can search for
+movies so let's just say I wanted to
+search for the movie with the word
+sponge in it sorry sponge and as you can
+see it gives us the two results sponge
+on water and the spongebob squarepants
+movie and the thing is due to the fact
+that sponge out of water has sponge but
+very few other characters it's saying
+this is more relevant because it's
+mainly sponge however since the
+spongebob squarepants movie has sponge
+but a lot of extra characters saying
+maybe it's not that much sponge as it is
+others and so it's ranking that next
+after sponge out of water however if I
+were to search for something like the
+word thee as you can see lots of movies
+have the word D in it and it gives us
+all of these movies names next after
+thee is another feature this is case
+sensitive so if I put small T it gives
+us these movies because they have a
+small team with their look and so that's
+what gives us these movies and that's
+why first of all this is case sensitive
+it will rank by relevance as I said and
+it will use a custom search matching
+meaning all results must contain this
+word in order to be able to be ranked as
+a be made as a candidate and that was a
+simple demo and one more thing if you
+were to remove everything from the text
+view and click on enter it realizes that
+there's nothing
+the text view and just resets the entire
+thing okay so now let's actually get to
+the code of this app as you can see I've
+warped over here to the code let me just
+make this a bit smaller and move my face
+around I don't want my face to be that
+big and let's continue now so as you can
+see for the sole this is the UI over
+here
+and our main storyboard file right as it
+loads up sometimes Xcode takes a while
+okay so you can see this is a textview
+first of all pretty self-explanatory
+move this up a bit this textview will
+actually has a delegate to our view
+controller no referencing outlet because
+we really don't need it because when
+it's a delegate we can just say okay
+textview did return or it should return
+and it will give us the textview i mean
+field to get the text out of so there's
+no iboutlet required here however from
+the table view that's an entirely
+different story we have a datasource
+hooked up to our view controller
+delegate object to our view controller
+and a referencing outlet name table view
+hooked up to our view controller as well
+now comes the coding part of things so
+which is the harder part and before I
+explain this class or anything else that
+I'm doing here I just want to bring your
+attention attention sorry to one
+function called search it now first of
+all I don't need this code so delete
+this next continuing this is the search
+function you give it a list of strings
+and something to compare in that list of
+strings and it returns a list of strings
+that it thinks in relevance are
+potential things that the user is
+searching for and the way this works is
+first of all we're defining this levy
+I'm going to say this one more time is
+from rosetta code org a link will be in
+the description and possibly on screen
+right now continuing as you can see we
+are first creating our final
+stringer these are the final candidates
+which will be then ranked by our
+Levenstein this ins algorithm next what
+we're doing is we are looping through
+this entire list which is the list that
+you gave us which is the list of movies
+in this case and what we're doing is
+we're checking if the current element
+were on in the list contains the string
+that you're comparing to then append
+this into our finals meaning take as a
+candidate next create a finals int
+dictionary and so this is going to do is
+this is essentially going to say okay
+this candidate has a Levenstein distant
+score of this much and again as I
+explained in the whiteboard whiteboard
+part the lower the levenshtein distance
+score the better this result is meaning
+the less characters are going to change
+in a string in order to get a string
+that's why it's called the distance
+algorithm and then what we're doing is
+we're looping through our finals and
+we're saying okay in finals int set this
+candidate score to the levenshtein
+distance of compare verse that that
+specific candidate so we're getting the
+Levenstein distance of you what you want
+to compare and the candidate and putting
+it into finals int for that candidate
+next what we're doing is we're sorting
+finals in place finals not sort in place
+self-explanatory by finals int dollar
+mark 0 less than finals into dollar mark
+1 so this is doing is if this element
+the first element over here is smaller
+than the second element over here swap
+them meaning basically all the smallest
+elements will come to the top of your a
+and this way we are sorting our results
+by relevance and the
+that simple and then what we're doing is
+we are just returning our finals and
+that's how circuit function works very
+simple if you think about it and it's
+just taking a list and something you
+want to compare and returning an array
+of strings above what it thinks are good
+results that's what I was looking for
+results anyway continuing now let's just
+present that function isn't there it's
+already predefined
+even though I created it it's just there
+now now let's actually go into the main
+part of the code the viewcontroller
+class now we know that this is the class
+you controller which inherits from
+uiviewcontroller UI tableview datasource
+UI tableview delegate and even UI text
+field delegate this time so that we can
+actually get input from the text field
+and see when the user clicks on the
+return function next as you can see we
+have our IDL at for our table view we
+have our variable named data which has
+this list of movies we have our
+temporary data which will hold our
+search results for the UI tableview and
+then our just our normal view did load
+function in our text field should return
+function first of all let me just tell
+you we are just disappearing the
+keyboard if it's on
+if the keyboards up bring it back down
+force it back down on our view meaning
+self mute and editing true meaning force
+then what we're doing is we're checking
+if our text fields text is not equal to
+nothing meaning there's something inside
+of our text field and so this is going
+to do now is if this is true we will set
+our temporary data to the result of
+searching using our normal data and
+we're comparing the text fields text
+then we're reloading our table view and
+our table view will automatically adjust
+saying okay there's something inside of
+temporary data this means that instead
+of loading normal data I'm going to load
+temporary data and that's how it works
+however else if
+there is actually if there's nothing in
+the text field we're just going to blank
+out the temp data and reload our table
+you and it's going to say oh there's
+nothing in the temp data just use the
+data that's it and then of course we
+just returned true as we always do with
+text field should return then in our
+table view number of rows in section
+function
+we're just saying return and then an
+inline conditional and we're checking if
+the if temp - count is greater than zero
+meaning there is something inside of
+temp data then return temp data's count
+or else return data's count meaning if
+there is something in the search element
+use the search result if there is not
+then just use the normal data then in
+our cell for our index path function all
+we're really doing is we're taking our
+cell as a uitableviewcell
+setting it's text labels text to again
+an inline conditional we're checking if
+10 theta has something inside of it if
+it does give 10 data's index path row
+element or give data's index past row
+element if this inline conditional is
+false then we return the cell and then
+we finish our table view once it is all
+done and so next what we're doing
+actually it's pretty much it so let's
+just revise here because that was a bit
+quick first of all we have a textview
+the delegate is set to the view
+controller when you enter something
+inside of it we're using the circuit
+functional which i've explained on the
+whiteboard and over here we're using our
+movies ArrayList we are comparing and
+we're giving it to compare the stuff
+that you entered in the text field then
+we're reloading our table view meaning
+put the search results then once you put
+nothing into the text field it'll clear
+out the search results then reload our
+table view so that it refreshes the
+normal data back in and that is the
+simplest explanation possible
+explanation possible for this search bar
+and again I got this levenshtein
+distance algorithm from rosetta code org
+there will be a link to it in the
+description below and that was actually
+pretty much it
+again this is an extension to Swift
+databases part two and because there I
+did explain a quick search bar but this
+is just extending off of that and making
+the search bar much better in the other
+search bar I just compared here I'm
+comparing and ranking and that's pretty
+much it for this video again
+if you like this video or it helped you
+in any way please make sure to like this
+video and again if you're new to my
+channel or you like my cotton you want
+to see more of it please make sure to
+subscribe to the channel
+it does help out and apart from that you
+can even follow me on at tad Jimani on
+twitter my twitter handle will be in the
+description below if you can't spell
+that you can leave comments down below
+for any questions ideas tips app ideas
+science math pretty much anything you
+can even email me at admin at gmail.com
+with any of these stuff i just said or
+even a video question of you saying
+something and I might just feature it in
+my next video and that's going to be it
+goodbye

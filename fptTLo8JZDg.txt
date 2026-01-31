@@ -1,0 +1,605 @@
+so hold there and welcome to another
+tutorial
+my name is Tenma Bakshi and today we're
+going to be going over how you can train
+your own word vectors with Facebook's
+fast text library let's get started now
+first of all what are word vectors now
+work vectors are related to the field of
+natural language understanding and
+natural language processing in essence
+they enable you to represent words in a
+mathematical vector space so you can
+actually quite literally represent the
+semantics of different words instead of
+the syntactic s-- using well mathematics
+enabling you to take abstract concepts
+like of course natural language and what
+we mean by it and represent it in a
+fixed dimensional vector space I know it
+sounds very confusing but let's go ahead
+and take a look at an example of word
+vectors in action now first of all how
+would you traditionally do natural
+language processing let's just say that
+word vectors don't exist so let's go
+even take a look at an example and let's
+just say we wanted to build a spam
+classification system how would we do it
+well you might take a few different
+messages alright and you might take a
+look at all the different words there
+are in those messages and then you
+create a unique list of all those
+different words so basically every
+single possible token in those words and
+if well you have a token that's not in
+that set and you consider it out of the
+Cabul Erika Wolvie now in order to
+represent this data for neural network
+of course you can't feed in characters
+so you would need to one hot and code
+your entire vocabulary so let's just say
+you're working with spam and you've got
+a twenty thousand words okay so you've
+got twenty thousand words now let's just
+say we're working with a regular old
+dense neural network your multi-layer
+perceptron we're not working with any of
+the fancy long short-term memory neural
+networks or anything of that sort now
+let's just say in the inputs and of
+course this is not going to work very
+well but let's just say you had a neural
+work similar to this one where you have
+20,000 inputs and your very next layer
+has even say seven hundred and seven
+hundred seven hundred units now if you
+want to take a look at the amount of
+connections between twenty thousand and
+seven hundred that's not very scalable
+that is not going to work well because
+you've got way too many weights just
+between the input and your first layer
+you're not going to be learning anything
+nearly useful and it's gonna take a very
+very long time to Train
+you're gonna need intense regularization
+techniques there's intense chanting
+chances of overfitting and overall it's
+not a very good technique so you need
+another way to represent your input and
+of course instead of representing it
+syntactically like you are now
+individual words you somehow want to
+represent it semantically as to what the
+words actually mean instead of well
+which words they are let's take a look
+at how you can do that now of course
+we're gonna be using neural networks so
+let's take a look that's the word
+vectors Inc the word vector technique
+essentially enables neural networks to
+understand what certain words mean by
+understanding what words come before and
+after it as john rupert first said for
+example he's a very very famous linguist
+from a few decades ago he said you can
+understand a word by the company that it
+keeps now we're gonna be doing something
+similar to what he entailed but this
+time with machine learning so let's take
+a look at a simple sentence so let's
+just say Tami back she is recording a
+YouTube video
+actually let's continue the sentence for
+is channel alright
+now you take a look at this sentence how
+can you understand what all the words in
+this mean now let's just say we were to
+take a look at a simple task same next
+word prediction or context prediction
+now let's just say we take a look at the
+word back sheet can we train a neural
+network to predict the word that came
+before it and the words that would come
+after it that's what the word Tyvek
+technique entails but I know what you're
+thinking how would that be anywhere near
+accurate you could have tons of things
+before and afterwards well the
+interesting thing is due to the way that
+neural networks learn we're not
+interested in the final output at all
+we're interested in the way that the
+neural network got to that decision let
+me tell you what I'm talking about so
+let's just say you have a 20,000 local
+area size huh so you've got 20,000 words
+in your data set now let's just say you
+fed them into a neural network where the
+next later was 300 units long that
+outputs back into a 20,000 long you know
+it sounds pretty pretty interesting
+doesn't it how we have a neural network
+that inputs 3,000 3,000 vital item
+auto-encoder at first but it's not we're
+gonna have different inputs and
+different outputs now this is the way
+it's gonna work all right we're gonna
+define something called a context window
+which is how much before and after a
+certain word the neural network should
+look for to make its predictions now how
+big or small this is totally depends on
+your domain if you're doing something
+like for example by the recommendation
+you might want to have a really big
+context window size because then you're
+actually understanding the patterns
+between a word and
+things that come before and after it if
+you're doing English you might just have
+a context so we no signs of to because
+if there's something occurring over here
+it's not related to Bakshi you don't
+want to have that big window size but if
+there's something over here actually
+recording are related because I'm
+recording a YouTube video so it's
+important to have the right context
+window size or your neural network
+therefore your Warren factors won't
+really learn anything interesting let's
+go ahead and let's just say our context
+window size is 2 all right
+and again our word here is Bakshi now
+let's go back to words of course there
+are no two words it's just one word so
+we take a look at Taman we highlight
+that now it's looking ahead two words
+what are the two words as is and this
+recording we highlight those words now
+there are two ways we can go forward
+either we can create three training
+examples
+we're back she's the input Tam is the
+output then back she's the input and
+eases the output and then thatch is the
+input then recording is the output
+alright so for one of the same inputs
+the output layer will have to fit it
+will have to fit to three different
+outputs which of course will never give
+us high accuracy but again we don't care
+about this last layer because when we're
+done training the neural network or may
+erase this all together we're gonna feed
+him every single one of the possible
+inputs and after that we're gonna get
+the in coatings for every single one of
+those inputs at the neural network
+learned but still let's get back to that
+in just a moment now that's one of the
+options you've got a back she tell me
+back she is back she recording or what
+you could do is you can say Tanmay back
+she is back cheap recording back she so
+you can flip it around if you do that
+sheet and then Tammy that's called the
+skip grandma now these are usually known
+to work better but if you were to do the
+other way around where you take the
+context and predict the word that it's
+coming from that's called a continuous
+bag of words model which is also good
+but it's not nearly as good as skip gram
+however the fast text API allows you to
+actually use practically any
+the model you want you can adjust all
+your parameters yourself if you'd like
+to I would recommend skip Graham for the
+majority of the things you would want to
+do when it comes to natural language
+processing now similarly you're going to
+go ahead and loop through the whole
+sentence and every time they're gonna
+love two words back and two words to the
+front you're gonna add all that to your
+training they're depending on skip
+grammar continues bag of words with
+Steve al and then you're gonna train
+your girl network on those examples now
+again you trained internal network don't
+get a low loss but your accuracy will
+not be great
+don't worry though why because the final
+classification where you've got soft max
+you're gonna be erasing that altogether
+then what you're gonna do is one by one
+you'll take your one hot encoded inputs
+and they're gonna run through them and
+collect an umpire array of shape
+twenty thousand all right for the sake
+of clarity let's just make it twenty
+thousand three hundred so basically are
+gonna have 20,000 arrays of three
+hundred lengths each now at least three
+hundred will represent the actual
+encoding that the neural network gave
+you now the interesting part with this
+neural network you can or with the
+encoding that the neural network
+provides you can actually interpolate
+between different words or rhythmically
+so you can actually with arithmetic
+do operations on certain birds so for
+example let's just say you have the word
+King all right now let's just say you
+wanted to find out King in relation to
+another word some sort of analogy let's
+just say you were to take the vector for
+King that this neural network outputs of
+three hundred lengths back and if you
+were to negate the vector of the word
+man and then add in the vector of the
+word woman what would the up would be as
+a human you can intuitively tell that
+this should be equal to queen of course
+that's
+what makes most sense here but this can
+now be done with a computer because
+you're not understanding these words
+syntactically you're understanding them
+semantically by understanding the
+contexts in which they're mentioned with
+other words through a neural network now
+of course I do know that just a little
+while ago I told you that if you
+wouldn't have a neural network where you
+have 20,000 inputs and then 300 hidden
+nodes you're gonna be prone to
+overfitting but in this case it really
+doesn't matter as much as you may think
+because again all we're doing is we're
+getting the final encodings or the
+embeddings and then their own network
+provides new we don't really care but
+whether overfits
+on certain categories or not and so that
+is exactly what i'm gonna be showing you
+how to do today of course there are some
+limitations to word vectors like for
+example let's just say but there's a
+certain word that's not in the
+vocabulary but still makes sense to
+humans of course you could take any word
+and prepend um or append towards the end
+ly you eventually come up with a word
+that makes sense to humans intuitively
+but the thing is of course the computer
+wouldn't because it's not in this twenty
+thousand list there's nothing to feed
+into the neural network to get that
+little bit output and so the fast text
+library doesn't exactly use this
+algorithm this is the original word
+Tyvek algorithm fast text uses a
+modified version and it is very very
+fast and I mean it can train word
+vectors in seconds instead of hours and
+so what they do is this really
+interesting Engram technique so for
+example let's just say you were to begin
+the word let's go towards the bottom
+here let's just say you were to feed in
+the word matrix it's actually going to
+take a look at the mate at the word
+matrix like this and a and a T 8080 our
+TR TR I RI RI
+I'm sorry it's gonna sort of go through
+this using an Engram technique and then
+it's gonna feed all of these into its
+own little system where it's gonna
+calculate these word vectors so if you
+have something that's not you're not
+necessarily in vocabulary but still
+makes intuitive sense you should be able
+to come up with a word vector for that
+word is that's why the fast text library
+is so intriguing been developed by
+Facebook research now let's take a look
+at how you can go ahead and implement
+your own word vectors and I'm actually
+gonna be using an interesting data set
+it's provided by Stanford and it's
+actually supposed to be used for neural
+machine translation it contains
+approximately 4.5 million sentence pairs
+it was German but we're gonna be
+ignoring the German one for now because
+we only need English word vectors from
+there there are over 120 million
+individual words in this corpus let's go
+ahead and find out how we can train
+weren't vectors using this change
+alright so welcome back to the code part
+now let's take a look at how you can
+actually implement word vectors with
+fast text now remember the whole reason
+that this is called fast text is because
+well it lets you train word vectors
+without needing to worry about spending
+time on well your word vectors so
+instead of for example creating an
+embedding layer in Karass and then
+having to train that with the rest of
+your neural network you can take these
+pre trained embeddings from fast text
+and implement them in your cross model
+or any other machine there's a model for
+that matter or even process your data
+beforehand and then feed it directly
+into your model now in this directory
+I've got three different files these two
+are a pre trained model that have
+actually gone ahead and trained myself
+and this is the data that we're using to
+Train so if I go ahead and take a look
+at the data here open it up with vim is
+you can tell the data is well there's a
+lot of it if I were to in fact go ahead
+and show you the word count or the line
+count here it tells me that there are
+four million four hundred and sixty
+eight thousand eight hundred and forty
+four sentences in this document now if I
+were to go ahead and
+for example ahead of this document this
+is this is just a few of the samples of
+what's in the document now of course it
+isn't meant for neural machine
+translation so there's a lot of
+pre-processing
+in here so for example there's a space
+before before spam here and before after
+the bracket and so if I were to go ahead
+and make that a bigger for you you can
+tell that there's a lot formatting but
+fast text would automatically take care
+of all the pre-processing that's
+required now in order to train that your
+word vectors there's just one very
+simple command you need to run fast text
+skip Graham to train a skip Graham model
+pass it the input which is of course
+your file with all your words and then
+output to whichever model you want I've
+already trained this one so let's output
+to model number two and it's gonna start
+off by reading all the millions of words
+in your document now the specific one
+that I fit in there will be a link to
+this document in the description has
+approximately 120 million words but
+still though fast text is capable of
+training word vectors on this data in
+under 10 minutes easily whereas lots of
+other techniques would take an hour so
+to to complete as you can see it gives
+you detailed statistics including the
+learning rate of the neural network of
+the time how many words are being
+processed every second on every thread
+and so there should be like eight
+threads running on this MacBook Pro and
+therefore we're getting around 70,000
+per thread but it's slowly going up
+until it reaches sort of a is row
+plateaus it also shows us the lost value
+remember the less here the better over
+time this is gonna go down or up slower
+because the learning rate is decreasing
+linearly it also gives you an estimated
+time of arrival so currently it's around
+ten minutes and it also gives you a
+progress of course you can control how
+many epochs it actually completes in in
+settings as well but by default even the
+fast text models do give you very good
+accuracy so let's go ahead take a quick
+break
+and let's see in the next ten minutes if
+we get good word vectors from fast text
+you
+all right so we're almost done training
+here and 99.9 percent and 100 percent
+there we go so as you can see at the end
+the learning rate was exactly zero so
+that of course goes down linearly from
+0.04 to zero those words per second per
+threat through the whole training
+session was eighty four thousand two
+hundred and forty one and the final lost
+value was 0.76 thirty three now it's
+gonna go ahead and save the weight of
+course the total number of words that
+were actually finally that the neural
+network was trained on was under than
+eighty five thousand three hundred
+eighty five but now I we're ready to go
+ahead and actually use our word vectors
+so let's go ahead and run the following
+command I'll tell you what it does in
+just a moment now the following command
+is gonna do this it's gonna run n n
+which a specific function of fast text
+it's called a nearest neighbors function
+and I'm gonna pass it the the model that
+we just trained en de model to dot BIM
+and it actually saves two files the dot
+vector and the dot bin file however the
+dot bin file is what fast text generally
+uses in the dog fecfile is what you're
+probably gonna use in your applications
+if I run this it will actually go ahead
+and initialize the nearest neighbor
+interface the nearest neighbor tool
+allows us to see which words are closest
+to another word in the whole vector
+space so let's go ahead and try it out
+say for example I type the word King
+what's closest to the word King it's the
+word Queen and throne King Kings Thrones
+dethrone Prince Duke Kingdom and Emperor
+as you can see the neural network has
+picked up a very good semantic
+representation of the words and what
+they truly mean similarly a poor solder
+to type in Queen it would tell me that
+King is the most related word in this
+sense of course I can go ahead and
+actually take a look at other words in
+fact if I wanted to I could go ahead and
+actually do some word analogies so now
+I'm gonna pause really quickly open up a
+new Python script and show you how you
+can actually calculate word analogies
+all right so now this color that you see
+on screen right now will allow us to
+figure out the analogies between
+different words let's take a look
+now this code over here essentially
+starts off by importing
+numpy CSV sis or system and cosine from
+Sippy spatial distance essentially this
+will enable us to figure out the cosine
+distance between two different vectors I
+start off by importing the neck file
+that I was talking about of course the
+delimiter in this case is a space since
+it's not a CSV file but we are still
+using the CSV library in order to read
+the file I can rip that to a list from a
+generator and then I do a quick list
+comprehension and basically what this is
+gonna do is it will remove the first
+element of the whole array and from
+every sub element it'll remove the last
+element and so if I were to go ahead and
+show you over here if I were to open up
+the vector file as you can tell the very
+first line is essentially how many words
+there are and the dimension of the word
+vectors and then you've got that in
+every line the word and then a space and
+then a hundred numbers each delimited
+with spaces if I were to go to the end
+of this there is one extra space at the
+end and therefore Python says that
+there's an extra value at the end even
+though they're technically isn't or
+practically isn't technically there is
+and so basically we need to remove this
+extra space and after remove this which
+is what the list comprehension is going
+to do for us after that there are just
+two more list comprehensions first of
+all I create an array of all of the
+words so basically the first element of
+every row and then I create the actual
+vectors which is the the second element
+on words converted to floats and then I
+just go ahead and put those into a
+dictionary so every key is a word and
+the values are integer or float arrays
+that describe the vectors themselves now
+after that I create three different
+numpy arrays a B and C so basically I
+take the word vector for the first
+parameter that you fed into the Python
+script and the second parameter than the
+third parameter and then I take those
+word vectors and I convert the
+to numpy race so to give you an idea of
+what that means if I were to call Python
+analogies dot p op py with King man
+queen or king man woman what it would do
+is it would set a to the value of Kings
+vector B to the value of man's vector
+and then C to the value of woman's
+vector but let's go back to the the
+script for just a moment
+so after that I go ahead and create the
+actual final vector which is the
+calculation so a minus B plus C's the
+analogy vector and then I go ahead and
+put a little bit of logic in to figure
+out which vector is the closest in the
+data set and so I just create the
+closest word closest score and then I
+loop through the word vectors I've
+calculated a distance and if the
+distance is less than the current
+closest score and if that word is not
+any of the things that you typed in then
+go ahead and set in this current
+distance the closest one I've set the
+current word to the closest word and
+then go ahead and print out that closest
+word it's essentially very very simple
+script it's not necessarily optimal in
+any way
+there are definitely better ways more
+efficient ways you can implement this
+but that's that that's how this one
+works for now so I'm going to go ahead
+and run this quick script and if it
+works we know we've created true
+semantic representations of natural
+language give it just a moment and if it
+says final word Queen we're good to go
+it's gonna take King negate the man
+representation add woman and any moment
+now close yeah again they're much more
+there we go it says final word Queen and
+just like that proves that we've got
+true semantic vector representations of
+natural language now of course there are
+many other ways we could do this there
+are tons of other libraries out there
+there are pre-trained word vectors out
+there for a lot of use cases it's good
+to get your own word vectors and for
+some use cases like for example product
+recommendation your own word vectors are
+absolutely priceless alright so that was
+a quick tutorial on how you can use
+Facebook fast text to train your own
+word vectors on your own domain or your
+own language I really do hope you
+enjoyed that tutorial thank you very
+watch everyone for joining in today
+that's what I had for this tutorial if
+you'd like to find out more please do
+take a look at the code down in the
+description below apart from that if you
+do have any more comments suggestions or
+feedback feel free to leave them down in
+the comments section below
+apart from that if you do believe this
+tutorial could help anyone else you know
+like your family or friends feel free to
+share the video as it does help out and
+also feel free to leave a like down
+below if you did like the video parking
+that if you really do enjoy my content
+you want to see more of it feel free to
+subscribe to the channel as it really
+does help out a lot and apart from that
+turn on notifications if you'd like to
+be notified whenever I release new
+content so thank you very much for
+joining today that's what I had for
+Facebook fast text and word vectors good
+bye

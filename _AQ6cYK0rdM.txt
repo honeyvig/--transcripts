@@ -1,0 +1,237 @@
+in 2021 competitive programming seems to
+be the center of attention for young
+developers and students alike whether
+you're attempting to refine your
+algorithmic thinking skills or preparing
+to pass a job interview websites like
+leak code and hackerrank provide a
+platform for you to do so but is
+competitive programming really all it's
+cracked up to be does it genuinely
+provide valuable insight into for
+example the skill of a candidate for a
+job can it help you learn to code better
+as with everything the answer is nuanced
+there's no binary yes no response to
+this question but before you set off on
+your journey of grinding through every
+single leak code problem there are some
+things you should keep in mind about the
+efficacy of these techniques and
+similarly from the perspective of
+employers before you set off on making
+competitive programming the focal point
+of your interviews with candidates make
+sure you understand what your objective
+is first
+let's start with something simple how
+did we get here in the first place why
+does everybody seem to be using
+competitive programming as a benchmark
+see the thing is companies like amazon
+and google rely very heavily on this
+deep mathematically based programming
+knowledge to build their products think
+about how google can return 1.6 billion
+search results in 0.8 seconds that
+requires a lot of data science and
+algorithms on both the hardware and
+software level and while code
+optimization is always a plus the kind
+of skills they're looking for is
+complete overkill and most algorithms
+aren't even used in the real world
+anyways
+remember that a good modern developer
+needs to strike a balance between
+modular human readable code and
+efficient code programming languages and
+hardware have come a long way from the
+days of oh yesteryear and we no longer
+need to develop a brand new way of
+calculating the inverse square root of a
+number we could just call the square
+root method from the math library and
+inverse it
+of course this isn't to say that we
+shouldn't be developing new algorithms
+and exploring the math behind computer
+science take it from me i have a degree
+in mathematical science specializing in
+data analytics and computer science we
+absolutely should but remember that not
+everything has real world applications
+no matter what industry you're in it's
+generally bad practice to start with the
+solution and try to fit it to a problem
+rather than starting with the problem
+and developing a solution
+in this case it's bad practice to try
+and force algorithms in the use of
+certain data structures into your code
+to solve a problem when the problem can
+be solved in a much simpler way with
+minimal performance impact
+remember incorrectly using an algorithm
+or forcing complex data structures into
+your program can actually slow down
+performance if your program isn't large
+scale enough
+that is because the entire reason we
+invented high-level programming
+languages is due to the fact that the
+vast majority of all the code we write
+does not need to be high performance
+hardware these days is fast enough that
+with modern advanced compilers much
+simpler versions of code can only make
+an extra few milliseconds which does not
+affect the user experience at all
+therefore applying more complex data
+structures and algorithms leads to
+higher development cost higher
+maintenance costs greater surface area
+for bugs and often larger execution
+times because of the way the code may
+run at large scales it simply just does
+not justify the extra complexity that's
+not to say it's all bad though there are
+some reasons that these platforms are
+effective even from the perspective of
+education now remember that especially
+in the world of tech practice and
+experience is everything you can't learn
+everything from reading books or taking
+courses the vast majority of what you
+know will come from the projects you
+build and the code you write therefore
+platforms that enable you to get
+problems write code and be automatically
+tested to ensure the correct working of
+that code can help you practice your
+coding skills and gain new knowledge
+however this is where the pros end and
+the cons begin see while competitive
+programming problems may help you
+practice your coding skills as we
+mentioned before a lot of these problems
+are not code-centric rather they're
+focused on very specific algorithms and
+mathematical solutions to problems
+therefore a lot of different problems
+end up having effectively the same
+algorithmic solution with a different
+front-end or use case tied on top of it
+the problem is that after a few
+challenges you stop learning any new
+code or technology concepts it becomes a
+cycle of simply saying which of the few
+techniques that i've learned am i going
+to rewrite to solve this problem
+this also means that what you end up
+training yourself to do is to solve
+these very narrow specific problems that
+all have a few fundamental solutions as
+quickly as you can without regard for
+the quality of the code that you write
+as long as you can pass all the test
+cases within the time limit that you're
+restricted to by the platform
+now some problems are better than others
+when it comes to this take for example
+this problem longest substring without
+repeating characters
+you can solve this problem multiple ways
+and in practice the challenge is not
+only solving the problem but
+implementing a solution that makes sense
+in context here's a solution that i
+built it works by having a pointer to
+the start and end of the current
+substring we're evaluating and moving
+the start of the substring just ahead of
+the first occurrence of any character
+that we see a duplicate of
+every time we have to move the start we
+check the length of the current
+substring and at the end we return the
+longest length this algorithm is
+effectively o of n and runs incredibly
+efficiently between 7 and 20
+milliseconds on leak code now here's a
+solution my friend built this one works
+by manually looping through and building
+all possible substrings that don't
+contain repeating characters this one
+runs between 200 and 400 milliseconds on
+leak code
+however the answer isn't as cut and dry
+as my solution was better because it ran
+faster for starters mine took longer to
+write and is fundamentally more complex
+to understand the logic of and here's
+the worst part once again no matter the
+quality of your code the result that you
+get if you pass is the same in my friend
+solution for example we have stylistic
+inconsistencies as well as a situation
+where we allocate more memory on the
+stack than we actually need to in this
+case because those issues didn't
+interfere with the result of the code
+leeco doesn't care
+however in the real world once again
+these kinds of problems can cause all
+kinds of disruptions from making code
+messier to introducing security
+vulnerabilities and code that could rely
+on undefined behavior within lower level
+tools
+finally it's really important to
+remember that what you see on leak code
+is really just a fraction of what
+developers are responsible for in
+reality a majority of time as a
+developer is spent understanding other
+people's code digging through github
+repositories to find what you're looking
+for and implementing infrastructure to
+enable these algorithms that you build
+to tie into larger workflows and then
+deploying the code that you write
+judging people's technical skill by how
+fast they can solve a competitive
+programming problem doesn't tell you how
+well they'll perform as a developer
+it's like saying an olympic swimmer
+would make a great captain in the navy
+yes being able to swim is a good trait
+to have in the navy but it's an
+incredibly different domain and the
+responsibilities you'd have spent a much
+broader scope
+on the same lines practicing code by
+solving competitive programming problems
+will only help you gain that niche
+mathematical and algorithmic knowledge
+that makes up the tiny fractions of code
+that generally aren't what you'll be
+working with in practice to begin with
+the best way to learn how to code is to
+build think of other applications that
+you use that you're fascinated by or of
+problems that you haven't seen solutions
+for that you like and attempt to solve
+them yourself going through the entire
+life cycle of developing a software
+project will really push you to learn
+new technical concepts in a well-rounded
+way i hope you enjoyed this video if you
+did please do make sure to leave a like
+down below subscribe to the channel and
+turn on notifications so you're notified
+whenever i release content just like
+this if you have any questions feel free
+to leave it down in the comment section
+below and once again thank you very much
+for joining

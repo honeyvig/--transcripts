@@ -1,0 +1,285 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is tamy Baki and this
+time we're going to be going over how
+you can use mongod DB with Parson more
+specifically how pars is able to use
+mongod DB as a database backend and keep
+a really nice and simple to use
+interface for developers and database
+owners so let's take a look at how this
+works now one of my subscribers actually
+originally sent in this question so now
+I'm creating this video so I'd like to
+say a big thank you to him who actually
+sent in the question all right so let's
+begin now what I'm going to do here is
+um in case you didn't already know now
+I'm I'm assuming that you are already
+familiar with the parse server uh and
+you used it before uh but now I'm going
+to show you how it actually works in the
+back end uh and what happened is the
+person who's actually sent in this
+question uh he was actually uh wondering
+exactly how parse is able to use mongod
+DB as a backend and how that comes into
+play when we're hosting a custom parse
+server so let's take a look at how that
+works it actually all begins begins with
+the actual par server itself uh and
+there are actually two pieces of
+software that pars has made available to
+the public
+uh and I don't want you to get confused
+between these uh because there are two
+really distinct types of software first
+of all the parse dashboard and the parse
+server now let's take a look at this
+first of all let's just say that we've
+got a mongod DB back end okay so this is
+our back end and this is what's actually
+storing our data and it's called mongodb
+okay it's a nosql setup basically uh
+it's based off of the nosql
+environment uh now part from mongodb of
+course we've got part and under parse
+we've got two categories as I said we've
+got the parse server uh and so I'm going
+to say
+parse
+server okay uh and apart from that of
+course we've also got our parse
+dashboard so we can just write that here
+so we've got our
+parse
+dashboard okay
+now let me explain exactly how all of
+this comes into play now the par server
+uh is basically this uh interface okay
+and basically what we're doing what our
+Point our goal is is to make mongod DB
+accessible and easy to use for everybody
+whether that's someone who's going to be
+taking a look at the database internals
+uh and see how everything's going on
+inside the database the the actual data
+in the database they want to simple to
+use interface like I mean just for
+example PHP my admin uh to actually see
+what's in the database and do stuff with
+it uh and also for developers who are
+actually incorporating into their
+applications we want a simple to use and
+easy interface for all of those people
+and so that's why we have two separate
+pieces of software the par server is is
+basically going to make it easy for
+developers to have their own uh sort of
+interface for mongod DB through things
+like iOS Android Java c node.js a
+variety of different languages lots of
+different languages even go uh and the
+parts dashboard is going to be this uh
+web interface where you can take a look
+at what's inside of your database uh and
+actually uh work accordingly now let me
+explain how this actually works but
+let's also just say that we've got your
+application or the code that's using
+your mongod
+DB
+now okay so this is your application
+here
+now let's just say we've got application
+number two as well this is really going
+to help me drive across the
+point Okay so we've got application and
+application
+to now the first thing I'm going to take
+a look at here is par server mongodb now
+the point of parse server is to be able
+to have this little communication
+protocol to and from mongod D oh sorry
+uh so basically we're GNA have this
+little communication protocol between
+par server and mongod DB and the way
+this is going to work is through a
+regular mongod DB connection just like
+how you would implement it in your
+applications and so of course the mongod
+DB can communicate back to pars as
+well now the parse server will provide a
+rest API and that rest API can then
+really easily be used with mongod DB and
+this will also uh this will also sorry
+with with mongod DB and the rest of your
+applications here and this rest API has
+a few credentials as well such as the
+API key and the master key oh sorry the
+app key and the master key but I won't
+be getting into how those work just yet
+that's a topic for a different video uh
+but let's just say the par server has
+this really neat rest API that you can
+use to contact mongod DB however what
+happens is let's say this is an iOS
+application this is a node.js
+application what's going to happen is
+let's just say for example um you don't
+want to use the rest API which uh
+sometimes you don't want to uh you want
+to have a really simple interface uh and
+the way you can do this is by using the
+language sdks that pars actually
+provides by default for many different
+languages including node.js and Swift
+for iOS uh and so what can happen is
+let's just say you've got your iOS
+application what happens is instead of
+using a really
+difficult connection from IOS to mongodb
+it becomes a lot more simple if you were
+to just have one
+connection and this is in this case your
+sorry language SDK uh and this language
+SDK will then in turn communicate with
+your par server which will communicate
+with your mongod DB instance uh get
+retrieve delete update data do anything
+you'd like to and of course we'll keep
+returning the results back to you it's
+basically as if the application doesn't
+care about what this is doing it just
+imagines that there's this big database
+here but par server isn't actually your
+database it's your communication
+protocol
+basically okay so once you've got that
+done then let's take a look at parse
+dashboard and then I'll get into
+application number two now the parse
+dashboard is this really simple to use
+interface just like PHP my admin to
+basically uh administer your database uh
+and to take a look at what's inside of
+your database to update rows to add
+tables uh to add rows do a lot of
+different type of stuff uh and so the
+parse dashboard is actually basically
+this UI that's built on top of the parse
+server again it's built in node.js
+and of course what's happening is it's
+using that node.js language SDK for
+parse and it's able to communicate with
+a parse server of your choosing and it's
+able to show you your data but now comes
+in the interesting
+part mongod DB in the second application
+now let's just say that you've hired a
+developer and that developer doesn't
+have any experience of using the par
+server but that developer has experience
+using
+mongodb now what can happen is your
+application here application number two
+which is your node.js application your
+developer doesn't know how to use parse
+with with node.js only knows how to use
+a mongod DB connection but then you're
+like oh wait what do I do now well I
+can't use parse but we're using parse
+what do we do hire you developer
+no now since par server is basically
+this this stack sitting on top of mongod
+DB this little uh this uh development UI
+basically I like to call it uh and
+what's happens is your second
+application can actually directly
+communicate with mongod DB and what'll
+happen is those changes will actually be
+shown across whatever par server is
+doing the reason I'm saying this is
+because okay let's say you've got a
+mongodb instance uh and you register a
+new user through application number two
+that data goes directly through to
+mongodb it does not go through the part
+server into mongod DB because if you if
+you think about it this is what's
+actually storing all of our data it's
+not doing any processing all this is
+doing is it's taking the data and
+storing it the rest is all interface the
+rest just makes it easy to work
+with and that is exactly how this works
+and that is what the actual relationship
+is between the parse dashboard and
+mongod DB and of course the par server
+and mongod
+DB one more thing I'd like to note here
+though is that of course these two are
+basically server software serers side
+software so they have to run on ports
+like for example I don't exactly know
+what the default Port is uh but like for
+example this could run at 4,000 and this
+could run at oh I don't no maybe 3,000
+really whatever it is some sort of Port
+that these are going to run on and the
+rest will be able to communicate through
+that web uh through that web interface
+and through that web
+API all right so that's exactly how
+Parts both the parse server and the
+parse dashboard are able to use DV
+to store information and make your life
+working with databases much much easier
+in fact if you haven't already heard
+about the par shutdown for some reason
+uh pars has has completely shut down now
+uh at least the services that they
+provide like uh hosted hosted par
+servers uh but what they've done is
+they've made parse server and parse
+dashboard open source so that's why I
+keep on emphasizing that you can
+actually connect these to your own
+mongodb instances and you can actually
+use your own uh sort of like servers to
+host these although there are other
+hosting services available for pars and
+there will be some links to them in the
+description all right so that's going to
+be it for this video thank you very much
+for watching and and I really hope this
+was able to solve my subscribers
+question all right so thank you very
+much for watching today if you like the
+video please do make sure to like the
+video down below and if you think you
+could help anybody else you know like
+your family or friends please do
+consider sharing the video as well of
+course though if you have any more
+questions feedback or suggestions please
+do feel free to leave them down in the
+comment section below email them to me
+at tajim Manny gmail.com or tweet them
+to me at tedim Manny and if you didn't
+get that there will be my contact
+information in the description below of
+course so if you really like my content
+you want to see more of it please do
+make sure to subscribe to this YouTube
+channel as well as it really does help
+out a lot and if you would like to be
+notified whenever I release new videos
+or content what you can do is actually
+go to the subscription uh button and
+click on the Bell beside it and you can
+enable notifications so you're emailed
+and notified on YouTube whenever I
+release new content all right so thank
+you very much for watching today that's
+going to be it for this tutorial goodbye

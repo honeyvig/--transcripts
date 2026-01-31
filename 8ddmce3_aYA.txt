@@ -1,0 +1,613 @@
+in this video you're going to learn how
+you can use the power ai vision toolkit
+this toolkit allows you to build deep
+learning systems with ease without
+having to worry about any of the
+architectures code or even underlying
+infrastructure
+best part is that you don't even need to
+worry about getting the toolkit set up
+because the nimix cloud platform allows
+you to spin up an instance of power ai
+vision on the hardware of your
+preference instantly
+so hello there and welcome to another
+tutorial my name is tanya bakshi and
+this time we're going to be going over
+how you can use the power ai vision
+platform on nimbics in order to create a
+cat dog classifier neural network now
+this is very interesting essentially
+what we're going to do is we're going to
+train out an entire neural network
+system and deploy it as a rest api it's
+going to help us do image classification
+in the cat dog classification task that
+you may have seen by watson visual
+recognition video but the best part is
+that we're not going to be using any
+code at all and not only are we going to
+be using a watson visual recognition
+kind of system rather we're going to be
+using power ai vision which uses neural
+network technology specifically to give
+you all the raw statistics uh the
+metrics of how great your neural network
+system is running it gives you the
+estimated time train and all that other
+valuable information that you need while
+you're training your model this is
+actually hosted on the nimbix cloud
+platform with their powerful jarvis tool
+in fact there's going to be an entirely
+separate video about jarvis and how it
+works and how you can use its rest api
+to control the nimix cloud platform spin
+up jobs all that kind of stuff in a
+separate tutorial but for today we're
+going to be using the power ai vision
+platform again because it's powered by
+the power ai toolkit which is
+essentially an ibm modified version of a
+bunch of different open source tools
+like tensorflow caf and so much more
+that are optimized to run on the power
+platforms that means that the neural
+networks that you're trying are running
+as fast as they possibly can on power
+hardware they've been optimized for it
+and of course you've got powerful nvidia
+gpus going behind that training and of
+course the powerful nv link between the
+cpu and gpu allows you to have faster
+memory transfer speeds as well but
+that's not talking about power ai and
+now what i'd like to do is get over
+straight into the programming part where
+i show you how you can use the nimix
+cloud platform to start the power ai
+vision tool and then from there train
+neural network in under around five to
+ten minutes all right so now let's get
+to the programming part
+all right so welcome back to the
+programming part and now we're going to
+take a look at how you can actually
+implement this system let's get started
+so now as i mentioned we're going to be
+using the dog cat data set uh as i did
+in my watson visual recognition tutorial
+there will be a link to that in the
+description below
+however now as you can see i've already
+gone ahead and downloaded the data set
+i've unzipped it from its archive and as
+you can see kaggle provides us with 12
+500 images of cats and 12 500 images of
+dogs so if i just keep scrolling down
+here you'll see all the thousands of
+cats and dogs that we have
+now these are all to be used to train
+the machine learning algorithm
+however there's a small catch with the
+power ai vision i don't want to upload
+say twelve thousand five hundred for
+each category right now because for the
+videos purpose that'll take a little bit
+of time to upload so what i'm going to
+be doing for now is i'm going to be
+uploading say
+around 1500 to 2 000 images per category
+and we'll take a look at what our
+performance is like at the time and
+depending on that we can either give
+more if we're not satisfied or if we are
+satisfied uh we will be good to go to
+deploy with a rest api let's begin so
+first thing that i'm going to do is
+let's just say i want two thousand so
+since we're starting at an index of zero
+that's gonna be our
+1999 images cats and then the same for
+dogs so i'm just gonna scroll down until
+we get the correct number of cats
+right click new folder with selection
+and i'm going to name these right as
+it's done moving
+as
+cat
+all right there we go it's almost done
+moving those into a separate
+well folder
+uh oh perfect done
+it's a little bit uh intensive all right
+so there we go we've got our first
+folder down
+let's just scroll down and
+right as we reach docs we're going to do
+the exact same thing for dogs we're
+going to select from the zeroth dog
+to the
+1999th dog
+somewhere here's our partition
+right there perfect
+all right so just scroll down
+a little bit too far
+perfect so just right around here we
+should see
+1 999 there we go right click new folder
+with selection once again 2 000 images
+of dogs there we go it's moving it all
+into a separate folder
+right as that's done we'll name both
+folders accordingly as they should cat
+and dog number one being cat number two
+being doc
+and then we'll be training the machine
+learning system itself all right so cat
+and
+if we just scroll back down again
+we can see over here dog perfect we've
+got our two folders which if we sort by
+the kind of
+file we should be able to see there we
+go cat and dog folders each containing 2
+000 images that are entirely unique and
+we are now ready to train the power ai
+vision system now before we can actually
+start using power ai vision we have to
+see where we can actually host it itself
+so now i'm actually using the nimbics
+cloud platform to host power ai vision
+on the mimic style platform if i want to
+train this cat dog classifier and i want
+to spin up an instance power ai vision
+it's as simple as quite literally
+clicking on power ai vision telling it
+what kind of hardware i want to run at i
+can scale from 1k80 to 4k 80s all the
+way up to four p100 gpus if i want to
+and again since it's powered by power8
+architecture we've also got nv link that
+we can use
+alright so i am going to click on let's
+just say one p 100 gpu as power ai
+vision does not use multi gpus yet we're
+also going to get 128 gigs of ram and in
+total 32 threads from this power 8
+processor again one of the great parts
+about power is we is that we've got a
+lot higher threads per core
+and so now we are able to submit
+and there we go now you might wonder
+well we were using power 8 here isn't
+power 9 out shouldn't we be using power
+nine and well yes the mix cloud platform
+is indeed getting support for power nine
+currently in fact they're going to be
+hosting the ac 922
+nodes if you were to take a look at that
+online those are essentially the new
+power nine nodes that ibm is coming out
+with those is the highest end ones or
+one of the highest end ones uh they have
+two power nine cpus to run really
+massively parallel operations on cpu as
+well and all the way from two to six v
+100 gpus instead of the pascal 100 gpus
+that we're using with power eight
+servers right now anyway but that's
+going to be released very soon for now
+let's use power 8 and the p100 gpus
+already provided to us and let's start
+by clicking on the click here to connect
+button that's all we had to do nimix has
+brought up the power ai vision tool and
+there we go just like that i can start
+using it so what i'm going to do is i'm
+going to create a new data set and now
+as you can see either i can run an
+object detection task or i can run an
+image classification task there's going
+to be another video on the object
+detection task for now let's open up the
+image classification task
+all right so as you can see i can choose
+the data sets name let's just say
+cat dog i can tell it which scenario
+we're running i'm just going to click on
+other and not give it much information
+assuming this is some kind of arbitrary
+use case and of course cat dog isn't in
+this list either
+i click on add data set and just give it
+around a minute
+and it's going to process that and
+create a new data set for you
+once it creates a new data set you have
+two options either a you can zip up both
+those folders bring some json
+information of the data set itself into
+that and then send it over to power ai
+vision or you can upload the raw images
+themselves
+now what i usually do is i actually
+upload a new data set with the zipped
+the actually zipped folders or files so
+let's go ahead and do that now so as you
+can see we've created a new blank data
+set let's just add a category dog
+and let's also add a category
+cat
+all right there we go now what i'm going
+to do is even though there's nothing in
+this data set i'm going to click on
+export as zip file now again what you
+could just do is drag in uh or actually
+because we haven't uploaded anything
+here it won't let that what let us do
+that now again as i was mentioning uh
+you could just take the two thousand
+cats and drag them into
+uh nimbics or not mimics power ai vision
+and in fact let's go ahead with that
+method for now
+so
+there we go i'm just going to go over to
+my downloads over to train
+go over to dog
+there we go
+now i'm going to take all of the images
+in the dog folder click on open
+now it will go ahead and upload every
+single one of those images to power ai
+vision and this might take a little bit
+of time so what i'm going to do is
+instead of having you watch paint dry
+here i'm going to go ahead and pause the
+video while it uploads and right as it's
+done uploading i will be right back
+all right so as you can see we have
+successfully loaded in the two thousand
+dog images and now it's time to load in
+the 2000 cat images so again i'm going
+to click on select images go up a
+directory go to the cat folder select
+them all click open and then we must
+wait a few more minutes and then we
+should have all of our images ready in
+our data set to train the deep learning
+model all right so it should take
+another
+five to ten minutes and we will be good
+to go
+all right so as you can see the cat
+images have now imported into the data
+set and we are now ready to actually
+train the deep learning model
+so what you need to do now is just go
+back as you can see i we've got the data
+set ready so you can go over to my deep
+learning tasks and power ai vision
+once you're there click on create new
+task and this is where we can actually
+start training the neural net click on
+classification to let it know that we're
+not doing object detection and i'm going
+to call this cat dog
+try one
+there we go i'm going to tell to use the
+cat dog data set and i'm going to tell
+it to use the precise first training
+strategy if you want to train in a hurry
+you can use speed first or you can
+customize this to fit your needs let's
+just say i increase the maximum number
+of iterations to 2000 uh test iterations
+to 100 test intervals to 20
+and from there the learning rate to
+0.001 and the weight decay to 0.0005
+all right there we go now what i'm going
+to do is click on build model
+and there we go so now what it's going
+to do is it's going to give us an
+estimated time which is currently 21
+minutes but it's usually a lot less than
+the estimated time so i'm going to click
+on create new task
+and there we go all right so now as you
+can see the model is truly training it's
+currently starting up the task which is
+why you can't see much
+however usually when you use tools like
+for example ibm watson visual
+recognition you're kind of left in the
+dark as to what exactly the accuracy is
+and all those other metrics that you
+really want to know like the loss
+however in just a moment when the power
+ai vision neural net actually starts
+training
+you'll be able to see that power
+elevation actually shows us all the
+different stats about this model if you
+want you can actually go ahead and
+refresh
+and it should show the graphs again in
+around uh a minute or so writers
+actually initializes everything and
+imports the data it will be showing us
+those graphs and i'll be back right as
+those graphs appear after that we'll
+wait for the model to train we'll take a
+look at it we'll deploy the rest api and
+implement that rest api in python
+alright so let's take a look at the
+model and how it trains
+all right so as you can see the model is
+currently training our graphs have
+appeared and on the left you can see the
+training loss this is the last value on
+the training data set as expected this
+is indeed going down
+on the right you can take a look at the
+testing loss and again thankfully this
+is indeed going down meaning that the
+neural network is starting to generalize
+to the data meet because the test data
+is indeed um is indeed showing a low
+loss and we can also take a look at our
+accuracy as you can see over time this
+is going up it has a little you know
+kind of plateaued here but then again
+though if we give this a little bit of a
+little bit of time uh this should
+increase and even right now it is
+extremely accurate we've already reached
+97.2
+accuracy and we can only expect it to
+get higher from here
+of course this is only 820 ish training
+iterations in this is increasing every
+single second so let's take a look at
+what actually happens when we reach
+around 1500 and then 2 000. however
+power a vision also does show us an
+estimated time left which is currently
+around 140 seconds uh so around say like
+two minutes
+a little bit more than two minutes so we
+will be back in uh just a few minutes uh
+i'm going to speed up the footage and
+let's take a look at how the neural
+network trains and generalizes
+all right so as you can see the model is
+now successfully done training and we
+are ready to deploy the neural network
+model however just before we go i'd like
+to show you the final statistics as you
+can see we have successfully gone
+through two thousand entire training
+iterations and have reached a test or
+train loss of zero zero zero point zero
+zero five
+two so that is actually very very low
+and of course as you can see we've
+reached a test loss of 0.07
+uh and so we have reached an accuracy of
+around 98
+which is considerably high actually very
+high considering the fact that we had to
+do absolutely no coding the architecture
+development and everything else was all
+handled by power ai vision you don't
+need to care about any of the underlying
+infrastructure the scalability or
+anything else
+because power ai vision takes care for a
+care of that for you automatically and
+you don't even need to care about
+getting power ai vision set up in the
+first place you just sign up for an
+account with nimx spin up a server on
+any hardware that you desire and power
+ai vision will adapt to it it's that
+simple
+all right so now as you can see the
+neural network model done training again
+but let's go ahead and deploy it
+all right so as you can see it is indeed
+creating a web api out of it just before
+we do that though i'd like to show you
+the my train models page as you can see
+this is our cat dog model over here
+we can see the accuracy that it's
+reached and we can actually go ahead and
+run an action on it too for example i
+can even export the model as a zip file
+if i want to i can mark it as a sample
+model do really whatever else i want to
+but anyway let's go back over to the web
+apis and let's run a test on it
+all right there we go so now that we are
+at the run test page we are ready to go
+ahead and upload new images and actually
+run them against the model to see what
+it gives us so i'm going to upload my
+own image here
+now again we don't want to give any
+images that were already in the training
+set that we gave the neural network
+model so outside of the dog and cat
+folders let's just say i choose a
+different cat
+i'm going to upload that into the power
+ai vision software
+and there we go as you can see if i were
+to zoom in here for example you can see
+that there is this slightly uh
+not um not exactly the correct i guess
+you could say aspect ratio sorry so it's
+not the correct aspect ratio it was
+squished down to work with the neural
+network size but you can see that this
+is an image of a person holding a cat
+and so as you can see over here what's
+this this is a heat map of where the
+neural network saw specific attributes
+that led it to believe that this is an
+image of a cat this is something that
+you don't get with most other neural
+network based softwares either even if
+you were to develop your own neural
+network architecture it would take you
+some time to implement the entire
+attention mechanism to get this kind of
+heat map working
+luckily though this is done
+automatically through power ai vision
+and if you were to take a look at the
+right here it correctly classifies this
+as a cat with
+99.149 percent confidence it is that
+simple to get up and running with power
+ai vision in fact let's go ahead and
+feed in the dog image shall we so i'm
+just gonna scroll down over to my dogs
+here uh and over here as you can see
+this is an image of a dog let's feed it
+into the neural network software and as
+you can see this is so sure that it is
+actually rounded it's uh it's called
+it's actually work it's confidence up
+from 99 point however many nines there
+were to 100
+confidence as you can see this is the
+dog this is the heat map this is where
+the neural network saw
+whatever it sought in the image that led
+to believe that there is indeed a dog in
+this image as you can see it has learned
+to generalize to the face it's not
+focusing on any of the other features in
+fact if you want to take a look at some
+more examples let's just say we were to
+take this cat over here
+this cat shows its entire sort of body
+here and it's just sitting down with no
+obstructions if we were to feed that in
+what does the heat map look at you can
+see the neural network has generalized
+to find specifically faces that's what
+it's really good at looking for if
+there's a cat face or a dog face that's
+what it looks at and recognizes you can
+also see that it kind of looks over here
+at the tail and the rest of the outline
+of the body like the legs but the number
+one thing by far is the head of the cat
+itself this is very very fascinating the
+heat map gives you insight into why the
+neural network makes the decisions that
+it makes and also how the neural network
+makes the decisions as well in fact if
+we were to do something similar with a
+dog here as you can see for example here
+the dog is not showing its face let's
+see what the neural network actually
+thinks
+as you can see it's still thought it's a
+dog because it realized there's no face
+visible and it inferred based off of the
+rest of the body that it is indeed a dog
+and you can see that infer
+or that inference that it made through
+the heat map over here and then of
+course you can combine the heat map and
+the actual image you can uh find out how
+you can actually for example crop items
+or objects out of images and in fact in
+my next video i'm going to be showing
+you how you can run full-on object
+detection with the power ai vision
+platform and plus i'm going to be
+showing you how you don't even need to
+train full-on machine learning models uh
+in the first place or manually train or
+manually label that data because instead
+you can actually use pre-trained neural
+networks to help you label that data in
+the first place that is coming up in the
+next edition of my power ai vision
+series
+all right so that was a quick tutorial
+as to how you can use the power ai
+vision platform to recognize cat and dog
+images really do hope you enjoyed that
+tutorial you were able to learn how you
+can actually use power ai vision
+and how you can train deep learning
+models that simply again we started with
+the nimbic star starvis platform
+what happened is you could actually spin
+up an instance of power ai vision
+without dealing with anything all you do
+is you tell it that you want to start
+powering a vision you tell it which
+hardware you want to use and it does it
+for you instantly after that we actually
+used the power ai vision software which
+allowed us to quite simply upload images
+into the software and right as the
+images were in all we needed to do is
+set a machine learning model to trade
+you can set the hyper parameters however
+you want to and once it's at the hyper
+parameters it'll train on your gpu
+hardware it is that simple from there
+though you can actually deploy that uh
+train machine learning model onto a rest
+api a web api and once it's on a web api
+you can actually send new images over
+and not only does it give you back those
+images with the predictions as to what
+class they are instead it also gives you
+a heat map as to where the neural
+network was most activated
+where it actually thought that hey this
+is a dog or this is a cat and that is
+how the power ai vision platform works
+again we had to fiddle around not at all
+with the actual architectures of the
+neural network the way the underlying
+infrastructure works it was all handled
+for us automatically and we reached an
+astounding 98 accuracy on the test data
+which usually takes quite a bit of work
+to get done even with a simple library
+like cross
+alright so i hope you enjoyed that
+tutorial thank you very much everyone
+for joining in today that's going to sum
+up what i had for this tutorial of
+course if you did enjoy please do make
+sure to leave a like down below and
+share the video if you believe it could
+be helpful for anyone that you know like
+your family or friends apart from that
+but if you have any more questions
+suggestions or feedback leave it down in
+the comment section below tweet it to me
+at taggingmanygmail.com
+or you can email it to me at tagmani
+gmail.com
+apart from that though uh if you do
+really do if you really do like my
+content you do want to see more of it
+please do consider subscribing to my
+youtube channel as well and enable
+notifications if you'd like to be
+notified whenever i release new content
+all right again thank you very much
+everyone that's all for this tutorial
+goodbye

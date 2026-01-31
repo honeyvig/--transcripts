@@ -1,0 +1,463 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is Tammy Bakshi and
+this time we're going to be going over
+building convolutional autoencoders with
+chorus or generally neural network
+auto-encoders let's begin now to start
+off what in the world is an auto encoder
+well before I can explain that I'm going
+to assume you know the basic working of
+not just neural networks in general but
+convolutional neural networks in
+specific although dense neural networks
+will allow you to understand this video
+as well so let's begin now we're going
+to explain this concept let's take a
+look at image classification now when
+you want to classify an image with a
+neural network what do you do you take
+the image and you input it into a neural
+network just like this so what you do is
+you take say an image you've got all
+right you feed it into a convolutional
+neural network you'd feed that into a
+bunch of dense layers that would give
+you an encoding and then you'd feed this
+into a bunch of dense layers which would
+give you your output which is the
+probability matrix
+except that's what your architecture
+looks like now of course you can have an
+arbitrary amount of CN n layers all the
+hyper parameters will be tuned but this
+is a really a bird's-eye view on why
+your neural network looks like now in
+between this step and this step over
+here are things called
+n coatings and encodings basically
+represent the input image in a semantic
+vector and that semantic vector
+basically just stores all of the useful
+information of the image in a much
+smaller vector than the original image
+like for example we can have a really
+high high resolution 4k image over here
+but the output after this dense layer
+could only be say on thousand one
+thousand individual values one
+dimensional correct and so that's an
+encoding it represents everything that
+was in the image when did some loss of
+course because it's impossible to do
+that magic compression but it represents
+the meaning of everything that was in
+the image including things like trees
+leaves people really whatever is in the
+image however you have to make sure that
+the CNN has been trained on that dataset
+so that it has an appropriate set of
+filters to filter down and create the
+correct encodings but what's an
+autoencoder then well weren't we
+explained that let's go ahead and take
+very Cerner and let's erase these layers
+we're going to remove the probability
+matrix and our dense layers we're just
+left with image and a trained
+convolutional neural network now the
+output here is an encoding all right so
+you're outputting and Konan all right so
+that's what your neural network has in
+terms of output now this encoding as I
+mentioned represents everything within
+the image but one auto encoder does is
+it tries to decompress the compression
+that this convolutional neural or death
+and so if we've got this encoding here
+then we can decompress what's
+represented in this encoding with an
+auto encoder now what you can do is you
+can use something called ad
+convolutional neural network okay now D
+convolutional neural network is
+practically I mean as the name implies
+the exact opposite of a convolutional
+neural network it basically inverses
+what a convolutional neural network do
+and actually upscales the image and
+downscaling it however there are also
+leaders like pooling layers and so in
+this case instead of using pooling
+layers in this d convolutional neural
+network will use up sampling wares which
+will help us to actually of course
+increase the image resolution now at the
+end this D convolutional neural network
+should output a very similar image to
+what was given as input of course not
+exactly the same because again it's
+impossible to do exact and such in dense
+compression you can only compress so
+much that would move you to information
+loss if we're going to such a small
+encoding however again it is completely
+possible to create a very naive I do
+enjoy it in this way which compresses
+your image but the reason I'm making
+this video is this will serve as sort of
+a it'll serve as a base because in the
+next two videos I'm gonna be showing you
+how to use this island color technology
+to do amazing things such as neural
+machine translation to convert from one
+language to another English to French or
+French to English and how you can train
+a neural network for image
+super-resolution it's gonna be really
+interesting but for now let's take a
+look at how you can actually take an
+image super compress it with a
+convolutional neural network and decode
+it with a D convolutional neural network
+in this case I'll be using a simple
+convolutional neural network over here
+as well however cross does support for
+DITA does this provide support for D
+convolutional neural networks and today
+I'll be showing you how to actually
+implement this on the M nest one zero to
+ten or zero to nine digits data set but
+now let's get over to the coding part
+where I'll show you how exactly you guys
+implement this auto-encoder with chorus
+let's get to it alright so welcome back
+to the Mac part now I'm going to be
+showing you how you can actually
+implement this auto encoder system let's
+take a look now what I'm gonna do over
+here is I'm going to switch over to the
+code it is a little bigger for you now
+as you can see this is a code that
+powers the auto encoder system now as
+you can see of course it starts off with
+our simple imports in this case the
+imports being of course side PI or do
+the attained a conversion of course
+we're going to be using numpy this is
+just generally for our rays and
+arithmetic we're going to be using the
+endless data set that comes with chorus
+we're going to be using the following
+layers today in fact we actually do not
+need batch normalization we're going to
+be using the functional model type we're
+going to be using the image from pillow
+and of course we're going to be using
+the two categorical function from the
+utilities inside of chorus now of course
+this image is going to be 28 by 20 in
+terms of size and then we have some
+generic code that loads up the Emnes
+data converts it to categorical
+categorical output and then of course
+reshapes it to work with Tiano and then
+we just do divide by equals 255 fine
+order to make it from a zero to one
+scale instead of 1 to 255 scale so that
+the neural network can understand the
+data properly after that what happens is
+we declare our input layer the input
+layer takes in the input shape and then
+we connect to it the encoding functions
+now the encoding layers will actually
+take the image and convert them to a
+small encoded vector and this vector
+will represent the actual image however
+this vector is not actually an well
+image it just represents what the image
+contains in fewer pixels than the actual
+image itself it's basically trying to do
+lossy compression by taking an image
+really scaling it down and scaling it
+back up while preserving quality of
+course though X over here is now equal
+to the monitor actually encodes the
+input image and then we set it to
+another model and this model will
+actually
+decode that image back to its full-sized
+representation now luckily with m-miss
+we're only working with grayscale images
+and so we don't need to worry about
+three different channels in our code or
+anything of that sort we only have this
+one channel at the end here remember if
+you are working with a RGB image at the
+end you would have a three here because
+of course you have our G and B channels
+however we only have one image channel
+here next now we actually set the model
+to the new model we create a model and
+we give the input layer and the output
+layer output layer being X in this case
+we print out a summary and then we
+compile it with a binary cross-entropy
+loss and an atom optimizer after that I
+run the fit function with X train and X
+train as the white rain now why is this
+because the thing is we do not need
+these Y train and y test variables now
+the reason we don't need them is because
+Y training Y tests contain the actual
+outputs of whether this image contained
+a seven or six or a five or three or any
+other number however this is useless
+information because all we want to do is
+learn how to compress and decompress
+images via neural networks so we can
+practically discard extra Y train and
+wide test we only need extra and X train
+and X text X test and the next test for
+validation data we're going to be using
+a thirty-two batch size and running one
+epoch only we're going to save the model
+as normal dot H five since this is a
+normal auto encoder and after that if I
+had already created a model I would be
+loading weights instead of saving
+weights however I do not currently have
+a model which is why this is commented
+out after that what I do is I take the
+first element in the X test array
+remember this will give us a sampled the
+neural network has never seen it has
+only been tested on before and so what
+I'm going to do from there is actually
+run that test sample through the neural
+network model I'll then do some
+post-processing on the prediction of the
+model and the original sample that was
+given into the model and I'll see both
+out to my disk now the input that we
+gave to the model will be saved as input
+normal PNG and the output that came from
+the model will be save as
+output level dot PNG and so in theory
+what should happen is we should be able
+to give an image and this image is of a
+digit from zero to nine and so that will
+be saved to input normal dot PNG this is
+the image that we give it then what
+happens the neural network model will
+take it compress it decompress it
+stretch it back over and then once it's
+done and once it has a full sized image
+it should save it back to the disk at
+output normal dot PNG that is how the
+model works let's test it out now of
+course though I don't have a pre trained
+model however what I can do now is I can
+actually go ahead and run Python auto
+encoder docking why I'm going to run the
+script as you can see it prints out that
+it's using a Tiano back-end and it
+should also print out the model summary
+here it has given me the model summary
+give it just a moment and as you can see
+it's now training the model this will
+take around 100 seconds so in such me
+boring you watching this model train I
+think it would be better if we speed up
+this clip let's beat it up alright so as
+you can see our model is now done
+training now in fact what has happened
+is it's taken the training data it's
+actually trained for 112 seconds and
+after that what it did is it gave us a
+loss value that's zero point one zero
+one seven which is relatively low you
+can also see that it worked on the
+validation data that we gave it and gave
+us a validation loss and this is 0.075
+three again very very low however we can
+do better but instead of me training for
+more epochs let's take a look at the
+results we've already gotten now what
+I'm going to do with Adam is I'm
+actually going to open up the input
+image and I'm going to scale it up now
+there's no surprise here this is just a
+regular seven right so as you can see we
+just happen this seven right it's a
+little bit crooked over here there's
+some extra pixels down here but for the
+most part of me it's a perfect sense
+hand-drawn seven by regular human
+however what is really really
+fascinating is when I open up the output
+image look
+the similarity in the image that seven
+is located almost exactly where the
+seven in the input images again this is
+the output this is the input this is the
+input image this is the output image it
+is that similar in fact you can actually
+see that the quality of the seven has
+increased in the output image why is
+this it's because whatever it took a
+look in this image it's all hey this is
+really looking like a seven and so what
+did is it called upon its earlier
+knowledge of other sevens and it seen in
+the world and it said usually they are
+drawn like this
+it is generalised so nicely but you can
+actually see that it's filling in those
+details and properly understands what a
+setting looks like in this case it's
+only really preserving the position and
+the size of the set and of course some
+of the more my new details are being
+saved or discard it and then recreate it
+into this masterpiece of a seven however
+this is still something that machine
+learning can do if you give it enough
+time how about we do something that's
+even more fascinating let's take a look
+at denoising auto-encoders now this is
+something I am really excited about why
+it's because you can give it nosed up
+data this includes anything like audio
+images really anything that has noise it
+and you can denoise it almost perfectly
+let's take a look now as you can see I
+no switch over to this Python file here
+this Python file contains something
+called a denoising auto-encoder I'm
+gonna scroll up as you can see for
+almost the same imports we've got the
+same imagery pre-processing script
+however after that I have some code and
+I will be linking to this code down in
+the description below I actually got
+this from the official chorus blog and
+this actually adds extra noise to the
+data itself and so now we actually have
+two different sets of data we have one
+data which is exactly the same as the
+second one however it has extra noise in
+it and the next one is just regular data
+that does not have
+and our neural networks job is to find
+out patterns in the noise and denoise
+images and try and recreate or
+decompress into non noisy images and so
+as you can see we've got the same sort
+of model here we've got the same
+compiling and fitting except there's one
+difference in when you actually fit the
+model this time instead of doing X train
+and X train we do extra noise II as the
+input data and X train which is the
+regular day as the output data
+apart from that we want the batch size
+to be 32 epochs to be 1 we don't need it
+to be one verbose though because that
+wouldn't print anything out and of
+course we just want the same validation
+data of extreme noisy and X test or X
+test noisy an X test then we save this
+model as noise Don h5 and then we have
+very very similar code here to actually
+test out the model we save the very
+first image over the very first test
+sample of the model as input noise dot
+PNG this is the image that has a lot of
+noise and then we save the output as
+output noise dot PNG this is the image
+that does not have noise because the
+neural network model removes that noise
+from the image itself now let's take a
+look at how this works with a live demo
+of it in action now in order to do this
+though we actually have to run that
+Python script again though once it
+prints out the model summary we're gonna
+have to wait for it to generalize and
+train so let's just get that around a
+hundred seconds again and I will be back
+in 100 seconds let's beat up the clip
+[Music]
+all right so as you can see the model is
+now about to be done training it as apps
+0 ETA it's currently doing its
+validation and as you can see our loss
+is a little bit higher why because we're
+using the same model that's it's quite
+deep it's a convolutional auto encoder
+we're only running one epoch though
+we're only training with 60,000 samples
+and of course we have a way more
+complicated task and this task is to
+actually T noise a really heavily noise
+image but let's take a look at the
+results now let's switch back over to my
+atom under here and let's take a look at
+the input first this is the input noise
+now even as the humans might take you a
+second text and find out what's inside
+this image if you squint you can see it
+quite easily though I'm squinting right
+now and I can see the sort of like
+little I can see the sort of shadow of a
+7 with tons of noise around it though so
+we can I can see that set in there
+that's for sure however it like for
+example here if you take a look a lot of
+pixels are really annoying stuff they're
+really just at this point you cannot
+very much tell that they're part of the
+7 over here specialty however when I go
+to the output look at the output of the
+model that is simply stunning really
+look at the deep learning capability not
+only did it remove the noise it
+hallucinate it realistic details into
+the 7 you can tell that it's a little
+bit thinner here than the rest of the
+line why is that that's because this
+over here was almost completely
+corrupted by the noise but the deep
+learning model realized that look at
+this drawing signal over here and what
+it did is it loosening of that detail
+right back into the set just like that
+and that is how convolutional
+autoencoders work that was a simple
+example of auto-encoders in action thank
+you very much everyone for joining today
+I hope you enjoyed this tutorial thank
+you very much for joining part from that
+if you have any more questions
+suggestions or feedback please leave
+them down in the comment section below
+email them to me into humanity
+calm or you can tweet them to me at
+tanjung many leave a like down below if
+you really like this video maybe share
+it if you believe this could help out
+anyone else you know like your friends
+or family but apart from that though
+again if you really like my content you
+want to see more of it please do
+consider subscribing to my youtube
+channel as well as it really does help
+out a lot and apart from that turn on
+notifications if you'd like to be
+notified whenever I release new content
+thank you very much everyone for joining
+today that's gonna be all for this
+tutorial really hope you enjoy I believe
+the results were stunning with deep
+learning thank you goodbye

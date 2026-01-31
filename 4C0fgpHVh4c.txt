@@ -1,0 +1,851 @@
+[Music]
+so blow there and welcome to another
+tutorial my name is Tammy Bakshi and
+this time we're going to be going over
+how you can use PI torch and
+specifically open an MTP why in order to
+run numeral machine translation tasks
+now essentially what I'm going to show
+you today is how you can use a sequence
+to sequence LS TM long short-term memory
+network in order to convert from English
+to French sentences in fact today we've
+also got a special guest on the show who
+is proficient at French and will be
+helping us out when testing out the
+entire system we'll be getting to that
+in just a little bit but just before we
+get to that though I have to tell you
+that if you watched my autoencoder video
+before that will really help you out in
+understanding how the system actually
+works there will be a link down in the
+description to that video and that will
+give you a good base to start off of but
+for now though let's start with this
+video now first of all how will this
+system work well if you've watched the
+autoencoder video you know that neural
+networks can take information really
+condense that information down into just
+a few points a few few numbers into a
+small vector and then decode it and
+really expand it back up to its original
+form or at least really really close to
+his original form now in your own
+networks are great at that but what if
+you could take information decode it
+down into a really small vector then or
+encode it down into a really small
+vector and then decode it into another
+really big vector that has a slightly
+different way of representing the same
+information for example if you were
+using a regular MN ist auto encoder
+which I talked about in the last video
+you could having your ol network that
+took in a regular Animus digit and
+outputted an inverted color version of
+that image it would be representing the
+same information in a different way what
+if you can apply the exact same
+technique to language that's right so
+now I'm going to show you how you can
+take
+English words an entire english sentence
+fit into a neural network have it
+condense that down and pound it into a
+small vector and then decode it into a
+bigger vector but this time instead of
+representing the input as English word
+vectors
+it'll represent them as French word
+vectors in the right order and the right
+grammar this is really really
+interesting and there's actually an
+entire new approach this is in fact an
+entire new approach to the machine
+translation problem instead of
+converting from words to words which
+oftentimes makes mistakes because of
+course in languages you don't always
+have the same word order I want to order
+an extra large pizza in English gonna
+have an entirely different word order in
+french however with the neural machine
+translation system it will learn how to
+change the word order and it will learn
+which use to which words to use in other
+words places depending on the context as
+well and the data that it was trained on
+so now let's get into an explanation of
+how the entire system works now the
+neural machine translation bit has
+already been implemented by on github
+and there will be a link to that game
+hub repository down in the description
+below and we showing you that github
+repository in just a moment as well the
+original implementation for this was an
+irregular torch power by luma but now
+it's also been translated into Python
+YouTube PI torch and it's release so now
+I'm going to show you how you can
+actually implement a neural machine
+translation system but just before we
+get to that I'd like to explain how the
+entire system works let's get started
+now let's take a really simple example
+sentence like for example you say I want
+an extra large pizza all right now you
+have this English sentence
+repeat some and let's just say the
+person's name that you're asking his
+name is James
+okay uh and so now what you're gonna do
+is of course this is this is completely
+valid in English but let's just say you
+wanted to convert this to French now
+what you could do which is the naive way
+of doing this is you could just convert
+every single individual word to their
+French counterpart which wouldn't be
+very nice of course in this case if you
+were to do that that would be very very
+grammatically incorrect uh and no one
+would be able to understand that however
+there are some smarter ways of doing it
+for example the older older method of
+Google Translate which tries to do a
+little bit of a smarter machine
+translation but I won't be getting into
+that algorithm just yet however with
+neural networks all you have to do is
+take this sentence send it to a
+tokenizer okay so now you're going
+tokenize this what that means is they're
+going to split every individual part of
+sentence into of course as I mentioned
+individual parts so for example you put
+a space before the comma space before
+the punctuation and what that would
+allow you to do have individual
+tokenized element of the sentence into
+individual vectors that can go into the
+neural network at the end after that
+though once that wants the network or
+once you have tried your sentence you
+can vectorize the sentence and what the
+vectorization does of course allows the
+neural network to understand the input
+now the factorization of course you can
+do this by Ward vector is really however
+else you don't want to in this case
+we're going to use love word vectors
+which I will also be talking about in
+the rest of the video
+but once you have finally vectorize it
+you can use a recurrent neural network
+to understand that vectorization or that
+vectorized version of the sentence and
+so in this case you could just use any
+recurrent neural network but I'm going
+to be using LST ends you could also use
+gated recurrent units GRE use but I'm
+not going
+sacrificing really any accuracy
+whatsoever we're going to be going for
+LST m/s now the RM what it's going to do
+is it's going to take the entire set of
+huge vectors and convert it to one
+individual set of smaller vectors are
+really really tiny vector compared to
+what the input is and that can that
+actually describes the entire input
+sequence in just one small vector its
+amount it describes all the semantics of
+the input without being very specific on
+what the actual awards themselves were
+however there are a few problems with
+this like for example James isn't an
+English word that's just some random
+word we came up with in this case a
+person's name so how do we deal with
+that well what happens is that
+vectorization process you could just
+input all zeroes as a factor you could
+end put a random vector but in this case
+what I'm going to do is input an all
+zero vector and what that'll do is tell
+the recurrent neural network that this
+is an out of vocabulary word it is an
+unknown word that it's never seen before
+and in theory the neural network should
+be able to replace this with a token in
+this case angular bracket U and K and
+then at the very end once you are done
+converting it you can put you can
+actually replace all the unknown unknown
+unknown vectors with the actual words
+from English because of course it
+doesn't know how to convert them to
+French in the first place but then again
+once you're done with that recurrent
+neural network it'll feed into one more
+recurrent neural network that will then
+take the encode a vector and then decode
+it back into a huge vector that
+represents this exact sentence in French
+and then in theory you should be able to
+reverse the factorization process and
+then you can do you can basically take
+the vectors word vectors to words run
+this process in Reverse and then you
+should finally have your output which is
+your French sentence
+which is what I'm going to be showing
+you how to build right now but now
+they'll before I tell you how you can
+actually implement the system I think it
+would be really interesting to see a
+demo of this in action in fact this is
+actually the exact system that Google
+Translate now uses for many different
+languages as it creates much much more
+accurate results but now let's get over
+to a demo of the system itself where
+I'll show you a demo of around seven
+different sentences and how they are
+converted to French via this entire
+system now let's get over to how you can
+implement this with PI torch alright so
+welcome back to the demonstration now
+I'm going to show you how this system
+actually works now before we actually
+take a look at the system we have to
+have to we have to find a way to see if
+the system actually works and while I
+don't know French there is someone who's
+joining me today special guest Ari who
+is actually very proficient in French
+would you like to introduce yourself hi
+my name is Abby I'll be helping tad make
+with the French translation let's get
+into the video perfect all right let's
+start now you can actually see on screen
+right now all we've got 8 different
+sentences and so these are straight from
+the French translation system not been
+modified whatsoever these are tokenized
+versions so before punctuation like
+apostrophes commas question marks you've
+got little spaces here however those can
+be done tokenize just as easily but for
+now let's actually begin and see if
+these translation system works with a
+few examples so now Abby what do you
+think the first sentence here actually
+says in English so this is the French
+version if you want you can actually say
+out the French version then we'll talk
+about the English a su la and I manifest
+yawn xenophobia sandy Emma okay so what
+do you think that means in English okay
+so are you going to the xenophobia
+protests Saturday Emma yes that is in
+fact what it means if we were to go to
+the English version over here you can
+take a look and the original English is
+are you going to the xenophobia protest
+on Saturday Emma so yes that is correct
+and apparently the translation system
+has worked in this case so that was a
+demo of the translation system
+converting one simple English sentence
+ah - French let's try it out a few more
+so let's just try out number two now so
+do you think this is from ink from
+French to English la pluie tada they
+informed them a class of alright okay so
+what would this be in English so like
+most of the kids in my class are going
+yes exactly that is in fact exactly what
+it is in English most of the kids in my
+class are going now let's try out one
+more so what does this say so this is
+French first of all so the program the
+program judogi de la ville is sandy
+Adisa it's a zoo okay so how what would
+that be in English so like the large
+like the biggest or large hockey hockey
+game yeah a hockey game in the town is
+this Saturday at 10 o'clock time p.m.
+already great are you ok so does it um
+ok so the actual sentence from English
+is the town's largest hockey came is
+this Saturday at 10 a.m. are you going
+so is it does it doesn't mostly match up
+or yes emotionally it mostly matches up
+but here at the end it's where it says a
+tegu it just says like are you there's
+no other variable asking like are you
+going like that yes so in this case the
+reason for that would be that their
+perplexity of this model is actually 6.0
+7 which is relatively high and this was
+only trained for around 24 hours on a
+you know mid-sized GPS so if we were to
+scale that up to more GP was in much
+more training time then we should get a
+much lower perplexity in this case
+basically meaning error rate and we
+should be good to go and that should be
+able to translate that nicely and Plus
+this was trained on much much more
+formal sentences not in this context
+however it is again completely possible
+to fix that error with more training
+data and more training time as well
+let's try out number four now ah so this
+is French first of all label a so a
+Levante about either deep diesel so uh
+Judy okay okay so um it says that the
+tickets are going on sale at twelve
+twelve o'clock
+okay so was there an error in the
+sausage yes it didn't translate the
+Thursday
+okay I just left it is Thursday okay so
+again that is because we're using very
+little training data meaning that
+Thursday's not in the vocabulary this is
+again an issue with the training data
+that we have if I were to have more
+training data for example from some
+corpuses that I'm going to be showing
+you at the end of this video we'd be
+able to get much higher accuracy but
+then again I'll get into that in second
+part of this video for now let's just
+continue with simple sentences number
+five now so I'm also for the sentence
+number four the one on Thurs the one
+about Thursday
+it shouldn't say sua is you just say
+Thursday well because like you're saying
+it's like on Thursday it's like it
+sounds weird because you're saying that
+it's like on top of like Thursday so you
+have to say Thursday ok so again this is
+one of the examples were less perplexity
+it should understand that grammar and
+she'll be able to understand that on in
+some contexts means you know without sir
+or some without so with sir in this case
+since it didn't understand Thursday that
+wasn't in its vocabulary didn't
+understand Thursday and I thought it
+might literally be on top of something
+and so it was able to infer from that
+context but if that were in the
+vocabulary you would understand from the
+context and not insert sir ah so next
+number five so this is French first of
+all so la francais a long time for
+talking to hed
+I turned to pay a dollar a month I lost
+that long alright so what do you think
+of me in English so French is a very
+important language to study other
+countries in the world speak this
+language okay sure so now that's
+actually very very close to what it was
+French is a very important language to
+study as many countries around the world
+speak this language is exactly what the
+English version was however it seems as
+if as many may have been left out by the
+translation system was it so um we
+learned to throw in Canada we learn
+Quebec French and this is translating
+French French so some of these words may
+be different from what what you may say
+in Canada versus what we say in France
+yes
+so that might be one of the reasons that
+it's a little bit more confusing however
+let's go over a number
+so which is actually relevant so number
+six this is the French version sentence
+what do you think it would mean English
+okay so example it's a G the dizzy I'm
+long appreciate the Canada so what that
+mean in English it so for example it's
+for example sorry it's a second it's
+official second language of Canada
+perfect that is exactly what it is in
+English for example is the official
+second language of Canada now let's try
+just two more and see how exactly we're
+able to use the system so now this is of
+course prediction number seven let's
+talk about this well deck eBay in person
+asset class evoke a Mahad the class demo
+davinia key la okay so what do you think
+this would be so describe a person in
+this class and your classmates or
+students other students in the class
+will have to guess who it is
+exactly again semantically the exact
+same as what was entered into the system
+describe a person in this class and your
+classmates will have to guess who it is
+now one more thing I'd like to point out
+here is that if I were to take the
+original English sentence here and if I
+were to copy that back into this
+document take a look at these two days
+it copying the punctuation like
+correctly where it should be like the
+commas and and of course the end is
+correct what is the Komets correct place
+where it should be is all the
+punctuation taking care of nicely yes
+thank you
+perfect that's great so system again is
+learning exactly how to use that
+punctuation as well can textually with
+the rest of the sentence even though
+it's scaling all that information down
+to a really small vector however let's
+try out one more over here prediction
+number eight okay so you know let's see
+what entry so the winner will receive a
+prize okay again exactly what it was in
+English this one was actually completely
+correct the winner will receive a prize
+exclamation mark and so that was a demo
+of the system in action so how many
+write the system I would rate it like
+like in being eight out of ten
+eight out of ten perfect there was just
+like some areas where it wouldn't pick
+up on some yards yeah and also it would
+bring in like the English word into like
+it wouldn't travel exactly exactly
+it wouldn't translate the English word
+in
+a French word again all solved with more
+vocabulary more training data higher
+vocabulary size and of course more
+training time as well a hotter just for
+24 hours of training this is a
+relatively good system an open-end MT py
+allows me to build this really really
+easily so now I'm going to be getting
+over to the actual coding part where I'm
+going to show you how to implement this
+entire system how to get all the
+training data and then how to calculate
+calculate a BL you score to find out how
+good your translation system actually is
+now let's get over to the coding part
+Thank You Abby alright so welcome back
+to the coding part and now just before I
+begin I would like to say a big thank
+you to the guys at hard for actually
+making this so so easy if you actually
+take a look open nmt itself as a project
+was actually created by the folks over
+at Harvard which is simply amazing makes
+it so so easy to train on neural machine
+translation systems with both torch and
+PI torch which surprisingly of course I
+mean I mean of course it works with PI
+torch due to the fact that it does work
+with torch Python or PI towards being a
+port of torch to the Python world of
+course really really popular relatively
+new as well and it's an amazing library
+I which I'll be adding a lot deeper into
+in future tutorials because we're going
+instead of relearning a language and
+like Lua you can just use these sorts of
+torch library in the Python language
+however now though I'm going to be
+bringing you in to actually how you can
+use open nmt on some simple data and by
+simple though I mean French to English
+in English to French shada in this case
+I'll show you adjust the English to
+French version and then I'll talk about
+why it's so so interesting now let's
+start off with the code itself how do
+you train the system it's really easy in
+fact I just created one simple shell
+file that automatically trains it for me
+first thing it does of course is in the
+shell fell in the shell file they get
+some tools it'll help it to tokenize and
+and find a new score etc in this case
+though these tools I'm only using the
+tokenizer for now
+and a few other tools you blue score is
+something that will come in a separate
+part of this series but after that once
+we've gotten the tools that will
+actually help us pre-process our data
+we've got to pre-process the data itself
+now in order to pre-process don't data
+we've got some really simple commands
+that run these Perl scripts that I
+actually just downloaded and so as you
+can see or in fact we actually wouldn't
+necessarily need these two lines of code
+here so we can remove those those aren't
+actually being used in this circumstance
+although for other German to English
+ones they will be used but we don't need
+those tools in this case so I'm only
+going to be downloading these tools here
+but after that of course as I mentioned
+getting back to the point we've got to
+pre-process our data now in order to
+pre-process data we've got a really
+simple script that's running here first
+of all it tries to actually remove the
+very first and last lines from the from
+the files themselves just in case
+there's extra extra space and then
+finally you're going to organize all the
+training data and testing data to make
+sure that the model actually understands
+the data from there though we've got a
+Python that actually really pre process
+all the data and takes all of these you
+know token ate it
+token native files and actually converts
+them to data that the neural machine
+translation system can understand and
+work with in terms of training after
+that though the actual training of a
+model comes in and it's as simple as one
+line of code that's right a simple
+Python 3.5 call to train button dot py
+pass it the data tell it where it's Oh
+save the model in this case multi 30k
+model and finally give it your GPU ID in
+this case I'm relieved one Scene one GPU
+so GPU 0 that's right it's that simple
+to train the system however you've got
+to have your data now in this case
+people with my daya slash multi 30k
+folder you can see that I've got quite a
+few different files here and if you were
+to remove the clean process versions of
+these files you can see that I got
+trained at de train de en and valid at
+the en value now the train files are
+what's going to tween
+system and the vowel files are what's
+going to validate the system to find out
+what types of accuracy were getting now
+in this case I'm using English and
+French however it is annotated as de and
+en you can do that for now let's just to
+make it compatible in general like for
+example target is de and we're coming
+from is en so you can actually paste in
+any information that you want to within
+these two files and learn eventually
+using sequence to sequence how to
+convert from one language to another in
+fact you'd apply this to really anything
+like for example IBM Watson has aid to
+speech service and what it allows you to
+do used to say like for example instead
+of just getting a text and hoping that
+it says it correctly you can actually
+give it certain expression on the text
+so what you could do is you could build
+one of these sequence the sequence
+systems to actually automatically
+convert just regular text to text with
+expression to tell Watson exactly what
+expression so Watson does the main text
+speech for you but you do the expression
+handling for the voice itself just in
+case that you want a more personalized
+or accurate version of that expression
+handling and so there are all sorts of
+things that you could possibly do with
+this um but for now all you will need to
+do is actually go back to this directory
+run back between dot SH and that's what
+you need to do now it's only gonna work
+with bash because a few specific
+commands that this shell file has all
+but try that out as you can see W gets
+gonna do some really interesting stuff
+it's gonna start dying I'm gathering
+some of the tools and at this point it's
+pre processing the data once it's done
+pre-pro is a pre processing the data
+it's going to actually step training
+model through the trained up UI file now
+instead of me actually showing you this
+model training which would I assume be
+really really repetitive and it would
+take a long time instead of me showing
+you how the model is trained let's just
+skip over to the evaluation of the model
+itself so I remember I have already
+trained this model and now we're ready
+to actually take a look at how it
+performs
+you already saw some simple
+classifications and translations are not
+classifications those translations that
+I did before with Abby's help oh but now
+I think
+show you how exactly you run those
+translations in the first place let's
+just kind of control see this script
+over here I'm let's go over to the
+folder that contains my pre trained
+model and then what I'll do is I'll get
+out this command and this command will
+allow me to actually translate from
+English to French how does it do this
+well if you take a look over here I said
+I defined a specific model for the
+program to use now every epoch it will
+actually log down a little checkpoint a
+model it tells you the accuracy
+challenge and it gives you the
+perplexity as well in this case I
+reached a perfect perplexity of 6.07 at
+the 13th epoch which is you know it's
+it's okay it's not the best you could
+get and of course you can get much much
+better than that
+however it's X is relatively low of
+course I would not use the translation
+system until it's less than say like
+eight or at least in the single digits
+is minimum to actually start using it
+six is still a little bit high if I were
+to use this my everyday life I want to
+train this even more however apart from
+that though again you're gonna tell it
+in which GP you use to translate you can
+also do this with CPU but GPU is better
+of course I'm hoping that we can we tell
+it where to translate from in this case
+a text file oh and of course we're gonna
+tell to replace unknowns and what that
+means is that if for example if there's
+an unknown input in the original text
+file date or can vary from try and find
+out using attention mechanisms where
+that would be in the output and replace
+that in the output so you have final
+translations and do it no verbose way so
+we don't need to save the output to a
+file we can just see it in the terminal
+before I run that command though I'd
+like to actually create the Committee of
+course the the sentence for us to
+translate pasal is just open up a new
+file here called say YT transpose dot
+txt now what I'm going to say here is
+[Applause]
+[Music]
+I don't I won't be sure alright so there
+we go now we've got two sentences on now
+in theory like and I manually tokenize
+this for example before and after the
+apostrophe there have to be spaces same
+thing would be period at the end and the
+commas in the middle and so as you can
+see once you've got this all tokenized
+and nice I'm going to save the file I'm
+going to run the same script Python 3.5
+or we could just copy and paste this
+command here and what I will do is pass
+it the YouTube translate txt file we're
+gonna use the same model and let's look
+for the best
+now again unfortunately I don't have any
+right now however what happens is I mean
+we've got this translation ready as you
+can see right now see this is where the
+perplexity comes in it has not been able
+to translate this sentence here why not
+sure but how can you fix it well by
+using much more data than I currently am
+because I'm using very very small data
+set and you're training for much much
+more than 24 hours even if you have a
+much stronger GPU with for example if
+you take seven ten seventy this would
+not be it's nearly fast enough to be
+finished in 24 hours so again more
+epochs better model better data and you
+would get much much higher accuracy
+however I do actually hope that this
+very first translation here was correct
+in fact if anyone here in the comments
+knows French I'd love to hear from you
+and see if this translation is correct
+alright so that's what we have to cover
+in terms of the actual implementation
+that's right it's that simple to train
+and test a neural machine translation
+system through open and NTP why in fact
+in later tutorials obviously you had
+actually build this type of system from
+scratch in terrassa that actually takes
+in its own input data out an output
+you know and does everything manually
+but for now I thought it would be more
+interesting to actually take a look at
+the concept itself and an implementation
+by folks at Harvard next now let's talk
+about the errors that the model made
+last time while I was with happy now the
+first one you may have realized here was
+the phobia one now of course it says are
+you going to the xenophobia protest on
+Sunday Emma and I may have noticed that
+it did not translate gene phone yet to
+it's French counterpart here why didn't
+do that because xenophobia was
+misspelled in fact if you see over here
+I've actually correctly spelled
+xenophobia over here in are you going to
+the xenophobia protest on Saturdays to
+Emma and what happened is a model
+actually changed the grammar not only
+did it translate xenophobia to
+xenophobia in the in the French sentence
+it change the beginning grammar of the
+sentence itself look at this we've got a
+tofu all around a read a lot over here
+like I'm sorry not parenting that
+correctly but we've got something
+entirely different over here so remember
+even that small the change the fact that
+it did not understand xenophobia made it
+then it had to infer that it's referring
+to xenophobia in a different context
+when it understood xenophobia and was
+able to translate it correctly then
+understood that context and was able to
+create the correct I was able to create
+the correct grammar before xenophobia
+but an even more interesting example
+though which really proves the context
+appendix of the context dependence is
+this one now as you can see there's an
+error here tickets will be sale at 12
+p.m. with only be for sale at 12 p.m. on
+Thursday now Thursday is not a word in
+the vocabulary but Thursday itself is
+Thursday exclamation mark isn't a word
+in the vocabulary itself that means that
+the sentence wasn't tokenized correctly
+which is why it did not translate
+Thursday to whatever it's French
+counterpart is correctly
+it didn't use correct grammar in the
+rest of the sentence however what's
+really interesting is once i tokenized
+it correctly over here and set it back
+into the model as you can see again
+almost entirely different grammar it's
+not literally putting twelve hours on
+Thursday
+instead what it's doing is it's saying
+twelve on Thursday
+it's contextually very correct which as
+I always as Abby was pointing out sir
+makes it sound as if something is
+literally on top of something and
+because the fact of the model never knew
+that Thursday wasn't referring to a day
+it thought it that was the object or
+something of that sort and it thought it
+was literally on it and it used sue so
+as you can see it is very very context
+dependent however once it gets the
+context that it needs it makes extremely
+accurate human-like natural translations
+that sound good the people who actually
+know the language and don't seem awkward
+or weird in terms of word order or
+Grammatik choice like for example if you
+have an English sentence like for
+example or you know you have an English
+sentence like for example I want a large
+pizza you wouldn't want to form that in
+French in a formal way and so that's why
+the Watson language translation service
+allows you to actually choose the
+context in which your language
+translation should be done and so
+depending on the day that you train the
+neural network wins you can actually
+choose the context or the formality in
+which this conversation is taking place
+and so for example if I'm at a pizza
+place I might not want to sound really
+formal with my friendship I'd like a
+large pizza pie I mean you don't want to
+sound really formal however if you're
+speaking to for example you know you
+making an automatic translation system
+for the UN in fact there's actually a
+data set from the UN their speeches
+English to French French to English lots
+of other languages as well which is
+something that I'm going to be working
+on in another part of this video and
+that actually holds really formal French
+well it's so depending on what you train
+the model on that's a knowledgeable game
+and that's the type of language it'll
+convert to and from and so again
+so why these models are so great you can
+personalize them to specific contacts
+you can personalize them to specific
+occasions or where you'd like to use
+them and that was what I had to go over
+in this video thank you very much for
+joining everyone I really joined making
+this video I hope you enjoyed watching
+and you'll learn something along the way
+thank you very much for joining in today
+that's my goal for this video of course
+if you liked the video and you want to
+see more of it please do consider liking
+the video share it with your friends or
+family or whoever else you think may
+benefit from it and of course from there
+if you have any more questions or
+suggestions or feedback please do leave
+it down in the comment section below you
+know it to me at any age you know that
+come where tweeted to be attached you
+Manny
+apart from that thank you very much
+everyone for joining in today if you
+really like my content you want to see
+more of it please do consider
+subscribing to my youtube channel as it
+really does help out a lot and thank you
+very much everyone for joining that's
+really to beat all of course do turn on
+those occasions if you'd like to be
+notified of whenever I release new
+content thank you very much goodbye

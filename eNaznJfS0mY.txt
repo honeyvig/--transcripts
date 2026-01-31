@@ -1,0 +1,751 @@
+so hello there and welcome to another
+tutorial my name is tanray bakshi and
+today we're going to be talking about
+the Ross borrow Checker and specifically
+the kinds of rules that you can help to
+build your intuition as to how to work
+best with the borrow Checker now before
+we get into it I would like to say that
+if you enjoy this kind of tutorial and
+you want to see more of it please do
+make sure to subscribe to the channel as
+it really does help out a lot turn on
+notifications so you're notified
+whenever I release videos just like this
+one today and go ahead and leave a
+comment down in the comment section
+below if you have any questions
+suggestions or feedback apart from that
+if you like the video please do make
+sure to like it as well now first of all
+what is the Russ borrow Checker if
+you've seen some of my other videos
+where I've touched on the idea of the
+Ross programming language The Borrowed
+Checker is what makes rust so unique it
+makes it so that rust can enforce the
+ownership rules upon memory that it does
+it makes it so that rust can do
+completely automatic memory management
+but it does so at compile time also
+verifying memory safety for your
+applications as long as you don't use
+any unsafe blocks it'll verify for
+example that you don't use a variable
+after it's been freed it'll verify that
+you don't have two separate functions
+with mutual references to the same data
+just in case there's a data race or one
+of them doesn't expect something to be
+mutated a certain way it'll make sure
+that multiple threads cannot have
+references especially mutable ones to
+data unless they've been specifically
+marked as being safe to send across
+threads and so much more now these
+safety guarantees are only possible
+because of the rust borrow checker
+and even though it does make programming
+in Rust quite convenient because of the
+guarantees that it gives you it does
+also introduce some complexities
+particularly there are a couple of data
+structures that are very difficult to
+implement in the rust programming
+language
+the most notorious example is a linked
+list implementing linked lists and
+actually using linked lists in Rust is
+very difficult especially for beginners
+just because of the inherent fact that
+every single node has to have some sort
+of reference in a way and own the other
+nodes in the chain it is a little bit
+difficult to sort of wrap your head
+around other programming languages don't
+have this problem because either they're
+like C and they have you manage the
+memory yourself or they're like Swift or
+python or Java or whatever else and they
+use automatic reference counting or
+Garbage Collection to at runtime
+determine when nodes no longer have any
+more references or if there's just
+cycles of references and automatically
+free their memory so let's go ahead and
+take a look at the rust borrow Checker
+and learn some of its quirks and how it
+determines things like lifetimes using
+some linked list examples let's take a
+look
+all right now I want to start off by
+talking a little bit about why I think
+this is an important concept to cover
+and to start off let's take a look at a
+little bit of Swift Code so Swift is you
+know a pretty standard programming
+language I guess it has a couple pretty
+Innovative features like in my opinion
+its generic system is very powerful a
+lot more powerful than most other
+languages it's much more flexible the
+syntax is really elegant things like
+that but
+the part about Swift that is also pretty
+unique is its use of the automatic
+reference counting system so what that
+means is that while most programming
+languages are garbage collected so for
+example with python you know it'll it'll
+track the number of references for every
+object then every once in a while it'll
+pause your program to collect garbage
+deallocate memory and continue Swift
+does that in real time so every time a
+reference count increments or decrements
+it will immediately determine at that
+moment in time whether or not
+um that variable still needs to exist
+and then deallocate it if it doesn't
+that has advantages and disadvantages
+but that's not what not the point of the
+video the point of this video is to talk
+about
+um guarantees so let's take a look for
+example at this linked list class right
+so in Swift uh classes are reference
+types which is why we need to make the
+linked list a class because it contains
+itself and structures can't do that
+otherwise they have infinite size we
+have a generic type T which is the kind
+of data we put in super simple append
+function super simple print list
+function that do exactly what uh the the
+name suggests then I have functions like
+this so for example yield pairs what
+yield pairs does is given the linked
+list of for example one two three four
+five it'll call this function that you
+pass it on the pairs one two two three
+three four and four five
+now what's really nice about the way
+that Swift implements and pretty much
+every other really compiled language
+implements uh it's it's features like
+this is that they help you encode Define
+an API contract so what that means is
+for example this function must expect
+variables of the same type as within
+linked list and when you create this
+closure in line and you pass it to this
+function at compile time switch will
+verify that whatever you're doing to
+these variables within that function are
+compatible with the variable type within
+the linked list right that's something
+that Swift will ensure at compile time
+it doesn't matter if you're passing in a
+structure doesn't matter if you're
+passing in a a class doesn't matter if
+you call this function inside of another
+generic function that has protocol
+restrictions on T whatever right it'll
+verify that whatever you do conforms the
+contract of all of these different types
+at compile time right and it'll do the
+same thing for the link list like for
+example we have features like for
+example we can say that data is supposed
+to be immutable So within every node
+you're not allowed to have a mutable
+piece of data now this is very helpful
+because in large code bases it becomes
+incredibly annoying to deal with parts
+of code that don't have a well-defined
+contract think about Python A lot of
+people think you know Python's a really
+simple programming language and it's
+easiest to build things in Python but
+believe me when I tell you that when you
+start working with code bases that are
+even medium to large in size that very
+quickly breaks down because in Python if
+you want to make a change to some part
+of a code base that you're not aware of
+then or that you're not familiar with
+rather you have to rely on two things
+you have to rely on human written API
+contract documentation
+assuming it's even there and they didn't
+just assume you know it and then you
+also have to rely that everybody using
+your functions and types just happens to
+actually conform to that contract
+because with python thanks to duct
+typing it's very easy to not do that
+it's very easy to mutate internally it's
+very easy to mutate internal state of
+classes that you didn't expect to be
+mutated whereas in languages like Swift
+or calling or these sorts of languages
+you can verify that these things will
+never happen if I say it's let data I
+know everywhere that that has never
+changed once it is first initialized I
+don't need to look right these sorts of
+guarantees make it super convenient to
+work with these more complex programming
+languages for larger projects and that's
+why you know for example here in like
+the append sorted function I can say hey
+if you give me a linked list where the
+elements of type T conform to the
+comparable protocol meaning I can do
+things like this then I can go ahead and
+append into the linked list in a sorted
+fashion regardless of what the type of T
+is and this is the kind of thing that in
+C plus plus is really annoying to do
+because when you have templates it's not
+checking these sorts of you know
+protocol conformances and things like
+this and so if you call this function
+with a template on the wrong type of
+linked list suddenly you get an
+unparceable error message about using
+the wrong operator right and so you know
+we've evolved to have better languages
+that can help you enforce these
+contracts more and more compile time
+we went all the way from C having almost
+none of it you know some level
+um to C plus plus having you know some
+some more I guess some lesson in other
+ways like with templates
+um and then we went you know we have a
+whole different class of programming
+languages like python to do duct typing
+meaning do whatever you want and as long
+as python can figure out a way to do it
+it'll let you and then we have more
+strict languages like Swift that are you
+know actually checking as many things as
+they can at compile time and rust is
+also in completely a different class of
+its own it helps you enforce these kinds
+of complicated API contracts at compile
+time but they do one more thing
+they make it so that object and data
+lifetimes are also part of that contract
+that is really interesting to me so for
+example here with Swift with the yield
+function
+the values of type T that you're passed
+all of their memory information is
+insanely ambiguous right so if T is a
+reference type then you would be past
+references and you'd be implementing a
+reference counter if T is a value type
+then you're going to be past technically
+references of T but then if you try and
+mutate it Swift is going to do copy on
+right and if you're past like primitive
+types and you're just going to be passed
+like copies immediately like what is
+happening behind the scenes regarding
+memory is totally abstractive and that
+makes it very easy to code don't get me
+wrong right like this sort of code is
+very convenient to write just like how
+it's convenient to write python code for
+small projects but then once again as
+you start to scale python you hit these
+problems with types and and people not
+using your code as they intend and
+similarly as you start to scale this
+kind of code you also get more issues
+like for example optimization problems
+trying to understand
+um why you have a bottleneck in your
+code could it be the reference counts
+could it be the fact there's a tight
+Loop that's calling a function that does
+very little work but has to also
+increment and decrement a reference
+counter right could it be the fact that
+copy on right isn't working properly and
+even though you're not making any
+changes to your value types you're still
+making copies they're all these things
+that are insanely ambiguous once you
+start to hit large projects with complex
+logic it's super hard to debug with rust
+though all of this is specified directly
+in the signature of your function let's
+take a look
+so if I go ahead and v-split out into
+um a similar rust file that I have as
+you can see I'm basically mirroring the
+Swift Code so I have a structure of type
+linked list T we contain a reference an
+optional reference that's what box is to
+the next linked list node and then I
+implement the same initialize append and
+print functions based on whether or not
+the type within the linked list conforms
+to the display uh trade and let's go
+ahead and take a look at maybe like a
+rust equivalent implementation of yield
+pairs I think that might be helpful
+so in Rust the way I would go about
+doing this
+um is we would start off with of course
+our function declaration so we'd say FN
+yield Pairs and obviously we're off the
+bat we need our generic type t
+and we need to take an hour linked list
+but hold right off the bat there is a
+bit of a difference we don't want to
+take ownership of the linked list
+because we don't need it we're not doing
+anything with that memory we're not
+mutating it we're not getting rid of it
+we just need a reference to that linked
+list right after that we also need our
+yield function which in Rust would be a
+generic type so we would do F and then
+we do where f is a function that takes
+two values of type t
+you may think our function signature is
+over but actually not just yet because
+and here's a really interesting part
+about rust think about it we have a
+reference to the linked list that owns
+data of type T if we expect a function
+that's going to take two owned values of
+T this is immediately invalid because we
+cannot do that we cannot take ownership
+of data behind an immutable reference
+that doesn't work so we need to specify
+that there's references of type T but we
+can't do that either because we don't
+know how long those references are
+supposed to last in this context right
+what if for example this function that
+you call with these references does
+something to drop the owned memory of
+the list that we were passed and now all
+of a sudden these two immutable
+references suddenly are invalid right
+whether or not that's actually possible
+depends because if you're calling yield
+pairs you probably wouldn't be able to
+drop the reference anyway but point is
+these sorts of edge cases can occur
+and so this is the really special part
+of rust you can make the lifetime of
+this reference a part of your function
+signature you can make it so that you
+can say hey when we're calling this
+function this is what's called a generic
+lifetime specifier it starts with an
+apostrophe a single quote
+sure we're being passed an immutable
+reference to linked list but this will
+specify how long it has to last and this
+will specify that the function we pass
+references of type T2 will make sure
+that these values last at least as long
+as the backing link list behind it right
+that's that's the key difference that
+rust lets us specify the lifetime of the
+data is now part of the API contract
+moving more things to compile time to
+make it as easy to disambiguate logic as
+physically possible that's the idea
+making it so that large projects are
+easier to build
+now from here we can go ahead and start
+mirroring our Swift logic now there are
+a couple issues with this and we'll get
+to those because the rust compiler
+should theoretically help us solve them
+so if I were to just go ahead and do
+like a naive one-to-one translation of
+the Swift logic we might end up with
+something like this uh a DOT data B
+val.data A equals a DOT
+uh next and then we'd unwrap that and
+then b equals B val dot next
+there we go so I'm going to go ahead and
+disable co-pilot also actually
+um theoretically I mean you would think
+something like this would compile but it
+actually doesn't
+um if I were to go ahead and try it out
+there are a couple of issues we hit one
+of them
+is the fact that of course yield
+function expected references but we're
+passing actual data which we're not
+allowed to move so we go ahead and pass
+those references or compile again now
+it's complaining that we store an a at
+first an immutable reference to a linked
+list but now we're unwrapping a box an
+actual owned value directly into it Russ
+recommends we solve this by grabbing a
+reference to the box which would make
+this valid syntax but what rust isn't
+realizing at this point is that we're
+not allowed to do that the reason we're
+not allowed to do that is because if we
+were to grab a reference to the
+unwrapped owned value that would mean
+that we are trying to grab ownership of
+a value behind an immutable reference we
+can't do that so instead we do dot as
+ref dot unwrap which basically takes
+this optional value gets a reference to
+it moves the reference out from from
+outside of the optional value to inside
+of it so now we have an optional
+reference value and the then we unwrap
+that instead so now we end up with an
+immutable reference to the box type
+within the optional that still conforms
+to this lifetime if I go ahead and save
+that
+compile again we see two more issues one
+of them is that once again we are trying
+to move out of list.next on line 41
+because we're trying to access that
+member directly which would give us
+ownership but we're not allowed to do
+that so we must get a reference and
+similarly over here it's saying that um
+or I guess actually that that error
+would not be relevant once we um compile
+with this new change so if I were to go
+ahead and save and run we get a
+different error now and that error is
+that over here it expects that we'll be
+assigning a reference to an optional
+because of this but we're actually
+passing it the optional directly because
+we're not getting a reference so we can
+fix that with rust's suggested fix which
+is to grab a reference and just like
+that we're good to go our rust code
+compiles and runs just like our Swift
+Code so if I go ahead and run the Swift
+Code as well I can show you
+where the Swift Code runs the same it
+creates a linked list of one two three
+four five and then yields these pairs
+now to take this a step further let's
+work on I guess a more complicated
+function the append sorted function as
+well and take a look at what the
+differences are
+um in in how we would translate from
+Swift and how we follow the rust
+compiler recommendations because as you
+can tell a very large portion of the
+help that in in in helping us conform to
+the borrow Checkers rules uh comes from
+the actual rust compiler it gives us
+really helpful error messages of course
+they are wrong sometimes because if they
+were correct all the time then we
+wouldn't need the rules to begin with
+that's why there's ambiguity but if you
+understand the rules they can help guide
+you to the right solution even if the
+suggestions are wrong you'll be able to
+recognize that they're wrong and work on
+uh figuring out the correct ones so
+let's go ahead and take a look at the
+append sorted function the idea of it is
+pretty simple the implementation can be
+a little bit complicated uh let's go
+ahead and take a look at it so
+in in particular because of the
+translation of the ownership rules but
+we'll we'll take a look at what that
+what that entails so I'll just go ahead
+and move this down a little bit so we
+can sort of have a more aligned view of
+it um and
+let's start implementing so
+uh let's just say we start off of course
+with our function declaration so FN
+append sorted
+um snake case not camel case uh T
+conforms to ord in Russ is what it's
+called not
+um comparable uh this time we are
+actually going to take um ownership of
+the linked list and of course we're
+going to make this optional
+and once we've got that let's go ahead
+and also take the data that we want to
+insert
+we're going to return the linked list
+once again the reason we're doing this
+is because we may want to change the
+head of the linked list in which case we
+return a different value now if we go
+ahead and get the old head from the list
+we have different logic if there was no
+old head so we're just literally
+creating a new linked list node then all
+we got to do is return linked list new
+data so that's that's all there is to it
+otherwise there is some more complicated
+Logic for us to follow so let's go ahead
+and start implementing it
+first thing we're going to do is we're
+going to create our new node that we
+want to actually insert into the linked
+list because at some point we know we're
+going to need it we might as well create
+it now so we go ahead and create the
+linked list node then we're going to
+check to see if we're in the right
+position so if right off the bat we're
+in the correct position and we need and
+we know that we need to replace the old
+head then we go ahead and set the new
+node's next value to the old head and
+then we return the new node as our new
+head value otherwise if that is not the
+case then we have a loop that we
+determined that we use to determine
+where to insert this new node in a
+linked list so we start off by setting
+our current value to old head which is a
+very
+typical way of doing this sort of like
+uh linked list
+sort of traversal and then you just do
+while let some next equals current dot
+next from there we go ahead and do if
+next dot data greater than equal to data
+so check if we're in the right position
+if we are we can break otherwise we Set
+current to current dot next and then
+after that we simply do new node dot
+next equals current.next Uh current dot
+next equals new node and then we return
+our old head
+you would think this would work
+but unfortunately it does not I'll tell
+you that right off the bat because there
+are a couple of issues
+um
+as a matter of fact to sort of prove it
+to you let's go ahead and compile our
+rust code as you can tell it complains a
+lot one of them is you know starting off
+here at the end is the fact that it
+expected an optional value to be
+inserted into next but that means sort
+of an actual value that is not
+compatible
+um it also uh same thing here it
+expected
+um or rather the opposite I guess it
+expected an actual linked list but we
+gave it an optional box right so it's
+complaining a lot so let's go ahead and
+start start debugging what what some of
+this means let's start off with this one
+I guess so this one says that it
+expected
+um us to put a um like an actual linked
+list type into the current variable but
+we put an optional box right so if we
+take a look here this is being set to
+old head which is a linked list type an
+owned linked list type and we're giving
+an optional box in order to make these
+compatible we have to grab a reference
+to the old head here and in particular
+we're actually going to need a mutable
+reference because we do end up changing
+it down here and here what we can do is
+grab
+we would do something like azeref but as
+Rec because it's an immutable reference
+we do as mute and then we unwrap it
+right
+because this bit of code told us that
+there is indeed a next value so we can
+assume that it is safe to forcefully
+unwrap and as mute makes it so that what
+we unwrap gives us a mutable reference
+right so then this is now compatible
+because the mutable reference to the box
+is the same as the mutable reference to
+the type in this case so that bit of
+code is now all peachy and happy it
+likes that the borrow Checker is
+satisfied
+uh now Ross is complaining that it
+doesn't like the fact that we are
+passing it this value directly instead
+of making it an optional so let's go
+ahead and uh solve that for rust let's
+get make it some current up next some
+new node and let's see if that works uh
+Russ didn't like that either Why didn't
+it like it uh in this case it's because
+it expected boxes inside of the sum
+as you can see clearly this logic isn't
+exactly correct
+so how do we make it correct well if you
+think about what exactly rust is asking
+us for here right it's asking us to give
+it an an owned box representation of
+linked list tea wrapped in option right
+and we know that we need to set new node
+next to current next so what we do is we
+call the take function on current next
+what this will do for us is it will give
+us ownership of something behind the
+mutable reference I know I said we can't
+get ownership of things behind
+references but this is different what
+the take function will do is it will
+swap out what's actually in next for its
+default value now what is next next is
+an optional value the default value for
+an optional is none so what take will do
+is it doesn't violate any rules it's
+still following all the rust rules but
+what it does is it takes this mutable
+reference to current next that we have
+and it makes it so that we swap out
+current next for a none value and take
+returns to us the owned version of what
+was originally inside of current next
+and now that we own that box
+representation
+we can go ahead wrap it in some
+and put it into new node next and it
+shouldn't complain about that bit
+anymore now similarly we now have
+current next that is set to none but we
+don't want it to be set to none we want
+it to be set to new node so we can
+replace the inner value of the optional
+container with a box representation of
+the new node right because that's not
+something that we created before we need
+to box the node in order to make it the
+next value for our current node in the
+loop
+so uh just like that we are able to
+compile and we get different errors in
+this case it expected struct box but it
+found option box which would make sense
+because when we take this we are
+actually taking the optional box
+representation from the raw mutable
+reference so we actually don't need to
+wrap that in some now we get one last
+error and that is that expected enum
+option is but actually found linked list
+for newnode.next equals old head and
+that's on line 57
+and to fix this we just go ahead and
+make sure that we use a box
+representation or we could actually even
+use the replace function here so we
+could do you know next replace
+Box new uh
+old
+and so that makes it so that the next
+node after this new head is a box
+representation of the old one
+we do get a few more errors for example
+the fact that rust over here is
+complaining that new node is being
+mutated even though it's an immutable
+variable so we can fix that say that it
+is a mutable variable we didn't need to
+Trend we didn't need to say that in
+Swift because it's a reference type so
+we're technically not changing it but
+rust doesn't care this is a value type
+according to rust and so we need to mark
+it as mutable in order to set its next
+values here and here let's see what else
+rust complains about foreign
+after that it complains about the fact
+that we are using the data variable
+multiple times right think about it if
+we go ahead and pass data to linked list
+new linked list is now what owns the
+data we can no longer compare against it
+because it's the ownership has been
+moved away from this function so in
+order to actually properly compare we
+would need to do new node dot data here
+and same way new node.data
+that fixes that problem
+from there uh here rust is complaining
+uh that we are moving the next value of
+the current node out of the out of the
+node into this next variable here during
+the loop and so in order to fix this
+issue we can tell rust that we expect to
+get a reference to the current next
+variable instead of the actual owned
+variable the reason that this fixes the
+problem is that this is fine just being
+a reference because we're only comparing
+and after this point we no longer use
+this reference we go ahead and look at
+current next over again using asmute
+over here so after this because this
+reference isn't used it's effectively
+invalidated and then this line of code
+is also allowed to run properly and then
+over here it's complaining because we
+attempt to get a mutable reference to
+old head even though old head is an
+immutable variable that comes from an if
+let statement so simply making this
+mutable should fix our issue and just
+like that our rust code compiles and
+then runs and if we go down here and we
+swap out our append calls for sort of
+pen calls one five two four three even
+though the order is wrong it should
+still help us output in sorted order and
+just like that we've implemented our
+Swift functions in Rust and the way we
+did it made it so that all of our
+variable lifetimes were known at compile
+time no memory management had to occur
+at runtime that is why I love the rust
+programming language so much it is
+really powerful generics extend beyond
+just types and I find that very
+fascinating now there is so much more
+that I want to dive into but this is
+already a lot for a video so there's
+going to be more videos on Rust wide
+special and special things you can do
+with it in the future make sure you
+subscribe to stay tuned for that turn on
+notifications so you're notified when I
+release those tutorials like the video
+if you liked it and any questions
+suggestions or feedback feel free to
+leave them down in the comment section
+below thank you very much everybody for
+joining today goodbye

@@ -1,0 +1,187 @@
+hello there it's tanmay back for another
+video
+um
+this time we're going to be covering a
+topic
+on sql server 2008
+well
+it was going to be 2008 but then
+once i realized that i couldn't get 2008
+at the moment
+i decided to do it for 2012.
+so
+um i'm sorry i couldn't get another
+video up for quite a while
+um the problem was i
+nearly partitioned my mac
+and it was a little hassle to
+find all the videos that i um
+once made
+i can only recover a few but i posted
+those which is the copying machine
+for vb
+and the intersection
+binder
+thing
+uh so those two are the new parts my vb
+tutorials now let's get on to the main
+thing that we're doing in this video and
+also i have a new screen recorder so i
+won't be making anything parts
+and it should be much better
+so number one here we are in windows
+uh what we want to do
+first start
+find
+um
+sql server management studio
+that's what i'm just gonna get here
+should be here
+uh if you can't find it what i do
+is i just um search
+and then here we are sql server
+management studio 2012.
+um
+i don't need that currently
+um
+yeah so i'm actually using a mac right
+now but um it might be a little slow
+because
+i'm accessing my windows computer from
+here i couldn't get a good screen
+recorder for my windows computer
+so here we are
+um i'm logging into my sql server 2012
+management studio connect
+now um
+the first command i'm going to teach you
+here
+is the
+select command
+now
+what you want to do first is you want to
+go new query
+now in sql server
+2012 and
+a few versions back you have
+a querying window as well as a gui
+interface a gui interface so graphical
+user interface so
+um instead of
+going ahead and going
+use
+database or whatever your database name
+is
+what you can do here
+is you can go
+into one of your databases
+and then you can use them from there
+or
+that was something different but um you
+you have this uh gui interface which
+makes it makes
+quite a lot of a difference
+in
+trying to find stuff it makes it
+basically makes your experience with the
+software much easier
+so if you didn't remember what the
+database name was boom you just go to uh
+databases you expand databases and you
+check which database it was
+so it's sort of like a dictionary
+um so what you want to do here
+is number one we want to select
+something from let's say
+the um
+the eye cream table
+okay
+so what we're gonna do is number one
+uh
+you may be you might be new to this but
+we will um
+get to this later
+um
+the first command i'm going to do is
+used handmade
+and then we're just i'm just going to
+execute that
+it's uh saying that um it successfully
+switched over to the database tanmay so
+now we can access all the tables that i
+have inside of the database tanmay
+now uh this is going to be covered later
+but
+what the first command you're ever going
+to learn is
+selecting
+now let's see what selecting is
+first of all let's say
+you had a table
+and you wanted
+to see every single
+um
+entry in the table
+what you would say is select star
+from
+table
+now
+this table is the name of your table you
+don't need square brackets um that's
+just an example
+so let's say my
+um
+table
+is eye cream
+what i do is i'd say select start
+from eye cream
+now one minute and i'll tell you what
+this means
+what we have
+here
+is
+we have select so we're selecting
+something
+from
+from
+the table ice cream eye cream and then
+here
+you say what you want now star is a wild
+card that means
+everything so give me everything
+that's in this table but if i just
+wanted let's say
+cereal and flavor
+uh then what i or just flavor select
+flavor
+from eye cream
+then it just give me the flavor
+or i could do flavor as
+um ice cream
+flavor
+and then what the as would do
+is it would give the the column a new
+name
+so let's say you didn't want it to be
+flavor but just for that
+specific um query um if i remove this
+and i
+execute that again it's still flavor
+that was just a nickname for it but then
+what i can do is i can go comma let's
+say i want um
+the
+quantity
+uh which i don't uh let's just say
+what was that cereal
+whatever
+um sid
+flavor in the sid
+so now
+um
+that was the video for aquarium
+thank you uh please like comment if you
+have any questions um
+uh subscribe mainly
+and thank you
+goodbye

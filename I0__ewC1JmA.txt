@@ -1,0 +1,844 @@
+so hello there and welcome to another
+tutorial my name is tammy bakshi and
+today
+we're going to be talking about some of
+the brand new concurrency features
+introduced to swift
+now just yesterday at wwdc 2021 when
+they announced the brand new async await
+functions and actors to swift
+i was really excited and i just really
+wanted to delve into
+these brand new features i'll be
+covering actors in a future tutorial
+today i want to focus
+on async await functions before i get
+into that though
+uh if you do enjoy this kind of content
+you want to see more of it please do
+make sure to subscribe to the channel as
+it really does help out a lot
+and of course turn on notifications if
+you'd like to be notified whenever i
+release new content
+apart from that if you have any
+questions suggestions or feedback feel
+free to leave it down in the comment
+section below
+and i'd love to go ahead and hear what
+you think or answer any questions you
+may have
+now diving right into this let's start
+off by talking a little bit about
+swift the swift language as you probably
+know is apple's programming language and
+it's most popularly known
+for being the one language that you use
+for basically everything
+apple platforms so if you're building an
+ios app your go to is probably going to
+be swift
+if you're building a mac os app probably
+that as well at least i would hope so
+um and so you know when you when you
+build apple platform
+applications you're usually using swift
+but swift does a lot more around that
+right swift is open source
+it enables you to write applications for
+linux and even windows now
+and one of swift's main design goals has
+always been safety which i will say
+is criminally underrated in the
+programming world
+i feel like a lot of programming
+beginners don't necessarily realize the
+full
+scope of just how much a safe language
+can help you out and sort of speed up
+your development process
+right like for example optionals and
+these sorts of language safety features
+a lot of the times you know beginners
+when they're getting into a language
+will think you know this is unnecessary
+ceremony right this wastes time
+it makes development slower why do we
+need this but really when you start to
+you know boil away all that ceremony you
+realize that when you're developing even
+medium to you know larger scale
+applications without those safety
+features
+things can take way more time than
+they're supposed to
+just because you will end up making
+mistakes in places where you didn't need
+to
+places where the compiler could have
+caught those mistakes if it had enough
+information
+about what you were trying to do really
+this entire thing
+is about trying to tell the compiler
+what you're trying to do
+so it can catch your errors for you
+right so swift takes
+entire classes of programming errors and
+effectively
+translates them to compiler errors
+instead of runtime ones you know
+optionals really help you out so you
+never have those null pointer exceptions
+right if led optional chaining guards
+all these sorts of things
+uh swift's unique exception handling
+system enables you to have all kinds of
+really
+you know unique errors and it's really
+just a more expressive way
+of being able to throw errors and now
+swift's safety
+is coming to the world of concurrency
+concurrency is traditionally
+you know notoriously difficult to do
+right
+and that's just because you know the
+human mind sort of thinks
+serially you think doing task abcd
+so having to change your mindset to
+think about multiple threads doing
+multiple things at once and somehow
+sinking and converging and communicating
+can sometimes be a really difficult
+thing to do
+however now with the power of these new
+swift features concurrency is a lot
+easier
+um issues like data races uh issues
+uh like you know blocking threads these
+can all be avoided
+uh with these brand new features now in
+particular let's start off by talking
+about something
+not even related to concurrency
+necessarily but just related to how
+computers work
+so let's talk about busy weights now as
+a programmer you might know what a busy
+weight is already
+but let me just quickly catch you up to
+speed in case you don't
+let's just say you're running an
+application on a single core cpu so the
+cpu only has
+a single cpu core single thread running
+so at once
+the cpu can only do a single thing now
+let's just say your application needs to
+sleep for one second
+now if you were to type into say python
+time dot sleep
+one imagine what would happen if python
+said
+while true continue for one second
+what would happen is your cpu for an
+entire second
+would be continuously used doing nothing
+just looping until that one second is
+over
+that's called a busy weight it uses your
+cpu
+to wait now there are other kinds of
+waiting
+for example if you were to ask your
+colonel to help you do a sleep
+what would happen is you would tell your
+colonel hey for a second i don't need to
+execute this process
+and what your kernel can then do is it
+won't do a busy weight
+instead it'll take control from your
+process
+you won't be executing anymore for an
+entire second but the kernel can still
+keep
+other things running in the background
+it can context switch
+out of your process into something
+potentially important
+and then move you back into that process
+after that second is complete
+that's you know context switching
+however
+if you're doing a busy weight then your
+colonel doesn't know that hey
+wait this thread is free we can be doing
+other things with it
+similarly imagine you're building a
+swift ui application to search through
+movies on the open movie database
+uh api now let's just say you submit a
+new uh query for spongebob
+uh and you're downloading all of the
+album or sorry all of the cover art
+for all these different movies all the
+posters
+well then these are files and files
+especially images take
+time to download so before you render
+your ui
+or really on the same thread as your ui
+rendering if you start downloading all
+those images
+your app has become completely
+unresponsive nobody can do anything on
+the application while the
+poster art is downloading and there's
+nothing
+anybody can do about it but if you
+launch a new background thread and
+unblock your ui thread suddenly people
+can still interact with your application
+while it's downloading the background
+but then you've got to write the code to
+make it so the background thread can
+communicate with your main thread so
+that
+you can get the posters and actually
+show them on screen so how do you do
+that
+well traditionally you do it with what's
+known as a completion handler so
+uh you call a function which is
+responsible for taking say the url to
+the poster art
+and it will launch a thread in the
+background it'll download it
+and then you would have also passed that
+function another function
+and when that function is done
+downloading the poster
+it will call that function pointer that
+you passed and tell that function hey
+we finished um getting this this this
+image
+and effectively effectively what that
+does is it enables that background
+thread to communicate
+back to you uh that hey we finished
+downloading and here's the image
+the issue with this architecture is that
+just passing a closure to a function in
+swift
+doesn't tell the swift compiler anything
+about what you're trying to do
+you as the programmer understand that
+passing that function
+closure is an abstraction and that
+abstraction
+uh is effectively to make it so you can
+communicate back from that background
+thread when it's done
+to your state to update you your ui for
+example
+but the swift compiler doesn't know that
+as far as it knows you're just passing
+another closure
+it doesn't know why and so because of
+that it can't enforce a bunch of safety
+features for example
+if you have a regular function that just
+returns an integer then swift will make
+sure that
+all code paths through the function
+return an integer
+there is no way that this function can
+complete execution without having
+returned an integer to its caller
+swift can ensure that safety but with
+that architecture of
+passing closures swift can't ensure that
+you
+call that closure and pass it something
+that is valid
+there's no way for swift to know to do
+that because it doesn't know that you're
+trying to use the closure as a
+kind of return almost right so these are
+the kinds of safety features that you
+miss out on
+however with this latest version of
+swift all of these problems can be
+forgotten because now you can use async
+await functions to replace this whole
+completion handler architecture
+effectively what you can do is let's
+just say you have a
+simple function and what it does is you
+know like the one on screen right now
+it loads a movie's plot through a json
+response from the open movie database
+api uh now effectively what this code is
+doing
+uh is it's taking uh a movie structure
+which is also on screen right now
+and from that movie structure it's
+extracting the imdb id
+it's passing it to the omdb api and it's
+serializing uh rather deserializing uh
+decoding
+uh the json response from um from omdb
+into a structure and then extracts the
+plot from it and returns the plot so
+this is a simple function that gets the
+plot of a movie
+now in this specific example what i've
+done is i've marked this function
+async what does async mean well it means
+that this function is being called in an
+asynchronous context
+meaning that it's possible for this
+function to
+out of nowhere suspend its execution and
+tell the system that hey
+i'm waiting for something to happen you
+can do something else right now
+so for example let's just say we're
+making our actual url
+session a request to get data from a url
+now that's something that takes time to
+go to a url
+fetch something come back so we mark it
+we mark that function call
+with a weight because data for and then
+some url
+is an asynchronous function it's also
+defined as async
+so within this async function we mark
+our function call
+as a weight so we're waiting for that
+function to give us something
+now when we say a wait what we're
+telling swift is hey
+load plot is now for at least for now
+done executing
+suspend this function we're not going to
+continue until we get a response
+from url uh session but then once we do
+get a response
+resume execution of this function so now
+the system
+mac os knows that hey we're not
+executing this function anymore clear up
+some system resources go to some other
+stuff
+maybe render the ui or do whatever you
+need to do
+on this thread but then when url session
+does end up returning a response or
+maybe a little bit after that when the
+kernel thinks it's time
+then continue running this specific
+function and then as if it were a
+synchronous request
+you have the result of the actual
+request as well as the response from the
+server
+stored in your variables no need for a
+completion handler
+no need for a closure it really is
+magical
+now here's the thing functions that are
+asynchronous can suspend their execution
+if you don't
+mark a function with async it can't just
+suspend out of nowhere
+that means that only async functions can
+call async functions so for example if i
+didn't mark this function as async
+i would not be able to call url session
+shared data for
+url and the reason for that is because
+that would be a regular function which
+is not allowed to just suspend out of
+nowhere
+and if you're awaiting for that function
+then you might end up suspending
+and so you're probably wondering if only
+async functions can call it functions
+how do you start that call stack like
+how do you make that first async call
+and jump the bridge from the synchronous
+world to the asynchronous world
+well you can use what's known as an
+async task
+so within your synchronous function what
+you can do is
+effectively just write async and then a
+curly bracket
+and then within that async block you're
+allowed to make those
+calls uh to asynchronous functions
+you're allowed to await for them
+that asynchronous block launches a new
+thread effectively
+and so your original function will
+continue execution after that async
+block
+it will not wait for it to be complete
+the async block
+just goes ahead and starts a new
+asynchronous sort of thread
+in the background so that is how these
+new async await features
+work i have built a little application
+that i'd love to show you
+uh and it effectively enables you to
+search through omdb
+uh using um the uh using
+this new async await feature in swift
+and then i'd love to go ahead and walk
+you through the code
+and how this is possible so let's go
+ahead and take a look at it
+let's start off by taking a look at a
+demo of the application that i've built
+now if you go ahead and launch this
+application as you can see it's built in
+swift ui so it's able to automatically
+adapt to for example light and dark mode
+i'm currently in dark mode and if i go
+ahead and search for
+let's just say spongebob and i hit the
+enter character
+on the keyboard then it instantly goes
+ahead runs that search against omdb
+and it does this again entirely
+asynchronously in the background the ui
+is still responsive as it does this
+in the first pass of the api request all
+it gets are the movie's titles
+and years as well as their imdb ids it
+then
+stores that internally and then it goes
+ahead and launches
+uh per each uh per each cell in the list
+it then launches two new threads
+essentially or asynchronous sort of
+uh streams of execution and within these
+streams of execution one of them is
+responsible for downloading the poster
+and the other one is responsible for
+making another api call to get the plot
+of that movie
+so again there's three sort of i guess
+stages to this asynchronous operation
+there's number one
+which is do the initial search and
+create the actual movie cells
+then there's actually you know display
+those the cells on the um
+on the screen and then for each cell
+launch
+two new asynchronous streams of
+execution one of which is to get the
+poster
+one of which is to get the plot now as
+you can see sometimes you'll see like a
+little loading icon instead of the
+poster and then you'll see the poster
+uh that's that's what happens if at
+first the cell doesn't have a poster
+but then the asynchronous task is like
+oh hey here's your poster and then we
+display it on screen
+but if the asynchronous task throws an
+exception or an error saying
+wait no we couldn't get the poster for
+some reason uh maybe it didn't exist
+maybe it was an incorrect image
+or something on those lines then in that
+case
+we remove the loading little progress or
+spinner
+um and instead we just show blank
+transparent rectangle effectively
+uh and the plot downloads pretty much
+instantly because it's just text
+but i do uh do that as an asynchronous
+stream of execution so that that's not
+blocking anything either
+and of course as you scroll down in the
+ui
+what happens is when the last cell in
+the list
+appears then that triggers a bit of code
+that's like oh you're at the end of the
+list
+and so then it loads in a bunch more
+uh next search results and you can sort
+of keep scrolling it'll detect that
+you're at the end it'll keep
+um it'll keep downloading more data and
+again for every
+you know individual cell that it
+downloads each cell gets those two
+streams of execution that then go ahead
+and
+merge back when they're done so let's go
+ahead and take a look at the code now
+all right let's dive right into the code
+uh now the real magic of this
+application starts off with the omdb api
+class now this code is actually pretty
+straightforward because
+once again that's the entire point of
+this the point
+of the new async await function features
+is to make code a lot more
+you know intuitive it's to make it a lot
+more straight line
+so we start off of course by defining
+our omdb api class this is what's
+responsible for actually interacting
+with the api
+i start off by defining an enumeration
+of the different possible errors that
+we can encounter by calling the
+different functions within the api
+and then we define the movie structure
+that you've seen earlier this has a
+little bit more detail to it though
+for example it conforms to the codable
+protocol
+and in order to do so i need to define
+another enumeration within it called
+coding keys
+because this needs to define decodable
+or rather
+conformed codable because when i
+actually get responses from omdb
+i want to immediately take that json and
+serialize it into this structure
+and these coding keys help me translate
+the keys that we get from the json
+from from from omdb and translate them
+over to the actual structure over here
+i also do have a possible error for
+getting posters for a movie
+which is that we could get an invalid
+image and then of course we have our
+four fields the imdb id
+the title of the movie the year it was
+released as well as the poster url
+and then of course we've got our very
+first async function
+now if an asynchronous function also
+throws errors
+the async keyword needs to come before
+the throws keyword in the function
+signature
+this function takes no parameters and
+all it does is it returns a ui
+image it starts off by trying to convert
+the poster url from within its field
+into an actual url as a swift type
+if it's able to do so then it continues
+as normal
+if it's unable to do so then it throws a
+specific error specifically the invalid
+url error
+now assuming everything did go right
+then we go ahead and convert that url to
+a url request
+then i go ahead and call another
+asynchronous function from within this
+one
+this asynchronous function is url
+session shared data for request
+now what i'm doing here is i'm awaiting
+the response from this function
+but it can also throw its own error so
+the try
+comes before the await this time so i'm
+trying to await a response
+from this function over here if this of
+course throws an exception just like
+normal swift
+that will recurse up the call stack
+as as as this function throws itself as
+well
+uh now we will get a result which is of
+type data and a response which is of
+type url response
+uh and then what i can do is attempt to
+convert that response to an http url
+response and attempt to get the status
+code
+from that response once i do that i can
+check if it's equal to 200 which as we
+all know is okay
+and if it's not then we throw an invalid
+response
+error and then finally i can go ahead
+and take that data which is the response
+of our url request
+convert that to an image and if it
+doesn't work
+then we just throw an invalid image
+error otherwise we can go ahead and
+return the image
+that's all there is to it again the
+entire point of this is to make writing
+asynchronous code easy uh now
+from there we've of course got two
+structures the search api response and
+id api response
+this is so that i can take the different
+api responses from omdb
+and immediately serialize them to json
+because once again
+um like for example um with with the
+search
+field uh omdb will return to me json
+which is a dictionary containing a key
+and the value of that key is the array
+of movies
+and so this helps me deserialize that
+from omdb then of course within the
+actual omdb api class i go ahead and
+define the api key that the user uses to
+communicate with the api
+as well as the last search that was made
+through the class and the last
+page that was accessed for a specific
+query
+all i need in the initializer is the api
+key because we already have default
+values for these two variables
+then of course there's my next
+asynchronous function
+called search what this does is it takes
+an optional query string like a normal
+function
+which by default i'm setting to nil now
+what this means is
+that if there is no query defined which
+is the second case
+for this if-let statement then i go
+ahead and take the last query the user
+made
+and i re-run that query on the next page
+of the results so i continue searching
+for whatever the sutures
+whatever the user searched for last
+however if i was
+passed a query then i go ahead and
+actually run a brand new search
+against the omdb api both of these code
+paths
+will end up putting a url in this
+variable which we then go ahead and
+query using the same url session
+shared data function so this logic is
+effectively the same
+as what you had seen up here for
+downloading posters
+after that i do of course try and decode
+the result
+of the api into my search api response
+structure and then i only return the
+search
+field which is an array of movies as you
+can see
+here after that there is one more
+asynchronous function within the api
+and it's called plot plot takes a movie
+and it returns a string the string is
+the plot of the movie
+it's asynchronous and can throw an error
+and is effectively the same as the two
+functions you've seen before
+it tries to convert a string to a url
+after which it tries to make a url
+request
+and after that request it goes ahead and
+takes the response make sure it's
+valid and then returns the json of that
+response specifically it returns the
+actual plot string now in order to use
+this api i've gone ahead and built a
+little swift ui application
+and this is the ui code we start off
+with our content view structure in which
+i create a new api instance
+and i define two state variables which
+is the search query
+and the array of movies that we're
+currently rendering on screen as a list
+after that i've got my body variable
+within the body variable i simply create
+a v stack and this enables me just you
+know to do some ui formatting
+i put a bit of a title at the top of the
+application and then i put an actual
+search field
+now when you click enter on the search
+field when you commit on that search
+field
+i go ahead and submit a new query for
+the whatever movie you've
+you know typed in and i go ahead and
+hide the keyboard with this line of code
+then i've got a very simple list and
+this list goes through each of the
+movies in your array
+and for each movie it creates a new
+movie cell view passing it the api and
+the movie that it needs to render
+and if this movie appears on screen if
+the cell appears on screen
+and if the movie it's rendering is the
+last in the list then i
+refresh the movies i load some new
+movies in
+now the movie cell view is defined up
+here within the movie sel
+within the movie cell view all i really
+need to define
+are the api and the movie that i'm
+trying to render
+now what i can do from within this movie
+cell view is i can take a look
+at the poster of course this is an
+optional ui image
+i can take a look at whether or not the
+poster was actually loaded successfully
+and i can take a look at the plot of the
+of the movie now when you actually go
+ahead and load in one of these movie
+cell views
+then the first thing i do is of course
+within the body i create a horizontal
+stack and that horizontal stack contains
+the poster which is defined up here as
+well as the
+movie's title year and plot
+now let's go ahead and take a look at
+the poster logic since that's very
+interesting
+if we already have a poster and it's not
+nil we go ahead and show that poster
+if we don't have a poster and we know
+that it hasn't
+failed to load meaning the post or bad
+is not true
+then we show a progress view which is
+that little spinning indicator
+but if it's nil and the asynchronous
+task
+set post or bad true meaning it failed
+to load
+then we just show nothing a transparent
+rectangle
+making it so that there's nothing there
+and of course
+you know showing the title year and plot
+is very simple
+however when this h stack appears on
+screen for the first time
+then we go ahead and load in the actual
+poster and plot by calling
+load poster and load plot both of these
+functions need to make a call to an
+asynchronous function but these
+functions themselves
+are not asynchronous as you can see over
+here and over here
+and so what i do is i use this
+asynchronous task feature of swift
+to have this brand new block of code
+effectively and what this block of code
+does
+is it launches in like this new thread
+in an asynchronous environment
+where the entire call stack is
+potentially suspendable and so you can
+make calls
+into asynchronous functions so for
+example here
+i can try and assign the poster from the
+movie
+to self.poster and if i catch an error
+i can set post or bad to true and here's
+what's really interesting
+what happens is when you run this async
+block of code
+load poster is actually going to return
+immediately
+so load poster here isn't going to wait
+to load the poster
+before you load the plot because async
+just
+makes it return instantly now if i were
+doing something
+else here like for example if i printed
+async called
+async wouldn't make this function return
+it would rather
+go do the print and then return but the
+point is that async
+does not wait for whatever is inside of
+it to finish
+before the rest of your function
+continues to execute
+and so once we go ahead and load in the
+poster in the plot
+we've already got our movie cell view
+done then after that all that's left
+within the actual content view
+is the code for searching for movies
+which is very similarly
+a simple wrapper around that omdb api
+class
+all it does is it takes the query which
+by default we assume to be
+uh nil and if the query is not nil
+meaning we're trying to do a new search
+we reset the movies that are currently
+being rendered on screen
+and then i go into an asynchronous
+context and attempt to
+wait for the api to give me a result for
+that query
+and if i do get a result then i go ahead
+and add it to my swift ui state variable
+which contains the movies we're trying
+to render and that
+is how async await functions work and
+that's a really simple sample
+application
+that helps you actually use these
+features in swift
+yourself now i really do hope you
+enjoyed this tutorial and i really do
+hope it helped you out
+now if it did once again please do make
+sure to subscribe to the channel really
+does help out a lot
+like the video if you did enjoy and turn
+on notifications so you know when i
+release videos just like this one today
+i can't wait to cover more of the brand
+new swift features in some future
+tutorials
+make sure you stay tuned for that once
+again any questions or suggestions
+feel free to leave it down in the
+comment section below or reach out to me
+through social media or my email i'd
+love to get in touch
+apart from that once again thank you
+very much for joining in today and
+goodbye

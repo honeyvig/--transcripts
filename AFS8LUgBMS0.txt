@@ -1,0 +1,391 @@
+so hello there and welcome to another
+tutorial my name is tanmay bakshi and
+today
+we're going to be diving into the world
+of k-means clustering and a little bit
+of unsupervised learning
+now before we get deeper into this i do
+want to start off by saying that if you
+do enjoy this kind of content and you
+want to see more of it
+please do make sure to subscribe to the
+channel and turn on notifications as
+well as like the video
+of course if you have any questions
+suggestions or feedback feel free to
+leave it down in the comment section
+below or reach out to me
+and i'd love to go ahead and answer your
+questions and hear what you have to say
+now diving right into the world of
+k-means clustering this is a really
+interesting algorithm
+effectively it's a family uh it's within
+the family of unsupervised learning
+algorithms
+which are algorithms that don't require
+labeled data to learn
+so you may have experience training deep
+neural networks for example and these
+deep neural networks require
+mappings of data so for example you
+could say here's an image of a cat
+and here's an image of a dog you can't
+just give it the images you need to also
+provide it with labels
+that's called supervised learning
+unsupervised learning
+is when you get to feed the model with
+your data and have it extract the
+insights for you
+you don't manually give it some sort of
+information about that data
+now within this world of unsupervised
+learning k-means clustering is one of
+the
+i guess most classic algorithms the one
+that a lot of people implement
+and it's one of those where i've used it
+before actually a lot of times
+but i've never had to implement it from
+scratch myself
+a couple of days ago i had the excuse to
+implement it myself
+and i must say i am surprised by just
+how simple the algorithm is
+in the back end effectively the way that
+k-means clustering works
+is you start off with your data this can
+be in practically any dimensional space
+uh in this simple example we're going to
+be using two dimensional uh points
+however you could have n-dimensional
+points so if you have output from a
+neural network that's
+10-24-dimensional say from burt large
+you can absolutely still use k-means
+clustering
+but let's just say you have
+two-dimensional data effectively all you
+need to do
+is come up with some random points for
+your centroids which are the centers
+of the clusters that k-means clustering
+identifies
+once you have random points for them you
+identify which
+points within your actual data belong to
+which centroids
+which means which ones are they closest
+to you'll usually use something like
+euclidean distance for this
+and then all you do is you now figure
+out which points are actually associated
+with which centroids
+and then you calculate the average of
+those points
+and you move the centroid towards the
+average that's all there is to it
+and suddenly you'll be able to group
+your data into
+n different clusters where n is however
+many
+clusters you're looking for now
+determining how many clusters to use
+is another issue altogether in some
+cases you may already know the count
+so for example if we're using mnist
+digits we know that we want
+10 clusters because there's 10 different
+digits but because this is unsupervised
+learning in a lot of cases you wouldn't
+actually
+know how many clusters you need you can
+do things like elbow analysis here
+however what we're going to be doing is
+simply focusing on the k-means algorithm
+how it works and how you can implement
+it from scratch in python
+and so now let's go ahead and take a
+look at actually implementing k-means
+from scratch it's only a couple of lines
+of code and it'll give you a bit more of
+an intuition
+for how it works maybe a great way to
+start off
+is to actually begin by discussing what
+a cluster even is
+well cluster as you probably know is
+essentially a lot of points within your
+data
+that are close to each other that you
+want to specify as a single sort of
+group of points they belong to a
+category because they are close together
+they're one specific cloud of your data
+also known as a cluster
+but how do you define where that cluster
+is
+well the way that you do with k-means
+clustering is by defining what's known
+as a centroid
+a centroid is the point at the center of
+that cluster
+such that all the points that have the
+closest
+distance to that centroid are part of
+that cluster if they're closer to a
+different centroid
+they're part of that centroid cluster
+and so the way that k-means works
+is that you start off by putting these
+centroids in random locations
+the way that i'm initializing it is by
+taking the average point of the entire
+data space and just creating a couple of
+different sort of variations around that
+general center
+area what that gives me is then a bunch
+of points that can move into their own
+cluster spaces
+uh now in order to achieve this goal i
+have two functions on screen right now
+the update assignments function and then
+the update centroids function
+now these two functions do two different
+things first of all
+the update assignments function will
+take a bunch of data as well as the
+locations for centroids
+and it's going to tell you which
+centroids which data points belong to
+so for example the first data point is
+closest to the second centroid and so on
+and so forth
+now using that information we can do two
+things
+first of all we can make it so that
+given data and a bunch of centroids we
+can figure out which data points belong
+to which clusters
+so we can for example color them
+accordingly now second we also then have
+the ability to run what's known as the
+next
+k-means iteration now what that's going
+to do is it's going to move our initial
+guess
+of where exactly those centroids should
+be in what we think is the correct
+direction
+the way these iterations work is quite
+simple and you can see that
+in the update centroids function inside
+of the update centroids function what
+i'm doing
+is essentially saying all right let's
+take a look at all of the different
+cluster assignments at the moment say we
+only have two centroids and we have 10
+data points
+take the data points that are part of
+the first cluster
+and the data points that are part of the
+second cluster and find
+the middle of both of those current
+guesses of clusters
+and those two middles are now the new
+locations of the centroids
+then recalculate which points are
+closest to which centroids
+and then again find the average and
+continue
+keep looping until you think you've
+reached good performance
+there are many ways of calculating this
+performance for example
+you could calculate what's known as the
+sum of squared errors
+the sum of the squared distance from
+your centroid to all of its individual
+points
+when you reach a low enough value then
+you know you fit your data well
+now in this case if we were to go
+through the data that i've prepared here
+or rather the code
+as you can see i'm starting off with
+some very classic simple imports
+importing numpy and matplotlib
+then after the imports first order of
+business is to define the functions i
+was talking about so as i mentioned
+there's
+update assignments and there's update
+centroids assignments will tell us
+which clusters or which centroids
+certain data points belong to
+and update centroids will take those
+assignments as well as the data
+and figure out where the centroids
+should actually be now
+and of course multiple iterations of
+both those functions back to back and
+you should get pretty good centroids
+now in order to actually do those
+iterations i've actually gone ahead and
+taken just
+some sample data i'll actually show you
+this data in a moment
+and using that sample data we can go
+ahead and experiment with some
+clustering
+i load that in through this data file
+over here and i transpose it
+so that we have a shape of 52
+so the shape is going to be 50 comma 2.
+effectively this means uh 50 data points
+with two dimensions each
+um and so once we have that i just go
+ahead and print out the shape
+and then i run the task i was talking
+about which is that iteration of
+consistently finding assignments and
+then updating centroids
+um we start off by guessing where the
+centroids should be so once again just
+in the very middle of the data with some
+minor movements here and there just so
+we actually get them moving in different
+directions
+otherwise they would all be moving in
+the same direction if all the centroids
+were the same
+and then i just go ahead and start
+looping um
+100 times i will do that sort of dance
+of
+finding the assignments and finding
+where the new centroids should be based
+off of those assignments
+and then once that is done i go ahead
+and plot out the data
+so i plot all the data with one color
+and then all the centroids with another
+color so that we can
+see where the centers of the clusters
+actually are
+and then from there i just go ahead and
+show the plot and
+in theory we should have implemented
+k-means clustering from scratch
+let's go ahead and take a look at if
+this actually worked out
+so if i go ahead and quit or rather i
+guess i'd save because i commented some
+code there
+if i go ahead and run k-means dot py
+we should be able to see there we go
+we see our data over here that's all the
+blue points
+as well as the three clusters that we
+were able to identify
+in orange now these three clusters are
+of course
+within sort of i guess you could say
+they're close to the center
+of their respective regions like
+visually as a human if you were to sort
+of look here
+you can identify that there are overall
+three sort of clusters of data here
+there's the one
+over here to the left there's the one
+over here to the right and of course
+there's one
+down here below as well the one towards
+the top can be a little bit harder to
+sort of
+exactly distinguish where the clusters
+begin and end
+however it is still pretty easily
+possible and that's what k-means is
+actually doing for us
+as a matter of fact i can actually
+change the number of clusters
+that we want to run against so for
+example
+i couldn't instead say we want to we
+want to get four clusters right so this
+axis over here defines how many clusters
+or how many centroids we want to
+generate
+and this is just how many dimensions per
+centroid which is two because our
+our data is two dimensional so i can
+change that three to a four
+and i should just be able to run my code
+and there we go as you can see now we
+have
+four centroids and in this specific case
+we didn't really need more than three
+right there's only
+really three clusters here but if you
+were to force k means to use a fourth
+centroid
+in this specific case thanks to the
+random initialization we got
+this is where the next centroid goes
+however it's absolutely possible that it
+could go pretty much anywhere else
+it could go in between the two clusters
+over here but it just so happened that
+k-means
+based off of the random initialization
+said that you know what
+um over here it would make most sense
+because of
+um say this one outlier over here um
+that approximately seven 1.4 right so
+um or yeah so negative seven one point
+four um
+to to be exact um and so that's how k
+means clustering works i mean i must say
+when i actually implemented this from
+scratch
+i was kind of surprised as to how simple
+the algorithm really is and how elegant
+it can be um you take a look at
+algorithms like this and you wonder you
+know
+they're probably pretty complex because
+a lot of modern machine learning is
+you know a lot of different things sort
+of put into a single package
+but k-means is one of those really basic
+algorithms that is incredibly useful
+right if it's if it ain't broke don't
+fix it so that's exactly what uh what
+k-mean sort of personifies here
+and hopefully this was helpful for to
+you uh sort of figuring out how the
+world of unsupervised learning works
+and how you can implement your own
+machine learning algorithms of course
+this code is down in the description
+below so feel free to go ahead and check
+it out
+and run it for yourself uh and of course
+if you did enjoy this video please do
+make sure to subscribe to the channel
+once again it really does help out a lot
+turn on notifications so you're notified
+whenever i release new content
+and of course feel free to leave any
+suggestions feedback and of course
+questions down in the comments section
+below or feel free
+to email me or tweet to me at tajimani
+of course though
+thank you very much for joining today
+and goodbye everybody

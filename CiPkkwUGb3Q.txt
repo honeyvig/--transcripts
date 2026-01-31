@@ -1,0 +1,71 @@
+so hello there and welcome to another
+tutorial my name is Hana bakshi and this
+time we're gonna be going over another
+Tanmay sorts video I haven't done one in
+a while and so I'm going to be arriving
+the series in this one video okay so now
+today we're gonna be talking about a
+really quick homebrew tip so if you get
+this ever in homebrew which is
+privileges error but I think this popped
+up in 10.11 OS X El Capitan you rootless
+but this is the error let's say I need
+to install a package like get out not
+brew get sorry brew install get I've
+done this so many times that we're not
+okay so now it's saying that I must link
+XZ to brew before I can do this so let's
+run brew link XZ and as you can see
+gives us an error us our local include
+is not writable now of course as I said
+it's good to run brew doctor if you have
+an issue with homebrew so I run brew
+doctor and as you can see over here we
+have another error the exact same thing
+us our local include is not writable so
+now how do you fix this exactly well
+it's a ball you do come over here now
+type in sudo CHM and this means change
+owner now change owner will change the
+owner of this specific directory or file
+to whoever you choose in this case we're
+gonna choose ourselves so we're going to
+CH own but recursively meaning if it's a
+directory go into its subdirectories and
+its subdirectories and it's files and
+every single thing in that directory
+should be change the owner to whatever
+you give it now we're going to make the
+owner the current user and we're going
+to do this for us our /local pretty
+simple now let's click enter and it
+would have asked you for your password
+but I've already knew Doe before so it's
+not doing that for me so now if I run
+boob doctor as you can see it doesn't
+give me that error and now if I do brew
+link XZ it
+sit properly were good on that end then
+we can install get and as you can see it
+worked it's just that I don't exactly
+want to install it right now because I
+already have it installed anyway that
+was actually quite short video and so
+again if you enjoy please make sure to
+hit the like button you can either email
+me or comment down below in this video
+if you have any more suggestions
+improvements ideas or pretty much
+everything anything else you can
+concerns you can also email a video
+question of us and in question to
+Tasmania gmail.com and I may just
+feature in one of my next videos you can
+also subscribe to my channel if you want
+to show your support and if you want to
+help make this channel better and of
+course you can also follow me on Twitter
+if you're into that so you will get
+updates whenever I do really select a
+new video same thing if you subscribe
+and that's going to be it good bye

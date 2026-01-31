@@ -1,0 +1,881 @@
+[Music]
+so well there and welcome to another
+tutorial my name is Ken Adachi and this
+time we're going to be going over how
+you can build a swift sift for Mac OS
+that can automatically solve your word
+searches using the tesseract OCR and OCR
+dot space API so let's get right into
+how you can do that now
+so basically what we're going to be
+doing today is we're going to create a
+shell script that can take two images
+first of all the word search itself the
+matrix of letters as well as the word
+list of words inside of that word search
+is then going to take those two runs
+both through a OCR platform test rack
+and OCR table space respectively sort of
+matrix and word list and then those
+results will then be processed sent over
+to Swift simple run an algorithm to
+actually find the words worthless in the
+matrix or the actual word search itself
+and simple output not only the locations
+of the letters themselves in the words
+themselves in the word search but itself
+will actually form the word search I
+like the words and give them back to you
+so let me tell you how we're going to be
+doing that
+all right this I'm just going to draw a
+quick diagram let's take a look at how
+this entire application is going to work
+in the back end let's take a look at how
+that works and it actually begins with
+the most fundamental basic blocks of
+course and so these will be our matrix
+and of course our word list
+okay so we've got our matrix and we've
+got our word list and basically what
+we're going to do is now the reason I
+have to use two different OCR platforms
+it's because well they're there's their
+strength shine when they're doing their
+respective tasks because tesseract what
+have done have done is I've disabled the
+English dictionary from tesseract and
+tesseract becomes extremely good at
+finding this extremely structural matrix
+layer and in fact what happens in
+tesseract is able to return the matrix
+to us in the exact format that is
+actually in so let's just say we've got
+14 by 14 matrix of words or letters that
+contain words the word search what will
+happen is I can actually tell tesseract
+that I know this is a square of
+characters and Tetrarch will take out
+square characters it will actually give
+me 14 lines of data each 114 rows with
+space in between each row and this is
+absolutely grateful and for our Swift
+script because it becomes so easy to
+parse in the code and when it's easy to
+parse
+well it becomes very easy to work with
+in our word for solving algorithm all
+right so now what we can do we can go
+back over here and the thing is the
+matrix regardless OSR off with the
+matrix and matrix itself what it needs
+to do is go over to a program to
+basically help it clean up the image
+because the thing is when you take an
+image with your iOS device or scan your
+scan your word search what's happening
+is the matrix it doesn't necessarily
+have the best image quality and because
+it doesn't have the best image quality
+well what happens is you end up with
+inaccurate OCR and when you all end up
+with a nicer OCR you're only able to
+find beautiful words in the worst so
+what happens if they're just great for
+that there's this great script created
+by Jeff and they'll be a link to this us
+but in theatres the P below and
+basically what it does it cleans up your
+checks for you it's a mainly script what
+it does it takes the image of your text
+don't clean house Portland will make it
+an amazing format that OCR programs love
+and so what we can do is actually send
+it over to his program called clear
+technically again senses of the script
+so lowercase on another matter though
+the official name is all lowercase so
+text okay Dan effects cleaner becomes
+very very crucial part because without
+text clear you end up with inaccurate
+OCR and a thorough we are basically
+defeats the purpose of the entire system
+all right now the seconds after the
+matrix has been the image of the matrix
+has been sent to text cleaner
+what happens is we need to be able to
+send that image that takes cleaner
+outputs which is the clean version of
+that image we need that to be scaled up
+a lot until the breakage we're already
+brewing breaking a lot is what I'm going
+to say and the reason is to do this is
+because tesseract because of the way
+tesseract is entrained and firm because
+of the way that it was built up from the
+ground tesseract love scaled up images
+it loves draw pixel data and so what
+we're going to do is we're going to use
+our own little I guess you could say our
+own little image magic script and what
+we're going to do is we're going to
+rescale using imagemagick which if you
+didn't know image magic is a unix
+program or next program in or that
+they've used to resize rescale or on
+filters for greatly doulos magic wizard
+images as the name implies and so it
+happens easy text cleaner output just
+sent to image magic now what we'll thing
+I'd like you to know yourself is that
+the text cleaner itself does use image
+magic it's just that eases it for
+different purposes so what we do is text
+cleaner will use image magic to clean up
+the text and clean up the image to
+create a very nice image for OCR and
+then also got that great image then
+we'll use our own image magic command to
+scale it up to 6,000
+six thousand pixels and so what that
+will do is it will give us the correct
+but I get the image that we will then
+send to cataract but we'll talk about
+tesseract now let's talk a little bit
+about the word list now the thing is the
+word list doesn't need to be processed
+as much because we're using a relatively
+commercial OCR software called OCR not
+space and as you know with commercial
+software sometimes you get better
+accuracy
+what is your OCR an old stereo space is
+not required to text inning in fact it
+encourages no no text cleaning because
+when the tech cleaning sometimes you get
+lower accuracy with a word list because
+of course this is just a matrix of
+characters these are actual words that
+we want to find so what we're going to
+do is we're going to have a Python
+script that will actually send our word
+list to OCR dot space it's gonna fix my
+filling or so basically what happens is
+the Python scripts will take that image
+that the image of the word list and
+what's the healthy image all that word
+list it's going to then convert that to
+post data and apple TF will then be sent
+over to OCR dot space using their
+positive using their generic rest api
+and RSVP I'll go over to OCR space from
+there advanced algorithms I'll and then
+once the wordless hasn't been through
+OCR will be ready to be sent to the
+script but just before we talked about
+the subscript we have to talk a little
+bit about tesseract so what we do is we
+run a tesseract script as well and
+whether this is developed by Google and
+so tesseract will then give us the
+output of all the characters in our word
+search matrix and so now what happens is
+we've got this image value output as
+being sent over to Kathryn and so now
+we've got both our OCR outputs and we
+read to you a subscript and so what we
+do next is we've got this swiftest
+and they simply respect and loves this
+really great algorithm developed by John
+O'Hagan it will actually give you a link
+to where he created this algorithm in
+the description below but basically the
+point is it's fairly generic word search
+search search implementation word search
+so for implementation
+he actually cleared this in 2009 and
+what happened does that actually take
+his code
+we're taking this algorithm and we
+basically implemented it in switch even
+in a physics a more efficient or more
+user-friendly way basically what happens
+I'll play why user-friendly in just a
+moment but what happened this tesseract
+will then take its output and send that
+over to Swift and OCR dot space will
+also take its output and send it over to
+Swift and what's which has both of these
+inputs that and you'll start to kick in
+it'll take both of them and little
+personally I'll run some pre-processing
+on the tesseract struct and it'll solve
+some common errors that we know
+tesseract I'll deal with for example 0
+can easily confuse a capital oath and so
+those issues are fixed conveniently with
+Swift and once we solve those issues
+that has racked has then finally for
+able to have switching or run its gray
+algorithms and once it finds all of the
+words in the word search what might
+happen is Swift will give us two outputs
+not just one what's not much first one
+first so this works output that we're
+going to get from Swift is actually
+quite simple it's just going to be the
+locations of all of our words basically
+all the locations of where each word
+starts on the board list or on the on
+the word search matrix and so then you
+know the location isn't always you want
+a visual way of representing it so the
+user can see where the words are and
+much more will ever then user friendly
+way and the way I do this is actually
+quite quite simple
+well the last button is nine simple as
+you might think but it does work very
+nicely and what happened is we actually
+highlight that matrix so we send a
+highlighted salt matrix back to pieces
+so recently we highlight all the
+locations we highlight the actual words
+in the matrix and give it back to the
+user so the user can see see those
+results and so what happens is we
+actually think they'll give this output
+to you but what happens is the location
+data powers this so two things what's
+happening a script generates the
+location output that location alpha will
+then be used along with just in a
+regular search and location to actually
+create this salt and highlighted matrix
+for the user to use and that is what
+we're going to be building today and now
+without any more further ado let's go
+straight to the Mac part where I'm going
+to be showing you how exactly we can
+implement this entire system behind me
+now this was a very interesting project
+but I can't wait to share with you so
+let's get right into the coding part all
+right so welcome back to the math part
+and now I'm going to be showing you how
+exactly you can implement this entire
+system but just before we get into that
+let's survive exactly what we're going
+to be doing now if I go over here and
+you can say prepare this diagram around
+the architecture of the T word search
+system and so essentially what happens
+is let's talk about the matrix and the
+word list first these are basically our
+inputs to the T word search system what
+happens is the matrix will roll through
+a pre-processing stage before it can be
+run OCR on and this will involve
+cleaning the text and of course
+resigning a foot test rack can actually
+make use of it this will use text
+cleaner and image magic and then once
+that's done we'll go to tesseract OCR in
+order to find all of the characters
+inside of the matrix once that is done
+then we will take our word list and send
+it to the OCR dock space API through
+Python in the OCR dock space API will
+return all the words in the word list
+and output them to a file as well once
+we've got all of that information from
+test rack and OCR dock space we then
+take that initiate the Swift engine
+and Swift is I'm going to run the
+algorithm by John O'Hagan and of course
+we're implementing by me in Swift as
+well as few more extensions from others
+and basically what's going to happen is
+once with run to the algorithm it is
+then going to output the locations of
+the words inside of the word search as
+well as an actual solved word search
+matrix with all the soft words
+highlighted alright so that's how our
+systems going to work and now let's get
+to how you can build such a system now
+what one thing I just like to cover
+really quickly is how this actually came
+up and I mean if you think about it word
+searches are technically supposed to be
+this sort of time killing activity where
+all right so you've got free time and
+you want to solve the word search why
+not it's something to do but what
+happened is I was trying to solve a word
+search and I and I got quite frustrated
+because because I mean I'm trying to
+find 15th word on row 14 and I'm unable
+to and so I just wanna I want that best
+one I guess you could spark the idea and
+mean to say hey why don't we create a
+computer system or some sort of some
+sort of system as I mentioned that can
+actually take images of the word search
+I don't even need to type out the word
+search should take images the word
+search take an image of the word list
+and then sold it for us and that's
+exactly what I went ahead and did
+alright so you can see this is our Swift
+script and before you start talking
+about all that other all the other parts
+of this algorithm or this architecture
+Sartain this entire system that I've
+taken from many many sub of many
+subsystems
+let's talk mainly about the Swift
+portion or for the moment so the Swift
+portion here what this is going to do
+for us is going to do the main
+processing of the output from tesseract
+to give output to the user as our final
+output now inside the switch that we've
+got this extension to spin the string
+class and implements this really simple
+boy or more string search and this is
+from Ray wonder which link in the
+description in case you'd like to check
+that out and so that that's that's
+basically what we've got this string
+extension
+we're also to two functions by me and
+basically what these functions will do
+is like for example the main characters
+function will take something like oh I
+don't know let's just say you've got a
+string and you know that the maximum
+value of the string can be three
+characters like nine nine nine right
+Albin thing is let's just say that the
+string is 89 what will happen is the
+function main characters will
+automatically make this space eight nine
+so that it will fit in with something
+like nine nine nine and similarly for
+something like nine or just you know
+five for example put space space five so
+it fit in with nine nine nine and eight
+nine and it looks quite nice it
+basically right aligns that text and
+what happened to the mint your groom
+left is practically the exact opposite
+it'll do something like okay let's just
+say again we know that nine nine nine is
+the maximum value it will convert the
+just eight nine to space eight nine or
+sorry a time space and it will convert
+five to five space space so that you can
+then have your text after those spaces
+and you can have everything nicely
+aligned and this is used when we're
+giving our output to the user and the
+way this helps you see you know producer
+much better interface for the user so
+they can get their output in a much
+better way all right so after that we've
+got this really great implementation I
+mean word search out solver algorithm by
+John Oh Hagen and of course there will
+be a link to John Oh Holland's Python
+implementation in the description below
+what I've basically done I haven't done
+is the abstract of the entire algorithm
+taking it from Python converting it to
+algorithm form and then once I did that
+I really implemented the entire thing
+from scratch in Swift on as you can see
+this is basically our swift
+implementation of John Tejanos word
+search algorithm implementation from
+2009 on the programming praxis website
+and again link to that in the
+description below
+alright so what happens though is
+Jonathan Gonzaga them only deals with
+simple printing out the locations
+like their own column of the words and
+very known user-friendly way it sold the
+word search and that that's great well
+the thing is we want to make this abuser
+friendly as possible to make sure that
+the users are able to actually visualize
+visualize that that representation that
+that word search being sold and the way
+we do this the way I do this is we
+actually take the output from this
+algorithm and then we basically go back
+a step and we basically a note down the
+row and column of every single character
+at the part of word and little happens
+later when we're printing out the entire
+solve matrix every one that falls within
+within those those characters will then
+be highlighted yellow using I will just
+open this up really quickly using the
+colors SDK or API or the colors code
+created for Swift and again there will
+be a link to the colors or the rainbow
+colors we get a repository in the
+description below basically it allows
+you to print out you basically like
+jumbled it and style and color text to
+the terminal using Swift or to any
+console using Swift that's what that
+allows you to do but essentially the
+logic behind though is that since we
+only have where this were where any word
+starts in a word search the logic behind
+this is that we should be able to take
+that starting row and column and
+calculate the row and column for all the
+other characters in that word in the
+matrix through taking the direction that
+we know it's going in and then of course
+we should be able to find it that way so
+basically what happens is we note down
+the beginning row and column and we
+append this to an array called
+coordinate colors and coordinate colors
+will contain the row column tuples that
+need to be highlighted and then what we
+do is you haven't reasonable lube and
+what does it quickly can you temp grow
+and temp call variables and then we loop
+through
+I is one - word character shot count -
+one basically one - all the length of
+the word word award strength - one and
+basically were to say the word in Bakshi
+it alludes from one to five and so what
+is it each one we then not a quick
+conditional and we say all right
+does the direction contain the letter B
+if it does then increase temporal by one
+if it increase if it has a u in it then
+decrease it by one and if it doesn't
+have any of those then just keep and
+then just add zero to it meaning keeping
+so it's the same then what happened is
+for the column though we check okay does
+does the direction contain our meaning
+right if so then I'd want to call them
+but if it has a L meaning left then the
+gate want meaning bring it back one and
+so if that is there either
+then do zero don't do anything to
+temporary column then what we do is
+we've calculus that allows us to do is
+we after that line yet successfully
+calculated the next row and column of
+the next character in that word in the
+word search and repend that we append
+this is I guess you could say this tuple
+back to the coordinate colors array and
+then we just continue the cycle over and
+over and over again until for each and
+every single word we've got each and
+every single character that needs to be
+highlighted that's what we do is we have
+this crippled a lot of here and what
+this logic is going to do it is actually
+going to loop through all of the results
+that the algorithm gives back to us or
+really not even new results all going to
+do is loop through the actual matrix
+itself that it was inputted in the very
+beginning and once it loops through that
+matrix as its printing out the matrix
+it'll check for each row and column that
+it's looping through like for example if
+it's looping through thirteen thirteen
+row 13 called 13 it'll say all right in
+the current colors array it doesn't say
+that row 13 calls 30 needs to be
+highlighted if it says that it doesn't
+need to be highlighted and well what
+we're going to do is we're going to make
+it bold and yellow and what that's going
+to do is going to
+allow user to see that word highlighted
+I can actually see the word search being
+solved and that is how our shits Creek
+works its entirety now of course you
+want a more detailed explanation of the
+algorithm there will be another video
+about that very soon there will be a
+part two about the actual algorithm
+behind the word search solving and that
+will be out soon as well alright so
+that's how that works but now let's get
+over to a quick demo of this actual
+system and once I show you a demo of the
+system then we can get into how exactly
+you can build the other components of
+the system now what I'm going to do is I
+want to run a very simple word search
+strips that I print by doing dot slash
+word search SH and then I'm going to
+pass it matrix PNG and word list dot PNG
+now if I go back to my finder here you
+can see that as you can see matrix dot
+PNG is this matrix right here and if I
+go down to word list this in our word
+list for what we've got in our matrix
+that should be perfect so now we're
+going to pass this and we're going to
+pass our matrix and let's see we're able
+to run out the yard that accuracy our
+results and see if we're able to of
+course solve this or search I'm going to
+click enter in these people clean the
+text using in text Peter will resize the
+text it'll then run to tesseract OCR
+it'll then run it through OCR dock space
+OCR and just before we continue here I'm
+not going to show you the bottom just
+yet but first as you can see after the
+OCR up space OCR is done it prints out
+the OCR results for first of all the
+matrix and you can see for a few
+problems with like a capital S being
+classified as zeros but don't worry so
+it will take care of that and what we're
+going to do now is I'm going to scroll
+down as you can see these are the OCR
+results for the word list and you can
+see the strengths of each of these OCR
+platforms are really shining out here
+tesseract is great with the structured
+data the OCR dock space API is great
+with that on structure just word data
+and then what we can do is scroll down
+and as you can see the algorithm has
+resulted in the rows and columns of the
+beginnings of these words as well as the
+direction they go in I'll actually test
+this out and see if this works
+now says that near the word neural net
+is going left in the direction left up
+meaning diagonally left and up and it
+begins on 1313 now as you can see this
+is our highlighted grid search and as
+you can see it actually comes out quite
+nicely and the user should be able to
+actually see where all these words on
+their words such men copy that town onto
+their physical copy and so basically
+what happens is let's just stay here
+okay 1313 let's see so 1 2 3 4 5 6 7 8 9
+10 11 12 13 and 1 2 3 4 5 6 7 8 9 10 11
+12 13
+all right so this is the 13th 13th
+element or the 13 15 the data piece of
+data or element yes and basically what
+we can do is go left up as you can see
+neural net as you can see this is
+correct and highlight the two so we can
+see any you are al and DT and so we see
+the word neural net even though again if
+I was solving this word surged manually
+that would take me a long time but what
+happens is this algorithm is able to
+take the OCR results run that to the
+script and then output your correct of
+your results as well as the position and
+the actual highlighted version in fact
+if we take a look at something like John
+it's on the fourth 13th so we go 1 2 3 4
+and then over to the 13th
+as you can see John's going up and the
+scenes pictures John's going up and I
+notice this actually hard-coded you can
+run this with any matrix or any word
+list that tesseract and OCR not space
+OCR have a good time classifying and you
+should be able to find if not all at
+least most of the words inside of your
+word search and the reason I say not all
+is because sometimes you know the ready
+of seeing my new inaccuracies with the
+OCR and then the osseous ability are
+hasn't
+the algorithm the correct characters it
+would be able to assume what exactly are
+talking about but again there are always
+ways to work around that like hard-coded
+let it shine distance algorithms or
+something of that sort then again back
+that's for another video sometime later
+alright so that's how that works that
+was one down now we've got one more demo
+to show you and that devil actually has
+a very interesting feature where you can
+actually find unintentional or repeats
+of words and I'll show that to in just a
+moment but first I'd like to show you
+the rest of the code that goes behind
+this entire system and so let's actually
+started off by going into the word
+search SH file the orchestrator for all
+of this and so what happens as you can
+see first of all it cleans the text and
+it runs this basically standard text
+cleaner format basically takes the first
+argument that it was given and it seems
+the file to text clean underscore and
+then the first argument is given that we
+basically rename the file or you know
+create a duplicate of the file that's
+been text clean to text clean under
+stores a pre underscore as a prefix of
+that file name and then what happens is
+we then resize the text and then we use
+image magic scan work function or
+convert command and we give it the text
+clean image and you resize it to 7,000
+with 7,000 a to a resized image we then
+want tesseract OCR and we're running
+this on mode 6 what that means is it'll
+run specifically structure data for
+actually from the tesseract command you
+can see a dash PSM means specify pH
+segmentation mode and these are all the
+page segmentation modes possible but
+basically what happens as you can see
+number 6 is assume a single uniform
+block of text and this is exactly what
+our matrix is and that's why the page
+segmentation mode 6 works so perfectly
+we then save the output to a file called
+a dot txt then what happens we run the
+OCR up space OCR Aaron this is my Python
+step so I run the Python OCR space set
+of dot P Y file we hear that the second
+argument passed which is a word list PNG
+and then we output whatever Python gives
+us to be txt and then once that is
+completely print out all of the OCR
+results by using cat and so I do catch a
+dot txt cat beat exe so that the user
+can actually see what the OCR results
+are looking like in fact if you want
+this to be formatted nicely we could do
+something like this and it would put a
+space between these two these two lines
+here and then what we can do is we can
+actually echo out the algorithm results
+and what happens here is if I go back as
+you can see in Xcode I've actually
+coated the Swift command line app and
+when I build it as you can see famous
+words for solver as a product when I
+open it in finder it's innocent a very
+obscure location all right foots and
+some sort of build folder and some sort
+of derived data folder we don't want to
+have to deal with that so what I do is
+actually create a symbolic link from my
+Xcode build to my actual word search
+folder and what happens is I as I make
+my symbolic link from that build file to
+the word switch for itself and what
+happens these are they basically create
+a clone of the file over here in my word
+sixth rectory and what this allows me to
+do is basically say you know whenever I
+build a new text gun and the Xcode build
+of this application then what's going to
+happen is not only will it build for
+Xcode that will automatically be
+transferred to my word sixth rectory as
+well because it's just a symbolic link
+or a shortcut and so that's that's how
+that works basically we run that binary
+and this is actually our swift and you
+give it the a dot txt beat exe file and
+once the word search solver prints out
+all of the algorithm results then we
+clean up by removing the extra files
+that we just created in order to solve
+the word search no we do this by
+removing a dot b xt XE v dot txt the
+resized version the first image of the
+text cleans version the first image and
+this will allow it to essentially clean
+up to the space cut the directory was
+already in and that is the entire code
+for this
+of course psychics you can see this will
+be complete code and some of these
+sources that I'm using for this our open
+source like tesseract but then again
+those basically act as are as basically
+you foxes where we send in some input
+they give us some output than were able
+to use that in our architecture and our
+system and then what I do basically eyes
+again what's happening here is each each
+each individual building block basically
+of the system take some info from the
+last up gives it to the next step but
+and that continues on until swift is
+able to take those final inputs and give
+us our final outputs and does that sort
+of main have mean main processing I
+guess you could say the main heavy
+lifting I'd have to say is done by the
+OCR because without the OCR this would
+be impossible because it's not practical
+be able to enter in your word search
+character by character it's probably 14
+by 14 word search I'd be entering 196
+characters that's just not possible
+so the OCR doesn't meet heavy lifting
+switch of the main processing and oh and
+all were able to get our output which is
+what we really want in this really
+user-friendly way and that is exactly
+what we want what we wanted to achieve
+and that's how I was able to achieve it
+in fact I actually like to give you one
+more demo and so if I actually go back
+here you can see we've got this other
+file called matrix one and this is
+another matrix that I've got here
+another word search that I've created
+and as you can see this is the word word
+list for that for that matrix and if I
+go back to my terminal you can see I can
+actually run that word search script
+once more and this time I can actually
+run it on matrix one dot PNG and
+wordless on top entry and these are
+these are different files than the ones
+that we were using last and so what's
+happening again is cleaning the test
+resizing it tesseract OCR dot space it's
+been going to run the algorithm as we
+know once it comes back from OCR knock
+space again sometimes you'll see a table
+space does take a little bit of time you
+can fact again it is a rest api
+ah and it really depends on you know
+factors like internet speed API uptime
+etc etc to ensure that it was er that
+space is functional
+then again what we can always do is
+cancel that or never money right as I
+was about to you got or actually no
+unfortunately OCR got space has not yet
+returned results but it's alright let's
+run this word search once more and let's
+see if those are not space is able to
+return our our results now just a moment
+here we should be able to feed in our
+image to OCR dot space and Oh Sarah not
+space will be able to reply to us now
+what I'm going to do is I'm going to be
+right back in just a moment once OCR
+space is done processing I'll be back in
+just a moment
+all right so my internet had a little
+hiccup there and wasn't able to
+communicate with OCR dot space exactly
+perfectly so let's just go back to the
+terminal here and this should work now
+so if I just go back to word search and
+if we rerun the script again no code
+changes just a quick internet hiccup so
+if we just run as you can see it returns
+the correct results but if I go back now
+you can see on our OCR results are great
+now we got we got a correct word list we
+have one idea in this wordless stuff so
+I mean I included the word IBM in the
+word list ah but the thing is if you
+scroll down here for some reason the
+algorithm is returning to IBM ok and so
+this is one of the great things about
+this album what happens if I scroll down
+unintentionally there are two IBM's
+inside of this word search and take a
+look here the first one here that goes
+right down okay it was seven one right
+down this is I B and diagonally alright
+but the thing is as you can see here
+we've got some words Nvidia and we've
+got pan mate and after end video we've
+got actually but that's not relevant to
+this now the second eye in Nvidia and
+the first M in 10 may they've been
+using a bee in one column and so
+unintentionally I got another I am
+linking these two words and what
+happened were such algorithms he's able
+to find that word and so unintentionally
+there was another word that was
+including this word search which I most
+probably wouldn't have found but the
+word search algorithm the word search
+our connection with system was able to
+find it and that's just one of the great
+features of this entire network but
+apart from that as you can see it found
+words like deep learning it found CUDA
+sound Twilio spelled backwards it found
+convolutional it found Apple found of
+course IBM NVIDIA Bakshi handmade and of
+course another idea and so that is how
+you can build your own word search
+solver of horses this T word search so
+over architecture this entire system
+that includes so many different great
+projects all put into one great little
+system that can basically analyze and
+then solve your word searches for you
+and of course this is an absolutely
+really fun project to work on all the
+source who will be down in the
+description below but you can check that
+out and use it use it yourself all right
+so thank you very much for watching
+today that's going to be all for the
+video I really do hope you enjoyed you
+were able to learn something of course
+if you did please make sure to leave a
+like down below and of course if you
+believe this could help anybody else you
+know if your friends and family please
+make sure they liked there as well and
+of course as I said share this video as
+it really does help out a lot but
+partially backs you have any more
+questions suggestions or feedback is and
+definitely comment section below email
+them to me at any mini gmail.com or
+tweet them to me at AG Manny
+alright so that's gonna get for this
+video but if you want to see a lot more
+content like this and of course you want
+to show your support for this channel
+please make sure to subscribe as well it
+really does help out a lot of course
+you'd like to be notified whenever I
+release new content via email and Google
+notification please do make sure to turn
+on notifications like a little bell icon
+beside the subscription button below as
+well alright so thank you very
+for watching today I hope you enjoyed
+thank you good luck

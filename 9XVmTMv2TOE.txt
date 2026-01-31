@@ -1,0 +1,1578 @@
+so hello there and welcome to another
+tutorial my name is Tammy Bakshi and
+today we're going to be going through an
+absolutely fascinating topic we're gonna
+be talking about the alphago series of
+algorithms now I'm absolutely certain
+that you have seen of or or heard about
+this new alphago technology alphago was
+the very first system ever very first
+computer system that has ever defeated a
+go world champion a human player and
+this is absolutely exceptional because
+well if you take a look at other complex
+games for example chess they have a very
+large state space that means there are
+tons of possible moves but still many
+decades ago IBM was able to create deep
+blue the first computer to ever beat a
+human chess champion and that was
+incredibly impressive but the way that
+works is fundamentally brute force
+you're looking through almost every
+possible future move in order to
+determine your probability of losing or
+winning or tying the game and based off
+of that choosing the moves that gave you
+the highest probability of winning now
+the issue with that is that first of all
+you have to have human crafted
+heuristics to guide your search because
+while chess is relatively a lot smaller
+than go and we'll get to that in just a
+moment it's still really large and that
+means brute forcing every single
+possible move is simply impossible you
+can't do it
+and so you somehow have to create these
+heuristics to tell you this branch is so
+exceedingly unlikely on my opponent's
+part that I might as well not even
+consider it and the same thing for your
+own player and so somehow you have to
+create human crafted heuristics and
+these take years to build good ones and
+you need to use brute force lots of
+compute to really take a look into the
+future and forcefully figure out what's
+gonna be happening but then alphago
+completely changes the way games like
+this are played and it has to in a way
+because in go there are more possible
+moves there are more possible individual
+states and play outs of a game then
+there are atoms in the observable
+universe and so no computers
+you can really model that entire state
+space of go the techniques that we've
+used for essentially every other game
+won't hold up for the game of go now
+there have been a few techniques applied
+to try and play the game of go in the
+past almost all of them have been based
+on something called Monte Carlo tree
+search now Monte Carlo and Las Vegas
+algorithms are a certain class of
+algorithms that work in a fundamentally
+random manner that means they're not
+deterministic they're stochastic and so
+for example while a Las Vegas algorithm
+may not always necessarily give you the
+correct or always even give you a result
+a Monte Carlo algorithm is guaranteed to
+give you at least some result so that's
+the difference between the two and Monte
+Carlo tree search specifically is able
+to make use of that random factor in
+order to take a look into the future but
+not too far into the future and not
+through too many states so what exactly
+does that mean
+well let's take a look at what Monte
+Carlo tree search really is and then
+we'll get into this whole alphago alpha
+zero thing and specifically the example
+that I want to show you today so let's
+take a look shopping now alpha zero or
+alpha go well are fundamentally reliant
+not only on deep learning and machine
+learning technology but they're also
+reliant on this other kind of
+technologies Monte Carlo tree search so
+the way this works is ensemble a new
+techniques and old techniques together
+so let's take a look at how exactly that
+technology works now let's just say we
+have some sort of go board state and
+it's maybe represented with this dot now
+the thing is there are tons of possible
+is possible moving the star so one thing
+that you could do is something called a
+Monte Carlo evaluation where for example
+you say all right I'm gonna take a look
+at let's just say every single possible
+move from here on out and I am going to
+I'm going to modify the state so that I
+take all of those actions and then I'm
+going to run a series of completely
+random games from that point onwards
+okay and so on and so forth you're just
+gonna run completely random games until
+the game ends from that board state
+that's it now I know it doesn't seem
+like this would do anything but if you
+run enough random games then what ends
+up happening is the states that are
+generally better usually end up having a
+better average score after these random
+games than the states which are worse
+and so if you were choose the one with
+the highest random average score then
+you would end up most likely choosing a
+pretty good move now this technically
+isn't Monte Carlo tree search this is a
+Monte Carlo evaluation at a single depth
+level so you're not going further than
+this one depth now let's pause here for
+just a moment I would recommend that you
+learn a bit more about Monte Carlo tree
+search and how it works and specifically
+applying it to a game called 2048 to do
+so you can take a look at my course on
+cognitive class that I I it's totally
+free and it uses Swift for tensorflow
+there will be a link to that in this in
+the description below if you like you
+can only take a look at the 2048 module
+and come back to the video or if you
+like you can take a look at the whole
+course that covers other reinforcement
+learning algorithms and the ions as well
+however that will be very good base
+knowledge for you to build off of and
+understand the point of Monte Carlo tree
+search so let's continue now from here
+if I realize that we don't just want to
+take a look at one single depth we want
+to go a little bit further down the tree
+and understand what what the future
+holds for us
+so what you have with Monte Carlo tree
+search is something called a policy and
+a policy is something that will take
+your current state and it's going to
+tell you for my current state I think
+out of all the possible moves these are
+the ones that are the best it's gonna
+rank those possible actions from best to
+worst and it's gonna sign a confidence
+value to each one so we're gonna call
+these our policy values so let's just
+say there are four possible next moves
+so we have one two three and four and
+we're going to use a policy network to
+assign a policy to each one of these
+alright so we're going to assign a
+policy
+now what's gonna happen is we're
+actually gonna continue down this way
+we're going to continue to expand the
+search tree for each of these Paul to
+each of these nodes according to their
+policy value now how do we determine
+which nodes to continue down with but
+we're gonna be using an algorithm called
+UCT upper confidence bound applied to
+trees now I'm not gonna get into how
+that works here we'll talk about that
+more during when we're actually taking a
+look at a code but we're going to be
+applying an algorithm called UCT to
+determine which nodes we want to look at
+based off of their policy values and
+then continue down the tree so on and so
+forth now let's just say we're going to
+a depth of two and in this case we want
+to expand this one let's just say
+there's now only two possible moves so
+we want to go down each one we'll have a
+policy of course but now we have let's
+just say reached our time budget and we
+no longer have more time to continue
+down so we're gonna end the Monte Carlo
+tree search now you're wondering how
+would we determine the value of these
+nodes so we know which action to take
+well then something else comes in we
+stopped using our policy and we start
+using something called our value now the
+value portion of Monte Carlo tree search
+is gonna be able to take any state and
+just tell you how good that state is for
+you so how good or how bad is the state
+for my card player now it's a little bit
+different from policy policy is for this
+certain state what actions should I take
+value is for this state how sure am
+either this is a good or a bad position
+for me so what's gonna happen is they're
+gonna go to your leaf nodes and you're
+going to go ahead and calculate the
+values so you're gonna have a value one
+a value two here this is going to have a
+value since this itself will have value
+you're gonna back propagate these values
+up through the tree so this will have a
+value this will have a value and this
+will also have a value and then
+whichever one of these nodes has the
+highest value you're simply gonna choose
+that one and they're gonna continue now
+again the way these values are back
+propping it up the tree we're gonna be
+taking a look at during our cook we're
+gonna be taking a look at that during
+the code as well however just know that
+this nodes value is based off of its
+children values and
+these notes had children these ones
+values would also be based off of their
+children's values and finally just like
+that based off the one with the highest
+value you know which node or which
+action to take now where exactly does
+alphago provide its innovation well you
+see traditionally how would we estimate
+these values we would just simply
+devolve back to a Monte Carlo evaluation
+we would run a bunch of random games
+these are called rollouts and his
+rollouts would help us determine what
+the value of a current state is and the
+policy would be some kind of other set
+of heuristics that we would develop
+manually now sure this is an OK
+algorithm and maybe go BOTS like this
+can challenge human beginners but once
+you get to human moderate or expert
+level these BOTS pose absolutely no
+threat to any human player and so you've
+got to have a more intelligent way of
+doing this search and so what alphago
+does is it uses neural network
+technology deep learning technology to
+be specific and what it's gonna do is
+it's actually going to use those deep
+neural Nets in order to guide and
+evaluate the search as it's happening so
+there are two steps making us having the
+policy network and the value network the
+policy network is gonna take your state
+and it's going to predict using a soft
+Mac so here at the end using a soft max
+activation what are the best actions for
+me to take then based off of those best
+actions Monte Carlo tree search is going
+to determine which nodes it should
+continue to search through and then
+here's the interesting part
+when we reach a leaf node we're not just
+going to run a random rollout because
+first of all it takes a lot of time
+you've got to simulate games
+it's simply impractical to keep doing
+that and at the same time in their
+random games what can you really expect
+them for expect from them so the value
+network is going to take that state and
+it's going to predict a single
+continuous value from negative 1 to 1
+predicting how good the current board
+state is what is the likelihood of the
+computer player winning from a current
+board state and with those policy and
+value net
+that contain almost no human knowledge
+and I'd say almost and you'll see why I
+said the word almost there in just a
+moment but because they contain almost
+no human knowledge because they're
+learning by themselves with deep
+reinforcement learning technology
+they're able to play the game and a
+superhuman level so we're taking
+classical techniques like Monte Carlos
+research as well as these brand new
+techniques of policy networks and value
+networks in order to guide the search to
+tell us what moves are the best to make
+that is the fundamental premise of the
+alphago algorithm now there are many
+evolutions of this algorithm and there
+are many specifics I didn't get into
+right now for example how do you know
+how much you want to explore versus
+exploit your predictions because let's
+just say there's a certain there's a
+certain node with a very low confidence
+value but that turns out to have higher
+confidence values for its children well
+then maybe it's better to explore in the
+tree than it is to explore your highest
+predictions so during training maybe you
+want to do that but then at the same
+time you don't really want to make a
+mistake just because you saw something
+with a low confidence could actually
+pretty good for you and so there are a
+few different issues that we'll take a
+look at how they're fixed during the
+code but again this is a fundamental
+premise now you're probably wondering
+how are the policy and value networks
+trained how do we get the data to
+actually get those neural networks to
+make these predictions well alphago has
+a lot of innovation in this front as
+well what happens is the neural networks
+generate their own data now I know that
+seems weird but let me talk about how
+this works so first of all you've got
+your policy network and you've also got
+your value network what happens is for
+alphago in specific not alphago zero and
+not alpha 0 for alpha go in specific
+what they would do is they would take
+moves made by professional human players
+over the past couple of years on online
+go servers and they would train the
+policy network to essentially predict
+what would a human expert do in this
+case these networks usually never
+reached great accuracy only like 60 70
+percent accuracy max and that's after a
+lot of overfitting but it doesn't really
+need to even with a low enough accuracy
+Monte Carlo trees
+we'll make up for the inaccuracy because
+it's gonna be looking deeper in the
+actual gantry so low accuracy didn't
+really matter then they use the similar
+technique in order to train the value
+network
+they took 30 million go games and
+sampled only a couple of moves from
+every single game and then what they did
+is they took those boards and fed them
+into the neural network and had it
+predict negative one or one for lose or
+win four for the black player and what
+happened was the neural network was able
+to learn that hey these board states
+usually lead to lose and these ones
+usually lead to a win so I was able to
+generalize and understand what leads to
+a lose and what leads to a win in the
+game of Gov now the thing is just
+training on human professional moves
+isn't enough because the neural networks
+don't really generalize to human moves
+they very very easily overfits as there
+isn't enough data and that data is very
+variable different humans will make
+different decisions in different
+circumstances and so there has to be a
+way for the neural network to get more
+data now think about this if you were to
+play than play the game with only the
+policy network so you literally just
+take the state feed it into the policy
+network get the maximum prediction that
+'value for for an output and just make
+that move you wouldn't have a very good
+bot because that bot can only see one
+move ahead into the future whereas with
+Monte Carlo tree search when you're
+using the policy network in conjunction
+with this tree search you're able to see
+more further you're able to see further
+down the game tree and therefore make a
+better decision so the policy network
+plus the Monte Carlo tree search makes
+better decisions than just the policy
+network so what if you were to use the
+policy network in conjunction with Monte
+Carlo tree search to play games against
+itself over and over again well
+technically the data generated from
+those games would be better data than it
+was just fed into the network so you
+train the network again now you have a
+better network but that network is even
+better when you put it with Monte Carlo
+tree search so you generate even better
+data
+then you feed that data back into the
+network and then you continue this cycle
+over and over and over again and what
+happens is after a few hundred or
+thousand iterations you suddenly have a
+superhuman goba that plays go at a level
+no human has ever seen before and I just
+focused on the policy network for
+simplicity but this also includes the
+value network remember value network
+great on its own but it really shines
+when it's helping Monte Carlo tree
+search and not playing on its own and so
+what you do is with every single Monte
+Carlo tree search iteration you have the
+agent play against itself and you have
+it continuously generate better and
+better data to create better and better
+networks that will create better and
+better data and by doing so you have
+this infinite loop of progress that is
+very very difficult to Plateau it just
+continues to grow and grow and so that
+is the idea behind the alphago algorithm
+you have you have classical tree search
+you've got neural networks working
+together to create a single superhuman
+system now alphago has two separate
+neural nets policy and value but later
+through the pipeline when deepmind
+evolved from just alphago to now alphago
+0 and alpha zero
+they created a thing pool with a neural
+network that merged these two networks
+into one essentially having a common
+head and two separate tails so you would
+have a single feature extractor with a
+bunch of convolutional layers and at the
+end there would be two separate outputs
+one for the policy and one for the value
+and so that's how these next new these
+next neural networks worked they were
+much better because the gradients for
+the value in the policy were able to
+work together to create a better neural
+network system and therefore guide Monte
+Carlo tree search better but we don't
+stop there there's one more thing I want
+to mention and this is absolutely
+incredible the inputs to these neural
+networks the alphago neural network was
+of course the current born state but it
+was represented in a pretty special way
+so for example you could have a certain
+channel telling the neural network where
+all the black zones are and then another
+channel telling you where all the white
+stones are and another another channel
+telling it all the liberties of the
+the liberties little white stones and so
+on and so forth and even have manually
+human crafted features in all these
+channels and then you would feed it into
+the network and when the network was
+trained it started off with a bit of
+seed data from human experts and then it
+took over from there and went into this
+sort of iterations iterations of Monte
+Carlo tree search now what if you can
+have a bot that just learn how to play
+go by playing against itself and had no
+human data or expertise involved
+whatsoever that's exactly what alphago's
+dear have accomplished now they still
+did have some human crafted features fed
+into the network for example the Liberty
+counts as I just said as I just said
+however these minimal networks were not
+seated with any human data they started
+from scratch and using Monte Carlo tree
+search plus the policy and value
+networks together they learned how to
+play the game of go and here's the
+interesting part
+alphago was able to beat Lisa doll a
+human Grandmaster at the go game and
+then alphago zero which was trained on
+no human data was able to beat alphago a
+hundred games to zero that is absolutely
+incredible but wait it gets better
+there's a new algorithm called alpha 0
+and alpha zero not only starts off with
+absolutely no human expertise but there
+are no human crafted features been into
+the network so it's just given the raw
+board state it's not given any manually
+created heuristics or features it just
+has the current board and it learns
+everything else on its own then alpha
+zero was then able to beat alphago zero
+so we're starting to notice a bit of a
+trend here the Morse human knowledge we
+take out of the system and the more we
+allow it to just learn on its own the
+better it ends up playing because the
+more novel play strategies it's able to
+discover now there is one more
+difference between alphago alphago zero
+and the alpha zero algorithm and that is
+the arena now what is that exactly well
+let's just say you have a certain
+version of the neural
+network and you use that with Monte
+Carlo tree search to generate some data
+then what would happen is you would
+train a new neural network and you would
+have the old and the new play against
+each other and only if the new network
+actually wins more than 55 percent of
+the games will you replace the old
+Network and start to create new data if
+it doesn't
+for example the training didn't happen
+very well or the data for some reason
+wasn't good then you discard the new
+network you keep that data you generate
+more data with the old network and then
+you train a new one and you continue
+like this until you create a better
+network to replace the old one with but
+with alpha zero things are a bit
+different
+you simply have continuous training you
+don't have an Arena Stage you have a
+single model that continues to generate
+data train itself and generate more data
+and so on and so forth
+now here's the thing Google is a rich
+company they have lots and lots and lots
+of compute power to throw at this if you
+throw 5,000 TP use at just generating
+games like this and they're barely
+breaking a sweat in terms of budget and
+so they can spend a few months with
+5,000 GP TP use to continuously generate
+games and train a superhuman go bot but
+the thing is the vast majority of us
+don't have that kind of compute power
+and so we have to find other ways to
+train these networks for example there's
+a project known as Leela
+zero and Leela zero is an open source
+implementation of alpha go zero so the
+naming is a bit off but that Leela zero
+is an open source implementation of
+alpha 0 and this implementation is a
+distributed implementation that means
+the average person literally anybody can
+download the Leela zero source code
+run it and they are suddenly on their
+own computer calculating these these
+self play games that are then being
+contributed towards a larger model on
+the Internet and currently the one of
+Lear Leela zero models is the strongest
+openly available go playing entity that
+you can get and so this sort of
+distributed effort is truly very
+powerful but what I want to do today is
+show you an example that you had all
+trained
+yourselves something that you can just
+do on your computer and get an idea of
+how the alphas your algorithm works and
+so today we're gonna be taking a look at
+how you can build a butt that uses
+alphago like concepts for the game of
+2048 now 2048 in my opinion is an
+absolutely fascinating game it's only a
+four by four board and there's only
+eleven possible values on each tile so
+that makes it super easy to represent
+inside of memory and to actually
+implement the game itself that's not a
+challenge but the challenge is creating
+a bot that is smart enough to deal with
+the fact that the game is entirely
+stochastic if you have a certain board
+state and you copy it ten times and you
+make it's the same move on each board
+state there's a chance you'll get
+completely different board states so
+it's fundamentally a stochastic game and
+you somehow have to create an algorithm
+that can deal with that level of a
+randomness so 2048 is a fascinating
+challenge I've already covered how you
+can use shallow Monte Carlo evaluations
+to play 2048 on my cognitive class on AI
+course which is why I recommended you
+take a look at that but today we're
+going to be taking a look at how you can
+use Monte Carlo tree search Monte Carlo
+evaluations and the value network for a
+logo in conjunction with each other in
+order to play 2048 better than any other
+non human expertise bought on the
+Internet
+now there are some bots that people have
+already put together for 2048 and some
+of them are really popular you're seeing
+one on screen right now but the thing
+with these BOTS is that they are all
+based on human heuristics and that is
+incredibly annoying to me because we
+have human strategies like for example
+taking a board and keeping the largest
+tile in the corner and then having the
+actual tiles go in descending order so
+that we can merge and sort of like a
+snake style but the thing is that's a
+fundamentally very human strategy that's
+because we can't see far enough into the
+future to know how to maneuver pieces
+around so they merge and maneuver in the
+right way but computers can't so why
+don't we leverage that ability of theirs
+and the power of this alphago algorithm
+and with the power of Monte Carlo tree
+search that's exactly what we can do the
+bots that I'm about to show you and we
+go over to the code is a bot that plays
+with absolutely no human knowledge
+involved whatsoever and because it's
+using no human knowledge it plays in a
+very weird way it just looks alien
+whenever you look at it if you're if
+you're a professional 2048 player and
+you take a look at this you're gonna
+think it's making the dumbest moves it
+could make but when you actually take a
+look at more than just a single move
+when you take a look at an entire
+episode it's mesmerizing how this 2048
+BOTS can take a state that looks like
+it's just about to lose and turn it into
+a 2048 tile it's really fascinating
+stuff and I don't think I can just
+explain it I don't think words will do
+it justice here so I think it's better
+for you to take a look at a demo the
+2048 bots in action and then we'll get
+into how you can actually build a value
+Network for 2048 and how you can
+leverage it with Monte Carlo tree search
+in the Swift language using sweeper
+tensorflow in order to build your own
+2048 BOTS let's take a look alright so
+now let's take a look at how this
+alphago inspired 2048 bots actually
+works now before I actually show you the
+code behind it I think it would be
+really fascinating to take a look at the
+actual demo running live so what I'm
+gonna do is I'm actually gonna run the
+backend code here in Xcode so I'm
+running this code from within Xcode this
+is written in Swift and what its gonna
+do is it's gonna open up a cateura
+server on port 8080 which opens up just
+one simple rest endpoint that takes the
+current 2048 board and spits out the
+best move to make now if we switch back
+over to my web browser you can take a
+look at our 2048 game the 2048 game is
+also being hosted by cateura and I've
+modified this from Gabriel's
+implementation just a little bit so
+there's just a two extra functions that
+will enable auto movement where you just
+click a button and every single move it
+will take the board send it over to my
+REST API figure out the best move from
+my little AI and then brings it back
+over to the interface where it actually
+makes that move and continues until the
+game is over over could mean that it's
+lost or it's won so watch this right as
+I click the T
+button just like that it goes on its way
+now what I want you to realize is that
+first of all I mean as I mentioned
+already we're taking this board state
+we're sending it over Swift it's coming
+back but it's doing so so incredibly
+fast you wouldn't think that 2048 AI
+could be this performant now there are
+some more performant 2048 guys out there
+in fact the only other one that's faster
+than this is one that I've also built
+and that's the one that you would have
+seen on cognitive classed on AI however
+what's interesting about this is that
+it's not just doing a single depth Monte
+Carlo evaluation it's doing both Monte
+Carlo evaluations and neural network
+predictions and it still is fast that's
+how fast the Swift language can be if
+you write your code the right way we'll
+talk about that in a moment now I want
+you to notice something about this play
+style I told you it was unorthodox but
+now that you're looking at it you're
+probably really starting to realize just
+how weird it is humans have this
+strategy of keeping similarly similar
+tiles closer together so you can merge
+them more easily so for example in this
+case you would probably have 512 in a
+corner and then 256 and then 128 and so
+on and so forth so you could easily
+merge into ingots at the 1024 tile but
+this AI didn't need to do that it just
+had them in completely random places and
+out of nowhere it sort of emerged that
+it created a local path of merging where
+it merged 120 and 120 8 into 256 to 256
+is together and then dos into a 512 and
+then 2 of the 5 rolls together into a
+1024 and you couldn't even see that
+little local file that it created for
+that merging but it did and we'll take a
+look at some slow-motion footage of this
+in just a moment towards the end of the
+code section but I just wanted you to
+get a feel of just how weird the code
+just how weird the actual gameplay is I
+mean if you take a look at the net at
+the most popular 2048 eye out there and
+if you take a look at that YouTube video
+all the comments are about how sometimes
+the AI ends up moving the highest value
+tile out of the corner because it's very
+human strategy based but this one is
+it's not following any human strategy so
+it's making really what seemed to us as
+bad
+I mean if you were to just pause the
+game in one instant you might think
+there's no way you're gonna win this but
+then since you can see it goes ahead and
+wins the game like that so this is
+really really fascinating stuff so now
+I'll Ted back over to the code and start
+to take a look at how this actually
+worked so I'm gonna go ahead and stop
+the app so we stop taking up memory and
+CPU so we can actually focus on the code
+now what you're seeing over here is is
+all the code that goes behind the actual
+sort of quote unquote intelligence
+portion of the application now there are
+some other components to the app for
+example there's the actual 2048 game
+logic now here's the thing the 2048 game
+logic is pretty intense and the reason
+for that is because 2048 is a little bit
+more computationally complex than you
+may imagine so if we go back to the 2048
+game and if you've already seen the
+cognitive class course you may already
+know a little bit of this but just in
+case you haven't I'm gonna quickly walk
+you through it if you've got for example
+a board like this one you can see
+there's only four rows now each row has
+a tile and the tile only to store a
+value from 0 to 11 now technically the
+value is actually range from 0 to 2048
+but we're storing them as powers of 2
+and so you can a store 0 to 11 because 2
+to the power 11 would be 2048 and so
+what we need to do here is we need to
+somehow have a super fast implementation
+of the 2048 board so that for example I
+click the left arrow we don't need to
+compute all the tile merges and how
+everything needs to move to the left
+instead the way this algorithm works is
+it actually pre computes before the game
+starts every possible row of which there
+are around 65,000 possibilities and then
+for every single possible row it pre
+computes all the mergers in all
+directions and then when you click the
+left arrow key all it's doing is it's
+taking each row it's looking that up in
+the table and it's saying all right for
+this row someone clicks left what do I
+need to change the road to and picking
+that up and assuming that's the new row
+if you click up or down then it just
+transpose it so rows become columns and
+calls to come rows and then it does the
+same thing and then transposes it back
+and so that's how this works because it
+needs to be
+really mainly fast if we want it to be
+this performant that's why my other AI
+which is which has a lower winning rate
+than this one because it's only based on
+Monte Carlo evaluations that's why it's
+the fastest out there is because it's so
+rigorously optimized like this and this
+implementation also benefits from that
+because it builds off of that
+implementation so if we go back as you
+can tell there's quite a bit of code
+that actually goes behind determining
+these determining these these values so
+if we continue to go down you can take a
+look at all this implementation code a
+ends up to be approximately four hundred
+and sixty-four lines of code but then it
+connects with all sorts of spacing and
+comments and other utilities so you
+could definitely minimize this but it is
+quite a bit of logic but it's absolutely
+worth it and finally we can get to the
+actual intelligence portion of the
+application now the way this works is is
+from a coding perspective as you'll see
+super elegant it's not to say that it's
+simple but rather that the pieces feel
+natural and then they feel like they
+should fit together and that's what's so
+amazing about the alphago series of
+algorithms is that they're not
+incredibly technologically complex it's
+something that people can understand if
+you do enough research into it and this
+is the first application ever of those
+techniques to the 2048 game so let's
+take a look at how that works now of
+course in the beginning there's just a
+couple of imports and Swift we're only
+doing a few key imports foundation tends
+to flow Python kit and cateura
+foundation of course default Apple stuff
+can give us some good Swift utilities to
+use tensorflow the Swift pratensis love
+framework is can allow us to create some
+deep neural network architectures within
+the Swift language Python kit will
+actually allow us to load Python Karass
+model weights into Python or into into
+Swift and so what I'm going to do is I'm
+going to import chorus and then using
+chorus I'm going to load a model that's
+saved on my disk and I'm going to use
+chorus to export those weights to a
+numpy array and then import those numpy
+arrays into tensors in Swift that I'll
+put into my model and then finally
+there's cat or ruff we're actually
+opening up that rest endpoint that the
+2048 game can access and find find the
+best moves for so those are the key
+opponents that go behind go behind this
+entire application then of course we've
+just got our standard imports importing
+numpy and models from ten to float
+across and then I'm using that module to
+load a model just called model la h5 in
+my home directory users last time I've
+actually after that there's a little
+sort of utility function that I put
+together called tile processor the tile
+processor takes a two-dimensional array
+of rows a row if we actually look up its
+definition with Xcode is just is 16-bit
+unsigned integer and so again we're
+using a big board super optimized
+implementation of the 2048 board and
+what that means is each row is 16 bits
+and so that means that we have four
+individual tiles in each in each row and
+each tile only needs four bits in order
+to be represented and so 16 bits because
+again we only know those four bits to
+store up to 11 so now if we go back we
+can take a look at the tile processor
+function again it's taking that 2d array
+of 16-bit unsigned integers and it
+returns a floating-point tensor the
+shape of this tensor is 1 4 4 11 so what
+that means is we have one sample and
+each sample is 4 by 4 by 11 large 4 by 4
+meaning the actual board and 11 meaning
+the channels that were feeding into the
+actual algorithm so how does that work
+well basically what we're doing is we're
+not just gonna feed in the raw board to
+the neural net because that doesn't
+perform particularly well rather we're
+gonna do is create a brand new array
+with 11 channels and in each channel
+we're going to assign each channel to a
+certain kind of tile and every value
+that every channel will be 0 except if a
+certain location on the board contains
+that kind of tile then it'll be a 1 so
+for example within the very first
+channel all the positions within the
+board will be 1 if that tile contains a
+2 value in the very last Channel the
+positions within that channel will be 1
+only if the board contains a 2048 at
+that position
+and within you get the values between 2
+and 2048 and this is a much better
+representation of the 2048 beta board
+for the model to work off of and so this
+logic is essentially just responsible
+for that this is gonna find the actual
+log base 2 of the actual value so for
+example if it were 2048 what it would do
+would be the simple logic of get the log
+of 2048 and divided by the log of 2 and
+then you would get 11 which is our
+maximum value here and then finally you
+would just go ahead and feed that into
+the into the into the tensor so so
+that's that's how that would work and
+then you would just reshape it and
+return it from the function so again
+relatively simple logic now from there
+we continue and we can take a look at
+the actual logic behind the model itself
+now the thing is if you've ever used
+with for tensor flow you know that
+there's a layer protocol and most models
+are supposed to conform to the layer
+protocol but in this case I did not have
+my model conformed to that protocol
+because I didn't need to because usually
+you would use the layer if you were
+actually training the model or if you
+were calculating gradients or something
+of that sort where if you were using
+with other layers but in this case I
+don't actually need to do any
+differentiation I don't need to do any
+training I'm just loading in a
+pre-trained model for cross and I'll
+talk about that in a moment how I
+actually trained it so I'm only
+conforming the key path I durable
+protocol and what that lets me do is it
+lets me take all the stored properties
+within this actual structure and it
+allows me to recursively iterate in in
+this entire structure and all of its
+sort properties and all of their stored
+properties and so on and so forth and
+find the key paths within the structure
+to every floating point tensor so what
+that's gonna let me do is find the
+tensors find the variables that contain
+all the weights for all the different
+layers within the model and that's gonna
+let me load in my weights from Python so
+that's why we're doing that
+and the way I'm going to do that is by
+calling a function that's defined within
+this protocol called recursively all
+writable key paths so I'm saying
+recursively find all of the key paths
+that I can write to as long as the key
+path is to a to a floating point tensor
+and then I'm looping
+through that and for each weight I'm
+finding the respective Python weight and
+loading that into Swift so that's how
+that works
+and the way this structure works is an
+implementing singleton model so I'm not
+going to create an instance of this
+structure anywhere it's just within it I
+have a static constant with this model
+defined already and the initializer is
+private so you cannot create more
+instances other in other places in the
+code you've got to use this shared
+instance so so that's how this works
+I'll also talk about this model and why
+I chose the actual filters and laners
+that I did in just a moment
+so moving on from here I'm also just
+defining a simple constant array that's
+telling me the the order in which I like
+to define my directions so the way I'm
+defining that is just up down left right
+so whenever I give you an index for a
+direction like this just say I gave you
+the index - that means I'm referring to
+0 1 2 in this array which is left so
+this is just so that I have a standard
+integer representation and index
+representation for every direction from
+there I'm just defining an epsilon super
+small value to make sure that some
+values aren't 0 just 1 - 4 you don't
+need to worry about this value it's just
+we need this and Swift and we need this
+for Monte Carlo tree search specifically
+for the UCT algorithm that will
+implement later then I've just got a few
+utilities over here in my code these
+utilities are pretty standard if you're
+coming from a Python world but
+unfortunately they need to be defined
+manually and Swift so for example within
+the collection protocol I'm extending
+that wherever the element is comparable
+and kind of say the Swift generics make
+this super easy so every single
+collection type this includes arrays and
+sets and dictionaries or whatever
+whatever the element is a comparable
+element I'm adding I'm adding
+functionality to that collection called
+art max so the maximum argument it'll
+give me the index of the largest element
+within that array and it's optional
+technically because it can if the
+collection is empty you're going to get
+a nil result so that's how that's a
+large max works and then just a couple
+of like array multiplication and
+division functions custom operators or
+custom operator implementations that are
+pretty
+Eric and work across multiple types then
+we've got the actual meat of the of the
+algorithm so then I've got a function
+called scoreboard
+now scoreboard is gonna take a board and
+this board isn't like an array
+representational board this is a big
+board so it's just an unsigned 64-bit
+integer so again if we take a look at
+the row each row is 16 bits and we've
+got 4 rows 16 times 4 is 64 so it's
+pretty convenient that we have a 64 bit
+unsigned integer that we can store our
+boards in and and the way that I
+actually score boards is super simple
+just take the model and the shared
+instance of it feed the board into the
+model and then rescale it from negative
+1 to 1 to 0 to 1 this is used for Monte
+Carlo tree search again we won't be
+getting into Monte Carlo tree search in
+a later video but I'll but what I will
+tell you is the way we do this is we
+simply add 1 to the prediction and
+divide that by 2 rescales from negative
+1 to 1 to 0 to 1 and then finally
+there's the Monte Carlo search not tree
+search a Monte Carlo search now the way
+this entire 2048 bot works is it's kind
+of weird in a way in a sense that it's
+not entirely alphago like in the fact
+that the policy and value heads are
+neural networks but it's also not
+entirely primitive it's it's somewhere
+in between the policy is calculated by a
+Monte Carlo evaluator but the value is
+calculated by a neural network because
+the thing is neural networks aren't
+particularly good at comprehending 2048
+boards because of their stochastic
+nature and because of the fact that two
+moves don't really make all that much of
+a difference in whether or not you lose
+a game right now if you had some sort of
+2048 board I could make three random
+moves and you probably still wouldn't
+lose the game there's a way you could
+maneuver the board in order to fix those
+mistakes at least this is that's how
+this works and and neural networks
+cannot model that policy very well and
+so that's why the policy is being
+calculated by a Monte Carlo evaluator
+but the value is being calculated by a
+neural
+because the value neural networks are
+pretty good memory stick me are you
+close to losing the game or not in fact
+I was able to get around a 0.02 mean
+squared error loss on a validation data
+set that I had for for training the
+network and I'll again I'll get into
+that in just a moment
+this Monte Carlo search if you've seen
+the cognitive class that AI course it's
+really familiar to you so I'm not going
+to go over it in much detail just to
+know that it takes a game state as an
+input and then it returns just an array
+of floats and this array is always going
+to be four elements long no matter what
+each index refers to a direction and
+it's going to give you a probability for
+each direction that they all sum to one
+so it's going to give you the directions
+that it thinks would be best to move in
+essentially so again pretty much what
+the output of a policy network would be
+in the actual alphago algorithm now from
+there we start to get into the fun part
+of the intelligence which is the search
+and score the surgeon score actually
+takes a board and returns two outputs
+the policy and the value so what it's
+going to do is it's going to run the
+evaluator that I just showed you for the
+policy as well as the value network to
+score the board and it'll return both a
+policy and the value and this is what
+enables the Monte Carlo tree search to
+be this intelligent and know where to
+look exactly and then finally it got the
+Monte Carlo tree search now as you can
+tell Monte Carlo tree search is a pretty
+hefty algorithm here and the entire
+purpose and and the way Monte Carlo tree
+search works is it's a topic for a
+separate video where I'm going to show
+you how you can actually train your own
+alpha go including the policy Network
+from scratch that's part two however for
+now I will tell you how one of the two
+functions works within the structure for
+Monte Carlo tree search and that is the
+get action probabilities now we didn't
+get action probabilities this is the
+main function that you're hitting with
+in Monte Carlo tree search or MCTS and
+I'll call it from here on out you're
+feeding it a board and a temperature
+know what's a temperature
+well the temperature is gonna tell your
+model how open you are to new ideas or
+exploration so if you've got a really
+high temperature things are moving
+around a lot then you know maybe you
+want to have a little bit less of a very
+peak in terms of in terms of prediction
+probabilities predicted probabilities
+maybe you want to have a more smooth
+probability matrix in that you're okay
+with exploring other options that aren't
+necessarily as good but then if you've
+got a really cold temperature low
+temperature like zero then you only want
+to have a one for the top prediction and
+zeros for everything else that there's
+no chance of you looking in the wrong
+direction or at least according to the
+Monte Carlo tree search so so the way
+this works the way this function
+actually executes is it runs a number of
+Monte Carlo simulations so it's actually
+gonna find a note it's going to expand
+the note it's gonna run its value
+network it's gonna back propagate those
+values of the tree and it runs a number
+of these simulations and that's defined
+within the actual structure itself and
+then what it does is it actually takes
+the it's able to calculate the
+probabilities for visiting each four
+before choosing an action and the way it
+chooses it the way it calculates those
+probabilities is by actually taking the
+visit count of each node again you don't
+need to understand what visit count
+means just yet that's for the next video
+but what it does is it takes a visit
+count for each node at that root level
+and if the temperature is zero it just
+gives a 1/4 probability wherever the
+node has the or the action has the
+highest visit count and returns that
+otherwise it's going to actually go
+ahead and calculate that probabilities
+according to that temperature and then
+return that array so essentially what
+it's doing is calculating probabilities
+based off a visit count and that visit
+count is determined by the actual
+searches that the Monte Carlo tree
+search does now traditionally the more
+searches you do the more simulations you
+do the better your result is gonna be
+but then again that also means your
+results gonna come to you slower now
+because we're actually running Monte
+Carlo evaluations and not using an
+network for the policy the policy
+network or the policy algorithm is
+pretty compute-intensive
+and so we always want to run lower
+simulation counts otherwise it's gonna
+be super slow but if we were to
+transition to using a neural network
+then we have the ability to use more and
+more simulations which allows us to look
+at deeper within the game tree and so
+that's why alphago uses neural networks
+because you don't need to have to think
+about what the policy is going to be the
+neural network just has that knowledge
+and you're able to leverage that and so
+the actual search algorithm I cannot do
+it justice in this video we're going to
+be talking about it later on a very high
+level what it's doing is it's it's doing
+a few key steps around choosing nodes
+expanding those nodes and back
+propagating those values up through the
+tree with this logic over here and then
+based off of a visit count that's
+calculated over here we can go ahead and
+determine what the best action to take
+is so that's Monte Carlo tree search in
+a nutshell now from here we've got our
+cateura code so the intelligence is over
+and I know it's like wait what that's it
+well remember we haven't covered
+training yet we haven't covered quite a
+few things so let's take a look at this
+cateura code this Couture our code is
+gonna open up a static file server and
+that's what's gonna say ok whatever's in
+the public directory just open that up
+on the on that on the root end point so
+this would be the 2048 game since it's
+built in HTML and JavaScript and then
+finally I'm going to open up a new Monte
+Carlo tree search instance I'm gonna run
+only six simulations I can you probably
+want to run as many of these as possible
+but six is a good balance between very
+high winrate
+and at the same time very good
+performance and then just open up an
+endpoint called analyze take a board
+from the from the JavaScript code go
+ahead and predict using Monte Carlo tree
+search with the temperature of zero so
+we don't make any mistakes go ahead and
+choose the max and the arc max from that
+so get the get the action of the highest
+probability and then convert that
+direction to a string and return that
+from the cateura code and then continue
+from there and so that is essentially
+how this entire and
+code works now how did I train the value
+network you may ask well here's what I
+did I set up this thing called a thread
+pool now this is very generic code this
+is in no way specific to this
+application like you could copy and
+paste this code that I've written into
+any application you could use the thread
+pool and everything and this thread pool
+is relatively simple basically what it
+does is it takes a function so a closure
+and it stores that closure within the
+structure and what it enables you to do
+is specify alright I want to run this
+function on this array of inputs and I
+want to get an array of outputs and
+these can be totally generic types the
+inputs and outputs can be anything and I
+only want to use a certain number of
+threads though so let's just say you had
+a task like Monte Carlo evaluation now
+if you only had 16 threads on your
+computer and you had 30,000 boards to
+analyze and if you were to just do a
+loop for I in 1 to 30,000 that if you
+were to do dispatch Q double dot async
+on everyone you would be launching up 30
+thousand threads well not actually
+because the scheduler is a bit more
+intelligent than just letting you spawn
+30,000 threads but you you've overloaded
+the system you've given it too much work
+to do and there's so much context
+switching happening that it's not really
+doing a good job at any of them and so
+it ends up being pretty slow but this
+thread pool makes sure that you're only
+running and number of things at once so
+threads number of thing at once and then
+every time something is done it launches
+a new thread and opens up and tells it
+to do some work as well and the way this
+works is it uses three semaphores to
+make sure you know locks are making sure
+that the code is thread safe and and it
+returns its outputs in a synchronous
+fashion so when you call this function
+it'll block until all your work is done
+and then it returns the output to you so
+that's how the operate and and the
+thread pool works so with this thread
+pool what I did is I actually completely
+let go of Monte Carlo tree search and I
+just took the Monte Carlo evaluation so
+what I built in my cognitive class III
+course the world's fastest 2048 AI and
+with that what I was able to do was
+actually build a data
+set of 3000 2048 games which had a win
+rate of approximately 65 percent which
+is not that great but it's also not bad
+either considering that of all the games
+played on 2048 only about 1 or 2 percent
+were actually won by humans so a 65% win
+rate definitely isn't bad and with this
+data set I exported that to an empire
+array put that onto a GPU server of mine
+and used a Python script in order to
+train a model to predict based off of
+the current board state what's the
+likelihood of me actually winning this
+current game now there is a bit of a
+problem with that though and that is
+that the 2048 game is complex from the
+very very beginning from the very first
+few moves there's very little there's
+very little you can do in terms of
+understanding the initial board and
+determining if you're gonna win or lose
+because even if you were to do random
+key smash for the first 100 moves it
+doesn't really matter because the first
+few moves are so so rudimentary anyway
+that you can recover from there and win
+from the worst forward state however the
+neural network model doesn't understand
+that what's gonna happen is it's gonna
+have 3,000 inputs where a couple of were
+65 percent of them are wins and the rest
+are all losing port states and it's
+gonna take those initial board States
+and try and overfit to specific board
+States telling it that hey this is a
+winner of the soluz so the way I solve
+that problem it's actually pretty
+interesting what I do is I take I run
+the MPI linspace function so I generate
+a linear space so let's just say a
+certain game was 900 moves long what I
+would do is generate an array with 900
+elements and going from 0 to 1 assuming
+that we won the game that the model win
+was able to win the game we go from 0 to
+1 now here's a thing we're incrementing
+with just a linear increment every
+single time and for every element in the
+array to get to a 1 but then what I do
+is I take every element and I actually
+replace it with that element of the
+power
+not so what that does is it gives me a
+bit of an exponentiation
+that says moves made towards the end of
+the game are more likely to actually
+have affected at the end result of a
+game whereas towards the beginning your
+predictions can be closer to zero
+because you're not really sure which way
+the game is gonna go and if you go ahead
+and actually plot out the value
+throughout the game you're gonna see the
+value network actually follows that
+curve towards the end of the game it
+starts to make stronger and stronger
+predictions and they start to get better
+and better in the beginning they're not
+very good keeps jittering up and down
+but that doesn't matter because I
+trained it to make sure the values are
+close to zero at the beginning and only
+towards the end of the game will it
+actually start to make more confident
+predictions now if it if the model had
+lost the game then we would do the same
+thing in Reverse it would do zero to
+negative one and then do or well
+technically still zero to one and then
+every value to the power of nine and
+multiply those values by negative one
+and and so we would be able to take that
+and create a curve in the opposite
+direction and by doing that the model
+was able to learn a really good
+representation of what makes a good 2048
+board at what stage of the game this
+isn't something that demine did for
+alphago but it's something that I did as
+a game specific optimization for 2048 so
+it just goes to show how you can take a
+research done on a completely different
+kind of game is a completely different
+kind of play style and apply similar
+research to play again a completely
+different kind of game but using the
+same fundamental techniques now the
+actual code for training this value
+network will be available as a separate
+repository to this code on github
+both github links will be in the
+description for you to see and for you
+to use I will also have a little bit of
+Swift code in the initial repository of
+how you can actually generate that data
+set and so that's how the training
+actually works and with that you're able
+to create a really fast a performant and
+a model that reaches an over 85% win
+rate on 2048 and that's with only six
+simulations imagine if you were to do
+more simulations which you
+easily do just by tinkering around with
+this one individual value over here in
+this initializer you can get much higher
+win rates by allowing the network or by
+allowing the game tree to expand it
+further and further down now once again
+you simply run this it opens up an
+endpoint and you're free to experiment
+and go ahead and run your your very own
+2048 any I like that now there is one
+more thing that I want to show you
+before we end off today and that is this
+over here now as I mentioned some of
+these moves are kind of magical the way
+just happens to plan everything
+beforehand in this stochastic
+environment and how it just makes things
+work and how it creates these local
+aisles of tiles to merge so so here's
+what's gonna happen this is the ending
+stage of one of one of the 2048 games
+that uses this exact technique then I
+just record it because it's so fast and
+I'm gonna step through this frame by
+frame to show you just how fast and how
+genius the solution was for this game so
+take a look at this board now this isn't
+from a human perspective this isn't a
+great board now you have all the pieces
+necessary to get to 2048 but they're not
+merged and they're not in a good
+position to be merged but look at this
+if you take a look at this column over
+here there's only one space at the top
+if you hit the up arrow key you're
+guaranteed to move these three tiles up
+and that means these two 32s are gonna
+be aligned but what does that also mean
+it also means that after you merge them
+to the left there's a 64 beside it to
+merge into a 128 and then we're gonna
+continue from there and merge everything
+else back in the 2048 let's watch so we
+step ahead frame by frame the network
+had just made a move and so it actually
+spawned a tile in the top right corner I
+move ahead a few frames Oh as you can
+see merge down here and it spawned tile
+they're the two it's gonna go ahead and
+move left so again this is fascinating
+stuff it moves left it goes ahead and
+move it up so as I was saying now we've
+got the two thirty twos aligned it's
+gonna go ahead and move back down to
+the 32s align and set the 64's on the
+right so we can work that in eventually
+now look at this it'll Merv's it to 30
+twos and now it's kind of 64 there all
+right now and no it looks a little bit
+choppy but I'm actually going through
+frame by frame because it's so fast I
+have to go through frame by frame now
+watch
+it's gonna merge two to sixty fours and
+it had already envisioned this situation
+and the one to the other 128 tile is
+already above this 128 tile so I go
+ahead it goes ahead and clicks down down
+arrow and suddenly it's got a 256 and
+how convenient it's got a 256 right
+beside that tile waiting for it so it
+goes ahead and clicks down to prepare or
+something again these are moves that I
+can't entirely explain because I'm not
+the algorithm but it goes ahead and make
+some moves now it goes to the right to
+actually merge the two 256 tiles and
+pause for just a moment
+notice how this algorithm is not greedy
+at all it's unlike a lot of other
+algorithms and then it's not looking for
+short-term gain it's not just trying to
+say okay how can I get the most merges
+right away it was like even though I've
+got two 256 is right there and I could
+make it 2048 pretty quickly I'm not
+going to because I'm gonna maximize my
+chances by making this other move
+because that's not going to affect my
+current board state with these local
+merges but it might be beneficial in the
+future and so the way things is is
+pretty fascinating
+now you've simply got 512 512 at 1024
+you've got to merge them maybe the 2048
+how does it do that well we may never
+know exactly how it came to that move
+because it was so fast that we did a
+single frame it was a blotch I don't
+look like the right arrow it's gonna
+move with the video ahead by a single
+frame this was recorded at 60 frames per
+second it somehow merged those two into
+two ten twenty fours and in the very
+next few frames and two ten twenty fours
+become a 2048 tile and just like that
+the network has won the game and so that
+is absolutely fascinating the way this
+technique works and if you if you find
+something interesting that you see the
+model is done and you end up recording
+it please do share that with me I would
+absolutely love to analyze
+results get a better understanding of
+just how this technique is playing 2048
+and and what's really going behind it
+and so if you enjoy this tutorial please
+do make sure to leave me a comment down
+below if you have any questions
+suggestions or feedback you can reach
+out to me on all sorts of social media
+my Twitter or my email which will be in
+the description below again all the code
+and the links for example the logic
+behind Monte Carlo tree search that will
+be in the description below for you to
+check out apart from that if you do want
+to see more content like this and you do
+enjoy these videos please do make sure
+to subscribe to the channel as it really
+does help out a lot and once again thank
+you very much for watching goodbye

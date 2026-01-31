@@ -1,0 +1,1352 @@
+so hello there and welcome to another
+tutorial my name is tandy bakshi and
+today we're going to be talking about
+how you can use cuda to build your own
+segmented silva vera tostony's based nth
+prime finder that runs on the gpu now i
+know that's a lot of words i'll explain
+exactly what that means but before we
+delve into it if you enjoy this kind of
+content you want to see more of it
+please do make sure to subscribe to the
+channel as it really does help out a lot
+turn on notifications so you're notified
+whenever i release content like this
+like the video if you enjoyed it and if
+you have any questions suggestions or
+feedback feel free to reach out to me
+down in the comments below or on any of
+the social media in the description box
+as well
+now getting into this what are we doing
+today we are building an nth prime
+calculator and we're going to do so
+using the segmented silva veritosthenes
+algorithm and we're going to be running
+it on the gpu using the cuda gpu compute
+library now this is a pretty fascinating
+application i will say i've been really
+interested in optimizing compute or
+optimizing algorithms rather
+to make use of compute for finding prime
+numbers i find that a very fascinating
+field and recently i actually
+implemented uh a cuda based version of
+this algorithm as well
+before we get into
+using gpus for this why you would want
+to do that and what the segmented
+cellular eratosthenes is let's talk
+about just the simple plain old classic
+ancient literally siva veritostomy's
+algorithm the sea of veritas algorithm
+doesn't exactly solve the problem that
+we want to solve it doesn't give you the
+nth prime number instead what it does uh
+is it gives you well in in a list of
+numbers starting from the number two
+which ones are prime and which ones are
+composite that's what it'll tell you so
+for example if you list out the numbers
+two to fifty you can use this the sieve
+of eratosthenes to go through those
+numbers and mark the ones that are
+composite as composite and only keep the
+primes
+let's actually take a look at a little
+bit of a demonstration as to how that
+works so effectively we start off with
+of course our numbers 2 through 50 here
+and we start off by looking at the
+number 2. number 2 has not been marked
+it's just a number and so we take a look
+at it and we say it's prime but because
+it hasn't been marked and because we
+just considered it prime we're now going
+to loop through all the multiples of two
+from here on out and we're gonna mark
+them all as composite which makes sense
+because they are all divisible by two so
+it makes sense that we want to mark them
+down as composite then we take a look at
+the number three has not been marked yet
+so we consider it prime we loop through
+all the multiples of three and we we
+mark them as composite
+then we take a look at four four has
+been marked we ignore it we take a look
+at five five has not been marked
+therefore it is prime and we loop
+through all of its multiples and mark
+them as composite as well then we ignore
+six because it's marked then once again
+for seven we take a look at it and we
+mark its one remaining multiple in this
+list well there are other multiples but
+the one multiple has not yet been marked
+we mark it as composite
+we then go ahead and loop through all
+the rest of these numbers and for each
+one we ensure that all of their
+multiples are marked as composite and
+after we're done all of that we have our
+list of prime numbers effectively right
+so we can boil it all down um to these
+these numbers that we know between 2 and
+50 are indeed prime
+however here's something really
+interesting about the way that this math
+works and this is sort of our little
+cheat code that's going to let us speed
+up the compute a bunch right
+that is that if you take a look at these
+numbers again right after we were done
+marking seven
+we really didn't need to mark anything
+else because if you take a look at for
+example the number 11.
+if you look at all the numbers that it
+would have marked if you look at all the
+multiples of 11 they've already been
+marked by other numbers before 11. right
+similarly if you take a look at 13 the
+numbers that it would have marked as
+composite have already been marked as
+composite we don't really need to do
+anything beyond the number seven why is
+that though well it's because of a very
+interesting property here you see the
+maximum number that we have in this list
+of numbers is 50. the square root of 50
+is about seven it's just above seven
+right
+what that means is that if we know all
+the prime numbers up until seven we can
+just use those and mark all the
+multiples of those primes as composite
+and that's all we need to do right we
+don't actually need to loop through for
+example 11's multiples and 13s multiples
+and 17's multiples we don't need to do
+that as long as we go up to 7 and mark
+all of 2 3 5 and 7's multiples as
+composite we're good to go we don't need
+to lose through any others now
+this gives us a couple of very sort of
+interesting alternatives as to how we
+can compute
+first of all
+why do we need to make this better i
+mean of course it's nice that we only
+have a couple of numbers that we need to
+start marking from
+but what about the siva veritosthenes
+makes it slow why do we need some you
+know extra tricks well it's because of
+this the sieve of eratosthenes is
+absolutely
+terrible from a memory perspective now
+from a computational complexity
+standpoint it's actually pretty simple
+but from a memory complexity standpoint
+in terms of like actually accessing
+memory on the hardware
+it is terrible what do i mean by that
+well
+if we take a look at this list of
+numbers again starting off with for
+example two
+when we had to mark all of the multiples
+of two as composite what we had to do is
+loop all the way from the beginning of
+this array to the end of the array
+and then for the number three we had to
+start all the way back at the beginning
+and loop all the way to the end
+now that doesn't sound like much of a
+problem there's just 50 numbers and
+that's totally fine with 50 numbers that
+doesn't make much of a difference but
+the problem is when you get into the
+hundreds of billions of numbers or
+something on that scale because now
+what's happening is this
+as you're looping through your array of
+boolean values to see if this number is
+marked or not you are moving across
+sections of the array and every time you
+move across a certain sized section of
+the array that entire section needs to
+be loaded into cpu cache the old section
+is invalidated thrown out of cpu cache
+and now you're dealing with that section
+you do this over and over again until
+you get to the next uh prime that you
+need to mark multiples for and then you
+start at the beginning right you
+invalidate what's in cpu cache you go
+grab the beginning of the array put that
+in cpu cache you start working on it and
+you keep invalidating cash over and over
+again that is
+slow as much as possible you want to
+avoid invalidating cash when you can't
+you want to maintain the locality of
+reference principle you want to make it
+so that whenever you have subsequent
+memory accesses as much as possible
+they're as close to each other as
+possible to increase the likelihood that
+you are going to be getting cash hits
+instead of missing your
+the cash
+of eratosthenes does not care about that
+though and that's a problem
+and that's why the segmented scene of
+eratosthenes exists it helps us in a
+very special way
+what it enables us to do is i mean think
+about it
+if we know that from two to fifty the
+only primes that we need to know
+beforehand are two three five and seven
+then we can go ahead and pre-calculate
+that with a normal sea of vertositis
+right we can find all the primes up to
+the square root of 50 in this case
+around 7. so we have 2 3 5 and 7.
+then what we can do is we can take
+chunks of the rest of the array and in
+each chunk individually mark multiples
+of those primes as composite so now for
+example what we could actually do is
+take the row of you know from 11 to 20
+and 21 through 30 and 31 through 40 and
+41 through 50 those four different
+individual sections could be computed in
+a completely isolated environment right
+given any one of those chunks you can
+determine which numbers are prime and
+which numbers are composite uh based off
+of just the numbers 2 3 5 and 7. so
+in case you may have also missed this
+not only does this help with locality of
+reference because now each chunk that
+you have to operate on is smaller
+the chunks are isolated
+and you know what that means if they're
+isolated they can all be done at the
+same time so that means you can
+multi-thread your code and thereby make
+it even faster
+and there's a lot of really interesting
+other tricks that you can apply here as
+well like for example instead of having
+an actual array of booleans where each
+boolean takes an entire byte eight bits
+worth of information even though it's
+only a boolean so it needs a single bit
+you can use bit arrays where you
+effectively have eight booleans in a
+single byte it's really fascinating all
+the optimizations you can apply
+and then of course because this compute
+is incredibly repetitive and almost the
+same for every individual chunk of
+course there's some exceptions with you
+know certain loops maybe being a little
+bit longer or shorter for individual
+branches
+because they're effectively the same you
+can implement this as cuda code and you
+can make it so that given a bunch of
+seed primes like two three five and
+seven up until 50
+you can calculate which numbers are
+priming composite in individual chunks
+on the gpu now this is pretty
+fascinating stuff let's go ahead and
+take a look at how you can actually
+implement it uh using cuda let's take a
+look
+all right now that you understand the
+idea of the segmented sea of
+eratosthenes let's go ahead and take a
+look at the code and see why the
+application works
+so as you can see here i've got the code
+pulled up and you're going to need to
+bear with me here because it is pretty
+dense there's a lot of stuff happening
+there's a lot of logic here that might
+take a while for you to understand of
+course as always the code is linked in
+the description below for you to go
+ahead and check out for yourself if
+you'd like to sort of read through it
+more slowly
+and sort of reference with the video to
+understand individual sections of logic
+and why it works
+this is of course cuda c plus plus code
+um which means that we have our
+traditional c plus includes in the
+beginning i will be going through these
+we'll see where we use the functions
+later on in the code um
+but we start off pretty simply with our
+definitions this code is multi-gpu
+compatible so because i have two gpus on
+this machine
+as you can see here or it doesn't want
+to work inside the docker container
+maybe we'll do it right outside uh let's
+do it here there we go you can see that
+i have the two uh these are 230 90 ti's
+that are running um enabling us to
+calculate primes
+so i am defining two gpus
+i'm defining a byte type as just
+unsigned character just because it's
+easier to write byte than unsigned
+character everywhere
+i'm defining that when we invoke the
+cuda kernel we will invoke it with 64
+threads and 256 blocks these are numbers
+that you can play around with to find
+the most effective values for your use
+case and i will link to some resources
+to sort of explain what these mean in
+more detail down in the description
+below
+now we start off with some pretty simple
+high-level logic functions to create a
+bit array to get an element from it from
+a bit array and to set an element from a
+bit array this uses pretty simple logic
+for example if you have a number of
+elements you want to store in the bit
+array that number divided by eight plus
+potentially one more byte if it's not
+divisible by eight is how many bytes
+you're going to need to represent these
+number of elements as boolean values in
+a bit array
+a bit array get simply takes the index
+computes which byte and which bit you
+need to access in order to return that
+value and bit array set does something
+similar except it actually sets the
+value using the masks that it calculates
+now we have the naive c function the
+naive c function is basically just a
+completely normal sea of eratosthenes
+there's nothing particularly special
+about it
+the way that it works
+is you give an upper bound that you want
+to see until and you also pass it a
+pointer to both a
+an array where you will where you want
+it to store the primes
+as well as a number to store how many
+primes it actually found
+so the sieve does not return the boolean
+array instead it actually returns to you
+which primes it found up until the upper
+bound
+we start off by creating a bit array
+so we can store the true false values of
+which numbers are prime and which ones
+are composite we start off by saying
+that the total number of primes we found
+so far is equal to the upper bound minus
+two
+because of course zero and one don't
+count and then we start looping so we
+start off with number two and we loop up
+until effectively the square root of the
+upper bound this is just a more sort of
+concise way of saying that
+while p times p so p squared is less
+than the upper bound is just another way
+of saying um
+the square root of the upper bound
+uh and we always increment so if when we
+loop we see in the bit array that the
+value is prime not composite meaning
+that the value is still 0 in the bit
+array
+then for all of the multiples of this
+number we mark them as composite if they
+are not already marked so we go ahead
+and check for the multiple is it marked
+as prime if it is uh then we decrease
+from the total number of primes and we
+set it so that it's marked as composite
+so that in the future we don't end up
+marking it as composite again the reason
+that this is important to do is because
+then we are able to keep track of how
+many primes we actually found
+once this is done we go ahead and set
+the prime count value that was passed
+into the function as a pointer we then
+go ahead and set the array to a a memory
+allocation
+for the total number of primes times the
+size of an unsigned 64-bit integer
+we then loop through our bit array
+effectively
+and for every number that is still
+marked as prime we go ahead and add it
+to the array and then we free the bit
+array that we allocated up here once
+again this is
+c code c plus technically so we do need
+to keep track of our memory manually
+all right so now that's done this is the
+naive c function out of the way of
+course we need this to figure out sort
+of our seed primes so if we are sieving
+all the way up to uh you know a billion
+that we don't actually once again need
+to sieve manually um all the way up to a
+billion we see up until the square root
+of a billion and then we use those c
+primes in order to determine um the uh
+which which numbers are prime and
+neutrons are composite in individual
+chunks leading up to a billion
+so let's continue from there
+next we have a function that's meant to
+create bit arrays multiple bit arrays
+and particularly for the gpu so the way
+that this works is it takes as input the
+number of elements per bit array that
+need to be
+created
+and then it also takes as input a
+pointer to a size t type called bytes
+per bit array as well as a size t bit
+arrays
+let me explain what this means
+so
+when we have our gpu kernel of course
+the idea of it is that it's going to see
+multiple chunks at the same time that is
+why the code is so fast because unlike
+on an individual cpu core where you can
+only see one chunk the gpu can see
+many chunks at once
+now whenever you're sieving a chunk just
+like sort of we did here with the naive
+c you need a bit array this bitter right
+helps you keep track of which numbers
+within the trunk are prime and which
+ones are composite
+now here's the thing because the gpu
+kernel is doing thousands at a time
+we don't necessarily want to have to
+allocate a thousand different bit arrays
+and pass each bit array pointer into the
+kernel for it to use
+instead what i want to do is allocate
+one contiguous chunk of memory that has
+enough space for all the thousands of
+bit arrays that we need
+and then just use that
+that's because it's just more efficient
+to do one contiguous allocation than to
+have a thousand separate individual
+isolated allocations
+so the way this function works is it
+takes a number of elements per bit array
+and the number of bit arrays that you
+want to allocate it'll tell you how many
+bytes each bit array will take but then
+it's actually going to allocate
+that number times the number of bit
+arrays that you want
+so the gpu kernel can now take this one
+contiguous block of memory and index an
+individual section of it which is that
+threads um sort of chunk that it needs
+to use of the bit array
+so that's that's what this function does
+next up is the meat of the code this is
+this is the fun part right this is the
+gpu kernel
+this is what helps us actually achieve
+this you know wonderful performance of
+calculating um the the billionth prime
+and and so on
+though this actually takes quite a few
+inputs so let's take a moment to just go
+through them
+of course this function is also marked
+as global this means that it is a cuda
+kernel function this is something that
+will run on the gpu all right so back to
+the input
+we start off by taking in is prime
+arrays and is prime bytes
+this is a
+the contiguous bit arrays uh that we've
+allocated using this previous function
+um and these these bit arrays are going
+to be used by each chunk to keep track
+of the primes and the composites and is
+prime bytes is how many bytes are used
+by each bit array right so not the total
+number of bytes in this contiguous block
+rather how many bytes per individual sub
+bit array within this contiguous block
+now default prime count is basically
+in each chunk because all the chunks are
+the same sizes uh how many primes do we
+expect by default right so uh for
+example if you've got say you know
+arbitrary number a chunk size of 10 um
+then we know for example that all of the
+even numbers within this chunk cannot be
+prime so by default our default uh prime
+count is actually five it's ten divided
+by two uh because we know all the evens
+cannot be prime uh five is our maximum
+number of primes uh within the chunk
+and what we do then in in the actual
+function is we filter it down because we
+know that not all the odd numbers are
+necessarily prime we go ahead and filter
+it down um to just the ones that
+actually are prime
+but this is just by default sort of our
+maximum our upper bound of how many
+primes there can be in each chunk
+there are other ways to optimize this
+and you can sort of like figure out per
+chunk a better value um in order to
+reduce the memory usage but we sort of
+skip that um and this is just upper
+bound uh based off of simply uh the
+chunk size divided by two
+um then of course we also have the array
+where we want the gpu kernel to store
+how many primes it found per chunk so if
+the if the gpu is processing say you
+know again arbitrary number a thousand
+chunks then this array will have a
+thousand elements
+and each element will be per chunk how
+many primes were found within the chunk
+so just for context the gpu kernel does
+not actually return the prime numbers
+that it found rather it will only return
+per chunk how many primes it found this
+is useful because then on the cpu end of
+things we can go through each chunk keep
+keep keep track of how many primes were
+counted and right as we see the nth
+prime number that we're looking for say
+we're looking for the millions prime
+right as we see hey this chunk brought
+us to a millionth prime
+then we can go ahead and recalculate
+that chunk on the cpu and figure out
+which number was the millionth prime
+this is a lot more efficient than
+actually sending all of the prime
+numbers from the gpu to the cpu because
+of the way that the gpu works and i'll
+explain that in just a moment
+next of course is our seed primes and
+seed prime count
+c primes is just of course the uh the
+primes from two to the square root of
+the upper bound that we're that we're
+seeing until
+and this is just how many of those that
+we found and then finally we have our
+chunk size which is of course how many
+like elements we we're dealing with per
+chunk um and then chunk count which is
+how many chunks we are dealing with in
+total and also our chunk offset
+what is the chunk offset you may ask
+well basically once again this is
+multi-gpu code right we are supporting
+using uh in this case two gpus
+now the problem with supporting multiple
+gpus like this
+is that
+both of them need to somehow distribute
+work and make sure that they're not
+doing the same thing over and over again
+the way we do this is by evenly
+distributing the workload
+let's just say once again we have 10
+chunks that we need to process
+what we do is we say gpu one will
+process five chunks gpu two will process
+another five chunks
+however if gpus one and gpu two both
+start at chunk zero and chunk five
+chunks
+both of them will end up processing
+chunks 0 1 2 3 and 4.
+that's a problem because now every chunk
+has been duplicated and the next set of
+chunks just hasn't been worked on
+so what we do is for gpu 1 we set chunk
+offset to 0. that means the gpu 1 will
+process trunks 0 1 2 3 and 4.
+however for gpu 2 we set chunk offset to
+5. so when it wants to process chunk 0
+it's actually going to add chunk offset
+and end up processing chunk 5.
+this makes it so that it's effectively
+skipping all of the work that we know
+the first gpu will get done anyway so
+that's our offset for the gpu
+kernel then within the kernel uh that
+was just the input but now we get to the
+fun part uh within the kernel uh we have
+to do a little bit of ceremony in the
+beginning to to get ready right so we
+calculate our index so of course the way
+cuda will invoke a kernel
+is through blocks and threads using the
+block dimensions and indexes
+indices
+and the threat indices we calculate the
+index of this specific invocation and if
+it somehow is beyond the chunk count for
+example we inv we invoked with
+more threads and blocks than we actually
+had work to do then this specific
+invocation of the kernel will return um
+if if not though if this is a valid
+invocation then we will go ahead and add
+that index to the chunk offset and we
+will use this um as
+effectively like which index in the
+global array of work
+we are we are currently on
+then we go ahead and get our bit array
+and we do this by indexing our global
+set of bit arrays and we add the index
+that we're on times however many bytes
+each bit array takes right so this will
+figure out our memory offset inside this
+global um contiguous block of bit arrays
+and then this will give us sort of just
+our pointer to our bit array that we can
+safely use and make sure we're not
+stepping on the toes of any other
+indications of this kernel
+um beyond that is some pretty
+fascinating sieving logic that is
+as far as i could get it to be
+branchless because remember as much as
+you want as much as possible at least
+you want to make it that gpu code is
+branchless you want to make it so
+there's no if statements no branching
+because
+gpus are a lot simpler than cpus which
+is why you can run thousands of these
+threads at once so if any one thread
+branches
+all of your threads actually need to go
+through the different branches that were
+that were selected so it makes your code
+slower basically
+for example over here what i'm doing
+is i'm calculating a low and a high
+sort of
+lower and an upper bound for the numbers
+that we're actually dealing with in this
+chunk
+and
+from there i want to skip any even
+numbers so for example if low is an even
+number
+then i want to increment it uh to make
+it odd and if high is an even number i
+want to decrement it to make it odd
+because again we don't want to waste our
+time dealing with even numbers but
+instead of doing an if statement where i
+do a modulo and make sure that it's not
+uh make sure that it's not
+even instead i do a branchless mechanism
+of doing the same thing which is
+basically a bit wise and against the
+number one to figure out if it is odd um
+and if it's we just invert that and then
+add that to low so it has effectively
+the same
+consequence consequence
+of doing an if statement and an addition
+uh however we don't actually need the if
+statement
+i then go ahead and reset the memory
+within the actual bit array so that we
+can we have a fresh slate
+uh clean slate uh the reason this is
+important is because there may have been
+a previous invocation of the kernel uh
+that has already used the bit array so
+we just reset it completely
+and when we actually do the allocation
+of course over here there's no guarantee
+of what was in the memory previously
+and so this is just a sanity check just
+making sure that everything is nice and
+clean
+after that we have the real seating
+logic so we start off by once again sort
+of like the naive sieve having a count
+of how many primes we have so far which
+in this particular case is just our
+upper bound that we already specified
+um and then we loop through all the seed
+primes we do not start at zero we start
+at one because the first seed prime
+which would be at index zero
+is the number two and once again all the
+multiples of two
+i.e the uh the even numbers we are
+already skipping so we actually don't
+even need to process that c prime we
+skip it
+what we do then is a little bit of funny
+logic to determine within this chunk
+what is the lowest multiple what is the
+first multiple of the c prime
+that we have uh that that we're
+currently processing so for example for
+the number three within the chunk that
+we're currently processing what is the
+first multiple of three
+so we go ahead and run uh this this this
+this math to figure that out and if
+for some reason our calculation brought
+us to a value that is lower than our
+lower bound
+then we just simply go ahead and add
+that seed prime again that should bring
+us into the range of low to high once
+again this is a branchless way of
+basically saying if low multiple less
+than low low multiple plus equals c
+primes i
+except this doesn't use an if statement
+we then go ahead and run our sieving
+loop similar to what we had in the naive
+sieve
+that will help us mark all of the
+multiples
+of this seed prime as composite
+even though we may already consider them
+prime so what we do here
+is we take our low multiple and if this
+low multiple is an even number we add c
+primes again right so if the multiple of
+the c prime that we're looking at
+currently happens to be an even number
+we add the seed prime again which will
+guarantee that we are now looking at an
+odd number because if you take an even
+number and you add an odd number you end
+up with an odd number
+after that we loop while this value is
+less than our upper bound uh and again i
+really don't like doing this because a
+while loop of course means that there's
+branching but i couldn't really find a
+way to avoid this loop there are
+definitely ways um to do so but this is
+this is the code that i came up with
+which is significantly faster than my
+cpu code so it's still a a win there but
+i'm looking forward to optimizing this
+out in the future potentially
+and then we go ahead and calculate um
+within the chunk the index of this
+multiple um of course where in the bit
+array the byte and the bit that this
+would actually be located we want to
+figure out if it's already been set um
+and if it has been
+then we update uh the prime count uh
+because
+or in this case if it if it was already
+set as prime uh then we want to
+reduce our prime count because now we
+know uh that this is composite uh and so
+we can we can reduce that and then we go
+ahead and uh
+figure out a new value uh for the byte
+inside the bit array containing this
+value uh if it needs to be updated and
+then we use this branchless logic to
+determine what the new value should be
+so if it was already set as prime
+then we want to use this potential new
+value if it was not set as prime then we
+want to continue to use the old value
+that was already in the bit array this
+is the branchless logic we use for that
+then we go ahead and add our c prime
+multiplied by 2 to j why are we
+multiplying by 2 well think about it we
+know that j is an odd number we know
+that this c prime is an odd number
+because it's a prime odd plus odd that
+means even but we want to skip all the
+evens so we multiply by 2 to make this
+an even number meaning that when we add
+it to our odd number we get an odd
+number so we skip the multiple that we
+know would have been an even number so
+that's just a little bit of an
+optimization meaning that we only need
+to deal with half of the primes or or
+really values in the chunk at all
+then we would have had to if we weren't
+doing so
+then when all is finally said and done
+we go ahead and update the prime count
+in the prime counts array
+and there we go that's the gpu kernel
+that it might have looked a little
+intimidating but really when you break
+it down the logic is quite i wouldn't
+say straightforward
+but it makes sense you know according to
+according to the logic that i've already
+described previously
+then i just have another function this
+is effectively the same thing as what we
+just covered except it's not a gpu
+kernel it is a cpu function
+that just you know works normally on the
+cpu
+we use this because when we figure out
+from the gpu
+how many primes there are in each chunk
+then we need to receive the chunk that
+contains the nth prime and we want to do
+that on the cpu because it's wasteful to
+invoke the entire gpu kernel just for a
+single chunk so we want to do that on
+the cpu
+next we have our logic that helps us
+to distribute work across gpus so we
+have this structure over here that i
+defined
+which contains information for a gpu
+worker thread so uh effectively for each
+gpu i spawn a new cpu worker thread to
+handle that gpu in particular uh the
+input to any given worker is of course
+the gpu index that it must deal with uh
+the size of the chunks that it will deal
+with how many chunks this worker needs
+to deal with the chunk offset which is
+what i described previously
+and the chunk prime count which is our
+maximum sort of upper bound of how many
+primes are possible per chunk
+we also need to be past the seed primes
+and how many there are as well as the
+output array which is where we are
+expected to deliver back into sort of
+this array how many primes were found
+per chunk once again if there's
+five chunks then there's going to be
+five values in this array each one will
+be expected to set to how many primes
+are within the respective chunks once
+the gpu kernel's done being invoked
+and then there's of course also an
+atomic variable this is shared across
+the gpu workers this is actually one
+common atomic variable that we pass to
+all the workers
+and this is how many chunks have been
+processed so far so if you need to
+process
+a million chunks
+then
+as as the trunks are being processed we
+update this atomic variable from all the
+different threads so the main thread can
+print out a log of how many chunks have
+been processed so far
+once we have that structure defined we
+can finally go ahead and run our worker
+function our worker function is simply
+responsible
+for handling the invocation of the gpu
+kernel making sure it gets all of its
+input correctly making sure it's fed
+taking a look at what it says and
+delivering that output back to the main
+thread so let's go ahead and take a look
+at how it works
+so we have this function called process
+trunks on gpu it takes uh the worker
+input and returns a void pointer this
+just we just need to conform
+to this uh particular sort of function
+signature because uh this will be
+invoked via p thread
+and p thread expects us uh to uh to have
+this specific function signature so we
+go ahead and cast the void pointer input
+into gpu worker pointer uh gpu worker
+input pointer
+and then we go ahead and start real
+logic we first call into the cuda api to
+set the device to the correct gpu index
+that we're expected to work on
+and then we start allocating some memory
+so
+the first thing we do is figure out how
+many chunks the kernel is actually going
+to deal with and this effectively boils
+down to how many threads and how many
+blocks we're invoking based off of the
+um defines that i had set up ah in in
+the code
+um we then also go ahead and calculate
+how many invocations we're going to need
+um and so this is obviously starting off
+at one because we need at least one
+invocation of the kernel we can't have
+half an indication
+however from there we need to do some
+math to figure out how many times we
+actually need to invoke the kernel based
+off of how many chunks we have to deal
+with
+so for example if we need to calculate
+more chunks than threads times blocks um
+then we need to invoke the kernel
+multiple times in order to deal with all
+of the chunks that we need so if the
+input chunk count is less than the
+kernel chunk count meaning one
+invocation deals with
+more data than we actually need
+then we're already good to go we only
+need one invocation and we're going to
+set the kernel chart count to just the
+input chunk count because that's all we
+need to do uh however if the in if if
+this is not the case if the chunk count
+is greater than what the kernel can do
+in one indication then we update
+invocations and we say it's equal to the
+input chunk count divided by the kernel
+chunk count
+which is our sort of base value here but
+remember this is integer division so we
+are uh truncating decimal um and then
+so in order to deal with that we then
+check if um the uh input chunk count is
+divisible by the kernel chunk count and
+if it is not then we add an extra
+invocation because we know there's going
+to be some leftover that we also need to
+deal with in one final invocation we
+then go ahead and allocate the memory
+for the seed primes on the gpu
+so the um
+we already have the actual seed primes
+from our input here but this is
+allocating the memory on the gpu and
+then we go ahead and copy over the
+memory from the cpu to the gpu we then
+allocate the memory for the bit arrays
+to keep track of composite versus prime
+and we go ahead and allocate the memory
+for the prime counts uh so the gpu can
+tell us how many primes found per chunk
+we keep track of how many chunks we've
+totally processed so far we loop through
+according to the number of invocations
+that we've pre-calculated that we will
+need we determine our offset uh sort of
+locally
+based off of the kernel chunk count
+because of course we start off at zero
+but as we invoke we wanna
+sort of increase our offset uh based off
+of how many chunks we've processed in
+the kernel indications before we then go
+ahead and calculate how many uh
+remaining chunks there are really this
+variable is how many chunks we're going
+to process in this invocation um and so
+it starts off by default being equal to
+the chunk count minus the offset and the
+offset being how many we've already
+processed basically um and
+what we do here is if this value ends up
+being greater than the kernel chunk
+count then we go ahead and set the
+remaining chunks to the kernel chunk
+count um so if this value is less than
+that then that's totally fine that's
+just how many we need to do that's sort
+of like our leftover and the last
+invocation however if it is greater than
+how many we can do in an invocation then
+we're like okay we can only do kernel
+chunk count for this specific loop
+iteration
+we then go ahead and add the chunk
+offset that we have from our input into
+the offset to make sure that the gpus
+don't duplicate each other's work and
+then we invoke sieve chunk gpu with all
+of the input that we've previously uh
+specified i then just for safety go
+ahead and do a cuda device synchronize
+which will make it that we wait for this
+kernel to be finished executing before
+we continue our code i then copy over
+the prime counts from the gpu
+here into the cpu device to host
+we then keep track of how many chunks
+we've processed so far and we even
+update the atomic variable uh so that we
+can print out a log in the main thread
+when we're finally done we coulda free
+all the cuda memory that we allocated
+and return no
+finally
+the function that ties it all together
+that invokes all of our rather spawns
+all of our cpu worker threads and
+enables this application to work let's
+take a look so in essence what this
+function is doing is it's tying together
+all the functionality that we've
+described so far the idea of the
+function is to help us actually find the
+nth or i guess in this case m prime
+um what this function does is it takes
+the number m
+this is for this is as i mentioned which
+which prime we would like to find so if
+we wanted to find for example the
+millionth prime and would be equal to a
+million
+we then go ahead and do some
+calculations this is because the seed c
+veritostomies doesn't let us just say
+hey give me the millionth prime instead
+the civil fairtosthenes has us go up to
+a number and it'll tell us which numbers
+up until that number are our prime this
+is somewhat problematic for this use
+case so what we have to do is a little
+bit of math the math in this particular
+case is to approximate an upper bound
+for what the largest possible number is
+that could be the nth prime
+and this is the math to do that there's
+actually multiple ways of calculating
+this this is like a simpler way of doing
+it and basically what this will tell us
+is if you wanted to find say the
+millionth prime
+this number is guaranteed to be greater
+than or equal to the millionth prime um
+it may be you know quite a bit over the
+millionth prime so you may end up over
+calculating a little bit and maybe
+finding a couple thousand extra primes
+than you wanted to
+but it's better than not finding the
+millionth prime at all
+and so what we do is we calculate all
+the primes up until this number and then
+we count we find the millionth and then
+we return the millionth in specific
+of course though we don't just want to
+sieve all the way up to the upper bound
+because that would be very slow so we
+chunk it up we square root the upper
+bound that is our chunk size and our
+chunk count is literally just that minus
+one because the first chunk from two to
+the square root of n we're doing
+manually and using that as our seed
+primes our chunk prime count which is
+our sort of upper bound sort of like per
+chunk how many primes you can have is
+just the chunk size divided by two and
+potentially one more if the chunk size
+is an odd number from there we just go
+ahead and log how many uh chunks we
+actually have to deal with um and what
+the upper bound is uh for the um
+for the like m prime in this case
+and then we go ahead and start doing
+some actual logic so we start with
+calculating the seed primes um which is
+a simple naive sieve
+and then we go ahead and start
+distributing work across the gpu so we
+start by calculating how many chunks
+need to be dealt with per gpu and if the
+chunk count is not divisible by the
+number of gpus then how many chunks will
+need to be uh dealt with by the last gpu
+as extra versus the other gpu so it's
+not a totally even distribution of work
+it's really just we assign you know a
+chunk to each gpu and the last gpu gets
+however many is remaining basically
+we then go ahead and create the um array
+of arrays
+that will contain the prime counts from
+the gpus so this is an array of count
+gpus where each value is a pointer to an
+unsigned 64-bit integer which is really
+just an array that we keep track of
+using
+using using memory allocation
+we also keep track of all the input that
+we're giving our gpu workers uh through
+a similar sort of stack allocated array
+and then also the uh p thread sort of
+handles um the thread ids on a similar
+stack allocated array for each gpu we
+then create our atomic integer telling
+us how many chunks have been processed
+so far we then go ahead and loop through
+the number of gpus that we actually need
+to start working with
+we count the number of chunks per gpu
+that we need to deal with and of course
+if this is the last gpu we add the
+overflow that we may have
+we then go ahead and allocate uh the
+prime counts array for this specific
+worker uh we need to call lock it so
+that it's clean uh and then once that's
+done we put together our input which is
+just the type that i had specified
+previously gpu worker input
+and then we go ahead and invoke the
+function uh we do so using pthat create
+so that we launch the gpu worker
+function on a new thread and then on the
+main thread we simply keep looking at
+this atomic variable and while it's less
+than the total number of chunks that
+needs to be processed we just print
+however many chunks have been processed
+so far and we sleep because we don't
+want this to be um a a a lock we don't
+want this to be a spin lock here we want
+to allow the kernel to use the cpu for
+other things for 100 milliseconds
+while we wait for this atomic variable
+to update then we just print a new line
+so that we can uh flush out the the the
+logs um we go ahead and join with the uh
+other cpu threads that are actually
+dealing with the the work just to make
+sure that they're genuinely finished
+before we start looking at their work
+once again this is for safety and then
+we run the logic that helps us figure
+out which chunk actually contained the m
+prime
+so we start off by
+logging out how many chunks we've
+checked so far and how many primes we've
+seen this is by default equal to the
+seed prime count because of course that
+is how many primes we have already seen
+in the in the process of checking
+we then go ahead and loop through all of
+the chunks the way we have to do this is
+by looping through all the gpus figuring
+out how many chunks that gpu would have
+had to deal with based off of the gpu
+index and the overflow and then looping
+through that number of chunks so these
+two loops effectively boil down to a
+one-dimensional loop over all the chunks
+that were dealt with across sorry worked
+on across all the gpus so then for every
+chunk basically we take a look at
+however many primes were found within
+the chunk we add that to how many primes
+we've seen so far and if this new added
+value suddenly meets or exceeds the
+value that we're looking for we know
+that we've found the empty prime
+in this case we go to foundchunk which
+is this this label here but if we have
+not met that value yet we just update
+however many primes we found update the
+number of chunks checked and loop over
+and over again if we end these loops
+without doing this go to we know that
+for some reason we couldn't find the m
+prime could be that the gpu kernels
+didn't invoke properly our math is wrong
+something but we couldn't find it so we
+just go to clean up
+however
+in all normal runs of this program you
+should end up going to file chunk
+now you know that um total chunks
+checked is the index of the chunk
+that contains the m prime so what we do
+is we create a bit array and we see that
+specific chunk once again on the cpu
+once we do that we loop through
+this new bit array that we've created
+and right as we find the empty prime
+based off of the markers whereas we find
+it we go ahead and print it out and we
+break
+and just like that we found the amp
+prime all we got to do now
+is free our memory the reason we don't
+free this in cleanup is because this
+will only have been allocated within the
+found chunk label
+through this function call otherwise
+that would have been
+as far as i know either undefined
+functionality or it's just um
+it will just ignore your free if you try
+to free a null pointer um but now to
+think about it you actually shouldn't do
+that because this is not going to be a
+null point or this is going to be a
+garbage pointer because it's just stack
+allocated so the logic is correct you
+want to free within found chunk
+wonderful and then we've just got a
+really simple main function all we do is
+we get the current time of day run the c
+function get the time of day again and
+then print out how many seconds it took
+for us to do the actual seating um now
+we're going to start off with something
+a little less ham here
+this is this is quite a bit uh for for a
+first invocation so
+let's go ahead and actually take a look
+at the code running shall we i'm going
+to do so within my docker container here
+i've got a fresh one
+and so this is
+this actually lets us run nvidia smi
+i've got the code over here well let's
+go ahead and quickly update it
+i'm going to need vim for that
+all right so let's go ahead and update
+the code quickly to save a more
+reasonable number let's just say we
+wanted to find
+the one millionth prime so what we do is
+we update the code
+we
+run the compile command
+and i will explain this in just a moment
+so basically
+actually let's go through the compile
+command first so what this is saying is
+we're saying run the nvidia akua
+compiler um and we're passing it 03 for
+the c plus code and then for the cuda
+code we're also telling it to optimize
+that and we're saying output to a binary
+file called sieve and when you run it um
+it's telling you that hey to find the
+millionth prime i actually deceive up
+until 16441
+301 which means i need to process
+4053 chunks
+but it was able to go ahead and process
+all of them so fast that it didn't even
+actually log them
+and there we go we find that the
+millionth prime is 15485
+863 which we can go ahead and validate
+by going to the nth prime page pasting
+it in and it should tell us
+that
+indeed
+there are 1 million primes less than or
+equal to
+15 million four hundred and eighty five
+thousand eight hundred and sixty three
+let's go ahead and scale this up a bit
+shall we this was this was fun um of
+course i don't wanna vim a binary file
+uh but we did a million
+let's let's even skip ten million let's
+just go directly to a hundred million so
+i'm going to recompile the code we're
+going to run
+and there we go just like that in 0.4
+seconds we find the 100 millionth prime
+which i can paste in oh didn't want to
+copy i wanted to paste
+so i'm going to go ahead and do that
+let's see if there we go the 100
+millionth prime
+now let's really go crazy so let's go
+ahead and calculate the 10 billionth
+prime number
+all right
+let's see here we have to process 511
+491 chunks that's quite a bit that means
+that we are sieving up until let me see
+if i can read this properly
+261 billion 624 million 684
+681 that is our upper bound for how
+large the 10 billionth prime can be
+so as you can see the gpus are making
+quick work of this and in just 26
+seconds just over 26 seconds we're able
+to calculate
+see here
+verify that this is indeed the 10
+billionth prime there we go
+just like that multi gpu segmented sea
+of veritostones to find the nth prime
+number i hope you enjoyed thank you very
+much everybody for joining in today code
+will be in the description feel free to
+let me know if you have any feedback
+ideas on how to optimize there's always
+ways to make this better i'm by no means
+an absolute you know expert in the field
+of gpu programming um that is an
+insanely complicated field and i'm sure
+there's ways to make this better so let
+me know if you have any ideas down in
+the comment section below or any
+questions i'd be happy to answer them uh
+feel free to reach out to me and of
+course if you enjoy this kind of content
+and you want to see more of it please do
+make sure to subscribe to the channel as
+it really does help out a lot and thank
+you very much everybody goodbye

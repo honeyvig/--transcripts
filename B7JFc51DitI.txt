@@ -1,0 +1,527 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is tany Baki and this
+time we're going to be going over how
+you can actually self-host the parse
+server that parse has released now uh if
+you've seen my previous tutorials you
+know that unfortunately parse is
+shutting down and as of January 28th I
+believe 2017 uh it's going to be
+completely shutting down however they
+are going to keep some Services up such
+as the dashboard uh and so essentially
+what they allow you to do uh is that
+they have open source the par server
+sort of uh the server side of pars uh
+and so basically you can put that onto
+your own machine uh and host your own
+mongod DB database uh and have your own
+little version of pars running uh and of
+course uh have your own little uh what
+do you call it basically you can tell
+your application not to go to the par
+servers by default but go but go to your
+server and that's really neat so I'm
+going to be showing you exactly how you
+can do that uh let me just show you
+something really quickly though uh
+originally when pars announced it's
+going to be shutting down uh there was
+this there was your
+application that was what that would run
+on let's say some sort of
+phone all
+right all right so this is your
+application running on a phone
+however there was also a par
+server uh and this was I don't exactly
+know what the parse server logo is but
+this is sort of like the par server over
+here uh and so basically right now what
+happens uh is by default your
+application communicates with the par
+server without you having to direct it
+there it just automatic I mean the
+framework is coded in to know where the
+par servers are located however what par
+said is hey we're going to open Source
+this so we're going to open source
+this we're going to open source this the
+par server uh and so essentially what
+this will allow you to do is have your
+own sort of machine like uh let's say
+some sort of Mac um let's just say this
+is your uh machine uh this is your
+server uh and essentially what you can
+do with this uh is Host this par server
+on here so you can say
+parse is running on your
+server all right and so what you what
+they allow you to do is first of all
+they say the step one of your migration
+essentially they gave us exactly one
+year to migrate uh and so in within that
+one year uh you spend a little bit of
+your time uh doing step one step one is
+getting par server uh to run on your
+server uh and once that's done really
+simply all you need to do uh is connect
+this iPhone end with this server and
+tell it to stop communicating with the
+par servers by default uh and then just
+sort of release an update to your
+application which uh will essentially
+allow users to communicate uh with this
+other server rather than this par server
+that they host for you now there's just
+a few disadvantages to this why well
+first of all uh parse had a really good
+free tier which is actually mainly why
+lots of people used parse because the
+free tier of parse was amazing it gave
+you a lot of stuff however I mean that
+won't be available now uh because now
+you have to host it on your own server
+so whatever specs you get with your
+server let's say an AWS server uh maybe
+you selfhosted it all depends on the
+specs of your own server uh as to how
+many your quests per second you can do
+uh how how much you can store and stuff
+which might be a bit more expensive but
+then again uh I mean there's nothing we
+can really do about that and if you can
+find affordable hosting great uh then
+you can run parse on pretty much
+anything actually uh that also reminds
+me bringing me to my next Point parse
+will run on crossplatform Mac OSX or
+Linux and now that bash runs on Windows
+10 anniversary update you can even run
+it on windows so now that concludes my
+little uh Speech session I guess uh
+let's move over right to the Mac part
+now where I'm going to be showing you
+exactly how you can host your par server
+on a Macintosh machine even though the
+steps are almost the exact same for a
+Linux and Windows machine Let's get to
+it so welcome back to Mac part and now
+I'm going to be showing you how exactly
+you can run par server on your Mac or
+Linux machine or even Windows machine uh
+so let's begin shall we so to begin uh
+there's going to be a link in the
+description uh to actually a website uh
+that describes how you can run par
+server uh on auntu
+14.04 now first of all I'd like to say
+that I'm running the new Mac OS uh 10.12
+CR beta so some things may differ a
+little bit but not really uh nothing
+much has changed uh and so first of all
+to begin why am I opening up an auntu
+tutorial if we have mac running well aun
+2 uses bash Mac uses bash they're very
+similar I guess and if you have the X
+code command line tools installed uh
+lots of things become much easier uh and
+so you know you're going to need to
+install the xcode commandline tools for
+this you're going to need to install
+Homebrew and after that everything is
+pretty much the same as a bu to all
+right so let's begin first of all I'm
+going to open up a terminal window uh
+and of course this little uh page over
+here uh which describes how you can run
+the par server on a buntu
+14.04 then what you're going to want to
+do uh is uh just going just go down and
+first of all we going to use uh home
+brew to say Brew install
+nodejs uh I'm going to click enter
+now uh now this is going to say hey
+you're using a pre pre-release version
+uh so you might encounter build failures
+uh just ignore that uh and in just a
+second this should be
+done all right so this is going to take
+around 5 to 10ish minutes uh so I'm
+going to be pausing the recording now uh
+and right as it is done installing or
+almost done installing uh I will resume
+the recording uh and then we can see the
+result okay so I'm going to pause the
+recording now all right so as you can
+see it is now done installing nodejs
+onto my machine uh and so now all we
+need to do is basically you know in this
+guide the entirety of step one you can
+basically just skip all you need to do
+is install no JS uh using uh home brew
+uh now if you don't install the xcode
+command line tools or not command line
+tools the DX code developer tools then
+uh you're going to need to install uh
+Brew uh git using brew as well
+however I do have xcode and the tools
+installed and so I do not need to
+install git as xcode already installs
+that for me however next we can continue
+okay so now as you can see this uh guide
+gives us a get clone command which
+clones the par server example uh so
+essentially you can just uh copy and
+paste
+that and as you can see it clones the
+repository uh and you can essentially
+just CD into that change directory into
+it uh and as you can see if I uh list uh
+these sort of what all is available just
+one second let me make this a better for
+you um
+no okay so now as you can see if I were
+to list what's in this par server
+example directory uh as you can see you
+see a lot of uh folders and files now
+this is a node.js uh application uh and
+so
+essentially if I were to yes so
+basically all you need to do is run npm
+install on this application on this
+node.js application actually and
+essentially this is going to uh sort of
+get the
+dependencies uh set up some of the
+project stuff uh and stuff like that
+till then what you're going to want to
+do is go over to
+parse.com
+all right you need to log
+in with your uh you know email and
+stuff h
+uh and my
+[Applause]
+password all right now that you're in
+parse what you're going to want to do uh
+is first of all it's just telling me
+it's going to be shutting down and I'm
+going to create a new application after
+creating the new application just create
+uh just put in a name for example
+selfhosted parse app or I can't write
+anything else or actually I can that was
+just lag all right so selfhosted Parts
+is what I'm going going for let's create
+this
+application uh and once that's done what
+you want to do is go over to the uh the
+um let's see if it's actually done
+installing okay so it's done installing
+so that means you're going to want to go
+to the
+core all right once you're in the core
+go over to settings then go over to keys
+and then what you want to do is copy
+your application
+ID once that's copied which might take a
+second or actually I'm just going to
+copy that manually uh then you're going
+to go to your terminal uh and in that
+par server example directory say Nano
+index.js this will run the Nano editor
+or you could use Vim or whatever you
+like best uh and edit the index.js file
+now I'm going to change
+this so that uh the app ID over here
+changes from my app
+ID to whatever you paste p in then
+you're going to copy your master
+key over here uh and paste that into
+your master key parameter in your
+terminal once that's done that's
+actually all you need to do uh so click
+control X make sure you click on y to
+save uh click enter uh and there we go
+it should save the file now all you need
+to do uh is actually I believe nope
+that's it so now uh just run or actually
+one more thing we need to do oh up a new
+tab and write Brew install mongod
+DB all right so now this is going to
+install the database uh now let's
+see if this can finish within the next
+10 seconds I guess I'll keep it in the
+video or else let's just uh pause the
+video again uh and then we will continue
+right after that so let's check it out
+shall we so I'm going to give this round
+six more
+seconds all right so I will be back
+right after this is done installing uh
+and so yeah let's pause the recording so
+now as you can see uh home brew is done
+installing here uh I mean not home brew
+itself sorry uh home brew is done
+installing the mongod DB database uh to
+our system now one thing I'd like to do
+is just type in Brew
+services start mongod DB what this will
+do is it will start the mongod DB
+Service uh and as you can see it runs
+mongodb so now uh mongod DB is running
+on our computer uh Parts is completely
+installed onto our the pars server is
+completely installed on onto the
+computer uh now it's time to run the par
+server uh then it's time to create and
+test an a simple iOS application uh that
+will be able to insert stuff into the
+parse database uh and retrieve stuff
+from the parse database let's do it all
+right so let's begin uh and to be
+actually in order to run the par server
+all you need to do is say npm
+start and as you can see the par server
+runs uh and as you can see uh it says
+database URI not specified fing back to
+Local Host which is completely okay uh
+and Par server example running on Port
+1337 perfect so next what you're going
+to want to do is say parse migration
+[Music]
+steps
+there we go finally there we go so now
+as you can see this is Swift Code now
+I'm going to be writing this in Swift so
+if you just copy this all right uh open
+up your xcode I'm again running xcode 8
+uh the first beta uh and so once xcode 8
+starts up I'm going to paste in this
+code or actually one more thing is you
+actually have to go back to parse and go
+to the the um documentation uh launch
+the Quick Start and then from this
+little space over here go to your um
+self-hosted Parts application then go
+data mobile iOS Swift uh
+and let's go new project so now what
+you're going to do is download this
+blank xcode project as a template to
+begin uh
+then uh we're going to allow this to
+connect to the par server right as it's
+done
+downloading so I'm just going
+to open that up open go into the xcode
+project right as that loads that is
+click on
+open and in just a second it should open
+up an X
+code now again this is xcode8 so I'm
+going to allow this to convert to the
+latest Swift syntax and I'm going to use
+Swift
+3 uh and right as it is done creating a
+preview um then I'm just going to accept
+it uh and hope for the best and see um
+if part server can automatically be
+migrated all right so again this is uh
+not too small of a project so this might
+take a second or two uh to actually
+begin so just give it a second all right
+so
+now I'm going to click on
+Save go over to this file manager here
+go to to the source code uh now in the
+app delegate first of all uh I'm
+actually going to remove all of this
+code every single line uh from here
+except for the return true that's
+something that has to stay from here as
+well I'm just I'm actually going to
+remove these three functions as
+well all right you're going to move this
+comment I mean I'm I'm just doing that
+you don't need to but it's better to uh
+and also remove this there we go so now
+you're done cleaning up cleaning out the
+app delegates next you want to paste in
+the code that you
+copied uh
+from your
+little from the parse documentation so
+if I just copy this once more paste that
+in there so now this is going into the
+view did load function of the view
+controller class now again uh basically
+what this is saying is it's giving us
+the configuration uh it's looking for an
+application ID a client key and the
+server to connect to which in this case
+is correct we're connecting to Local
+Host because I'm actually hosting the
+parse application on Local Host with the
+1337 uh P Port uh and then SL parse
+which is default okay uh and then uh
+we're just saying par. initialize with
+configuration and then the configuration
+that I just
+created all right so now what I'm going
+to do is I'm just going to quickly go
+over to the settings of this uh
+application
+um and then go to the Keys copy the
+application
+ID then paste that in there copy the
+master key or the client key
+sorry all right no not this not
+this copy this paste it into this little
+client key box build and let's see all
+right okay
+so now uh it's actually been changed to
+initialize with apparently all right so
+now if I
+build um oh never mind if I
+build
+um yeah our code should work in
+theory all right so now uh that's done
+building that means we have no errors
+but now let's actually complete the part
+of the application where to actually
+upload something to the server so in
+order to to do that all you need to do
+is say uh VAR
+object is equal to PF
+object and we're going to give this a
+class name
+of
+pars
+hosted selfhosted
+um and so I'm just going to say
+object let's just
+say
+date uh the current date is
+29th is equal
+to 06 29
+2016 all right so now in a string of
+course I don't want to mess around with
+uh NS data at this time uh then I'm just
+going to say
+object do save and I'm going to since I
+know this is going to work you wouldn't
+actually do this in an application uh
+but I'm just going to uh forcefully try
+this uh so now I'm just going to run
+this on let's say an iPhone SE uh and so
+now this should uh compile the
+application and start running it okay so
+now it's going to load up the simulator
+and hopefully uh in iOS 8 and 9 I've
+seen in the betas it takes a lot of time
+to load the simulator let's see if they
+fix that in iOS 10 if they have great or
+else yeah I'm going to have to pause the
+recording again uh let's
+see
+first of all the simulator okay there we
+go I believe this should be much quicker
+I believe I read that
+somewhere so again one more thing uh is
+that first of all uh this is going to be
+uploading uh our simple string to the
+cloud or to of course my mongod DB
+database which the parse is connected to
+uh once that's done uh it's going to uh
+we're actually going to change the code
+to retrieve something from parse uh and
+see if it's able to do that if it is
+great uh or else back to the drawing
+board
+um just give that a second more I'm
+going to start speeding up the clip
+[Music]
+now all right so as you can see um the
+simulator is done loading and it just
+ran the application uh and so in just a
+second we should see a warning from par
+saying hey you're running a long uh
+you're actually oh let's see
+here okay so now I believe there is a
+small problem um due to the fact that
+um yeah so essentially what's happening
+is I forgot to include one thing so if
+we actually go to the internet right now
+and search up NSA Transport
+Security
+then uh as you can see in the second app
+Apple developer forums uh link uh you
+can actually just copy this little code
+snippet okay uh then paste it uh
+actually go to your files go to um yeah
+your right click on info.plist and look
+at it as source code go to the very
+bottom after this uh array tag just
+paste that in uh and rerun the
+application and essentially what this
+will do is it will uh allow pars to
+actually communicate uh with the server
+that I have running because the thing is
+it doesn't have a good SSL certificate
+and stuff so iOS is really secure about
+that uh however as you can see uh this
+should in theory be able to
+um upload to the server let's see here
+it says uh get host name incorrect um
+however I believe it was able to
+finish so now let's just actually uh try
+out and see if it was able to uh grab uh
+the data by commenting this uh code
+out uh and now let's type in or actually
+we actually want to continue to
+initialize so now we're just going to
+say VAR query is equal to PF query uh
+with a class name of
+pars selfhosted
+uh and essentially then just say um
+[Applause]
+query. find objects again I'm going to
+forcefully try this uh and I'm going to
+print it out as
+well all right so
+now let's see here all right so now this
+is going
+[Music]
+to
+run let's see here and as you can see it
+was able to upload successfully uh and
+it gave us date uh from the uh sort of
+class that I created uh part self-hosted
+uh as the current date and that's going
+to be it for this tutorial I hope you
+enjoyed uh unfortunately there's going
+to be no source code in the description
+today uh because I mean there is no
+source code to talk about uh however all
+the links that I used will be in the
+description uh and of course a part two
+is coming out using a very special
+software called Blum miix to host this
+you'll find out more when that's out and
+that's going to be it for my tutorial
+today I hope you enjoyed thank you very
+much you can contact me uh via the
+comment section down below uh or you can
+email me tajim Manny gmail.com or follow
+me on Twitter T tajim Manny again all
+this contact info will be down in the
+description I hope you enjoyed you can
+even subscribe to me actually if you
+really like my content and you want to
+see more of it uh really does help out
+you can even like the video and share
+with uh other people that you think it
+could help again thank you very much U
+that's going to be it for today goodbye

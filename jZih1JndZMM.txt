@@ -1,0 +1,867 @@
+so hello there and welcome to the
+tutorial my name is tan me and this time
+we're gonna be talking about something
+that one of my viewers actually
+suggested to me if you go to Swift
+Beethoven is part two the second
+revision of one of my most popular
+tutorials you'll see if you scroll down
+that she asked me to create some more
+features in this what they do he says
+app now she didn't really ask me to make
+a YouTube however I just did one anyway
+and this is what you're watching right
+now because I really wanted you other
+viewers to be able to know how to do
+this
+haha if you wanted to ever do something
+like this you should know so without
+further ado let's get into what this app
+is about this app will allow you to
+basically enter in a friend's name an
+item that they took from you and also a
+picture of that item the reason we take
+a picture of that items is so that we
+can check if the item has been damaged
+and we can also check if it's actually
+yours you might just write something on
+it made me write your name in a special
+way sign it so that you can take a
+picture and know that it's actually
+yours when they return it back to you so
+now let's talk about why you would
+choose this method over alternative
+methods well in just a second here I am
+going to be comparing a few methods
+together with mine however let me just
+tell you the method that I use is very
+less commonly used for some reason I
+don't know why it's a little bit more
+complicated to code that I'll tell you
+that however it is much more efficient
+you can put many more on the server at
+once and it's much faster than download
+and upload these images so without
+further ado I'm gonna take you to the
+whiteboard and then I'm going to explain
+exactly how the source code works with a
+diagram then we'll go to the source code
+on my Mac you will see everything I see
+the code see how it works and again this
+was written in Swift so just make
+getting right out of the way I didn't
+tell you this little tense of
+objective-c but again the source code
+will be in the description so you can
+check that out and also just give me
+some feedback on this video for the
+source code
+for this video we'll be host on
+bitbucket instead of github because it
+is a bit easier for me to use however if
+you don't like the new update you can
+just tell me and I'll revert it back to
+github so let's get started so welcome
+back now we're at the whiteboard so
+let's start drawing diagrams so now
+Alice said this method is quite
+complicated but that gives me a chance
+for me to explain it really simply for
+you so you can take advantage of this
+extremely simple of this well
+complicated but turns out to be simple
+method so once it started and now this
+is our requirements we first of all have
+to upload an image that's our first
+requirement what's the second
+requirement we need to be able to upload
+text
+okay but what that third requirement we
+don't have anything else right well we
+do on our third apartment it's actually
+one of the biggest ones of all it needs
+to be fast and it needs to be 99%
+foolproof
+so one of these options come to mind you
+naturally think of a few options first
+of all you think hey why don't we just
+use a blob which is actually just NS
+data if you don't know what that means
+and put that onto the database along
+with some tech tests
+I mean text right back to work but I'll
+explain its weakness in just a minute
+second option we could use FTP for the
+image for the image and then we could
+just use the database for the text but
+there's another weakness then there's
+one more option would you store it
+locally and we can immediately think
+about this and the thing is why do you
+even creates lift databases in the first
+place there's no point of storing it
+locally at all so that option is pretty
+much useless for us so we just remove it
+now these are the two options that
+naturally come to mind so let me explain
+the weakness of each first of all we
+have the blob into the database and then
+also the text into the database now you
+must be thinking what's wrong with this
+it must work perfect the NS data is just
+going through pH
+just like any other text going to the
+database right shirred nicely but now
+what happens is this is an image we're
+talking about we're not talking about
+text and the problem here is that images
+are extremely big and text is relatively
+small so if we were to convert this to
+NS beta and put it on to a database over
+here it would work
+however when we're taking an image and
+convenient to NS data that's such a big
+program trying to be transported here
+and it just doesn't work with PHP you
+would have to connect to the data it
+would to the server manually which
+really wouldn't be very useful so then
+that's described so we cannot use this
+option option one out of the river then
+we have FTP y'all see thinking okay this
+is the last option the only option what
+could be wrong with this but there is
+something wrong with it
+let's see this we are essentially just
+using the database and what we're doing
+is we're storing the image name just the
+name not the actual image itself we
+store the name of the person itself and
+then we're also storing the item now
+what could go wrong with this it's we're
+storing these things in the database and
+then in the FTP we just store it the
+image perfect right yeah let's just go
+with this perfect we make an app and I
+actually give this but then there was a
+problem
+our speed requirement which is actually
+one of the biggest requirements just
+doesn't work out with this for some
+reason the FTP server just can't handle
+a file this large so we're left with one
+other option but it's not one that will
+naturally come to your mind when we talk
+about this let's see what I mean let's
+just erase a bit of this and now that
+you know that these won't work we don't
+need this on here we'll just keep our
+requirements and as you can see so now
+let's talk about the third option now
+our third option is very simple
+however it's complicated to program what
+we do is we take the image name we take
+the name and we take the item now what
+we do is we have two things here the
+database itself and we also have my
+GoDaddy uh basically web storage and
+that's just so we have two things the
+database and the web service
+now we have one more bridge essentially
+and this is called PHP this comes a lot
+handier because what we're doing is we
+are taking the image name the name of
+the person and the item and run a
+straight putting it into the database
+we're not looking at anything else for
+not uploading an image we're just
+putting the image name the name of the
+person and the item in the database it's
+that simple
+but then how do we upload the image well
+that's our PHP comes in and PHP already
+came in here because that's the only
+reason we can actually connect to the
+database is because we give this to PHP
+PHP gives it to this and this goes to
+the database so that works perfectly
+however what we have here is an image
+and as I said before if we were to
+convert this to NS data this and the PHP
+don't go together that was because when
+you convert this to an NS data putting
+that in a state out inside of a link
+that link becomes so gigantic and huge
+and it's not first of all not able to be
+percent-encoded and second it's just too
+long for PHP to handle however you know
+those little scripts that you can make
+for PHP let's just say this is a web
+browser and you could like ask them to
+browse for an image pretend that says
+browse and then you can basically upload
+an image we are emulating that with iOS
+we are taking an image and simulating
+pressing browse putting in the image and
+clicking on upload with PHP so use HTTP
+POST command to do that
+so what we do is the image goes to PHP
+here and the PHP and after that so it
+has nothing to do at all
+Swift is just out of the picture
+completely now now it's PHP in the web
+service
+now with the web service PHP contacts it
+does some stuff and what happens is PHP
+ends up uploading this image to the web
+service so that's how it's going to work
+and let's get into the source code now
+so I'll see you at the Mac so now that
+we're out the Mac let's look at the
+source code so I'm just gonna hop over
+to my Mac here and as you can see I am
+running OS X 10.9 El Capitan and I'm
+using iOS 9 for this so this will be
+written swift 2 beta 1 however there
+will be us with one version coming out
+soon in the description along with this
+with two version that is coming out
+right now so let's get into it so as you
+can see I'm just gonna open it up it's
+on my desktop here I can just open it up
+the Xcode project and we have the little
+Xcode beta 7 jumping over here and then
+there's a second we should see the Xcode
+project so now this is the swift
+animators part 3 app where you can
+upload images and before we even start
+let's just look at the UI and so right
+is this loads up these storyboard file
+sorry this take a little bit of time
+because first of all this is a beta
+software meaning it isn't always the
+most efficient and also it is a pretty
+big UI so I'm just gonna hide the debug
+area and the Navigator and as you can
+see these are the two screens that we
+have here one over here we have for the
+viewing of the entries that you already
+have this is a custom table view cell
+with a label for the person's name a
+text view for the item name and an image
+view so that you have an image of the
+item then we have a reload button so you
+can actually reload so if you were to
+upload from a website etc you can reload
+from here and also an upload button
+which will segue over to the second view
+where you can enter in someone's name
+the item they took you can choose an
+image you you can also go back and then
+this is a UI activity indicator view
+which will allow us to see if we're
+currently up
+now just as Justin but just before we
+get into the code I'm going to connect
+my iPhones over here and I'm just going
+to give you a quick demo of this app as
+you can see I'm just a second it'll pop
+up on the yeah so now we have the
+spotlight search and I can go into quick
+time and then I can click done all to
+command and and then I can go over here
+and use my iPhone as an input and then
+as you can see I'm recording my iPhone
+screen so I can give you a quick demo of
+this out now there is a slight glitch
+with this app and it's not really I'm
+assuming it's not a glitch with my app
+because this is proper code working with
+iOS 9 and select 2 however what the
+problem is you can only deep up this app
+from Xcode and the reason for this is
+because we are using a workaround that
+will allow us to use older SSL
+Certificates from GoDaddy with the newer
+select 2 because Swift tune will crash
+the app if you are not using the newer
+SSL Certificates and we use an Xcode
+workaround which allows us to use the
+older SSL Certificates with X with Swift
+too so if I were to go here if I come
+here as you can see in my info dot list
+if I open this as source code you'll see
+I've included an entry not exactly sure
+where it is
+just let this load really quick sorry
+about that
+and so now that we're here was this B
+file for it let's just see now it's
+probably this one well it wasn't one of
+those so there actually is I have oh yes
+this one NS app Transport Security NS
+allows arbitrary loads as yes so this
+key will allow us to bypass the older
+SSL certificates and use this with the
+older ones now the reason this doesn't
+work just without Xcode is because this
+is the thing that's telling the iPhone
+hey you should stop looking for the
+newer SSL Certificates and so what it
+does is you can and the end result is
+that you can only leave out this from
+Xcode not from iOS straight up so but
+with that limitation in mind I'm just
+going to open up my iPhone I'm going to
+click on debug so this will run the app
+onto an iPhone and as you can see the
+screen here now this will take a few
+minutes to load while it loads up I will
+take you straight into the code because
+I don't want you to keep waiting and I
+want you to keep in mind this will take
+a little bit of time to load the reason
+is because we're downloading three
+entries from the data from the database
+already and the thing is this is just a
+comparison if we were to have three
+entries in an FTP server this would take
+hours to load up however we're just
+surplus storing this on my GoDaddy
+website which makes it actually much
+faster around half or maybe a quarter of
+the time so as you can see in just a
+minute it will go from a blank screen to
+download it images so what I'm just
+gonna do is I'm going to bring this down
+a bit and oh it's it's done as you can
+see sometimes it's faster than other
+times sometimes the Wi-Fi is better but
+this was a relatively quick download and
+so as you can see we already have three
+entries first of all we have Frank over
+here
+he took my mouse and then there's a
+picture of the mouse let me now Travis
+he took my well auto correct
+took my market apparently but it was
+supposed to be marker and there's a
+picture of the marker there and then Tom
+took my glasses not exactly sure why he
+would do that but then there's a picture
+of my glasses so then if I were to click
+on the upload button over here as you
+can see it opens up another UI in which
+I can click over here and let's just say
+the person's name is Tim now that we
+have Tim's name let's just say he took a
+USB extension for me from me USB
+extension so now I can click over here
+and click on choose image and as you can
+see over here I can just take a picture
+of this and now I asked me to use the
+photo so I can click on use photo and in
+just a second sorry for the delay it
+does do this because of the uploading
+time limit it will disable the back
+button and it will tell me that it's
+starting to upload the UI activity
+indicator will start moving and as you
+can see if I move this around here
+it has NS logged data received over here
+and the Activity Monitor is gone so now
+if I click on the back button in just a
+second this will load up again it does
+download all three images again but this
+time it will also download a third image
+which is Tim USB extension so right as
+it loads up which will be in just a
+second we should be able to see as you
+can see it has received stuff from the
+database it has received Frank Mouse the
+image name Travis marker Tom glasses and
+Tim image 3 dot PNG USB extension so if
+we just wait for a few more seconds it
+should download all four images
+including the new 10 image and we will
+be able to see all the entries in the UI
+tableview and just while that loads I'll
+just yeah the moment I say it so as you
+can see we have a UI tableview and this
+is a very good example to show
+this is completely scalable as you can
+see me a Frank Mouse Travis marker Tom
+glasses and ten USB extension and a
+picture of each now that we have the
+demo out of the way let's just go to
+Xcode itself so now that we have that we
+can just get out of QuickTime and let's
+just expand Xcode okay so now we're
+going to go back to the source code and
+now let's get really started with the
+juicy part okay so now we have the
+classic import uikit this will import
+darwin foundation and the uikit which
+will allow us to do basic UI stuff with
+iphone so then we have a few comments
+and I'll explain what these are in just
+a second but as you can see we have an
+extension to the string class now what
+does this do this is what a comments
+come in as you can see this extension so
+string class will allow us to get
+specific ranges of characters or
+specific characters themselves from a
+string and we can also set them in the
+string so as you can see I have a string
+is equal to Tammy and let's just say I
+wanted ta n out of Tammy I would say I
+would start counting zero one two and
+that's pretend so I would take STR and
+then just like arrays I would put some
+score back it's brackets around it and
+then create an NS range of type integer
+from zero dot dot dot two and then I
+want to end the square bracket and
+that's what this extension to the string
+class will essentially do apart from
+that we have the class of view
+controller which conforms to UI view
+controller UI tableview datasource into
+my table view delegate UI navigation
+controller delegate and
+uiimagepickercontroller delegate these
+all add up for the UI view controller
+which will allow us to actually show
+stuff on screen the UI tableview
+datasource which will deem us worthy of
+giving UI tableview data and the
+delegate for the table view this is just
+so that we can do basic stuff with the
+table view like reloading the UI
+navigation controller delegate which
+will allow us to come in and out of the
+image picker with completion handlers
+the uiimagepickercontroller delegate
+finally which will allow us to actually
+use image pickers then we have a few IB
+outlets one is the table view which is
+the actual list that you saw of the
+people there the items and image then we
+have the name and item text field so the
+name text field will basically be the
+name of the item you want to the name of
+the person sorry that you want to upload
+to the database and then the item will
+be the actual Ivy's name that you want
+to upload then we have is the upload
+label which is a UI label and so this is
+what is over here let me just open up
+the storyboard this is the upload label
+and this is the upload bar which will
+tell us that it is currently uploading
+so then we have a back button the only
+reason we're actually declaring a UI
+button with an iboutlet is because we
+want to disable this so that you cannot
+I can you cannot upload you cannot
+upload and then go back because then it
+would stop the upload and then it would
+mean in between and then the next time
+you were to open the app it would
+actually give you a nail except ssin
+because it would look in the database
+and it would find an image name but it
+would try or it will try its best to go
+to the website and download something
+but it would say then it's not there so
+we have to declare this and make sure
+they cannot go back man we have the data
+as an nsarray
+and this is the if you've watched Swift
+databases this is the variable that will
+be full of data which is the JSON that
+we get from the PHP we have the image
+picker which is the
+uiimagepickercontroller we have a text
+storage which is a array of strings
+which where we can hold name any item
+and this is a blank array of course we
+have the bar upload to see and this is
+an objective-c class which will allow us
+to upload which is equal to a new
+uploader class then we have the timer
+which is a new NS timer and what this
+will do is it will check if we if we are
+doing an option operation on uploading
+or downloading it'll check if we're done
+actually uploading so then the
+viewdidload function we have data is
+equal to the new
+JSON from the item register dot PHP that
+I have created on my website and then
+we're just printing that to make sure
+that it works if we are currently
+testing then we have check for boolean
+update and this is what the timer is
+calling every three seconds so and this
+will also make sure there is a
+three-second delay for hiding the tivity
+indicator and also enabling the back
+button just to make sure that it is
+completely done and it has successfully
+uploaded to the server
+so what we're checking here if upload
+the C and then we have a function which
+returns a boolean which is done yet
+function because if I go here we have
+the actual upload image to server
+function and then we also have the done
+yet function which returns a boolean and
+also we have the actual boolean which is
+done yet I couldn't get this to be a
+palpable variable which we can actually
+access over here so I just created a
+function that returns it for us then
+we're checking if this is true then
+enable the back button hide the upload
+label hide the upload bar and stop
+animating the upload bar then you want
+to invalidate the current timer and then
+set the timer to a new and s timer then
+the reload function we are just getting
+the new data of JSON from the item
+register dot PHP and then if the table
+view is on screen by and we find that
+out by doing this then self dot table
+view dot reload data and the reason
+we're checking if it's on screen is
+because if it's not on screen and we do
+reload data it will give us an exception
+next any touches began function we are
+just basically checking self dot view
+and editing true this means forced so
+basically if there is a keyboard on
+screen and the user has clicked anywhere
+on the screen then just hide that
+keyboard then the datum JSON function we
+are taking the URL as a string and we're
+returning an NS array the contents that
+we just got so essentially what we're
+doing is we are creating a constant
+called data which is equal to NS data
+contents of URL the NS URL and then
+we're getting a string value the URL
+that you gave us and we are forcing this
+to an unwrapped because we know that you
+have given us a URL and it will convert
+to an nsurl and then we're doing is we
+actually have quite literally a do
+statement what this will do is not the
+classic programming do-while statement
+instead so if two more places to do with
+a repeat and we they created a new do
+statement which will basically emulate a
+try-catch it's a it's a weak version of
+try catch the reason I say weak is
+because whenever you have a block of
+code in a do statement whenever there's
+something that you actually need to try
+for you literally have to put the
+keyword try before it this actually
+makes it quite complicated and why would
+you even put code in that do statement
+if you didn't want to try it doesn't
+make sense but we have to live with it
+and stuff too
+so we're doing and we're turning we're
+trying to get the NS JSON serialization
+not JSON object with data we're giving
+the data and we're forcing a debt we're
+forcing this as an unwrapped but if it
+finds nil mean there's no box to unwrap
+then it will run this try it'll run the
+catch and return a blank array however
+if this does succeed it will continue to
+this it will give it no options because
+we don't want to format our JSON or
+anything then we are forcing as a
+downcast to NS array then as I said this
+is just being returned then for the
+table view number of rows in section
+function we are just returning the data
+count meaning how many
+basically rows there are inside of the
+data that we've just got from the JSON
+and then in the self urilla index path
+function we are different a new
+additional info cell which is my custom
+cell as you can see from this identifier
+and we are forcing this as a downcast to
+additional info cell then we are doing
+if index path row is less than or equal
+to date and account meaning there is
+currently that specific element in the
+data as in
+then we want to create the main data is
+equal to data index path row as an inner
+stationary because this is basically an
+array of NS dictionary have an array of
+all the entries and all the entries have
+a dictionary in them which stores the
+friend name the image name and the item
+so we are forcing this in the downcast
+to NS dictionary then we are setting
+this cells friend name dot txt to main
+data friend so this will be basically
+the main data that we just got with a
+friend item which in this case first or
+first would be Frank and then we are
+getting the item which in this case
+would be Mouse and then we are creating
+let's fill name is because we already
+have a file named variable however fil
+name is equal to main data and then
+we're getting that specific image name
+and then forcing that as a downcast a
+string and then cell dot image image we
+are sending the image views image as a
+UI image data the NS data the contents
+of URL the nsurl of string the my
+website slash the folder item IMG / the
+file name that we just got and we are
+unwrapping the NS URL and we are also
+unwrapping the NS data and that's what I
+just said if we do get something in the
+database but not in the actual in my web
+server then the problem is it's going to
+try it's best to unwrap in a state up
+however it will not be able to because
+there's nothing to unwrap so then it
+will just throw an exception or crash
+the phone and then we are just returning
+the cell and if everything was
+successful then in the take picture IV
+action what we're doing is we are we are
+resetting some variables and then we are
+giving the name
+the item that you just entered into the
+tech storage variable we are declaring a
+new UI image picker and then we are
+setting that's delegate to self because
+we did make view controller conform to
+uiimagepickercontroller delegate and
+then if I go back here we are setting
+the source type to dot camera we could
+do UI image picker source type dot
+camera but with Swift this is not a new
+feature this was in from I don't know
+the first beta of Swift but you can just
+skip that UI image etc etc and just
+putting a dot camera and it'll
+automatically find out what enum you're
+referring to then we are presenting the
+image picker we're making sure that we
+present it in an animated way and are
+giving it no completion handler because
+there's nothing to do when it's done
+however when we are done picking me deal
+with info for the
+uiimagepickercontroller
+then we do use a completion handler
+meaning we dismiss the view controller
+which is the image picker and we just
+want to make sure that it's animated and
+then the completion handler in this case
+will be a new statement and in this new
+statement we will create a new timer
+which is an NS timer dot schedule timer
+when interval this will be every three
+seconds and will target itself it will
+go through the selector check for
+boolean update that I just explained the
+user info will be nil and it repeats it
+will be true because we actually want us
+to keep repeating not just delay and
+execute the code once then we are
+enabling and we are disabling sorry the
+back button we are showing the uploaded
+label we are showing the upload bar and
+we are starting the up load bars
+animation then what we are doing is we
+are creating an image is equal to info
+which is the info we just got from the
+UI image picker uiimagepickercontroller
+original image this is the original
+image that they picked and then we have
+let names is equal to self dot contents
+function which I will explain in just a
+moment then we have the number to add is
+equal to zero and this variable will
+essentially tell us what number you have
+to add in front of the variable of the
+file name because we can't just have
+every image called image a PNG image
+we'll just keep overriding and all the
+all the images would have the same name
+or say all the images would be the same
+so what we have to do is we have to take
+number to add a zero we have to loop
+through the entire names that we have
+and we want to check if the first five
+characters of the string is equal to
+image then add one to number to add and
+at the end we will get a proper result
+of what to add to the front of our image
+name so then we declare a new constant
+called fil name and if you were
+wondering why there's actually two
+variables called fil name well they're
+not in the same scope is each other so
+they can't access each other meaning
+there's only one variable in each so
+then we're declaring that as a string as
+image and then the number to add dot PNG
+so this will make sure there's a unique
+image name every time even if there's a
+hundred images this will be image 101
+dot PNG then we have the image data
+which is a PNG representation of the
+image as a UI image and we're forcing
+this as a downcast and this will return
+the NS data to us then we are trying to
+upload to C and then we are uploading
+the image to server we're giving it the
+UI image as its re the image as a UI
+image and we're forcing again the
+downcast and then we are giving it the
+name of the fil name that we just
+created with a number to add then we
+have the URL so now that we're done
+actually converting weight now that
+we're done uploading to the web server
+let's upload to the database so what
+we're gonna do is we're gonna create a
+new URL as an NS string and this will be
+equal to my website slash item unit PHP
+and what's gonna happen is it's gonna
+take X as a parameter which will be the
+name of the item it will take the item
+as a parameter or Y is a parameter sorry
+and then we'll take the item and also be
+as a parameter which will take the image
+name itself then we declare the URL and
+we just want to make sure all spaces and
+all new lines are replaced with percent
+20s and % 0s
+effectively then we are creating the NS
+data contents of URL NS URL string and
+then the URL as a string and then since
+we're not using this variable we just
+new underscore is equal to NS string the
+data which is the data here the encoding
+is the normal NS utf-8 strain coding the
+only reason we really do this is because
+you want to properly execute the website
+we could use an nsurl request but that's
+deprecated and stuff now now then we
+have a catch which will catch any errors
+that we have uploading this C and it'll
+just print that error just skip
+everything prettier that's it then in
+the contents function which I said I
+would explain in just a second we are
+basically getting the data of JSON and
+then we are returning the parse names
+function the data and now I'll have to
+explain this too so now this function
+will take all data as an NS array which
+is all the data from the web server or
+the database sorry and then we'll return
+an array of strings so if I have the
+final names array of strings which is a
+blank array and then we are looping
+through all the data and then we are
+doing let as array is equal to eyes and
+a stationary sorry it doesn't really
+match up as dictionary and then as
+dictionary yeah so that works and then
+we return the final names now now that
+we're done skimming through the source
+code let's take a look just like we did
+last time that's the actual JSON file
+itself so if I come over here let's just
+say I open up Safari in just a second
+you will see that and this opens up
+sorry this will take a second sometimes
+does this just don't peep
+so what we're gonna do here is let's
+just say we go to www.engvid.com slash
+item register dot PHP now if I go here
+you'll see the JSON data which is the
+friend frank item mouse in image
+I am image do not PNG and this is all in
+the JSON data that we are getting in the
+yeah basically app so that we can parse
+that and put it inside of the UI
+tableview now if you want to see where
+the images are stored you can go to a
+long that's going to log into my GoDaddy
+so if I go over here sorry
+so you can see I can log-in and then
+this will allow me buddy my web hosting
+and then I'm just going to open up my
+file manager and then you'll see I'm
+actually storing all of my images inside
+of my GoDaddy
+so I can come here and I can just click
+on item IMG and as you can see we
+actually have all the images stored so
+if I were to go to wowt.com
+/ IMG / image - dot PNG it will actually
+show us a full version of that image so
+it'll just load up here as you can see
+this is the glass of entry so that was
+image - meaning it will be 0 sorry if I
+open up the item register again then 0 1
+2 dot PNG this is the friend Tom he took
+my glasses and image image - dot PNG as
+you can see this is the picture of the
+glasses that we have here and so that
+matches up I can't even go to images 0
+just to give you a clear example how
+this works and it will open up this
+image and the image 0 sorry would be an
+image of the person that took my mouse
+and as you can see this is a picture of
+the mouse so that's basically how this
+is working and if you really want to go
+into some more detail I can open up my
+PHP myadmin and as you can see here I'm
+going to open up the actual database
+itself which is item reg items and as
+you can see we have Frank Mouse image 0
+and which one image - image 3 and then
+all the other text and if I go to the
+structure so that you actually know we
+have no blob here this is not uploading
+any data nothing this is all working
+with the PHP that will upload to the
+item right
+so yeah that was really it I hope you
+guys liked it at Khan Academy because
+this video is actually also being
+submitted to Khan Academy hope you guys
+liked it there and yeah subscribe if you
+miss a channel like the video if you
+liked it comment you have if you have
+any questions I will get back to you as
+soon as possible and yeah you can also
+email me if you have some more questions
+and of course source code will be in the
+description and this will again be
+hosting bitbucket na github and so we
+slip two knots which one however in a
+few days I will release a circle
+inversion as well so that was it good
+bye

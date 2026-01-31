@@ -1,0 +1,866 @@
+so hello there and welcome to the
+tutorial my name is Tanner Baki and this
+time we're going to be going over
+another general education video so
+actually this was a question sent to me
+by one of my viewers and here's a clip
+of their
+question hi Tammy I'm Madison and I have
+a little math question for you what is
+LCM and GCF how can I find an LCM and
+GCF of two numbers also is there any
+relationship between the numbers of LCM
+and GCF
+I will be looking forward to the next
+video explaining what LCM and GCF is
+bye so now that you've seen the question
+I'm going to try my best to answer it I
+hope it answers a question Madison let's
+get started uh so today we're going to
+be talking about the LCM and GCF uh and
+before we go any further what does LCM
+and GCF actually stand for in the first
+place well LCM as you can see stands for
+lowest common
+multiple which I'll explain in a
+minute and GCF stands for
+greatest
+common factor so essentially the
+opposite completely of the
+LCM now we can ignore this part for now
+and let's look at this these are two key
+words that will really help
+us when
+finding uh when actually trying to do
+the LCM of the
+GCF so there's two things here the
+multiple and the
+factor and so you can have a multiple or
+a factor of a number for example the
+number
+eight I'm going to list out its
+multiples and its factors and then show
+you exact what uh the factors and
+multiples mean so for eight you could
+have something like uh 1
+2 4
+and8 for its multiples you could have oh
+I don't know
+eight 16
+24 32 dot dot dot they can keep going on
+forever okay now let me explain exactly
+what these things are why have I listed
+these numbers exactly what do these have
+to do with the number eight well
+factors are numbers that 8 can be
+divided by for example you can do 8
+divided 4 and it would give you two 8
+divided by two and it would give you
+four etc etc for all its factors and the
+multiples are the opposite they are the
+numbers that can be divided by eight so
+for example let's just choose a random
+one uh this one 24 okay so I landed on
+24 24 ID 8 three perfect so it can
+easily be divided and so can
+this so just to sum it all up a factor
+uh is a number that eight can be uh
+divided by and then the multiple in this
+case uh is the number uh that can be
+divided by eight you could replace this
+with any number and then its multiples
+and factors would
+change and then stuff like that now you
+must have seen a pattern here the
+factors can only
+be less than or equal
+to 8 but the multiples can only be
+greater than or equal to
+8 so uh this is basically how factors
+and the multiples will work and so if
+you didn't notice already I put a dot
+dot dot here what this means is that the
+multiples will go on Forever Until
+Infinity however our factors will stop
+right here at
+8 so that's how that
+works now that we've gotten that out of
+the way uh let's actually start using
+the LCM and the GCF of multiple or more
+numbers and just before I go on let me
+just clarify that an a word for this
+sort of a set would mean this is a
+finite set meaning there's a LUN limited
+number in this however here there's
+infinite the in basically uh meaning the
+opposite of finite meaning this is
+infinite it'll keep going on and on and
+on and on and on and on you could do 8 *
+5 million and you would still get an
+answer you could do eight times Google
+Plexi and then you'd still get an answer
+which is a real number by the way okay
+anyway getting back to the point let's
+actually see how you find gcfs and
+lcms our main way here is of course
+going to be something called
+factorization
+trees and before I actually explain
+factorization trees to let me explain
+what lowest common multiple and and
+greatest common factor actually
+mean so for example here uh let's just
+say I wanted to find the LCM uh of oh I
+don't know uh 4 and
+8 now what I do is i' list out the
+multiples for four I'd list out the
+multi for eight so for four there could
+be um there could be four there could be
+eight there could be 12 there could be
+16 etc etc that'll keep going on till
+Infinity for eight there could be 8
+16 uh there could be 24 there could be
+32 etc etc again onto
+Infinity now as you can
+see first of all we have the word
+lowest in
+LCM and we also have have
+common so you must have found out that
+we need to find the lowest common factor
+I mean a multiple quite literally from
+both of these sets so eight it's in this
+set so our lowest common multiple will
+be
+eight and just as a little rule quickly
+the
+LCM can only be greater than or equal to
+the bigger number in the Set uh so in
+this case it's
+eight if it were for example uh 8 and 20
+it would be
+20 now let's try to find the
+GCF so for example here I'm going to uh
+write down all the
+factors for four
+and8 oh just to clarify uh we found the
+LCM
+here to be 8 now let's find the
+GCF so let's uh list down the factors
+for four and eight so for the factors
+for four would be
+one two and that's really and also
+four and for eight we could have one two
+four and also eight so as you can see
+the greatest factor that's common in
+both couldn't be eight because that
+doesn't come in uh in four but it is
+four because it also comes in four so as
+you can see in this case our GCF
+sorry is going to be
+four so now you must have seen another
+pattern our GCF can only be less than or
+equal to four in this
+case so that's how that works anyway
+apart from this example now you actually
+know what an LCM and what a GCF is now
+you might be wondering what's a really
+efficient way to do this without having
+to write all these factors and all these
+multiples and everything this is very
+manual method it doesn't work with
+larger numbers and it's just overall a
+very tedious
+process so how can I
+make a way to find the same GCF and
+LCM easily so yeah we can use prime
+factorization now let me give you a few
+examples of that so let's start with uh
+finding the G uh the LCM of a few
+numbers such as uh oh I don't know four
+and 10 so for example four and 10 now
+again we really do not want to list out
+all the multiples all the factors find
+the answer it's just really repetitive
+sometimes you miss one and it just keeps
+going on and it's very unsuitable for
+larger numbers like
+5,659 with
+3,291 that just wouldn't work with
+listing out all the multiples and
+factors so what we do in this case is we
+do something called prime
+factorization so what we do here uh is
+you must know what a prime number is
+it's a number that can only be divided
+by one in
+itself so I'm going to give you an
+example of something called prime
+factorization so as you can see have
+first of all let's look at this
+number what * what is equal to this
+number 2 * 2 is equal to this number so
+I'm going to write down two and two in a
+tree
+format now basically there's no more
+that we could continue because two is a
+prime number two is a prime number we
+couldn't continue our tree however in
+10's case you also cannot continue the
+tree
+it stops at two and five because 2 * 5
+is 10 and so since these are both Prime
+we can't continue to create more numbers
+in a
+tree just so that you aren't uh confused
+let me just show you uh the tree of some
+something like eight the reason I'm
+going to show this to you is so that you
+really get the concept of a tree in this
+sense so what's uh 2 * 4 8 so I'm going
+to write down 2 two and
+four now two is prime but four is not
+this uh is
+uh forgot what that's called anyway uh
+this is prime uh this is not prime sorry
+uh so then we can continue two and
+two uh so yeah now we've factored it
+down to only literally uh prime numbers
+so now that it's only Prime we can't
+continue and we have successfully
+created a prime
+tree uh so now uh since we can't do any
+of this with 10 and four we can only
+have this oh yeah just remember the name
+this is a composite number it's not
+prime it's composite okay remembered
+okay now let's go back to this since uh
+there's no more down we just stay at one
+level here in the tree uh and that
+really works
+out anyway let's take a look at this now
+since since we have treed down our uh
+two
+numbers what we can do now is in order
+to find the LCM let's take the number 10
+and let's just say
+2 * 5 because that's what it's what
+that's what's written down here then
+under that I'm going to write 2 *
+2 but when you do the this sort of a
+thing there's a little limitation I
+guess you could call it
+and so what
+happens is okay look at this you have to
+take
+erase if two of these numbers are not
+the
+same uh and what you have to do is put a
+little square
+here another times and then the other
+number because there should never be two
+numbers that are not the same uh on top
+of each other
+uh so yeah that's how that works uh and
+so just so you see it a little bit more
+clearly I'm going to say 10 is equal to
+uh for the sake of
+it okay and then I'm just going to do
+this and as you can see it's that easy
+to be able to uh create something like
+that anyway now as you can see uh we
+have a little multiplication statement
+but how do we get our LCM from it all we
+really need to do is say okay two and
+two they're the same so write down a
+two then a multiplication
+symbol five and blank so we're going to
+write down
+five blank and two or we could also
+write down blank so blank and two we are
+down to
+two so our
+LCM is equal to 2 * 5 * 2 so let 2 * 5
+10 * 2
+20 so our LCM has has successfully been
+found to be
+20 so that's our LCM now how do we get
+our
+GCF so our
+GCF will just be equal to two how you
+may
+ask that's
+because first of all and just that you
+can uh I can draw some arrows for you
+I'm going to write it above so for
+example here GCF
+now as you can see two and two they are
+common so I'm going to write two then a
+times five and blank not common blank
+and two not common so there's no more
+numbers at the end we remove our
+multiplication and as you see our GCF is
+going to have to be
+two so we have successfully found that
+the GCF for 4 and 10 is 2 and the LCM
+for 4 and 10 is 20
+anyway continuing on with this uh Rule
+now I'm going to show you a few more
+examples of prime factorization finding
+the LCM and GCF with that
+method so now just take a few numbers
+for example 6 and
+10 okay now we have 6 and 10 let's prime
+factorize
+them that's done pretty
+easy pretty
+easy now let's find the
+LCM so I'm going to note down two and
+five for number
+10 and for six we note
+down two and
+three however again there can ever be
+two different numbers under each
+other so what we do
+is we
+erase we make a little
+box make a little
+box and then put the actual number which
+in this case will be
+three so now that we have both of our
+numbers written
+down over here all we can do is say okay
+two and two that's a
+two times five in blank that's a five
+time blank and three which will be a
+three so our
+LCM will be equal to this so now what's
+2 * 5 that's 10 * 3 that would be 30 so
+30 is our
+LCM now we found our LCM let's find our
+GCF again there's only one number that
+is common throughout all of these so we
+can assern that our GCF is that one
+common number which in this case is
+two so now what we need to do uh is do
+some more examples so let's just do
+something a little bit more complicated
+now uh 10's not that interesting because
+um sorry about that uh they're just one
+down in a tree and so that really isn't
+very fun if you think about it and you
+really wouldn't get those many questions
+about that
+either so now let's do something like 5
+and 12 for
+example so maybe 5 12 now five is
+already Prime so I mean we could write
+down one and five uh but there's nothing
+really that we would need to do about
+that anyway but 12 that's interesting
+because to get 12 you would multiply two
+and six and to get six you would get two
+and three so as you can see we have a
+variety of different numbers now so now
+what I'm going to do is I'm going to
+come over here I'm going to say for
+12 uh we have two uh so as you can see 2
+* 2 * 3 because those are all the prime
+numbers that we got 2 * 2 * 3 will give
+us 12 because 2 * 2 that's 4 * 3
+12 then we take our
+five right now the thing is we can't
+just write down a five here so what I'm
+going to do is I'm GNA put a blank and
+as you can because there's a two in
+front of it and that's not a five so
+they can't be the different they can't
+be different so we can't put that there
+so we have to do blank times another
+blank times another blank times a
+five and that is our valid
+multiplication
+statement so then I'm just going to do
+this and so now as you can see I'm going
+to just find the LC M by doing
+LCM is equal to
+2
+* two times as you can see because two
+blank two two blank two three blank
+three and
+then blank five five so we say 2 * 2
+that's 4 * 3 uh 12 uh * 5 would be uh
+24 wait no uh that would
+be forgot what it was uh let me
+calculate this 60 sorry got confused
+there anyway uh but 12 * 5 would be 60
+and so we can definitely assern that our
+LCM is
+60 now let's find our GCF but wait a
+minute no matter what number you look at
+here there's either a box box below it
+or box above it this means that there's
+no common
+number so when there's no common number
+the only thing that you can think is
+that the GCF will have to be one cannot
+be any other number due to the fact that
+none of these have a common number in
+them
+anyway now that that's done uh let's do
+some more examples uh let's just uh
+finish it off with two more examples
+this time we're going to do 8 and 12 so
+12 is already there so then we don't
+need to erase that though we can erase
+this and
+stuff yeah so I'm going to give you 8
+and 12 now which I'm sure you will all
+love this example because it's just a
+perfect mix between uh hard and easy at
+the same
+time so then I'm just going to do this
+and then stas this because I mean we're
+still using 12 we're just putting in an
+eight
+so that'll work now let's prime
+factorize 8 sorry about
+that anyway let's prime factorize eight
+so we take our eight what's 2 * 4 eight
+so 2 and
+four what's 2 * 2 4 so we have
+successfully Prime factorized 8 by doing
+2 * 2 * 2 is equal to 8 and that's a
+completely valid multiplication
+statement so now what I'm going to to do
+I'm going to come over here and going to
+say 8 is equal to uh 2 * 2 * blank *
+2 because that's actually what we're
+doing with 8 and 12 how to find our LCM
+however I want to say
+LCM is equal to 2 * 2 * 3 * 2 so 2 * 2
+that would be 4 * 3 that would be 12 * 2
+that would be 24 so our answer here is
+24 for our
+LCM that was a pretty nice uh way to
+find our LCM now let's find our
+GCF so as you can see there's two common
+numbers in this uh so there's two and
+two so we do GCF I'm just going to write
+it here if you don't mind so
+GCF is equal to 2 * 2 because there
+those are the only two common
+uh numbers there so the GCF is going to
+be equal to 2 * 2 which is equal to four
+so our GCF is successfully
+for now if you watch the question
+carefully uh yes uh Madison did ask me
+uh the how to find the GCF and LCM but
+she also asked me if there was a
+relationship between the numbers and
+their GCF and LCM and yes there is so
+let me explain that to you right now
+so now I'm going to be explaining the
+relationship between the two numbers and
+their LCM and their GCF order to do this
+since I don't want to bore you and spend
+the next 10 hours writing like doing
+tons of questions I'm just going to
+write down lots of gcfs and lcms along
+with their numbers so this is going to
+be number one number two their
+LCM and their GCF
+now what I'm going to do uh is I'm just
+going to note down lots of number one
+number twos and calculate older lcms and
+gcfs and let's see if we can find a
+pattern let's do something like uh 10
+that would be a pretty good
+example and so I'm just going to
+calculate its
+LCM which would be 40 so the LCM would
+be 40 here and the GCF would be uh two
+perfect so our LCM and GCF is 40 and two
+I'm going to continue this and write
+down lots of
+numbers still be
+40
+be okay
+four perfect uh then we can do something
+like uh three and
+four the LCM would obviously be 12
+uh and their GCF would be one and I'll
+tell you how I calculate this calculated
+this in just a minute let's do something
+like seven and
+eight
+do
+56 and
+one you'll see how I calculated these so
+fast in just a minute
+now 6 and
+10
+uh 30 and
+two okay uh and then we could do uh two
+more examples I guess or actually a few
+more examples quite a few uh 4 and
+20 don't think I have enough space for
+the other pattern that I was going to do
+so as I know 4 and 20 would obviously be
+20 because uh that's just how this works
+and again I'm going to be telling you
+how I calculate these so fast in just a
+minute and then this would be
+four then if we were to have something
+like 6 and 24
+this would be 24 and this would be
+six I think you might just start seeing
+a pattern now but you might just want to
+wait for a while and see what I really
+come up with
+next so now that we're done 6 24 24 and
+6 uh let's go to another example uh
+seven and 11 I guess 7 and
+11 actually no 7 and 11 would be too
+complicated for now or what it yeah I'm
+just going to give you a different
+pattern which is five and six would give
+us 30 and
+one so then after five and six we have
+something like five and
+seven then our answer would definitely
+be
+35 and
+one so then I will do a few more later
+but that is if I could possibly fit them
+uh so there are a few more patterns that
+I should should be explaining but those
+will be explained in just a
+minute so now as you know we have number
+one number two our LCM and our GCF now
+what's the relationship between these
+numbers you may
+ask well let's just look at this what's
+40 * 2 we all know that's 80 because 4 *
+2 8 i 0
+8 what's 8 * 10
+80 so if 8 * 10 is 80 and 40 * 2 is 80
+we can say that number one * number two
+is equal to LCM * GCF so this is our
+final rule uh number one * number two is
+equal to LCM *
+GCF that's how that works that's a
+really interesting concept and it'll
+really help us uh in finding the LCM and
+GCF and and also find number one and
+number two now let me just show you that
+this exact same pattern works with all
+of these numbers and then I will
+actually show you a few patterns in
+between all these numbers which you
+might not have
+realized okay so let's take something
+like uh number one and number
+two so 8 and 20 what's 8 * 20 160 so 8 *
+20 is 160 40 *
+4 160
+so these two are equal to each
+other 3 * 4 obviously 12 12 * 1 very
+obviously 12 then we can assern that
+they're
+equal 7 * 8 56 56 * 1 56 and so we can
+say that these are equal this will keep
+going on for example 6 * 10 uh 60 30 * 2
+60 these are equal this will always work
+100 % of the
+time no matter what 4 * 20 though just
+to clarify if you have any possible
+questions 80 okay this is 80 20 * 4
+80 and I'm just going to say that uh
+these are equal because 6 * 24 uh which
+I'm not going to do right now because
+that would be way too much to calculate
+uh but I mean if you were to do this it
+would be equal to this due to our rule
+saying so so we don't even need to
+calculate it we could keep going on 5 *
+6 30 30 * 13 so then these will be
+equal 5 * 7 35 = 35 *
+1 that's how that works and as you can
+see this rule will actually help us even
+though you might not think about it
+because let's say you do have your LCM
+but you want to still calculate your
+GCF what what would you
+do all you need to do is to find the
+GCF you find number one times number two
+divide or actually
+divided sorry about that a little bit
+too excited I guess
+anyway okay so number one time number
+two divided by the
+LCM is going to be equal to our
+GCF so so for
+example let's find the GCF let's pretend
+we didn't have this
+answer okay let's pretend we didn't have
+the
+GCF we only have the LCM and our two
+numbers so our
+GCF is equal
+to 8 *
+10 divided by
+40 so so what's 80 / 40 obviously our
+GCF will be equal to 2 so our GCF is
+equal to
+2 so that's how that works and I'm just
+going to give you a few more examples
+then I'm going to explain uh two or
+three different patterns that I noticed
+uh when finding your GCF and your
+LCM okay so let's just choose one at
+random okay so this
+one let's just try finding the LCM this
+time okay so we don't have our LCM we
+have our GCF though so what we're going
+to do is we're going to do
+LCM is equal
+to 6 *
+10 /
+2 so now we do 6 * 10 which would be 60
+/ 2 30 so our LCM will obviously be 30
+and so we can fill in our 30 over
+there that's how you would find the LCM
+and GCF using the other number and this
+actually also works if you want to find
+one of the other numbers so for example
+over here we didn't want to uh okay
+let's just say we didn't have
+10 okay we don't have
+10 but we have 30 two which are our LCM
+and GCF and we also have number
+one so what we're going to
+do is number
+two uh number
+two is equal
+to 30 *
+2 ID
+6 so 30 * 2 what would that be that
+would be 60 then divide that by six and
+you get 10 so our number two will have
+to be 10 which is correct so it will
+work even for number one number two LCM
+or GCF as long as you have one of the
+other or vice
+versa okay now that that's done let me
+explain three patterns that I
+have first of all you may have already
+noticed this if the numbers that you're
+calculating for are one
+apart their LCM is equal to them to
+multip applied and their GCF is 1 for
+example 3 and 4 what's 3 * 4 12 their
+LCM is 12 and their GCF is 1 7 * 8
+what's 7 * 8 56 their LCM is 56 and
+their GCF is 1 and again this is a rule
+that will work 100% of the time no
+matter what as long as the two numbers
+are one
+apart so I can give another example like
+five and six over
+here uh 5 * 6 30 and so our LCM is 30
+and our GCF is
+1 so that's basically how that works uh
+and so that's one of the patterns now
+let's see another pattern and you might
+have really not seen this because I
+haven't shown you an example of this yet
+however now I'm going to erase a few of
+these uh till there I
+guess and so this pattern is really
+interesting
+so you're really going to like this
+one okay watch this if I have number one
+as like seven and 11 like the earlier uh
+one that I was giving you it's LCM will
+be 77 and its GCF will be
+one but you wait you must be thinking H
+these aren't one
+apart like what's happening well I'm
+going to give you a few more examples
+maybe you'll find out for three and
+seven Guess 35 you're
+right all right
+sorry I made a
+mistake I I made a mistake
+anyway forgot to do that and it's
+actually 21 but it's GCF will always be
+one and I can guarantee to you that the
+next one will also be one and you'll see
+how I thought that in just a minute and
+I I don't even know these two numbers
+yet and I know that they're it's going
+to be one so I'm just going to think and
+so five and
+seven okay so it's LCM would be
+35 now I want you to guess what the
+pattern
+is the pattern is that if the number if
+number one and number two is
+prime then the LCM will always be their
+multiplication and their GCM will be one
+that's how simple that is same thing for
+this because three and seven are
+prime uh 3 * 7 21 21 and 1 for the LCM
+and
+GCF 5 and 7even Prime 5 and 5 * 7 35 35
+for the LCM one for the
+GCF that's how that actually
+works so those are the patterns that uh
+we could assern from these uh little uh
+numbers and LC M and I really hope that
+answers your question
+Madison cuz uh that was pretty much I
+guess uh it for this video uh and wait
+just one more thing for I forgot to show
+one last pattern to you let's just uh do
+this number one number
+two LCM
+GCM so the last pattern is let's just
+say we
+have 4 and
+20 and also 6 and
+24 I can immediately guess
+these if you can't guess why I don't
+blame you it's a pretty hard pattern to
+find you do realize that it's basically
+just a mirrored reflection of the number
+one and number two but you don't
+understand why yet let me explain
+if the bigger
+number is a multiple of the smaller
+number then the LCM will be equal to the
+bigger number and the GCF will be equal
+to the smaller number that's just how it
+works so for example 4 and 20 20 is a
+multiple of
+four so then our LCM will be the bigger
+number which is 20 and our GCF will be
+the smaller number which is four and
+that's how that rule works that is the
+last really last rule so I guess that's
+pretty much it for this video uh and
+yeah uh now I'm going to say my outro as
+always however if you sorry about that
+that actually hurt
+anyway anyway there is a bit of a longer
+example at the end of this video so if
+you want to stick around please do uh
+but as always for the people that don't
+want to stay around I'm just going to sa
+my outo so yeah subscribe to my channel
+if you're new like the video if you
+liked it comment down if you have any
+questions or any suggestions for any
+apps uh and that's going to be it uh
+goodbye to everyone who doesn't watch
+the doesn't want to watch the longer
+version uh but hello to everyone who's
+joining in for the longer version so uh
+let's try our best to find the LCM and
+GCF for two numbers pretty huge numbers
+like uh 24 and
+64 okay now how would we go about doing
+this we're going to do is we're going to
+use the same method as always uh which
+is basically just Factor these down use
+multiplication it's going to be a little
+hard uh to do because there's so many uh
+factors but again this is not a really
+uh what you call it a realistic example
+you wouldn't ever have to do this you
+would usually use a calculator or
+something uh but just in case who ever
+posed with this question uh it probably
+won't even fit on a few pieces of paper
+but I'll show it to you anyway so for 24
+what we do is uh 2 * 12 is
+24 uh then 2 * 6 is
+12 and then 2 * 3 is 6 so we have
+successfully Prime factorized 24 for 64
+however it's a bit different 2 32
+because 2 * 32 is equal to
+64 then 2 and 16 uh because that's what
+that's equal to uh 2 * 16 is 32
+then uh to get 16 we do two and
+eight then to get eight we do two and
+four and to get four we do two and
+two now what we need to do is we need to
+write down our multiplication uh
+question uh and then just solve it how
+simple it is so what I'm going to do is
+I'm going to come over here 1 2 3 4 5
+six there's six twos in 64 so I'm going
+to say 64 is equal to 2 * 2 * 2 * 2 * 2
+* 2 1 2 3 4 5 6 okay so there's six uh
+twos in
+64 anyway now 24 I say
+24 1 2 3 two so I'm going to say 1 2 3
+then times a box times a box Time a box
+Time a three
+so now we have to find our LCM and we're
+going to do that by multiplication as
+always so then LCM is going to be equal
+to 2 * 2 * 2 * 2 * 2 * 2 *
+3 now again you could just go 2 * 2 is 4
+then 8 then 16 then 32 then 64 then 192
+but that's boring and plus if you didn't
+already already know the answer to this
+question you wouldn't want to go through
+this entire thing and also if this were
+much bigger for example like 10 more
+twos you wouldn't keep on doing that so
+I broke it down into multiple little
+sections which I like to call a
+multiplication tree so then we just take
+three parts of this question 2 * 2 2 * 2
+2 * 2 so the answers to these will be
+four
+now what we do is we find the answer to
+these two what's 4 * 4 16
+obviously okay then we bring the four
+down uh down
+here we have to find 16 * 4 so I bring
+that down to
+16 * 2 * 2 same thing it's easier to
+solve too so 16 * 2 32 * 2 64 so then
+our answer here is 64
+four then finally what we do we bring
+down our three over here so 64 * 3 which
+sometimes You' need a calculator for
+unless you're really good at
+multiplication mentally uh but I know
+that the answer here would be
+192 so our LCM in this case for 24 and
+64 would
+be92 now if you wanted to find the GCF
+however what you would do
+is again you would take the common ones
+and just to do this easier I'm going to
+make another box so there's three twos
+that are common so I'm going to say the
+GCF is equal to 2 * 2 * 2 there's only
+three numbers common so 2 * 2 4 * 2 8 so
+our GCF is equal to
+8 and our LCM is 192 for 24 and
+64 so that's how it's solve
+that and yeah that was pretty much it
+for this video uh and yeah subscribe to
+my channel if you're new like the video
+If you really liked it comment down if
+you have any questions uh suggestions
+app ideas video ideas algorithm ideas
+you you can even email me uh some videos
+of yourselves asking questions at tagim
+man gmail.com my mail will be down in
+the description below uh and that's it
+goodbye

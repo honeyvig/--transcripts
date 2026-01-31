@@ -1,0 +1,313 @@
+hi I wanted to introduce you to tanay
+tanay is kind of this young enthusiastic
+creative technical Mastermind of sorts
+who has uh really develop skills using
+IBM's Watson but first let me let tan
+introduce himself tan do you want to
+tell folks a little bit about you all
+right so first of all Hello uh and thank
+you uh as you know my name is Tam May
+backi uh I'm 12 years old I'm in the
+seventh grade and I live just outside
+Toronto in Bramton Canada uh now
+essentially I am a software developer
+specializing in apple development along
+with Java and python uh I'm a keynote
+speaker author algorithm and of course
+YouTuber uh and so you know basically I
+like to develop apps uh and in general
+uh you know continue with more projects
+like iot uh as I said I'm an author I've
+actually written a book called hello
+Swift IOS app programming for kids and
+other beginners uh and so essentially as
+as the subtitle suggests it's a book for
+kids and other beginners to learn iOS
+after development through Swift from
+scratch and I also have a YouTube
+channel where I like to teach things
+like uh programming algorithms IV and
+Watson specifically also math and even
+science uh and so that's a little intro
+about me okay so the reason that I
+wanted to introduce uh you guys to tanay
+is that Watson is kind of this amazing
+aming tool you might have heard about
+Watson from the Jeopardy participation
+that it had where basically it was a
+very successful competitor on Jeopardy
+but what is Watson well Watson is
+basically this machine learning sort of
+brain that lives in the cloud that you
+can uh call as in like you can have
+programs say hey Watson we need this
+from you and so if you guys have been in
+any of eel's growth hacking classes
+you'll know that we build in automations
+and so what tanay and I are going to
+collaborate on is creating some uh
+recipes some sort of tech mashup recipes
+for you guys that use Watson and so what
+tan is going to do now is tell you four
+of the services that Watson offers and
+while you listen to tan what I could use
+and what tanay and I could use is
+basically some thoughts for you if you
+can leave them in the comments about
+applications of Watson that might be a
+especially useful for you in your
+business all right so Tammy take it away
+what are some of the four services that
+that Watson primarily offers yeah uh and
+also just one more thing I'd like to add
+uh is I'm also an IBM honorary Cloud
+adviser and IBM Champion for cloud just
+to add that in
+um yeah continuing now these are these
+are sort of four main services that we
+are really interested in now again there
+are around 20 more 24 in total 26 maybe
+now with the newer services added
+however there are a lot more apis than
+these but these are the ones we're
+currently focusing on as we progress as
+we create more applications we will of
+course uh use more apis and introduce
+you to more of them uh but for now these
+are the four main ones that we are
+interested in now an API just for you
+guys watching sorry I interrupt you tan
+May API means basically you ask Watson
+for something and Watson gives you
+something back kind of yes exactly you
+lots and some data it thinks about it it
+returns something back to you that's uh
+yeah so continuing though uh now first
+of all the first uh sort of API that we
+want to use uh is called the natural
+language classifier now I am wants
+natural language classifier essentially
+what that does is it takes natural
+language and classifies it for you now
+what does this mean basically you can
+give it hey a thousand uh male person's
+names uh and a thousand female person's
+names and then if you were to put in
+another one that it hasn't ever heard
+before that's not in those 2,000 names
+then it would it would be able to use
+pattern recognition which and you know a
+set of algorithms in order to determine
+that hey I've never heard this name
+before but I am so and so perc confident
+that this is a male name or a female
+name uh and that's essentially one thing
+that you can do with the natural
+language classifier then again there are
+many more things that you can classify
+you can classify between 10 different
+things uh but then again the simplest
+example that I can currently give you is
+sort of a distinguishing between for
+example a male and a female name so just
+to kind of wrap up so basically
+in natural language classifier the NLC
+can help us by saying we think that
+based on what you've told us that this
+belongs in this
+category exactly Okay cool so let's go
+to the next one yes continuing next
+retrieving rank now retrieving rank is
+essentially like a cognitive uh search
+engine I guess you could call it now
+first of all a traditional search engine
+Google bang or Yahoo that does mostly
+keyword matching uh I mean sometimes you
+know Google is advancing and it's using
+things like machine learning however the
+traditional search engine does keyword
+matching it says you know what if you
+would ask it a let's say who is the CEO
+of a company uh and it would just say
+you know what if the so and so words
+appear in this uh sort of document then
+I'm going to put this document in the
+search results for the user to be able
+to see however what retriev rank does is
+it gets across that and uses cognitive
+or thinking and actually thinks about
+what some documents could be that the
+user would like and essentially what
+this means is that hey for example you
+could take let's say the FAQ of a site
+for example Gmail let's pretend its FAQ
+was 20 times bigger okay it would be
+huge first of all now there are some
+let's say duplicate articles or some
+very similar articles that users will
+have to go through to find which one is
+correct for example you forgot your
+password however there's another sort of
+uh pin that you have as well and there's
+a different procedure to reset both then
+the user would have to find which
+document to use in order to reset the
+password okay what Watson does here is
+it essentially instead of like
+traditional Google what it will do is it
+will have it will think about your
+question you asked how do I reset my
+password not how do I reset my PIN for
+example or how do I reset my username
+and so what it'll say is you know what
+he ask for specifically password and so
+it will think about that and return to
+you specifically you know what I think
+this article will help you uh and this
+article is how to reset your password so
+what I'm hearing there is it's kind of a
+smarter way to search because for
+example if somebody said somebody goes
+to your FAQ as you as you proposed so
+like if you watching if you have some
+type of uh of of help desk or sort of
+set of blogs for example that say how
+you do something with your website or
+whatever then if you asked directly like
+you said how do I reset my password
+maybe the keywords would match up well
+but but if you said but where Watson
+comes in is maybe you would say I got
+locked out of my account then Watson
+would be able to say oh I think you must
+be looking for a way to reset your
+password so that's the difference is
+that it expands the world of sort of
+smart recognition of what you're looking
+for exactly that's exactly what I'm
+talking about uh and so that's
+essentially what treen rank does and it
+also gives you sort of a percentage of
+confidence that I am let's say 94%
+confidence is the correct answer uh or
+this is the correct document that you're
+looking for it doesn't just give you the
+document it also gives you you know what
+so you can actually use your sort of you
+know just a little bit of you can think
+a little bit and say you know what it's
+only around 30% confident about this so
+it's most probably not right but I can
+try it anyway sort of
+thing that's another really advantage
+that it does give you the confidence
+value as well right okay okay third
+service yes the third service that we
+really interested in is called tradeoff
+Analytics now trade-off analytics why
+we're so interested in that is because
+trade-off analytics give you gives you a
+simple way to actually you know make
+smart decisions okay the computer can
+simulate a human brain and actually make
+a decision depending on many factors
+combined into one average for example
+let's say you were to give it you know
+what in this week I have to do these 20
+things and on a on a scale of 1 to 10
+each one is this hard and on a scale of
+1 to 10 or actually I mean
+that this is the date that it's due or
+in how many days it's due and so you can
+say to tradeoff analytics that hey I
+want to do whatever's due first first
+and I want to do the easiest things
+first now I won't just say you know what
+whatever's due first do that first no no
+no it's actually going to take into
+account how hard whatever you want to do
+is uh or how easy it is uh and you know
+get an average of that and use its sort
+of cognitive technology in order to make
+a decision and you know what it's going
+to say you know what here's a list this
+is how you should do your things or or
+this is how you should finish your list
+and this is how you'll be most probable
+in order to actually get all your things
+done and of course with that comes a CO
+a um confidence value of how sure it is
+about that which is really sort of again
+an advantage to it so basically it's a
+way for this computer to take say this
+is what you've told me is important to
+you therefore this is what I think
+exactly okay cool yes
+fourth service fourth service yes so
+essentially fourth service is visual
+recognition now visual recognition is
+very huge I guess it has a lot of
+possibilities but one thing that I'm
+going to highlight this time is for
+example what you could do is first of
+all visual recognition is an API in
+which you can give it let's say a 100
+images of a brand logo okay and if you
+were to give it another picture with
+lots of stuff and a little brand logo
+it'll say you know what I saw that brand
+logo in that image all right and so
+that's essentially what uh trade-off
+analytics I mean uh visual recognition
+can do for you classifying based on
+images it's basically the natural
+language classifier except with images
+uh and so a really good use case for
+that could be for example uh you can
+sort of enter you know what uh a
+thousand Coca-Cola logos okay and a
+thousand Pepsi logos and then you could
+give it let's say 5,000 different tweets
+with pictures in them and you take those
+pictures and say you know what this many
+percentage of the pictures had no logo
+in them this many percentage had a Pepsi
+logo in them and this many percentage
+had a Coca-Cola logo in them and you can
+see how many of your users want use
+Coca-Cola how many of the users use
+Pepsi and how many don't at all all
+right so what we need your help with
+here is that like and I found this is
+that you know technology is cool
+technology alone is cool but where
+technology is really awesome is when you
+use technology to solve meaningful
+problems so that's why tany and I have
+created this little video here we're
+we're doing multiple methods to try to
+collect uh opinions from people like you
+who are watching about what how we we
+can use these Technologies and give you
+a really easy way to use these
+Technologies to create some type of
+solution and then that'll be tan May's
+job we're going to try to make the
+solution easy enough so that you can use
+this with no coding and you can actually
+go and do it so please right now in the
+comment section tell us what you want to
+see uh what you want to see from Watson
+and and we can mash up other
+Technologies too Google analytics or
+Google Sheets and if we see that people
+have upvoted your suggestion and we've
+heard that in other places we'll try to
+create it exactly okay and I'll just say
+that also in the comment section here
+I'm going to leave a uh link to Tan's
+YouTube channel and if this is on Tan's
+YouTube channel we'll put a link to the
+easel YouTube channel so you can kind of
+see definitely how this is all working
+out

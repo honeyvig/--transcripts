@@ -1,0 +1,801 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is timy bakshi and this
+time we're going to be going over
+another math video and today we're going
+to be talking about Transformations more
+specifically rotations so today I'm
+going to be covering a lot of different
+types of Transformations four different
+types to be specific uh but the main one
+that I'm really going to be going in
+depth about are going is going to be
+rotations so just before I begin today
+uh let's start off with transformations
+in general now there are four main types
+of
+Transformations uh these are now I'll
+get into each one in just a second and
+what they mean but let me actually just
+begin with uh Transformations there are
+four main types uh there are
+translations
+stretches and compresses uh or stretch
+and compression uh we also have uh
+reflection and of course rotation now
+the main reason that I'm talking uh
+really about TR oh sorry rotations today
+is going to be because well I find that
+a lot of people have quite some
+difficulty with rotations and I really
+want to help as many people as I can uh
+so I'm going to be covering the most
+complicated topic out of them all which
+would be rotations so let's actually get
+right into this today uh as you can see
+I have a few coordinate spaces uh drawn
+out here uh and so today before I begin
+the notations though I'm going to be
+talking about lots of other types of
+transformations in general so let's
+actually begin with one of the simplest
+types of Transformations translations
+now translations are very simple so if I
+just say so first of all we're going to
+be talking about
+[Music]
+translations okay uh so let's actually
+begin now quite simply let's say we have
+a shape
+okay we've got a shape over here on our
+coordinate space and let's just say we
+wanted to translate it well quite simply
+all we do is move the shape we're not
+going to manipulate the shape whatsoever
+but we can move it left we can move it
+right we can move it up and we can also
+move it
+down now again we're not manipulating
+the shape or anything we are just moving
+it around this coordinate space and that
+would be a translation and this can go
+left right uh up or down uh and remember
+you can even move it diagonally uh
+indirectly by going let's say you wanted
+to move in this direction over here
+you'd go left and then up uh or you
+could go right and then down or really
+however else you would like to move
+essentially we're just moving the shape
+which allows us to translate it
+okay so that's what translations are
+quite simply so I'm not going to be
+covering that in too much detail in this
+video but then again if I do get enough
+response that you know people want to
+learn much more about rotations that'll
+be coming in another video but now let's
+talk about stretch and compression so of
+course our next topic is
+stretch oh sorry uh so we're going to be
+talking about stretch and compression in
+this case both vertical and horizontal
+stretch
+and sorry and
+come
+compression Okay so we've got stretch
+and compression
+here and so let's just say you know what
+the best way to explain this would be
+let's say we have a
+curve okay I'm going to draw nice big
+curve over
+here okay so we've got this nice black
+curve and I'm going to say this is our o
+curve meaning original curve let's take
+a different color maybe blue I guess so
+we've got our blue marker and let's just
+say uh that we want to stretch this
+curve vertically how would we do that
+well seems a little weird at first but
+think about
+this
+this would be our stretched curve
+this is what would happen if we were to
+stretch a curve vertically okay so this
+is our S curve now you must be wondering
+though how does this work this is
+obviously compression well no imagine
+this we've got a
+curve and let's say we were to take this
+curve grab it from the top and the
+bottom vertically we were to grab it
+vertically and stretch it out vertically
+the top goes even higher and the bottom
+goes down then of course from the sides
+get thinner and thinner and thinner the
+more I were to stretch stretch stretch
+it vertically that means horizontally we
+would be compressing it but vertically
+we would be stretching it and so that's
+what we're doing in this case we're
+taking our curve and we're taking it and
+we're stretching it from the from
+vertically and we end up with this nice
+horizontally compressed vertically
+stretched blue
+curve now the exact same concept applies
+to compressing vertically so if I were
+to take uh something of this sort so if
+I were to just take like this red marker
+and just this isn't exact unfortunately
+uh because uh I mean of course I'm not a
+computer I can't uh get perfect uh
+however this is uh a quite close uh
+imagination of how this curve would look
+compressed so again the way we're doing
+this is imagine we have our curve again
+and we take it from both the top and the
+bottom vertically and we compress it
+vertically of course the sides will get
+stretched out and so this is a
+horizontal stretch but vertically we are
+compressing this red curve we're
+compressing this black curve this o
+curve uh in order to get the red final
+compressed
+curve all right so now uh let's actually
+try something else so before I get uh
+into sorry uh before I get into rotation
+now we're going to be talking about
+rotations in a second but let's take
+talk a little bit about
+well
+Reflections
+so all right so Reflections what are
+they uh well you know what this is best
+explained with an example so let's take
+an example uh let's say I were to draw a
+little triangle here okay if I would
+just uh finish this up so now we got
+ourselves a nice little triangle uh and
+so it's uh more towards the right than
+it is up so it has more of an x value
+than it does a y value and so let's say
+we wanted to reflect this on the X AIS
+of our coordinate space all we do is
+negate the Y value sounds weird because
+this is our x value right over here this
+is our horizontal x value uh and so what
+we have to do is negate the Y value in
+order to get our reflected uh shape or
+Point uh and so in this case let's just
+say uh I were to roughly calculate here
+uh we would end up with something around
+here uh and then here and then like this
+this is what would happen if we were to
+reflect and technically if I had a piece
+of paper and if I were to do it on a
+piece of paper and if I were to fold the
+paper in half along this x AIS then the
+these two should be perfect perfectly
+symmetrical this should be able to
+overlap right on this perfectly if I've
+reflected it nicely uh however if it's
+even a bit off should but technically a
+reflection would be completely
+symmetrical on that axis uh and then
+again the same concept applies to this y
+vertical axis we've got here so what we
+would do is let's say we wanted to
+reflect this on our y vertical axis
+quite simply all we need to do uh is of
+course take this axis uh and uh of
+course with the X axxis in order to
+reflect on that we negate the Y value so
+in order to reflect on the y axis we
+negate the x value and so of course all
+we need to do uh negate the x value and
+say just um approximate this here uh it
+would end up around somewhere uh here
+is so again not perfect uh but this is
+around where it would end up if I were
+reflect on the Y AIS and again if this
+was paper not AA solid whiteboard uh
+then I could just you know fold this in
+half and I should be able to see this
+overlap perfectly onto this uh our
+original shape or our original Point uh
+and it should be perfectly symmetrical
+uh of course though I'm not a machine so
+I wouldn't be able to do that but now
+I'd like to get into the main reason of
+why I'm creating this video today
+rotations and so without any further Ado
+let's get right into rotations so let's
+begin now again another thing I'm going
+to be doing today uh is actually going
+to be able to show you uh not just how
+you can you know use those classic old
+methods of rotating your notebook around
+and doing all that sort of stuff instead
+I'm going to be introducing you to a
+generic algorithm that'll be that'll
+allow you to calculate the coordinates
+uh of how you could rotate a shape
+counterclockwise or clockwise not just
+about the origin but another point which
+I will get to in just a second so now
+before we begin uh I have to uh show you
+something so of course we know what the
+origin of our coordinate spaces the
+origin would be right over here okay uh
+and the origin is our zero zero point
+okay now our this this is our origin
+okay we agree this is the very center of
+our coordinate space and let's just say
+uh I were to draw a rectangle
+or Square really any shape or even a
+point on this coordinate space now let's
+just say and you know actually in order
+to help me do this I'm going to use my
+uh trusty string so this is going to
+help me rotate and so again this is one
+of those classic methods right using one
+of these strings or a compass or
+rotating a notebook or the wax paper but
+today I'm going to be showing you how
+you can actually calculate those
+coordinates but uh what I'm going to be
+showing you on the Whiteboard here today
+uh is just generally that this is a
+rotation if I were to take my marker uh
+say okay let's say this point we want to
+rotate now let's say we want to go
+counterclockwise about the origin quite
+simply that's all we need to do and now
+this is how we can go
+counterclockwise uh over in this
+direction uh that's how we can rotate
+counterclockwise about our origin uh
+however if I wanted to rotate clockwise
+almost the same drill we just take that
+little origin again uh I'm just going to
+put that on the origin and then that
+would be how we rotate clockwise about
+the origin now that's quite simple but
+it's not fun right and so of course I'm
+going to be showing you how you can just
+take those coordinates and calculate how
+to rotate at 90° clockwise or
+counterclockwise however something else
+very very interesting that I'm going to
+be getting into in just a second is
+let's say we were to have another point
+over here and and we were to label this
+point B okay now this is a point in our
+coordinate space what if we wanted to
+rotate this same shape or point or
+anything um about point B but not the
+origin and so if we wanted to rotate
+clockwise what would we do well I'm
+probably going to have to covered this
+just give me a second well I'm just
+going to again use my string and this is
+one of those old classic methods I'm
+just going to do this and so this is how
+we would go clockwise uh if we wanted to
+rotate about point B right and we're not
+rotating about the origin and if I
+wanted to go
+counterclockwise then it's again almost
+the exact same thing uh all I do is put
+the marker there uh take my string over
+to point B uh and
+then go over here okay so we have to
+keep going in that direction uh and so
+of course today I'm going to showing you
+how you can rotate both clockwise and
+counterclockwise about the origin and a
+point about another point for in this
+case point B uh on your coordinate space
+and you'll be able to rotate anything a
+shape a point anything and so of course
+I'm very excited to get into a more
+detailed explanation of rotations
+themselves anyway though thank you for
+the watching this whiteboard part let's
+get right back into an actual in-depth
+explanation of rotation themselves let's
+get to it shall
+we all right so welcome back to this
+explanation part now and again we're
+talking about Transformations and again
+in this video specifically I'm talking
+about rotations but if this video gets a
+lot of you know support and people like
+it and people want to know more about it
+of course I will create more tutorials
+uh on many different topics in
+Transformations uh you know the
+translations the stretching and
+compression compression uh our
+Reflections that type of stuff I'll be
+I'll be creating videos about all that
+sort of stuff uh if this video gets uh
+you know a lot of uh support uh and
+people actually want uh to know more
+about this topic but anyway let's begin
+so now as you can see in front of you
+I've drawn a grid now in order to show
+you what a rotation would be on a
+coordinate uh you on a coordinate uh
+space or coordinate um uh one of those
+coordinate spaces we need to draw that
+out so let's actually draw out one of
+these coordinate spaces all right so as
+you can see we've got four quadrants uh
+and we've got our positive y our
+negative y our Negative X and our
+positive X and each one has their own
+quadrants uh and so let's actually label
+uh the origin of this uh coordinate
+space uh which is0 0 in the middle you
+know just uh in between everything uh
+very middle everything uh and let's draw
+Let's uh Mark a point on this coordinate
+space uh which is 62 all right so this
+is a 62 position 6x2 y so we are
+essentially moving six in as X six
+towards the right and two up as positive
+2 y okay uh now let's say we wanted to
+rotate this 90° clockwise how would we
+do that well I'm going to give you a
+quick uh sneak peek into the future and
+I'm just going to give you the answer
+right now the answer is 2 -6 okay we
+rotate 6 2 90° clockwise we're getting
+to
+26 but how how is that possible well let
+me show you let's draw a line with zero
+y uh sorry with zero y but 6X so we're
+drawing a 60 Line This is a blue line
+and as you can see uh if uh we have uh
+now as you can see all of these uh all
+of these quadrants that we have here
+these four quadrants are at right angles
+and so if we were to rotate this blue
+line 90° clockwise quite easily we could
+say that it would end up here but this
+still doesn't really prove how we could
+have uh 62 trans you know rotated 90°
+clockwise to 2 -6 how does that work
+well let's put the this line back and
+let's draw a latch from 62 to this line
+another blue
+line and now let's rotate this line 90°
+clockwise and as you can see it ends up
+at 2
+-6 in fact in order to prove that this
+is 90° we can actually draw lines
+between them and as you can see the
+angle here is 90° so it has been proven
+that we have actually rotated this 90°
+but actually Let's uh continue this
+right let's say let's say we were to
+again draw this line and put a latch to
+2 -6 let's rotate this another 90°
+clockwise all right we get to -6
+-2 now again we can draw this line and
+we can see that we have a 90° rotation
+and we can do this once more and we get
+to
+-26 again we can draw this line and we
+see that's another 90° but this is 270°
+of course we went from 62 that's 190°
+then we've got 180° then we rotated
+270° from 62 to -26
+clockwise and so after 3 after sorry 270
+in order to get to 360 so a 360°
+rotation is a full circle we know that
+so if we were to have 62 and we were to
+have a 360 degree rotation uh from 62
+clockwise or even counterclockwise we
+would reach back back at
+62 and after 270 we get immediately if
+we had another 90
+360 and so in theory if this blue line
+hits 62 again that means that we have
+actually rotated
+360° and that we have actually rotated
+90° every single time and so as you can
+see it does and if we draw this line you
+can see that indeed we have been
+rotating 90° clockwise every single time
+we went from 62 to 26 to 66 -2 to -2 6
+and then 360° back again to 62 and this
+was all done in a clockwise
+way but okay so this is great but how
+would this really help us this is no
+different than you know as I was saying
+those classic techniques we need an
+algorithm or some sort of pattern so
+let's actually take a look at what this
+pattern is so as you can see pattern we
+have we begin with postive 6
+pos2 now in order to get to the next uh
+the next uh rotation the next rotation
+the next 90° clockwise rotation what we
+need to do is first of all we have to
+have a negator okay and we also have to
+have and what we're going to do
+essentially is we're going to swap as
+you can see we went from 62 to 2-6 and
+so we're going to to
+swap the six and the two but what we're
+also going to do is we're going to make
+it so that while the six the x value is
+moving into the Y value into the Y
+position we're going to negate it to
+make it
+A6 and so the positive2 over there the Y
+value that's going into X that remains
+intact the sign remains intact however
+the positive six that goes into the Y
+value that's currently X that goes into
+y gets negated to -6 and we end up with
+our
+coordinate now another thing I'd
+actually like to draw your attention to
+uh is just before we continue with our
+pattern if you take a look over here we
+have 62 and we have -6
+-2 now these two uh coordinates uh
+what's happening is when you have uh
+these when we have 62 which is on our
+which is one of the Quant if we were to
+move it diagonally if we were to reflect
+remember when I explained Reflections in
+the beginning if we were to reflect it
+exactly diagonally to the to the to its
+diagonal um quadrant we would have it uh
+exactly uh placed diagonally and as you
+can see if we just negate the six and
+the two we have 6 -2 and it's placed
+perfectly uh at a 180° angle uh from uh
+clockwise or counterclockwise uh anyway
+from 62 and that proves again that we've
+been rotating 90° every single time but
+continuing with the pattern though so
+now we've got positive 2 -6 let's see if
+the same pattern that we applied to POS
+6 pos2 applies to this as well so let's
+say we swap and negate the x value while
+it's going to Y as you can see we end up
+with -6 -2 because the -6 value its sign
+stays intact while going over to X how
+however the posit 2 gets negated while
+going over to Y and we end up with -6 -2
+which puts us at 18 180° angle with that
+other quadrant over there which is a 90°
+turn which is 90° uh rotate however from
+positive2 -6 now again we put the same
+pattern into play uh we have the Y value
+going to x uh sign stays intact the X
+going to Y uh it's it gets negated and
+we end up with -2
+pos6 because of course uh -6 negated
+would be pos6 so now continuing though
+let's say we were to put this again now
+as you can see with -26 we've done as I
+said a whole 270° of
+rotating and if this pattern continues
+again with 26 -26 sorry and we're able
+to get 62 that means we've done a full
+360 degree rotation and every single
+time we rotated 90 Dees so let's
+see positive 6 will remain intact while
+going over to X from y but the negative
+-2 will get negated to positive2 while
+going over to the yv value and we end up
+with POS 6 pos2 and we have made a full
+360° rotation with this pattern which
+proves that it actually does
+work now let's actually take a look at
+the algorithm though sure we've gotten a
+pattern but what's our final algorithm
+of how we can actually rotate uh a point
+90° uh by from the origin well it's as
+simple as this we have our original
+starting point let's say positive 6
+positive2 are positive X and positive y
+values we essentially have the X going
+over to the Y spot and getting negated
+whereas the Y goes over to the X Spot
+while keeping its sign intact
+and we end up with positive y Negative X
+because the negative X was
+negated now you must be wondering though
+sure we can you know apply this to
+points but what about shapes how can we
+rotate shapes from the origin well let's
+put this simply all you need to do is
+let's say you have a triangle with
+points a b and c well what you do is
+exactly that You' label those points and
+you'd find their positions in the grid
+what you do is You' actually rotate each
+point individually using this algorithm
+once you've done that and once you've uh
+labeled those rotated points you're
+going to connect those points just like
+you would uh for creating the shape and
+of course you have your shape that has
+been rotated 90°
+clockwise all right so that's the
+algorithm for this but you know this is
+nice and all we're rotating from the
+origin but let's say we want something
+more complex more fun
+well what if we wanted to rotate from a
+point that's not the origin sounds weird
+doesn't it but let me explain so we have
+this blank grid here again this blank
+coordinate space and we have our origin
+label as 0 0 and we have a red dot that
+we want to rotate we're going to label
+this as 1315 because that's its position
+on the grid that is relative to the
+origin
+but now let's say we have a black dot
+okay and we label as black dot 912 which
+is its position relative to the
+origin and we wanted to rotate this red
+dot not from the origin but about this
+black dot how would we do it well first
+of all let's begin by drawing a circle
+and let's talk about the algorithm let's
+Dive Right In so to begin we have 13 15
+now again we are not rotating about or
+relative to the origin that's supposed
+to be about the black dot and so in
+order to do that we need to find the red
+Dot's position with respect to that
+black dot in
+912 and so what we do is we subtract
+that 912 value from 1315 and this
+results in 43 POS 4 pos3 and this is our
+final value which is actually you know
+the 135
+position according or sort of uh in
+respect to the 912 Dot and so what this
+means is of course the 4X 3 Y and so
+this means that we're going four to the
+right and three up that is our position
+that is the red Dot's position uh like
+relative to that black
+dot and so what we can do now is use our
+classic algorithm that we're so used to
+we can swap these values and negate the
+X going to the Y and we end up with pos3
+-4 but wait a minute we have our
+algorithm output that we've been using
+for so long
+now but this is not the value of 1315
+rotated 90°
+clockwise remember how we factored in or
+we found 131 15's location relative to
+that black dot well yeah we encode ened
+that so I guess you could say encoded
+it's not technically encoding but uh
+quote unquote if you will uh we have
+encoded uh 1315 with that 912 location
+and we got
+43 and so now we need to take this
+location that this location that we've
+got this coordinate pair and decode it
+and we're going to put this on the side
+okay so we don't mess up our current
+coordinate pair uh and in order to
+decode it well quite simply we just add
+back the 9 and 12 this results in 1208
+and in order to prove to you that 1208
+is in fact that 90° uh that we've uh
+rotated from
+1315 on about the 912 well let's put
+that on the grd uh sorry the grid and
+let's label it as you can see that is
+our 128 point and that is how we were
+able to rotate 1315 90° clockwise about
+the 9 12 or black dot Point instead of
+the
+origin that's pretty interesting but
+let's say we wanted to continue we've
+done 90° but let's do
+180° which is 128 but another 90°
+clockwise how do we do that well again
+we're using the same uh positive3 -4
+value that we got from our algorithm and
+we're going to run the same classic
+algorithm again the Y value going to X
+will stay the the same not stay the same
+the sign will stay intact whereas the x
+value going to the Y will be negated and
+finally we get -4 -3 but again we need
+to decode it and so what we do is we
+bring it to the side we add 912 and we
+end up with
+509 and using this value we can put that
+on the grid label it and as you can see
+that is indeed 90° clockwise from 128
+and
+180° from the clockwise uh from
+1315 and then again that is about the
+912 and not from the origin let's
+actually continue this pattern once more
+and we end up again with
+-34 if we take this to the side again
+decode it with a 9 and 12 and we end up
+with 616 we put that on the graph and we
+label it and as you can see
+we have that 90° turn again so now what
+we've done what we've done is we have a
+90° clockwise turn from 59 about the 912
+which is
+616 but it's 180° rotation from 128 and
+it's a 270° rotation from
+1315 and so again we apply the same
+algorithm as we did last time if we can
+take 616
+and apply our same algorithm in order to
+rotate at 90° clockwise that would mean
+from 1315 it should be
+360° and since 360° is a perfect circle
+that means we should end up with
+135 and so we run our algorithm again
+the positive4 sign stays intact and it
+goes from y to X and negative3 sign gets
+negated to three and goes over to Y and
+as you can see we end up with 4
+pos3 and that is the same value we got
+when we took pos3 pos5 minus postive 9
+pos2 we got 43 and now we got 43 again
+and so there's no doubt that if we take
+it to the side add 912 again we get
+135 as our final result and as you can
+see we have rotated 13 15 360° clockwise
+about the point 912 not the
+origin now this is pretty nice isn't it
+how we were able to take something that
+was so frustrating and simplify it down
+into one
+algorithm but we're not quite done yet
+there's still one more
+step what if we wanted to take all of
+this and we wanted to condense it into
+one final algorithm how would we do
+it well let's say we have two different
+algorithm one to rotate a point
+clockwise and one to rotate a point
+counterclockwise let's begin describing
+how this would work well again this
+isn't going to be about the origin it
+could be about any point it could be
+about the origin it could be about uh
+another Point really anything and so we
+have this red dot uh that we want to uh
+that we want to rotate okay and we're
+going to say its location is XP YP that
+is the red dots location and this is
+what we want to
+rotate and this is one of the inputs
+that both of our algorithms will
+take but then we also label the the
+black dot and this black dot is what we
+want to rotate about now this black dot
+could be the origin it could be where
+the black dot currently is it could be
+any place or any location on this
+coordinate
+space and we're going to label this
+black dot as XO and
+yo then what we're going to do is we're
+going to take this uh this black dot and
+what we're going to do is again just
+like we did just a few seconds ago we're
+going to take XP and YP and we're going
+to subtract XO and yo from XP and YP
+just like we did as I said a few seconds
+ago and this is going to happen in both
+of the algorithms and we're going to end
+up with a result that I like to call X1
+and y1 and this is where the algorithms
+start to defer a bit uh and so what
+going to happen
+is uh let's just put our negators here
+and so just like last time again what
+I'm saying is we're using the same
+algorithm uh we are essentially uh for
+the clockwise one at least we're taking
+X1 and we're putting it into the Y's
+position while negating it so the
+positive X1 becomes a negative X1
+whereas the positive y1 switches over
+with the X's position while keeping its
+sign
+intact however on the counterclockwise
+side now I mean you've already seen the
+clockwise side that's pretty you're fam
+you're pretty familiar with that but
+let's talk about
+counterclockwise on the counterclockwise
+side we were essentially able to take
+the positive y1 value and we're
+essentially doing the exact opposite
+thing that we would do for clockwise we
+are taking the we're taking the positive
+X1 and we're swapping it with the Y
+position all right we're doing that but
+we're not negating we're keeping its
+sign intact whereas we're taking the
+positive y1 and we are of of course
+swapping it out with the X position and
+negating that instead so we end up with
+negative y1 and positive
+X1 and so finally as you can see we're
+doing the exact opposite thing for the
+counterclockwise algorithm than we are
+for the clockwise algorithm and this
+allows us to end up with our result now
+again we have actually
+found the location of the 90°
+rotated uh point this Red Dot 90°
+rotated we found its uh location
+clockwise or counterclockwise but this
+isn't our final location but why well
+again I mean you should probably
+remember this it's because we were we
+did not yet decode it because of course
+we found the red dots
+location in you know with respect to
+that black dot and so now what we need
+to do is make it back in respect to that
+uh Middle Point that origin
+and so what we need to do is we need to
+add XO and yo back to our result and we
+should finally get an XA value a ya a
+value uh for our clockwise algorithm and
+an XB value and a YB value from our
+counterclockwise algorithm and so of
+course from our clockwise algorithm as I
+said we get that XA and ya a uh which
+which is our final 90° clockwise rotated
+algorithm uh or Point uh and of course
+from the counterclockwise algorithm we
+get XB and YB which is the final point
+of where uh we uh which is the final
+Point uh of our 90° counterclockwise
+rotation and that was all there was to
+this video of course I really hope you
+enjoyed and learned a lot if you did
+please make sure to leave a like on this
+video it really does help out a lot and
+if you think this could help anybody
+else uh please do consider sharing the
+video again it really does help out uh
+and of course if you have any more
+questions suggestions uh or uh concerns
+that type of thing you can leave it down
+in the comments below you can of course
+email it to me at tagim Manny gmail.com
+or just straight tweet it to me at tajim
+Manny of course my contact info will be
+in the
+description but if you really really do
+like my content and you want to see a
+lot more of it please do consider
+subscribing to my YouTube channel as it
+really does help us a lot again though
+finally I really hope you enjoyed thank
+you very much for watching the video
+goodbye okay

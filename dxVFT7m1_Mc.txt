@@ -1,0 +1,406 @@
+[Music]
+so long there and welcome to another
+tutorial my name is Tammy Bakshi and
+this time we're going to be going over
+how you can use the IBM Watson discovery
+service in bluemix and so let's begin so
+today we're going to be creating a we're
+going to be using the discovery service
+in order to create something cold or at
+least I like to call it a 10 main search
+so let me actually begin by describing
+what this will do or actually we begin
+by describing the discovery service
+itself so to begin I actually just
+recently found out about a new service
+that the guys over at Watson released
+and it's a new data insight service for
+IBM Watson and it's a service called
+discovery now it's currently in
+experimental not even beta yet it's
+experimental so there are a few rough
+patches that they're still trying to
+work around but it is publicly available
+on bluemix she would have catalog you
+wouldn't be able to see it yet you're
+gonna have to go to labs catalog and
+I'll tell you how to do that in the Mac
+part
+however essentially this discovery
+service is very very neat let me
+actually show you what the stops so drop
+my marker so let's actually begin by
+actually say what this does so what do
+we gots our discovery service here right
+we've got this cover of our discovery ok
+so this is our discovery service and
+let's say we've got some data right and
+so we've got a few HTML files for
+example so we've got one dot HTML we've
+got two dot HTML and let's say we've got
+also three dot HTML now in practice you
+actually have hundreds upon thousands of
+these HTML documents and you would take
+this as your corpus of knowledge or
+corpus of data and you'd feed this into
+discovery alright and once you have all
+the HTML files and discovery what's
+going to happen this discovery is going
+to index through them and it's going to
+you know organize itself and under
+and these documents and then you should
+be able to give it a query and so let's
+say that our data was about me right
+that's so what I've done is I've created
+a Python script that actually goes to
+Google using a Google API of the Google
+custom search East API it'll use that
+API and what it's going to do is it's
+actually going to grab a hundred HTML
+documents from Google about me sort of
+like articles that contain the words
+Tanmay Bakshi and so once we have around
+100 of those documents we're going to
+feed them right into discovery and once
+discovery has those hundred documents
+once an index is through them which
+takes very very little time then we can
+actually give it a query like this is
+your quotes when did 10 May start coding
+right so let's just say we have it when
+but an may start coding or you know we
+could actually alright done better so
+what happens is we're going to give it a
+quick alright
+and this query could be anything in fact
+you can just about that it could be
+about my summer training but let's just
+say for the sake of simplicity that we
+say when did 10 May start coding ok so
+this is our query right we send it into
+discovery what's going to have any
+discovery is then going to take all of
+these documents that would give it and
+it's going to order these documents for
+most relevant the least relevant and
+it's going to give us the most relevant
+documents that are related to this query
+so let's just say that this is the order
+just coincidentally descending aorta
+coincidentally 231 I could really be
+whatever and so what's happening here is
+orts a2 is the most relevant to this
+query and to contains a paragraph in it
+that says Tanmay started coding at five
+years old what happened is it would
+really realize that that's the most
+relevant and it would bring it to the
+top now something really remarkable
+discovery is that well don't all search
+engines do this well no discovery is
+different it's different in the way that
+even if it doesn't say that Tanmay back
+she started coding at five years old but
+it says let's say ten back she's
+currently 12 years old he has built
+applications with IBM Watson and he
+started coding at 5 years old or he
+began to code at 5 years old you would
+still understand because of that you
+know can do it knows that in those
+context it would still understand that
+what it's very very relevant to when did
+10 may start coding because of the
+sentence of the paragraphs context and
+so of course that's what discovery is
+going to help us achieve today and so
+without any further ado let's head right
+over
+Mack part now where I'm going to be
+showing you how you can use this new
+discovery cervix in bluemix and so of
+course we're going to be of course as I
+said using that Python scripting let's
+download a hundred documents of really
+anything in this case I've said Tanner
+Bakshi we're going to feed those the
+discovery we're going to then give
+discovery one of our queries and
+discovery should then give us results
+ordered by relevance now another thing
+pretty interesting here is that well
+while I haven't created an iOS app just
+yet you will see that in the next part
+so in the next part of this discovery
+service video series I'm going to be
+showing you how you can implement this
+using its JSON REST API with Swift in
+order to create an iOS application where
+you can type in your query click send
+and you'll see a UI tableview with lots
+of these results that you can scroll
+through as you wish all right so uh yeah
+without any further ado let's get to the
+next part now shall we
+[Music]
+all rights dealt with in the part where
+we essentially go to google and grab a
+lot of data to actually feed into
+discovery so let's begin as you can see
+over here if I open up finder I've got
+this folder here and as you can see I've
+got 100 HTML files and these HTML files
+essentially contain well quite simply if
+I just click space on one of them as you
+can see over here it just shows me a lot
+of text in this text is essentially just
+you know the sort of the content of the
+Google document that we are extracting
+so what we do is we take a document from
+Google we take the link from that and
+then we send that over to alchemy
+language and alchemy language extracts a
+lot of text from that link in the Matt's
+text is put international file along
+with the title and so if I just show you
+as you can see that we have a lot of
+these HTML files about me okay and so
+essentially that is what we're going to
+be using as our Corbis but in order to
+actually grab all of that data I created
+a very simple Python script which if I
+show you over here it's called scrape py
+and so what it does is just a imports
+URL Lib JSON and sleep from time and
+then it creates a lot of URLs and these
+URLs essentially have lots of Google
+search queries here as you can see I'm
+using the Google custom search engine
+API and I'm searching about Weeki on the
+entire Internet ten times and each time
+I get ten results
+ten times ten that's 100 so we're
+getting hundred final results and of
+course if you see over here I'm using
+another parameter apart from just a
+query being Tanmay Bakshi over here I'm
+also sending the exact terms to Tanmay
+so if it doesn't contain the word Tanmay
+it won't give me that article back or it
+won't give me that URL back so that we
+only have
+you know search results that contain my
+name so it's actually very relevant once
+that's done I just of course open up all
+those URLs and once we open up all those
+URLs and read string values from them we
+load those into JSON once we have those
+as JSON values we don't need this line
+of code anymore then we put that all
+into an array of JSON responses and then
+we create a new blank array or list in
+Python which is which is called results
+then I say done is equal to zero this
+signifies how many documents we're
+currently done and then I loop through
+all those JSON responses and then have a
+lot you know just a little algorithm or
+not algorithm necessarily a little
+script here that will essentially take
+that JSON it'll extract a link you know
+the title all that sort of stuff from
+the from the Google search query and of
+course they'll finally give us all the
+results in HTML files and it'll save
+them of course as well now of course I
+will be having much more detailed
+documentation about how you can actually
+use this script not only use it about
+how you can you know how it works that
+type of thing on github so this will be
+as a separate github apart this will be
+on a separate github repository which
+will be in the description below and
+that is how we garner our data or sort
+of you know straight out our data from
+Google in order to use with this
+application and so next though I will be
+showing you the next step of the process
+which is of course actually taking this
+data and feeding it into discovery so
+let's get right into that part now
+[Music]
+all right so now let's see how we can
+actually create a new data collection
+and insert our new HTML data that we
+grabbed off of Google so let's begin
+with going back to our discovery tooling
+and clicking on create a data collection
+once you're at the screen type in a new
+data collection name in this case I'll
+call it tan mate
+once you're done make sure that you keep
+the default configuration this is for
+simplicity for now but in a future video
+we can always see how we can create our
+own configuration with discovery all
+right so now click the create button and
+just a moment Watson discovery tooling
+will show you that you have created your
+own collection once you've got this
+collection you can now put in your data
+in order to do that we Sicily very
+simply need to click on the drag or drop
+your documents here or browse from
+computer button click on that and it'll
+show this little Laws file selector view
+and then you need to go to the directory
+where you have stored all of your HTML
+files I'm already here so I'll select
+all of my HTML files click on the Open
+button and wait for it to upload most of
+the documents now this might take a
+second or two because the Internet's
+probably uploading them and so since it
+it might take a few seconds but as you
+can see 60 documents were able to
+successfully get uploaded and that is
+how you can actually feed your data into
+IBM Watson discovery service using that
+discovery tooling and of course this
+might take some time it'll of course
+increase the number of documents that
+are available and so next though even
+while it does that we can still query
+this discovery service and so now I'm
+going to be showing you how you can
+actually query the discovery service
+let's get to it
+[Music]
+alright so now I'm going to be showing
+you how you can actually query this new
+discovery collection that you have
+created
+alright so let's begin here now as you
+can see what you would start off with is
+a screen like so a screen like this one
+where you can see a kind of register
+changes here so you can see your data
+tan mate which is the collection that I
+have created and towards the right
+you'll see a button called query this
+collection now if I click on this button
+then in just a second you should see
+that alright as you can see it said it
+tells me - it gives me a few options of
+what I can do and as you can see first
+it gives me enter a query or keyword and
+this is sort of where I can build my
+query so of course let's say I wanted to
+ask for the Watson discovery service
+when did Tanmay start coding ok I won't
+send this query just yet but I'm going
+to tell it though to return 10 results
+I'm going to give it no filter no
+aggregation and no offset either and I'm
+going to tell it to return all fields in
+a different video I'll be telling you
+exactly what all of this means but in
+case you were wondering there will be a
+link to the documentation of the service
+down below as well now let's say I click
+on the run query button in just a second
+towards the right you can see the
+results and it's currently loading but
+right is it gets a result or it gets the
+results from discovery
+it gives it to us and let's take a look
+at the top result so the title here is
+meet 12-year old Henry Max's soccer
+developer author and dot dot now let's
+actually take a look at the text of this
+article or Google search result as you
+can see it says we told row ten I've
+actually software developers etc etc
+meets Henry Bakshi and you know urgent
+preteen from Brampton Canada we started
+- ok as you can see it says meet Tammy
+Bakshi and indian-origin preteen from
+Brampton Canada who started coding when
+he was just five years old
+okay now this sentence has a lot of
+twists and turns and it gives you a lot
+of different information it tells you
+that my name is Amy Bakshi I'm a preteen
+from India I originate from India I
+currently live in Brandon Canada and I
+started coding when I was five years old
+and the gap or the gap between the two
+phrases meet Tammy Bakshi
+and he started coding when he was five
+years old he's absolutely huge and stuff
+that came between it that's a lot of
+information but what Watson discovery
+does is it doesn't do a word search that
+is usually what would happen with some
+sort of search engine it would look for
+Tanmay started coding at five years old
+however we got live in Watson discovery
+it's looking for the same context and
+really anything that's related to when
+it and they start coding for example it
+would prioritize a document that talked
+about I created my first app at nine
+years old and that may not necessarily
+contain that I'm find that I started
+coding at five years old but although if
+a document does contain that battle be
+ranked highest but let's just say that
+another document doesn't have that but
+it does have I started I created my
+first iOS app at night it would rank
+that document higher than a document
+that highlighted for example let's say
+my summer training with IBM and so it's
+trying to find documents that are more
+contextually related to your query so
+you get much more relevant results and
+of course if we were to give this tongue
+some time this service some time to
+actually index and of course optimize
+itself it would become even better if we
+were putting more documents a little bit
+more time I really do believe that this
+could actually be great for a sort of
+cognitive search engine I guess you
+could say all right though that's
+actually going to get from this video
+though but if you'd like to see how you
+can create an iOS application with all
+of this new stuff that you just learned
+about the IBM Watson discovery service
+please do tune in to part two of this
+video series where I'm going to be
+showing you as I said how you can create
+an iOS application to list out discovery
+results in a UI tableview with
+very given to you on the screen all
+right though but that's going to be it
+for this video of course if you really
+did enjoy this video please do make sure
+to leave a like down below but if you
+think this could help anyone else you
+know then please do consider sharing the
+video as well of course if you have any
+suggestions feedback or comments or
+questions please do consider leaving
+that down in the comments below emailing
+it to me at tad you manage email comm or
+tweeting it to me at Angie Danny of
+course though if you really like my
+content anyone see more but please do
+consider subscribing to my channel as
+well as it really does help out a lot
+anyway though that's gonna be it for
+this tutorial today thank you very much
+goodbye

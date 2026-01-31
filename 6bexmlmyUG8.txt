@@ -1,0 +1,437 @@
+so hello there and welcome to another
+tutorial my name is Henry bakshi and
+this time we're going to be going over
+how you can use neural networks to play
+a game in Swift and this time it's a
+game called Nimble ninja and now first
+of all before I continue I'd like to say
+a big thank you to Michael leech Michael
+leech is a uh I developer uh and he has
+created a game uh that uses Sprite kit
+and Swift for iOS uh and essentially is
+a game called Nimble ninja so now let me
+explain the concept of this game to you
+to begin so first of all uh we have a
+sort of platform all right we have a
+platform here and we have a character
+here uh who has eyes and a mouth okay so
+he's a he's a character he's essentially
+the ninja here H and we have obstacles
+in front of him now it's not like your
+classic game where you have to jump over
+the obstacles instead here there are
+obstacles underneath as well and they
+don't just alternate like this like if I
+were to do this they don't just
+alternate like this what happens is it's
+completely random which is the best part
+so I mean by complete Randomness you
+could have three in a row like this for
+example all right uh you could also then
+have like two more this could be some
+sort of example game all right this is
+sometimes how the game could play out
+it's completely random and that's the
+best part about it so this is
+essentially the game and so in order to
+dodge this obstacle now first of all
+this obstacle is coming at this uh
+person uh or the ninja and so
+essentially what happens is when you
+click on the screen anywhere on the
+screen this ninja is going to flip
+around over
+here all right so he's going to flip
+around then he's going to continue
+running the obstacle will go above him
+now once this obstacle starts coming at
+him then he's going to flip over again
+uh and uh and so he's going to dodge
+that obstacle and he's going to keep
+doing that whenever an obstacle is
+beside him uh so that he can dodge the
+obstacles up and down that's essentially
+how the game works so now I'd like to
+sort of get into how my part of this
+game works now first of all this is
+actually a pretty interesting gamees uh
+game for a human to play all right so
+now
+humans are good at this but I've made a
+modification to the game and this
+modification incorporates speed so
+obstacles over time come at you faster
+and faster and faster every second they
+get faster and essentially what this
+allows me to do is add another level of
+Challenge and so after about like
+120 it becomes almost impossible for a
+human to play maybe even 140 it becomes
+impossible almost impossible at least
+your brain that we're mapping out onto a
+computer on a much much smaller scale
+because of course your brain has
+trillions upon trillions of neurons You
+couldn't possibly you know simulate that
+on a computer even the world's fastest
+uh supercomputer can only emulate uh
+around like a worm siiz brain not even
+yet uh and so of course neural networks
+do take a lot of computational power but
+I will be getting into why the iPhone 7
+handles this amazingly in just a
+bit so now let's take an example of a
+neural network so now let's say you
+wanted to create a brain and this brain
+could essentially count up okay so you
+give it a b a four bit binary uh sort of
+number and it'll give you the next
+binary number so let's say we have our
+inputs so this is a neuron whenever I
+draw this sort of Big O I mean that this
+is a
+neuron just like in your brain these are
+on so they might not look like them but
+they are and so let's say you give it
+the input as binary
+0
+0
+0 1 now if you don't know this is 4 bit
+binary and this would mean one okay this
+is in 10 bit one so now uh essentially
+uh what's going to happen is let's say
+we have some more neurons now we of
+course want to have output
+neurons
+these output neurons will be able to
+give us our output which in this case is
+going to be 0 0 1
+0 but how do we go from input to Output
+do we just connect these and do
+calculations and do extremely Advanced
+calculations between them in order to
+find out how to add a number no but
+you're close what we do is we add
+another layer of neurons and this layer
+is called the hidden layer so first of
+all this is called the input
+layer this is called the output
+layer and now we're going to add
+something called The
+Hidden
+layer the hidden layer is essentially
+what does all of the processing now
+again there can actually be multiple
+hidden layers but I'll get back I'll get
+back to that in just a bit so let's say
+we have six hidden neurons so we have
+one 2 3 4 five and six okay so we have
+six hidden neurons
+now this input neuron this specific
+input neuron the first input neuron will
+be connected to every single hidden
+neuron now if you're wondering how it's
+connected it's connected using something
+called a synapse I'll explain this in
+just a second so now of course every
+other input neuron is also going to be
+connected to every other hidden neuron
+or res said every other neuron in the
+hidden
+layer and so if I just finish this
+diagram really
+quickly as you can see every input layer
+neuron is connected to every other
+hidden layer neuron so essentially
+what's happening is these are called
+synapses what are connecting these
+neurons now these synapses do a
+calculation okay now essentially what's
+happening is it's let's say this neuron
+it takes the zero and it passes it on to
+every single synapse that it has
+connected to it and those synapses will
+do a c a very SM small and minor
+calculation on them and then they'll
+send that that like this uh this neuron
+let's say it's going through the first
+synapse it's going to send it to the
+first hidden layer neuron now this
+neuron is going to receive input from
+lots of these other four neurons as well
+and so it's going to take all of those
+four inputs from the input layer from
+the synapsis and it's going to do a
+calculation on those and then pass it on
+again through synapses and all of these
+neurons will do that with the
+corresponding inputs that they were
+given now if you're thinking that hey
+wouldn't all these neurons get the same
+input though well no because the
+synapses between these between like
+let's say uh this neuron and this neuron
+or this neuron and this neuron are
+completely different weights by weights
+I mean how heavy the calcul calculations
+are how big the calculations are are
+they very minor sort of really um sort
+of really sort of minor calculations uh
+like fine-tuned calculations or are they
+major calculations that make the number
+a lot bigger or a lot smaller that's
+essentially the weight and then from the
+hidden layer they go right back to the
+output layer and so essentially of
+course we are connecting every single
+hidden uh neuron
+uh in this layer to the output
+sorry to the outputs
+um so what's happening here is again we
+are connecting to these neurons using
+these
+synapses now these synapses will again
+do another calculation on the uh on the
+number that they were given from the
+hidden
+neuron and then finally now I know this
+is taking some time because this is
+exactly how complex a neur actually is
+in a computer as well so as you can see
+this is essentially our architecture if
+you will of how the ne network will work
+now again every connection has a weight
+every neuron has a weight every synapse
+again has a weight and the output
+neurons have a weight as well and once
+everything comes together and all these
+calculations are completed you'll have a
+final output and this is all done within
+milliseconds so we're essentially using
+exactly what your human brain does as
+I'm talking my brain is implementing a
+very very very similar technique except
+on a much larger scale with trillions
+upon trillions of neurons and that's how
+I'm generating the speech quite ironic
+but uh essentially now to begin when you
+initialize this neural network the
+weights on the synapses and the neurons
+are going to be completely random and
+your output will be absolutely random as
+well complete gibberish not useful
+whatsoever okay now you may by a
+completely random chance get the perfect
+random weights and good output but
+that's a very very small chance so now
+how would we actually get this to give
+us useful output this is how what we' do
+is we'd say okay you gave me this output
+but I expected this output you give it
+that positive example and tell it what
+it did was wrong so what's going to
+happen is it's going to put a technique
+called back propagation into play and
+what's going to happen is it's going to
+take that output that it was supposed to
+give and sort of make that act as input
+and see how like let's say we were to uh
+give this uh run in Reverse if we were
+to give it okay so let's say it okay
+sorry I'm going all over the place but
+let's say your random neural network
+gives you uh 1 1
+01 okay as your output but this is
+completely wrong wrong all right we do
+not want this all right but we do want
+this we do want this output
+though so what's going to happen is
+you're going to say okay let's say that
+we took this and ran it backwards
+through the neural network and wanted to
+get exactly this how would we do it
+what's going to happen is it's going to
+send us back and it's going to adjust
+the calculations ever so slow ly in
+these neurons in these synapses in these
+other neurons and in these synapses and
+if it doesn't get this output it'll do
+that again in a very small fashion over
+and over and over again until it reaches
+this input or very very close to in this
+input how far it is from this input is
+called the error rate you can make the
+error rate to be as small as you want or
+to be as big as you want in this case
+since we want this to be as accurate as
+possible we're going to give it an error
+rate of
+0.01 now of course that may take hours
+days maybe even like a week to train
+depending on your training set and how
+exactly accurate you'd like it to be but
+it shouldn't be a
+problem because of course I mean it does
+pay off in the end you have an extremely
+useful counter and of course this is
+only four bit you could apply this to
+many more bits or even to much more
+useful calculations rather than just an
+Adder But continuing though so now we
+have this neural network and we have
+this back propagating from many many
+like for many different outputs and
+that's essentially our training data
+then we have our test data which checks
+the error rate and if it's too high
+it'll try to bring the error rate down
+by back propagating over and over again
+but this still I mean you kind of have
+to admit that why would this be useful
+we can just do plus equals 1 plus plus
+or like equals to this plus one you
+really don't need this type of neural
+network but what you do need is for a
+neural network to do something much more
+advanced
+that you can't just write a massive
+function for let's take a look at that
+so now let's just say that we don't use
+this neural network right we're not
+going to be implementing this but this
+was a pretty nice example of how a
+neural network actually works so let's
+just take this off the board so now what
+is what are we going to be doing in this
+video now if you haven't already gotten
+the clue we're going to be mixing Nimble
+ninja with n networks they a bot that
+can play the game almost infinitely
+let's take a look so now as you can see
+what I'm going to do is let's say uh we
+have our game all right so of course we
+have a little platform we have our
+person here with his eyes and his nose
+and a mouth and we have our obstacles
+all
+right now let's see what parameters we
+have now if we were to feed some sort of
+data from the game into the Neal Network
+what would the data be okay so let's see
+we have the current speed at which this
+uh which the obstacles are running
+towards the ninja so we have the
+speed that's one of our
+parameters we have I don't know the x
+value of the nearest
+obstacle and that's pretty much it
+actually uh for this game I mean there
+are a few more like the X obstacle uh
+the x value for the OB for the obstacle
+on the opposite side
+but I'm not going to get into that
+because that could get a little bit
+complicated with the training so I'm not
+going to get into that just
+yet uh in fact I'm actually not even
+going to get into the speed today all I
+care about is the x value of that
+obstacle let's take a look at what I
+mean now let's say we have a neural
+network with one input no more inputs
+just one input then we have a hidden
+layer okay now this isn't just these
+many neurons we have a hidden layer of
+300
+neurons and so this input layer will
+connect to each and every single one of
+these neurons and there of which there
+are like
+300 okay and then we have one output
+from which each neuron will connect two
+again so essentially we have 300 Hidden
+one input one output now how would this
+work so our input is the x value of the
+closest obstacle and our output is
+whether to not whether or not to flip to
+flip or not to
+flip if it is over if this output value
+is greater than
+0.99 we consider that yes we do want to
+flip if it's less than 0.9 99 then it's
+a no we do not want to flip our
+character and that is essentially how
+it's going to work but what's going to
+happen is I'm going to play this as far
+as I can without it getting too fast and
+right as I stop playing or right as I
+lose the neural network will kick in so
+essentially while I'm playing I've
+created uh I've edited the code a little
+bit of this game actually quite a bit uh
+and so essentially it's going to collect
+data of how I play and it'll clean up
+the data and sort of it'll organize that
+data after that it's going to use uh the
+an API from Colin Hundley is GitHub will
+be in the description as well as Michael
+leeches and so essentially uh it uses an
+API from Colin Hundley called Swift AI
+which has a neural network library
+essentially a neural network neural
+network API and so it's going to feed
+that data into the neural network then
+the neural network will back propagate
+back propagate back propagate train
+train train test test test until it
+reaches an error rate of under
+0.01 once it reaches that error rate we
+know that we're ready to let the neural
+network play the neural network will
+then run into action and it should be
+able to play almost infinitely unless it
+gets fast to the point that it's unable
+to like it doesn't even appear on screen
+it gets that fast which I could solve
+technically by creating a maximum speed
+but for the first version this is pretty
+good
+anyway though so this is essentially how
+our final application is going to work
+it looks like a simplification here but
+trust me it's not this simple but I'm
+here to make it simple for you so I hope
+that by the end of this you'll either a
+be able to implement this into uh this
+Nimble ninja game by yourself or B be
+able to implement it into your own game
+in fact I'm working on implementing this
+neuron Network technique to much much
+more advanced games uh hint apple
+picking uh but anyway you'll be seeing
+more of that on my YouTube channel later
+but for now this is what I'm going to be
+explaining to you hope you like this
+part again thank you very much uh but
+now the rest will be explained in part
+two when I explain to you how you can
+use these neural networks to play Nimble
+ninja again thank you very much uh if
+you lik the video please make sure to
+leave a like down below if you think it
+can help anybody else please do consider
+sharing the video and if you really like
+my content and you want to see much more
+of it please do consider subscribing to
+my YouTube channel as it really does
+help out a lot uh one more thing if you
+have any questions suggestions or
+feedback you can leave it down in the
+comments tweet to me at tajim Manny or
+email me at tajim Manny gmail.com in the
+next video you'll be seeing the source
+code and in the description of the next
+video there will be a link to the source
+code on GitHub anyway then goodbye I'll
+see you in part two
+goodbye

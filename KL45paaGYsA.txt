@@ -1,0 +1,596 @@
+so hello there and welcome to a tutorial
+my name is tender-back xin this time
+we're gonna be going over something
+really interesting I know you're all
+gonna love it and this app is really fun
+to test you because this is cold v he's
+in tic-tac-toe and you'll see exactly
+why I chose teasing for the word in just
+a minute
+the reason I chose teasing is because
+well let's take tac toe game it's
+impossible to beat you can only draw
+with it and you can only lose against it
+so let's get straight into it I'll
+explain all the rules that falls the
+basic algorithm it has and then we will
+get straight into the code where I will
+explain and I'll also give a little demo
+and then I'll explain the code if you
+can find any way to beat this game make
+sure you tell me either in the comments
+or mail me mail me my mail is tangent
+Manion gmail.com and that will be in the
+description if you don't understand that
+so please tell me I will include a fix
+in for that in my algorithm but let's
+get started and as you can see here I
+devised seven rules in tic-tac-toe these
+are from Wikipedia link to this will be
+down in the description below not
+exactly sure who wrote this but that
+will also be in the description but
+these seven rules will help the computer
+decide exactly what it needs to do on
+this turn of its tic-tac-toe game so as
+you can see the first rule is if you can
+win win don't do anything else
+don't walk your opponent from winning
+just wait if you can win because you're
+gonna end the game anyway and you would
+have won next if your opponents about to
+win block him from winning third if your
+opponent tries to fork you block his
+fork before he can and this doesn't
+really apply to my algorithm because
+it's really complicated but the rule for
+humans is that fork the other player if
+you could possibly could and if you
+can't do all of these strategies then go
+for the center if the center is taken
+then go for the corners if the corners
+are taken then go for the sides so I'm
+gonna be sharing with you first of all
+have an example of all the first the
+first four rules actually the first
+rules that the computer would use and
+also just as an addition the fourth rule
+that the human would use and then these
+five six and seven rules I will explain
+with an example game that I actually
+played with the computer and I'll
+explain all of its logic and reasoning
+behind what the moves it did so let's
+get started here I'm gonna start off
+with rule number one which is if you
+can't win just win don't bother doing
+anything else so as you can see me here
+we have a board and I'm just going to
+start let's just say X is over here and
+X isn't the most smartest of opponent
+see it's a really new take back to a
+player he hasn't played many games about
+oh he's a really seasoned experienced
+player so it isn't really a fair match
+so let's just say all goes for the
+center like most normal and most really
+good take back to hers no that's where
+you get the best moves so then let's
+just say X goes over here for some
+reason
+now all we'll try it's best to go here
+now what's gonna happen is let's just
+say oh again isn't the brightest and he
+doesn't realize that oh is threatening a
+three X will play over here by mistake
+Oh we'll play over here and win so this
+is one of the examples if you can win
+just win don't do anything else just win
+that's it
+apart from that we have the second rule
+which is if your pony can win make sure
+you block him let's just give a little
+example this let's just say X plays over
+here let's just say maybe old plays over
+here or actually no I'm going to say X I
+mean o plays over here okay now let's
+just say X plays over here okay now X
+can win like this so oh it's gonna play
+over here now okay one like this so X is
+gonna play over here and the rest of
+this game would probably end in a draw
+unless one of them can think of
+something really smart to do or if one
+of them makes a really foolish mistake
+after that we have if your opponent
+tries to fork you block that opponent
+from forking so let's actually see how
+this works
+so the basic fork strategy that I've
+learnt is that you choose a corner look
+around it
+try to fill these and try to fill the
+inside then try to essentially kill it
+then you actually do have two openings
+here and then your opponent can't block
+and just in case you were wondering
+exactly what fork is let me explain that
+to you right now a fork is when you have
+two openings in six Actos that you could
+possibly win and forking is actually one
+of the most challenging tactics first of
+all but it's also the best tactic if you
+want to win and this to me doesn't work
+if you play with one player because they
+will eventually find out what you always
+do in a game and they're always they're
+gonna know how to actually go against
+you so that's why this is really good
+against new players who really don't
+know much tic-tac-toe that they don't
+have enough experience they don't know
+what sort of trick you're doing on them
+but they do make lots of silly mistakes
+so let's just start here let's say X
+wants to win this fork let's just give a
+proper example of forking and that X
+wins with this fork so X will start here
+and since o is a pretty nice player
+he'll say that ok you didn't go for a
+corner or a side or the center so that
+means you're bad at this so then all
+would just get really overconfident and
+he'll just place his over there okay
+next X will play over here Oh still
+really thinks that he's a master of this
+thing and he just plays over here okay
+oh it doesn't realize it but if X were
+to play here now you would have two ways
+for him to win so X will play here and
+now X can either place here or here in
+his next turn and he would always win so
+now there's zero possible ways for o to
+win I guess for example o goes here X
+place here in wins and let's just
+recreate this quickly when this and
+let's just say again oh there's this now
+for example o will play here X will play
+here and win so no matter what this fork
+attack will always work against almost
+always work against newer players and it
+you really works it's a really good
+tactic but thing is our computer as I
+said is
+it's smart enough or at least I didn't
+program it because that would be a lot
+of code to actually fork however it can
+defend against support attacks I'm
+wondering how does it defend against a
+fork attack well let me just tell you
+right now the way it defends is let's
+just say it's going to look at all of
+these corners and it'll check around
+them if any two are filled up then just
+fill up those corners immediately
+so for example let's just say X is over
+here o which it's a computer will
+automatically go here because as you can
+see taking the court says Center is its
+top priority as long as there's no other
+strategies possible so it'll take the oh
+in the center and then what will happen
+X will go over here trying to over smart
+pickle or outsmart the computer but then
+over around this and create this little
+thing this means that these two are
+basically wasted now they can't really
+fork anymore you could also go like this
+but then again it would go this and then
+it's basically almost a tie game now and
+as you can see o has also created a fork
+oh I've gone here in one but it's just a
+bit more fun to do this so as you can
+see now there's a fork for oh he can
+either go like this or like this so
+let's just say he decides to go like
+this and Oh will win no matter what here
+so that really sums that up now in order
+to explain the rest of this I don't want
+to give you lots more examples so I'm
+gonna do is I'm going to explain an
+actual example game that I played with
+the computer and I wanted to explain
+exactly what the computer thought behind
+every single move it did now let's get
+started I'm X the computers Oh so as
+tic-tac-toe convention says I will be
+going first because I'm X so I always I
+take the center first usually okay I
+took the center now the computer is like
+okay this i connect I can't use a
+strategy it'll that's just out of the
+picture so what should I do now I can't
+take the center I should take a corner
+so it picks this corner over here so
+that's what the reasoning was
+behind this corner they've picked after
+that I decided to place an X over here
+this allowed me to threaten an attack
+this way
+on a diagonal but then the computer
+realized that and put an O there this
+means that the computer found out that I
+was about to win so it blocked me from
+winning then what's gonna happen is I
+just place an X here and at this point I
+you I placed an X here in order to block
+these two O's from meeting I did not all
+realize that I had just created an
+opening for me to win so what happened
+the computer did realize that so it
+tried to its best to block me over there
+and so I actually wondered why didn't it
+just go for this corner why did it have
+to go up here then I found out that okay
+there actually wasn't opening for me to
+win and so it chose this so I I don't
+win and then what happens is that I
+threatened an attack like this over in
+this way and then what happens is the o
+decides to block here and then over here
+so it becomes a tie game no one wins the
+computer is amazing at this so now we
+will be getting into the Mac part again
+if you find any way to beat this please
+mail me at tad you manage gmail.com my
+mail will be in the description yeah
+let's get to the Mac parts and you can
+also comment it down those in the video
+comments and yeah let's get to the Mac
+part so welcome to the back part of the
+video and now we will explaining the
+code and giving a life's little demo so
+now I will be giving you a demo and
+let's start so as you can see this is a
+blank UI and I'm just gonna start in the
+center as most good tic-tac-toe players
+do I guess start in the center the app
+will automatically put it over here I'm
+just gonna click over here now and it
+the text that I'm about to win and it
+blocks me from winning
+because it doesn't want me to win of
+course I'm gonna close it here again
+blocks me from winning now there's no
+way either of us could possibly win I
+mean I could do a diagonal but of course
+it's too smart and then of course this
+will actually try to win but then I just
+do that
+and we're gonna draw so then I can just
+continue reset let's just play one more
+example game all right here as you can
+see it went concentr immediately because
+it really asked you and then it tried to
+block me here I'm gonna block it here
+it's going to try to well it just took
+this corner because there was nowhere
+else for it to go I mean it could have
+gone when they here but it isn't smart
+enough to do that yet as you can see
+then we can block it yet but I mean this
+app will always either end up in a draw
+or a win for the computer so this is
+pretty nice and easy but let me just you
+know at the whiteboard I gave you that
+little example game I'm just going to
+recreate that here so you can actually
+see the app doing it so let's just start
+as you can see the first move that I did
+was play in the center the app will
+automatically play here next I played
+over here threatening an attack over
+here so that I could win but then the
+computer blocks and also makes a way for
+it to win on its next turn however I
+block that and I create a little gateway
+for me to win and I didn't even realize
+this but the computer did so if place
+down and oh here and block you from
+winning next I place down an X here
+threatening over here however in place
+down and oh and as you can see this all
+could either continue extend or I could
+just place it here and we end in a draw
+of course because the computer is smart
+enough to know exactly what move to do
+at what time so that we either end in a
+draw or a win so now we can reset and
+I'm going to continue with explaining
+the code so as you can see we have
+classroom control and we have 9 IB
+outlets for each UI button these are all
+UI buttons if you didn't know already
+each one of these I guess ok
+so apart from that we have our reset
+button and output label also which I
+will just quickly show to you this is
+the output label this is the reset
+button the reason we create IB outlets
+for this because we need to hide and
+show them next we have the game over
+which
+tells us if our game is over and we also
+have our plays array or a dictionary
+which is an INT dictionary which will
+store all of our grids and their status
+and if you just come over here quickly
+you'll see that this is the entire
+dictionary in its full form so there's 0
+1 2 3 4 5 6 7 8 for each ID for each
+little grid or block next we have a
+timer this timer will set the correct
+colors for each little square every 0.01
+seconds that's like 0 1 what's after
+milli it's forgot after 4 millions so
+it's 1 millisecond basically and then
+what it's every one millisecond it's
+going to look at it and it's going to
+say ok I'm sorry every 10 milliseconds
+and so what it's gonna do every 10
+milliseconds it's going to set each
+correct color over here so this one will
+be green this one will a black and some
+lemon red because all those are so to be
+read all greens are to be all acts as a
+social green and all underscores this
+will be black so then let's get back to
+our buted load we are resetting our
+entire grid being also set and then we
+are setting the timer to every 10
+milliseconds I will change the colors or
+it will actually execute the function
+change colors with no user info and make
+sure our piece then we have our change
+colors function as you can see pretty
+simple it just sets the color for each
+button depending on which button it is
+then we have a button clicked function
+this is called whenever we click on one
+of these grid buttons and depending on
+which button it is it'll take out the
+button ID and it will essentially just
+take that button ID set the it'll check
+ok
+if look if the grid the specific little
+node at that ID already has an O do not
+give it X if it's blank then give it X
+so that's how it works over there that's
+what we're doing then we're checking if
+it placed the X then you want to reset
+the view check for a win on both X and O
+then do an AI turn and also reset the
+view again the reset view just sets all
+these texts for the buttons correctly as
+you can see next we have the check for
+win function or I have the check for win
+function and so what we're checking if X
+wins anyhow meaning they win by doing
+this this this this this this or this or
+this then it will tell us the X 1 and
+just stop the game or it'll do the same
+thing for o and it will also do the same
+thing for a drop so it'll check if
+there's no blank squares and no 1 1 then
+it's a draw obviously after that we have
+our reset view the reset mute function
+sorry and inside of here we are checking
+if the game is not over then we want to
+set the correct title depending on what
+Square is currently on meaning if
+buttons 0 has the ID for plays 0 in the
+dictionary then if that plays 0 is equal
+to 0 then give it the O if it's 1 then
+give it X or else just keep it the same
+after that we had our reset clicked IB
+action what that means is it will just
+call the reset function and then the
+reset function as you can see we are
+just going for I in 0 8 meaning 1 2 9
+and I guess you could call it plays I is
+equal to negative 1 meaning we are
+complete we are creating dictionary from
+0 to 8 with each value being minus 1
+then we are sending each buttons titles
+to just underscores as as simple as it
+possibly could be because these are just
+little placeholders so that you can
+actually see how it works
+then we are just setting game over to
+false we are hiding the reset button and
+we are also hiding the output label then
+what an AI does turn this is where
+things get interesting and as you can
+see from this Wikipedia page this is the
+entire steps that Wikipedia gives you
+and so I'm skipping two of these in my
+program the first one is number 3 and
+I'm also skipping number 6 so instead of
+checking for basically I just check for
+corners I don't check if I want to go to
+the opposite corner I just check four
+corners themselves that's it so that but
+I mean it's still so far it works
+perfectly it can only draw or win a game
+so I don't really need to implement them
+anyway so apart from that this is just
+mainly a human strategy if you think
+about it but for computers this is more
+than enough to be drawn okay so the ad
+does turn and also just one more little
+piece of fact there's a variable called
+current move which is the move that the
+AI currently has in mind to do so it's
+going to start by checking the last rule
+it's when to check for an empty side if
+there's an empty side the current move
+will be one of those empty sides then
+it'll check for empty corners if there's
+an empty corner it'll be one of those
+empty corners it'll continue like that
+and keep sitting at the current move to
+the best move that it thinks it's
+currently possible then when it gets to
+the end it will do that move and so if
+the winged move is the best move that it
+could do then it'll just the win if the
+fourth is the best well it can't do a
+fourth if blocking an opponent's fourth
+is the best things we can do then it
+will do that if the center is the best
+if the empty corner or on the side of
+the best it'll always do that so far
+from that that's really all we have to
+do there so as you can see first we are
+creating the current move burial which
+is a blank integer and then we are
+playing the sides meaning we want to
+check if there's an empty side and if
+there is and you want to play to that
+side so we want to check if plays one
+meaning the first side is and
+set it to 1 etc etc for all sides and
+set them so that me want to check if
+this core is available if there are of
+course use the corners then we want to
+check if the center is available if it
+is music because that's usually a good
+tactic then we want to block forks if we
+detect a user trying to fork us well we
+just block it so that they can't then we
+want to check if the user can win and I
+will tell you more about this code in
+just a minute if they can then try your
+best to block it and if you can win just
+immediately win because obviously it's
+gonna end the game no one else can win
+and you've already won then we want to
+actually play the move if there is a
+move meaning it'll only play the move if
+there is a move meaning if there's no
+squares left to be filled it won't do
+anything so here we are playing the move
+so we're checking if let nothing is able
+to current move meaning we have a move
+then plays the current move is equal to
+zero meaning set it to an O and then we
+want to reset the view check for a win
+and then you south of you again now as
+you can see these two little if
+statements are quite different from the
+rest because these are using a flat
+statements
+let me explain them first of all let's
+see block the user if they can win
+basically this is going to set a
+constant called win available to two in
+our row which is a function I created
+and it'll check if X has two in a row if
+it does then you want to set the current
+move to that when that's available for
+them meaning it will try its best to
+block it however if you can win meaning
+there's two in a row for o then you want
+to set the current move to the way that
+you can actually win because that will
+end the game and you will also one so
+then we can actually play that move as
+you can see I've already told you about
+that code but let's see the two in a row
+function as you can see this function
+takes the players of string and the an
+array as two as a dictionary of intent
+and so this is pretty simple
+I mean it's nice it's an integer or
+dictionary and as you can see this is
+how it's actually gonna look inside of
+the program the reason I had this
+dictionary is because I had a custom
+array feature before but then I didn't
+really use it so I just still have it
+there and this will return an optional
+aunt and my default this will return nil
+and so what'll happen is if the player
+is X then you want to check every single
+possible almost every single possible
+combination that X could have tuner like
+this one this one or this one
+and we want to do that for every single
+one except for a few which I'll explain
+later and then what's gonna happen is
+we're also going to check for oh okay so
+then that's there so we're checking
+every single possible combination for a
+two in a row
+that could possibly be there and then
+after that it just returns the blank one
+so for example if let's say o has an
+opening at 1 4 7 meaning that this and
+this are occupied but this one is free
+meaning we just draw it out for you
+these two are occupied but this one is
+free that means it will return 7 because
+then we can move to 7 and win so that
+just proves that that really understands
+how it will have to use its moves and
+then apart from that but it's really
+simple and now if I were to run this one
+once more we can just do one more sample
+game let's just play a little bit more
+smart this time so I want to play the
+center so it doesn't get an opportunity
+to attack me from the diagonal then I'm
+going to play this corner then I went to
+play on over here so it cannot beat me
+then of course the plays over there for
+some reason
+oh yeah so it blocks me then I'm just
+going to play over here item Li and play
+over here as you can see it's a job
+because the computer is so smart even
+look human can't beat it and that just
+means it's really smart so yeah that was
+the app now let's good for the ending of
+so the source code will be down in the
+description below you can feel free to
+run through that I didn't really tell
+you yet
+there might be a few witches with this I
+have written tested this but if you can
+find any glitches in this whatsoever
+please leave it down in the comment
+section below
+you can also email me at Tai Chi manage
+email comm my email will be in the
+description below if you didn't
+understand that and yeah if you send it
+to me I may just feature your comment or
+email on my next video because I mean I
+want to tell people that you're pretty
+smart that you found that glitch and
+also you deserve it because I could not
+find any glitches whatsoever with this
+my family couldn't find it my friends
+couldn't find it so that's pretty much
+foolproof if you can I'll give you a
+shout-out great and yeah that was that
+source code will be down in description
+feel free to run through it use it in
+your own app I yeah subscribe feed to my
+channel and you like my content you'll
+see more of it like my video if you
+liked it and yeah comment if you have
+any suggestions or any questions you can
+even email me at tad you mana at
+gmail.com I'm email will also me down in
+the description and that's it goodbye

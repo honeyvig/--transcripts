@@ -1,0 +1,729 @@
+so hello there and welcome to another
+tutorial my name is tammy bakshi and
+today we're going to be going over how
+you can build your own llvm function
+passes to modify your code at compile
+time using the llvm compiler
+infrastructure tooling uh now this is a
+follow up video to my existing video on
+the llvm compiler infrastructure once
+again if you'd like to learn more about
+what llvm is why it exists what it
+enables you to do please do check out
+that first video but if you're already
+familiar with what llvm is and you want
+to get started actually building your
+own function passes and your own
+extensions to the compiler then this
+video is for you now before i do get
+into this i do want to start off by
+saying that if you enjoy this kind of
+content you want to see more of it
+please do make sure to subscribe to the
+channel as it really does help out a lot
+and turn on notifications you're
+notified whenever i release videos like
+this one today apart from that like the
+video if you enjoyed it and if you have
+any questions suggestions for feedback
+leave it down in the comment section
+below and i'd love uh to get in touch
+now diving right into what we have to
+show today once again llvm just as a
+quick recap is as i've said before
+compiler infrastructure so say for
+example you're developing a swift
+compiler or a rust compiler a c compiler
+pretty much any language instead of
+building the entire compiler yourself
+taking all the way from your high level
+code creating an abstract syntax tree
+creating an intermediate representation
+then finally exporting machine code
+instead of having to go through that
+entire pipeline you can actually skip
+the entire backend portion by using llvm
+what it enables you to do is take your
+language effectively translate it into
+one sort of universal yet very low level
+representation which they call llvmir
+intermediate representation and then
+pass that over to the llvm compiler the
+llvm compiler
+will then go ahead and take your
+intermediate representation run a bunch
+of industry standard optimizations on it
+and then go ahead and export for you
+machine code to a variety of different
+architectures all the way from x86 and
+arm to power and ibm z and so much more
+now llvm is super useful because it
+enables things like for example code
+reuse right so one language like swift
+for example thinks of an incredible
+optimization for code well them
+implementing that optimization into the
+llvmir stack suddenly benefits a lot of
+other languages as well and because of
+this code is a lot more portable too
+like for example rust right rust has two
+other intermediate representations
+before it goes to llvm that are rust
+specific enabling it to do rough
+specific optimizations but it still
+lowers down to an llvm layer where it
+can then be compiled to any of the
+target architectures that llvm already
+supports this makes it so it's a lot
+easier for developers on the compiler
+team to support tons of architectures
+without a ton more work
+now what's uh the way that llvm works
+right the way this sort of architecture
+is
+is there are individual what they call
+passes that llvm will run on your ir
+during the compilation phase so for
+example if you wrote c code you're
+compiling with clang and you use dash o
+fast it'll use pretty much every
+optimization it can right so you're
+telling clang hey use the highest
+optimization level possible what that's
+doing is it's telling llvm hey of all
+the different function passes and module
+passes that you have there's even more
+like loop passes run them all on this
+code not necessarily all of them but a
+lot of them on this code
+to modify it in such a way that we
+believe would make it faster right so
+for example some passes could be
+responsible for uh taking a function
+call to a very small function and
+inlining the function content right that
+would be a function pass you're looking
+at functions that are being called
+seeing if you have the available code
+for it and if you do in lining that call
+another thing might be for example a
+loop pass to be able to fuse together
+multiple different loops in order to
+avoid extra branching and instructions
+right so these passes are responsible
+for taking your ir analyzing them trying
+to find patterns that they believe would
+be slow and optimizing them by
+introducing different sets of code that
+should have the exact same behavior and
+result
+but should be able to do it in a more
+efficient manner that's the point of
+these passes
+now not all passes have to be
+optimization passes some passes for
+example can be for analytics or for you
+to insert instrumentation into your code
+and as an example today i want to show
+you how you can build a function pass
+that will enable you to insert
+effectively arbitrary code into any
+function except this specific function
+pass will take every function and every
+single time a function enters it'll
+insert a print statement printing out
+the name of the function that just
+entered and it'll also print a number of
+how many times that function has been
+called in this specific invocation of
+the program so let's go ahead and take a
+look at how you would do that um as you
+can see over here
+i've got my terminal window open um and
+we we i've just opened up a simple
+docker container i've already installed
+llvm it's a reasonably straightforward
+procedure to do so especially on linux
+so there will be a link to the
+description link in the description down
+below um to the llvm compiler tooling
+and how you can get started
+by installing it
+and sort of getting a development
+environment ready and set up
+i built it from source personally since
+i found it easier to install that way
+but there are other ways to install
+pre-built versions as well
+now in this directory i've got a pretty
+simple c plus plus file open up here
+and the c plus file is what's going to
+enable us um to run our function pass
+this is the source code for the llvm
+function pass that i was talking about
+um it's actually not too bad um and it
+sort of split up into a couple of main
+sections the first one is our
+initialization so literally just you
+know simple includes and using
+namespaces um then of course is the
+actual function pass sort of you know
+what you really need to worry about is
+lines 20 through 45
+and then after those lines
+are the lines that we use to register
+the function pass with llvm to tell it
+how to invoke this function pass
+i'll get into sort of the structure of
+this code in just a moment
+really quickly though to begin i do want
+to sort of prime you to what you're
+about to read before we actually dig
+into it
+now as i've taught uh different people
+how to work with llvm and honestly even
+other compilers or even interpreters
+like the python interpreters python
+interpreter i've noticed that one sort
+of common thread that is kind of
+confusing when you're starting to work
+with this technology
+is that you have to really keep in mind
+that you are not necessarily just
+writing code here you are writing code
+that is responsible for writing code
+that's a very important distinction to
+keep in mind right like for example as i
+was explaining the global interpreter
+lock to um to to someone who had a
+question uh in in in python which by the
+way is effectively a mutex that makes it
+so the python interpreter can only ever
+run one thread at a time so in python
+multi-threading is technically i mean
+multi-threading but you're only ever
+running a single thread at once anyway
+that's a different discussion you know
+it's sort of hard to understand um from
+a high level at least why these things
+are necessary before you really think
+about the fact that you're talking about
+programs that are responsible for
+executing or writing other programs
+right so
+as you're looking at this llvm function
+pass here really keep in mind that what
+we're doing here is we are writing code
+to write code right so for example if i
+say we are inserting a function call i
+don't mean we're actually calling a
+function we are writing instructions we
+are calling llvm api functions that are
+responsible for inserting an actual
+function called instruction into code
+that we'll be compiling later on that
+uses this plugin right
+that's really important to keep in mind
+now heading back over to the actual uh
+function pass here
+as i mentioned we start off with some
+simple initializations so we have some
+simple includes um and also by the way
+this is c plus code but you can write
+llvm code in other languages as well
+there are bindings for languages like
+swift and i believe also safe bindings
+for languages like rust in case you're
+into that um if you'd like
+i can also work on a youtube sort of
+video series on building some more of
+these uh
+more of these like llvm passes in
+languages like rust that i think would
+be a lot more fun so let me know if
+you'd like to see those tutorials
+now moving a forward from here again
+simple c plus plus stuff using the two
+namespaces lvm and std that we're going
+to need
+and this is where the fun part starts
+now we get to actually create the
+function pass
+now what we're doing here is creating a
+simple structure called runtime print
+function call count pass
+rules right at the tongue um and it's it
+it's it's right it's derived from uh the
+function pass uh that comes from the
+llvm api so function pass comes from
+llvm we're saying that this uh structure
+sort of inherits from function pass
+we create a super simple initializer
+that literally just takes an id
+this initializer is never called by you
+right you never initialize this
+structure yourself
+that's done by llvm when it's invoking
+your function pass which is why we're
+just sort of following boilerplate here
+effectively
+next is a function that you're supposed
+to sort of like overload here it's
+called a run on function now the run on
+function function
+again kind of difficult to keep track of
+uh you know
+what exactly here is code that we're
+writing versus code that's being invoked
+but the run on function function is a
+function that will be run on every
+function in your llvm module
+so
+what this means is when you're compiling
+for example a c file with clang
+and you tell clang to use your function
+pass
+it will internally take every
+llvmir function
+pass that as an object to
+run on function within your pass right
+so this takes a function this is not
+like an actual function pointer you
+can't actually call this this is not
+fully compiled it is
+an object that contains the llvmir for
+what you are currently compiling right
+this is not an actual function loaded
+into executable memory this is a
+sequence of llvmir instructions in an
+object that you can now mutate or
+analyze however you wish
+um now what this function does to start
+off with is we simply get the llvm
+context that we're dealing with and this
+gives us like compile information and
+then we go ahead and um take a look at
+what module we're in right so we want to
+figure out you know this llvm function
+that would that we've been passed what
+is the larger module that it's a part of
+which effectively you could think of as
+the file of code that you're compiling
+um using llvm
+the next thing that we do is we start
+initializing a couple of variables that
+are necessary for what we actually want
+to insert remember we want to insert
+into the beginning of every function a
+call to printf to make it print what
+function has just been called and also
+how many times it's been called in order
+to do so we need to know the signature
+of the printf function
+to get that signature is kind of
+complicated so like in an actual c file
+what you would do is you would
+you would probably just include stdio.h
+but if you didn't want to use that
+header you would actually write
+a function signature uh something like
+uh int um printf
+const car
+um
+str like so
+um and then it takes like variatic
+arguments like so right so you would
+write something like this
+um in your uh in in like a header file
+somewhere in order to tell see that hey
+somewhere there's going to be a function
+called printf and you know your linker
+can deal with it later um but the
+problem is that we're not actually
+writing that c code right now we are
+writing llvm code um that needs to or
+rather we are using the llvm api to
+write llvm ir code
+so what we have to do is we have to
+formally create a function type object
+from the llvm api tell it that the
+return type is an integer 32 type also
+coming from the llvm api and the only
+argument is an 8 bit integer pointer
+type
+um this means the character pointer
+because characters are eight bit
+integers um and of course true here
+means that this is a variation function
+it takes you know an arbitrary number of
+arguments after the ones that have
+already been specified in this set
+once we've got that function type we
+actually go ahead and sort of create
+that signature with a name right so this
+over here
+is telling the module to either get or
+insert a function named printf of this
+type so what that's going to do is if a
+signature for this already exists within
+the module you'll be returned this
+function kali object that allows you to
+insert like for example function calls
+to this function callee
+or if it doesn't exist it will be
+inserted into the module and then passed
+back to you
+and that is what enables you to figure
+out what printf is and how to call it
+next thing we got to do is actually
+start
+inserting code um
+now once again the entire point of this
+is that we want to print out the name of
+the functions
+now the way we're going to do this is by
+starting out
+by actually getting the name of the
+function so we get the llvm function's
+name using get name this gives us a
+special type called called an llvm twine
+which we then convert to an actual c
+plus plus string just to make it easier
+to deal with
+and then i also create a new string
+which is a function name with underscore
+call count appended to it the reason
+we're doing this is because another
+thing we want this pass to do is keep
+track of how many times each function's
+been called the way i do this is by
+using a global variable called function
+name underscore call count by default we
+set it to zero and every single time a
+function is called it's incremented
+before being printed
+and so what we then go ahead and do is
+tell the module to get a global variable
+with the name function name plus
+function call variable name
+now
+here's the thing
+unlike this line over here if the global
+variable doesn't already exist it's not
+going to be inserted and so if this is a
+null pointer if this doesn't return to
+us an actual global variable we need to
+go ahead and create this global variable
+and then
+use it from there so what we do
+is if this is a null pointer we create a
+new global variable class instance we
+pass it the module that we're a part of
+so it knows where to insert the global
+variable we tell it that it needs to be
+a 32-bit integer type
+we go ahead and give it common linkage
+we give it a default static initializer
+value of zero and we give it the correct
+name
+now that i think about it technically
+since we're already appending call count
+we don't need to be doing it here once
+again
+we also then go ahead and once again set
+the initializer of function call count
+uh to a constant integer of zero right
+so we're just making sure that this
+value is set to zero by default
+now after we've gone ahead and created
+that global variable we can go ahead and
+actually start inserting some code this
+is the fun part so the first thing we do
+is i mean functions being effectively
+collections of instructions are
+iterators in c plus and so what we can
+do is go ahead and take a reference to
+the function that we've been passed and
+get the front which is the first you
+know thing in the iterator so get the
+first thing in the iterator and get the
+first thing from that because what it
+returns to us is also an iterator why is
+that well once again it's because llvm
+code is built up of basic blocks so
+you've got functions that consist of
+effectively an iterator of basic blocks
+each basic block is an iterator of
+instructions so what this is doing is
+it's getting the first basic block from
+the function and from the first basic
+block we get the first instruction this
+is the first instruction that is
+executed on the entry point to the
+function we then go ahead and create an
+ir builder instance on top of this first
+instruction enabling us to insert code
+just before this first instruction
+now what code do we want to insert you
+may ask well
+pretty simple we got to do a load add
+store operation what we have to do is we
+have to load the global variable that we
+created in the llvm module because if
+you think about it global variables kind
+of need to be pointers it doesn't really
+make all that much sense for there to be
+a global variable here that isn't a
+pointer so we have to load that pointer
+value
+from the global variable
+once we've loaded it
+we can go ahead and add one to that sort
+of local register value within the
+function right so we've loaded that
+memory address into the function to a
+local register we can add one to um that
+loaded value locally and then we can go
+ahead and store that new register value
+into the global variables memory address
+so once again llvmir is in ssa single
+static assignment form so we can't just
+say you know set the previous register
+to itself plus one we have to create a
+new ad instruction um that will run the
+ad and give us a new value register um
+that we will then go ahead and store in
+the memory in the existing memory
+address that we have for the global
+variable now
+even though llvm obviously has this
+infinite register architecture cpus
+don't and so llvm code is heavily
+optimized away when being translated to
+actual machine code
+um
+values aren't just kept around for no
+reason they're you know gotten rid of
+when you don't need them anymore that's
+sort of the advantage of the ssa format
+is it's very easy to determine these
+things
+uh then all we got to do uh is is sort
+of figure out what string it is that we
+want printf to actually print and in
+this case what i wanted to print is the
+function name plus uh or plus a space um
+and then the percent d which is the
+format specifier for a 32-bit integer
+and then a new line character the reason
+we want to do that is because the way
+we're going to invoke printf is with the
+number of calls as a separate argument
+so that we only need one string um for
+to invoke printf with and then from
+there we can just pass different
+arguments to printf in order to get it
+to print the different strings based off
+of the call count
+so i then go ahead and take this string
+of the function name plus the format
+specifier create another global variable
+out of that string and then we create a
+call instruction to the printf function
+that we created up here on line 24
+and we pass it two parameters we pass it
+the pointer to the string that contains
+you know what it is that we want printf
+to print of course and then the added
+call count which is this register over
+here that we're reusing after we used it
+for a store operation um in order to
+get it to
+print the call count after it's been
+incremented so we don't need to do
+another load we can just use the added
+value that we had then stored into the
+global variables memory
+address now from there of course there's
+just some pretty simple registration
+code effectively what this is doing is
+it's telling llvm
+how to call the function pass and the
+fact it's sort of registering the fact
+that it exists right so for example
+calling it to register pass with the
+structure that we created uh
+and some parameters here enables it to
+understand how to call the function pass
+in particular this argument for example
+is the actual command line flag you
+would need to pass to clang in order to
+invoke this function pass
+if you were to not pass dash rpfcc to
+clang when compiling it wouldn't
+actually use the function pass that you
+just built so let's go ahead and take a
+look at what it looks like to actually
+use it
+so the first thing i can do
+is go ahead and compile the actual
+function pass
+so all this is going to do is it's going
+to take the c plus code compile it
+and export it to a shared library now
+this shared library is something that
+you want to pass to clang or technically
+to llvm when it's compiling your code
+alongside the dash rpfcc flag and what
+that's going to do is when llvm is
+compiling it's going to load this shared
+library the static registration code at
+the end is going to execute telling llvm
+that exists and then when llvm sees your
+command line flag eventually it'll go
+back and realize that hey this flag is
+associated with this function pass and
+it will make sure that it's invoked at
+the right time
+and how convenient i've also got a
+little piece of example code here for us
+to check out
+this example code is very much a classic
+it's a simple factorial function uh that
+enables us uh to see how many times the
+and when we run this we'll be able to
+see how many times factorial and main
+are called all we're doing with this
+code is printing the factorial of 5
+recursively it's not particularly
+complex
+if i were to compile this normally which
+of course is possible
+we'll just see 120 which is indeed 5
+factorial
+so as you can see that does work now
+i've got a bit of a build script ready
+here and the build script really just
+has three steps the first one is to take
+factorial.c and compile it to another
+file called factorial.ll
+ll is the file extension for llvm ir
+code and if we take a look at it we can
+actually see what llvmir the c code
+translates to as you can see it's kind
+of understandable and readable as to
+what it's trying to do but it's very
+clearly not high level right it still
+does require some analysis to really
+understand what's going on
+but overall it's better than assembly
+and it's not architecture specific so
+that's a plus
+now what we want to do is we somehow
+want to modify this llvm ir code um
+using the llvm opt utility what we're
+going to do is we're going to tell the
+opt utility to load this um
+this shared library that we compiled our
+function pass into and then we're going
+to pass it the flag to actually invoke
+that pass and we're going to pass it
+factorial.ll and tell it to once again
+output llvmir uh to a new file called
+factorialopt.ll
+now if we take a look at this code as
+you can see there have been some
+modifications completely automatically
+some of these modifications include the
+addition of these four global variables
+factorial call count which is how many
+times the factorial function's been
+called main call count which is the same
+thing but for main as well as these two
+unnamed global variables 0 and 1 that
+are used as the actual format strings
+for printf to know how to print the
+names of factorial and main as well as
+their call counts as you can see in the
+sort of beginning of the factorial
+function we've added four instructions
+we've added a load of the global call
+count variable and add to it a store
+back to it and a call to printf to tell
+it to actually do what we wanted to do
+print the function call
+from there we also see very similar
+additions to the main function and that
+is what our function pass just did if i
+were to go ahead and quit here i can now
+run this final clang command to take the
+llvmir and output an actual binary from
+it and
+theoretically we should see the
+following printed out
+with the exact same c code with no code
+modifications to the actual original
+source we're now getting it to do
+something different in this case it was
+a very simple function pass that enabled
+us to print out a function name and what
+iteration it's on how many times it has
+been called up until that point as you
+can see because we're calculating the
+factorial of 5 it goes up to 5 4
+factorial since it's recursive
+however what's beautiful about this
+technique is that you can do whatever
+you want right it doesn't even need to
+modify the code you could do you know
+static analysis of your code at compile
+time and just log out stats you could
+log out um information that helps you
+later determine code coverage of your
+tests you could insert code that helps
+you instrument how long functions take
+to run you could insert a code that does
+quite literally anything you want it to
+at compile time and because it's llvm
+based it works across a variety of
+different languages right one llvm
+function pass has the opportunity to
+work across swift rust julia c c plus
+plus fortran and even more code right
+and
+i mean technically some can require a
+few more tweaks like for example some
+libraries will compile one of your
+functions to multiple lvm functions or
+they'll just make longer or more messed
+up functions in a way in llvm but it is
+still possible right with very little
+tweaking across languages and that is
+what's so beautiful about the llvm
+infrastructure and is why i am so
+passionate about not only compilers in
+general but particularly how to use this
+tooling because i believe it is the best
+way to be able to build compilers for
+the future in a way that is scalable and
+enables sharing of resources and ideas
+across so many different communities it
+is honestly pretty fascinating to see
+and that is how you build simple llvm
+function passes in c plus once again i
+do hope you enjoyed if you did please do
+make sure to like the video subscribe to
+the channel turn on notifications and of
+course once again any questions
+suggestions or feedback please do leave
+it down in the comment section below i
+would love to hear from you if you'd
+like to see more tutorials on llvm how
+to build your own passes if you have any
+particular ideas of things you'd like to
+see me build or if you'd like me to go
+ahead and build similar things in other
+languages like roster swift let me know
+and i will get on that but once again
+thank you very much for joining today
+and goodbye

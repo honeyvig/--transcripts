@@ -1,0 +1,1293 @@
+so hello there and welcome to another
+tutorial my name is tammy bakshi and
+today
+we're going to be going over how you can
+implement and optimize
+a proof of work algorithm on gpu
+using cuda now this is really
+interesting
+because we're gonna go from just being
+able to process a few hundred million
+hashes per second on cpu
+to now being able to process over eight
+billion hashes per second on four
+nvidia tesla v100 gpus
+now before we get deeper into this whole
+proof of work stuff there's one more
+thing that i want to say
+today we are going to be taking a look
+at what are what are known as
+cuda kernels so writing code that's
+going to run on your gpu to run
+again what's known as an embarrassingly
+parallel task that's the technical term
+so if you'd like to learn about the
+fundamentals of cuda kernels and how
+they work
+there is a youtube video that i recorded
+a couple of years ago
+on the world of cuda and the basics of
+how you can implement
+some simple vector mathematics on cuda
+chips
+but today we're going to be taking those
+concepts and scaling them even further
+so there is a link on screen right now
+where you can go ahead and take a look
+at that previous tutorial if you'd like
+to find out the fundamentals of cuda
+kernels so hello there and welcome to
+another tutorial
+my name is tammy bakshi and this time
+we're going to be going over
+how you can use cuda c for general
+purpose
+gpu computing and of course if you'd
+like to be notified whenever i release
+new content like this one
+please do feel free to subscribe to the
+channel ring the notification bell and
+that way you'll know when i release a
+new video
+on a topic just like this one now this
+is absolutely
+fascinating stuff and what do these
+numbers mean well first of all
+we'd have to understand what a
+proof-of-work algorithm really is
+now a proof-of-work algorithm on its own
+doesn't really mean
+much it's just an algorithm where you're
+trying to brute force a certain
+hash condition however when you apply
+this proof of work to another algorithm
+like for example
+the blockchain network then you get
+something that's really useful
+by using the proof of work technique
+blockchains can actually
+verify transactions in a completely
+decentralized way
+meaning there's no centralized server
+where all those transactions are stored
+this is really interesting stuff but
+again what does proof of work
+actually mean well let's take a look
+first of all it's important to
+understand the concept of a hash
+function
+i won't get deep into exactly how they
+work but there's a series of hash
+functions called the
+sha hasp hash functions this sha 1 2
+and 3. shot 2 in specific was developed
+by the cia
+and it's what's known as a
+cryptographically secure
+hashing function so what that means is
+we can feed in as much data as we like
+into shot
+shot 2 and it's going to output a series
+of bytes
+and these bytes are what's known as a
+digest of the information that was fed
+in
+now the length of those bytes is limited
+so for example
+sha 256 which is the most popular
+hashing algorithm under
+under the shaw family will output 256
+bits of info or 32 bytes of info
+now here's the thing about sha-256
+because we can only represent 2 to the
+power 256
+total possible hashes it's always
+possible that two completely
+separate inputs will end up having the
+same hash
+but the likelihood of that is
+exorbitantly small it's
+essentially infinitesimal because of
+course we have 2 to the power 256
+possible hashes i mean if you were to
+feed in
+a couple million bytes and even just one
+of them changed
+slightly by a single bit you would most
+likely get a completely
+different hash the entire idea of a
+hashing algorithm
+is that you cannot go from output to
+input only
+input to output now paradoxically in a
+way
+a hashing algorithm is more
+cryptographically secure
+if it takes longer to compute because if
+it takes longer to compute
+then it's harder to brute force that
+algorithm
+with cryptocurrency mining people have
+come up with all sorts of creative ways
+to get really really fast hashers in
+order to gain as much crypto as possible
+like for example asics that i'm sure
+you've heard about but today what we're
+going to be doing
+is quite interesting we're going to take
+an input string so for example
+to make sheet and we're going to try and
+find a sequence of 20
+characters that when appended to the
+input string
+in total result in a sha-256 hash
+where the first n number of bytes are
+totally zeros
+and so for example maybe we want to find
+a certain sequence of 20 characters
+where when you take the input and append
+it the first three bytes of the hash are
+all zeros
+now you might think why would you want
+to do that
+well you don't really need to do that
+for anything but what that proves
+is that your computer has done the work
+to find those zeros
+and thereby in a blockchain you could
+use that
+work in order to prove that you verified
+a certain number of transactions
+and so that is how blockchain technology
+works
+and today we're going to be taking a
+look at how you can implement that proof
+of work algorithm
+now hashing is something that's very
+embarrassingly parallel is what the
+technical term is
+what that means is we can spin up
+thousands of threads on a certain
+machine
+that are all working to just generate
+random strings
+hash and check if it meets the condition
+because there's no logic involved
+you can't reverse engineer a hashing
+function the entire assumption of a
+hashing function is that you can't do
+that reverse engineering
+and so we have to essentially generate
+random strings and brute force
+check potentially trillions of hashes in
+order to find the right one
+and so on cpu this can be difficult
+because even the
+top of the line 128 thread ibm power
+servers
+can only process about 100 million
+hashes per second in fact
+if you want to take a look at how i
+actually implemented a cpu-based version
+of this do take a look at the live
+stream that i held
+on wednesday june 17 in order to
+implement a cpu-based hasher it was a
+live stream so you can actually take a
+look at the whole process of how we went
+through
+the idea of architecting and
+implementing that cpu-based hasher
+in golang and now in c as well
+however we cannot make do with only a
+couple hundred million hashes per second
+we've got to go
+even faster which is why we're going to
+be implementing on gpu for about eight
+billion hashes per second now that's
+even then
+a little bit slow because then with
+crypto mining you want in the trillions
+or quadrillions per second
+if you want to earn any money but for an
+application like this one
+under the constraints that we have for
+our solution it's absolutely more than
+enough now in case you're into this sort
+of stuff
+when i actually ran the cuda profiler to
+figure out how
+fast the solution is the compute speed
+of light
+score for this application was
+approximately 75
+so i am actually using a lot of the
+compute on the gpu
+and i've tried to minimize the overhead
+as much as possible
+uh enabling as few memory writes and
+reads as possible enabling as much data
+to be stored in
+in gpu registers and all these sorts of
+really intense optimizations to get
+to eight billion hashes per second and
+now i would love to show you exactly how
+those kuda kernels work
+and how you can build them for yourself
+and so without any further ado
+let's go ahead and take a look at how
+you can implement this on an ibm power
+server with four
+tesla v100 gpus in a totally scalable
+way it works on multiple gpus
+you can just tell it how many gpus you
+want to run on and all these other sorts
+of hyper parameters so let's take a look
+at how you can implement proof of work
+on cuda alright so now let's get started
+with taking a look at how the
+implementation
+of this proof-of-work algorithm works on
+cuda now as you can see i've already
+sshed
+into a server this is a power server
+so it's using an ibm power architecture
+not x86 so what's incredible about cuda
+is that of course
+it is completely cross-platform it even
+works on ibm power servers in fact it's
+better
+on power servers because of nv-link
+enabling really
+really great memory bandwidth enabling
+the cpu and gpu to talk
+super quickly now that doesn't really
+play into this use case in specific
+however for deep neural networks and
+these sorts of things power is great
+now as you can see on me over here i've
+got
+four uh nvidia tesla v100 gpus
+these gpus are not being used at all
+currently they're completely
+free to use um and what that means is
+that there's nothing else running on
+them so we're only going to be running
+the proof of work algorithm i have also
+gone into my home folder
+into a folder called redesigntrain which
+is just the name that github assigned
+this git repository
+um if you take a look this is a this is
+a github
+this is a git repo and so you can find
+this on the redesigned train repo on
+github link of course in the description
+uh now the way this works there are a
+couple different files here you don't
+need to worry about a.out right now all
+you need to worry about
+is the new.cu and and sha256.cuh files
+uh the new.cu file is the main file that
+we want to care about
+i i guess nu.cou could be like a main.c
+file
+and shot256.cuh would be a main.h or
+or just a header file that we want to
+include um
+now this header file is doing more than
+a traditional header file it actually
+has
+essentially all of the code for the
+sha-256 algorithm
+and this runs on the actual gpu so these
+are device functions a device function
+is a function that runs on the gpu once
+again cuda has very c like syntax in
+fact it
+uses c compilers in the back end
+and so that's that's the sha 256
+implementation i did not
+write that sha-256 implementation from
+scratch
+i modified it to fit this use case and i
+will be linking to the original
+implementation in the description as
+well
+but now let's go ahead and dive right
+into new dot coo
+now essentially what i want to start off
+by doing is
+describing the high level architecture
+of the program because i feel like
+that's a lot more important than the
+nitty gritty of how
+exactly everything communicates so let's
+go ahead and start off with the high
+level architecture
+now remember gpus are fast
+individually instruction for instruction
+they may be slower than a cpu
+but if you can run like thousands of
+different
+hash brew forcings per per you know
+clock cycle if you can run
+thousands of them instead of just a
+couple like you could on a cpu
+that means gpus are fast in fact they
+are so
+fast that they usually sort of reverse
+the traditional bottleneck
+usually your bottleneck is in compute
+because compute takes a long time
+and things like creating data or loading
+data
+aren't usually the bottlenecks however
+with
+gpu compute that gets turned around on
+its head as a matter of fact the gpus
+are so fast
+that it actually takes us longer to
+generate the random strings and feed
+them to the gpus
+than it does for the gpus to process
+those random strings
+especially because you can't just feed
+it a single random string and expect it
+to
+finish things really quickly you have to
+feed it entire blocks of random strings
+super super fast and so unlike on the
+cpu implementation i don't have
+a separate random number generator and a
+separate
+um gpu checker instead what i do
+is i have a single cuda kernel that will
+take a random seed
+use that random seed to generate random
+strings
+and at the same time check whether or
+not those random strings actually match
+our condition
+that way we save out on two bottlenecks
+first of all generating on cpu is slow
+compared to what the gpu needs to feed
+it to full efficiency
+second we don't need to generate all of
+those strings on cpu
+and then copy that entire block of
+memory
+over to gpu over pcie instead what we
+can do
+is we can simply generate and use it on
+the gpu
+that way we don't even need to have a
+block of memory for this stuff we can
+just keep it entirely in registers so
+it's really fun stuff that we can do
+if we're able to do it directly within
+the single kernel
+that's why i've merged it all into a
+single function but now
+i know what you're thinking how exactly
+does this work so let's get into that
+now first of all of course after my
+traditional imports
+i've got a couple of definitions over
+here and i want to quickly go through
+those definitions
+so i start off by defining the text so
+this is the prefix that we want to feed
+into
+the actual program so that we can find
+some text that when appended to this
+text the result
+gives us a shot 256 hash that starts
+with a certain number of zeros
+i'm also just having to define we're
+working with c so
+i have to define things like how long
+the text is i've got to find how many
+and this is a sort of gpu part these
+three variables over here
+i've got to define how many threads i
+want the gpu to execute
+i want to define how many blocks
+of these threads the gpu is going to
+execute
+and i wanted to find how many gpus i
+want to use in total
+so the way this works and this is a
+little interesting the way cuda
+wraps its um wraps its compute
+with cuda you don't just have n number
+of threads
+you have n number of blocks each block
+containing n number of threads and so
+it's it's interesting the way that
+happens in different
+use cases you want to have different
+arrangements of
+blocks to threads you can specify that
+there's of course limitations and it
+really depends on things like the warp
+size of your gpu
+but in this case i found 1500 256 to be
+a good combination
+for this gpu in this use case and so you
+want to really specify this
+to what it is that you are doing
+although this is a pretty good
+standard set is what i would say now of
+course the way this code works and this
+is the fun part
+is that the gpus that this
+implementation that i've created
+actually supports multiple gpus and so
+what that means is
+you could have a machine with 10
+different gpus on it and you could just
+say
+i want to run on 10 gpus and the rest of
+the program will automatically fit
+uh to run on 10 gpus or even just one
+but this case
+i've got four gpus now i also want to
+specify the difficulty
+so what is the difficulty you may ask
+well remember what we want to do is we
+want the output of the challenge
+to say a certain number of zeros that a
+certain shot 256 hash
+should start with in this case we want
+the algorithm to output a sha-256 hash
+which starts with four consecutive bytes
+worth of zeros
+that's a lot of zeros so that's
+that's 32 zeros that we're asking it to
+do in fact if you see a little bit later
+in the code we actually bump that up
+even further a little bit by a few more
+bits
+so this is a really really intense
+challenge and i can't wait to see what
+the performance numbers are like
+from there though i also do go ahead and
+define the random length so this is the
+length
+the maximum the actual length of the
+number of bytes
+that we want to append to the text to
+come up with the hash
+now from there i just have a pretty
+simple function called chara not
+function
+the constant called character set this
+is the set
+from which we can actually choose a
+random letter or a random character to
+insert
+uh into our into our solution and so
+we can of course add more characters to
+this if we want we can remove it doesn't
+really matter
+in this case just to keep it readable i
+decided to have a pretty standard set of
+characters
+and from there i've got a function and
+this is where the fun starts this is a
+device function called device
+random gen device random gen what it
+does is a suit a random generation
+function
+that takes an unsigned long to an
+unsigned 64-bit integer
+and it does a bunch of bit operations
+bit shifts things like that
+and it's going to try and essentially
+create a random number now
+you can't really create a random number
+with computers as they are today that's
+not how they work
+that's impossible but what you can do is
+you can
+make a function such that the input even
+if it changes very very slightly the
+output changes a lot
+and that's how random number generators
+work in computers today
+and this is an implementation of a super
+rudimentary
+random number generation function now if
+we wanted things like
+being able to be cryptographically
+secure we wouldn't be using this ha
+this random generation algorithm but if
+you think about it we don't need to be
+cryptographically secure
+we just want a random number function
+that's relatively uniform
+with the input that we give it or the
+bounds that we give it this is
+quite uniform and so we don't need to go
+more advanced in fact the simpler this
+function is
+the more cpu call or gpu clock cycles we
+can shave off
+that adds up to millions of cycles
+you know many seconds of compute which
+are really valuable here
+so just a super simple random number
+generation function
+now from there i'm going to go ahead and
+skip this function for now
+i'll tell you what it does and we'll
+come back to it basically this is the
+this is the cuda kernel
+the cuda kernel that is responsible for
+taking
+the input text it's taking a pointer to
+where to store a solution
+if it finds a solution it's taking a
+pointer to a variable
+where it will store a boolean value of
+whether or not the
+kernel has found a solution as well as
+the random seed now really quickly uh
+i'm going to
+say whatever i just said how does that
+sort of relate to the function
+parameters let's take a look
+so as you can see this over here is the
+string or the byte pointer
+to the prefix that we want to that we
+want to pen to
+there's also the byte pointer to the
+solution which is by default a null
+pointer however
+uh not null pointer per se but you know
+it's not initialized memory
+um and uh what's what's gonna happen is
+if this cuda kernel finds a solution to
+the problem it'll put the solution
+into this pointer uh or where this where
+this pointer points
+as well as just an integer or a boolean
+value uh by default this is negative one
+and what we want to do is set this to
+one if the cuda kernel finds a solution
+so that way the cpu knows if we actually
+have a solution
+and of course as i mentioned the basic
+random number generator seat
+um now we'll come back to this function
+in just a moment but first i want to go
+ahead
+uh as i mentioned we want to have super
+simple random number generation so i
+also have a version of that same
+function for the host for the cpu
+that will be compiled to cpu assembly
+not gpu
+i also just have a little pre-shot 256
+function this is mostly a legacy
+carryover
+from the previous codebase that i'm
+going to link in the link to in the code
+bait
+link to in the description there's
+definitely a much better way to do this
+you could literally just put
+underscoring the sort constant
+um as a prefix for the variable but
+anyhow this is a legacy carryover
+which can be removed in a later commit
+from there i also have a long long
+called time milliseconds
+this is going to return the current time
+in milliseconds
+that way i can actually go ahead and
+time things like execution and figure
+out how many hashes
+we're processing per second from there
+this is where the the sort of cpu gpu
+interconnect comes in we start off by
+defining a structure called
+handler input what is handler input well
+the way this
+implementation works is of course
+there's the main thread and that's
+what's
+that's the thread that's that the
+program is launched from
+the main thread actually spawns a bunch
+of different threads
+specifically however it'll spawn n
+number of threads
+where n is the number of gpus that you
+want to execute on
+so if you only have a single gpu it'll
+spawn a single thread if you've got 10
+it'll spawn 10 threads now each thread
+is responsible for
+handling the input output for a single
+gpu
+and of course as the handler it needs to
+have some sort of input to tell it what
+to do
+so this is the handler input structure
+it tells each handler thread
+information about what it needs to do
+and how it needs to do it
+in this case the only things that it
+needs to know would be first of all
+the device so what device exactly are we
+using are we using the first gpu the
+second
+fourth the tenth what are we using for
+this specific thread
+but also within the handler input
+i want to store an unsigned long called
+hash is processed
+that way whenever the whenever the
+worker actually processes say
+n number of hashes i can go ahead and
+store that
+here and say i've processed these many
+more hashes and the main
+thread can continuously look at that
+pointer and always be like all right
+you're incrementing the number of hashes
+you process
+you don't need to do this in a real life
+scenario you probably wouldn't
+but this is for benchmarking this is so
+that we know how many hashes we're
+processing per second
+and you'll be pretty surprised when i
+actually run this code just
+how fast it is but anyhow from there i
+also just have two more global variables
+one is the solution lock and so this is
+a mutex
+that makes it so that the main thread
+knows when a worker has found a solution
+as well as a global pointer uh
+to uh to solution um now
+basically this is this is the chunk of
+cpu memory that will actually contain
+the solution
+if we find one hopefully we do now
+this function over here this absolute
+unit um
+is going to be responsible for actually
+launching and and
+and sort of maintaining the gpu handler
+thread it takes a void pointer so a raw
+pointer
+and that void pointer is then casted to
+a handler input pointer
+and so that that enables us to know what
+the input is
+now the first thing we got to do right
+off the bat before we even begin
+is take the device that that handler is
+responsible for handling
+and tell cuda that this thread intends
+to work with that device
+so that we can get a context that tells
+us that we're only working with that
+device
+so the first thing we've got to do set
+device that's the most important part
+then the rest follows first of all we're
+doing is of course that legacy carryover
+i was talking about pre-shot 256
+set up the gpu memory a little bit from
+there what i do is essentially just
+allocate blocks of cpu and corresponding
+gpu memory and sync them so that
+we know what we're doing now cuda has
+some fancy new features that enable
+things like for example being able to
+access gpu memory from the cpu
+implicitly
+but the thing is that introduces very
+very little
+overhead but it's overhead nonetheless
+and the entire point of this application
+is to be as
+blazingly fast as possible so i'm not
+using those fancy new
+convenient techniques we're still going
+the old-fashioned way
+and that old-fashioned way uh is i go
+ahead and create
+uh first of all the cpu prefix right so
+i go ahead and um
+get the text uh that that we're looking
+for
+put that into a pointer and i go ahead
+and also allocate
+uh memory for that space for that on the
+gpu
+so i get a byte pointer but this isn't
+like a traditional c pointer this is a
+cuda malloc
+c pointer this is owned by the gpu
+um and so so that's something to keep
+and
+keep in mind then what i do is a simple
+cuda memory copy so i copy the cpu
+prefix over
+to the device and this is a host to
+device transfer host being cpu
+device being gpu then i go ahead and
+allocate
+memory for the actual solution if and
+when we find it
+again there's no guarantee we will but
+if we do we want to have memory to
+actually store it
+i then go ahead and and allocate the
+same memory for the device
+no syncing is required here uh because
+that comes later
+then finally i also just allocate the
+memory for the block contains solution
+variable which i mean even an integer
+needs to be allocated with cuda you
+couldn't just say
+you know int block contains solution
+equals negative one and then pass a
+pointer because
+you want to specifically do a cuda
+malloc so it's
+pretty interesting there but then again
+i just copy the device version to the
+cuda version
+because the device version is set to
+negative one and we also want the cuda
+version
+to be set to negative one now after that
+i just go ahead and get a random number
+generator seed which by default is equal
+to
+uh the time in milliseconds and then
+after that
+we go ahead and start handling the gpu
+because we've got all of our
+basic stuff figured out
+now the way this is going to work is we
+start off by actually taking uh the host
+random number generator function
+and feeding the time in milliseconds to
+that function
+so we can modify it so we can mutate it
+across every iteration because of course
+every iteration when we call the gpu we
+don't want to be using the same random
+seed we would be
+doing literally nothing and so we go
+ahead and pass up the random seed
+make it modify and then what i go ahead
+and do is take the number of threads
+per block take the number of blocks
+multiply to figure
+out how many hashes the gpu was about to
+process
+i then go ahead and add those to the
+total number of hashes processed
+once that's done now the main thread
+knows that we're processing hashes right
+not exactly important but it's good for
+benchmarking
+then i go ahead and do something called
+a cuda kernel invocation the kuda kernel
+invocation
+is gonna look like a function call but
+has this weird
+thing in the middle and this weird thing
+is telling cuda how many threads and how
+many blocks we want to execute on so
+it's telling it the topology of the
+execution
+once we've done that we want to pass it
+the device prefix the device solution
+the device whether or not contains a
+solution
+and the random number generator seed so
+i know that's
+a mouthful but i've already described
+these parameters uh the four of these
+parameters are responsible for
+you know telling the gpu what to do and
+getting a result
+once the gpu actually has a result to
+give us
+then i go ahead and run a function
+called cuda device synchronize
+so this is kind of like p thread join
+for for cpu but for gpu instead except
+this is going to wait for any
+non-blocking operations it's going to
+block until they're all done
+this includes cuda kernels this includes
+cuda memory copies this includes
+anything that's non-blocking this will
+block it for you
+and so this is there so we can actually
+wait for the kernel to finish
+executing once that's done then i
+execute only a
+single and a very small memory copy
+every iteration
+only a single memory copy so we're
+trying to reduce bottlenecks here
+and that memory copy is going to copy
+the boolean of whether or not a block
+contains a solution
+from gpu memory to cpu memory
+uh once that's done then we're gonna
+check if it's equal to one so did the
+gpu find a solution in this iteration
+if it did then we're gonna do a bit more
+of an expensive memory copy
+which will copy the actual solution over
+from gpu memory to cpu memory
+we're going to assign that solution to
+the global variable
+and then we're going to unlock the
+solution lock
+so what's going to happen is in the
+beginning the main thread is going to
+lock the solution lock it's going to
+launch the threads
+and it's going to attempt to lock it
+again
+now when it comes to lock the solution
+lock for a second
+time it's going to block the main thread
+it's going to block
+because well we don't have a solution
+and so what's going to happen is when a
+handler thread actually
+finds a solution it's going to unlock
+the solution lock
+which means the main thread cannot lock
+it again and it's done blocking it can
+continue connecting it can actually
+print out the solution
+so it's a it's an interesting way i
+wanted to use semaphores
+um but the problem was that for some
+reason on mac samplers wouldn't block
+which almost seems like a bug but
+regardless i'm using a mutex instead
+and it works just as well then we go
+ahead and break the loop
+uh do a cuda device reset and return
+null
+but i also just quickly checked that hey
+if another gpu handler thread's found a
+solution then there's no need for me to
+continue to compute
+so i can just break cuda device reset
+return null we're good to go
+and so uh the way this works is is
+pretty fascinating and then of course
+we've got the main function
+and the main function is basically just
+going to do a little bit of
+initialization we're going to
+uh go ahead and initialize the solution
+lock as i mentioned here's the first
+lock so this one's easy
+you know it's by default unlocked main
+thread locks it it's got lock
+um but then from there what it's going
+to do is it's going
+to initialize two arrays it's going to
+initialize an array of thread
+identifiers
+so this is so that we know the thread
+ids for our
+handler threads so we can kill them at
+the end or join with them at the end
+and also an array of pointers so a
+double pointer
+and these this array of pointers uh each
+element
+actually points to the part of the
+handler input struct
+that defines the number of hashes that
+were processed by that gpu
+and of course we're using this so we
+actually can tell from the main thread
+uh how many hashes were processed now i
+also go ahead and calculate the start
+time
+once again this is for benchmarking so
+we can see you know how many seconds it
+takes for the gpus
+to actually do their do their magic um
+and then i just
+loop from zero to the number of gpus
+i go ahead and create the handler input
+block of memory i allocate that i set
+the device
+using the loop in index i go ahead and
+set the number of hashes that have been
+processed to zero by default
+i could absolutely use call lock but
+that takes a bit of extra overhead
+let's not talk about that right now and
+i also go ahead and take a pointer
+to the part of the structure that
+defines the hashes that were processed
+put it in that first array i was talking
+about then i go ahead
+and tell p thread to create a thread and
+i tell it to put the thread id directly
+inside of the array of thread ids
+and i of course pass it the handler
+input if you take a look here
+we are passing it handler input
+for the thread and then just go ahead
+and sleep a little bit and the reason
+for the sleep is actually important
+because if you launch the threads too
+quickly and they calculate their time in
+milliseconds at the same time
+they're both gonna have the same random
+seed and the same you know for the
+random seats
+and so you're again going to be doing
+nothing and there's no point of that
+um so i make sure that i sleep for a
+little bit uh so that we have different
+random c's
+then what i do is i have an infinite
+loop and this is pretty fun
+logic over here what i do is i actually
+go ahead and loop
+through all of those pointers to the
+handler input structures
+and i go ahead and essentially what i do
+is i
+i take the values that they point to so
+the number of hashes that were processed
+get a
+sum of all the handler input functions
+or handler inputs
+and then i go ahead and sum them i take
+the elapsed time
+and i print out in real time how many
+hashes have been processed how many
+seconds have elapsed
+and the current hashes per second count
+so this is something that's going to
+continuously update even as
+we are calculating a solution even as
+we're brute forcing a solution
+and this is the advantage of having a
+separate main thread and separate
+handler threads
+then i just have a little logic that
+says if we found a solution and it's no
+longer uninitialized memory
+then break the loop print out a new line
+so we can um
+separate then just for the sake of
+safety
+lock the solution lock again that's
+really important we don't want to be
+reading on the
+uninitialized memory so we go ahead and
+lock it again and that's only possible
+after the handler thread is unlocked
+meaning the main thread locks it
+immediately
+and we're good to go and then go ahead
+and calculate a final elapsed time count
+i go ahead and join with all gpu handler
+threads
+and then from there i just go ahead and
+calculate finally the number of hashes
+that were processed
+and then i print out the solution i
+print out the total number of hashes
+processed
+the time that it took and the hashes
+that were processed per second
+as you can tell this is a really really
+fun dance between
+cpu and gpu and and processing on all
+sorts of different devices
+and now that you understand the overall
+architecture we can come back to the
+cuda kernel that i was promising
+the kuda kernel remember is a single
+function and this is invoked
+once per thread and
+and remember there are multiple blocks
+of threads so this function is actually
+called
+thousands of times every time we invoke
+the cuda kernel and in order to know
+which thread you want you are in this
+function there's a bunch of global or
+system variables here like block index
+block dimension and thread index by
+leveraging those you can know which
+thread you are
+that's important for me because by
+knowing which thread i am
+i can modify my random c to be different
+from every other thread's random seed
+and therefore we actually have gpus
+doing compute
+and not nonsense and so then what i do
+is pretty simple stuff go ahead and
+initialize the shot 256 context
+create the digest and this is a block of
+32 bytes which represents the final shot
+256
+hash go ahead and create the random
+bytes create the random seed add in the
+thread index
+then go ahead and generate the random
+string by looping
+then finally go ahead and initialize the
+context
+update it with the prefix so go ahead
+and calculate the sha 256 for the prefix
+um calculate the sha-256 for the random
+string that you append
+and then go ahead and finalize that hash
+and store it within the digest
+once that's done we have a little bit of
+difficulty verification going on
+and so all i need to do is just loop
+through
+four bytes because we're referring to
+difficulty which is referred to as four
+so loop through four bytes make sure
+they're all zero if
+if any one isn't zero just return
+immediately right we know
+we don't have a solution just return but
+if it did pass that
+then we have another test the other test
+is uh check four more bits so not a
+whole byte more just half a byte
+so in total we're looking for 36 bits of
+zeros to begin with
+that's a magic number it can be really
+whatever you want it to be
+the less the more easy it is for for the
+algorithm to find a solution
+but in this case it's enough to be
+challenging
+um and that's the entire point
+in fact i'm actually going to make this
+a bit more difficult right let's bump it
+up a little bit
+from from from 36. then of course i go
+ahead and do a
+final check if we've reached this line
+of code
+we know we have a solution on our hands
+but if another threads already found a
+solution
+just return don't copy your own memory
+and
+then go ahead and just immediately say
+you know what i found a solution
+uh and then from there go ahead and copy
+this thread's
+solution to the memory that is allocated
+specifically for the purpose
+of storing the solution and with that
+we're done that's that's all there is to
+it i know it seems like
+wow we colored an entire gpu in just
+that much code but yeah we did it and
+that's the power of cuda that's why we
+use cuda over things like
+opencl or metal it's just genuinely more
+intuitive and easy and powerful to get
+things done with cuda
+not to say that you can't get things
+done with opencl or metal or vulcan or
+whatever else you want to use
+but cuda's been developed from the very
+beginning to be great at gp gpu
+and it really shows in the way that we
+can code with it
+so now if i go ahead and exit vim we can
+go ahead and have some fun
+so i'm going to go ahead and use nvcc
+which is the nvidia seat cuda compiler
+uh to compile uh my code now i do
+want to tell nvcc to run full
+optimizations like as
+as as high as it can get um and these
+two
+flags that i pass it are telling it
+basically go
+all out with your optimizations don't
+hold back
+um now it doesn't have an o fast flag
+like clang and gcc it just has up till
+o3 so we're using o3
+but now if you take a look we have a
+compiled binary and watch this this is
+so fun what it's going to do is it's
+going to start in real time printing out
+the number of hashes in total that have
+been processed the number of seconds
+that have elapsed
+and the hashes that are being processed
+per second watch this
+it takes a few milliseconds to actually
+initialize but once it initializes
+you can see that it just gets going like
+take a look at that
+wow we've already processed in the
+amount of time that i said this over 100
+billion hashes
+it's hot it's processing 8 billion per
+second and
+counting the most that i've seen this
+peak at is about 8.3
+billion per second that is incredible
+and so what we're going to do is let
+this go yes look at that 8.2
+8.23 8.24 8.25
+of course there's diminishing returns as
+you get higher and higher and the reason
+for that is is
+one of the reasons at least is that
+remember there's that initialization
+cost in
+in the beginning and so as you continue
+to process more and more hashes
+you're compounding um that um
+and you're sort of reducing that initial
+cost on the number of hashes per second
+oh wow we're eight point three six eight
+point three seven we're going further
+we might we might actually get to eight
+point four uh now remember if your
+problem is too simple then it's always
+possible that you will find a solution
+so quickly that you will not be
+processing very many hashes per second
+because the initialization cost was too
+high
+but oh we reached 8.4 this is actually a
+pretty tough problem for it to solve
+maybe we need to re
+crank down the difficulty a bit but
+actually what i want to do is i want to
+let it go ahead and solve it on its own
+we're about to hit a trillion hashes in
+just a moment
+uh so i'm going to go ahead and speed up
+the video
+and we're going to go ahead and wait for
+a solution to this problem i'll be right
+back
+all right so now let's take a look as
+you can see we processed
+a trillion 59 billion 79 million
+680 000 hashes
+that is mind-boggling the fact that we
+did it in just two minutes and five
+seconds
+wow okay um we found the solution to the
+problem which is
+amazing uh and we we can see our final
+hashes per second count over here
+of course this is slightly lower than it
+was over here because there was
+not only the extra initialization cost
+now but also the extra cost of
+winding everything down and having a
+graceful shutdown now what's incredible
+is that we could literally just go ahead
+and go to any
+like sha 256 hashing algorithm or
+implementation
+uh feed intane a back sheet and just
+append this one string to it
+and suddenly you would have it start off
+with a certain number of
+zeros more than 36 bits in the beginning
+would start
+with zero that is truly incredible what
+i quickly do want to do
+um is i want to modify the code and just
+show you
+what happens if we go down to one gpu
+see it's only one gpu and we're going to
+reduce the difficulty to like
+three just so that we can speed this up
+a little
+and if you take a look what happens if i
+go ahead and compile this
+and if i go ahead and run this code
+watch this
+it's gonna find a solution and well
+maybe that was a bit too simple
+um but i'll just bring it down to like
+four
+um this will take a second um
+and then go ahead and comment up this
+line of code over here
+and watch this what's really fascinating
+about this
+what's really fascinating is that the
+scaling is nearly linear
+well see this problem is wait there we
+go see
+finally i was able to demonstrate the
+linear scaling you see what's amazing is
+that just a single gpu is reaching about
+two billion hashes per second
+and if we go ahead and take four gpus
+worth which is like 8.4 billion
+and if we divide this by four we notice
+that it's 2.1 billion hashes per second
+so this specific
+use case is such that because there's no
+communication across gpus and things
+like that
+it scales linearly it's absolutely
+incredible the way this technology works
+and it's only possible thanks to the
+power of cuda
+and so that brings us to the end of
+today's tutorial i really do hope you
+enjoyed and i hope this was insightful
+and helped you learn a little bit more
+about the world of cuda how it works
+and how some of the algorithms behind
+the world of blockchain work as well
+now of course if you do like it this
+kind of content please do make sure you
+subscribe to the channel as it really
+does help out a lot
+uh and of course do do turn on
+notifications and that way
+you're actually notified whenever i go
+ahead and release new content
+uh and with that uh please do feel free
+to leave any questions or suggestions
+you have down in the comments below or
+reach out to me on social media and i
+would love to answer them
+and the code is on github and in the
+description all right thank you very
+much everybody goodbye

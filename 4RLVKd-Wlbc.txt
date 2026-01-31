@@ -1,0 +1,38 @@
+so and welcome to another tutorial my
+name is Tammy back and this time we're
+going to be going over IBM Watson I'm
+with my mentor Rob hi here hello my name
+is Rob hi I'm the CTO for IBM edge
+computing formerly did CTO for IBM
+Watson hello my name is Tanmay Bakshi
+I'm an algorithmic and I love to
+architect machine learning algorithms
+have you ever wanted to take your coding
+skills to the next level have you ever
+wanted to learn how to integrate
+cognitive and AI solutions into your
+applications well it's time to answer
+those questions with IBM Watson I'm
+thrilled to say that I've had the honor
+of co-authoring a book with my mentor
+rawhide so now instead of struggling
+with documentation examples and loosely
+string together guides authored a
+comprehensive start-to-finish guide to
+understand the Watson API is in the form
+of a book called how you know competing
+with the IBM Watson I don't want you to
+think about this book is just another
+reference material for a bunch of rest
+api's rather this book explains the
+ideas the structures and high-level
+algorithms that go behind machine
+learning and it teaches in the way that
+we find best by example this book
+actually has you build real machine
+learning powered applications that
+Watson and IBM cloud for free wait no
+longer
+get your copy today and be proficient
+with the next level of coding AI and
+machine learning with Watson

@@ -1,0 +1,549 @@
+so love Aaron welcome to another
+tutorial my name is Hannah Bakshi and
+this time we're gonna be going over a
+new sprite kick game so today I'm going
+to be showing you exactly how I have
+created a game in sprite kit called
+apple picking and so essentially the
+point of apple picking is quite
+self-explanatory really it's just lots
+of apples or falling from the sky and
+you have to move around a little player
+in the shape of a star to actually go
+and collect those apples and then your
+score can increase however there's a
+little bit of a twist there are also bad
+apples and good apples and normal apples
+normal apples just add one tear score
+good apples add three tear score and bad
+apples move three from your score and
+just before I continue if you don't know
+what sprite kit is which is the
+essentially game SDK or graphics SDK
+that we're going to be using to develop
+this project that's essentially a 2d
+sort of SDK or API actually that would
+be a framework in Swift and objective-c
+that Apple enables us to use in order to
+do stuff like simple animation if you
+want sort of 3d or more complex
+animation I'd either go with scene kit
+or middle however sprite kit does the
+job for apple picking so I'm going to be
+going over to the Mac part now in which
+I'll explain it but just before I go I'm
+just going to explain the basic concept
+of the game on the whiteboard then we'll
+go over to the back part in which I'll
+explain the actual apps code okay so to
+begin this is essentially a little
+graphic demonstration of how apple
+picking works let's say your device is
+in landscape which is exactly how this
+game is intended to be played all right
+and so basically in the center we're
+going to draw a little line okay then
+from there we're going to calculate
+another line a few pixels off over here
+and also over here and over here and
+over here so in total we want five lines
+all of equal height of course okay
+coming down from the top to the bottom
+towards the bottom ending over right
+about here though okay
+and so these will take up all while
+sailing cut to the entire screen I mean
+there'll be a home button over here and
+stuff however then there's a little
+player in the shape of a star but since
+I can't literally draw a star we're just
+gonna go with a triangle for now okay
+and so basically the user will let's say
+the user clicks over here we will not
+move the triangle over to this point all
+we're gonna do is we're going to move
+the triangles X value to the touches X
+value and if the user starts moving
+their finger around the screen like this
+whatever the current position of their
+finger is which is each one of these
+little pixels ignore the Y value and
+we're gonna take the x value and set
+that to the end then we're going to
+sentence this objects x value to the x
+value of your finger and so essentially
+this triangle follow your route and also
+there will be a timer spawning an apple
+at random intervals and they're
+completely random whether it's a normal
+Apple a good Apple or a bad apple
+and so basically apples will spawn on
+either one of these columns randomly
+completely and then once one sort of
+spawns let's just say an apple spawn
+over here
+it's just going to slowly start moving
+are actually quite semi fast start
+moving down and then your objective is
+to let this triangle touch the Apple
+meaning you've picked it or star
+actually and so I mean if you touch a
+bad apple of course your score will be
+Mun back made less by three if you go
+get a good Apple plus three and the
+normal Apple plus one your score also
+displayed over here so let's just say
+our score is thirty three right now it's
+going to display thirty three in the
+middle and that's exactly how this app
+will work okay so that was a simple
+explanation of how this app actually
+works hope you enjoyed that however now
+first of all I'm going to be showing you
+a demo of the app itself then I'll be
+showing you the actual Mac part
+including the code and yeah just a code
+and an explanation of it so let's get to
+the demo and Mac
+part now so welcome back to the Mac part
+and now I'm going to be showing you
+actually technically it's the demo part
+so now I'm gonna be showing you these
+demo of the app that we'll switch over
+to the actual apps code itself let's
+begin and as you can see I'm gonna click
+on the apple-picking app that's on my
+screen right now it doesn't exactly have
+a logo but again none of my apps do that
+I share on this YouTube channel when I'm
+gonna click on it and as you can see we
+have a little star a score indicator and
+lots of apples falling around right as
+an Apple touches the star which is the
+player it disappears so now I'm going to
+move my finger around and as you can see
+I am actually moving the star and I am
+touching all the apples that I get
+inside my site and as you can see we
+also have these sort of bars over here
+that indicate these little columns of
+where the apples are actually spawning
+and so yeah that's going to be the demo
+part as you can see these are good
+apples these are golden and so that's
+going to be it for the demo part I hope
+you enjoyed now we're going to be moving
+over to the Mac part which I will
+explain the code and that's going to be
+it for the demo part let's move over to
+the Mac part now so welcome back to the
+Mac cards and now I'm gonna be showing
+you the code in depth so let's begin but
+not first with the code first I'm going
+to be showing using assets that we are
+using in this app so to begin as you can
+see oh by the way all these graphics
+will be available for download in the
+description below ok so as you can see
+this is the Apple graphic it's just a
+normal red apple next we have the bad
+apple graphic would you say black gray
+is actually Apple actually have a good
+Apple which is just the normal Apple
+with instead of red golden that's nice
+and then we also have the player which
+is just a star and also a v-line
+which appears like nothing but if you
+really zoom in I don't know how I would
+do that I don't think it allows you to
+know but it's a really thin like one
+pixel line that we do use to create the
+columns ok can
+enuine now now let's get into the code
+and since spray-can apps don't really
+have a UI that you can develop with a
+storyboard file I'm just going to be
+explaining the cone to you
+luckily there's no user interface to do
+you just dive right into okay
+let's start with the code this is weird
+because I haven't done actually encode
+just code like a playground in quite
+some time because usually the apps have
+a UI again I'm gonna stress this every
+single object that you put onto the
+screen with sprite kit you have to do
+programmatically continuing though okay
+so as you can see this our main class
+called class game scene which inherits
+from SK scene which I do believe is yes
+if this is a class I remember what it's
+it's not a protocol to class okay and so
+basically this is sort of where all of
+your game logic and all of your graphics
+are just going to be shoved into and so
+this is essentially the hub of where all
+your other classes will connect if you
+have a Apple class or if you have a
+another class basically where all of the
+other classes that you've combined will
+merge into and then will be able to
+create one functioning app okay
+continuing now as you can see well I
+just have some variable declarations
+over here and now I'm going to explain
+these to you so first of all player is
+the actual SK sprite node for the star
+okay and so that's the star next we have
+the node which is an SK sprite node for
+the actual you know middle column if I
+run this on a simulator really quick on
+iPhone 6s plus I assume window I'm just
+gonna move this right to make this
+landscape alright and as you can see
+this is note this middle column here and
+so I explain more about that later okay
+as you can see we also have known right
+and so this is one node to the right of
+node itself which is this over here then
+we have node right B which is
+one right to note rights over here again
+we're just actually creating the middle
+middle little column sorry middle column
+and then the the the other ones are just
+being calculated from there then we have
+node left which is the left column and
+then node left B which is the column to
+the left of the left column okay so now
+I'm going to close this down because
+we're done with those explanations cells
+are all the nodes that are actually
+those little columns on screen the
+reason I have this here was mainly for a
+debugging purpose to see exactly where
+the what you call them apples are going
+to be spawning but you know I just kept
+them in because why not and so
+continuing now then we actually have an
+apples array which is all the apples
+currently on screen which is an array of
+class Apple which if you were wondering
+is literally just as case right note in
+the hit inherits from the S case right
+now the class over here however it has
+one variable called type which is equal
+to zero the reason I have to create an
+entire new class for this is because
+congrats Apple there are no you cannot
+add variables to extensions just great
+and so continuing though you can't add
+variables to extensions and so I just
+added a variable to a class called Apple
+which inherits from s case right now
+great that's a perfect work around I
+guess but continuing then we have a
+variable called spawn timer which is
+just a normal NS timer and sort of this
+will take care of when we need to spawn
+another Apple then we have our player
+score which is just the score of the
+player which can be
+I think the bounds of a normal int in
+Swift are negative eight million
+something and positive eight million
+something so anywhere in between that
+but I doubt you're even gonna get to a
+to a thousand but continuing then we
+also have a score label which is just a
+constant and this is equal to a new SK
+label node with a fun named Ariel okay
+so then what we're doing is it'll be
+getting up setting the scenes background
+color to white color from UI color and
+then what I'm doing is I'm taking the
+score label and I'm setting its font
+size to 100 over here okay so this will
+make the score label really big then I'm
+setting its font color to black and I'm
+setting its position to self not freeing
+up mid X and mid Y so essentially that
+really centers it to the middle and then
+I'm just uh calling self dot add child
+on score label and so essentially this
+will allow us to actually put score
+label on the scene next what I'm doing
+is I'm saying spawn timer is equal to a
+new NS timer which is a schedule timer
+for interval with time interval actually
+I think they change that with 0.7 so
+it's going to actually spawn an apple
+and reserve my flat is seven seconds
+it's going to call self the function
+it's going to call is spawn Apple which
+I'll explain to you in just a moment and
+then it's going to give no parameters to
+the function meaning no user info and
+I'm going to make sure it repeats now
+it's telling me that there it's
+deprecated the quote sort of Objective C
+selector so let's just try out the hash
+tag or I mean crash selector method okay
+so let's see if this works on Apple does
+this work okay I'm assuming we could
+just call this then okay great let's
+just run that really quick and see what
+we have great so it's working so that
+was that okay so I've just updated code
+a bit and so I have fixed the warning
+that it was giving anyway continuing
+then we'll just setting our apples a
+rake to a blank array instead of a nil
+array so we can actually append objects
+to it and then this is where we do sort
+of like the meat or juice of the actual
+calculation so basically first of all
+I'm taking the node and saying it's
+sending it to a new S case
+right now with imagening v-line meaning
+vertical line which you just saw on the
+assets then I'm setting its size to five
+width meaning five pixels width and 300
+pixels height and I'm setting its
+position to self dot framed up mid X so
+it gets centered in the x-axis and then
+what I'm doing is I am 17 Y parameter to
+self dot frame dot max Y meaning the
+extreme top
+- no dot friend height / - and so
+essentially this will bring the entire
+frame on I mean the entire node down and
+so the beginning of the node just
+touches the top of the scene then I'm
+just adding node as a child to the scene
+then I am setting node right - pretty
+much the same as case right now it's
+something the same size and this time
+I'm sitting I'm sitting it's the same
+white parameter instead what I'm just
+doing is I'm saying self dot framed up
+mid X plus 200 and so that's where we're
+saying mid X plus 200 and then for node
+left I'm saying - 200 and then basically
+for node right B plus 400 and then they
+left B minus 400 for the X parameter
+that's that and then of course we add
+those as child's to the actual scene
+then I declare player as a new ask a
+sprite node with the image named player
+that I created then I'm setting player
+size to 50/50 and default I guess and
+then we're setting its position to self
+offering the mid X so the middle x axis
+and then 1:25 meaning 125 in the
+y-direction I guess that works
+that's that continuing then we're
+actually adding that as a child to the
+scene next as you can see I have this
+little function over here called random
+number from now this is not mine it's
+actually from this just over here made
+by Indra ghek I I'm sorry if I'm not
+pronouncing that correctly but this
+person this person actually his github
+page has a read of numbers
+swift yes and it's really helpful and so
+I'm using the random numbers random
+number sorry
+not random number from function from the
+just in order to be able to generate
+random numbers continuing though next
+what I'm doing is I have a spawn Apple
+function which we've already talked
+about this is what the timer
+continuously calls now in the spawn
+Apple function essentially what I'm
+doing is first form declaring something
+called random position which is equal to
+a new CG point then I'm going to say let
+pipe which is a which of those little
+columns I guess and I'm gonna say random
+number from one to five there are five
+columns 1 2 3 4 5 it'll choose any
+random number between them and so what's
+gonna happen is if pipe is equal to 1
+then we want to choose the pipe in the
+exact center because that's the default
+node and so I'm going to set the random
+position to note that position if it's
+to the node rights position if it's 3
+then no less position if it's for the
+node right B's position and if it's 5
+then no left B's position okay so now
+we've decided where exactly our Apple
+will spawn then we're going to set to
+the type of Y Apple to a random number
+from 1 to 6 now I know there are only 3
+types of apples but I need to make it
+really rare for it good or bad Apple to
+come I want mainly normal apples to come
+and so if it's one if is if the random
+number generated is 1 then we'll do
+something however if it's 2 3 4 5 or
+even 6 then we're going to execute
+something so there's a 1 on a 6 chance
+that something will happen but there's a
+5 out of 6 chance that this will happen
+and I'm gonna tell you what these are in
+just a second but the 5 out of 6 chance
+1 is essentially we're going to create
+something called an apple node which is
+a new Apple image named apple ok so
+basically we're using the Apple class
+that I mentioned over here on the bottom
+over here well and so since this
+inherits from s case bright node
+inherits those initializers as well and
+so I can just use the image name
+initializer from s case bright node and
+we're using the normal Apple graphic
+the assets been what I'm doing is I'm
+selling the Apple loads position to in
+random position that we have already
+chosen in the beginning of the function
+then I'm setting its size to a new CG
+size make 50/50 I am then setting the
+type to zero because it's a normal Apple
+I'm then adding the apple node as a
+child to the scene and I'm then I am a
+pending it to the apples array now let's
+say that the random number generated was
+one okay then we're going to generate
+another random number in the type apple
+two variable and so essentially this
+will be a random number from 1 to 3 if
+it ends on 1 if it lands on 1 not 2 or 3
+just 1 then I'm going to do the exact
+same thing as we did for the normal
+Apple except this time the type will be
+1 and the image range will be good Apple
+however if it's 2 or 3 then we're going
+to do the exact same thing except for
+the type will be negative 1 meaning bad
+and then the image will be bad apple
+that's that then we have two functions
+over here that do the exact same thing
+and so essentially the touches begin and
+touches moved functions essentially we
+just say let touch is equal to touches
+dot first because that's a set for some
+reason I mean probably because if you
+want too many fingers to touch at once
+you would see the x and y coordinates of
+each finger but still i i would prefer
+one touch and then a separate function
+whatever but continuing i went on a
+different topic there so basically we
+declared touch as equal to have to stop
+first so basically the first finger that
+you have on the screen will be put into
+this variable then we're setting player
+positions x value to the touches
+location and node self dot x so we're
+only setting the x value not the y value
+then the exact same thing for touches
+moved because that literally just gives
+you coordinates of the person's finger
+moving just i guess a bit more life and
+then continuing in the update function
+which in case you didn't know what this
+is this function is called whenever a
+frame is rendered for example if your
+frame rate is 60 frames per second
+FPS then this is being cold this update
+function is being called 60 times every
+second because 60 frames are rendered
+each second and so in this function
+since it's running rapidly we want
+apples to disappear again extremely
+rapidly right as they touch the star and
+so basically what I'm doing here is I'm
+doing all these sort of Apple logic if
+you will and so here I'm updating the
+user score label I'm checking where the
+star is and where are all the other
+apples have they gone off-screen should
+I remove them from the array should I
+say yes it's collided with the star and
+now we should remove it stuff like that
+and so basically in the beginning here
+I'm just saying bar knew apples is equal
+to a new array of apples and I'm
+actually initializing it as well and
+then I'm saying for I in Apple's not new
+apples just normal apples but I'm saying
+I dot position dot y I is the specific
+Apple that we're on minus equals to plus
+and then we're checking if the type is a
+bad apple then plus two so make it go
+for down meaning that the Apple will bad
+apples will fall down faster but if it's
+not a bad apple it'll go zero meaning
+normal speed then we're going to create
+a variable called should continue which
+will be equal to true which is just
+essentially a little check to make sure
+that it's right the rights a polite
+Apple stay at the correct times then
+what I'm doing is I'm checking if the
+apples position specifically the
+y-coordinate is less than or equal to
+the min Y of this frame the minimum
+y-coordinate meaning if it's gone off
+screen than should continue should be
+false and also if the if basically this
+apples frame intersects the player's
+frame meaning they've collided or
+they've touched then we should set
+should continue to false however we
+should also set eyes type to negative
+one and we should also mine I mean sorry
+we shouldn't set eyes type we should
+check if eyes type is negative one and
+if it is then we - equals three from the
+player score and then what we do is we
+check if the eyes type is zero instead
+if it wasn't negative one then we'd plus
+equals one to the player score because
+that's a normal Apple however if it's
+one this means it's a very good Apple
+and so we plus equals three to the
+player score that's that finally we
+check if we should continue if we should
+continue to keep this Apple in the array
+then we say new apples on a pen this
+this eye or else we just say I don't
+remove from parent we don't want to keep
+this as a node and we definitely don't
+want it in the array cluttering it up
+and filling up memory and then basically
+we set apples to new apples and so
+apples has gone from memory completely
+and only the new apples are remaining so
+we don't keep hundreds upon hundreds of
+apples on in memory that doesn't make
+sense why would you do that and then
+finally we're setting score label sex to
+the players score and that's it I hope
+you enjoyed that video again if you have
+any questions suggestions or feedback
+please make sure to leave it down below
+in the comments or email me at Tasmania
+gmail.com you can also direct message me
+on twitter at tad g many you can also
+find this code on github and will also
+be a link in the description i got i
+hope you enjoyed if you did please leave
+a like and also subscribe to my channel
+it really helps out a lot that's gonna
+be it for this video hope you enjoyed
+good bye

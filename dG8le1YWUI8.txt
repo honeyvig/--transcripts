@@ -1,0 +1,783 @@
+so hello there and welcome to another
+tutorial my name is Tammy Bakshi and
+today we're going to be going over
+triplet neural networks now triplet
+neural Nets
+are not a special kind of neural network
+but rather a special kind of way to
+train neural networks they don't require
+special or exotic architectures and they
+allow you to do one simple thing how do
+you take complex data and project it
+onto a feature space so you can identify
+similarity between different data points
+in that space now triplet neural
+networks can be used for all sorts of
+things and let me give you a few quick
+examples and then we'll get into exactly
+what we're gonna do today now think
+about this let's just say you're trying
+to build an application for facial
+recognition now traditionally what you
+might do and what you might have seen on
+this channel before would be something
+like this you would have your neural
+network or LC you have your
+convolutional neural network to be
+specific thanks about your convolutional
+neural net now this convolutional neural
+network is feeding into a multi-layer
+perceptron neural network and so you're
+feeding into what would be called in
+cross terminology some dense layers now
+at the end finally the very let's just
+say we've got three dense layers over
+here these represent our dense layers
+now the very last one would be the
+number of classes that you have and you
+would traditionally do something like a
+softmax activation so in order to train
+your facial recognition neural network
+you would feed a face like so into your
+convoluted owner network you would train
+it to classify that face into one of a
+few categories and then after that what
+you were doing order to classify new
+faces is you would just discard this
+layer altogether and you would use the
+penultimate layer you would use the
+second last layer and you would use that
+as a feature vector and that feature
+vector would then describe exactly what
+that face looks like if two separate
+faces fit into this neural network have
+similar enough vectors then you consider
+that they are the same face because the
+neural net
+extracted similar features the noise may
+have been different but the signal the
+facial features that the neural network
+learned they were essentially the same
+but here's the problem in order to train
+a neural network like this first of all
+you're wasting compute and that's
+because you've got this entire last
+layer that's just doing classification
+that's gonna be removed anyway and plus
+just because this normal network has
+great accuracy when you're training it
+on a certain set of faces doesn't mean
+it's necessarily going to generalize
+well to other cases as well that weren't
+already in the training data set so a
+bias problem now triplet neural networks
+can help you solve this however there
+are also other ways to solve the problem
+for example you've got two Siamese
+neural networks Oh Siamese neural
+networks these are really fascinating
+what you can do is you can essentially
+take your multi-layer perceptron neural
+network and instead of having multiple
+multiple layers well it would still have
+multiple layers but instead of having a
+classification as your output you just
+have some feature vector and then you
+would have the same model over again so
+you have the same convolutional neural
+network the same multi-layer perceptron
+neural network all right now remember
+these are sharing weights so these over
+here these share weights these over here
+they share the same set of weights
+they're the same neural network but then
+you would feed in face number one and of
+course face number two into the neural
+networks now you have two separate
+feature vectors because remember they're
+two layers at the end you have feature
+vectors and then what you do is you can
+catenate these you merge them all right
+and after merging after merging what you
+do is you feed into another same
+multi-layer perceptron neural network
+and this multi-layer perceptron neural
+network will then go ahead and predict
+one thing it won't try and classify the
+face it'll try to do
+Russian problem instead try and predict
+are these the same face or not and what
+this enables us to do is Satan if these
+two vectors are are very similar then
+that means that this neural network is
+going to classify as well it's the same
+face because you have similar vectors in
+essence these layers are going to learn
+to create feature vectors for the faces
+that you feed in or you could even use
+the entire sign these neural network
+inside of your actual inference
+operation although this can sometimes be
+a little bit complex because if you ever
+want the whole neural network or at
+least store these vectors for every new
+input and you've got to match every
+single input you already have against
+the new inputs sometimes it can be a
+little bit annoying to use this method
+but it works and this is where triplet
+neural networks come in what if you
+don't want to have two separate inputs
+and then a place where you merge those
+outputs and then regress a value what if
+you just want to have a single neural
+network you want to have a single set of
+inputs and that single set of inputs
+will then provide you with a single set
+of embeddings and these are benning's
+describe the features of the neural
+network found and triplet neural network
+training and when triplet neural network
+training works is quite interesting the
+idea is that you only have a single
+neural network model but this single
+neural network model is going to be able
+to create feature vectors for any input
+that you provide it now the way this
+works is based off of some label data
+that you provide the neural network what
+kind of label data well let's find out
+and in doing so you'll also figure out
+why we call them triplet neural networks
+so let's just draw this vertically this
+time so let's say you've got a
+convolutional neural network again right
+classic simple now what you have is a
+multi-layer perceptron network of course
+right after your convolutional neural
+net now this is going to be considered
+your network all right and it's gonna
+output some kind of feature vector so no
+classifications here just a feature
+vector it could be
+a hundred dimensions doesn't matter
+depends on what works best for your
+specific use case now what's gonna
+happen is you're gonna take some face or
+actually they're gonna take three faces
+you're gonna take face one phase two and
+phase three
+but they don't have numbers rather they
+have letters you have face a P and M
+anchor positive and negative now you
+could probably start to see where this
+is going
+what you do is you feed all three of
+these inputs to the neural network now
+you're gonna have three separate outputs
+from your neural network all of them
+have the same shape whatever these
+neural networks these three inputs don't
+correlate with each other they're run
+through the network separately now of
+course you have your anchor embedding
+your positive embedding and your
+negative embedding now what do you want
+to do well the idea behind this neural
+network is that the anchor and positive
+that you feed in are similar images an
+anchor and negative are dissimilar
+images so for example let's just try and
+create like an amnesty Knology what you
+could do is you could feed in 0 and 0
+into a and P and then some other number
+like 8 into negative now you have an
+embedding for the number zero another
+embedding for a different number zero
+and an embedding for the number 8 now
+here's what you can do in your loss
+function instead of having some kind of
+expected output like a classification or
+are these two numbers in the same class
+instead what you can do is you can try
+and maximize the distance between anchor
+and negative but minimize the distance
+between anchor and positive and when you
+do this the neural network guess what
+the final layer is going to learn a
+feature embedding that describes the
+input that you provided such that
+similar inputs have similar output
+vectors and by doing so you can for
+example cluster inputs and that's
+exactly what we're gonna do today
+so in Cairo's were going to take a
+regular neural network
+wrap it with a super simple function
+that enables the model to take three
+inputs after you we're going to create a
+custom loss function in Caracas using a
+special little workaround that will
+actually take this anchor positive and
+negative input and we'll calculate
+triplet loss as a matter of fact we're
+not just going to be using any triplet
+loss we're gonna be using a special kind
+of triplet loss developed by IBM
+Research while they were working on
+project debater now how exactly it works
+why it works that's a topic for an
+entirely separate video but we're gonna
+be using some cutting edge loss
+functions in this tutorial as a matter
+of fact Corral's doesn't particularly
+support loss functions like this because
+her office expects it hey you have your
+model output you have your expected
+output but in this case we don't really
+expect anything because we don't care we
+don't care what the vectors are we just
+care the anchor and positive are closer
+and anchor and negative are further away
+that's it and so that's why we're gonna
+be using a little bit of a workaround to
+have an empty expected output and then
+the loss function knows what to do with
+the three separate outputs that we
+provide it with and so now without any
+further ado how about we take a look at
+taking and this data creating feature
+vectors for it with a triplet neural
+network and then running it through a
+library called you map for a
+dimensionality reduction to bring it
+down to just two dimensions and then
+plop out using that plot lid to see if
+we can see ten different clusters of
+digits so without any further ado let's
+get into it
+alright so what I've got open right now
+is a Jupiter and Jupiter notebook on
+skills Network laps now this is of
+course a Python notebook as we're going
+to be using the Karass library
+particularly we're gonna be using TF
+cross ten to float cross which is the
+tensor flow implementation of the cross
+API spec sometimes it can be confusing
+as to what that means but it's cross now
+skills Network laps is available for
+everybody to use it's this free
+environment where you can start up your
+own notebooks and train neural networks
+and try out different things you have
+different
+nope kernels like for example Python
+Swift Juliet a lot more there will be a
+link to it down in the description below
+as well as to a github gist with this
+notebook so you can download it upload
+it to skills Network labs and train it
+for yourself or train it on Google
+collaboratory or even your own
+environment if you have access to one so
+let's begin now to start off we've got a
+little command line command which is
+just pip install tends to flow version
+two and another package called you map
+learn now you map learn is a package
+that implements you map which is a
+dimensionality reduction package now how
+exactly this package works we can get
+into that in the future for now all you
+need to care about is that it's kind of
+like it achieves the same sort of
+fundamental goal as another algorithm
+like PCA or t-sne
+so the idea is how can you go from say a
+hundred dimensions to just two
+dimensions so our mere mortal Minds can
+actually visualize it now of course
+humans can't visualize more than three
+dimensions because we live in a universe
+with only three so if we've got a
+hundred dimensions in our feature space
+there's no way to visualize it however
+if we were to actually use an algorithm
+like you map to bring that down to just
+two dimensions then we can visualize it
+problem is that we end up losing some
+information in that dimensionality
+reduction but don't worry about it
+there's still enough to give us an idea
+of what it would be like projected into
+100 dimensions but I'll get into what
+that means and what that actually
+entails in just a moment alright so as
+you can see this command line command
+just ran and we've installed our
+packages successfully now I'm gonna run
+this cell with a bunch of imports let's
+see if it works sometimes it'll actually
+crash at this cell because after the pip
+install you've got to restart the
+jupiter kernel now there we go it didn't
+crash that's great so it actually
+installed and we were able to import
+perfectly so now let me just quickly
+give you a brief of what we imported
+first of all the random package built
+into Python for just selecting random
+elements from arrays of the matplotlib
+package for plotting numpy for of course
+numerical numerical operations on numpy
+arrays we've got you Matt for benchmark
+and then a bunch of tensorflow dr. oz
+libraries now we have to import the back
+end for this because we're going to be
+writing a custom loss function and we
+need to run operations on cross tensors
+and the the back end is going to allow
+us to actually get those operation
+functions where the gradients are
+actually defined then we also need the
+MS data set luckily built right into
+cross so you don't need to download or
+do any of that weird stuff also we're
+going to import model from TF crossed
+out models so we're gonna be using the
+functional sort of way of building and
+modeled and cross and then just import
+all the layers this is not best practice
+but instead of importing every layer one
+by one I thought we would just do import
+star so now after this cell pretty
+simple self-explanatory didn't come to
+this video to see this it's just taking
+the mms data set loading that day up
+putting it into the X train white rain X
+test and Y test arrays reshaping them so
+they actually fit the neural net so
+there's 60,000 elements in training
+10,000 and testing with only a single
+color Channel and a 28 by 28 image and
+of course we want these pixel values on
+a scale of 0 to 1 instead of 0 to 255 as
+you would get with an 8-bit unsigned
+integer and so therefore we just divide
+by 255 and convert to a 32-bit
+floating-point number now in terms of
+the actual classes there's only 10
+categories and we that list of course
+there's just 1 2 3 4 5 6 7 8 9 and then
+0 and so those are the 10 classes that
+we have for our data now next up is
+something that again it's not
+necessarily best practice but works for
+triplet neural networks what I've done
+is I've created a generator function and
+this generator function in Python is
+essentially going to be something that
+you can continuously call from an
+iterator and what it'll do is it'll
+continuously gather random Triplets from
+the data set and put them in a way so
+you can train your neural network so let
+me actually walk you through this so
+what happens is the state of generating
+this data generator gets a batch size by
+default it's going to be 64 and then it
+has an int
+Loup and in every iteration of the
+infinite loop we create three lists the
+anchors list positives list and
+negatives list now these three separate
+lists will contain all the samples that
+will be trained in a certain batch of
+training and so every single time this
+dysfunction yields it'll be returning
+these lists and there will be 64
+elements in each of these lists because
+the batch size is 64 by default then
+there's just a simple for loop where we
+iterate the the number of batch size
+times so in this case 64 times and then
+I do one thing first what is gonna be my
+positive class and what is gonna be my
+negative class for my positive class I
+will extract an anchor and the positive
+sample for my negative class I will
+extract a negative sample and the way
+I'm gonna do that is by using random
+dots sample and random that choice so
+what I do is I take the X train numpy
+array and I say okay give me only the
+samples inside of this array where you
+know that the class of that sample is
+equal to the positive sample of class
+and so as you can see over here we have
+a list with two different classes one of
+them is our positive one of them is our
+negative and over here I'm saying okay
+only gave me the images of digits if you
+know that they are in the positive class
+and then out of all of those which there
+should be around 5,000 ish select two
+random it's like two separate elements
+so one will be our anchor one will be
+our positive then we just take the same
+extra array or yeah umpiring and then
+choose all of the samples where you know
+that the image is from the negative
+class and then choose just one random
+image from that negative class then all
+you've got to do is take the anchor
+positive and negative put them inside
+the list and then after the for loop
+you've built your batch now all you're
+gonna do is you're gonna yield two
+things whenever you should be yielding
+according to cross spec a tuple and the
+tuple should have two values of course
+the first one should be a list with the
+three separate inputs to the neural
+network one is the anchor second one is
+positive third one is negative so
+three separate inputs in a list like so
+now the next one should usually be the
+per the expected output from the model
+but in this case we don't expect any
+output so we're just gonna do zeros with
+a batch size of what with it with the
+shape of batch size one and the type
+should be float 32 and so just like that
+we've got our data yielded and our data
+generator is finished now after the date
+of generator then we got the triplet
+loss function now this is really
+interesting part comes in now remember
+in this case our neural network our
+neural network is going to have a
+hundred features that it outputs and so
+what the triplet loss function is going
+to do is it's going to receive a a
+tensor with shape num 300 and that's
+because we are concatenate a nun 103
+times so we are concatenated anchor
+positive negative into one output just
+to satisfy chorus and tell it okay we
+only have one output because it only
+supports that one output and then once
+they're merged into this then the
+triplet loss function will we'll slice
+them all out into separate tensors again
+and then we're gonna process on those
+sliced tensors so we take the anchor
+slice the positive slice and the
+negative slice in that order and this is
+where the special loss function actually
+comes in so the way this works is that
+we get the l1 distance between anger and
+positive and anchor and negative so this
+is the l1 distance between anchor anchor
+and positive and then we also have the
+l1 distance between anchor and negative
+all right so that's pretty simple stuff
+you've got your distances and this is
+where the sort of weird part comes in
+what you're gonna do is you're actually
+gonna take pause dist and negative
+distance and you're gonna put them into
+an array and they're going to calculate
+softmax on that array now why are you
+doing this exactly it's because you want
+to get a probability
+of either the positive or the negative
+being closer to the anchor now after
+that what you want to do is you want to
+somehow tell the loss function that your
+objective is to increase the probability
+of positive and decrease the probability
+of negative and so the way you're gonna
+do that is by using this little function
+developed by IBM Research so you're
+gonna take the absolute value of the
+positive probability and add it to the
+absolute value of 1 minus the negative
+probability now remember if you're doing
+this across batches so the axis over
+here is gonna be across batches because
+you don't want batches to interfere with
+each other's learning so you're gonna do
+it across the batch and then you're
+gonna mean the lost values for each
+individual training example within that
+batch and that's why we've got K dot
+mean here and there we go that's the
+loss function simple as that now
+this loss function is surprisingly very
+good at what it does and so we're gonna
+take a look at that in one second but
+let's go ahead and take a quick break to
+actually run these three cells as you
+can tell we've been able to download the
+data and actually run these two
+functions so they are valid next up we
+are going to create a super super simple
+most certainly not optimized but working
+analyst classification model so if I go
+ahead and run this we've got a super
+simple Emnes convolutional neural
+network model with a hundred and ninety
+thousand one hundred and forty eight
+total parameters and this is going to
+give us a dense output with just a
+hundred features now the all of the
+activations of this network are
+rectified linear units next up super
+simple wrapper around that model that
+enables it to become a triplet neural
+network so over here we have three
+separate inputs the anchor positive and
+negative inputs then we have an output
+layer the output is just contaminating
+the model output for each input together
+into that same nun 300 we're talking
+about and then constructs the model and
+prints out assembly so if we actually go
+ahead and run that as you can see give
+that just a moment to process sometimes
+it takes a moment because Karass is slow
+in in in this case again then a second
+the cell will run and in theory we
+should have three input layers
+which are as you can see three input
+layers which are connected to that model
+and remember this is just one model not
+three separate models one model that
+will output three separate vectors that
+are then concatenate it into one and
+then this one is fed into the loss
+function now finally all we need to do
+is compile the triplet model as you can
+see it worked we pass in our custom loss
+function and Karass is actually quite
+intelligent it actually it'll actually
+go through that loss function with a
+dummy tensor make sure everything works
+and it verifies the fact that the cell
+actually executed means that it went
+through the function with a dummy tensor
+and it worked and then we've just got an
+atom optimizer super simple optimize
+it's not a simple optimizer but a great
+optimizer my favorite the one that I use
+by default in a lot of cases and finally
+we've got the fit generator function the
+fit generator function is going to take
+the data generator that we had just
+built a little while ago
+the number of steps it should run for
+epoch in which case I've done around 150
+because 150 times 64 we're gonna cover
+around 10,000 images per Eibach and then
+just three epochs now we could certainly
+do a lot better we could go through the
+whole data set in every training epoch
+which is technically what we should be
+doing anyway we could do more EPOC so we
+can have a better model architecture but
+in this case I wanted to tell you how
+triplet neural network networks work and
+I don't want to tell you how to optimize
+a neural network training specifically
+for nvest so we're not gonna do that
+right now but we're gonna run the fitter
+function and currently this notebook is
+not powered by GPUs so the training
+could take a couple of minutes as you
+can see the loss function is going down
+quite rapidly we're currently at around
+0.68 and 0.65 0.62 these are big steps
+that we're taking and that's a good
+thing to lower our lost value the closer
+the neural network is to learning
+exactly what it is that we want it to
+learn and so let's go ahead and speed up
+this clip so you don't need to watch
+paint dry and in just a few moments
+we'll take a look at our neural network
+after it's done training see what the
+lost value isn't see if we can actually
+visualize the clusters that the neural
+network learns to create
+okay so there we go
+the triplet model is now done training
+as you can see we get the callback
+history that doesn't matter that's just
+the return value of fit generator now
+I'm just gonna save the model in case so
+if something else crashes the kernel we
+don't lose the saved model because then
+this happened before and it has wasted
+many hours of training time so let's
+make sure we save before we do anything
+else now what I'm gonna do is I'm gonna
+take the test data that has never been
+fit into the model for training at least
+and I'm gonna feed it into the model
+remember now that we're no longer
+training we don't need the triplet shell
+and we can just use the model as a
+regular role model that takes a single
+input and gives us a vector and the way
+I do that is by treating the model as
+the third or actually fourth layer
+within the triplet model because if you
+take a look 0 1 2 3
+inside the triplet model our actual
+model is technically a layer within it
+and so I get that model and then I
+predict on the X test data set and what
+that does is it gives me embeddings for
+every image inside of the testing data
+set so if I go ahead and run that in
+just a few seconds we should get an
+array of shape 10100 there we go 10100
+so 10,000 samples a hundred dimensions
+for each and betting now again we can't
+visualize a hundred dimensions so I'm
+gonna run a little thing called you map
+and what you map is gonna do is it's
+gonna take the ten thousand one hundred
+and convert it to an array of size
+10,000 - so dimensionality reduction now
+the specific parameters I'm using that I
+found come up with a pretty good
+visualization number of neighbors 15 and
+minimum distance is gonna be 0.3 the
+metric for calculation is gonna be
+correlation again I'm not gonna go over
+how you app works today that's gonna be
+a topic first separate future video all
+you need to know is that it's an amazing
+dimensionality reduction package now
+I've told it to fit its internal model
+on the embeddings that we got from the
+testing data and also transform them and
+run that dimensionality reduction and
+then of course print out the shape and
+after this cell executes we're gonna go
+ahead and print out a scatterplot and
+see if it actually well worked this is
+just a warning you don't need to worry
+about this there we go we're already
+done that was really fast and now
+without any further ado here's what
+we're gonna do we're gonna create a
+scatter plot where each dot represents
+the dimension the embedding for one of
+the input images now every single sever
+single sample will have a color that
+represents its class so the idea is that
+if the model learnt things correctly
+then dots with the same color will be
+suitably grouped closer together and
+there will be visible clusters of colors
+each color representing a different
+number in the MS dataset so if I go
+ahead and run let's see if it works oh
+it actually it seemed to have worked
+let's take a look at this shall we so
+now as you can tell we have a couple of
+different clusters we've got this purple
+over here we've got these green clusters
+we've got this yellow cluster a sort of
+bluish color another bluish color now
+there's one thing I want you to do first
+let's go ahead and count the number of
+clusters so you've got one cluster two
+three four five six seven eight nine and
+ten how many classes do we have we have
+ten classes so as you can tell we were
+able to get ten clusters representing
+the ten different classes that we have
+now there is something else to keep in
+mind as you can tell it's not a very
+unique clustering as you can tell
+there's a little bit of green and the
+purple over here there's there's more
+green in the purple here there's some
+yellow in the green there's some there's
+this colors overlapping with other
+colors now there's a few reasons as to
+why this is first of all we didn't train
+a very good model because it was not
+demise second remember when we went from
+a hundred dimensions down to just two we
+lost a lot of information something that
+could be very easily separable in a
+hundred dimensions could be not
+separable at all in two dimensions or at
+least not obviously I mean even in a
+state like this one even with just two
+dimensions if
+use the you mapped data you would still
+be able to create a pretty good
+classifier because I mean I could
+literally just draw a couple of lines
+and and we would have or a couple of
+curves and we would have separated the
+classes but the thing is in a hundred
+dimensions the the network would have so
+much more information to go off of that
+it may as well be separable now we might
+even be able to solve this problem by
+going from two to three dimensions and
+see how it's even more separable but for
+now what matters is that we saw a neural
+network given no labels only the fact
+that hey these two are similar this one
+is not similar to the V anchor based off
+of just that information and using a
+custom loss function we were able to
+create a network that took any arbitrary
+image of a digit from zero to nine and
+was able to convert to a vector that
+describes what that digit is for example
+this could could theoretically be a zero
+plus or this could be the one cluster
+this could be the two cluster it doesn't
+really matter what matters is that we're
+able to separate different digits into
+different clusters if it works in two
+dimensions it's got to be better in a
+hundred and so that is how triplet
+neural networks work now there's a lot
+more you can do with this than just
+classifying data that already has
+classes now feminists of course is meant
+to be done as a classification problem
+it would be better to do this as a
+classification problem but what I wanted
+to show you is that the model was
+capable of creating such absolutely
+incredible
+vectors like this one and so now what
+I'm gonna do is I'm gonna give you this
+notebook down the description below and
+if you'd like to go ahead and modify
+this notebook and use this loss function
+for your own neural networks and your
+own practical use cases feel free to go
+ahead and do so and so thank you very
+much everyone for joining in today I do
+hope you enjoy if you did please make
+sure to leave a like down below apart
+from that I would absolutely love to
+answer any questions you may have or
+hear any feedback as well so leave that
+down in the comment section below or you
+can email it to me at Taji mani at
+gmail.com and once again thank you very
+much for joining today goodbye

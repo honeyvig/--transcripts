@@ -1,0 +1,903 @@
+so hello there and welcome to the
+tutorial my name is Hannah Bakshi and
+this time we're going to be going over
+yet again another iOS app this time this
+is also entering linked with an
+algorithm so this will also be going
+into my algorithms playlist anyway so
+today we're going to be talking about
+something called Dijkstra's shunting
+yard algorithm and you'll be wondering
+wait how did Dijkstra come into this
+again
+you might remember Dijkstra I mentioned
+his name in my last algorithms to toriel
+which was my a star tutorial and so I
+mean yeah Dijkstra did make some amazing
+path finding algorithms but one of his
+lesser-known algorithms was the shunting
+yard algorithm which allows you to
+convert a basically equation from infix
+to postfix which I will be explaining in
+just a minute anyway coming back to
+today's topic today's topic is going to
+be getting computer to solve a
+mathematical equation using stacks
+pretty amazing and so today we're going
+to using the Swift language against with
+to to be able to use essentially just
+really small what you call it stacks
+which are basically arrays but I'll
+explain the differences in just a minute
+and so we're going to be able to use
+stacks to let the computer actually
+parse out a mathematical equation in
+this case we're going to be asking it to
+parse out 1 times 2 plus 1 sorry 1 plus
+2 times 3 plus 4 pretty simple for a
+human not as so simple for a computer
+the reason it's not so simple for a
+computer well you may ask because it has
+to follow bed mass let me explain what I
+mean in just a second actually in some
+places they call it pad maths as well so
+I'm just going to stick with that for a
+minute
+so anyway coming over here I'm just
+going to give you a sample mathematical
+equation and show you how a normal human
+would solve it so first of all we have 1
+plus 2 times 3
+Plus for now a human would solve this
+with ped mass in mind so what he would
+do is essentially take this
+multiplication first do the
+multiplication then do all the addition
+so he would do is this is a tree just
+for your switch so you can understand
+how this works but a real human you
+would just do this be done and there you
+do all the calculations in his mind
+because this isn't like an entire
+whiteboard long that you would need to
+make a tree but I'm just going to do it
+so you can see the actual step and
+thinking that goes behind all this so
+first of all we take the multiplication
+part and we say ok so this is equal to 6
+ok then we bring down the plus and bring
+down the 1 we also bring down the plus
+and bring down the 4 now that we have
+all this set up we can solve this part
+which we know will easily be able be
+able to be equal to 7 so 1 plus 6 is 7
+now what we do is we bring down this +
+and bring down this 4 and then we find
+the final answer which will of course be
+11 so the answer to this a human would
+know is 11 due to the fact that 2 times
+3 6 1 plus 6 7 plus 4 11 now how do we
+tell a computer not to do the addition
+first but to do the multiplication first
+because a computer it would actually
+just go left to right and do ok
+what's 1 plus 2 3 times 3 9 plus 4 13
+and 13 is not the right answer so then
+we would actually have to use pen mass
+make sure that we do multiplication
+addition then addition that's how that
+works
+now I'm going to be explaining how we
+can tell computer to follow pad mass and
+so now as I have already told you the
+computer actually cannot follow the pen
+mass or it can but that would be way too
+complicated to call in so basically what
+we do is we simplify the
+into something called a postfix equation
+which first of all will take care of
+take care of pad mass for us second will
+be easier for the computer to parse out
+let me show that to you in just a second
+here now before we continue let me tell
+you what in fix and postfix means first
+of all in fix would be this sort of an
+equation where every single operator has
+a number both to the left and to the
+right of it and you must be thinking
+wait a minute what if I had something
+like this see this there's a minus here
+that's an operator there's no number to
+the left but then that's just a 0 in
+disguise essentially so anyway there
+will always be a number to the right of
+any operator just sometimes there will
+not be to the left but that will
+automatically mean a zero there so that
+means every number every sorry operator
+in infix will always have an operand
+either to the left or the right of it
+now that we have solved that little
+mystery we can see what postfix is now
+let's just draw another in fix equation
+that's relatively simple something like
+five and five now let's draw we're
+actually five plus five sorry I'm just
+about to make postfix actually so I want
+to draw a in fix equation which is going
+to be pretty simple so something like
+five plus two now how would we write
+this in postfix now humans aren't really
+good at understanding this but computers
+they are amazing at understanding this
+five two plus is what the computer would
+take as a valid equation this is a
+postfix answer
+for every operator there should be two
+numbers before it in some cases this is
+not true due to the fact that once all
+the other postfix is solved that'll
+become a number and help out that
+operator if you don't understand what I
+what I'm explaining yet don't worry but
+just imagine this five two plus in
+postfix is five plus two in index let's
+just do something a bit more complicated
+in infix and convert that to postfix to
+something like five plus two times one
+now how do we go about doing this first
+of all what I'm going to do is I'm going
+to write down five then I say plus so
+I'm going to ignore that now and there's
+two times and yeah just let me since
+this is a pretty unreasonable equation
+let me just make this a three basically
+it would be three times plus this is the
+postfix equation for our in fix and so
+you can see this better I'm going to
+space it out so sorry about that anyway
+so this is actually going to be five to
+three x plus case you couldn't do that
+so sorry if you can't see that yet but
+you will in a second so so this is going
+to be 5 to 3 x plus essentially okay
+there you go back so now that now that
+you've seen a pretty good example of
+postfix I can actually tell you how we
+use Dijkstra shunting yard in order to
+be able to convert from this to this
+and then solve this
+and just in case you were wondering what
+this is actually equal to I'll calculate
+this so 2 times 3 that would be 6 6 & 5
+this is actually 11 so as you can see 2
+times 3 that 6 plus 5 that's 11 so then
+that was pretty simple for a human being
+but for computers again not so simple
+because they don't have any logic behind
+anything actually you have to teach it
+to do something if there's something
+it's that less some knowledge about
+that's what the thing so now again as I
+mentioned we're going to be using
+something called stacks in order to be
+able to do this now what is a stack you
+might ask me well a stack in computer
+terms would be just the same thing it is
+in real life basically a stack is like
+an array basically however you would
+picture it going up to down rather than
+down to up and so you can imagine it if
+you didn't want to imagine it like a
+little bricks you can imagine it like
+coins so for example if I were to say
+push a new coin onto the stack
+I would mean take a stack put it on the
+top of the step take a coin sorry and
+put it on top of the stack after that
+let's say I wanted to pop a coin off of
+the stack I will just take the first
+little coin take it out make it vanish
+it's gone and if I wanted to get the
+peak of a stack I will just say get the
+first which is the most top or actually
+the last basically the most top coin
+from that stack so that would be the
+peak of the stack so now that you've
+learned the terminology or which is
+essentially just push pop and let's the
+other one that push pop and peak and
+this also is empty although all those
+other array stuff and so that's just
+classic but mainly the difference
+between a stack and Ray is that the
+stack can push pop and it can also
+at the peak however arrays they cannot
+pop unless you code it to do that and
+also they can push so that's the main
+difference between a stack and right now
+I'm going to be explaining how to use
+stacks in Swift to be able to actually
+convert from infix to postfix and also
+swift does not allow you to use stacks
+natively so I have created my own custom
+class for stacks that can allow you to
+push pop and get the peak in check if
+it's empty and all that good stuff
+anyway
+apart from that now let's actually get
+to doing it first of all in order to
+convert from infix to postfix you have
+to have an equation in this case our
+equation is going to be something really
+simple
+oh let me think I didn't want to do
+anything by the way you could also say
+expression not equation sorry which
+would be a more better term for what I'm
+trying to explain but anyway let's get
+to it and so let's just use first of all
+just give you a really simple start up
+I'm going to do something like 1 plus 2
+times 3 now how would we use a stack in
+an array in order to convert this to its
+postfix type now first of all we also we
+have to use John not two stacks but one
+array so we're going to do that we have
+to do use of course a stack on the right
+and the reason we're going to do that is
+because we want to essentially use the
+stack for all the operators and the
+array for all the operands also just let
+you can see how we're pushing and
+popping I'm going to add one last thing
+on to this so that we can see how we
+push and pop from the stack and you'll
+see why I added that in just a minute so
+now let's start through each iteration
+we're going to be looking at each token
+every single little part of the equation
+is one token so one would be a token
+plus would be a token then two times
+three plus four they would all be tokens
+so first of all through all the
+iterations our stack will be equal to
+this and then it will come here and then
+our array will be equal to apparently
+okay so now we can take our one which is
+our first token and write it down up
+here how are you taking our first token
+I can actually create the stack and so
+actually yeah so I'm just going to do
+move this array down so it because this
+is actually going to be a quite big
+stack once we're done so I'm just going
+to move move to your way down just a bit
+okay so now that we have this is our
+first token a 1 as you know from over
+here
+so now when we go to our stack in our
+array this is how we picture the stack
+and so our stack will be empty for the
+saturation because we don't need to do
+anything with the 1 in the stack however
+for our array we will add a 1 to our
+array now to our next generation our
+next token is a plus so I'm going to
+track down a plus here now for our stack
+we will have a plus and our array will
+still have just a one purpose
+now that we have a plus in our stack and
+one in our array we can continue to our
+two so now that we're at two you can
+write that down that down here our staff
+will not change one bit it will stay a
+plus because that's the operator that we
+have however our array we will just add
+something to our array which will be
+that one not me not to and also so that
+we can fit because there are going to be
+many more iterations that I often
+explain lots more stuff I'm just going
+to make this a bit thinner
+also just remove that from there and put
+there anyway
+now we have a times and also before we
+continue this is goes for till now what
+we have one plus two this is completely
+good postfix one two plus is equal to
+one plus two in in fix so now over here
+we can take our x token and now I'm just
+going to drop both of them out quickly
+so first of all we know that our array
+will not change which I'll explain in
+just a minute
+however our stack will change and since
+there's already something in the staff
+which is a plus we just want to take a
+quick look at it we want to take this
+specific operator from the stack and we
+want to see okay does it have a lower
+than or equal to presidents than myself
+and you may ask what is precedence
+precedence is the priority that that
+operator has in the entire list of
+operators that's available in the map so
+now I'm going to say these are the
+operators that work with my app well
+there's a power there is divided there's
+multiply there is modulo there's add and
+there's also - now again since I don't
+want to bore you out and just explain a
+lot and also yeah of course brackets
+which I'll explain later since I don't
+want to bore you out there's three that
+I'm going to ignore which are the
+brackets the power and also the modulo
+I'm going to keep it simple and just do
+division multiplication addition
+subtraction however the code does allow
+for these operators and you can even
+make custom operators just by adding a
+few lines of code and their priority in
+the list anyway coming back to this
+let's see our division
+now first of all here for division we
+have a priority of one this means it has
+a highest priority and so does our
+multiplication and then our addition
+subtraction have two in two so whenever
+something has lower priority as we
+popped out of our stack into the array
+however as you know we're kirlyam times
+and we're looking at a plus from our
+stack so the plusses priority is not
+equal to the one of x and it's actually
+greater than so we don't need to do
+anything to our plus we can just add a
+times to our stack so then I can just
+take our x and add it to our sack now we
+can continue by adding a three to the
+end sorry that was my iPhone anyway so
+then after that our stack will still be
+a plus and times because that won't
+change
+however array will now also have a three
+at the end so it'll be a 1 and a 2 then
+a 3 so you can see that's how simple
+that is now things start to change
+however now we have + so as you know our
+stack is currently a plus and at times
+and our array is currently right now it
+is 1 2 and also 3
+okay so now that we have that what will
+this plus a do to the operators that are
+already in our stack let me explain that
+to you right now now we have a plus
+where the priority is going to be at two
+and so now we know that we're looking
+first of all at a times here which has a
+priority of a one now as we know that
+one is less than this two so we are
+going to pop out this X from our stock
+so you know this X has been now has now
+been popped out of our stack this X well
+actually get added to our array over
+here so now our X is in the array
+instead then we see that the next
+operator in our stack has a presence of
+two which is the same as ad because
+there's the same operator they're going
+to have the same precedence and so
+whenever there's the same precedence we
+again move this Plus down into our array
+after popping it out of our stack so a
+plus has been popped and moved to our
+array after that there's no other
+operators to check so we put this plus
+down into our stack it's that simple now
+we have a four of course with any
+operands meaning like numbers and
+letters and stuff we don't got it to our
+stacks or staff and stay the same
+however our array will differ quite much
+because we will have a one then a two
+and three then at times then a plus
+and then a four so then we are done
+looking through our entire op our entire
+expression and now what we can do is
+basically go from top to bottom in our
+stack and pop each operator down into
+our array and so since there's only a
+plus we just pop our plus onto our array
+and that will give us the final
+basically array so then are already
+array which is going to be over here is
+one so then just a sec
+yeah so first let me draw my stack
+actually our current stack is going to
+be I can actually draw this way because
+there's no need for anything else to be
+drawn so our stack is going to be a plus
+then our array will still be the same
+because I mean we're done i derating so
+it's going to be a 1 and a 2 and a 3
+then it'll be a x then it'll be a plus
+then it'll be a 4 and then what we're
+going to do is we're going to pop this
+out and put it into our array so we're
+going to pop it out of our stack and add
+it to our array pretty simply take this
+that's it and that is our post fix 1 2 3
+x plus 4 plus so now let me just write
+this out over up here something and
+write the stuff over here
+sorry not read next up sometimes anyway
+so then 1 2 3 first of all 1 2 3 x plus
+x plus
+for plus plus nice so that is our
+postfix and that is completely valid now
+you must be thinking how does the
+computer understand that postfix sure
+you converted post tricks now how old a
+computer understand the postfix and so
+sorry about that the postfix well that's
+pretty simple to answer and so I order
+to solve that we will use successfully
+another stack yay is if that weren't
+enough we're going to use one more stack
+however since we aren't generating
+anything we don't need an array for this
+we just need our postfix
+in the array that we already had it and
+we will be able to solve it and the
+reason I want it in an array format is
+because I don't want to tokenize this as
+well yeah that's nice perfect
+no oh
+now that we have our postfix answer we
+can successfully convert it to our
+answer in order to do this we will take
+first of all our one so this is when we
+get our 1 and this is going to be our
+stack so our stack when we going to one
+will just contain a 1 we push that one
+into our stack we're going to to again
+you push the 2 into our stack 3 push
+into our stack
+times now this is where stop death
+starts to get complicated now when we
+reach an operator you might think that
+we add it to the stack and do stuff but
+you're wrong what we just knew is we
+take whatever we already have in our
+stack and we pop out these two numbers
+so we pop out the 3 and the 2 okay so we
+pop out the 3 with you then we do okay
+what is 3 times 2 we all know that it's
+6 so then we just push in the result
+which is 6 that is perfect and so we can
+move this basically this times popped
+out these 2 and just pushed in the
+result then Plus this is another
+operator so then what we do is we say
+that ok we already have a 1 and a 6 now
+what we do is we pop out the 6 and the
+one so there's nothing in the stack it
+we popped out everything and then what
+we do is we say okay well 6 plus 1 7 so
+we push in a 7 onto our stack that's
+nice too
+then we get a 4 and of course when we
+get an operand we just add it to ours
+back or push it to our stack then
+finally we have a plus when we reach the
+plus all we need to do is we already
+have actually a 7 in the four now what
+do we do since we have plus we pop out
+the 4 in the 7 and we say okay what's
+four plus seven as we all know that
+would be 11 for 7/11
+Ashley runs a bit anyway okay so four
+plus seven that gives us 11 so we push
+in the eleven to our sack then we
+realize that we're all done so then we
+pop this out of our stack and we get
+eleven as our answer as you can see the
+computer has solved this postfix the
+exact same way that the human has solved
+the infix in case you didn't remember I
+still have the in fix written over here
+or actually nevermind I don't but I can
+always rewrite this by erasing this
+precedence you don't need it anymore and
+so let's just ignore this for a second
+pretend we didn't do that let's just go
+back in time and recover what I had done
+a few minutes ago
+six
+so as you know human would take 2 times
+3 which it successfully did and got 6
+then it did 1 plus 6 and it got 7 then
+it did 7 plus 4 and not 11
+so it has solved these postfix the exact
+same way that the human solve the infix
+taking no care whatsoever about ped
+maths and stuff
+still got the right answer due to the
+fact that when we converted the postfix
+we put the operators in such a way that
+there was no need for us to take care of
+ped mass in any way we just had to read
+left to right simply parse and we were
+done
+and yeah that was the explanation of
+Dijkstra shunting yard algorithm and of
+course if you have any questions on this
+please comment down below and now let's
+get to the iOS app part I have both an
+iOS app and just a playground if you
+want to see how it works I will also be
+releasing library or actually a
+framework for this sometime in the
+future not right now though and yeah
+let's get to the Mac part now so welcome
+back to the Mac part and now I'm going
+to be giving you a few examples inside
+of the code and then I will be
+explaining the entire code to you first
+of all as you can see in this code let
+me just skim through it first then I'll
+give you a few examples and then I will
+go into depth this extension to the
+string class was created by Alec Larsen
+on Stack Overflow and there will be a
+link to this specific answer down in the
+description and this will allow you to
+get any specific character from a string
+and so that's really helpful in the sort
+of app after that we have another
+extension to the string class this was
+developed by me it will tell you if a
+string is an operator if it's a number
+and if it is an operator it will tell
+you it's precedence which is its
+priority or from that we also have my
+own custom stack class because again
+Swift doesn't implement stacks natively
+so I have to create my own little
+workaround classes to do that I mean it
+all comes down to a root of an array but
+then after that
+I also create variables like peak I
+check if it's empty I can push and I can
+pop to the array so that we have our
+math parser this is the actual heart of
+the code you could say which will allow
+us to find the answer to basically any
+math question although some things I
+know are a little bit limited percent
+with square roots and stuff like that
+but I mean it's okay for now since this
+is just a proof of concept to make sure
+that you know that this sort of thing
+actually can happen and it completely
+works okay so now I'll give you a few
+examples if we could just go look at
+this VAR e qu over here if we could just
+do into this little section you could
+you can tell that this code is used in
+order to take an equation parse that
+equation and also first of all give us
+the post fix over here and give us the
+answer over here so if I were to type in
+something simple like oh I don't know
+five plus five over here our answer will
+be ten so if I move over here the answer
+there is ten it's that simple
+and so the parcel was able to detect
+that it's ten and over here we see our
+post fix which is five five plus as we
+know in post fix it's five five plus
+you're wondering another name for post
+fix is our PN or reverse polish notation
+anyway apart from that let's give a few
+more advanced examples now since that
+you since you know that this this
+actually works so let's go back over
+here and let's just give an example like
+two plus three times four minus five now
+if we see our result first of all this
+should be nine and when we see our
+result yep it's nine so that worked out
+and our RPM or reverse polish notation
+or postfix is two three four x plus five
+minus which is quite complicated to a
+human but it's the best thing that a
+computer would ever wish for anyway
+coming back to the example area let's do
+something now like ya think okay idea
+let's put two and three in brackets and
+let's see what happens so it gives us 15
+and that is the correct answer anyway
+apart from that now let's put the other
+side of the equation in brackets and the
+answer should be minus one and it gives
+us negative one perfect now let me show
+off the modulo feature ten modulo 7 of
+course should be three perfect then
+let's do something like negative ten
+modulo 7 of course it's negative 3 which
+is again the correct answer okay now
+let's see something like 2 plus 30
+divided by divided by boy sorry
+add a little shake it's not supposed to
+be negative to it so she just 2 plus 30
+divided by 6 minus 10 so now our answer
+will be negative 3 as expected now
+however if I change this plus to a minus
+this will give us a completely different
+answer which is negative 13 and as you
+can see it worked absolutely perfectly
+then let's try out our power feature in
+order to try out power we just do
+something like 2
+power 10 and so this should give us 1024
+and as you can see it does then we can
+do something like just to prove that
+negatives really do work
+negative 3 times 2 and as we as we see
+we should be yeah so yes this is
+negative 6 have Miller my calculations
+actually I thought sorry a little
+confused but this is actually the
+correct answer anyway next 30 minus 5
+mod done in power 2 so we get 5 which is
+the correct answer
+now however if I change this to 10 we
+should get negative 15 and it is correct
+I think that's enough examples now we
+should go into a little bit more depth
+of how this actually works if you've
+seen the whiteboard part of the video
+you should be quite familiar with how
+this works however I'm going to go
+through the code line by line and make
+sure that you understand every single
+bit anyone so let's get right to it so
+of course in the stacked class we create
+our self value which is just an array of
+strings we get our real creat variable
+called peak which will tell us the very
+top element in our stack and create
+empty which will tell us if we're empty
+or not or or not we create the post
+function which will push a new element
+into our stack and the pop function
+which will pop out an element from our
+stack and also return it just in case we
+have to use it or something anyway now
+in our math parser first of all we
+create an output Q which is the array
+that you saw on the whiteboard
+explanation then we create a stack which
+is our new stack which will hold all of
+our operators after that we have the
+function called parse which takes tokens
+as a variable as a string and returns a
+double answer so first of all we're
+taking care of brackets and right when
+we find brackets we're replacing those
+brackets a quite
+Asians with our actual in our equations
+expressions with the actual numbers
+which are the answers of that specific
+expression so for example if I were to
+do in brackets over here in brackets 10
+minus 5 times 4 as you can see over here
+in our what the hell is a postfix we
+actually do not have 10 minus 5 we just
+have the answer to 10 minus 5 which is 5
+4 and then times which makes it much
+simpler for the program to understand so
+that's why we do that anyway
+so basically then we check if the tokens
+contains an open bracket then creates
+final tokens variable create a little
+buffer which I don't think I'm using
+anymore yeah I don't use this anymore
+this was just an old feature for my
+older version anyway then we're taking
+is taking characters to false because we
+want to check if we're taking characters
+for the expression currently then we
+want to loop through the entire tokens
+characters if the I meaning the current
+character Ron is a closed bracket then
+add that closing bracket to the final
+tokens and then set is taking characters
+to false and you want to check if we're
+taking characters currently then just
+add this specific character to our final
+tokens if the current character is an
+open bracket then if we're basically if
+there's not all if it's not already
+blank the final tokens meaning there's
+already some brackets expressions in
+there then just add a dollar sign to our
+final tokens and then add our open
+bracket and then say is taking
+characters to true so that we keep on
+taking new characters then we know each
+single brackets expression is separated
+by a dollar sign
+so what we can do now is say okay
+separate everything like for example
+there's a three brackets in the entire
+equation what there will be two sorry
+expression I keep using that word anyway
+expression sorry expression expression
+anyway so let's say there's three
+brackets or three sets of brackets
+inside the entire expression what's
+going to happen is there will be two
+dollar signs because there's going to be
+a set of brackets then the dollar sign
+then a set of brackets then the dollar
+sign then the set of brackets then what
+it's going to do is it's going to chop
+off that entire string with brac with
+dollar signs and whatnots into little
+little elements into an array so it'll
+take every single brackets sort of work
+and so what's going to happen then is
+that we are going to be able to take the
+entire expression inside of the bracket
+call this the same function that's being
+run which is this parse function get the
+answer for that equal for that
+expression and put it into the and
+replace the actual brackets from our
+tokens with that answer and if you in
+case you don't get it you'll get in just
+a minute so then what we're doing is
+we're saying for I in final tokens that
+components separated by string and then
+the dollar sign so that whenever you
+find the dollar sign chop it into a new
+array element then we are declaring a
+variable called bracket open as a new
+open bracket and bracket closed as a new
+closed bracket then we're creating a new
+handler which is a new math parser which
+is itself basically then what we're
+doing is we're saying tokens which is
+the tokens that this will eventually
+parse is equal to tokens dot string by
+replacing occurrences of string so you
+want to replace a few strings
+so you want to replace every single set
+of brackets with our handlers parse
+function which will in turn be parsing
+out I which is the set of brackets in
+the expression side of it and you want
+to remove all closing brackets and
+remove all opening brackets and then you
+have one simple expression that's we can
+be able to parse and then it will parse
+it bring it back into the tokens and
+it'll replace all the set of brackets
+with the answer for that set of brackets
+if you don't get it it's okay because
+the source code again will be down in
+the description so you can check it out
+make sure you understand it just like
+going through it and you will be able to
+see what actually happens on the side
+here so it'll become nice and easy for
+you because again it's a playground not
+an app although there will be an app
+version down in the description after a
+while not right now though anyway
+getting back to the point this is where
+the stacks start first of all what we're
+doing is we're creating a tokens array
+which is equal to the tokens dot
+components separated by string so be a
+space so whenever you find a space take
+that as a new token that's why you have
+to have spaces in between almost
+everything anyway coming back over here
+after that we want to loop through our
+tokens array and if we find that this
+token is an operator then if basically
+we're not empty if the stack is not
+empty
+then loop through I is equal to zero to
+the to the stacks count and so what you
+want to do inside of there
+is as long as again stack is not empty
+check if the stacks peak values
+precedence is less than or equal to this
+current tokens precedence
+upend the stack pop value into the
+output queue which is our postfix and
+also the pop function will remove it
+from our stack after that we just want
+to push our token our new token no
+matter what into our stack then if we
+have a number however then it's things
+are a little bit different we just add
+the number into our logical as a postfix
+after that we're just printing out the
+stack which we don't need to then which
+I can while not stacked on empty so we
+just want to empty out the stack keep
+popping out the stack and stack speak
+value and then keep putting it into our
+postfix as you can see then we're just
+printing out our output key which again
+we don't need to anyway then we create a
+new stack which is equal to a completely
+fresh stack and then we are looping
+through the entire post fix each token
+in the postfix so then what we want to
+do is check if the token is a number
+then push that number into our new stack
+else it will have to be an operator
+sudden we create a new number 1 and then
+a new number 2 then we want to check if
+there is something at the new stack dot
+peak then pop it into number 1 if there
+is still something at new stack dot peak
+pop it into number 2 so it will pop out
+the freshest to newest values from our
+new stack and it will store them in
+number 1 and number 2 after that we
+create var result which is quite
+complicated because it's checking ok if
+the token is a plus then we're the
+result is equal to number 1 plus number
+2 if the token is a minus then
+the result in sequel to number two -
+number one if the token is a star is
+number one times number two etc etc for
+every single operator there could
+possibly be like plus - I mean plus
+minus times divide power and also modulo
+then we push the result onto our stack
+and that was actually it now the only
+remaining value after this loop in the
+stack will be equal to our result and
+then we can just return a double value
+of the new stack pot and it's that
+simple to convert from an infix a sorry
+nan equation expression to a final
+answer using a computer it was that
+simple and then of course we have a
+power function which can find the power
+of any number it's pretty simple a
+grande source code will be down in the
+description for that if you want to take
+a look at that now it's pretty much it
+and while I will be uploading the source
+code and I will also upload a small
+implementation of an app for this and
+this will also eventually be available
+in API form just not right now
+as yet because this is just for
+demonstration purposes to make sure that
+you get the point of it and again if you
+have any questions or something you can
+always email me about that and yeah that
+was pretty much it for this tutorial
+and yeah subscribe if you're new to my
+channel like the video if you liked it
+comment if you have any questions or
+suggestions for app ideas or even a
+question if you have any video questions
+that you like to send to me please do at
+Tajima and gmail.com
+and i will be featuring your i might be
+featuring your question in my next video
+or so and that's pretty much it goodbye

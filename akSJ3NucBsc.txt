@@ -1,0 +1,148 @@
+[Music]
+before we begin I would like to say a
+big thank you to today masa Mucha for
+actually being a part of this video and
+of course introducing me to the concept
+of true north and now let's get into it
+so hello there my name is Tanmay Bakshi
+and this time we're going to be going
+over a very interesting concept called
+true north by IBM now just where
+actually get into that though I would
+also like to quickly say that I'm
+actually currently in the IBM research
+lab in Melbourne Australia and just over
+weekend I'd like to introduce you to hit
+day so today would you listen to no
+thank you
+I'm Hideo by didn't decide to Australia
+I will show you the NAO robot which
+TrueNorth sure definitely that was
+actually very interesting and before I
+tell you more about the backend
+technology behind TrueNorth and what it
+does I'd like to quick demo now this
+over here as you've probably seen you
+see now robot by Softbank
+now we've been few modifications to the
+robot and show you those in just a
+moment there on the back of the robot
+however I'm going to show you now if as
+you can see over here on this computer
+we've got a web interface and you can
+actually see over here what's being
+displayed from the robots eyes you could
+say the robots camera which allows it to
+see and you can also see there's a
+neural network trained on the side part
+and dataset and what this means is that
+it will actually take the images capra
+from camera run it through the five bar
+ten-year-old network little output
+predictions for what the robot is seeing
+and if it predicts above a certain
+threshold of confidence it'll say out
+that I see this class out of the ten
+classes and so now today we'll actually
+go ahead and show them our robot views
+of different images that we've got and
+then from there we should be good to go
+and we should see that seven now robot
+shows us a few different tells us what's
+in the images right now as you can see I
+actually showed a huge of a horror
+partition now an image of a ship you
+cannot even wickedly webui what's
+happening a fair together these auntie's
+showing the images it's displaying the
+result is live on this web interface um
+now make cerumen or you probably do
+realize this thing this image frame
+hey there Nicole is actually updating
+frequently and I'll talk about how it's
+so fast in just a moment but earlier
+take a look at the rest of the demo and
+it's real line there y'all they asked
+its classifying all these images and now
+I trust from the camera of course it's
+very different as you probably know so
+now a little about itself has not nearly
+enough computational power to actually
+go ahead and classify images with such
+high accuracy with such a deep neural
+network at such great speed so how do we
+achieve this and well that works by the
+TrueNorth chip by IBM now let's talk a
+little bit more about this over here now
+this over here is essentially like a
+little backpack that we've got for the
+now Nova and what is this well
+essentially this backpack in teams as
+you can see over here something called a
+true north chip by IBM and this chip is
+essentially modeled off of how
+biological neural networks or the human
+brain works and so as you can see we've
+got that little chip that's doing all of
+the calculations for those neural
+networks that's right these computations
+were not done on a computer or on the
+now robot
+they're done on this limp chip on the
+backpack that is now robot is wearing
+now you can actually also see there are
+only two wires going true and from the
+TrueNorth backpack here and then our
+robot one of that is a simple Ethernet
+wire and this Ethernet wire is used for
+data communication between the robot and
+the backpack
+however you can also see there's a
+little black USB cable being used
+between the robot and the backpack what
+does that do well each
+transmitted all of the power so the
+chief needs to run that's right
+within 5 volts and point 5x you can run
+this entire chip which allows you to run
+deep neural networks with a deep neural
+networks with extremely high performance
+in fact 15 frames frames per second
+that's greatest and of course with such
+high accuracy with this narrow robot so
+now that you know a little bit more of
+the actual technology that goes behind
+this I love to today a few more quick
+questions first of all how many synapses
+faces how deep of a network can fit into
+true north oh yeah - most have 256
+million in up Skolnick that is
+absolutely great we're gonna be able to
+fit some really big neural network
+architectures of this chip it's a lot of
+questions what exactly were you doing
+with tools and you in general yeah I'm
+working on robotics own IP n IBM
+Research Australia and listen free I'm a
+frying through North for the Euro
+votives image analysis and partition
+parties yeah ok better yeah thank you I
+think our focus behind exactly self
+control for this video today thank you
+very much everybody for joining in I
+really do hope you enjoyed we're able to
+learn something from this video and if
+you did please make sure to leave a like
+down below as well as if you have any
+more questions or feedback since and
+we've set down in the comment section
+below if you email that to me at Tajima
+name gmail.com or you can community at
+Tai Chi Manny apart from that if you
+really do with my content and you want
+see more but please do consider
+subscribing to my youtube channel as
+well as it really does help out a lot
+and of course that's going to be all for
+this video today so thank you very much
+everybody for joining in good luck

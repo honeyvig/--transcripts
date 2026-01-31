@@ -1,0 +1,962 @@
+Alexa ask answer bot question who played
+against IBM Watson in jeopardy let me
+think about that
+Alexa ask answer bought I think pensions
+is correct for 35.7% confidence Alexa
+ask answer bot question which company
+manufactures Gorilla Glass let me think
+about that
+Alexa ask answer bot I think Courtney is
+correct with 100 point 0 percent
+confidence now
+Alexa ask answer bot question which
+worldwide retail chain makes the most
+profit let me think about that
+Alexa ask answer but I think Walmart is
+correct with forty eight point seven
+eight seven percent confidence let's get
+into the video now
+so hello there and welcome to another
+tutorial my name is Tammy Bakshi and
+this time we're gonna be going over how
+you can use the Alexa skills kit with
+the Lausanne - IOT platform and IBM
+Watson in this case my Aston application
+which we'll be getting into in just a
+little bit in order to create an
+intelligent Alexa application or vast
+skill that can answer your natural
+language questions getting a little bit
+deeper into it let's start off with the
+part I'm sure you're most interested in
+and that is the Alexa yes that's right
+in fact just last week I was in Las
+Vegas and I was there for you know for
+miles so systems for MIPS conference
+while I was there and now we're actually
+getting participants as a welcome gift I
+was on echo dot and so I got a few as
+well now I'm ready and I thought you
+know why not create a YouTube video and
+how the Alexa skills kit actually works
+and how you can use it to develop skills
+for your own Alexa device and then of
+course publish it to their sort of app
+stores skills storing as you could call
+it for other people to use as well and
+so I thought why not why create a
+regular skill when I can combine a lot
+of the other technologies that I use in
+order to create an even better and even
+more useful Alexa skill in fact today
+I'm actually taking one of my very first
+IBM Watson applications one that's not
+only maintained but developed actively
+and is in fact open source online github
+page called
+asked ma asked Anna is an LQA or a
+natural language question answering
+system that can answer your natural
+language questions that have a person
+organization or a location answer type
+it uses the power of Ivan Watson natural
+language classifier and natural language
+understanding in its back-end as well as
+bi-directional attention to flow by
+Allen AI Institute
+alright now let's get a little bit
+deeper into how the actual Alexa skill
+works and how this new topic of the
+Lausanne to IOT platform actually ties
+in with it let's take a look all right
+now getting a little bit deeper into it
+let's start off with taking a look at
+the flow of the application now of
+course we have the Alexa itself in this
+case I've got a doc device but any Alexa
+will work you could even use a simulator
+online you could use Amazon's official
+Alexa simulator all these devices will
+work perfectly for this now once you've
+gotten your Alexa device up and running
+and you're ready to start off what you
+need to do is sign up for a platform
+called a losan to IOT platform now when
+you're designing an Alexa app you have
+to but you have to wait two methods to
+go down two rows to go down either you
+can use AWS lambda which is what's
+recommended by Amazon and if you use
+lambda which is Amazon server less
+compute platform then what happens is
+you're going to be using this and of
+course I was on Web Services I'm just in
+case you are wondering Amazon all-access
+skills kit is not part of the Amazon Web
+Services they are entirely separate
+they're part of the Amazon developer
+console suite and so in this case though
+I didn't want how to take you into the
+world mammals on Web Services just yet
+let's kiss today let's actually try and
+develop something with a REST API to
+keep it local on our own server and so
+what I've done is actually I guess you
+could say a different way of creating an
+Alexa skill and the lausanne to iot
+platform is a very easy way of doing
+this because what happens is through the
+lausanne at the Lausanne DMT platform I
+don't need to do any manual
+authorization or the SSL Certificates or
+anything else that Amazon requires you
+to do when you're working with this
+technology and so using Lausanne
+I actually opened up an HTTP endpoint
+and this HTTP endpoint can be contacted
+via Alexa we'll talk about that in just
+a moment now once we've gotten that
+Lausanne to IOT platform up and right
+to take a look at what exactly those
+avila Laur alexa to communicate with in
+this case we're actually communicating
+with of course ask Tanmay which is my
+cognitive application built using IBM
+Watson we'll get to that in just a
+little bit actually
+there's an entire suite of applications
+that we're going to be using and they're
+built in Python
+so let's observe this section for Python
+now we've also got a flask so this is
+actually building these flask API this
+is a flask HTTP server again apart from
+that we have a few more modules in
+Python including this answer cache and
+I'll talk about what that is in just a
+second all right now these are the three
+main components inside of our Python
+tools suite here and let's take a look
+at how all of these actually incorporate
+together however the thing is this is
+running locally on my system and why
+mess around with port forwarding but we
+could just use an croc or ngr okay and
+so of course in the cloud here we've got
+n G R and the Jeremy's gonna allow
+Lausanne to communicate with my flask
+HTTP server now let's take a look into
+this now one more thing I would like to
+say here because I gonna say a huge
+thank you to market suitor macht who is
+actually a developer advocate at IBM for
+actually Helen you build and fix a few
+issues with the Alexa skills kit so the
+thing is when you're working with a
+stamen you want to ask or find the
+question of the user is asking the
+system in order to do that you not just
+want an intent you want the fact you
+want to raw utterance what the user set
+unfortunately Amazon does
+support this however using a workaround
+that marks help me actually figure out
+using slots or as we'll be talking about
+in the actual programming part we've
+been able to extract that raw utterance
+and of course using that I can actually
+send that to over to a standby and then
+ask ten may can give the answer back a
+good feeling all right let's take a
+little bit of a deeper look now now of
+course when you ask the Alexa a question
+what's happening is let's just say you
+say I like so ask and in this case the
+invocation name for the application is
+answer box okay so the this is the
+invocation name and then you say
+question and let's just say your
+question is ABC doesn't matter what it
+is okay now this is what you tell your
+Alexa now once you give your electorate
+questions instead of actually having
+this quote here let's just have
+questions of variable sleeping zoos a
+little bit better and as a sort of
+diagram here so let's just say you've
+got your question so you can ask the
+Alexa the question and you've told it
+that you want this question to go over
+to the answer bot invocation name
+now once you've told that the Alexa is
+going to try and figure out what to do
+in this case it's going to go ahead and
+contact the Lausanne HTTP server
+now what Lausanne is gonna figure out is
+actually find out what you're asking are
+you asking a new question or are you
+trying to figure out the answer to a
+question you've asked previously I'll
+talk about why this is important in just
+a moment now I'll just pretend of course
+we take this question through Lausanne
+and on Luzon also sends over to the
+flask HTTP because remember in this
+flask HTTP HTTP we've got an endpoint
+called Alexis
+all right this is our end point over
+here this is the HTTP endpoint that
+little Santa's gonna call through ng on
+okay and some goes through in gr okay
+and of course comes over to the Alexa
+skill endpoint now once it's at this
+endpoint the interesting stuff starts to
+happen see this endpoint is actually
+going to contact the a stem based system
+which itself is an isolated system now
+as Tanmay is going to store the answer
+in an answer - now why is this you may
+ask you see asked an mate is efficient
+in fact I've actually rewritten as Tammy
+from scratch and Python to make it as
+efficient as possible
+it's even more a cure than the four as
+well however it's not efficient enough
+for Alexa to answer instantly because of
+this Alexa doesn't really work out with
+asked an me immediately and this is what
+you need to do is tell Alexa the
+question Alexa will tell you that it's
+thinking of the answer and two or three
+seconds later you can ask Alexa for that
+answer because Alexa expects an
+immediate reply from the as ten main
+HTTP endpoint in fact let's see a demo
+of this in action now of course this is
+on mute so it's actually unmute our
+Alexa and take a look at how the
+application works Alexa ask answer bot
+question which company is a long Musk
+the CEO of let me think about that
+alright so as you can see Alexa is now
+thinking about the answer to this
+question and now in theory if the speech
+recognition actually worked out nicely
+what I should be able to do is this
+Alexa asked dance Alexa asked answer but
+I think Tesla Motors is correct with 100
+point zero percent confidence there we
+go that's a lot of confidence and so as
+you can see I asked this Alexa which
+company a lot of musk was the CEO of and
+at guest Tesla Motors with a hundred
+percent confidence I look at something
+Deaver shall we Alexa ask answer bot
+question who is the CTO of IBM Watson
+let me think about that
+all right it's not the Alexa is actually
+sent the request or an ass hand meant
+through the Lausanne Taiji platform and
+it is now processing now for around two
+to three seconds processing we can do
+this
+Alexa asked answer but I think Rob PI is
+correct with fifty eight point two one
+two percent confidence there we go as
+you can see it says raw high as the
+correct answer and Rob high of course my
+mentor is indeed the correct answer
+here's a CTO now though let's take a
+look at one last quick demo on the mill
+get back over to the actual architecture
+of the system itself let's take a look
+Alexa ask answer bot question which
+company is the largest fast-food chain
+in the world let me think about that all
+right Alexis thinking again it's sent
+back request over to ask tan may ask him
+is doing the old processing using IBM
+Watson and now Alexa asked answer but I
+think McDonald is correct with ninety
+six point six to one percent confidence
+that went very smoothly and so as you
+can see as Tammy was able to give us the
+correct answer and it's to this super
+portable super convenient Alexa
+interface anyway back to the
+architecture hope you enjoyed that demo
+you'll be seeing a lot more in the
+programming part all right so now of
+course we've got this entire system and
+you now understand why the answer cache
+is important and this is also why we
+can't just have one individual endpoint
+we can't just have the Alexa skill
+endpoint we need to have one extra now
+this extra endpoint is going to allow
+this lausanne HCP to actually grab but
+the answer once asked Tammy is done
+processing now this endpoint is called
+slash yet
+answer alright
+in fact gel so you have to see a little
+bit of a clearer picture of what these
+endpoints actually do let's list down
+the endpoints over here now of course at
+first they are HTTP endpoints we've got
+the Alexa skill endpoint all right now /
+Alexa skill now the parameter so this is
+going to take in first of all it's going
+to take the question and this is the
+question that the user asks number two
+it's going to take the user ID now this
+is actually just user in the rest call
+and users a unique user identification
+number that Amazon gives us it's a very
+long string that actually gives us the
+ID of this user it's entirely unique to
+that user and we use this to store their
+answer in the answer cache without you
+can restore the question which other
+people may have asked as well alright
+now after that though we of course do
+have no more end point and an end point
+is the slash get answer HTTP endpoint in
+terms of parameters we take only one
+parameter and this is the user ID
+parameter and the reason we take this
+parameter of course is to find out what
+the users answer is and it returns a
+string which is exactly what the Alexa
+needs to say out you know what it said I
+think MacDonald is the correct answer
+with such percent confidence that is
+exactly the string that get answer
+actually outputs and that's what a
+steaming computes and so this string
+will go back over Lausanne and into
+Alexa Lake south
+so now imagine this you've asked your
+question to Alex already but now when
+you want to retrieve the answer to your
+question so you send the retrieve
+command all right so you sent the
+retrieve command and this is of course
+with our red to get answer end point and
+so once you send this over to your
+Lausanne to HTTP what's going to happen
+is again through ngr okay lo Santa's
+going to go over to the get answer
+once it's applicant answer endpoint is
+again world of fun starts to come in
+because what's going to happen now is
+it's going to go over into the answer
+cache and it's going to ask for that and
+for that user IDs answer the answer
+cache is going to send a response and
+this time what's going to happen is
+through ng R okay it's going to respond
+over to lo sont and the Mossad is going
+to send this final response and let's
+just say this goes over through Lausanne
+it's going to send it over to oral exam
+and it's going to tell their likes of
+exactly what it needs to say and this is
+one of the architecture diagram of what
+all truly happens see the best part of
+using the Lassonde as you platform once
+more is that we need to do almost no
+code at all for the alexis kill the only
+real code here is this part this part in
+this part that's it everything that's
+not Python requires no code and it's not
+entirely and a graphical user interface
+whether it be with the Alexa skills kit
+console or development environment or
+whether it be the Lausanne - IOT
+platform their graphical user interface
+and gr ok isn't really anything you need
+to program with anyway and then of
+course under the Python flask issues if
+you relatively simple flask server I'll
+be showing you the code behind that
+just a minute the ants will catch again
+very very simple code and asked a mate
+that's where the real meat comes in
+itself does have quite a few different
+steps what it's able to do is actually
+use a search engine in this case it uses
+the Google Search API and what it does
+is it doesn't actually extract pages it
+doesn't extract four pages from which to
+find answers
+it only extracts summaries what do I
+mean by summaries well it actually is a
+step called search and results summary
+extraction and you know when you google
+something and you see those little
+descriptions under the little links that
+show the parts of the webpage that are
+most important to your query that is
+what asked and may actually parses it's
+going to grab all those from the API and
+it's going to use a bi-directional
+attention flow from a Linnea I would buy
+own sort of modifications to that and
+what it's going to do is try and find
+some kind of answers to it it's also
+going to use IBM Watson natural language
+classifier and to find out what kind of
+response are looking for whether it be a
+person organization or location once it
+knows what they're looking for it'll
+filter out according to that using the
+natural language understanding API to
+find out what all the different answers
+are and then once it's done that's what
+you do a little bit of naive answer
+scoring try and score based off a
+repetition and if it's also going to
+score based off a PageRank score so you
+know that Google uses the PageRank
+algorithm along with now a different
+deep learning algorithms but it's going
+to use that score in order to rank
+better answers that are towards the top
+of the list with more confidence and
+that is how the entire ask 10ms system
+works of course as Tanmay and how it
+works is an entire video in itself but
+in essence it's able to use a
+combination of tensorflow
+Watson natural language understanding
+and what's a natural language classifier
+in order to get answers from the web
+from your natural language questions so
+that's a quick brief of a Stan there
+what that does and everything else
+including the Alexa skill the Lausanne
+platform and John okay the flask HTTP
+server
+and the answer - Tammi work together and
+how they actually enable me to ask this
+Alexa and natural language question and
+get an answer around 95% of the time
+alright so I hope you enjoyed that quick
+demo and of course the architecture
+explanation of how exactly this all
+works now though what I'd like to do is
+I'd like to take you over to the
+programming part where I'm going to show
+you how you can actually build a skill
+for this Alexa and I'm gonna take you
+through how exactly I built this entire
+system how you take the wrong uh turns
+from the Alexa skills over alright let's
+get into the programming part now
+alright so welcome back and now let's
+take a look at how you can actually
+implement this Alexa system alright now
+what I'd like to do first of all is show
+you what's actually going on in the back
+end now I've actually got my Alexa here
+with me
+and what I'm gonna do is I'm gonna turn
+this on unmute it and I'm gonna go over
+to a four so you can see the Amazon
+Alexa skills get here but I'm also going
+to go over to these two terminal windows
+these eternal windows contain of course
+the ng ROK server is actually running on
+our custom sub domain actually and of
+course on this side over here I've got
+my Python server which is hosting the
+flask HTTP endpoints of get answer and
+Alexa skill and of course it's also
+hosting the answer cache and contacts as
+Tanmay in fact an entirely new
+redesigned version of a statement as
+well all right let's take a look now
+let's actually I want to run a quick
+demo on the actual device and let's take
+a look at how these two terminal widows
+actually react let's ask it a simple
+question like just for example Alexa ask
+answer boffed question who is the CEO of
+Amazon let me think about that alright
+as you can see the Alexis now thinking
+about it and Angra has received the HTTP
+request it returned 200 ok response and
+you can actually see that asked Anna
+over here has actually received a
+question who is the CEO of Amazon
+person who actually sucked this is this
+user ID and as you can see asked him
+extracted the answer i think jeff bezos
+etcetera and it said that this answer is
+for user ID etc etc in fact we can
+actually now go back over to our Alexa
+and say Alexa ask answer bot
+I think Jeff Bezos is correct with
+seventy two point six to two percent
+confidence alright so as you can see the
+Alexa was able to detect that or not the
+Alexa the election was able to send our
+user ID over to asked and may ask Tammy
+is get answer was actually able to take
+that user ID and I was able to extract
+the correct answer associated to that
+user IDs question and that is how the
+system works in fact you can even see
+that certified right and you're okay
+over here who is actually getting those
+requests but wait even ngr okay has to
+receive its requests from loccent
+so let's take a look a little bit deeper
+into how the system is built in fact I'm
+actually going to link to a guide on the
+low sound blog that's how you can build
+an interactive Alexa skill with no code
+using this lausanne alright so this is
+going to be in the description you can
+actually take a look at this tutorial is
+going to be very helpful even actually
+where you're breathing when you're
+building this application in this
+tutorial I'd recommend you take a look
+at this blog as well just to find out a
+bit more about lausanne - how it works
+and what it's meant to do in fact to say
+you know this is actually the arrest API
+that Alexis till end point is actually
+calling just for example if I were to go
+localhost 5000 which is the port it's
+running on go to the Alexis skill
+endpoint pass the question in this case
+who is the CEO of Apple and give it any
+random user name like ABC I run that go
+back over here as you can see a Stanley
+has received the question and the
+username ask Tammy is now going to reply
+and as you can see Google Chrome gets
+the response back and now this is what
+actually goes back to Lausanne well
+we're back into the answer cache and
+then when you ask for the answer
+Lausanne is going to receive from the
+answer - and give it back to you like so
+all right but let's start from the
+basics here let's start from the Amazon
+Alexis
+Gill's k now the Amazon Alexa skills kit
+we can build chat BOTS and other kinds
+of skills for the Alexa now I like the
+new console that they built but you can
+use the old one as well if you'd like to
+at least for the time being there we go
+alright so as you can see these are all
+my Amazon Alexa skills you know Tenma QA
+and asked handmade v2 that's Tanmay so
+it's actually go ahead and click on edit
+now when I click on edit you can see all
+the stuff that goes into this
+application let's start with the
+interaction model now the interaction
+model has something called an invocation
+an invocation is how the user actually
+begins and talks to Alexa like just for
+example let's just say your invocation
+name was daily horoscopes you could say
+something like Alexa asked daily
+horoscopes with a horoscope for Jen and
+I which is the example that Amazon gives
+us here in this case my invocation name
+is answer bot so people can say Alexa
+ask answer bot question who is the CEO
+of IBM where Amazon or any other kind of
+question that you may have there are a
+few requirements to your invocation name
+like you cannot have phrases like launch
+ask tell load begin our naval or even
+wake words like Alexa Amazon echo
+computer or the word skilar app so these
+are the different sort of requirements
+for your a vocation name but that's all
+once you've got a good invocation name
+and you're ready to continue we can
+start off by creating a slot type now
+before we actually create a slot type
+though we have to understand intense if
+you've ever used the IBM Watson
+conversations in this before or for that
+matter API today yeah I or any other
+kind of chat platform you're familiar
+with these intents but you may not be
+familiar with slots so let's talk about
+that now inside of the intents we only
+have one intent and it's called the
+everything intent remember this chat bot
+does nothing the only thing that really
+does something is asked and a so you
+want to take what ever the user says no
+matter what it may be and send it over
+to lausanne and lausanne can do the
+actual post processing and understand
+what the user actually bent so with
+everything intent we basically try and
+capture everything that the user says
+now this includes no matter what they
+say they can say question they can say
+everything intent but then after that
+whatever they say after the first word
+will be considered part of the
+everything slot and the everything slot
+is meant to pick up whatever the user
+sets doesn't matter what it is and
+everything slot as you can see over here
+has under the intent slot is actually a
+specific slot type the slot type is bag
+of words now this is a custom slot type
+Animas on doesn't provide this by
+default and so what you need to do is
+create a custom slot type this slot type
+you can give it any value in this case
+we've given at hello world unless you as
+a user specify something else in your
+intent which is what you should do now
+of course you don't need to give us any
+meaningful intent or meaningful value
+you just need something in order to be
+able to capture everything and send it
+over to IBM Watson in fact if you take a
+look at the IBM code pattern for the
+Alexa you can take a look over here that
+as I was mentioning just wait for this
+to load for a second Marc Stuart Avant
+and Nicholas haidle off worked on this
+code pattern together and they use I of
+the Amazon Alexa and IBM Watson in order
+to discuss the weather and milla
+conversations or really just choose one
+from a library and so this is actually
+based off of IBM's first of open wisk so
+this is of course IBM's sort of us
+compute platform similar to AWS lambda
+and so of course this code pattern is
+basically it's quite similar to my code
+to my code in the way how it actually
+allows Alexa to communicate with the IBM
+cloud functions or in this case about
+the idea functions but Lausanne to IOT
+platform alright I'll tell a little bit
+deeper into this now you know how the
+intents and the slots work once you
+built your intention your slots all you
+need to do is save and build your model
+once you've saved and built your model
+though you are ready to actually test
+your application now this is where you
+can actually test out
+your Amazon Alexa app before that though
+let's head over to Lausanne now as I
+mentioned no code involved however if
+you want put some code in and get a
+little bit more flexible there you can
+and that's what I've gone ahead and done
+but this is what the Lausanne flow looks
+like and so as you can see I can just
+format a little bit here as you can see
+it's a very sort of graphical user
+interface similar to IBM IOT ZnO to read
+which is open source I wanna close on
+however basically what I'm doing with
+those on here
+and I'm creating a web hook now this wet
+book is basically the HTTP endpoint that
+the Alexa skills kid calls how does it
+call it well if you go over to build
+over here if you just wait for one
+second as you can see there is a button
+for the endpoint and of course you can
+actually get that over here as well if
+you click on endpoint you can either
+choose AWS laptop or an HTTP server in
+this case I've given it to my Lausanne
+trigger and of course you to choose if
+this my development endpoint is so
+domain of the domain that has a wildcard
+certificate term a certificate authority
+doesn't matter
+that's just what Lausanne tells us does
+choose because that's how Lausanne
+destructure
+anyway once the web hook receives
+information from the alexis skills kit
+then though we actually call a custom
+function now this is a function coded in
+JavaScript that I've created it's a very
+simple function all this function does
+is it actually checks whether the intent
+is to actually ask a question or if the
+intent is to find the answer to a
+question that they had asked before if
+they want to find the answer to a
+question they've already asked then Dana
+dot works is at the zero or else it's at
+to one if they actually want to ask a
+question once that function actually
+goes through there's a conditional this
+conditional is whether or not they
+actually want to ask a question if they
+do want to ask question that it goes
+down through this flow in this flow we
+actually respond to the alexa and we say
+let me think about that which is why
+alexa says let me think about that when
+you ask
+question and then over here with the
+HTTP what happens is your question is
+sent over to that mg ROK server and of
+course the question is passed and the
+question in this case is if I make this
+a little bit bigger data body dot
+request on intents lotsa everything slot
+that value if you go huland JSON that
+the Alexa skills kit provides in the web
+hook this is exactly what it looks like
+and then the user ID is given over here
+which allows of course asked me to keep
+its answer cache all right so once asked
+M has gotten the request and it starts
+doing its own processing and of course
+Alexa's already told you that it's it's
+it's thinking about what the actual
+response should be and so now two or
+three seconds later when you ask Alexa
+to retrieve and when you ask Alexa to
+actually get the answer to your question
+then a the conditional goes over through
+this branch now in the conditional ghost
+of this branch it still does make an
+HTTP request in this case the request
+goes to a slightly different end point
+they get answer end point and this time
+not the question but only the user ID is
+sent now once you actually receive a
+response from the HTTP endpoint in fact
+if you were to take a look here it
+stores that result in data to ask Tammy
+and then I've got a a custom JavaScript
+function and what this does is it
+actually creates an Alexa response now
+if you remember over here we sent a
+reply to Alexa and we sent some JSON and
+the text was let me think about it in
+this function what I do is I create a
+similar JSON variable but in this case
+the text is payload data asked and made
+up body
+now remember asked animate is the result
+from the asked anime endpoint and body
+is what asked him a returned and so
+we're basically taking whatever asked an
+air turned and we are basically we are
+essentially giving it over to Alexa and
+then of course we reply with this Alexa
+response over to the Alexa and again
+since this happens practically instantly
+just a little bit of latency it's it's
+good enough for Alexa to to not say
+the request timed out or anything that
+anything of that sort but now though
+let's see a little bit of a deeper dive
+into what Lausanne to seize from its end
+so now what we can actually do is find a
+few debug notes all right now these
+debug notes allow us to actually print
+out what the system is seeing or
+basically doing at each step so we can
+actually print out the result from the
+actual web hook and this the web hook
+debug and let's just message this as log
+for web hook all right now when this
+when when the web hook when the web
+hooks results printed it's going to tell
+us that this is the log for the web walk
+web look we can do a similar debug for
+for example let's just say over here we
+can take a similar debug after this
+function all right and then after this
+function we can take a look at what the
+actual result was final function debug
+or lock and then what's to put one more
+debug here why not and let's connect
+this to HTTP there we go all right so
+now we've got our D bugs in the right
+places let's just say asked and I'm
+going to deploy this workflow to figure
+out there all right so just deploy this
+workflow and as you can see the workflow
+has been saved and deployed now if we
+were to go ahead and ask the Alexa
+another question it should actually
+print out everything in lausanne if we
+go over to our debug I'll just replace
+remove all the previous locks and let's
+go over into our alexis field yes go
+into the testing and now what I'm gonna
+do is test out the Alexa now either I
+can talk to my computer and it'll
+simulate the Alexa or I can just type it
+in let's try typing it in and then next
+we'll try actually um saying it so it
+will say ask answer bot question
+found it let's just say Amazon why not
+I'm gonna send this over as you can see
+Alexa replies let me think about that of
+course that's exactly what we expect and
+that's what lausanne replied but let's
+take a look at what all lausanne to
+actually saw as you can see we have two
+different logs here why not three
+because this was never called now the
+first one is the log for webhook
+as you can see Orion as the web hook was
+actually triggered this is all the data
+that we had in our payload which is the
+sort of group of information that we've
+got in this entire workflow now data is
+where we actually try or is where we
+actually start to get all the data that
+came from the web hook now inside data
+we've got the body and this is the
+actual information that the Alexa sent
+over now inside of request you can see
+the intent the intent of the attain
+group over here and the name of this
+intent is everything intent and there's
+no confirmation now under slots however
+and under everything slot you can see
+that the values who founded Amazon
+sounds like a little bit of a workaround
+because we can't get the raw utterance
+so it is but until Amazon actually
+provides us the functionality you can
+get the raw utterance we won't be able
+to use anything but this kind of
+workaround but it's a very good
+workaround nonetheless
+and of course again huge thank you to
+mark for actually helping me implement
+this as you can see of course they're
+resolutions that doesn't matter all that
+really matters is the value and since
+the application realized that the value
+is indeed a valid question it sent this
+over through this line instead of this
+line which meant that as ten may
+actually received that question and it's
+now processing in fact if we go over
+here you can see that ng ROK received it
+and as you can see asked how they
+received it here as well and it has
+created the earth has thought of the
+answer that has replied and sorted in
+the answer cache of course all right so
+after the log for web hook there's also
+the asked and a result log because
+remember when you actually call slash
+Alexis kill endpoint we actually don't
+return anything
+the Alexa but the end point itself does
+return some JSON and so that JSON is
+never actually saved in the I guess you
+could say in the payload however it D is
+actually replied nonetheless alright
+next though let's go back over to our
+alexa simulator and let's try actually
+using the the speaking feature ask
+answer bot question retrieve okay so as
+you can see Alexa's voice voice
+recognition hasn't really worked out
+that well due to the fact that my
+microphone setup isn't optimal right now
+it's a little a little funky but if I
+were to go ahead and type in our
+question once more as you can see it's
+thinking about that once more oh we can
+go back here in fact let's go over to
+Lausanne and you delete all of our logs
+because we don't want all that noise in
+there let's go back over here and say
+ask answer bot question retrieve don't
+worry let's try that once more all right
+as you can see Alexa does in fact
+respond with I think Jeff Bezos is
+correct in forty six point six three
+eight percent confidence and that is
+indeed correct Jeff Bezos founded Amazon
+now of course if we were to go back to
+Lausanne you know that this time of
+course a log for web hooks he'll Silla
+actually went through which is why this
+is printed out but after that this
+conditional went through this branch
+instead of this one and so through this
+branch the function goes down and we
+actually print out the result as well
+now if you take a look in the final
+function log we have of course our
+regular body and everything but we also
+have to ask Tanmay response and this is
+what asked and they responded from the
+get answer endpoint and then we've got
+the Alexa response and this is exactly
+the JSON that is sent over to the Alexa
+and then the Alexa is able to make sense
+of it and actually respond with this
+text and that is how the lausanne to IOT
+platform ties in with this entire system
+in general this is all able to combine
+in order to
+to create an Alexis skill that uses the
+power of ask Tanmay in order to answer
+your natural language questions and so
+that sums up how you can build an Amazon
+Alexis skill and not just any skill in
+fact quite a complex skill but with
+hardly any coding involved only answer
+cash the asset and a system flattens all
+you need to code everything else on the
+Alexis skill side is all done without
+code whatsoever I really do hope you
+enjoyed this tutorial and that you're
+able to create your own I like some
+skills as well of course thank you very
+much everyone for joining in today if
+you have any more questions or
+suggestions or even feedback please do
+leave it down in the comment section
+below email it to me at a g-man you to
+mental comb or tweet it to me at Tai Chi
+mani or axe had you met me on Twitter
+apart from that though if you do like my
+content you do want to see more of it
+please do consider sharing liking this
+video and of course subscribe my youtube
+channel is it really does help out a lot
+of course turning the notifications if
+you liked me notify and whenever I
+release a new video
+again source code for this application
+it'll be available down in the
+description below ask 10-man will be
+updated on github very soon as well
+after some minor code cleanup within the
+next few days you'll be seeing an
+entirely we were in version of asked him
+they on its github page where it belongs
+alright again thank you very much
+everyone for joining in today that's
+gonna be all for this tutorial
+hope you enjoyed goodbye

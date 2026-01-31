@@ -1,0 +1,365 @@
+[Music]
+hi t uh thank you so much for your
+videos about services in Blu miix I'm
+interested in a visual recognition
+service in Blu miix and uh it would be
+great if you could explain to me how I
+can use this service I'm Bernie from
+Germany thank you hello there and
+welcome to another tutorial my name is
+Hy Baki and this time we're going to be
+going over how you can use the IBM wats
+and visual recognition service in order
+to classify images now to begin uh as
+you can see Benny has sent me a question
+she is one of my subscribers and is from
+Germany uh and so she sent me a question
+about the IBM Watson visual recognition
+Service uh and so uh as you can tell uh
+I'm going to be creating a video about
+the topic now I've actually been getting
+quite a few requests about this service
+uh and to actually create a video about
+it and so I decid
+why not uh all right so now another
+thing is uh its possibilities in the iot
+field as well since it was actually
+merged with Alchemy Vision since IBM
+bought that a few years ago uh its
+possibilities in the iot field are
+endless because of course it's much more
+accurate now all right so let's begin so
+now first of all as you can see I have
+my uh Helper and model Bruno here uh who
+is going to be sort of modeling for the
+uh visual recognition classifier now if
+you're wondering how a dog relates to
+this uh video well essentially what's
+going to happen is I'm going to train
+the visual recognition classifier in
+order to classify jog breeds and so it's
+going to be able to differentiate
+between a golden retriever uh a
+Dalmatian and a husky uh now one more
+thing this is extremely accurate so if
+you were to put in uh another uh sort of
+picture of an animal uh that's colored
+very closely to a golden retriever uh it
+would still be able to say you know what
+this isn't a golden retriever uh because
+what's going to happen is we're going to
+feed in positive examples of a golden
+retriever positive examples of a dalmi
+and positive examples of a Husky but
+also negative examples of animals that
+are not uh dogs like for example cats
+and lions uh and other animals like that
+and humans uh and so it should be able
+to differentiate between them all right
+now we're going to be getting into the
+Mac part where I'm going to be showing
+you how to use crl commands in order to
+actually train your own classifier using
+the default data given by IBM Watson and
+then we'll see if uh it can classify
+Bruno here all right let's get to the
+Mac part again thank you very much Bruno
+all right let's get to it so welcome
+back to the mag part and now I'm going
+to be showing you how you can use the
+visual recognition service in order to
+classify dog breeds so let's begin now
+first of all as you can see in blue miix
+over here uh I have I'm about to create
+a visual recognition Service uh and so
+I'm going to just choose the space
+application just leave it Unbound if
+you'd like uh the service name the
+credential name and of course the
+selected
+plan uh which in this case is going to
+be free for me if I click click on
+create
+now
+then um in just a
+second should create the
+uh the uh classifier Ser I mean the
+recognition
+Service uh and as you can see here it is
+done so now as you can see what we need
+to do is go to the service
+credentials uh and as you can see the
+API key is over here now this is
+actually a bit different than other and
+services in that it doesn't give you a
+username and a password instead it gives
+it just one API key uh which is I I
+usually like that it's more convenient
+to have just one key rather than two
+username and passwords so much better
+all right so now continuing so now what
+we're going to do uh is first of all I'm
+going to show you how you can actually
+create uh a corpus of knowledge that
+we're going to give to Watson to train
+it uh so let's begin first of all uh as
+you can see what I have is text files of
+URLs of lots of images of
+dalmations golden
+retrievers huskys and animals that are
+not dogs like cats lions and
+cheetahs so now remember these are
+hundreds of URLs all right uh and so
+basically uh what I'm doing is I've
+created this python script and what this
+uh really simple script does I I whip
+this up in about five minutes not even
+five and so basically uh what this does
+is it will uh basically take uh a text
+file
+it will take the name of a text file in
+its current directory it'll take a
+directory name and what it'll do is
+it'll read that text file uh for lots of
+or sorry uh it'll read that text file
+for lots of links uh to images uh and so
+basically what can happen uh is I
+essentially take these images I download
+them uh and put them into a respective
+directory that I told it to uh and then
+later what I can do manually is just
+compress these into zip files and then
+send these to Watson to
+train all right so now let's begin first
+of all uh in order to actually uh sort
+of download uh these text F first of all
+though I won't be telling you how to get
+the links into these text files though
+that you're going to have to find out
+yourself uh but uh this python file will
+be available on GitHub for you to
+download so that you can actually make
+use of it uh so now what you need to do
+in order to use this uh is it's a very
+simple script all it is just python
+download images give it the URL file for
+example URLs Dalmations and tell it
+where you want it to save uh in this
+case dations Okay uh just enter and then
+it'll download all the images but I have
+them pre-downloaded
+already all right so now that's how
+you're going to download all of your
+images uh once you have downloaded all
+of your images as you can see uh
+hundreds of images here 280 to be exact
+uh once those are all downloaded you can
+of course uh send them to Watson now in
+order to do that uh you need to compress
+these into zip files uh and ensure that
+these zip files are no larger than 50
+megabytes if they are well back to the
+drawing board for you uh you have to uh
+somehow reduce the size of these zip
+archives continuing though so now we're
+going to be using a set of curl commands
+uh because uh they haven't come out with
+a toolkit for the visual recognition
+Service uh to train with yet uh but we
+will be using uh curl commands in order
+to train our classifier all right so now
+as you can see I have this little curl
+command set up and basically what this
+means is we're going to be sending a
+post request uh to the Watson platform
+Gateway uh and basically I'm going to
+enter my API key uh as you could see
+here though I'm just going to copy and
+paste in my API key to this
+URL and so uh quite generic actually uh
+we're just creating a classifier with a
+name TB dog classifier tany back she's
+dog classifier is what it stands for
+we're giving it some Dalmation positive
+examples over here uh um in fact if I
+can just yeah so as you can see we're
+giving it some uh Dalmation positive
+examples here uh and we're telling it
+dalmati dzip uh to find them husky
+positive examples husky. zip uh and
+golden retriever positive examples
+golden retriever do zip uh and of course
+negative examples things that are not
+dogs are not dogs
+.zip and so as you can see over here so
+now one more thing is in the actual curl
+command I said Dalmation not Dalmations
+and golden retriever not golden
+retrievers and um
+husky all right so now as you can see uh
+I have this really simple curl command
+ready that will start the training of
+our classifier uh and I have these four
+zip files ready as well so I'm going to
+copy this curl command all right go to
+terminal and as you can see if I list
+directory here uh we have the zip files
+here so now uh if I were to run this
+curl command in
+theory uh it says as you can see could
+not open Dalmation doz let's see what
+the problem is here
+um oh yes I miss uh misspelled Dalmation
+do zip sorry uh so it's not o n it's
+just a n okay so now as you can see we
+run this once more it'll be able to post
+to
+Watson
+and in just a second now again it is
+uploading uh quite a few images to
+Watson so it may take a second and as
+you can see it has submitted back to us
+our classifier ID the classifier name
+the owner which is me uh the status
+which is currently uh it's currently in
+training and the three classes that
+it'll classify between all right now one
+more thing this is actually a curl
+command which you can use to check the
+training status uh just like you can of
+like uh let's say retrieving rank uh and
+so if I go back to the result of this um
+uh curl command over here as you can see
+I'm going to copy the classifier
+ID copy
+it uh wherever it says uh classifier ID
+in this document I'm going to paste that
+in uh and where it says API key I'm
+going to paste in my API key all
+right then all I need to do is copy this
+curl command move it uh to my terminal
+paste it in and as you can see it is
+currently training now we've sent it
+around I'd say 600 images which is a lot
+of images and each of them uh are not
+too huge I mean in total it was around 5
+megabytes of data that we're sending or
+6 megabytes of data uh so it shouldn't
+be too long until it trains this might
+take up to an hour or two uh then again
+if you're sending many more images I
+currently did like around 200 uh per
+class uh and they were just under 2
+megabytes
+uh and so I mean you could fit thousands
+of images uh in 50 megabytes so yeah so
+now what I'm going to do is I'm going to
+pause the video uh and right as it is
+done training whether it be in a few
+hours or maybe even tomorrow I'm going
+to continue uh recording uh and then
+we're going to move uh sort of Stitch
+these two videos together uh and then we
+will uh see how our classifier turned
+out uh and as you know my good old
+friend Bruno uh that I was showing you
+in the beginning of the video uh he is
+going to be one of our test subjects uh
+in our video today all right so uh I'm
+going to be back in a few hours uh once
+it is done
+training so the classifier is finally
+done training uh it's been around 15
+minutes uh not as long as I expected
+actually uh and actually took much less
+than I expected uh and so yeah that's
+great uh so it took 15 minutes I was
+expecting 1 to two hours maybe even a
+day uh to classify around 600 images but
+it was able to do it within 15 minutes
+I'm very excited about that so as you
+can see this is actually a picture of
+Bruno that we are going to be
+classifying over here uh and so he is a
+Golden Retriever as you should probably
+know uh and so yeah we're going to see
+if Watson can label him as a golden
+retriever so first of all as you can see
+uh I've actually set up a tiny URL link
+uh that that is a direct link to Bruno's
+picture this Bruno picture uh and so
+basically uh Yes actually Watson's
+visual recognition takes a URL as a
+parameter uh for an image uh and so
+basically it can follow those redirects
+so it will find the final link uh and
+then download that and send it um and so
+yeah it's able to resolve those links
+now as you can see in Adam over here I
+mean Sublime
+Text uh now basically I'm running the
+classify um sort of endpoint here uh but
+I'm giving it the API key if you know
+the normal API key and I'm setting a URL
+to the tiny URL that is a direct link to
+Bruno's picture then I'm setting the
+classifier IDS to just my uh class
+classifier ID that I set up the owner is
+me not IBM and the threshold is
+zero and I'm setting the version of the
+classifier to use to 20160520 which is
+the current latest
+version all right so now I just put
+these enters in so it was a bit easier
+to understand so if I remove all of
+these real quick as you can see this is
+a valid curl command which I should
+technically be able to paste into my
+terminal and as you can see what's going
+to happen is if I actually copy this
+tiny URL
+link um and if I paste it
+in it will download a
+file um which is Bruno's
+picture again sometimes the Internet
+isn't always cooperating with you oh as
+you can see it's done uh and is over
+here this is a picture we're going to be
+classifying of him all right so now if I
+click enter for the curl
+request in just a second you should
+see as you can see it says delation with
+7% confidence Golden Retriever with
+89.9% confidence and husky with 4.7%
+confidence so that means golden
+retriever is the highest and we get to
+know that Bruno is a golden retriever
+according to Watson and as you can see
+that was a tutorial on how to use a
+visual recognition service in bluex
+again thank you very much I hope you
+enjoyed if you did please leave a like
+down below share this video with people
+who you might think can help and
+subscribe to the channel if you'd like
+to see more of my content or you just in
+general enjoy enjoy it really does help
+out a lot all right if you have any
+questions suggestions feedback or ideas
+uh you can leave them down in the
+comments below email them to me at tajim
+Manny gmail.com or tweet them to me at
+tajim Manny and that's going to be it
+for this tutorial thank you very much
+please subscribe to the channel if it
+really helps you out and that's going to
+be it for this tutoral
+thank you
+goodbye
+okay hi T me uh thank you so much for
+your videos about services in Blu miix
+I'm interested in a visual recognition
+service in Blum miix and uh it would be
+great if you could explain to me how I
+can use this service I'm Bernie from
+Germany thank you

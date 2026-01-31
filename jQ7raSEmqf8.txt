@@ -1,0 +1,149 @@
+so hello there and welcome to another
+tutorial
+my name is 10 May Bakshi and this time
+we're gonna be covering locally remote
+push notifications in Swift 2 so to
+begin this tutorial we'll be covering
+something like simulating remote
+notifications using local notifications
+and an implementation of Swift databases
+so this is going to be a part 1 in a
+part in a two part series that I'm going
+to be creating today ok
+so part 2 will be coming up soon I'm
+currently working on it but so part one
+is here so to begin this is going to be
+the concept part of the video and I hope
+you enjoy so to begin what is a push
+notification a push notification is
+essentially something like using parse
+to send a notification to all or a
+specific group of your users or specific
+groups of users and now what's a local
+notification well let's say you want
+only one user locally to not connect to
+a server and get a notification but
+let's just say every 24 hours got a
+standard notification like that's a
+preset string for example if you have
+sort of like a racing game then you'd
+want to say from the last open time of
+this app in the next 24 hours show
+notification saying hey you haven't come
+in a day you might want to check out the
+app okay so that's one example of a push
+notification or a local notification
+sorry now now the parser shut down I
+mean there are alternatives like lumix
+push notifications however today I have
+another method of simulating push
+notifications also called remote
+notifications using local notifications
+and such databases so let's get right
+into it so let's begin with something
+that I'm sure you all know at this point
+and also state erases series we have a
+my sequel database so I'm going to
+pretend that we have a my SQL database
+over here alright so now we have a MySQL
+database and so let's just pretend this
+is an object here now on
+the other side over here in the middle
+we're going to have PHP okay then next
+we have swift as you will know and
+finally we have the owners device all
+right now I mean technically swift runs
+under the device but there is also a UI
+device class I guess you could call it
+in Swift that you can use to do stuff
+like no local notifications now how do
+we use all of these objects and local
+notifications to simulate remote
+notifications well let me tell you right
+now so to begin we're going to add into
+our app which is sort of like the
+container of Swift so there's basically
+an app and it contains Swift so this is
+app and it contains Swift okay and the
+device technically obtains the app okay
+so now to the app we're going to add
+something that I like to call the
+background execution so I'm going to add
+the back ground execution ability oh
+sorry
+ability so essentially what this will do
+is if you go into the little abilities
+tab in the Xcode info you will find a
+something called background execution of
+or some of something like that and so
+basically we're going to add that in and
+so basically this will allows the app to
+run in the background with a little
+daemon and so what it's gonna do is it's
+just gonna keep checking if we have to
+display a notification okay and so what
+I'm just gonna do is so even though this
+isn't a part of the device so it's an
+extension to the app added by Xcode to
+your app bundle ID specifically but
+we'll talk about that later okay
+then now we have PHP MySQL which as you
+all know from my previous tutorials can
+talk to and from each other all right
+that's normal however now we're gonna do
+is you know lie askew L is of course a
+part of the admin the admin controls
+what's in side of the MySQL database at
+all times okay and so let's say the
+admin were to add a notification
+and let's just say that it said new
+version of this app is here okay so
+let's just say this was the string that
+he sent into a MySQL table okay so now
+it's gonna happen is Swift is just
+constantly every second going over to
+PHP and asking for some information
+which will then go through to MySQL okay
+MySQL DEP gets the data goes to PHP
+sends it back and then from PHP it goes
+back to Swift and back here and so now
+Swift either has no there's no new
+notification or yes there's a new
+notification and here's its text and
+here are any other special attributes so
+we need to put along with the
+notification now if Swift receives a
+notification it's going to create a new
+local notification local notification
+okay so it's created a new local
+notification and it sends this local
+notification with some attributes over
+to the actually you know what
+technically so I'm not confusing you the
+UI device class that's what it sends it
+over to the UI device class that's how
+that works and this is essentially an
+entire overview of how this app is going
+to work so that's really all I had to
+explain in part one so one more time
+recap essentially what we're doing is we
+are simulating or creating our own
+little version of essentially push
+notifications simulating it using local
+notifications a MySQL table which can
+tell Swift when to show a local
+modification that's gonna be it for
+today
+I hope you enjoyed if you did please
+leave a like that's gonna be it for this
+video I'll meet you in the next part in
+which we will going more in depth and so
+if you'd like to contact and please do
+at my email if you'd like to edge mani
+at gmail.com will be in the description
+Twitter at Taji mani
+and finally github 10 nebula 3 and of
+course you can always comment on this
+video that's gonna be it for this part
+and I hope you enjoyed that's gonna be
+yet goodbye

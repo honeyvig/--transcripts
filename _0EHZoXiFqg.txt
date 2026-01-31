@@ -1,0 +1,631 @@
+so well then welcome to another tutorial
+my name is sandy back seat this time
+we're gonna be going over well something
+really interesting image to text and so
+this time as I said we're gonna be going
+over a really special topic which is
+quite a bit experimental I guess you
+could say it's actually something called
+image to text that I created and so
+again this is a Mac app not an iOS app
+because I couldn't figure out how to
+make it accurate enough and you'll see
+exactly what I mean once we get into the
+video so let's get started and so today
+we're going to be talking about
+something called an OCR and so what this
+will essentially be let you able to do
+is let's say you give what's you have a
+paper with instructions to do something
+on or let's say your teachers giving you
+a sheet with instructions for your
+assignment but you don't want to read it
+you want it on your computer how do you
+do it you type it out but that's the old
+way now using my app you'll just be able
+to scan your document and give it to the
+app and it'll convert it to editable
+text that you can put into Microsoft
+Word notepad whatever you want let's get
+started
+and so in order to program this app we
+have to use a few api's because of
+course we can't program will see
+ourselves because that would take way
+too much code so today I'm using the
+tesseract OCR API this was created by
+Google and this is an extremely accurate
+I think maybe even one of the most
+accurate in OCR libraries in the world
+and so now I've been saying the word OCR
+a lot but you probably don't know what
+that means
+well in case you don't it's this OCR
+stands for optical
+character recognition so this is doing
+is we're recognizing characters one by
+one in an image
+so we're optically recognizing
+characters it's that simple
+and so again they're just like
+everything else in the world there are
+multiple ways to do this some are better
+some are worse some are easier some are
+harder in order to see what that means
+let's actually get started with the main
+stuff and I'm just going to grab my
+eraser over here so that we can actually
+get into the three methods of doing
+exactly this so now as I said there are
+three methods to do something called OCR
+and this is using that one library there
+are three methods now first of all we
+know that this app could either be for
+non-programmers meaning it works on iOS
+and Mac or it could be for programmers
+that want to run image to text and their
+terminal which you probably didn't help
+and so let me just clear this up there
+are three methods to use a tesseract OCR
+library using iOS okay you can use Mac
+or you can use the terminal
+now let me explain you can use the
+tesseract OCR iOS library and you know
+results will be mildly accurate it's
+pretty easy in fact it's one of the most
+easiest as I said it goes mild it's
+pretty nice but let's see Mac over here
+the Mac API I've at least with my tests
+I've seen then it's actually quite
+accurate not too accurate however it has
+to be an exactly Lisp crystal-clear
+image in order to get it correct it's
+still a few mistakes like space is not
+in the right place
+Elevens will be taken for two L's or
+something and then so it's quite
+accurate and this is again the easiest
+it's almost the same difficulty as the
+iOS and so I'd say these are both equal
+but one more thing there's another
+terminal way where you can actually use
+the tesseract basically script in
+terminal and this is extremely accurate
+and you'll see why I put this star a bit
+later and it's the hardest from effort
+to use and when I say this there's a
+little drawback it's the hardest for a
+user it's the easiest for a programmer
+meaning a programmer will have no
+difficulty no install home brew using
+home brew install tesseract just do
+tesseract and then give the image name
+and an output file name cat out the
+output file that's it
+normal users aren't going to understand
+that is the problem you can't go selling
+a terminal script on the Mac App Store
+so how do we make a mac app or an iOS
+app either one preferably Mac
+and give it the exact same accurateness
+as terminal now there are multiple ways
+you could do this for iOS and for Mac
+well let's start with Mac because that
+would be easier and if you're wondering
+why Terminal and Mac are built together
+on the same foundation Mac OS X and so
+they can easily very very easily
+communicate with each other
+iOS however not really this does not
+work out and so in order to have a
+proper really accurate OCR we have to
+integrate terminal over here with Mac
+now wait I went about doing this is
+essentially you create a shell script
+add is H file for terminal which will
+allow you to give it in one parameter
+any any input file and it will just take
+the info file find the tesseract for it
+and give you the output in that same
+script and then we'll give that output
+to the Mac App where it will process it
+and put it in human readable format on
+to the text view and now again there is
+one iOS way to do it which would be take
+the image upload it to a database which
+you can find my Swift database is part
+two and the link will be down those part
+three sorry and the link will be in the
+description and once it's in the
+database the Mac App would the Mac end
+will receive it tell the terminal to do
+something with it give it back to the
+Mac send it back to the database give in
+fact iOS but that's way too complicated
+to code in right now and I just want to
+do a proof of concept video for you guys
+not scare you to death and so I just
+created a Mac up for now but stay tuned
+for part two which I may release which
+will which may also have an iOS version
+but for now we're just going to have a
+Mac
+terminal method one more thing I also
+found and now I'm explaining the star
+that wouldn't you use the terminal
+method and actually when you use any
+method it's extremely helpful very very
+very helpful if you take the image
+expand it 1000%
+and then give it to test Iraq because
+I'm able to see all the little pixels
+and it becomes so much easier for the
+API itself and so in terminal it's
+without resizing it's extremely accurate
+but after resizing it's just very very
+accurate and if you have extremely
+crystal clear text without lots of
+twists and turns and curves in the font
+you're pretty much probably going to
+have an exactly perfect
+OCR reading now however if it fifty font
+isn't that crystal clear you're still
+going to get an amazing reading it's
+just not going to have sometimes space
+in the right place or something that
+right anyway so now let's actually get
+to the Mac part in which I will be
+explaining how to integrate the Mac on
+the terminal but before we do that we
+actually have to decide what we're going
+to be converting from image to text and
+this is also great on getting like a
+quote from online it's feeding it into
+your app and it'll get the text version
+of course that isn't very practical
+because of course it's just a sentence
+but for longer quotes or just as a
+proof-of-concept you can use it because
+I just want to show you that it's
+actually possible so let's just choose a
+quote over here on my favorite web
+browser and so I'm just going to pick
+one at random yeah listen I'm going to
+pick this image over here and so this
+one we can just make that a bit bigger
+by clicking on it as we can see this is
+the image I'm going to be picking let's
+get straight to the Mac part now I'll
+see you in the Mac part and let's go so
+welcome back to the matter now I'm going
+to be showing you a demo of the app I'm
+going to be explaining the app
+then some additional features of the app
+so let's get started and so now first of
+all I'm gonna do is show you a little
+demonstration and so this is of get an
+image that we have selected in order to
+be able to convert this from this image
+to text all right so in order to do this
+what we're just going to do I'm going to
+open up the app here you can see this is
+the UI I'll explain what this dark patch
+is in just a minute but I can just take
+the image file from finder as you can
+see gondii jpg and I should see what
+happens if I take this I'm going to
+select and I want to drag into the
+application once I release as you can
+see it puts in the exact location of
+this file and now if I click on this
+here button on this button we should be
+able to see the output oh boy and it
+worked
+it says output starts be the change you
+want to see in the world
+Mahatma Gandhi and so again as I said
+sometimes it won't get a few characters
+right like there wasn't a space between
+be enough but you can of course correct
+that by just clicking the character
+let's face and so now that you've seen a
+quick demo of this app let me just show
+you one more feature that I've included
+just say on Google Chrome my favorite
+web browser just and wait for it to load
+up
+ok make this full screen I'll just
+search for the
+then I can choose that image that we
+just saw pretty nicely I can't find it
+it's okay actually never mind because we
+have something called Google Image
+Search so if I just take this and I drag
+it in here it'll search for that exact
+image online and now as you can see I
+have this image now the thing is let's
+just say that I didn't download it I
+don't want to download it how do I use
+it well just copy the images URL come
+over here to the app and paste in the
+URL itself
+the app will attempt this is a URL
+download the image and then on tesseract
+on it so if I click on it you can see it
+gives us the correct output as you can
+see this isn't the right resolution or
+something maybe we try this one no not
+same image sorry
+copy image URL is a bit sensitive
+yeah so sometimes if it's a correct
+resolution or correct font and it can
+actually see the characters nicely it
+will get it completely accurate if it's
+like this sort of thing stretched out
+from the bottom and not that much from
+the width then it won't really get it
+right but however I can tell you if you
+have a paper or something that you
+skinned and put on the screen and then
+you use that as an image it will get it
+very accurate due to the fact that that
+isn't stretched out proportionally as
+its correctly sized in order for a
+tesseract to understand it and it was
+meant for that sort of thing
+however handwriting of course is a
+typical issue and I actually sort of
+gave away what I was about to give you
+it's a surprise and you so let's talk
+about that dark patch over there now
+well what is that dark patch just
+sitting there doing well I think you'll
+see once I type this it not really tight
+well I think you know it's a little pad
+where you can write and then what
+happens is I take whatever you wrote
+convert it to an image file and then
+give it to tesseract but as you can see
+when I click on the handwriting it isn't
+always the most accurate and so again as
+I see again this is in alpha stages it's
+very unstable
+you can even contact me at a g-man if
+you know a lot comment with any ideas
+who may have in order to solve this or
+and yeah extra things that don't work on
+the side anyway so now I've given you a
+complete demo and gone through
+everything that you need to use this
+let's actually go through how this works
+so as I said this is the Mac end but
+what about the terminal and let's just
+take a look at that as you can see in
+order to do this we need a shell script
+that is able to actually go to tesseract
+and say hey I want this image to be
+converted to text how do I knew this
+then it'll give it out the back sure
+here's the text for you and then that
+text will be given to Xcode in short
+terms however I actually open up this SH
+file it isn't as simple on the first
+line what we're doing is what copying
+the file that we got our first parameter
+to our home directory
+as Tim got the same file type which was
+given in the second parameter meaning
+you have to give the image name like
+where it is and also the file extension
+in the second parameter then what we do
+is we use a built in tool called six and
+what this will do is a resizing our
+image four thousand times and maureesa
+words resizing the temp image not your
+original image so you don't lose that
+data after that what we're doing is we
+are actually using tesseract installed
+by homebrew and a loop to install full
+movie' valediction if you don't exactly
+know what homebrew as well just simply
+put a package manager that you can use
+it on mac OS x in order to install
+pretty much anything lib PNG tesseract a
+ton of other stuff no but as you can see
+using homebrew I've installed tesseract
+and I'm accessing that version of
+tesseract I'm given I'm telling it that
+yes this is the English language and so
+I want you to read this temporary file
+that I've created and I want you to give
+the the actual text in a file named
+output txt
+I know I didn't put the file extension
+dot txt but that's automatic tesseract
+because it'll always do txt unless you
+otherwise specified and then we're just
+echoing a lot of formatting like an
+exclamation mark then output starts and
+then what we do is we cat out output dot
+txt from the home directory onto the
+screen so it's actually giving the
+output in the terminal and then we're
+saying that our alpha has ended they're
+a little more exclamation mark just to
+make it look nice and then we are
+moving our output dot txt no moving that
+temporary image use in fact that it's
+just taking up space and we don't even
+need it anymore because the app has what
+it look looking for it's not that we
+know about this we can use to quit out
+of here and now that we know they turn
+aligned well of course we've already
+seen the UI it's pretty simple if I open
+up this name file you can go this is a
+pretty big UI i designed this over here
+you can click on this to recognize the
+actual image this button will when you
+click on it recognized the handwriting
+that you just drew on this little
+drawing here this will tell you how to
+set up it'll actually take you to my
+website and tell you how to set up then
+over here the output goes and then over
+here your image or your images URL
+that's simple
+and then this is just a disclaimer about
+the Android future apart from that as
+you can see I have implemented first of
+all an app delegate which is just normal
+but there's lots of these files which
+are from as you can see not exactly sure
+how to pronounce this car a more still
+I'm sorry for not pronouncing that right
+but I'm trying my best and so this is
+guys from github and his github name is
+carmen and so he created this little
+these classes which will allow you to
+actually access terminal from Swift it's
+called search shell and the link to this
+API will be immediate scripture getting
+back to my own code as you can see we're
+just importing cocoa nap kit nothing
+much I run this is the actual draw view
+this is the NS view which will allow you
+to draw on it and stuff like that I'm
+not going to be going over this because
+I'm talking about
+OCR not drawing maybe I'll create a
+separate video on that and if you really
+want to see that just tell me down in
+the comments below
+and I may just create a video if enough
+people requests and so that's need Rob
+you and so it does exactly what it says
+it can draw and one more thing I didn't
+show you yet if you go into the draw
+view there's another feature
+where if you yeah I'm not going to say
+it yet I'm just going to show you if I
+write something like San Mae or T and
+then a this is really bad I'm not taking
+time but if I click on the C button here
+it'll actually just clear everything on
+so that's actually a little bit useful
+if you want to clear and we drop then we
+have an extension to the NS image class
+and again a link to the Stack Overflow
+forum where this was will be in the
+description times I sure which one it
+was from but it will be in the
+description and so what this NS image
+will do is it will give you an image PNG
+representation in NS data and it can
+also save this NS image to a PNG with a
+specific path using that image PNG
+representation that it has in its class
+now alright so next so as you can see we
+had our normal app delegate and so what
+this is doing is it's inheriting from
+nsobject immense application delegate of
+course but then the main stuff
+are you IV outlets in these IV outlets
+our first of all to the image path left
+the NS text field then we have the
+output so we can actually give output to
+the user and then we have our job view
+iboutlet
+which is of custom class job view which
+I've already explained and then we have
+3 IV actions as well one for help
+one for converting an image and one for
+handwriting let's start with the easiest
+help and again we have to buy Swift law
+in cocoa not in cocoa touch meaning in
+iOS you don't need to do this only on
+Mac apps you need to you have to take
+the sender and s button and IB actions
+for some reason not exactly sure why but
+you do anyway it's just really extra
+because I don't use the sender but in
+most cases I do sometimes but whatever
+and then what we're doing inside of this
+help function is we're taking the Innes
+workspace dot shared workspace and we're
+opening a URL in their default web
+browser
+have control over it and we're giving an
+nsurl of a string image detect an evac
+sheet a comic if you go there manually
+you will see setup instructions and the
+link will be in the description as well
+and then of course we are forcing the
+unwrap of that option because I know
+that that is a correct it is a good URL
+and it will be able to convert to nsurl
+so I don't really need to worry about
+that anyway apart from that next we have
+our handwriting functioning so what
+we're doing in the handwriting function
+is we are creating a constant called dot
+with a dot inside of it and the string
+because you can't use this I'll tell you
+why and so then we're doing is we are
+creating a path variable actually we
+don't actually we don't mean this is a
+very move to make this a constant okay
+and so then what we're doing is the path
+is equal to r NS home directory slash
+handwriting image dot jpg so now that
+we've saved their handwriting as a file
+in jpg format what we can do is we can
+take the NS image we can take an MS
+image of the data of the drug view which
+is an NS view so that's why we have a
+function called data with PDF inside of
+left and we can say only the job used
+bounds now so it's giving us data of an
+image of draw view and so now we have an
+image of what's in the job you now I
+want to force this as an unwrap because
+of course sometimes this could be
+optional I don't want to save this as a
+as a PNG to our path and of course we
+may be saved PMV function and extension
+to the NS image class then what we are
+doing is we are sending our output I you
+could say text views stream value to one
+and this is the custom class developed
+by karaim or stall which will allow you
+to run SH in the home directory
+tesseract the SH with
+shell scripts will also be in the
+description that you have to put in your
+home directory in order for this act to
+work in general however I do plan on
+later making an automatic setup script
+which will install home room tesseract
+and this tesseract SH file to your home
+directly automatically well but apart
+from that let's just continue and so
+after that you just give the shell
+script of path for the image and then
+you give it the path that component
+separated by string dot meaning wherever
+you find a dot in this file name stop
+there and separate the two chunks before
+that and after that in there a and this
+means you have two files named on one
+side and the stuff after the dot the
+extension on one side then get the those
+stuff after the dots
+the second elements of the array and now
+you have the extension in the second
+argument that you're giving it and that
+was it for the SH script and then what
+we're doing is we're doing dot read on
+this run so it's actually returning a
+string value of what that terminal
+command is giving us and it's actually
+cutting out the output file and so it's
+giving us the output that's a science so
+next we have our normal convert image
+idea action and so what this is going to
+do is it's going to again print constant
+called dot and again this is how the
+document and so what's going to happen
+is first of all it's going to check if
+this is a URL if it is then it'll do
+something it's all explained in just a
+minute
+or also just do something much simpler
+basically if you were to take this line
+of code and if you were just simplify it
+by lot this would be it let me explain
+we're setting output string value to
+again run SH in home directory tesseract
+on SH the image passed string value
+meaning exactly where it is on your
+computer and then image path string
+value the components separated by a
+string by the dock and
+while extension as ii argue after that
+word is reading the output and putting
+it into our output text me but what
+happens if it detects a URL well what
+will happen is we're going to get it
+first of all the path and so this is the
+NS home directory slash downloaded image
+dot jpg then we are going to save NS
+image but instead of giving it the data
+of job view give it the data oh the
+contents of URL which is the URL that we
+got an image path so we're taking the
+URL we're taking the image can running
+it can running back to data or binary or
+bits or whatever converting that random
+data into a proper image taking that
+image saving it as a PNG to a specific
+path taking that back path and running
+tesseract on it and again really Yelp it
+and that's how simple it is to create an
+app like that
+so again quick rundown we give it the
+where the file is in the Mac up the Mac
+up goes to terminal it creates a
+temporary file which is an exact copy of
+the image it resizes that that's image
+you buy four thousand times it then it
+takes that the temporary image gives it
+to tesseract a tesseract gives the
+output in an outfit Exe file we take
+that alpha dot txt file and we can an
+out then we are move the output dot txt
+and we remove that temporary file then
+the mac app takes that output and puts
+it into the output textview amazing it's
+exactly nine steps and it's done one
+more time let's just drag in that
+mahatma gandhi's uh quote we just drag
+it in file
+times that will happen I don't know why
+it's an El Capitan glitch I'm assuming
+sometimes when you drag it in yeah that
+won't work it won't exactly put the file
+type a final location into it but now if
+I click to recognize the image should go
+to the tesseract test run through the
+back and then it gives us being the
+change you want to see in the world
+again it didn't have that space there
+but you can easily put that in and then
+it gets the right name for you right as
+well my Gandhi and that was it again all
+source code all links that I promise
+will be down in the description the link
+to the tesseract OCR library will also
+be in the description the link to Swift
+shell will be also another description
+as well and the full source code here
+the tesseract SSH script and everything
+else I promised in this video will be in
+the description for you to use as source
+code and as usual and that was pretty
+much it again you have any suggestions
+ideas app ideas science map anything
+just please leave it down in the
+comments you can even email me attach
+manage email calm you have any more
+questions or even if you want to submit
+a video question of you saying a
+question and I may just feature it in my
+next video now again please subscribe to
+my channel if you're new or you like my
+copy you want some more of it
+if this video helped you or you liked it
+please like the video and again please
+follow me on Twitter that's at tanjung
+manny and my email and my twitter handle
+will be in the description and that's
+gonna be it goodbye

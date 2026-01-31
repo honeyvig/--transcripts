@@ -1,0 +1,240 @@
+hello and welcome today I'm going to be
+showing you how to install any app or
+get an IPA file of your excode project
+either one um without going through the
+entire process so first of all I'd like
+to announce that um first of all using
+my technique that I'm going to show you
+in this video you will be able to put
+test an yours on your device or somebody
+else's device wireless about connecting
+it to your computer and doing all that
+stuff and you'll also be able to convert
+yourx code project files to an IPA very
+quickly so to get started I will just
+quickly show
+you uh I have my
+Mac and I have actually an xcode project
+I know those 15 glider puzzles so I'm
+just going to open that up quickly as
+you can see I'm going to xcode and turn
+on my 15 number G let me just take my
+iPhone out of the screen for the for a
+while so you can
+see and so here I am in the code and
+let's say I wanted to make some changes
+okay so maybe in my
+storyboard I want the name to be T15
+slider okay then I'll Center that
+25 slider
+again perfect now I want to get this to
+my device number one wirelessly and I do
+not want to go through xcode's archiving
+process so what I'm going to do is I'm
+going to go to the
+top and I'm going to go product
+clean and then product build for
+[Music]
+running what this is going to do is just
+make sure that all the files are updated
+I know it automatically does that I'm
+just making sure so the program runs
+well now I've made a few things first uh
+the first one is actually an app and
+what it basically does is it takes any
+xcode
+project and it will convert it to an IPA
+for you uh with a GUI interface uh but
+there's another method that uses a shell
+script which is basically what the app
+is using uh but in a GUI form but
+there's the other way the terminal way
+using terminal which I don't recommend
+for advanced users but I'll show you
+both methods let's start off with the
+method of the
+terminal so now I have this 15 number
+game and I want to convert this to an
+IPA and I don't want to go to the
+through that all archive and stuff so
+I'm going to right click on 50 number
+game and Sh and
+finder now what you have to do is you
+have to make a debug folder on your
+desktop for the GUI to work um and then
+put the files and there will be a
+download link to these in the
+description um in it but if you're using
+the terminal interface you don't really
+need to have it in a specific folder but
+this file and this file must be together
+in the same
+folder so what we're going to do is
+we're going to search terminal in Sp
+light and we're going to open up
+terminal what we want to do is we want
+to browse to our desktop and the debug
+folder which is where I've stored all
+these files and then what I'm going to
+do is I'm going to run sh archive. sh
+and then I'm going to drag in 15 number
+game this get this gives it the path to
+your xcode project if we click enter now
+you'll see there's a new IPA folder on
+the desktop and it's going to say it's
+starting to build the IPA file for the
+15 number game app so now we just wait
+and see our result as you can see it
+says archiving succeeded IPA created and
+it says completed building IPA 415
+number game which is the actual app's
+name find it in the IPA folder on the
+desktop so we go to our desktop and we
+see an IPA folder we're going to open it
+and boom that's where our IPA is but
+let's say you don't know all this sh you
+don't want to do all this tracking and
+stuff there's another method
+now there will be a download link to
+this app also in the
+description uh what this essentially
+is is I've made another
+app where all you do I'm going to delete
+this other
+IPA is you give it the you make sure
+first of all that there's a folder on
+your desktop named debug and the files
+that I give you to download are inside
+of that folder okay that must be on the
+desktop and there so now it asks you for
+the path to your xcode project file now
+what you need to do is again you just
+drag it in instead of writing the entire
+path you convert it and then you wait
+might load a little might look like it's
+crashing or it's frozen but it's
+actually from the inside not it's
+actually doing work
+inside um uh just converting it to an
+IPA so as you can see gives us a result
+zero and this means it succeeded in
+creating it and so now we can go into
+our IPA folder and you find
+this and so this is I think this is much
+more convenient than going through the
+entire um archiving process and yeah so
+now what I'm going to do is as you can
+see my iPhone here is not connected Ed
+to my
+computer Wi-Fi sync is off nothing is
+it's not able to communicate with my
+computer I'm going to set this right
+here so you can see this and just in
+case you can't I will mirror this
+on so okay what I'm going to do now is
+I'm actually going to go to
+Safari and I'm going to go to a website
+this website is
+dii
+dii what this is it's um development iOS
+apps Wireless
+installation what the basically you drag
+in your IPA file you click Send it'll
+give you a link you put this link in a
+tiny URL you put that tiny URL link onto
+your Safari on your actual device and
+then on your actual device using Safari
+you actually uh download and install the
+app so this is actually pretty neat uh
+as you can see I'm going to go to my
+desktop I use the
+gesture um and I'm going to go into the
+IPA folder I'm going to take this drag
+it into Safari and drag it into where it
+says add files
+here drag files here and then basically
+this is going to upload to the the
+servers and then going to click
+Send now you can see that this create
+gives you a link now I bet you don't
+want to type that out in your iOS device
+and you're too lazy to send it through
+email so all you need to do is go to
+tinyurl.com problem solved what you do
+is you enter this URL and I'm going to
+give it a good name U what's SEC here
+I'm going to give it a good name 15 game
+beta 5
+this is the fifth bait of it and I'm
+going to click make tiny
+URL what it's going to do is it's going
+to shorten this link here into this link
+so now uh if it would give me a moment
+what I'm going to do
+is I'm going to show you my iPhone
+screen and at the same time mirror it
+onto this monitor so that you can see
+what's happening
+as you can
+see I'm going to mirror this to my
+Mac and so just as proof this is
+actually
+mirroring and I'll keep this in front of
+you at the same
+time so what we want to do first is you
+want to go to Safari inside of safari
+you want to go to that tiny URL that you
+just
+created tiny
+url.com
+slash and then the 15
+game beta 5 so I'm going to click
+go and as you can see it brings up this
+screen which is incredibly amazing and
+it lets you install the application
+straight from the website
+and then you just click the install
+application button it's going to say
+install. the.com would it like to
+install whatever your app name is in my
+case 15 number game and I'm going to
+click install because I want it to
+install I'm going to close
+Safari as you can see it's installing it
+again now I already had this so I'm
+going to delete this and install it
+again sorry uh remember don't do the
+same mistake um make sure you delete any
+old versions that you have of this app
+and then install it so I've deleted the
+old version it's installing I'm going to
+go in and as you can see it gives me the
+T15 slide with all the changes we made
+and now I can actually play this game I
+can go to my about page I can do
+whatever I want and just this proof that
+this works I'll do the first two numbers
+for you boom so that's basically how you
+would uh first of all convert an xcode
+project to an IPA um without going
+through xcodes
+interface and also second how you would
+distribute your apps um uh Apple would
+call this uh ad hoc
+development uh distribution sorry
+deployment um for free and that's it
+thank you and goodbye and also one more
+thing I'd like to give a a little credit
+to some person on GitHub his name is
+gilam
+squant and he made the xcode archive
+script uh and if you go to his GitHub
+page you can get the xcode archive uh
+Ruby script of which I have built off in
+another file AR archive. sh which
+basically um lets the other script work
+so his script is basically the Bare
+Bones of which I have built off and I've
+actually been able to um create this um
+excode archiver for you thank you and
+now officially goodbye

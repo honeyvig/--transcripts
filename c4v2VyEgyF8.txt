@@ -1,0 +1,340 @@
+now just before I get into the actual
+video today I just like to say that an
+early access copy of my book for the
+first two chapters hello Swift iOS
+programming for kids and other beginners
+has been released you can find it at the
+link in the description I really hope it
+helps you along your journey of learning
+iOS development through Swift so hello
+there my name is tanu Bakshi and this
+time we're going to be going over how
+you can use the IBM Watson speech to
+text API with Swift and in an iOS app so
+let's meet again
+now usually most tutorials including the
+actual official example by IBM doesn't
+allow you to record audio adjust sort of
+uses a pre-recorded audio file and does
+speech text on that however I'm going to
+be teaching you how you can actually
+record audio and also give it to the
+speech-to-text API for it to transcribe
+and you can get your text so this is
+basically a rundown what we're going to
+be doing let's begin basically we're
+going to have the iOS n R over here just
+pretend this is a iOS end alright that
+right there
+then we're going to have our Watson in
+which is basically our speech to text on
+the Watson end alright
+and through bluemix what we're going to
+be doing is we're going to connect to
+bluemix which will connect us to that
+sort of Watson API and back
+alright so that's basically what we're
+going to be doing in order to use speech
+to text you know let me just make this a
+bit more clear for you or I didn't
+realize that happened so basically
+what's going to happen again we're going
+to communicate with bluemix which will
+give us our
+credentials to talk with Watson so let's
+see how this works oh all right so I say
+soap it were gonna be doing let's switch
+over to the back part now in which I'm
+going to be teaching you how exactly you
+can use the iOS SDK for the Watson
+developer cloud in order to use
+speech-to-text let's get to it so
+welcome back to my chart and now I'm
+going to be showing you how exactly you
+can actually integrate the IBM Watson
+speech to text frameworks into your
+project let's begin so first of all what
+you're going to want to do is go to the
+iOS SDK github repo for the IBM Watson
+developer cloud and so this is basically
+where you're gonna find your
+documentation the source code for the
+iOS SDK etc etc so as you can see my
+internet is not exactly the most
+cooperating with me right now but
+eventually it should load so at a
+snail's pace huh all right so continuing
+as you can see over here when you scroll
+down you will see visit our Quick Start
+Guide whatever-whatever
+so want to click on Quick Start died and
+it will bring you to this little link or
+choosing um pretty little sample
+application so you're just gonna want to
+read that document completely I actually
+had quite a few mistakes because I
+didn't read it completely but as long as
+you read it completely you should have
+no trouble
+so yeah just give my internet a second
+to load yeah this should be good anyway
+let's just pretend the Quick Start Guide
+open okay there will be a link to it in
+the description though I promise so
+continuing them as you can see there are
+quite a few example codes here but the
+Quick Start Guide they really explain
+how you can incorporate the api's into
+your application alright so you just
+want to read that document completely
+and incorporate the api's into your into
+your app application and then once you
+have integrated that you can continue
+with this tutorial
+alright so now I hope you're back
+alright so let's begin first of all my
+example app as you can see I have my
+frameworks put in
+Fredi object map arrest kit speech text
+v1 Starscream and I do not need
+text-to-speech I don't know why I
+included that they can just delete that
+alright continuing though how does the
+interface of the app look let's just
+begin with that alright so basically
+this is an extremely simple interface
+alright nothing really to explain here
+there's a label multi-line label 22 font
+size you can have any font size you'd
+like then there's a button start stop
+recording it's that simple now the thing
+is what you're going to want to do with
+this button is you by default you're
+going to want to actually yes so by
+default you're going to want to set its
+alpha to 0.5 the reason I'm saying this
+is because we want this button to be dim
+when we're not listening to the user
+when when it's not recording but we want
+it to be sort of brighter when when
+we're actually listening to the user and
+then dimmer again when were the one
+we're when we're finished listening to
+the user so basically why we're setting
+the alpha to 0.5 all right so basically
+the opacity but continuing them so now
+basically as you can see under this we
+have a touch up inside action to the
+start/stop IB action alright and then
+the UI label has an referencing outlet
+to the you can actually the name of the
+IB outlet is transcribed label that's
+how simple that is
+alright so now the code here the
+beginning part this part okay so I'm
+going to explain the IB outlet first the
+IB outlet is essentially again just the
+UI label and it's just transpired label
+this is what how where we're going to
+give our output my Apple watch okay I
+don't want to stand right now alright
+continuing belt they're not going to
+create the recorder variable the AV on
+the airport and I declare this as a
+class go variable so that we can set it
+up in the muted load function and then
+actually record with it in a IB action
+alright alright so now in the
+viewdidload function as you can see we
+have a bunch of code here now
+I'm just going to skim through this
+first of all here what we're doing is we
+are just setting basically we're looking
+for the documents directory we're
+setting the file name that way that the
+recorder will save to we're going to get
+the file path itself all right so that's
+that then we're getting a session the ad
+audio session the share instance of it
+and then we're setting the settings of
+the wav file or the wav file we're going
+to record and then we're doing something
+and we're going to try to set the
+category of Accession to AV audio
+session category play at the court all
+right then we're going to set the
+recorder to again we're going to try to
+do this now we're going to set it to an
+AV on your recorder with the URL as the
+final path meaning it's going to save
+its final result at that file path and
+then give it the settings that we need
+all right then we're going to make sure
+that the recorder setup if it is not
+then we're just going to return out of
+the function and that's it sort of we're
+done and so I mean if it is that we're
+going to continue and we're going to
+prepare the recorder to record and
+basically what we're going to do is
+we'll go set the metering and labeled
+variable to true and we're going to tell
+it to prepare to our court now one more
+thing really quickly though most of this
+code was actually taken from the iOS SDK
+the example code from there this was
+just calling from there because the
+thing is I didn't want to have to set up
+for a quarter from scratch so you know
+it's built already for me I took a bit
+of that open source code and I put it in
+here the power of open source is amazing
+but continuing so basically yeah this is
+from the IBM Watson example code and of
+course I will be giving a link to that
+in the description then we have the IP
+action called start stop recording
+alright and we're also taking a
+parameter called sender uibutton
+and essentially what we're doing with
+this parameter is a sense we're going to
+be able to set the Alpha value of the
+button to 1 when we start
+morning and 0.5 when we are done
+alright so weighs about will checking is
+if they're quarter is not according
+meaning if not recorded on recording
+that means that we're not currently
+recording development the button is dim
+then we're going to set this set a
+session constant to again the current
+shared instance of the av audio session
+then what we're going to do is we're
+going to try to set that session to
+active alright so we're going to set
+active true then what we're going to do
+is we're going to say recorder dot
+record and set the sender's alpha to 1
+okay next what we're going to do is
+we're going to say else
+currently we recording and the users
+click the button meaning they want to
+stop recording then again we're going to
+do a record on stop and this will stop
+recording the users voice then like once
+setting these senders alpha back to 0.5
+so it's dimmer again then essentially we
+take that and we take a share
+instance of the av audio session what's
+more incentive to not active meaning
+false then you create a new speech to
+text and since by saying let speech to
+text is equal to speech to text username
+and then of course our username here and
+of course also the password which is
+this password here alright so next then
+we're going to be do setting the
+settings birth of constant to the
+transcription settings and we're going
+to actually set the content type to dot
+wave it's the easiest sort of type I
+could use okay because the thing is it
+is a bit harder to get iOS store court
+and other formats wave is one of the
+easiest that I I was able to find
+because that was the default code that
+was already there alright so then what
+we're gonna do is we're going to create
+a failure but then again I don't believe
+this is required anymore
+but they haven't exactly updated the
+speech-to-text API in the iOS SDK yet so
+the family of error will still has to
+remain and so basically we're doing is
+we're creating a block of code that will
+take an NS error and print that error so
+it's basically a function and a constant
+and then what we're doing is we are
+calling that speech-to-text
+constant and we're doing dot transcribe
+on it we're taking the speech-to-text
+class and we're running that doctor
+transcribe function and so essentially
+it's using the reporters URL we're
+taking the file from the reporters URL
+and then essentially it is taking the
+settings of course that I gave it and of
+course family available failure variable
+and then essentially all it does is it
+just takes the results and again this is
+an asynchronous call and so that's why
+we have this little block of code here
+and so basically I'm taking these
+results from that little asynchronous
+call and then I'm checking in the trance
+wave basically results that last done
+alternatives that last dot transcripts
+exists exists and if it does it goes
+into a constant called transcription and
+then basically the transcribe labels to
+text it gets equal to transcription and
+that is basically how the start stop
+recording thing works and again this was
+also taken mostly from actually let's
+see if this loads now now my internet is
+still not cooperating with me I don't
+know why but anyway continuing again
+this code was mostly taken by heavily
+modified from the IBM Watson iOS SDK
+example code so now technically we
+should be able to run this and see our
+reward or app running so I'll meet you
+there
+alright so as you can see the app is
+running on the phone so there's a hidden
+little label over there and there is a
+button over here that allow us to start
+and stop recording as you can see right
+now that's currently a bit dim but right
+as I click on it it's going to be a much
+brighter right as I click on it once
+more it's going to become dim and then
+we'll be done recording so let's try
+transcribing something shall we now I'm
+going to just transcribe something
+really simple for the first time at
+least let's do this I am currently
+recording a YouTube video and using the
+IBM Watson speech to text service
+you could see that button getting dimmer
+and brighter and now it's dimmer again
+because it's not listening to us and in
+just a second this should be able to go
+to IBM Watson and as you can see I am
+currently the am sort of gets stuck here
+with the IBM Watson speech to text SDK
+but then again they're working on it
+that'll be results soon I assume so I'm
+currently recording a YouTube video and
+using the IBM Watson speech to text
+service that's how the app works and so
+now we can just zoom out from there and
+get back into the Mac part alright so
+that was it for the video today I really
+hope you enjoyed and if you did please
+make sure to leave a like down below and
+even subscribe if you really like my
+content and you want to see more of it
+you can even share my video share my
+video with your friends or family or
+really anyone who you think this would
+help and that's gonna be for this
+tutorial if you have any questions
+suggestions or feedback you can surely
+email it to me at tad you made gmail.com
+and you can also tweet it to me at
+taching many that's gonna be it for this
+video again one more place you can
+contact me is down in the youtube
+comments below let's connect to this
+tutorial hope you enjoyed good bye

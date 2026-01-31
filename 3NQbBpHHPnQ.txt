@@ -1,0 +1,191 @@
+[Music]
+all right so just before I start the
+actual tutorial today I just like to say
+that an early access copy of my book
+hello Swift has been released for the
+first eight chapters you can find it on
+many bookstores online such as Amazon
+chapters and indigo as well as the
+publishers website I really do hope that
+this helps you throughout your journey
+of learning the Swift programming
+language alright so let's get into the
+tutorial now so closer and welcome to
+another tutorial
+my name is Ken Lee battery and this time
+we're going to be going over how you can
+use the SS speech recognizer in swiftly
+in a Mac OS application in order to
+transcribe the Metro phonetic alphabet
+or the North Atlantic Treaty
+Organization phonetic alphabet numbers
+call this is because the natural
+organization is actually adopted this
+phonetic alphabet but before I go any
+further about this application I like to
+say a big thank you to Ryan for sending
+in this video request and idea so
+beginning today though basically the
+point of this application is let's just
+say that you wanted to write out cat CA
+T on your computer instead of saying C
+18 or cat you would say Charlie alpha
+tango which is the meta and SRC natural
+phonetic alphabet form of cat and
+basically this application will write
+out cat free and this is based
+completely off of my older and a speech
+recognizer videos code so if you like to
+learn a bit more about how the NFC's
+recognizer actually works you can find a
+link of that video down in the
+description below and so cool so today
+I'm going to be showing you how I was
+able to implement the Semitic alphabet
+into this speech recognizer so without
+any further ado let's get straight to
+the code part where I can show you how I
+was able to implement this phonetic
+alphabet with my
+Mac OS application using the NS speech
+recognizer let's get to it
+alright so welcome back to the color
+part and now I'm going to be showing you
+the actual implementation of this
+application so if you already seen my
+older in a speech recognizer video you
+actually find this you probably find
+this code very very familiar example
+facts this is a very this are a flicked
+3 version of that same code and so
+basically the point on this code is that
+we are I mean I'm not going to be
+explaining into too much depth basically
+we are declining or we're Kotori
+declaring our speech recognizer with
+setting the delegates itself we're
+setting the commands clean china
+phonetic alphabet plus them and I'll
+talk about that in a second and we're
+telling the speech recognizer to start
+listening for commands once that's done
+we implement the speech recognizer did
+recognize command function and in this
+function we basically set the break
+state which you probably understand from
+my older video I'll be playing in too
+much detail here though but we said in
+blank state to either true or false
+depending on what the user said and we
+set the output text view to of what they
+said and usually before what I did in my
+video is we would set this that we look
+at this texting a user could say text
+not to basically just a command but this
+time what we're doing is we're setting
+up the commands first character so for
+example to use just this alpha for a we
+only want the a from the beginning of
+alpha we don't want the entirety of
+alpha to be printed out onto the
+textview in fact let me show you a quick
+example of this in action
+so as you can see it's going to take a
+second here
+now let's actually try something else
+like maybe YouTube so Yankee after
+uniform tango uniform
+Bravo echo take a break alright so
+basically what I've done here is I
+actually recited out YouTube in the NAT
+hell phonetic alphabet form and what the
+NSE truck is nigel has gone ahead and
+done is actually understood that and
+roll out YouTube in this text you over
+here and the text fusing tire I guess
+you could say window here I don't you
+can see in this array that I'm defining
+here I'm actually defining the entire in
+NATO phonetic alphabet something alpha
+Bravo Charlie Delta echo Foxtrot Golf
+Hotel India Juliet kilo Lima Mike
+November Oscar papa Quebec Romeo Sierra
+tango uniform Victor whiskey x-ray
+Yankee Yankee sorry
+Zulu space take a break and get to work
+now apart from the phonetic alphabet I
+have three commands as well those would
+be space take a break and get back to
+work now if you've already watched my
+older tutorial you'll you already know
+what take a break and get back to work
+means basically take a break tells E and
+a sweet recognizer to stop listening and
+get back to work tails at the start
+listening again however space work that
+what that's going to do is that's a new
+command that I just put in and so what
+that will do is it'll put a space
+between what the characters that you say
+so we actually give you a quick sample
+of that as well like just for example if
+I were to say maybe Oh get back to work
+okay
+get back to work and if it doesn't
+realize that I just said that let's just
+rerun the application and it should all
+right
+Hotel echo Lima Lima
+Oscar space Sierra whiskey India Foxtrot
+tango take a break as you can see it
+wrote out hello Swift the title of my
+book and so basically this proves that
+it is able to understand commands like
+space and so that's basically how this
+application functions and of course as I
+said I have not gone into the code to
+very much detail basically what I'm
+saying here is that taking the exact
+same one out oh 10 15 Marco Daria around
+30 ish lines of code that were from my
+older tutorial I basically converted
+them to Swift 3 and instead of channel
+foods my favorite foods like chicken
+lemon mangoes bananas etcetera etcetera
+I'm actually just putting in the Nano
+phonetic alphabet and instead of taking
+the entire command what the user just
+said to the NS speech recognizer and
+putting that onto a text field I'm
+actually just taking the first letter of
+those commands and putting them onto the
+text view but if those commands aren't
+actually you know the parts of the Nano
+phonetic alphabet and they're open
+they're just real commands like space or
+get back to work or take a break what's
+going to happen is I won't
+I just won't put them on screen at all
+and I'll actually execute the actions
+that that command has linked to it and
+that's basically all we have for this
+tutorial today thank you very much for
+joining in I hope you learned a lot if
+you did learn a lot and you really liked
+the video please do consider leaving a
+like down below and if you believe this
+could help anyone else you know please
+do consider sharing the video as well
+but if you have any questions
+suggestions or ideas or feedback really
+you can stick you leave that down in the
+comments below
+tweet that to me at caddie mani or you
+can even email it to me at panda mani at
+gmail.com of course if you really like
+my content and you want to see more of
+it you can of course subscribe to my
+youtube channel and it really does help
+out a lot and of course thank you very
+much for watching this tutorial today
+that's going to be all good bye

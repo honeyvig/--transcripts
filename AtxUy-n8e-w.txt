@@ -1,0 +1,230 @@
+hello there t back with another watch
+kid tutorial well not another one this
+is my first watch kit tutorial for
+YouTube now basically uh this is a watch
+uh an Apple Watch app and what this does
+is it's a guessing game um so basically
+it generates a random number and then
+you have to guess that random
+number and it counts how many tries you
+take so it's both for the iPhone um and
+the Apple watch so first I'll start off
+by showing you the um uh iPhone Edition
+and then I'll show you the Apple watch
+Edition so if I uh try to make a number
+bigger here I make my guess bigger on
+the iPhone and I click submit eight is
+too small and also it generates numbers
+between 1 and 30 so 8's too small
+meaning it's between 8 and
+30 if I increase it so now it's in
+between 13 and 30
+18 and
+30 okay I just got it
+correct so that's basically how it works
+and I got it corrected in for tries and
+then I can also ask for a new number
+that resets it and makes a new number
+and then I can also use the Apple watch
+Edition to do stuff and then okay five
+is two
+small let's try
+10 two big
+baby
+eight um oh sorry smaller correct so
+yeah so that's basically how it works
+and now I'll show you the code and yeah
+the full source code for this tutorial
+will be available in the description
+from GitHub and uh
+yeah so let's uh
+start basically this is the iPhone code
+and then I'll introduce you to the watch
+code
+so first of all in the storyboard we
+have two labels guest label here and
+output label here and then we have four
+buttons uh smaller bigger new number and
+submit okay so now we have two IB
+outlets for the guest label and the
+output label we have three variables in
+a constant so the three variables are
+the guest number which is the number
+we've currently guessed uh the other
+variable is the number of guesses you've
+done till now uh the other um variable
+is the random number that the computer
+is comparing your guess
+against now this is the constant and
+this is the number to randomize till so
+if this is let's say 300 it's going to
+make a random number between 1 and 300
+however if I make this 30 it's going to
+make a random number each time between 1
+and
+30 so B basically um I have a new number
+function in the viewed appear uh uh
+function from the UI view controller
+class and that's why we're doing
+override and I couldn't put it in viewed
+load since uh these IB Outlets wouldn't
+be loaded uh in the viewed load function
+since viewed load happens before the
+view actually
+appears okay and so next we have two um
+functions that I created the big clicked
+and small clicked functions now what
+these functions handle is when you have
+clicked on the button bigger or smaller
+respectively so basically what we're
+doing in the big clicked
+function is we are making
+sure that first of all you do not go
+over 30 and in the small click to making
+sure you don't go over I mean under
+zero uh and then so basically in the big
+click we're increasing your guest number
+and we're setting the guest labels text
+to that guess number uh we're doing the
+exact opposite in small click we are
+decreasing your guess number and we are
+also uh setting the guess labels text to
+it next what we're actually uh here what
+we can do just to decrease the amount of
+work if we change the um number to
+randomize we can set this to num to
+randomize so basically they'll just make
+sure you don't go over this a number
+instead of you having to type it in two
+places okay so in the submit
+function as you can see it's doing quite
+a lot of work we're checking if your
+guest number is greater than what the
+computer has generated then we're
+increasing the number of guesses and if
+the number of guesses is not equal to
+one then we're saying your guess is too
+big and then these number of guesses
+tries however if it is one then too big
+number of guesses TR try since we don't
+want one try we want one try two tries
+three tries and then we're and then we
+are setting the guest labels text to uh
+your guest number is greater than
+whatever the computer is generated just
+a little symbol to um make more visual
+appeal and then we're doing the exact
+opposite here uh if your number is less
+than the random number that the computer
+has generated we're increasing the
+number of guesses doing the exact same
+thing here except we're saying it's to
+small and then uh here we are telling
+them that their number is smaller than
+what we had what the computer as
+generator and then else if all these
+conditions fail meaning the only thing
+left is equals uh it will it will uh
+increase the number of guesses um and
+then it's going to check if it's not one
+uh if it's not one correct in number of
+guesses tries else uh correct in this
+try
+and yeah those are the main functions
+and then the new number function which
+basically acts as a reset um function
+basically creates a new random number
+between 1 and 30 but since the arc for
+random uniform function will uh generate
+a random number from 0 to 29 I'm adding
+one so if it's zero it'll become one if
+it's 29 it'll become uh
+30 so then here um we're setting guest
+labels text to zero and output labels
+text to nothing and we're setting the
+number of guesses to zero and the guest
+number to zero uh we're basically
+resetting those
+variables uh yeah so that's basically it
+for the iPhone
+end and since this isn't a from the
+groundup uh just totally beginner
+tutorial I'm not going to be showing you
+exactly how I created this watch app
+step by step however number one I will
+be putting the source code in the
+description if you want to download it
+take a look at it uh modify it to be
+your own you have uh permission to do
+that and uh also uh this week or maybe
+even next week I will release another
+watch kit tutorial uh where I will
+basically um teach you from the ground
+up how to create a simple app uh I'm
+still not exactly sure about that so
+just uh keep looking at the channel if
+you're really interested into that
+okay so this is the watch storyboard as
+you can see this is the Apple watch 38
+mm storyboard and so we have the guest
+label output label bigger smaller submit
+new number functions I mean buttons and
+so that's the storyboard and then the uh
+actual code for it we're importing watch
+kit instead of UI kit and then uh we
+don't really need this uh import
+Foundation a watch kit import Stu for us
+so all the there's really no change in
+the code um all we're doing is instead
+of UI uh view controller we're doing WK
+interface controller and then instead of
+UI label we're doing we're using the WK
+interface label uh both for the guest
+label and the output
+label uh the next change is that instead
+of viewed load we have awake with
+context in which way are putting our new
+number
+function and then we have two extra
+default functions will activate and did
+deactivate um and yeah that's really all
+there is uh changed and instead of using
+text as equal to for the labels we're
+using the dot set text method to set the
+text of this label to this
+variable and so I can also change this
+number to
+randomize and yeah or actually what we
+can do do if number of
+guesses not equal to
+one yeah so we need to make sure it does
+either tries or try if they get it
+correct in one
+try then we just want to paste that
+there and make that try yeah so that's
+basically how the watch end works and uh
+subscribe if you're new to the channel
+um like this video if you liked it
+download the source code in the
+description comment if you have any um
+suggestions improvements or if you have
+a question and yeah
+goodbye
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e e

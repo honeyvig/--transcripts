@@ -1,0 +1,720 @@
+so hello there and welcome to another
+tutorial my name is ten bshi and this
+time we're going to be going over
+another natural language classifier
+video So today we're going to be talking
+about an app that I made called the
+Tweet classifier now essentially what
+this does is you will give Watson tons
+of tweets that you like and tons of
+tweets that you don't like and it will
+be able to next classify a tweet that's
+it's never heard before whether you like
+it or you don't like it based off of
+your previous interests let me show you
+how let me show you how it will
+work okay so first of all what we're
+going to do is we have
+Twitter uh so let's just say Twitter
+over here this is one gigantic social
+media
+platform okay now this has hundreds and
+hundreds and hundreds of tweets now
+quick
+backstory if you don't know already
+Swift is going open
+source and so there there's a there is a
+hashtag um called
+hashtag Swift
+lane or sorry I got confused just a sec
+it's not like a Tic Tac toeboard it's
+just
+a a number
+sign okay so Swift
+laying just a sec
+um so that's
+the hash Swift
+L okay so now that we have this out of
+the way now Swift was recently open
+sourced so there's this new hashtag but
+this new hashtag has tons and tons and
+tons of tweets some of them are related
+to the op Source
+Swift some of them are not related to
+open source
+Swift so what I'm going to be doing
+today is I'm going to be introducing
+another new method called scraping now
+what's scraping you may ask now there
+are two methods we can do this first of
+all we can either a use the official
+API or we can B
+scrape now since I want this to be user
+friendly we're going to go
+for the latter option
+scraping okay now you might be wondering
+what is scraping if you've never heard
+the concept before it might seem
+complicated but it's not complicated at
+all let me show you what it is let's say
+we have one Twitter
+page right and there's a few tweets
+here it's going to
+say these many
+tweets okay so we have 1 two three four
+five six seven eight nine
+tweets now let's just say this one is
+about open source this one's about open
+source this one's about open source and
+this one's about open source the rest
+are not about open source
+Swift so what we're going to do is we're
+going to use a Google web extension
+called scraper I'm going to leave a link
+to it in the description so now this
+will allow us to do is let's just say
+that there's the name of the um Tweeter
+uh and then there's the content of the
+Tweet over here and the same thing for
+the for one more and all the rest you
+get the point there's the content
+there's the name of the person and
+there's their
+image so now let's just say just imagine
+that there's stuff for all these tweets
+what we're going to do is we're going to
+just highlight one of the
+Tweets we're going to right click and
+click click on the scrape
+sorry we're going to click on the
+scrape
+similar
+button and so what this will do is it
+will take all the tweets contents from
+all the tweets and put them into
+a well
+Google
+spreadsheet okay then what we're going
+to do is we're going to export this to a
+CSV which we will open up in
+Excel which we will then continue to
+format and then we're going to put this
+into a new topic
+entirely the
+NLC natural language class
+fire
+toolkit now this is one great resource
+uh if you're going to have uh really
+small sets of data with your natural
+language classifier but before I get
+into this let me just tell you we're
+going to actually have I'd say around 50
+tweets uh you I usually go for around um
+30 40 maybe 50
+tweets uh less than that you're not
+going to have too much of an accurate
+classifier more than this and it's
+really hard for you to classify each one
+so again let me go over the steps with
+you first of all we're going to scrape
+all of these tweets contents next we're
+going to go to a Google spreadsheet one
+more thing I forgot to tell you we're
+going to
+classify these tweets that we just got
+from
+scraping so we're going to say yes I
+like this one I don't like this one I
+like this I don't don't don't I like I
+don't I like okay we're going to tell
+whats and what we don't and we do like
+from this set once we do we're going to
+export this as a CSV we're going to go
+to excel we're going to format it a bit
+more we're going to export this again as
+you know and put it into something
+called the natural language classifier
+toolkit now what is the natural language
+classifier toolkit you may ask
+it's simple let's come over here uh
+let's say that um we
+have something like um this over
+here now uh yeah so just a
+sec okay so just give me a sec now let's
+say we have something
+like uh this
+now the thing
+is normally like in my last
+tutorial you saw that we'd use something
+like uh we' use tons of commands we'd
+use the
+terminal to do
+training now this is essentially a
+problem for normal users
+normal users don't want to have to learn
+all these terminal commands curl how to
+do all this authentication etc etc so
+the perfect alternative to that is
+something that what IBM calls the
+NLC
+toolkit so what this will do is it will
+allow you to
+train with a
+GUI instead of which is graphical user
+interface and inside of a character user
+interface with the training run the
+terminal and so once we create our
+csb instead of going into terminal uh
+and then going we're going to have to do
+all this curl stuff and then we're going
+to have to upload to the Watson
+servers that's complicated we have to
+get the classifier already we don't need
+to do all of that when we can just
+simply use the NLC toolkit that has a gy
+okay
+now I'm going to tell you that this is
+very easy
+however the more tweets you have the
+more um the more built up this is and so
+what I'm going to be doing is one more
+thing actually this app will only be
+able to classify tweets it won't
+actually yet be able to use a Twitter
+API to go to Twitter grab tons of tweets
+and classify them all and show them to
+you just yet that's coming in the next
+part but for now we're just going to
+show you how to scrape off a Twitter uh
+and then tell Watson what you like and
+train it once we train it in the next
+part I'm going to be showing you how to
+create a real app that grabs tweets from
+the Twitter API
+itself uh and once it does it actually
+ranks them all and show you the shows
+you the ones that it thinks you'll like
+okay that's for the next part but for
+now this is what we're going to be doing
+and that's going to be it for the
+Whiteboard part so now let's get to the
+Mac part where I'll actually tell you
+how you can put this into the Watson
+toolkit so welcome back to the Mac part
+now I'm going to be showing you how you
+can actually use a natural language
+classifier toolkit how to scrape tweets
+off and how to actually tell Watson what
+you like and what you do not like okay
+so first of all let's get started over
+here by going over to Google and just I
+want you to type IBM
+Watson Das NLC Das
+ground
+truth okay put that into Google Now this
+is the project for the natural language
+classifier this one over here the first
+one IIM Watson NLC ground truth but
+there's a quick problem it doesn't work
+right right now so what we have to do uh
+is actually what you would usually do is
+you would come over here you would click
+deploy to Bloomix and it would create a
+project in your Blu miix account and
+stuff
+but there's again a problem there's some
+error in this code or something uh it's
+probably a permissions error uh which
+doesn't allow you to deploy or even
+build in fact this app so what you have
+to do is you have to go to Google and
+you have to click on the second result
+IBM Watson NLC ground truth
+old that's what you have to click
+on okay now over here we're just going
+to go down and click on the deploy to
+blo miix button while you are Lo logged
+into your Blum miix
+account so I'm just going to click on
+the login button over
+here uh now this should either
+automatically log me in or I should have
+to okay it automatically logs me in
+perfect so now if I move myself over
+here now what we're going to be doing is
+we're just going to choose the app name
+I'm just going to call this uh Watson
+NLC
+toolkit
+tweet
+classifier this is n underscores I guess
+Dash Watson NLC toolkit tweet classifier
+perfect I'm going to go to IBM Blu miix
+Us South because that's the closest one
+to my um uh to where I live then I'm
+going to set my organization as my
+current Gmail uh and then my space as
+Dev now I'm going to click on the deploy
+button uh now we just wait for this to
+create our project clone the repository
+configure the pipeline and blo miix
+while that
+happens uh let's go over here now I'm
+going to choose to scrape tweets uh off
+of well hash Swift Lang on Twitter so if
+I search hashtag Swift Lang on Google go
+to the Twitter page for it let's go
+down uh just go really really down now
+we're going to open up a new tab again
+and there scraper Google
+Chrome uh and then click on the first
+one I think this should be the
+one uh and yes this is the one this is
+uh it is created by
+dvhn on Google okay so you just want to
+create this um actually you want to get
+this from the Google Store uh and then
+once you do just um close it down then
+go to
+Twitter and then just I'm just going to
+scroll down a bit
+more um no not that much
+around December is comments December 3rd
+okay so over here now what I'm going to
+do is I'm going to right click on any of
+the tweets text and I'm going to click
+on scrape
+similar now as you can see this gives us
+27
+tweets now what I'm going to do to get
+some more tweets is scroll down just a
+bit and do it again so actually just a
+bit more up uh around here so now let's
+right click and click on scrape similar
+again we still have 27 tweets I don't
+know why so you won't need to do this
+just all I want you to do is scroll down
+a bit right click scpe similar that's it
+so now I got 27 tweets so we're going to
+be using 27 tweets this time so now I'm
+going to move my face over here and if
+you see over here there's a button
+called export to Google Docs click on
+this and just wait a sec I guess click
+on it okay so now what's going to happen
+is it's going to take you to Google
+Drive and as you can see it has
+successfully exported all of those 27
+tweets into a Google spreadsheets uh
+little project thing so now what I'm
+going to do is you see there's this
+little text thing on the top here which
+I don't want so what I'm going to do uh
+is I'm going to go from two I'm going to
+select the second tweet or the first
+tweet after text now follow very
+carefully keep shift clicked keep
+command clicked and click the down arrow
+then release
+them now you have these all
+selected keep command pressed and click
+X okay then scroll up and select the
+text uh entry over
+here now keep command pressed and V or
+paste and text is gone okay so now what
+we're going to
+do uh is we are going to go to each
+tweet and beside each tweet we're going
+to say yes or no yes meaning yes I like
+this tweet or no meaning I don't like
+this tweet so official Swift Community
+mailing lists no um added funky lighting
+no uh label
+no yes I'm very interested in
+that
+um I might be interested in this um I'm
+definitely not interested in that no
+again I only want stuff talking about
+open source
+Swift
+no
+no
+no
+no no
+no no no no no there are a lot of NOS
+this time
+um there's literally only two yeses at
+this
+point
+no oh wait
+um maybe
+actually yes I actually want
+t-shirts
+no
+no no no okay so now as you can see
+those are a lot of tweets that are not
+very um doubtful for Watson honestly
+because there are few that I actually
+like so
+now let's see uh if we can okay so those
+are the top tweets so we want um ones
+that can come really quickly uh so if I
+just scroll down here let's let's do
+this again this time with tweets that I
+will probably actually like so
+now scroll down a
+bit again so we're going to keep these
+tweets of
+course so we're going to keep these ones
+I'm going to copy them till then I'm
+going to go to
+Twitter keep going
+down
+okay perfect right click scrape
+similar and this time we got 62 tweets
+much better so now let's export to
+Google Docs
+again uh so now let's
+um do this scroll down paste those other
+tweets again so now we have 90 in total
+okay so now as as you can see I have
+quite a few tweets to uh classify as yes
+or no so what I'm going to do is I'm
+going to pause the video really quick
+I'm going to classify all these
+depending on what I like and what I
+don't like then I'm going to be back so
+I'll see you right after I classify
+these 62
+tweets that was really quick for you but
+now I'm back and I have classified 62
+tweets which was TS work anyway
+continuing now that we're done
+classifying let's get back to our Watson
+instance so if we go over here to our
+deploy to Bloomix tab as you can see
+success you've added an instance of this
+app to your organization in Lumix okay
+so now what we're going to do uh is you
+just want to click on view your
+app and it opens this gem up for you uh
+till then go back to your deploy the
+Bloomix page uh and what I'm going to do
+is I'm going to click on my dashboard
+for Blu
+miix uh then I'm going to go into
+actually
+um right as it
+loads I'm just going to scroll down and
+go into the new toolkit app that we just
+created then uh you see this natural
+language classifier over here uh just
+click on show
+credentials and that should show the
+credentials for the service okay let's
+now copy your
+username not the quotes just the
+username itself uh paste it into the
+username tab over here copy your
+password paste in your password perfect
+click on the submit
+button I'm just going to save it because
+it's not really a password that other
+people shouldn't really know just yeah
+okay so now as you can see it lets us
+train it uh now I'm not going to train
+it for anything just yet because first
+of all what we have to do uh is we have
+to uh go over back here to Google Docs
+or spreadsheets whatever you'd like to
+call it click on the first um tab click
+shift click the um right arrow key Okay
+now click shift again click command
+click the down
+arrow perfect now I'm going to click
+command C and I'm going to open up Excel
+now remember this is a must this is due
+to the fact that when you copy and you
+paste into a blank workbook in Excel you
+actually remove actually first of all
+let me show you and if I expand this a
+column over here as you can see I
+removed all the new lines from the
+tweets which is essential uh for us to
+be able to create the Watson uh training
+data so now as you can see we have each
+tweet and a yes or no beside it so now
+what I'm going to do is I'm going to
+click on the file
+button click save
+as select CSV from the list
+I'm going to save this into my documents
+as tweet
+training Watson actually I'm going to
+save this into my home
+directory um as a new
+folder called tweet
+train uh there perfect now let's save
+this uh make sure you click
+continue then quit Excel and click don't
+save it actually saved it it's just
+asking you are you sure you want to save
+it in a CSV why not an Excel format
+because an Excel format will save your
+formatting like uh it'll save your font
+and everything uh but when you save the
+CSV it won't preserve all of the um uh
+fonts and everything that you've put
+into it uh so now what we're going to be
+doing uh is we're going to go to our
+toolkit over
+here now click on the training button
+over here then click on
+import then go into your Tweet train
+directory uh and then select the Tweet
+training Watson file that you just
+selected and it should fill in really
+quickly all of these for you so that you
+can see them now just wait for this to
+be 90 because uh I classified 90 tweets
+so I'm going to wait for it to load all
+of them
+right as it
+does we will be ready to
+roll so now just give it a minute or two
+I guess maybe it's taking a bit of time
+so then let's see uh let's just make
+sure that there were actually
+90 no these are yes these are 90 uh
+so perfect now let's just refresh to see
+if there's actually 90 yet no I think
+it's missing two uh but it's okay
+there's already 88 that's more than
+enough okay so now what we're going to
+do is we are just going to click on this
+little train button over here you know
+actually I think my suspicion will be
+true uh if I click on the train button
+here and I say tweets
+classifier uh and I confirm this as a
+name I think they should give us an
+error exactly uh so now if I go into my
+tweet train
+directory
+over here and if I open up this in
+Sublime
+Text Okay uh so what I just found
+out uh the appearance the how Excel
+removes the new lines from uh the file
+is Just an Illusion
+it doesn't actually do that so now what
+we're going to have to do is I'm just
+going to search on Google how to remove
+blank lines from row and
+Excel now let's just go to this one
+because I know this website now there
+will be a link to this website in the
+description also just the
+formula uh so now what I'm going to do
+is watch
+carefully uh this formula will be in the
+description of this
+video uh where did it go where did it go
+[Music]
+uh okay this isn't the one
+um
+move extra
+line okay and
+and it should
+be this
+one okay so
+now
+see there perfect okay so this is the uh
+link that you'll have in the description
+now you're going to copy this I repeat
+this command then you're going to going
+to go into Excel with the
+CSV okay open up
+Excel now what you're going to do is uh
+only I have to do this but I'm going to
+paste in this
+formula uh and if I just change this to
+A1 perfect as you can see it has
+successfully removed all new lines from
+that specific tweet so now I'm not going
+to expand uh C at all uh instead what
+I'm going to do is I'm going to take
+this yes see this little uh Square here
+you're going to double click
+it as you can see it's removed new lines
+from each and every tweet so now what
+we're going to do is we're going to
+click command C and we're going to click
+on this a button
+rightclick and click paste
+special click values and click
+okay then click C again and click the
+delete button and as you can see for
+real this time all of the new lines have
+gone from the
+data let's save this click the continue
+button quit and click don't
+save okay next what we're going to do is
+remove uh there's going to be a link to
+this as well in the description
+okay so there's going to be a link to
+the stack Overflow Forum in the
+description but you want to take this
+command uh go to
+terminal uh and so what I'm going to do
+is I'm going to see CD tweet train so
+I'm going to go into the directory where
+we have uh the CSV file and I'm going to
+run this command
+tweet
+training watson.
+CSV into tweets. CSV or something like
+that run it and it has removed all
+malformed utf8 characters from the uh
+file so now I'm going to go back into my
+uh natural language classifier I'm just
+going to click the select the uh check
+box over here click delete so we delete
+all the uh classes then click the check
+boox over here click delete and click
+delete
+perfect now let's import some more data
+and this time we're going to use the csb
+file that we've
+modified perfect now we should just wait
+for a
+second just wait for it to import all
+these
+tweets okay for some reason it's getting
+stuck at 88 again but as you can see
+it's imported all our
+tweets okay perfect so now if we click
+on that little train button tweets
+classifier click on the confirm button
+over here let's just hope that this
+works creating a classifier for
+you and as you can see it is now
+training the classifier now this will
+take around 10 minutes and I don't think
+you just want to sit around here for 10
+minutes so what I'm going to do uh is I
+am just going to uh pause the recording
+here I'm not even going to move anything
+on my computer I'm just going to keep it
+at this exact screen I'm going to pause
+the recording
+I'll come back in around 10 minutes uh
+and in 10 minutes I'll show you that
+this tweet classifier really works so
+I'll be back in 10 minutes and we'll see
+if the Tweet classifier is done training
+let's do
+it so again that would that would be
+quite quick for you that was around a
+second for you but I had to wait around
+7 to 8 minutes for this to be available
+uh but what you can eventually keep
+refreshing uh and it will say a aailable
+when it's ready uh so now let's just
+open up Twitter go down a lot like very
+very
+down uh and let's copy a
+tweet this
+one so let's copy this uh let's go down
+to Watson now let me just tell you right
+now I like this
+tweet
+actually I'm mixed about this tweet I'm
+5050 on this one so let's just take a
+different one because I'm not exactly
+sure if I like this one or not actually
+um this one I know that I'm not
+interested in this so let's try this out
+okay I'm not interested in this one I
+just I know so let's classify this and
+hopefully it gives us 99% sure that I'm
+99% sure you're not interested in this
+okay so that works uh that sort of
+already Works uh but now let's uh give
+it sort of
+like okay
+so
+um
+okay this
+one this one I am interested in I'm not
+exactly sure if it's going to be able to
+get
+it no as you can see it doesn't always
+get it so that one was wrong so it got
+one right one
+wrong um okay this one I'm interested in
+very
+interested let's copy this
+in now I'm almost sure this will get it
+right yes 99% sure so it's gotten
+uh two right one
+wrong let's just do two more uh then
+I'll explain more
+stuff uh
+so this one I'm slightly interested
+in yeah so it sees that I'm slightly
+interested but mostly a
+no
+okay this
+one could be it this
+will okay last
+one perfect I got it okay so now as you
+can see this got one wrong three right
+so now what's the point of creating this
+app in general well instead of you
+having to go through all of your tweets
+and say okay let's see where's a tweet
+that I like uh yeah I like this tweet
+let's read it okay let's see what links
+are in it okay I don't like this no no
+no no no but then you realize oh I
+missed one oh I like this one etc etc
+instead of going through all of that
+pain to see which ones you like missing
+some and instead of having to do this
+you can just get all the information
+that you
+need and only the information that you
+do need it's not going to give you stuff
+like uh wrapping your call backs and
+Promises unless you're in interested in
+this sort of stuff which I am not right
+now I want open source Swift so
+essentially Watson does all the work for
+you Watson will classify all these
+tweets as yes or no give them to you
+that's it perfect you don't need to do
+all of these it'll rank them for you
+because as you can see it gives you
+confidence scores so if it says uh yes
+I'm 99% sure it'll bring it to the Top
+If it's 50% sure it'll bring it a bit
+down so stuff like that uh and that will
+be really helpful for the next part of
+this tutorial that we're going to be
+doing when which it actually does choose
+out tweets for you and show them to you
+on screen so that's going to be great uh
+I hope you enjoyed if you did please
+leave a like down below comment email me
+or contact me at to addim man on Twitter
+uh if you'd like to uh send me a email
+qu or a video question uh which I can
+feature in one of my next videos you can
+send me questions comments concerns Etc
+uh you can also subscribe to my channel
+if you're new or you like my content and
+you want to see more of it it does help
+a lot uh and again that's going to be it
+for this tutorial
+goodbye

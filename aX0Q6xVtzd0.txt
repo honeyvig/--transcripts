@@ -1,0 +1,1645 @@
+so hello there and welcome to another
+tutorial my name is Tammy Bakshi and
+today we're going to be going over a
+fascinating new topic
+straight from WWDC 2019 and it's called
+swift UI now if you watch the WWC 2019
+keynote I'm sure you've seen a lot of
+the interesting things that Apple has
+announced now there are two that are
+very very important first of all there's
+the combined framework which in that
+enables a whole new way of working with
+asynchronous operations but that's a
+topic for a different video the second
+one is called Swift UI if you haven't
+already heard of Swift UI I'm sure
+you're going to be fascinated by it was
+the number one thing that come out of
+WWDC this year and essentially it
+completely redefines the way that you
+define your user interfaces within iOS
+or Apple platforms really so you can use
+Swift UI to create a TV OS or a watch OS
+iOS or also called AI Pedowitz for the
+iPad or Mac OS interface essentially
+enabling you to have one sort of style
+of creating an interface to reuse code
+across all platforms instead of having
+app kit over on the Mac having you know
+the specialized watch kit having iOS UI
+kit and then the separate kits for TV
+now everything is centralized everything
+is a lot easier to work with and you
+might be surprised at just how simple
+Swift UI makes the most tedious UI kit
+code now let me get the terminology
+straight there just in case you don't
+have very much experience in this field
+now what the UI framework that iOS has
+been using for years at this point is
+called UI kit so if you've never
+developed an iOS application before and
+you've used a UI button or a UI label or
+UI text field you have used UI kit these
+are all parts of the UI a framework and
+it's great it's versatile it enables you
+to achieve a lot and used in the right
+way it's very very powerful but there's
+just one problem
+and that's the key phrase if it's used
+in the right way it takes a lot of
+experience and a live code
+just to do the simplest of things when
+it comes to uikit but with swifty why
+this is all taken away from the
+programmer you no longer have to deal
+with the hassle because now Swift UI
+deals with it for you now what do I mean
+well traditionally let's just say you
+wanted to create an application with UI
+kit which would run on a wide variety of
+applications including any iPhone device
+after say the iPhone 6 and from there
+work on iPads as well you would have to
+use auto layout and constraints you have
+to define quite a big portion of your UI
+in code if you wanted it to be complex
+you couldn't do everything in
+storyboards and at the same time it
+would also be a little complex that
+determine how exactly interview is gonna
+look before you run the application
+there's basically no way to determine
+that unless you run the app get over to
+that interview and then finally take a
+look at oh this is what my application
+looks like these are all problems that
+are solved by Swift you on how well it's
+actually doing this by removing the how
+so let me explain what that means
+traditionally with you wanna kit what
+you're telling the framework to do is
+exactly how you want to get to your
+final user interface so you're telling
+it create this label apply these
+constraints and into the view do this
+you know give you a bunch of steps as to
+how to create an interface but the thing
+is any framework that we've had as
+developers where you have to actually
+manually describe the how has
+traditionally been replaced not very
+many people use the actual manual URL
+requests you just use a llama fire and
+so similarly I will want to create a
+very similar paradigm in the we're all
+in the world of UI development and so
+now instead of telling you I can these
+are the steps you need to go through in
+order to develop the UI you're now
+telling Swift UI this is what I want my
+interface to look like I wanted to have
+the stack over here of elements I wanted
+to have a button over here etcetera etc
+and just like that su Qi will understand
+what you want and it will create that
+interface for you you don't need to tell
+it how you just need to tell it what
+this adds a lot more work on Apple side
+in fact this has been
+development for over ten years even
+before Swift was created but were you
+enforcement entered development but the
+thing is it takes so much hassle off of
+the programmer that it is absolutely
+amazing
+so another thing that's with UI does is
+that it moves away from the how to one
+and at the same time moves over to a
+reactive programming paradigm what that
+means is your view is going to react to
+changes in the source of truth for those
+views so let's just say you're
+developing a simple application to movie
+recommendation now let's just say
+there's a brand new recommendation that
+just came in for this user now
+traditionally what you do with UI kit is
+you would grab that new recommendation
+it would append it to some sort of
+movies array and then you would refresh
+your table if you manually saying hey
+there's new data you need to refresh now
+and then what you would do is you I
+could take a look at how many elements
+that are in the array what the height of
+each cell needs to be creating a
+prototype cell manually defining that
+prototype cell in the storyboard or even
+your cone and then finally having your
+cell displayed on-screen all of that is
+removed with Swift UI all you do is have
+your structure which defines your view
+and this also brings me to another
+change you're no longer going to use UI
+views you're gonna use just regular
+views and this time it's not it's not a
+class or a structure you're actually the
+view is a protocol and so now there's no
+inheritance stuff used to deal with you
+just need to make your structure conform
+to the view protocol and so the
+advantage of having this and having a
+structure that conforms that view
+protocol is that whenever a state
+variable is modified within that
+structure your view will automatically
+reload for you now think about it when
+you've got a structure and Swift
+you cannot normally mutate variables or
+things within that struct it doesn't
+work that way that's the main advantage
+of a structure versus a class a value
+type versus a reference type but then
+when it comes to views in Swift UI
+what you can do is you can actually mark
+as certain variables as state variables
+for example remember that movie Zuri I
+was talking about well let's just say a
+new recommendation came in and you
+appended to your movies array well if
+you tell Swift that this is a state
+variable it will know that the content
+of this variable is
+fundamentally linked to the way that
+your view works or looks and so right as
+it changes it will automatically refresh
+your view and it will do so so quit
+illusive so quickly that your user can
+continuously interact with that view and
+so that is the power of swift UI now I
+know just talking about it might not
+sound all that great but today I want to
+actually build an application with you
+from scratch the only thing that I've
+built is the back end and I'm gonna be
+building the whole front end with you in
+Swift ey the idea is this what if I can
+train a machine learning algorithm using
+Tariq rig which is also Apple's machine
+learning framework for Python and create
+a movie recommendation system now you
+may have already seen my tutorial on
+training this and using UIKit this was
+actually a code pattern for IBM so if
+you'd like to check that out there will
+be a link in the description I do highly
+recommend that you check it out
+but if you don't here is a quick brief
+description now there's a data set
+called the movie length data set in this
+case we're using the 27 million version
+of that so we've got around 27 million
+ok so 27 million movies on our device I
+mean of course not the actual movie
+files but we've got 27 million movies
+with their IMDB ID tmdb ID and so lion
+DBA tmdb are different movie databases
+tmdb provides an API and I'm also got
+information about these movies and I've
+also got information about users which
+movies they watched and on a scale of 0
+to 5 in 0.5 increments how much they
+raid it so for example you can have a
+3.5 rating you
+could have a 2.5 rating you could have a
+4 star rating these sorts of ratings so
+we've got all these ratings and by using
+to recreate I'm training a machine
+learning model that automatically
+analyzes all of these ratings and it
+will generate predictions as to what
+movies you should watch based off of the
+movies you've already rated and so the
+idea of the application is to use this
+Cornell model using what Tariq Rhian is
+actually created for us and use it
+within the iOS application within Swift
+ey in order to allow the user to
+automatically do this sort of movie
+recommendation and so that is what we're
+going to be billing today when the user
+opens up the application they're going
+to see a list of the movies they've
+already rated and at the same time it'll
+be a little bar on the top where they
+can click and search for new movies on
+the bottom there will be a recommend
+button that they can click and take a
+look at new movies that Terry create and
+machine learning model things that they
+should watch something to note the
+individual cells within the list will
+contain an image of the cover of the
+movie will contain the user's rating in
+visual form and the movies title in
+scrollable form so if it's too large to
+fit the display you'll be able to scroll
+across and take a look at the whole
+title sounds complex but swift ey makes
+it really really simple so let's take a
+look first at a demo of the application
+in action and then let's get into the
+code alright so before we get into the
+code let's take a look at a demo of the
+application in action now on my phone
+over here you can see that I've got the
+application open now all right as I turn
+it on it shows me a list of the movies
+that I have already rated now on the
+left you can see the cover of the movie
+this is all downloaded in real time from
+the tmdb API and of course you can see
+my rating as indicated by the five
+squares wherever it's golden or yellow
+that is the rating that I provided
+wherever it's gray that's stuff that I
+haven't filled out so for example
+Monsters Inc is three stars everything
+else here is all 5 stars
+now there's actually quite a bit of
+functionality that goes into this
+application so for example let's just
+say one to find out more about Toy Story
+all I need to do is click on that cell
+and it takes me over to a detailed view
+where I can take a look at my rating the
+cover of the book the title and of
+course a description of the movie itself
+now if I scope back you can see that
+there's this little like magic move
+transition that the work movies does so
+watch this as I move my finger back
+what's happening is the word movies is
+actually transitioning on the top left
+from being this sort of back button to
+being the title of the view that is
+something that Swift UI does completely
+automatically for you it's really quite
+amazing now let's just say I wanted to
+delete my reading on a certain movie say
+Monsters Inc all I need to do is long
+press on the rating and just like that
+it's all grayed out there's no longer a
+rating that I provided so if i refresh
+the view it actually goes ahead and
+clears that out for my favorites or the
+ones at least that I've rated now let's
+just say there's a movie that I want to
+look for in order to rate it well all I
+need to do is type in the search bar the
+name of the movie say I want to search
+for Shrek
+so I'm gonna type in Shrek click on
+enter and in just a moment it'll search
+through 27 million movies on the device
+and there we go we see the only movie
+gets is Shrek and that's the one we want
+if I want I can click on it and take a
+look at some information and I can even
+write it directly from this detail view
+I just click on the stars that I want to
+give it and I can go back if i refresh I
+can see that Shrek should now be in the
+movies that I've raided so now that I've
+given the application some data how
+about we go ahead go ahead and get some
+recommendations so if I click the
+recommend bottom button on the very
+bottom of the screen we should see in
+just a moment that it comes back to me
+with a bunch of movies that it believes
+I would be interested in seeing it's
+like if in just a moment it's gonna take
+all the movies that I've already fed in
+its gonna convert them into a list of
+movie IDs along with a rating that I
+provided it's going to feed that into
+the terique rate machine learning
+it'll take the output it will put into
+the view and the view will automatically
+refresh let's try that once again I'm
+gonna click on recommend give that to a
+second and there we go as you can see
+all the cells kind of animated
+transitioned out and a bunch of new
+cells came in look at that once more if
+I close the recommendations click on
+recommend watch how the cells move away
+watch this that is the default animation
+you don't need to code anything for that
+smooth transition to take place as you
+can see it's showing me quite a few
+different movies now I've already
+watched Monsters Inc wasn't too big of a
+fan but it was a pretty good movie so if
+I click on three stars
+I've now provided it another rating and
+now I can click on recommend once more
+it'll take a look at the new ratings and
+provide me some more movies and you can
+keep sort of going through this loop of
+rating movies take the look at
+recommendations watching them rating and
+continuing that loop and so this is how
+the application works but now let's take
+a look at how you can actually build it
+so what I'm gonna do over here is I'm
+gonna exit out of the application and
+actually before we exit I think there's
+one more thing that you'd find pretty
+interesting iOS 13 as I'm sure you've
+heard has dark mode so what I can do is
+swipe from the top right of my screen
+down and wherever my brightness
+indicator is I can force tap on that
+before snap is gone now in iOS 13 long
+press and there's this appearance like
+button if I click on that it turns to
+dark now the entire iOS interface is
+gonna be in dark mode so if I click on
+the application look at that it
+automatically adjusted for dark mode now
+this doesn't seem like much but this is
+only possible because you are telling
+Swift what you want the UI to look like
+not how you want it to get there and
+because of that so if you can actually
+handle basically everything when it
+comes to localization or dark mode
+versus light mode like for example take
+a look at the X button little cross
+beside the search bar right now there is
+a white filled circle with a black X now
+if I switch to light mode look
+how that symbol changes to a black
+circle with a white X it doesn't again
+seem like much but because we're using
+FS SF symbols which are a collection of
+pre-built symbols in iOS because we're
+using Swift UI this is all automatic for
+us
+you can even for example use a language
+like Arabic that goes from right to left
+and it'll automatically adjust your
+whole UI to work with that new language
+it's really an amazing tool so now let's
+take a look at how you can actually
+build this application so let's head
+over to the code shall we alright so now
+let's get into the actual code of the
+application now when you create a new
+swift UI project which by the way looks
+something like this you start off by
+creating a new project just like you
+would let's just say it's a single View
+application you're gonna create your
+regular old product name as you would
+but you're gonna click on this little
+check mark called use Swift ey that's
+very important too or else you're gonna
+use UI kick you gotta have that checked
+if you want a swift UI project but I'm
+gonna cancel that because I've already
+created the project when you do you
+should have three Swift files in your
+main directory app delegate that Swift
+seam delegate and content view dot Swift
+content view is where you're gonna be
+doing the majority of your work it's
+where you're gonna be developing your UI
+and you can create more views just like
+you would UI views or storyboards as
+well seam delegate is a new file we'll
+talk about that in just a moment
+app delegate is the one that you know
+and love so let's start off by talking a
+bit more about the content view now when
+you open up the content view as you can
+see on the right of the screen there is
+automatically a little phone over there
+displaying what you've already got
+as as code on the left of the screen and
+so you've essentially got a code version
+of your view on the left of the screen
+and you've got a interface version of
+your of your view on the right of the
+screen now what's so special about Swift
+ey is that you can actually modify your
+UI both through code and through the
+interface so for example on the top
+right here say I click on this plus
+button and I want to add say some more
+text to the view I can take some time
+and actually drag it over down here and
+it's gonna go ahead and modify my code
+in order to actually allow for that new
+piece of text or what I can also do
+let's just say I want bold text I can
+command click on the text itself scroll
+down to where it says let's see here
+inspect and then from there it's gonna
+show you a bunch of options again this
+is the first beta so do expect for there
+to be things like graphical bugs and
+things like this but then again it will
+show you a bunch of options as to things
+like font weight size and much more so
+if I were to say move over just a code
+then possibly the inspector will work no
+unfortunately doesn't again first beta
+things like this are gonna have an X
+code but towards the golden master and
+September we should see more of these
+bugs getting fixed and I mean if you
+think about it there were actually quite
+a few bugs in Swift UI that prevented me
+from creating this application but there
+are also workarounds and sometimes even
+more efficient ways of doing things that
+the bugs force you to find and we'll be
+getting to that in just a moment
+so as I mentioned you're going to have a
+live preview on the right of the screen
+sometimes though if you make a change in
+your code that requires a rebuild of the
+product it's going to pause that
+automatic updating preview so there's a
+little resume on the top right but
+there's a little resume button on the
+top right that you can just click it'll
+rebuild and show you that that preview
+now again as I was saying this is a live
+preview so if I were to change my code
+like for example hello world this is
+Tanmay you can see the live preview
+changes in real time and there's also an
+option to run this live preview directly
+on your device so you can actually use
+that device and and interact in real
+time so that is how these previews work
+it's really interesting you should
+definitely take a look now swiftie why
+is compositional so for example let's
+just say I wanted this text to be bold
+all I would need to do is add bold and
+just like that it should go ahead and
+bold that text for me in the automatic
+updating preview
+just like that I can do lots of other
+things like for example I can set the
+multi or I can actually set the the line
+limit to nothing so we can have as many
+lines as we want so for example if I
+were to put a line break in between the
+two things it would automatically go
+ahead between the two pieces of text it
+would automatically create those two
+lines and I can even set the multi-line
+text alignment to Center and there we go
+in centers of text this is all happening
+live this is a compositional interface
+which I'm sure you have used in the past
+makes UI development super super simple
+so now let's take a look at how you can
+actually use this to develop a more
+complex movie recommendation application
+now when I went over to my files I'm
+sure you notice that there are like see
+here seven new files that you will not
+already have when you create your
+application these are all files that you
+can download from a github repository
+that I'm already set up for you down in
+the description below now let me explain
+what these are first of all you've got
+the labor recommender dot die Lib file
+this is essentially to recreate having
+all their custom recommender functions
+and utilities inside of a little
+framework that you can use unfortunately
+this is not a fat binary this is not
+using bit code and therefore you're not
+gonna be able to have one file that
+works on arm as well as x86 meaning on
+Mac and iOS simulator as well as AI
+devices like your your phone and your
+iPad
+you're gonna need separate frameworks so
+that's why this application currently
+does not run on the simulator it will
+only on the phone but it's an active
+issue that the Tariq rate team is
+working on fixing I've also got the
+actual machine learning model called
+movie wrecked a male model isn't around
+50 6.8 megabytes
+unfortunately this cannot be brought
+down by a pruning this is a recommender
+model not a neural network model so it
+cannot be but it's actually a very very
+simple interface you're basically just
+giving it a dictionary of movie ID as
+the key and the value is the rating on a
+scale of zero to five with 0.5
+increments and it's going to give you
+another dictionary providing the movie I
+and the ranking as the value of how
+likely it is that the user will like
+this movie there's also a probabilities
+dictionary which provides the confidence
+but I don't use that in this demo there
+are also two more files links JSON and
+movies not JSON now I would love to open
+them up for you but they're huge files
+and Xcode 11 crashes when you're trying
+to open them so we're not gonna open
+them but if you'd like to take a look
+they're available on github and you can
+open them up in a text editor like VI M
+or atom or sublime text in order to take
+a look but let me give you a quick brief
+with links on you have got an array of
+dictionaries each dictionary contains
+three items movie ID tmdb ID and I am DB
+ID so it's essentially relating each
+movie to their respective identifiers on
+tmdb and IMDB but I only use tmdb I've
+also got movies not JSON which is larger
+in movies not JSON you've got things
+like a title the genres and much more
+information you can take a look at that
+if you would like to but those are the
+only two JSON files we're gonna be using
+in this application I'm also not a few
+Swift files like for example I've got
+this Levin shine not Swift over here now
+this is not my own custom implementation
+of the Levenstein at a distance
+algorithm if you'd like to find exactly
+who created this dobby a link to his
+github gist down in the description
+below so apart from that I've also got a
+constants file now the user defaults in
+Swift which is how the data is made
+persistent is what's informally called a
+string Lee typed API so I'm sure you've
+heard of strongly-typed api's a spin on
+that name is called string lee tight
+baby eyes so it's you're using strings
+to call certain keys and things from the
+API now this is not great to do because
+it's very prone to typos you've got to
+type the same thing over and over again
+if you replace it in one place you've
+gotta replace it everywhere so that's
+why I've just got a structure called
+constants with a static variable called
+ratings which refers to the actual key
+so if I change it here it'll change
+everywhere throughout the user defaults
+and if there were more constants I would
+just add them as more static variables
+as a matter of fact this could just be a
+constant if I wanted it to be apart from
+that there's also a movie data provider
+now the movie data provider is kind of
+where things get a little bit more
+complex
+it uses three libraries so it use a
+swift UI it uses the brand new combined
+framework and it also uses dynamic json
+dynamic json was installed through cocoa
+pods so that's why this is actually a
+workspace it's using cocoa pods and this
+is the only pod that i've installed
+dynamic json it makes it very very easy
+to work with json and swift
+there's also combine which is which is
+as i mentioned a new sort of paradigm
+for for asynchronous programming again
+that's a topic for a different video but
+then there's swifty why why do we use
+swift UI here well let me explain so the
+movie Dana provider is let's see here
+around 236 lines of code that enabled me
+to work with those those JSON files that
+I mentioned in a very easy way so links
+and movies essentially there is a movie
+type and there's a link type every movie
+has things like in the title of the
+movie the genres and we can actually
+take a look the movie contains it's the
+movie ID title in genres as well and
+essentially what happens here is the
+movie and the link enabled me to do
+things like download the cover image
+from tmdb or download a description of
+the movie or download a poster of the
+movie these sorts of things through a
+very simple movie dot download function
+now the reason we're using Swift ey in
+this file is because I have defined
+movie as something called a bindable
+object I know that sounds really complex
+but essentially a bindable object is a
+protocol and if you want your type or
+your class where your objects or
+whatever it is to conform to the
+bindable object protocol there's only
+one condition that you need to fulfill
+you need to have a constant called did
+change and whenever the internals of the
+of this sort of object change you've got
+a call that constants a yes something
+has changed within this class and what
+this is gonna let Swift do is gonna tell
+us what they hate something changed here
+so if there's any view that depends on
+this refresh that view now okay so let's
+just say we're on the movies view and
+some movies rating change or the cover
+change or something of that sort
+well because it's a bindable object it
+would tell Swift UI hey I've changed and
+then the view would be like I depend on
+you and it would go ahead and and
+refresh the view and so that's that's
+how that works this is combined but I'll
+explain exactly how that works in the
+next part of this series of what came
+out in dub WC 2019 now there is a lot
+more that goes behind here but remember
+this video is about Swift UI right it's
+not about movie recommendation if you
+want to find out more you can take a
+look at my code pattern there will be a
+link as I mentioned in the description
+but this is a much much more complex
+version of that code pattern it's much
+more general it's much more extendable
+and it's much more scalable so you can
+take a look at all this code you can
+understand if you'd like to but today's
+topic is Swift UI
+all you need to know is that the movie
+and link types enable us to do things
+like download relevant information take
+a look at movie genres take a look at
+the title read the JSON files in a very
+very easy way and there's also a special
+structure called a movie data provider
+which actually stores all the movies and
+all of the links that we have from those
+JSON files within itself there is also a
+static variable called shared which is
+its own instance so essentially instead
+of having to initialize this over and
+over again and instead of having to
+reload the data over and over again
+I just have a static shared instance of
+this structure that you can use or
+affect the application use this in order
+to access data of the movies so again
+nothing that you really need to worry
+about right now but this handles
+everything for a movie recommendation to
+movie searching to basically everything
+else in terms of the data but now let's
+focus on the UI finally I know that's
+something you've been waiting for so
+let's start off with
+now content view is great but this is
+not it doesn't depict what the view is
+gonna show it's gonna be showing movies
+so let's remain content view to movie
+view I'm gonna do that now all right
+there we go I've renamed over to movie
+view I can even rename the file now one
+thing to note if you build right now you
+will get a build failure because you've
+got to go back to the scene delegate and
+tell it you're no longer using a Content
+view as your initial view you're using a
+movie view if you build now you should
+see it built successfully now if you'd
+like to bring back that live preview
+click this little lines of code thing
+over here and click on editor in canvas
+and there we go you're gonna see your
+live preview I'm gonna hide the file so
+we have a bit more working space there
+we go so I am going to hide the mini-map
+just to make this give us a little bit
+more space gonna make this a little bit
+smaller and resume the live preview as
+you can see currently the movie view
+only shows hello world not very useful
+let's make that more useful so the way
+we're gonna do this is we're going to
+start off by initializing a list of
+movies so the way you do this is by
+first of all having some sort of array
+of content to use so in this case we're
+just gonna have a variable within the
+structure called movies and it's going
+to be a type array of movie objects and
+so by default this will be equal to an
+empty array I'll talk about why in just
+a second now within the body of the
+actual view what we're gonna do is we're
+gonna stop an list and so what used to
+be called UI table views are now lists
+now what we're gonna do is we're gonna
+pass these movies to the list and say
+this is the array from which the content
+of the list is going to be determined so
+each cell represents an individual
+element of this array in the same order
+that the array is so the very first
+element in the array is the very top
+cell so what I'm gonna do is I'm going
+to open parentheses and pass movies to
+this list and then I'm going to open a a
+bracket and there we go we're inside of
+this closure now one thing I'm gonna do
+is I'm going to define the argument that
+we're taking so remember because
+is a closure what's happening is that
+every time this closure is called it's
+passed a movie object and that is an
+individual element from this movies
+already and so what were what our sort
+of responsibility is is to return a view
+that represents what the cell should
+show for a certain movie so let's just
+say we wanted each cell to show the
+title of a movie then we just return
+text movie duck title and just like that
+in just a moment if I were to go ahead
+and resume the live preview we should
+see a blank list just like that well
+that's because we didn't give it any
+movies we've got to go ahead and do that
+and traditionally this was a big problem
+right when you do story of your
+development you've got these prototype
+views but you never really see what your
+application is going to look like and
+this is a big problem that Swift UI
+solves in order to solve in order to
+pass it some sort of data show all you
+need to do is say over here in the
+preview provider pass some movies and
+let's just say we head over to the movie
+data provider and we ask it for the very
+first movie that it has and this happens
+to be Toy Story so I'm gonna go ahead
+and try again having actually compiled
+up unexpected error occurred again very
+first beta of Xcode you're gonna have
+these bugs but no problem all we need to
+do is clean rebuild well you should see
+that it builds successfully and right as
+it does we should be able to try again
+and see the live preview now again this
+is gonna be way more stable in the in
+the final release of Xcode 11 let's take
+a look
+alright so unfortunately it seems that
+the live previews aren't cooperating
+with us so what would be better is to
+actually run this on the simulator now
+something to know in the preview
+provider you're actually passing the
+list of movies that you want to render
+so when you're running on the simulator
+of course you're not gonna be using a
+preview provider so you're gonna go over
+to your scene delegate and you're gonna
+tell it to initialize that view with a
+certain array so I'm gonna pass that
+over and I'm going to run this on I
+phone 10s max simulator let's take a
+look so it's gonna go ahead and run
+let's take a look at that in just a
+moment alright so after powering through
+some technical difficulties with the
+Xcode 11 beta with the Tauri create not
+working on x86 I finally found a way to
+get it to work you don't need to worry
+about how I got it to work
+we'll get to that towards the end of the
+tutorial because that is where machine
+learning comes in let's take a look so
+as you can see on the right we've got
+our preview again now this preview is
+showing Toy Story 1995 which is the
+title of the very first movie in the
+movies awright so in the movies that
+JSON file the movie that has the the
+very first movie and that's in that JSON
+file is Toy Story great it's that's the
+one that pops up now the thing is we
+don't just want to show the title right
+we want to do something more interesting
+let's just say we want to show an image
+of the cover of the movie and to do this
+we need to display two things side by
+side horizontally we need the image and
+of course we also need the text which is
+the title and the rating so what we're
+gonna do is we're going to embed this
+text within what's called an H stack a
+horizontal stack of views so to do it
+ultra simple command click on text and
+click embed in H stack and just like
+that it's in an H stack now there's
+gonna be no change in the preview so far
+because there's nothing else in the
+stack but you can put things there for
+sure so what we're gonna do is basically
+just simply put an image and we're gonna
+cast it a UI image of the movies links
+cover image so we're gonna tell it to
+download the cover image alright give
+that a second and it should update the
+preview so it's actually going to get
+the movie it's gonna find the movies
+link within the link stock JSON file
+it'll find it's it's tmdb ID and
+download the cover image so as you can
+see on the preview page that doesn't
+look so good it's way too big for this
+display so let's go ahead and minimize
+that a little bit and the way we're
+gonna do that is we're going to do that
+by resizing now again because Swee'Pea
+is compositional it becomes a lot
+to do this so we're going to actually
+define a frame for this image we're
+going to tell them that the width is
+going to be 87 and the height is going
+to be 127 pixels now something about
+just giving an image a frame will not
+actually resize it first you can tell it
+that it is resizable after that you
+should see over there on our preview
+that it does go down to its to its
+requested height and width now just to
+make it look a little bit better again
+you can adjust this to however you'd
+like we can do something like providing
+this with a corner raise which will
+essentially round the edges let's just
+say a corner radius of 10 just like that
+we should see on our preview that the
+corner radius becomes 10 we can see a
+rounded rounded edges around the book if
+you'd like you can even give it a border
+just like I did and the art in the
+earlier version of the application what
+there's no need to do so if you would
+like to do is just say border color gray
+or whichever color you'd like and the
+width of the border say 5 and just like
+that in our live preview it should
+update to give the cover a border now
+things have been going relatively slowly
+so far because we're pretty new to Swift
+UI but this is gonna go a lot faster
+from here because now you know the
+fundamentals so let's start building
+upon this and create a more complex UI
+now of course we don't want toy story
+just being there we want it to be big we
+wanted to be a title so we are gonna do
+that these are going to provide this
+text with a custom font you're gonna be
+saying font or dot font in order to
+provide the font dot large title and
+just like that it should expand that to
+become a large title style font now the
+thing is let's just say your movies name
+is a little bit too big and it doesn't
+fit of course you don't want line
+wrapping just yet but at the same time
+you do not want it to say dot dot dot
+that's not a great user experience so
+what you're gonna do is you're going to
+embed this in what's called a scroll
+view which traditionally in UIKit were
+painful to work with but now with Swift
+UI you just wrap it up in a scroll view
+and just like that you've got a little
+view where you can scroll across if
+there's something that goes outside of
+the
+boundaries and when you put it in a
+scroll view it also automatically goes
+to the top because the scroll view is
+taking up the whole space and the text
+would have taken and the text is going
+matically to the top left of the scroll
+view now in the scroll view we can also
+do more things or actually outside of
+the scroll view like for example let's
+just say we wanted to provide a rating
+now think about how the rating was
+positioned within the application as
+you're seeing a screenshot of now there
+is a horizontal stack of the image as
+well as a vertical stack which is
+another element within the horizontal
+stack of both the title and the rating
+so what we're gonna do is we're going to
+embed the scroll view within a V stack a
+vertical stack and so essentially this
+vertical stack will contain the title
+and below the title it's going to
+contain the rating now we'll get to
+actually implementing the rating in just
+a second so let's add a to-do there so
+we can get to that in just a moment
+the reason I'm waiting is because that
+requires another view called the rating
+view that is actually its own individual
+view structure we'll get to that in just
+a moment so now that we've got this then
+this list let's go ahead and actually
+implement the search bar functionality
+now in order to implement that
+functionality you're gonna have to add a
+text field above the list and in order
+to do that you need to put the list
+inside of a vertical stack and the text
+field on top so command click on list
+embed in vertical stack and just like
+that you've got your vertical stack so
+what I'm gonna do is actually do that
+manually because currently in this beta
+the indentation goes haywire when you do
+it automatically so let's just do that
+manually and now we've got a V stack so
+on the top here I'm gonna add a text
+field but the thing is we need somewhere
+for the text field to actually put its
+information and this is going to be in a
+structure a variable within the
+structure called the search term this is
+going to be a string and by default it's
+going to have just an empty string value
+in fact we can just leave its type to
+swift to infer now something to remember
+the search term affects the way the view
+looks
+and so what this means is that as a
+certain turn changes the text in the
+text field and the movies being shown
+will change that's why you need to tell
+swifty why that this is what's called a
+state variable this means that it can be
+mutated unlike other variables within
+the structure and whenever it is updated
+it will update the view as well as a
+matter of fact because the movies of
+course affect the list they're gonna
+define this as a state variable as well
+and so there we go you've got your two
+state variables now for your text field
+you're going to actually pass it the
+search term but you cannot just type in
+search term you have to put a dollar
+sign before it meaning that this is a
+binding variable we'll get into what
+that means
+in the next part of this tutorial now
+this text field has to have some sort of
+placeholder text again it doesn't need
+to have placeholder text but it's always
+better to have some sort of text to tell
+you users what this text field is
+actually expecting so to do that all you
+need to do is pass it a placeholder with
+some text in this case let's just say we
+pass it something like movie name before
+I had passed it something like search
+okay there we go
+now if I click on try again and I have
+an update the preview it should go ahead
+and show us the text field with the
+placeholder text as well as the list
+with the cover as well as the movie name
+there we go it shows us the text field
+now I don't really like the way that the
+text field kind of sticks to the edges
+of the view and so so this we can use
+padding so again in a compositional
+manner just say dot padding provide it
+some edge in sets and we're gonna say
+towards the top no padding but leading
+and trailing padding will be 20 pixels
+you can see the preview updating and you
+can see the search bar moving in by 20
+pixels on the side there we go now the
+thing is if you saw in the other UI we
+also have to have a little X button to
+the right of the text field that says
+yes we're done searching now you can
+refresh go back to the favorites or back
+to what I've already
+so to do that we're gonna need a
+horizontal stack so all you need to do
+is invent this text field within a
+horizontal stack now as you can see I
+have purposely left the padding outside
+of the horizontal or outside of the text
+field and now the padding's applied the
+horizontal stack itself this has an
+advantage whatever the horizontal stack
+has within it it will actually pad that
+all 220 pixels so let me show you why
+that's useful let's just say we add an
+image which is of course our X this has
+a system name of x mark cut circle dot
+fill now what this is gonna do is it's
+gonna create a horizontal stack of the
+text field and the little circle a
+little X icon now both of these will
+take up as much space as they're given
+proportionally now when you actually
+reduce the amount of space by including
+padding both of them will move in by 20
+pixels to make the whole horizontal
+stack 20 pixels padded so as you can see
+on our UI on the right to preview it
+looks great so now let's go ahead and
+make this a little bit more complex the
+way we're gonna do that is by actually
+modifying the search term based off of
+when you click the image so what we're
+gonna do is over here with the image
+we're going to create this so we're
+going to have it have this thing called
+a top action so essentially we're go say
+image tap action search term is equal to
+nothing
+all right so self dot search term is
+equal to nothing essentially what we
+just did is we told Swift UI that right
+as you click on the image right as you
+click on that little X you're gonna set
+the search term to well nothing now
+let's take a look at a demo of this in
+action and you see what's so powerful
+about Swift UI is the fact that let's
+just say and this is not something
+you're gonna need to do what I'm doing
+right now give me just one second there
+we go okay yeah so what I was saying is
+that Swift uisce powerful because right
+here in the previews watch this see this
+little play button over here I just
+click on play and just like that the
+simulator is within the preview I can
+actually interact with this view just
+like I would with in the iOS simulator
+only thing is it doesn't do debugging
+within this view so you cannot include
+breakpoints you cannot print things you
+can only interact with your view as you
+can see it's currently loading up this
+this sort of interactive preview and
+there we go as we can see we have the
+iOS simulator interface we've got the
+current time battery and Wi-Fi it's
+currently loading give that just a
+second
+all right so because the live preview
+was acting a little buggy because of
+Xcode being in beta 1 I decided to
+actually launch the real simulator for
+you so as you can see over here in the
+real simulator let's just say I type
+something in like family Bakshi or tan
+named dan May back she has created this
+test field alright I'd type this in and
+now if I want to clear I can click on
+this little button over here and just
+like that it clears out the text the way
+this works is again search term is a
+state variable when it changes the view
+will refresh when you're setting it to
+nothing the view refreshes and it's like
+hey this text field shouldn't have
+anything in it and you see the
+placeholder text which is search because
+there's nothing in the text field and so
+that is how these state variables work
+now let's go ahead and actually combine
+this all to do something even more
+complex so I'm gonna go ahead and stop
+the simulator because we don't want it
+to just keep running and now let's go
+ahead and actually take a look at what
+happens when the user actually searches
+for movies the way this is gonna work is
+you're gonna have a private function
+within this structure called process
+search now the way this function is
+gonna work is they're gonna have it
+essentially determine whether to show
+the users rated movies or to show the
+search term now it's actually very
+simple logic if the search term is
+nothing meaning there is no search that
+they're currently conducting then the
+movies is just equal to the movies that
+they have rated in the past if there are
+any ok so we're gonna use the movie data
+provider to do this but if there isn't
+if there is a search current to use then
+we're gonna set that to well the movies
+that qualify according to that search
+term so we're going to perform a search
+for the search term so again we're using
+the movie data provider to help us find
+those movies and because movies is a
+state variable right as you change the
+movies the view is updated and you get
+your new
+in the list so just like that we've got
+our process search function but
+something else to realize is that there
+has to be some sort of way for that
+function to know when to process the
+search and so that's why right after
+your text field if you add a little
+closure and do self dot processed search
+what's gonna happen is right if you
+click to enter on your text field so
+right as you click enter on your
+keyboard it's gonna call the process
+search function and one more thing I
+want it to do when you when you quote
+when you do this is that I want it to
+hide the keyboard okay so if there's a
+keyword visible and you click enter I
+want it to hide the keyboard
+automatically I'm gonna do the same
+thing for the image I'm gonna have it
+process a search and then I'm gonna have
+it hide the keyboard just like that
+there we go
+you've got your keyboard hidden so just
+like that we are actually completely
+done search for our functionality it's
+really that simple
+with Swift ey it's almost magical how
+you can actually create such complex
+interfaces in such little effort but
+there's more you can do so again you
+don't just have the movie view you've
+got to have a more complex view so when
+you click on a movie you want to go to a
+different view that provides details
+about that movie so what you're gonna
+have to do is turn this view into a
+navigation view the way you're gonna do
+that these are going to wrap your
+top-level V stack inside of this
+navigation view and just like that your
+view now has the ability to navigate and
+in order for it to navigate there has to
+be a button that deals with actually
+moving to the next view so to do that
+you're gonna actually have this list ba
+not have have cells which are navigation
+buttons so let me explain how this works
+they're going to add a navigation button
+here and its destination has to be some
+view it can really be any view it can
+even just be a singular piece of text
+like for example the movies title and
+you're going to wrap the cell content
+within this navigation pocket so you're
+gonna wrap this H stack within the
+navigation button so now this is the
+theory when you click on the movie it
+should just take you to a different
+that shows the movies title in the
+center of the screen and you should be
+able to go back and it should be able to
+show you the the original view you are
+now one more thing you can do this over
+here is the view that is inside of the
+navigation view and you can set its
+navigation bar title which was movies in
+the previous case so if I go ahead and
+resume the automatic preview you should
+see that that and of course it seems to
+be text actually so if we take a look it
+should show you that movies heading that
+that we took a look at during the
+previous iteration so I'm gonna go ahead
+and let that load and there we go we see
+movies we see search and we see the
+actual movie now if I were to actually
+go ahead and run this we should be able
+to see what it looks like to actually
+process and I'm able to click see the
+movie title and go back let's take a
+look as you can see on the simulator
+I've got the interface loading up right
+as it loads up we should see Toy Story
+when you click on the Toy Story cell it
+should take you to a different view as
+you can see we're Toy Story is the only
+text and you can head back and you can
+do the sort of stuff so we're almost
+there
+there's a little bit more you've got to
+do so from here what we're going to do
+is head back over to our movie view and
+we're gonna take this text and we're
+going to extract it to its own sub view
+okay so we don't just want it to lead to
+a simple text field we want it to lead
+or to a label we want it to lead to the
+actual detail view of the movie where
+you can take a look at the at the
+information of the movie now before we
+actually talk about the navigation
+buttons let's implement rating control
+now the way rating control works is by
+using a custom view and this is the view
+right over here it's on the github page
+for this project you can take a look at
+it right now if you'd like to as well so
+instead of actually boring you and
+manually coding in this whole sort of
+rating view well
+do is I'm going to copy this rating view
+into the code and explain how it works
+so let's create a new rating view file
+just like so and what I'll do is I will
+paste this into the rating view just
+like that we've got this new rating view
+and what we can do with this is actually
+depict the ratings of movies so we can
+depict 2.5 or or 5 or 0 or even even
+other ratings so the way this works is
+by actually just taking any movie and
+this is a state variable so you can
+actually change the movie and what it's
+gonna do is it's going to take the
+rating attribute of that movie which is
+the rating that the user provided and
+it's going to sort of render a view that
+depicts that rating the way it works is
+by creating a horizontal stack of five
+rectangles now these aren't actually
+rectangles these are squares but squares
+are kind of rectangle so what's gonna
+happen here is we're gonna have these
+fly rectangles and the color of each
+rectangle depends on which index the
+rectangles act so let's just say that
+the users rating is two then the first
+two rectangles are gonna be yellow then
+the final three rectangles are gonna be
+gray if it's 2.5 then the first two are
+gonna be yellow then there's gonna be
+one rectangle that's which is actually a
+combination of two rectangles top yellow
+half gray and then there's going to be
+one more gray rectangle and so that's
+essentially how the logic behind this
+works it's a little bit more complex but
+it's very very straightforward code and
+you'll be able to understand it based
+off of the tutorial that I've given you
+so far so we can head back over to our
+movie view and to add the rating it's as
+simple as replacing the to do with a
+rating view providing it the actual
+movie that we're currently dealing with
+so if we go ahead and continue sort of
+resume our our live preview
+we should see that rating pop up not
+when there's no writing provided again
+it's going to be just all grace squares
+and so again rendering service was
+interrupted let's take a look at why
+that was by running it in the simulator
+perfect so what just happened here was
+the fact that we did not already have
+the user default setup in order to do so
+probably need to do is call over here in
+our movie view in the preview movie data
+provider dot shared dot setup storage so
+as long as you do this you will be good
+to go when it comes teams or defaults
+I'm gonna go ahead and do that let's
+take a look at our preview we should see
+the gray squares depicting the fact that
+there is no rating currently for that
+movie there we go we see the gray
+squares now these are currently centered
+and it doesn't necessarily look the best
+center so in order to move to the left
+all you need to do is tell the V stack
+that's contained within to have
+alignment that is reading moving left
+aligned and just like that in our line
+preview those five gray squares should
+head over to the left just like so now
+if we were to actually provide a rating
+for the movie by say setting its rating
+to rating save 3.5 then in the preview
+as well we should actually see the 3.5
+squares
+filling up just like so and so the
+rating new does work and just to give
+you a little bit of a sneak peak of
+what's happening behind the scenes its
+rendering one yellow square another
+yellow square a third yellow square then
+half of a yellow square and a half of a
+gray square and then one more gray
+square so that's how this whole rating
+viewers but that's all that there is
+when it comes to rating next up is kind
+of like finishing off the application
+applying our finishing touches to the e
+to the app and to do this we're gonna
+add something called a movie details
+view which is the view that you see when
+you actually
+on the movie so what we're gonna do is
+head over to the github page once more
+and go to movie detail for you I'm gonna
+copy this code and I'm going to actually
+have it create a preview as well and
+I'll talk about how that works in just a
+second so I'm gonna create a new file
+called movie detail view and there we go
+I can paste in my code now the movie
+detail view also has its own preview so
+if you'd like to take a look at it all
+you need to do is open up the canvas
+resume the live preview and in just a
+moment it'll render it up for you there
+we go that is a live preview of what it
+would look like to see toy stories movie
+details you again what I really want you
+to realize is that this is a huge
+problem that Swift UI songs actually
+previewing your views before you run
+your application is something that
+couldn't be done with UI kid at least
+not easily but now it's Swift UI it's as
+trivial as adding this little preview so
+now it's head back over to the movie
+view and also before we go there the
+movie detail view the only variable that
+it has is the movie variable based off
+of this state variable it'll determine
+everything that it needs to look
+including the cover image the
+description and everything else so let's
+head back over the movie view and over
+here the navigation button instead of
+heading over to text of the movies title
+we're gonna head over to the movie
+detail view and we're going to pass it
+the current movie that we're dealing
+with in the list closure and so now you
+should be ready to run this on the
+simulator and actually interact with it
+just like you would your regular
+application there's just one thing it
+cannot do so far it cannot actually
+recommend movies and we'll get to that
+in just a second so I'm gonna run the
+application and what I just did here is
+in the scene delegate delegate I added
+the function called setup store
+so what this does is even before the
+window of your application is
+initialized it'll initialize because
+maybe user defaults such that it already
+has a blank ratings dictionary so that
+it knows which movies you're going to
+write and it has the provision to
+actually store that data so there we go
+as you can see on the application we
+have Toy Story
+we have no rating so far because we
+didn't provide it with rating we can go
+inside and take a look at this detail of
+view I can provide it a rating by
+clicking on a certain value I can go
+back and we see that new value and I can
+even search for movies so I could type
+in something like Shrek click enter and
+the theory is that it should be able to
+go ahead find Shrek within all of its
+movies and there we go it shows it to us
+I can give it a rating say I want to
+give it a five-star rating
+I can click on close and there we go we
+get back to our favorites this is again
+a list I can click and get some
+information about the movie
+so now let's implement the final piece
+of functionality which is of course
+recommendations the magic behind the
+application so within the V stack that
+contains the search bar and that
+contains the list after the list I'm
+gonna add a button and the way buttons
+work is quite interesting you've got two
+closures that it uses it has an action
+and it has a label the action is what's
+called when you actually click on the
+button and the label is what's called to
+actually figure out what the button
+should look like so within the button
+all you're gonna do is I'm gonna say
+movies is equal to movie data provider
+dot shared dot recommendations and the
+label is going to be text
+recommendations or recommend and I think
+that would look best in all caps
+of course since this is within a closure
+we need to explicitly tell Swift we're
+talking about self when it comes to the
+movies variable and if we resume the
+live preview any second now we should
+see that button pop up on the bottom
+there we go we see our little recommend
+button
+but then again there's no padding on the
+bottom so let's add padding we were
+gonna do that is just by saying not
+padding edge in sex and we're gonna
+provide it for no top no leading a
+little bit on the bottom say 10 pixels
+and no trailing again it's gonna it's
+gonna update the preview automatically
+so if there's more or less padding
+required we can change that instantly
+without having to wait I think that's a
+good amount I think we'll still go with
+20 just to be on the safe side
+there we go it's nice and clickable and
+it won't interrupt with your with your
+with your swiping there we go so now
+that we've got the recommend button
+let's actually go ahead and test it out
+now again it won't work on the simulator
+and this is gonna have to run on a real
+device so what I'm gonna do is open up a
+QuickTime Player so you can actually
+take a look at my phone now in QuickTime
+Player we go ahead and show you my phone
+there we go you can see my phone and
+what I'm going to do is I'm going to
+tell Swift over here that I do want to
+provide recommendations because now I'm
+running on a real iOS device so
+unfortunately because of the fact that
+to recreate does not run both on the
+simulator and on the device if you do
+not comment out all the machine learning
+codes from your data provider then
+you're not gonna be able to use the live
+previews and you're not gonna be able to
+use the you're not gonna be able to use
+the lossless this is the old version of
+the application there we go
+we get the new version you're also not
+gonna be able to run the get iOS
+simulator but there we go we see our
+movies now one thing to note again is
+that the seem delicate we have
+hard-coded for it to show Toy Story in
+the beginning let's go ahead and remove
+that because of course not everyone's
+gonna like Toy Story and let's also head
+back over to our movie view and set the
+default values for the movies array to
+all the movies that user has already
+rated now by default this should be that
+we'll gonna let this refresh as you can
+see by default it's blank because so far
+we have
+read of anything but if I go ahead pick
+up my phone search up say Toy Story I'm
+actually doing this in real time I click
+on enter you can actually see this
+changing on screen it should go ahead
+and search up Toy Story throughout its
+vast database shows us all the movies we
+can click on one to see the detail do
+you head back right over if we want to
+I'm gonna rate these all 5 stars
+I'm gonna also search for say Shrek
+can't click enter give that just a
+second it's gonna show us Shrek
+gonna write that say four stars again we
+can even take a look at a detailed view
+let's head back over to our favourites
+and let's click on the recommend button
+to take a look at the movies that to
+recreate things we should take a look at
+these are all the movies that it thinks
+we'd like again I can go ahead and
+provide some more ratings over here like
+for example these ratings here now I can
+click on recommend once more and it'll
+go ahead and change my recommendations
+did you see that did you see how the
+cells actually moved on the on their own
+and animated in such a smooth way
+instead of snapping like a UI table you
+would have done that is the power of
+swift UI in action again you can just
+keep doing this I clicked I'm not going
+to begin watch what happens to be
+Incredibles it slides out and Harry
+Potter slides right in that is amazing
+these are all default things we did not
+code this in and just like that if you
+click on the X button again you're gonna
+see your favorites so or whenever you
+rate it at least and so that was an
+example of how you can create a movie
+recommendation application within swift
+UI now I did not cover the movie data
+provider I did not cover the way the day
+is loaded I did not cover actually quite
+a bit of the backend functionality but I
+did cover a lot on Swift UI and as
+you've seen creating such a complex
+interface in UI kit we've required much
+much more code and I'm not talking just
+about what we did I'm talking about what
+Swift you I did I mean take a look once
+again at the application alright this is
+running in dark mode just like this I
+switch over to light mode and there we
+go we are in light mode
+and the application looks just like
+normal and there we go we can see all of
+our cells and it animates nicely as well
+so we can even scroll actually this is
+one thing I didn't show you we can
+actually scroll through that these
+titles if they're larger than the actual
+width of the screen or what's available
+to this cell and so this is just one
+example of how you can use Swift ey to
+create a complex interface we did work
+so if you I did a lot of work for us and
+that is how you can use Swift UI to
+create complex interfaces to create a
+movie recommendation application again
+all links will be in the description
+below github
+the link to the to the Levenstein get
+gist the link to my earlier video on
+turnt rate and creating a movie
+recommendation system that was a code
+pattern as well and that was what I had
+for this tutorial I do hope you enjoyed
+this tutorial on how you can use Apple's
+brand new magical swift UI framework if
+you did please do make sure to leave a
+like down below apart from that if you
+have any questions suggestions or
+feedback I'd love to hear it and I would
+love to answer your queries down below
+in the comment section on my Twitter or
+on my email as well apart from that if
+you really do enjoy my content you do
+want to see more of it please do make
+sure to subscribe as it really does help
+it a lot and if you'd like to be
+notified whenever I do release new
+content feel free to click on the bell
+icon as well thank you very much
+everyone for joining in today once again
+goodbye

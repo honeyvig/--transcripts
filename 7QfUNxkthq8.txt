@@ -1,0 +1,265 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is Tam Baki and this
+time we're going to be going over well
+the impact of overfitting your neural
+networks but just before I get into the
+actual topic of this video today I'd
+actually like to say that just a few
+days ago in fact I was actually in
+Arkansas at the David Glass Technology
+Center of course Walmarts I guess you
+could say Walmart technology
+headquarters and I was actually giving a
+keynote to a few hundred maybe even
+around 300 400 uh developers at Walmart
+uh and so of course I was going to a
+keynote showing around three demos of my
+neural network projects uh when I
+actually went through the last demo my
+tic-tac-toe demo uh where I showed them
+how I created to Tic Tac Toe aai using a
+neural network which that video will be
+out soon as well but basically what
+happened is while I was demoing that
+application I talked about how this
+neural network achieves just around the
+99% accuracy and will hardly ever lose
+and will almost never ever lose uh and
+so one of basically one of the people
+that was one of the developers that was
+watching online uh on my for the in
+internal Walmart web x uh they asked me
+a question on slack and they said why
+doesn't it reach 100% accuracy why is
+that not possible uh like does it
+inherit the human tradeit of making
+mistakes and that's what I'm here to
+answer today and that's why I'm here to
+tell you that no it doesn't necessarily
+implement the human trait of making
+mistakes you could technically hardcode
+a neural network to do pretty much
+anything you could get it so close like
+it get the error rate so little that
+there would be pretty much no point in
+thinking that it's not EX exactly the
+same as let's say a function uh however
+what I'm here to tell you about today is
+why overfitting neural networks is never
+a good idea so let's actually begin with
+a little bit of terminology now let's
+just say that we've got our tic TCT tone
+neural network uh and so we've got a
+little graph here uh and so let's just
+say that this is our training iterations
+graph okay so as we go along on this y
+sorry this x axis over here what's going
+to happen
+is we're going to say that this is an
+Epoch Epoch sorry so what's going to
+happen is every single time our graph
+progresses in the X direction from left
+to right we're increasing an Epoch but
+every time it increases from bottom to
+top on the Y AIS we are increasing
+accuracy now with most neural network
+training graphs uh you don't put
+accuracy on this uh axis you put error
+rate uh and so the down the more you
+know down this gets over time the better
+because the less of the error rate but
+I'm basically inversing that I'm saying
+the higher this goes the better because
+the higher the accuracy uh and so that's
+basically what this graph contains it
+contains the accuracy of this neural
+network over many epochs and so let's
+just say this is our Tic Tac Toe neural
+network I'm taking my red marker over
+here uh let's just say we were to start
+from here okay so very very low accuracy
+but over time over a few epochs what
+happens
+is see that the training set accuracy
+goes higher and higher and higher over
+time and so basically we're and then we
+start to know stall over here a little
+bit where we're not really seeing much
+of an increase over here uh and so
+basically it's not it's basically reach
+that limit where it's it's hard to
+increase the accuracy over here uh and
+so this is at one of our last epochs
+that we recorded uh and so now another
+thing I'd like to say here is that this
+red
+marker
+signifies the training set of this
+neural
+network okay our training
+set but now what I'm going to tell you
+is let's just say we were also to plot
+out the accuracy of not just our
+training
+set but our test set as
+well as it's very commonly said in the
+neural networks world you should always
+have a test set and so let's just say we
+would to graph out our test set accuracy
+as well so we've got this as our train
+set accuracy but now let's take a look
+as our at our test set which is
+something the neural network has not
+been trained on now again these are just
+theoretical values but this is usually
+how stuff goes on with neural networks
+so we start off exactly almost at the
+training set accuracy sometimes it's a
+little different and we of course start
+to go up it with this and then we slowly
+start
+to sink so it's happening here now this
+might seem a little weird but let me
+explain what's happening is just like a
+human if you were to tell a human over
+and over again to do the same thing what
+happens is this neural network after
+this point
+here after this very point the neuron
+network will stop generalizing the data
+it'll stop understanding the patterns in
+this data and what it'll do is it'll
+hard code itself it'll memorize not
+generalize this training data so what's
+happening is while the training data
+accuracy is just shooting up
+the tested accuracy is just Sky
+absolutely failing just jumping right
+out of the sky and so what's happening
+here is just completely crashing and so
+what happens is that's an that's an
+entire separate Topic in neural networks
+generalization versus memorization which
+is in fact why deep neural networks
+exist they are extremely good at
+generalizing data and not memorizing
+them whereas shallow neural networks
+might be better at memorizing your data
+rather than generalizing them like this
+in fact that's why deep neural networks
+are so much harder to train than shallow
+neural networks uh and so another thing
+I'd like to say here is that if you were
+to take a look after this point and
+because of this as well after this I
+guess you could say line here we start
+to do something called
+overfitting okay so overfitting
+basically means that we are fitting this
+neural network model too much to our
+training data to the point where it's
+memorizing the training data there is
+absolutely no point for us to actually
+train our neural network if it's after
+this point and so basically that's
+actually where the early stopping
+algorithm comes in and the early
+stopping algorithm is basically this
+extension to back propagation where you
+actually plot out these lines and you
+see okay
+which point did we see our
+peak in the test set accuracy because if
+you think about it the test set accuracy
+is the only thing that matters to us if
+the training set accuracy high is is
+high that's great that might be really
+good that might be a good sign maybe the
+tested accuracy is up but the thing is
+your neural network could technically
+theoretically also be memorizing that
+training data but the test set data it
+has not been trained on and in fact has
+never been exposed to in terms of back
+propagation so we know that it's not
+just memorizing this test data so as
+long as this test data is accuracy is
+just going up and up and its error rate
+is going down and down we know that our
+neural network is not memorizing it's
+generalizing because it's still finding
+the patterns in that data so right as
+we're done training our neural network
+and we find that peak in the test set
+data that's the only place we can stop
+our neural network from training uh in
+order to actually get a good result
+which is something that we desire
+in fact another thing uh that's that uh
+can also be called overfitting in in a
+neural network isn't just when you have
+this peak and then it slightly go
+slightly goes down it's basically like
+this mountain over here uh like a little
+wave here but there's another I guess
+you could say part of uh I guess the
+overfitting and so this other uh I guess
+you could say bubble of overfitting is
+when your tested accuracy never gets off
+the ground you're giving your neur
+neural network either too little or too
+much data or data that doesn't really
+have patterns at all and so what's
+happening is your neural network is not
+finding patterns at all what's happening
+is it's just memorizing those inputs and
+outputs and your tested accuracy is
+either staying the same dist stalling or
+it's falling down uh or it's just not
+going high uh and so those uh two
+explanations would really be what
+overfitting is in neural networks and
+that's exactly what the early stopping
+algorithm will help you to a aeve uh and
+of course help you to prevent uh by
+finding that peak in the neural network
+tested accuracy and chopping your
+training there stopping it and of course
+just using that neural network and if
+you don't receive your desired accuracy
+like we did here then you can of course
+train your neural network with a
+different set of neurons or different
+types of neurons uh really whatever you
+can in order to increase the
+accuracy now that was a pretty short
+video but I really do want to of course
+explain this in a bit more depth as to
+how you can prevent this type of I guess
+you could say stalling in terms of
+accuracy and so in just a little while
+maybe a few weeks uh soon though I will
+release another video as to how you can
+actually implement this maybe with some
+apis in Java or maybe a custom imple
+implementation we'll see about that but
+that's going to be it for this video
+today so of course I really hope you
+enjoyed and if you did please leave a
+like down below if you think this could
+help anybody else maybe if it even
+helped you uh you can share the video as
+well uh that would really help me out uh
+of course if you have any questions
+suggestions or feedback please do feel
+free to leave them down in the comments
+below email them to me at tagim Manny
+gmail.com or tweet them to me at tajim
+Manny of course if you really like my
+content though and you want to see a lot
+more of it please do consider
+subscribing to my channel as well as it
+really does help out a lot all right
+then thank you very much that's going to
+be it for this tutorial today goodbye

@@ -1,0 +1,964 @@
+so hello there and welcome to another
+tutorial my name is tan maybakshi and
+today
+we're going to be talking about the
+transformer architecture and
+particularly
+how you can use it for natural language
+understanding and processing now the
+transformer architecture is really
+interesting but before i get deeper into
+it
+i would like to say that if you enjoy
+this kind of content and you want to see
+more of it please do make sure to
+subscribe to the channel as it really
+does help out a lot and turn on
+notifications so you know when i release
+videos
+just like this one today and of course
+if you enjoy the video please do make
+sure to leave a like as well apart from
+that if you have any questions
+suggestions or feedback
+feel free to leave it down in the
+comment section below i'd absolutely
+love
+to hear from you now diving right into
+the transformer architecture why is it
+and why is it important
+well natural language processing is one
+of the you know biggest fields within
+machine learning today and i mean it's
+understandable why it enables
+such more natural sort of interfaces
+with technology
+but natural language processing is
+inherently difficult
+because natural language is a very human
+mode of communication it can require
+creativity to even understand what a
+certain sentence means for example
+now traditionally the way to understand
+natural language sentences has been to
+use for example
+engram methods like bags of words or
+maybe recurrent neural networks like
+lstms
+in particular recurrent neural networks
+work by treating natural language like a
+time series
+take for example the sentence tanmay
+likes to record youtube videos
+you could think of this sentence as a
+series of words over time
+every word modifies the meaning of all
+the words that came before it and will
+come after it
+and so by effectively teaching a neural
+network to look at one word
+and then create a representation and
+then further contextualize
+that representation with the next words
+representation and so on and so forth
+you can create a neural network that can
+understand natural language in a way
+and then you can train it for all
+different kinds of tasks like sentiment
+uh classification or maybe you want to
+train it for
+regular kinds of classification like
+topic classification maybe regression
+all kinds of different things but
+there's a couple of issues
+with recurrent neural network based
+techniques one of them
+is speed so take a look once again at
+the sentence tanmay likes to record
+youtube videos
+in order to generate an embedding for
+the word
+likes which comes after the word tanmay
+you have to have processed the word
+tanmay
+to come up with an embedding for the
+word to you have to have processed the
+word likes which requires processing the
+word tanmay
+and if you get to the very end of the
+sentence in order to calculate its
+representation
+you have to have calculated the
+representations of every single word
+before it
+that's incredibly inefficient because
+that means for every single token
+they have to rely on the tokens that
+come before them you simply cannot
+parallelize that computation and so you
+have very inefficient use of
+accelerators like gpus or tpus
+another issue is well contextualization
+imagine if your brain could only
+comprehend
+the meaning of a word according to the
+words that came before it but not the
+ones that will come
+after it that's incredibly limiting like
+for example the word youtube
+can mean something different based on
+whether you're talking about the
+organization whether you're talking
+about youtube videos
+the word videos can modify the word
+youtube in this specific instance
+the word likes can modify tanmay how are
+we talking about ten
+what's that context and to solve this
+issue researchers have uh
+almost slapped on sort of a technique to
+try and fix this issue
+which is you take this you take the
+sequence and you just reverse the
+sequence
+and you feed both of those into the same
+neural network right
+or rather two separate versions of the
+same neural network so you have
+you know your forward neural network
+your backward neural network and then
+you take the outputs of the backward
+neural network reverse them again
+and then you sort of merge the forward
+and the backward neural nets but that's
+not really a solution because then you
+can only
+either look forward at once or backward
+at once and then you can kind of try and
+combine the embeddings
+again it's really limited and that's why
+the transformer architecture was
+invented by google researchers
+the transformer architecture helps to
+solve a lot of these issues
+and the way that it solves these issues
+is by making it so that
+every single token in your sequence can
+actually communicate and merge
+with every other token in that sequence
+at the exact same time
+and the best part is that you can do it
+with a couple of simple matrix
+multiplications
+and that makes it way faster than
+recurrent neural networks and lets you
+use accelerators like tpus or apple's
+neural engine
+really really effectively now the way
+the transformer works is actually really
+elegant although there are a couple of
+issues like
+n squared memory usage but we'll get to
+that in a second
+now first of all the idea behind the
+transformer architecture is that let's
+just say once again you have a series of
+tokens like
+tanmay likes to record youtube videos
+every single token is starts off as an
+embedding
+right so just like with lstms every
+single word will start off with its own
+word embedding after you embed these
+words
+into that sort of semantic space then
+each individual
+embedding gets three different
+representations of its own
+right so there's effectively three i
+guess you could call them dense
+layers in cross or linear layers in pi
+torch
+so you take each token from the sequence
+and feed it into three
+different uh multi-layer or rather
+single layer perceptrons
+and then what you do is you label those
+three representations
+the query key and value representations
+right so now for your entire sequence
+you've got the sequence query
+representation
+sequence key representation and the
+sequence value representation
+so now what you're going to want to do
+is you're going to want to somehow merge
+what all these different
+tokens actually mean the way you're
+going to do that is by using
+the queries the keys and the values in
+particular
+the query vector can be thought of as
+almost
+what other words a certain word wants to
+merge with
+the key is how words want to represent
+themselves to other words that want to
+do a merge
+and the value is what actually gets
+merged
+into that word's representation so if
+you take
+every single word and for every word you
+calculate
+sort of like a dot product simul
+similarity from
+that word's query to every other word's
+key vector
+and if you go ahead and get a weighted
+average of the value vectors for every
+single word and
+sum them up according to those dot
+product similarities
+you can go ahead and get a new
+representation
+for every single word effectively what
+you've just done
+is you've taken individual words and
+you've come up with new representations
+for them
+that actually combine a certain amount
+of the value representations
+from every other word depending on the
+dot product similarity
+of that word's query and those other
+words key vectors
+now i know this can be a little bit
+confusing what you're seeing right now
+on screen is a diagram of how the
+transformer actually works
+uh however i will say once you take a
+look at the implementation it's actually
+really really elegant now once you have
+these new contextualized representations
+all you can do is feed them into one
+more dense layer just to get
+a better representation make it a
+non-linear transformation
+and then once you've done that there we
+go you've gotten your new embeddings
+and of course you can go ahead and stack
+more and more transformer layers on top
+of one another
+and get a really deep representation of
+the text that you're trying to
+understand
+now here's what's really nice about
+transformers or really
+before i get to that a limitation of
+transformers
+one of the main limitations is that well
+in order to get them to be that
+contextualized in order to get them to
+understand
+language very well and not just attend
+to very specific parts of a sentence
+you actually have to use multiple
+transformers
+at each layer that you use right so the
+sort of core component that i've
+described here the query key value
+concept that's called the self-attention
+layer
+and most transformer blocks will have
+multiple self-attention heads
+and so these query key value
+representations let's just say you'll
+have
+eight separate representations like this
+you'll calculate eight
+separate self attention sort of new uh
+embeddings for all of your tokens
+and then you'll feed them into one extra
+dense layer to merge them all
+into a single finalized representation
+this makes it so the neural network
+doesn't need to sort of
+only focus on certain parts of the
+sentence because
+like imagine if you're feeding a 512
+length token sequence into the neural
+network
+if you're running soft max on that then
+there's a very good chance you're going
+to have
+a lot of very little uh contribution
+from a lot of the tokens
+or you'll have like one token that has a
+lot of contribution
+so by doing this uh you have a neural
+network that can learn to attend
+all different kinds of you know parts of
+a of a sequence
+uh one more limitation is that
+inherently transformers have no bias
+in terms of for example the position of
+different tokens within a sequence
+and so what's really important to do uh
+is before you actually go ahead and run
+these transformer layers
+you have to add extra embeddings to your
+word embeddings these are called
+position embeddings that can either be
+learned
+or hard coded by you and these position
+embeddings tell the transformer that hey
+not only is this a token that means this
+in the semantic space
+but also it's located at this specific
+point within the entire sequence
+uh and of course there are other kinds
+of embeddings you can pass in like
+segment embeddings and all other kinds
+of things but we won't be getting into
+that for now
+specifically today we're going to be
+training what i call a programming
+language classifier so
+a super simple neural network that uses
+a bunch of self-attention layers it's
+built in keras
+and what it does is it takes four lines
+of any
+uh snippet of code and predicts the
+programming language out of eight
+programming languages
+that it was written in uh and what this
+enables me to do
+is basically take any file of code split
+it up into sort of like a sliding window
+of four lines of code
+and then feed each of the slide of each
+of the windows into the neural network
+to predict what the language is and then
+merge those
+uh those sort of predictions to figure
+out uh
+what language a file of code was written
+in this is pretty similar to a natural
+language understanding task and we're
+going to be using a transformer
+in order to implement it now the only
+one
+last tiny limitation of transformers is
+that their memory usage
+uh scales exponentially um and so what
+that means is you know if you were to
+have
+you know say say 32 um
+tokens in your sequence versus 64 tokens
+your sequence
+you know you you're gonna have to store
+a matrix in memory of size 32 squared
+versus 64 squared to calculate
+those dot product similarities there are
+some
+sort of workarounds for this like for
+example microsoft facebook they've got
+different models like the performer
+which is a
+version of the transformer that doesn't
+have that limitation
+but you know transformers are still
+absolutely incredible they've ushered in
+this whole sort of new era
+in natural language processing they
+reach state of the art in pretty much
+every task you can imagine we're even
+applying them to vision now with vision
+transformers
+it's pretty incredible stuff and so now
+without any further ado let's take a
+look at how you can implement
+transformers
+from scratch in keras uh to do
+programming language classification
+all right so now let's take a look at
+the code behind this transformer
+implementation as i mentioned today
+we're going to be implementing a
+transformer that can classify between
+different programming languages
+so for example if you were to feed in
+some python code then it should be able
+to tell you that what you fed in
+was python code we're going to do this
+using the tensorflow library it's
+actually really convenient to implement
+transformers with tensorflow
+i'll show you how you can do that using
+the tensorflow cross api
+uh and of course we're doing this in
+google collab and we're going to be
+using tpu acceleration
+so if you'd like to train your own
+version of this model feel free to head
+over to collab
+spin up a tpu instance and within a
+couple of minutes you should have
+your own model that should reach
+approximately the same performance that
+i have
+now as you can see i've gone ahead and
+gotten a little bit of a head start i've
+already connected to my instance and
+i've unzipped my data zip here
+effectively this is just loading in
+three things three numpy files
+one of them is x which is our input
+including the sort of tokenized
+individual like sets of four lines from
+the different code files
+why is the is the file containing the
+labels so
+for example which um which which
+examples from the x on npy file
+correspond to which programming
+languages
+and m is just a mask file since i've
+padded every sample to length 150
+mask tells me how many tokens are
+actually part of
+the final classification that we want to
+make or the input
+that we're providing for that
+classification
+now if we go ahead and get started here
+to begin we can just start off by
+importing os
+as well as numpy and tensorflow and i'll
+show you why these imports are necessary
+in a moment as a matter of fact you can
+see why tensorflow is important
+right over here we start off with a
+class specifically a layer
+that we are creating a subclass of
+called positional
+embedding now positional embedding is a
+layer that is necessary
+with transformers because think about it
+if we go back to my explanation of the
+self-attention layer and how that works
+you start to realize that for example no
+matter
+where the the the word youtube appears
+um or the word tan me back she appears
+in the sentence or the name rather
+uh no matter where it appears in a
+sentence the
+representation for that word is going to
+be the same to the transformer
+and within the transformers
+self-attention layers
+there is no inherent bias towards the
+position of an element sort of where it
+is in the actual sequence
+so according to the math that the
+self-attention layer is doing
+there's no way for it to take into
+account the position of individual
+tokens
+when it is attempting to make a
+prediction
+now that can be really bad because i
+mean think about it if i
+if i were to give you a sentence like
+again tanmay likes recording youtube
+videos
+if i were to not give you the sentence
+but rather just give you a set of unique
+words and how many times they appear in
+a sentence
+that's not really as useful for you
+right where those words appear within
+the sentence
+you know in relation to each other is
+really really important information
+so in order to help the self-attention
+layers include that information
+we effectively calculate a constant
+embedding that's added to each time step
+this is the same embedding for every
+single sample that we feed into the
+neural network just each time step
+has its own unique embedding that's
+added to it
+such that when the self-attention layers
+are doing their work
+it's possible for them to mathematically
+separate words from say the beginning
+and the end of the sentence
+so what this positional embedding layer
+does is actually kind of two things
+first of all it does calculate these
+position embeddings and it does
+add those position embeddings to um the
+the inputs that you feed in however it
+does do
+one more thing and that is it also adds
+a class embedding
+because think about it what the
+transformer does
+is it transforms token representations
+to more token representations so every
+token
+now has a new representation however
+when you when you really sort of dig
+into what the transformer is doing
+you start to realize that well ha there
+how exactly do you take those final new
+representations and use them to make a
+prediction
+right how do you take variable length
+brand new token representations
+out of the transformer and convert them
+to a prediction like hey this is written
+in python
+you could do a couple of things you
+could average these embeddings of the
+tokens
+and you could feed them into a dense
+layer but another way of doing it
+is by having a dedicated token called a
+class token
+at the beginning of every single
+sequence and then
+using the class tokens representation at
+the very end
+to make your prediction and effectively
+discarding the new representations for
+every other
+uh token at the end this makes it that
+the transformer
+learns to attend all the discriminative
+information
+for the sequence into the class token
+while keeping the other tokens
+for understanding the sentence itself so
+what the positional embedding layer does
+all in all
+is it calculates a class embedding as
+well as position embeddings for each
+time step and then when you call it on
+certain inputs
+it'll go ahead and add that position
+embedding to the beginning of every
+sequence
+and then it'll go ahead and sum those
+with the actual position embeddings
+making it so that well you can add class
+and positional embeddings more easily
+then after that i have the actual
+transformer encoder block
+now the self-attention part that i was
+describing earlier which is the whole
+self-attention layer right and
+so with queries keys and value vectors
+that's only a part of the entire
+transformer specifically
+it's a part of the transformer encoder
+block which includes a few other steps
+like input normalization
+skip connections attention heads and
+more
+now the encoder block itself is another
+part of the larger transformer
+architecture
+including the encoder and decoder blocks
+generally if you want to
+generate language and do things like
+translation
+then you would use encoders and decoders
+or just decoders
+but if you want to understand language
+then you generally just use
+encoder blocks specifically this encoder
+block that i'm defining here
+only takes in three parameters it takes
+in the parameter ffdim which is sort of
+the dimensionality of the final feed
+forward layer
+before we you know give you the new
+representations
+the number of attention heads that we
+have so effectively how many individual
+self-attention layers do we split up
+into
+and then merge back in to create new
+representations
+and then first token only effectively
+what this does is it makes it so that
+the encoder block
+can return just the representation of
+the first
+token which we know is the class
+embedding this makes it really easy to
+feed the output
+of the encoder block directly into for
+example
+a dense layer now outside of the
+initializer
+i then have my build function and of
+course in tensorflow this is where i go
+ahead and define all my weights
+so let's take a look at how i do that i
+start off by figuring out what the size
+of my input is
+and then based off of that information i
+create my
+normalization layer this normalization
+layer basically helps us standardize the
+data distribution for the input coming
+into the transformer
+to make the learning process more stable
+if you'd like to learn more about how
+and why that works
+feel free to take a look at my video on
+batch normalization
+although i will say this isn't the exact
+same thing it is very similar
+in concept now from there i go ahead and
+create my attention weights and biases
+i do this by creating three sets of
+weights and biases
+for the query key and value
+each one is actually an array because
+remember
+we have multiple tension heads and so
+multiple attention heads
+call for multiple individual query key
+and value layers
+and therefore i go ahead and use this
+loop over here for x in range self.heads
+to create multiple individual weights
+for the query
+key and value now of course since we
+have multiple self-attention layers but
+we only want one individual output
+we need another dense layer and this
+dense layer is represented by again a
+weight and a bias
+that is responsible for taking
+effectively just concatenating the
+result of
+all the attention heads and calculating
+effectively a new representation based
+off of
+all of their individual representations
+the way we do this is by defining a
+weight with size
+input size times heads because of course
+that's how many individual scalar values
+we have
+that then outputs to a vector of just
+input size
+so we've effectively brought the size
+back to what it should be
+then we have another normalization layer
+to normalize the output coming from the
+attention itself
+and then we have the two feed forward
+layers that just take our input
+generally up scale it to the feed
+forward dimension and then bring it back
+down to its original size
+this helps us effectively have better
+representations and learn some more
+mappings that are non-linear
+after the self-attention layer itself
+when this input is called or rather when
+this layer is called with inputs
+i go ahead and take the input and split
+it into the actual tokens as well as the
+mask telling us where the padding within
+those inputs are
+i go ahead and run my normalization step
+of course to make sure our data
+distributions are standardized
+and then i go ahead and calculate the
+outputs for each attention head we do
+this by calculating the query key and
+value representations for
+every single input and then once i do
+that
+i go ahead and calculate the attention
+scores using that two-dimensional matrix
+i was talking about before
+by matrix multiplying the query and the
+key activations
+once i go ahead and do that i go ahead
+and zero out the attention scores for
+anything that the mask says
+shouldn't be included in the final
+result and then i run a soft max on the
+attention scores
+to bring them to a zero to one scale and
+so that they sum to one
+i then use these attention scores in
+order to weigh the value activations
+and append that to head outputs i then
+concatenate all the head outputs along
+their last axis
+and then use that information to merge
+all the head outputs
+into a single attention output that
+attention output we then apply a skip
+connection to
+so effectively we sum in the original
+inputs from up here
+and what this does is it effectively
+makes gradients flow more smoothly
+through the neural net
+this makes it so that our learning
+process once again is more stable
+i then normalize the output of the
+attention layer feed it into the first
+feed forward network
+which generally increases dimensionality
+and then feed it to the second one to
+reduce it back to what it was originally
+and then we have another skip connection
+adding back in the original attention
+output even before normalization
+and then of course if we're only
+returning the first token i go ahead and
+return
+just that first token from the feed
+forward output otherwise we go ahead and
+return
+all of it to feed into the next
+transformer layer
+now once we've got that layer defined of
+course it's time to build the model
+now in this case as i mentioned i only
+have inputs of size 150 at maximum
+and so i have two inputs to the model
+one called input ids which is of size
+150
+and then one called input masks of size
+151 because remember we are adding the
+class embedding to the very beginning
+inside of the model and therefore
+the masks need to have another sort of
+index
+for that padding at the very beginning
+to make sure we don't just
+mask out the class variable
+now once i go ahead and define these two
+input layers i can go ahead and embed my
+input because once again the raw input
+that i'm feeding to this model
+is quite simple actually it's just the
+index of each individual token in the
+vocabulary it's not an actual embedding
+so i use a very simple keras embedding
+layer in order to embed this into a
+space
+of size 256 dimensions and of course my
+vocabulary size is 100
+and i go ahead and add a positional
+embedding to the token embedding
+that keras adds for me then i can go
+ahead and call my encoder block a bunch
+of times
+for each one i'm giving it an internal
+dimensionality of 512
+and i'm telling it to use two attention
+heads per layer each time
+each block is getting the output of the
+previous block except for the first one
+getting the output of the embedding
+layer
+i only keep the actual token
+representations
+and not the attention scores since i
+don't need them in this case
+then i can go ahead and feed the final
+prediction into a dense layer
+to predict which programming language
+was fed into the model
+now here's what's really interesting
+about this we can directly take
+once again that class token output from
+the last layer
+and feed that into the dense layer we
+don't need extra transformations
+although
+you might want them in some specific
+circumstances however i found that in
+this case
+it is unnecessary to have additional
+transformations there's already enough
+non-linearity
+within the previous transformer encoder
+blocks then i can just go ahead and
+create a model with my two inputs and
+one output
+and then compile it with a sparse
+categorical cross-entropy loss so i
+don't need to one-hot my prediction
+labels
+and i can go ahead and give it an atom
+optimizer with a learning rate of one
+e minus four which is a generally good
+starting point for the atom optimizer of
+course
+you might want this to be faster or
+slower depending on your specific use
+case
+and in this case accuracy is a good
+metric for me
+now once i've built the model this bit
+of code over here just deals with me
+being in collab so needing to connect to
+a tpu
+and then once i've connected to the tpu
+i can go ahead and build my model within
+that tpu strategy scope
+i can load in all of my data using numpy
+i can split it into
+training and testing data sets and once
+again i do need to add a little bit of
+logic here
+uh just to make sure that i uh that the
+length of each individual data array or
+is divisible by the batch size which in
+this case is 10
+24 otherwise the tpu the tpu doesn't
+take too kindly to data
+if it's not divisible by the batch size
+in terms of
+how much data you have specifically
+because i am hard
+coding the model to support specific
+batch sizes
+then once that's done i can simply feed
+my data
+including my x and m and y arrays into
+the model fit function
+and then i can go ahead and pass my
+batch size 10 24
+train it for 10 epochs on the validation
+data that i fed
+in so let's go ahead and run all these
+cells and see if we get a working model
+so i'm going to go ahead and create my
+layers define my build model function
+connect to the tpu and once the tpu is
+done connecting go ahead and build my
+model within the strategy scope
+i'm going to go ahead and load in my
+data and print out how much data
+i have as well as go ahead and split
+that data into both a training and a
+testing split
+once this is all done we should be good
+to go ahead and build a model
+train it rather and as you can see over
+here
+with the model itself when you take a
+look at a summary has around 3 million
+parameters
+which for a transformer model is
+actually pretty small you know you can
+easily get into the hundreds of millions
+you know
+open ai has trained 175 billion
+parameter model
+so these can easily get much larger as a
+matter of fact for this task you
+probably don't even need three million
+you could probably even get away
+with half of that because it is a pretty
+simple task however in this case i found
+it's easiest to get good performance
+with a model of this size without
+needing much hyper parameter tuning and
+other kinds of optimizations
+but if i go ahead and run a model.fit it
+should start training on the tpu
+each epoch should take less than a
+minute easily because we're not also
+training with that much data only about
+000 samples and there we go training is
+underway
+so instead of uh having you watch paint
+right here
+i'm going to go ahead and speed this
+clip up so you can take a look at the
+training process
+and then i'll be right back and we'll
+take a look at what the results were
+all right so as you can see over here
+the model fit is actually done
+we've gone through 10 epochs each one
+took about 25
+20 24 25 seconds um except the first one
+since that's the first pass where you
+know tensorflow is doing its xla
+optimizations and all kinds of things to
+get your model to run fast in the future
+so you do have a bit of initial overhead
+as you can see our
+our loss both training and validation
+has been going down consistently
+and we haven't even completely plateaued
+yet i'm pretty sure we could keep this
+going for a couple more epochs and
+squeeze out some more accuracy
+as a matter of fact for this
+architecture and this task
+the peak performance i've seen is about
+93
+on this task um however in this specific
+instance
+we've got an accuracy of 86.7
+on the training set as well as a
+validation accuracy of 85.99 percent
+and that is how you can train
+transformer models
+from scratch in cross this task over
+here
+enables you to essentially predict the
+language that a certain piece of code
+was written in
+and of course i was happy to show you
+how to actually implement this
+effectively from scratch right
+implementing the actual encoder block
+and the self-attention because when you
+do that
+you sort of gain a better intuition for
+how these things work
+and it starts to make a lot more sense
+as to what architectures you should use
+for what tasks
+and and why exactly they're used the way
+that they are
+so thank you very much for joining in
+today i really do hope you enjoyed
+if you did please do make sure to
+subscribe to the channel it really does
+help out a lot and turn on notifications
+if you'd like to be notified whenever i
+release new content of course if you did
+enjoy the video
+please do make sure to like as well once
+again really does help out
+apart from that if you have any
+questions suggestions or feedback feel
+free to leave it down in the comment
+section below
+and i'd absolutely love to get in touch
+once again
+thank you everybody and goodbye

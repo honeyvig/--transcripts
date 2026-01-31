@@ -1,0 +1,151 @@
+hello there and today I am back with
+another tutorial this time I'm going to
+be going over a second revision of one
+of my most popular tutorials in the link
+to it will be down in the description
+below this is going to be a tutorial on
+how to include a search bar into my
+database assets
+now what this deck basically does is
+it's the same that what that we had
+before the only thing we're doing is
+we're adding a search bar to it so
+basically as you can see I have a UI
+here it's just going to load up the
+storyboard and so I've just added two
+more things here a search bar and a
+little label so inside of this inside of
+the search bar we have a some
+placeholder text and this placeholder
+text is type string to search and click
+return so basically it's telling you to
+search something you have to put
+something in here and click return on
+the keyboard and then to clear the
+search as you can see or move all the
+text and hit return so that's basically
+how the UI is and so basically you need
+to have watched my previous tutorial in
+order to fully understand this one and
+the full source code for this tutorial
+will be down in the description so if
+you haven't checked it out already
+please go do check it out and then you
+can come back and revisit this tutorial
+ok so as you can see I have an extension
+here to the string class and I'm doing
+is I'm adding a function called find in
+strength I'm taking a parameter called
+string defined as a string and then
+returning a boolean sorry so what I'm
+doing is I'm checking if self is not
+equal to nothing meaning I haven't self
+is equal
+to something then if self as and as
+string since and a string has an easier
+contain string method well then if self
+is in a string dot contain string and
+then whatever string you wanted to find
+as a lowercase string so it's not
+case-sensitive
+then return true however if it's not
+then returned false and if self is equal
+to nothing then just return false
+straight so next what we're doing is we
+have all the normal functions it's just
+that we are declaring two new variables
+data second and search and we're also
+creating a new iboutlet called text
+field search then what we're doing is
+inside of the text field should return
+the function we are basically setting
+the data second array to nothing and
+then we're checking if the text fields
+text is equal to nothing and search is
+equal to false and self dot reload
+meaning it's setting in search variable
+to false and it's reloading at the
+tableview else what we're doing if the
+text field has text in it and they
+clicked enter then we're going for for I
+in data so we're looping through the
+main data array and then we're checking
+if I so basically the actual array
+inside of the data array and the name
+parameter which we are getting from the
+database as you should know if you
+watched my previous tutorial and just as
+a little thing here I'll just show you
+as you can see well
+okay I'll just run the app for you till
+then was just got a PHP myadmin and yeah
+so as you can see we have two rows in
+the database name and additional info so
+this will only search the name so we
+have all of these variables going from
+the database to this app as you can see
+so basically always we need to do now is
+search these names and we're going to do
+that by saying if the name is string
+because it's it's an any object when you
+get it and as a lower case string as I
+said so that we have the same case not
+find in string text field text then data
+second dot add object I so we're adding
+that to a specific element since it has
+whatever you're searching for in it and
+then we're setting search to true and
+we're reloading ourselves now you must
+be wondering how are we putting those
+search results inside of the table view
+well that's really really really simple
+all we're doing is in the number of rows
+in section function we are checking if
+you're currently searching then returned
+data second count if you're not
+searching then return data count and
+then inside of the cell for row at index
+path function for the table view we are
+declaring a new NS dictionary called
+main data and we're checking if you're
+searching then datas and then if data ii
+is not equal to nothing so there's
+actually something that you have
+searched for and you have a result then
+the main data is equal to the second
+array of data specifically that index
+path that were at the
+specific role we're at as nsdictionary
+so then we have basically have all the
+data from what you've searched else if
+you're not searching then just set it to
+the normal database data then what we're
+doing is we are creating a variable
+called cell as a custom cell and I'm
+using the additional info cell class and
+you should be familiar with this if you
+watch my previous tutorial and then we
+are just setting the text name and
+additional info labels to whatever
+they're supposed to mean
+and then we're just returning the cell
+and so if I test this out really quickly
+let's say I search for what should i
+search something with an A and and and
+minute and if I click enter on my
+keyboard as you can see it comes up with
+Tanmay and if i remove everything and
+click enter so you can see everything
+comes back let's say I search something
+with an O in it anything with an O
+everything with an O will pop up and you
+sing with a teeth yeah and then anything
+with enough nothing you saying with a G
+people to know now which I already did
+and P problem yeah so that's basically
+how all of this works subscribe if
+you're new to the channel comment for
+any suggestions improvement so if that's
+a question I definitely do like the
+video if you liked it and yeah I'll see
+you goodbye

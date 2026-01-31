@@ -1,0 +1,342 @@
+hello there um ten-eye back with another
+youtube tutorial this time we're gonna
+be covering a topic that's uh again is
+very hard to find on the Internet
+no I mean I have not seen many videos
+for this topic and everything all I
+could find were a few articles saying
+Stack Overflow questions which to be
+honest I don't really help you if you
+really want to create an actual app so
+let's get started as you can see I mean
+open up Xcode and I'm going to open up
+my touch ID app so basically what the
+concept here is is it's an app that
+allows you to enter in your fingerprint
+and you can put in any text or
+information and lock it up with your
+fingerprint so for example let me just
+connect it you will be able to see
+just a second so basically I called tid
+vault since I keep the tea and then
+touch ID vault so yeah this is the icon
+here I'm going to be submitting this to
+the app store soon so um as you can see
+this is the main screen we have a
+picture of the vault we have the title
+an about page that's when you submit it
+soon and you could pause the video right
+now to see it or you could just down the
+app I can click back to the vault and I
+can also finally click the unlock button
+and it shows this a screen so now let's
+say I wanted to I click enter password
+it's not going to let me sense your
+passcode it can eventually be hacked a
+much more easier than touch ID you could
+be hacked because of brute force attacks
+and stuff like that so I only allow you
+to use touch ID on this and that's why
+it's only compatible with I with the
+iPhone 5s 6 and 6-plus running iOS 8 or
+greater because iOS 8 gives developers
+access to the local to be local
+authentication framework which allows
+them to actually create apps for touch
+ID so if I enter in my wrong finger here
+it's gonna ask me to try again and now
+if I entered my correct finger just a
+second
+there now if I should enough I enjoy
+correct fingering it should bring me to
+the vault page now here I can enter in
+whatever info I'd like I can load some
+old info I can save this info I can even
+lock the vault again so basically what
+we do is let's say you wanted to store
+my other devices passcode in this what I
+do is I go here and I type in the
+passcode so let's say randomly this is
+the passcode of my other device what I
+do is I do ID and Durden and click Save
+now this window was saying that I saved
+the info in the vault and I can exit
+so if I click OK and lock it brings me
+back to the main screen now however if i
+unlock it again as you can see
+immediately loads up right as the other
+screen loads up now if I click load
+there is nothing to load since the old
+safe and the new save actually still
+match so what I can do is I can click ok
+and I can also click save but that
+doesn't work because there is nothing to
+be saved since I didn't change anything
+but let's say I change something and I
+label this passcode and let's say I want
+to lock it it realizes that ok you've
+changed something in this fault
+and basically you haven't saved it so it
+asks you would you like to discard or
+save the current changes if you click
+discard and I and I go back in then as
+you can see just a second sometimes it
+says on the Apple so I put the touch ID
+sensor needs to be dry so it's really
+not my fault here sweaty hands as you
+can see I click discard and the changes
+are star not here anymore
+however if I type in
+as change and then I click lock and I
+save and then I am knock again and it
+will show exactly what I asked it to
+save and if I make another change for
+example then what its gonna do
+oh sorry I hate on crack sometimes then
+if I click save and it's gonna ask me if
+you if I want to overwrite the last
+saved info and if I click yes and I lock
+unlock go in as you can see isn't saved
+now let's say I want to change something
+okay now I don't like the new version of
+this so I want to load my old save back
+I just click load and it asked me that
+the over that the text in the vault will
+be over the last save info so if I click
+yes it'll show the old save now again if
+I just erase everything and I click save
+then it asks me if I would like to clear
+the vault and if I click yes and then I
+lock come on finally go in again it's
+not the programs fault it's not working
+ha Chinese censors we John unlock it's
+as you can see it's completely cleared
+so I'm going to be teaching you to
+create this app and see how it works I
+won't really be teaching you how to
+creat the app I'm going to be walking
+you through the code of this and you
+might want to look at the inscription
+from time to time because I won't be
+uploading the full code for this app I
+just went to be putting us bare-bones so
+no one finds any glitches now if I I'm
+100 cent its Bob free I might just
+post all all the code in so just keep an
+eye on the description if you're really
+interested in the full code for this app
+so you can see this is the storyboard
+for the app first we have the main
+screen with a label here and an image an
+unlock button and a develop button the
+about button to see
+you to this view and then the bachelor
+vault just seats back here next the
+unlock button perfor doesn't really
+perform a scene here what it does is it
+actually runs an IV action called um
+test touch ID just touch ID data so if I
+go to the test touch ID I reaction what
+we're basically doing here is recruiting
+a new touch context new and as user
+defaults with the standard use of
+defaults and then what we're doing is
+we're checking if they actually can
+evaluate the policy which is the device
+owner authentication with biometrics
+basically if they have touch ID and then
+I'm just not taking their which could
+actually be dangerous if you don't have
+touch ID and then what we're doing is
+we're actually if they do have a touch
+ID then we're evaluating the policy or
+touch ID and so basically what we're
+doing is we're asking them for the
+fingerprint and the reason is to unlock
+the vault tap the touch I need home
+button and then we're executing all of
+this code so what this code is doing is
+it's checking if it was a success
+as you can see then we are unlocking
+ourselves else it's checking for the
+error code if it's user cancel then just
+say that the user is cancelled if they
+fall back to the passcode option then I
+just print telling the user would like
+to enter pass a costume passcode but
+then show the message that we that
+doesn't is not supported and then
+default just print nothing and else if
+they cannot then just do nothing and I'm
+thinking about putting
+basically message that shows that you
+don't have touch ID on your phone and
+then as I was saying we have the unlock
+function here right there and so what
+this does is it sex sets the locked
+value to false and then what it's doing
+is it's changing its making from it's
+making my timer from validated to
+invalidated and what my timer is doing
+is um I can show you a demo of the app
+again what it does is it
+okay so basically what it's doing is its
+flashing this locked label red and black
+and red and black over and over again so
+what we're doing is in the treated load
+function we are saying if the vault is
+locked only if it's in the main screen
+then set the my timer to a new NS timer
+for the time interval of four and target
+itself and the selector which is a
+function it runs every time I called is
+the make red function no user info and
+it repeats and then we're adding it to
+the NS running the NS remove common
+modes and then else or just invalidating
+that timer so really we didn't even need
+that invalidate statement but and so
+here we're declaring all the IB outlets
+and the my timer function
+I mean variable yeah so that's basically
+what we're doing there and then we are
+performing the sig to vault which is
+where you internal your confidential
+info so that's basically with the unlock
+and test touch ID functions are about
+and so next I'm going to be discussing
+the lock function so basically what the
+lock function does is its setting a
+locked variable to true it's creating
+new defaults and then we're checking if
+the current info is not equal to the old
+saved info then show them a message and
+ask them if they would like to save or
+discard the current changes and then go
+back to the old view if they would then
+save then go back to the other view if
+they don't then just go back and else if
+they're the exact same then what you'll
+and then just go back and leave you did
+appear function that I'm overriding from
+uiviewcontroller all it's doing is it's
+checking if the new text is if the vault
+is not locked then we create new
+defaults and then we set the vault
+text two of the old saved info so that's
+so that when you actually go into the
+vault let me just show you why unlock
+yes yeah that's a little problem here
+yeah so if I was to unlock this and it
+should read my fingerprint any second
+now then it just because I had put in
+that command it will automatically load
+the info or else before you would have
+to click load and then that isn't very
+convenient so that's just an extra
+feature I guess that automatically loads
+it every time and then what would we
+I'll discuss the load function and so
+what we're doing here is we are creating
+new defaults again and then we're
+checking if the current info is not is
+something basically not equal to nothing
+if it is something and the old save is
+not equal to what you already have then
+what we're saying is the info will be
+overwritten the current info in the
+vault will be over it in the last saved
+info and then it asks if you want to
+continue if yes then it will overwrite
+or else no and then we're also checking
+here it basically does the exact same
+thing here it's just a different
+condition so the condition here is if if
+you have something in the current info
+and oh wait sorry if the current info is
+not equal to the old save and the
+current info is something and the old
+save is not equal to the text inside of
+the whatever you typed it typed it which
+actually we then we won't need because
+we already have this then so I'm going
+to say again and fold the over and
+and then what we're doing and we're
+checking if the old save is equal to
+what what is already ah in a fault then
+we're saying there's nothing to load
+since the old save and the new save of
+the exact same thing and then we're
+saying else if all conditions fail then
+just just load the old safe and so
+basically then what we're doing is we're
+checking if the old save is nothing
+which I guess we could put as an else if
+then just saying that there's no saved
+info yet and I guess I can't load
+anything and so finally after so long
+the same function but just before that
+I'm overriding these touches began
+function so that we can hide the
+keyboard as you can see I'm going to
+click right here in the text view and
+then I can click anywhere else on screen
+and the keyboard will be hidden
+since I'm telling it that if it's not
+locked then the vault X dot and editing
+false so we're not forcing it to me to
+any all editing but we're telling it to
+and then finally the safe function so
+we're creating defaults then we're
+saying if the old save is not is
+something and the current text is
+something and the old save is not equal
+to the current info then what we're
+doing is we're saying what the last save
+info will be overwritten and if they say
+yes it'll all right the last save if I
+say no
+then I guess
+it will not overwrite the old safe and
+so next what we're doing is we are
+checking a condition for if the old save
+is not equal to nothing so basically it
+has something in it and the current
+information in the vault is nothing then
+the the last saved info the last save
+default will be here meaning that
+there's going to be nothing inside of
+the safe if yes then it's going to clear
+all the all the text and the last save
+and no then it's just going to be a
+darling and then uh there's three more
+conditions and so the first one is is um
+if the old save is equal to something as
+is equal to nothing so basically there's
+nothing in the old save and there's
+nothing in the new basically yeah a lot
+then what you want to do is say that
+there's nothing to be saved so I can't
+save anything and then we're just
+checking if the old save and then you
+save of the exact same thing then
+there's nothing to be saved since you
+didn't change anything and then we're
+doing the last condition which is an
+else which will execute all of these
+fail so we're just saving it and telling
+them that it's been saved so it's
+basically how this off works
+I haven't said this already just keep an
+eye on the description I may or may not
+put the entire code of SAP in the
+description since I don't want anyone
+finding glitches in the code and stuff
+like that just keep your eye on the
+description if you really are interested
+in the actual full code of this app and
+maybe if I reach a certain number of
+likes
+I might just upload the full code yeah
+so good bye just keep an eye on the
+description yeah good bye

@@ -1,0 +1,766 @@
+[Music]
+in fact this here's Tyrion joining us
+our first guests on the a hi cafe series
+I actually created a video with him and
+one of my other mentors Tim Duncan
+some time ago about artificial
+intelligence even Watson that was really
+really interesting but luckily he's back
+in Toronto and rabl to make another
+video about something really fundamental
+with artificial intelligence which is
+the fact that pattern detection that our
+visual intelligence is not artificial
+intelligence oh yes absolutely yes my
+name is Jerry Dammers here with our
+ecosystem and 10 million I've been
+working for a little while together we
+were having fun actually it was a
+pattern detection and in fact and I
+without pattern detection it's just that
+I got exactly and we're gonna change
+things down exactly what we're going to
+talk about we're going to have one of
+those conversations that doesn't involve
+keyboard it's kind of human and we're
+talking about neural networks patterning
+detection and what it means and what not
+and how useful is it but but
+fundamentally you can understand that it
+is the core isn't it exactly well now
+what that pattern detection there's no
+point to a guy on first place that's
+right and it even goes deeper than that
+and and this is what's gonna be fun
+about this this new series cafe right
+yes is that we can talk about it and we
+Caffe belong in this case week we're
+gonna turn this guy and and allow the
+analog device to get all right like the
+other analog device which is our brain
+and so fundamental to pattern detection
+is our ability to as humans or any any
+cognitive organism for that matter to
+detect patterns in patterns create
+memories right exactly and then when the
+pattern changes what happens well you
+say what's happening exactly and that's
+the biggest thing so I've got a pattern
+that changes what's happening well isn't
+that what people are trying to really
+find out isn't that what makes us aware
+it's a VAR environment exactly
+so isn't it fun to think that actually
+today we have technology was AI that is
+based on that fundamental belief or that
+fundamental principle I should say then
+we have to believe in it right but it's
+a fundamental principle yeah that in
+fact a pattern when we absorb when we
+move through life or when a system moves
+through data right we observe pattern
+and the beauty was there's no network
+nai is that as we move through the data
+or as we move through life we remember
+right and we observe that there is that
+there is a reoccurring pattern and
+what's interesting about it is that if
+it's recurring it's soothing and it
+doesn't matter who you are and then you
+but what happens when the pattern always
+occurs it's always the same time in
+order it's boring exactly what you
+expected it's what you know exactly
+right so so we can we can go talk about
+this about
+are you of it Howard I pleasant
+technology if you want you know bring
+the analogy around an or network around
+the wonderful work that you do or some
+of the project to work out the cognitive
+projects but besides that project alone
+you know yeah how do you say okay great
+I'm doing who's that
+how do you bring it in to a point where
+people understand and how can you
+express that's a no-no really what we're
+doing here is pattern detection exactly
+all right so one of the projects that of
+course we're actually collaborating on
+is called the cognitive story may have
+heard of it before it's basically a
+project where I first of all I mean
+generally we're trying to use AI to
+enhance people's lives but our first
+goal is to actually help out a
+quadriplegic girl so as I mentioned
+she's spotted a jerk unfortunately
+suffers from Rhett syndrome meaning she
+cannot communicate whatsoever if she's
+you know thirsty or hungry or wants go
+to the washroom
+her mom has to make good informed guess
+as to what Boo is trying to lie so there
+you go
+so why does she can she make a guess
+because she's able to recognize those
+paths there you go exactly that's it and
+so what works like to do that is see how
+can we unlock more data to gather
+pirates fun
+well booze mom is looking at while she
+was trying to understand what who's
+talking about if she said okay how is
+boom moving what's the time of the day
+when it's the context so it's a
+situation like she's looking at all
+these different variables which might
+indicate towards what we was trying to
+mention and these are the different
+types of patterns that she's working at
+recognizing but there are lots of more
+patterns that she is a human cannot
+recognize because us humans are
+sometimes bias towards symbol repeatable
+patterns correct we can't look through
+vast amounts of
+flex noise and noise data and say hey
+this is a pattern correct but artificial
+neural networks okay and so that's why
+we're actually trying to use
+electroencephalogram handsets and deep
+learning algorithms to actually
+recognize patterns in lose EEG brain
+waves when she's trying to answer a
+question and see if we can convert those
+brain waves to actual intent or what she
+wants to do and that's a perfect example
+of how we're actually detecting quite
+literally patterns in her brain waves
+even though it's so noisy these neural
+networks have relatively easy time
+finding patterns in such a noisy and
+fast amounts of data because they're
+able to see repeatable yet changing
+patterns throughout all the data it's
+exactly right and what's fascinating but
+when you bring in in that context they
+say okay so the technology is reading
+the signal that mean us as human we're
+not capable of reading exactly so you're
+complimenting and what I love about what
+you said is that you're complimenting
+what we call me if you won't be the
+person who the intimate interpreter is
+what we call bird on research right so
+the mom is the intimate interpreter you
+say today if it's daytime depending on
+the weather
+bunch of vectors exact hole that she's
+observed she's able to correlate them
+and says oh observing your child it's
+based on the patterns of knowing how she
+behaves if she Krantz is she looks a
+certain way she knows that what's
+beautiful but but the project is that
+now we're saying patterns we don't see
+the computer can see inside and then it
+brings them in and it adds a new
+dimension right and then when the
+pattern is different but a pattern
+changes let's say in conjunction was her
+wanting to eat her being you know
+nothing comfortable or wanting to watch
+your teeth and somebody's in the way
+like it happened
+yeah I was there he said she there was a
+reaction that in conjunction with the
+data gives us the ability to take that
+cognitive component that we all take for
+granted and put it in assistant that can
+assist her that's the augmentation right
+there right we're limited by the amount
+of data that we can take in and how we
+can take in that data we humans are only
+good taking in data with you know the
+senses that we have listed numbers you
+would never understand I mean you know
+we'll try our best and visualize in your
+head you would understand it but it's so
+much easier for me to show you a graph
+and you will immediately understand what
+we're doing with something as complex as
+EEG brain waves we cannot do that we
+cannot have you just look at a graph of
+the EEG brain waves and say okay do see
+a pattern in these is the fact that
+they're so complex they are literally
+dependent on each other all the
+individual data points to find out and
+that's exactly correct and this is the
+correlation that gives it sense it's
+alright because I can look at a pattern
+I kid I'm gonna be able to recognize it
+but what I see a change if I cannot
+correlate it with something else it's
+meaningless and so on so you take this
+in the context of business and market
+fluctuation and whatnot and when we use
+all these wonderful techniques to do
+pattern detection we're looking at the
+single streams of data
+factors right and we're saying one of
+the patterns so the system can learn the
+pattern right and in its creat what it
+creates in aggregate it creates a
+collective I would say set of neural
+pathways right all right and patterns
+and then we're looking at this and say
+ok with something changes changes what
+happens next and that's what people in
+business usually look for into business
+intelligence and competitors for
+instance a pattern like hey look
+everybody and Twitter of my competitors
+competitor
+yeah well that's meaningful but if I
+didn't understand the actual pattern how
+would I have been awarded to what I
+don't know exactly right and that's
+where it's beautiful that's that's the
+trigger
+exactly so now we can do it this more
+thing than just the limitation of your
+physicality and my physicality in the
+same room exactly right the burden would
+show up over here it would be this
+person to the pattern with very thick
+even if you were standing over there
+exactly so the system's unified that
+improves decision dramatically in fact
+artificial intelligence because the fact
+that is running on technology has some
+advantages that we humans can never have
+mm-hmm good or drunk okay
+this is basically a huge paddock
+elimination problem if we do if we want
+to do it actually but the thing is
+driving me sometimes distracting person
+why because the thing is our birth
+family focus on so many things at once
+yes our brains can't focus on 50 things
+at once we can look you know in front of
+us we can rearview mirror we can see
+other nears we can see what speed we're
+going to look at the GPS so many things
+to look at so many things to cordoned
+okay a pretty good job but this is our
+machine is coming machines
+cars so much better than us because they
+can take a look at all the data points
+make meaningful pattern recognition
+alpha yes and then from there take
+everything that it's seeing in
+conjunction and then make a decision
+because their full attention
+exactly they have full attention
+everywhere because they are capable of
+making full attention every single data
+point in your honor to go to your
+example and somebody drives a car they
+are used to seeing traffic around them
+they were used to seeing people so it's
+actually it becomes subconscious in a
+way so their attention is only related
+to the immediate decision after mating
+and if something interferes exactly
+right and systems are much more open to
+the very largest right this is
+interesting but you see this this is
+where I think that the competition on
+the pattern detection is very meaningful
+because when people people talk about AI
+who talk about natural language
+processing oh no that's bad well it's
+arbitrary
+I mean think of it this way the world
+around us yeah the world the natural
+world shows patterns Laurens
+demonstrated it was the strange
+attractor where you know in a closed
+environment that is highly dynamic we're
+able to observe patterns exactly oh it's
+no different this is one of the things i
+postulate at all there was no difference
+between the closed environment of nature
+and the closed environment of human
+cognitive right so the information or
+the elements in that chaotic environment
+of these feel patters yes right and
+their computers now because we capture
+so much of our firm ation is what is our
+information when we
+it's an intent exactly and we have an
+intent in order to those because we
+observe something and yeah and
+communicated or we have an intent to
+achieve something it's better that's why
+we put it in the digital format
+especially with unstructured data oh
+yeah what more wonderful thing to do
+then capture the intents of human
+expression and analyze the pattern how
+concepts evolve in the company in
+collective memories these actually I
+mean how cool is that and this is the
+work we love to do I'm going to take all
+the information you have I'm going to
+slice it and correlate it and show the
+patterns of your content show the story
+you collect a story when you said about
+the car examples it's exactly the same
+because we're saying I'm not aware of
+everything I'm not dismissing anything
+and the thing is what I'm saying
+okay we were trained by this one drivers
+this is now my driving style what am i
+able to do is it able to take say a
+hundred drivers of its loading or maybe
+200 300 drivers yes and each one before
+I see how hundreds of hours of driving
+data we're not telling machine ok
+because the roads curving and these
+would be the reason right this is how
+you're gonna turn the steering wheel no
+we're not able to do we're teaching it
+we're giving all the data from these
+drivers and saying learn how to drive
+and it's implicit or lies all those
+patterns it's not learning one specific
+driving style look for example if you're
+a human you're taught how to drive you
+will learn a specific driving style with
+AI we can look at all these data points
+and find patterns among all of them and
+say okay this is the average way to
+drive the proper way to drive at least
+this is how most units which are thank
+you if you have any right and this is
+why pattern detection is fundamental
+when we talk about
+because I mean one thing people look at
+our special intelligence with respect to
+human interface right now if you can't
+fool me you know to think that a
+computer can reason and I can say a lot
+of this computer can reason therefore
+it's artificial intelligence this is
+where people are fiction their reality
+is it's much wrong simple so what I'm
+talking about this to me we demystified
+for people
+what a I really is because we're telling
+this is fundamental this is a more
+organic property of any company that
+organism and we can do the same thing
+with technology when you take it from
+there I mean doesn't that simplify a
+conversation in fact you could just say
+artificial intelligence it's basically
+just a huge pattern recognition problem
+in general we're trying to give an
+abstract and huge amounts of data and
+see how can we find a specific patterns
+that allow us to achieve this end result
+there's also things like okay let's take
+a look at the entire history here and
+see when this similar type of pattern
+has happened what usually happens after
+this no longer a linear regression right
+sorry it's a lot more interesting a lot
+more organic exactly because you say
+hello that the stock market is a human
+invention so human extraction exactly
+like for example with artificial
+intelligence we're trying to emulate
+things like empathy in humans computers
+we cannot emulate things like
+I should understand things like your
+personality we can understand it's a
+sentiment with which you're talking for
+example let's just say that you're you
+know tweeting about something that's
+just saying that your entire company is
+receiving millions or hundreds of
+thousands of tweets we're filters here
+whenever you say okay well this specific
+keyword what sentiment attached this
+keyword okay what types of catters allow
+us to say okay the sentiment would this
+is positive or negative or people are
+angry or fearful and you're right and
+this is complex any of you you've seen
+this before you've seen people who do
+like sentiment analysis on Twitter all
+the time say hey what do they do they
+simply use terms yeah then they said
+this is positive this is negative this
+is not this is so deterministic it has
+no flexibility and you know people will
+use certain language if in a positive
+context when we for most of the people
+that language is unacceptable in seen as
+negative Zack how do you learn you know
+so you have to inject disability in the
+system so to learn and to give you
+insight and then from there it's not
+just that one time learning it is you
+learn once you have base knowledge now
+you're working on top of that building
+more and more and more knowledge as you
+go as you want inference or training
+more and more as you drop okay you're
+about to get into an accident learn from
+that you learn that okay I shouldn't do
+this one I should do this are you
+telling me that companies will invest in
+a
+have to embrace the idea that it is good
+to observe mistakes absolutely go you
+guys got that this is true right you
+have it's a learning system it is such a
+beauty I mean think about it the
+projects are on a college in health care
+you know helping Diagnostics I mean it's
+all pattern detection and validation by
+professional if somebody asked me this
+what is it we throw all of this data
+into into the bucket into Watson and we
+wanted to answer a completely arbitrary
+question without proper training right
+so that interaction to just is it it's
+at home does it take for a human being
+to learn to be a doctor
+why would you expect a bunch of trial
+and error okay when you put that into a
+system you expect the system to do a
+better job than a human being but number
+two you gotta look and say well what is
+the value of having trained assistants
+spend perhaps billions of dollars
+training your system exactly morning now
+I can bring that knowledge into areas in
+the world where thousands of
+professionals can benefit from it you
+tell me all valuable about this right
+now
+Oh cancer specialists sort of diagnosis
+or you know treatment of cancer okay
+they're all getting their own experience
+they're all gaining their own individual
+knowledge with every single diagnosis
+and treatment I know where you're going
+what happens we can have one single
+cloud that has all the experience all
+the knowledge so every time saying
+someone's diagnosed in Canada
+someone in Dubai can benefit from that
+knowledge yes an entirely different
+doctor entirely different Hospital
+entirely different method but still
+they're benefitting from the fact that
+someone in Canada was treated by are you
+telling me here that we can build
+collective knowledge and benefit from it
+quite literally yes there you go and
+that's beautiful because as humans right
+we can you talk about
+right our organism our system is unified
+in order to be stronger I mean build
+city to be stronger we build Network and
+you know it's beautiful
+just like you all network just like that
+all right it's funny how every time two
+entities can communicate the sum of the
+value is higher can you imagine I mean
+the whole reality as well is that call
+connected devices the fact that they're
+connected give them their own governance
+that only a cognitive awareness that we
+don't need to comprehend as a difficult
+like to simulate other cells in your
+body little 10 is 10 what you're
+thinking but they're participating in
+the equation exactly every more official
+cognitive system because it's it's but
+it's negative so now we're unifying this
+is what I always just said this
+knowledge is converging we're gonna find
+in technologies enabler exactly if you
+take a look at this why are you in so
+great it's because we can communicate
+with each other in such a natural way
+and we can actually transfer knowledge
+of one person to other really quickly
+but it's a common trail right that's why
+the user so great
+preserving knowledge for literally years
+and you know gaining experience but this
+meeting is not some limited mmm all
+right as I mentioned going back to the
+example can undo if you can't talk to
+learn something in camera but it teaches
+a few other doctors limit
+those doctors go everything to each but
+with AI that's not limited at all what
+if we could take the fact that humans
+can communicate with each other and
+share their knowledge to the next level
+what if we can make it set behind this
+need to share knowledge gets just one
+individual AI that does cancer treatment
+diagnosis right Enix for it is the sum
+of all the knowledge all the knowledge
+every single honesty I mean everybody's
+got to realize this is when we talk
+about pattern detection looking L arche
+I said defective the system can remember
+oh the fact that the system can
+aggregate defected the loop feedback
+that the learning mechanism improves I
+mean and I want to be metaphysical my
+buddy but we are capturing the the in in
+a very sustainable and long-term way the
+essence of human cognitive and capacity
+exactly for the service of humans oh
+yeah you know and this is what's
+fantastic so back to the beginning here
+right yes parent detection fundamental
+we do it organically technology enables
+us to actually go act on it and
+convergent when the pattern changes when
+something is different if we can act on
+it
+[Laughter]
+[Laughter]
+over many years they've gathered
+experience these are the stocks made to
+buy sell they've learned how to
+recognize patterns yes but the thing is
+the only problem is it's limited to that
+individual
+they cannot completely distill all of
+that knowledge that they have and give
+it to another person true exactly so
+what if we would have used AI to do
+automatics in fact in the u.s. I believe
+over 70% of stock trading done on us
+bought in 2014 was all done by boss yeah
+yeah so what if one central AI that
+eventually learns all these patterns
+it doesn't need to share any knowledge
+or otherwise it's just one AI that
+continuously learns and that's the AI
+want to keep in a box in a basement
+right and I throw some voltage at it and
+because that's the distinction
+unfortunately you know are we still
+operate around a model of failures and
+success to solve and necessity is a
+necessity right I mean otherwise we will
+be doing what we're told today but the
+point is what you say you're absolutely
+right if this was knowledge what I think
+that think the expert in your case yeah
+and then you bring the insight and you
+reveal the patterns of data you reveal
+the anomalies and you turn that into
+something that they can use to make
+better decision to give them a
+competitive
+now the same way that we talk about
+normalizing patterns and not can you
+imagine if everybody had the same tool
+to market who no longer be a market oh
+[Music]
+yeah in the seats of purpose but the
+example is absolutely right because
+eventually this is what can happen
+because of so this is fun so we have we
+have a lot of example we could be
+talking about the time he was talk
+marketer talking about healthcare
+talking about driving cars talking about
+collective knowledge of looking at the
+movement of memories in the organization
+you know a thank you a great example
+when you talk about as convergence its
+two entities mergers and acquisition one
+company has all this data all this
+knowledge and can abstract it to make it
+useful and find it inaccessible and then
+you have another company who's got like
+they just acquired it and something over
+here happens that is unusual and guess
+what it matches with something over here
+that happened ten years ago you can drop
+just like your memories yeah I can draw
+from that knowledge check when I see
+this it reminds me when my mom used to
+make eggs five-minute eggs like this I
+mean that's my was done right so my
+correlation was this is most probably
+different than yours so so the fact is
+that uncorrelated that same thing was
+Enterprise easy they acquire this
+knowledge is collective and they can
+bring it out and say well this is
+meaningful for me right now I do a
+virtual an acquisition gosh I didn't
+know that you did stuff stem-cell
+research 20 years ago the government
+rules change
+that's an emerging pattern exactly to
+change well can we match that change as
+a memory has a trigger to see what we
+did in the past
+and elevate all the entities associated
+with it that's what we do every day
+one can organs
+it was actually the data the store in
+your archives which to me you know what
+it is is a graveyard of knowledge
+graveyard it's silly look it was the
+reality of things you know no it changes
+haven't changed Diebold was technology
+c'est moi maybe there's something I can
+really do with say exactly its values in
+there first of all cancer yes there is
+humans cannot keep physically impossible
+for us to read through all of that and
+not just read through it but understand
+all of it and apply it to make you
+exactly yeah but technology it can only
+store all that information but with AI
+not only do we store that info we make
+sense of it and use it can take all the
+important stuff that we're going through
+all the important stuff that we create
+and then understand it and make use of
+atoms interact with is very natural
+exactly and that's bird can go ahead and
+ask a question and it'll get done in
+semesters based on the analysis it's
+brilliant it is really and also another
+great example which relates to this it's
+actually
+put a link to that in the description
+about I believe with mining or password
+and so what they were thinking doing is
+collaborating with IBM and actually
+taking most of their knowledge bases
+most the knowledge sense you know
+feeding it to Watson and they're placing
+a good fraction of their workforce just
+just like that okay mm-hmm but what they
+found out was that related to the
+equation the movie workers they added
+war because they realize exactly what
+they realize is that we don't need to
+mess trick that with IRA people because
+not all of our workers knowledge
+knowledge an easy way hey I will take
+all that knowledge and distill it down
+make it so easy for us humans to access
+them in fact especially the oil industry
+I think you're talking about the example
+and the oil rig and the deep-sea
+exploration is that the one beliefs they
+might be right but the beautiful part
+about this and the oil industry is is
+one company that used a lot of
+contractors want you know depending on
+the market and depending on other
+resource allocations and they often lose
+them and there's been a huge knowledge
+attrition in this industry especially in
+Louisiana Texas
+you know it's a different move different
+the different movement in the in the in
+the price and the resources availability
+and all that so these guys come in and
+out you know and feel as it was a
+knowledge denotes that they take off
+notice so so knowledge knowledge
+acquisition exploitation usage you know
+in a way to remedy against now if you
+Tricia is great but but here's the thing
+that's fun
+yes you know you used email how many
+people say oh my gosh
+place jobs we heard this but I'm fully
+up to that in the description as well
+but you know artificial intelligence is
+one of the reasons that it's so hard to
+develop with is because before I even
+existed everyone expected exactly okay
+[Laughter]
+it doesn't mean that we will lose it
+people we augment people we make them
+more knowledgeable so they can make
+better decisions that and it's true I
+mean automation in the has taken a lot
+of jobs with people I don't you know
+what I think really is fine what it's
+the people today and the fear about so
+so before came a decision that affected
+people who weren't into factories now
+the making decision around the holiday
+on their job somehow they feel that oh
+my gosh so it's it's I think it's it's
+it's it's humorous in some way but
+fundamental back to what we're saying
+yes and I think we're about to wrap up
+this wonderful conversation this skeptic
+I think we're about there
+and I think we have about about just
+this particular time so I think it's
+important just for people to really
+understand it is wonderful when an
+organic model like pattern detection
+like cognitive science is actually the
+foundation of a technological
+representation in abstraction and that
+makes it intimate between us and the
+technologies is the technology can start
+to do things we expect ourselves to be
+able to Jennifer what a wonderful
+connection that represents oh yeah so
+think of a I'm just but we were talking
+about just stuffing a I'm without
+pattern detection is not a I and embrace
+it because what I'm truly believe that
+it is a true transposition of something
+that is innate in every one of us and it
+only makes sense so that was the first
+episode this was fun
+thank you very much for joining in today
+I really hope all of you enjoyed this
+this new series we're doing some more of
+these very soon as well officer Ian
+thank you very much everyone for joining
+it today hope you enjoy if you have any
+questions suggestions or feedback please
+leave it down in the comment section
+below you can email it to me attend
+original dark comm or you can tweet to
+me I drew Manning apart from that Terry
+how would you contact you Oh beacon
+contact me directly at Darwin ecosystem
+calm or cheery and Darwin ecosystem that
+come we're happy to continue the
+conversation all right thank you ten
+wonderful fun conversation no computer
+no keyboard no keyboard to me
+keywords a lot of time moving all right
+come on

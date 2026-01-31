@@ -1,0 +1,281 @@
+[Music]
+so hello there and welcome to another
+tutorial
+my name is Tanmay Bakshi and today we're
+going to be going over two different
+regularization algorithms that will help
+you prevent your neural networks from
+overfitting let's get started now these
+two algorithms are drop out and drop
+connect you may have already seen a few
+of my videos on algorithms like dropout
+and overfitting but just in case you
+haven't seen them let me go over and
+give you a quick primer on what
+overfitting is and also it's less often
+counterpart under fitting as well
+so let's start off with what overfitting
+is now overfitting is when your neural
+network go to the head and memorizes its
+data it doesn't generalize to data what
+that means is whatever you try it on it
+has remembered but it's unable to answer
+new data it's unable to take new data
+and give you good results because it's
+just trying to memorize what you trained
+it on this can happen if you have too
+many parameters in your neural network
+so for example let's just say you've got
+a graph of data like so so you've got
+your x and y axes here and you've just
+got a bunch of data like this if your
+neural network is specifically drawing a
+line like this like on each dot what
+that means is your neural network is
+essentially memorized the locations of
+every one of those dots and is just
+drawing a straight line between them it
+hasn't actually learnt any useful
+patterns and underfitting is what
+happens when for example you have a
+neural network that draws a very
+ambiguous line to your data so for
+example if you've got this data over
+here if your neural network just draws a
+line like this it's not learning a very
+good fit of the data and
+so more parameters but a good fit on
+data is one where you're not going from
+point to point but at the same time your
+neural network has a good idea of the
+structure of your data so for example if
+you've got another good set of points
+over here if your neural network
+understands how to go between these
+points of data understand how to
+separate them and does good on both the
+training and the validation sets and
+they've got a good fit and this is what
+you want because of course you can't
+train your neural network on everything
+it's going to see there are a few ways
+to combat overfitting first of all of
+course more data is always better
+because then you've got a much higher
+variety of data of different features
+that you're exposing your neural network
+to but sometimes this isn't always
+possible and in some cases you have very
+very few examples but tons of features
+in which case you are very prone to
+overfitting your networks and other
+machine learning algorithms like for
+example Kangol has they're don't over
+fit challenge where they give you 200
+training examples of 20,000 features
+each which of course makes your girl
+networks very prone to overfitting but
+there are a few ways to combat
+overfitting and underfitting of course
+under fitting feeding in more parameters
+creating a larger neural network always
+helps when it comes to overfitting
+decreasing the width and sometimes
+increasing the depth of your neural
+network always helps introducing things
+like residual connections don't hurt
+either and when it comes to more complex
+networks like convolutional networks
+there are new and better techniques like
+batch normalization that enable you to
+actually normalize and standardize
+actually the data that your layers
+output however drop out is what we're
+going to talk about today so how exactly
+does dropout work let's take a look now
+let's just say you've got a simple
+multi-layer perceptron neural network
+now this neural network has a very very
+simple structure actually you
+essentially just got these two input
+neurons say we're doing the XOR task
+you've got three different hidden
+and you've got one output around okay
+very very simple now each of the input
+neurons are connected to each of the
+hanger-ons of course this is how
+multi-layer perceptron networks work and
+then after that every single one of the
+hidden nodes is connected to the final
+output node and so just like that you've
+got a simple multi-layer perceptron
+Network but let's just say you had
+thousands of these inputs you had say
+three or four different players and you
+had hundreds of individual nodes within
+those layers in that case you've got a
+long waits and because you've got a lot
+of weights that means your network has a
+very very strong ability to memorize but
+that's not what you wanted to do if of
+course that propagation had the choice
+to it would just encode all that
+information within the weights so that
+it could memorize each one but you don't
+want to give back propagation that
+chance and so you've got to use a few
+tricks in order to prevent overfitting
+one of these tricks is called
+dropout now the way dropout works as
+well you drop out a few neurons at
+random to force the neural network to
+make a new paths to learn the same
+knowledge and so for example let's just
+say reply dropout on this layer over
+here we apply dropout over on this layer
+now every time you apply a dropout you'd
+apply a probability okay so let's just
+say our probability is 50% okay we've
+got 50% 0.5 probability of dropping out
+of every individual node so during the
+forward propagation over here
+essentially what we're going to do is at
+random we're going to take these neurons
+and there's a 50% chance of just setting
+their value to zero so no matter what
+these are this could be X this could be
+why this could be Z no matter what they
+are there's a 50% chance of X just
+becoming a zero there's a 50% 50% chance
+of Y
+and 50% chance of z becoming zero this
+essentially makes it so they don't learn
+anything for that one individual step of
+training and so what that does is it
+forces the neural network to say hey
+even if this input isn't available I can
+also make a decision just by looking at
+this neuron and this neuron and there's
+no pattern to how dropout works it would
+work in just random ways forcing the
+neural network to create new pathways of
+learning how to make a classification or
+regress to a certain continuous value
+and so this is how dropout works you
+could have very aggressive dropout at
+say 70 percent dropout probability
+although that's usually over-aggressive
+or you could have very minimal dropout
+just around 10 percent around back
+propagation through time for example to
+make sure that information still flowing
+but you've got a few different ways to
+get knowledge across and so this is how
+the dropout algorithm works drunk
+Connect gets a little bit more specific
+with how things work though again the
+drug connect you've got another
+probability but you don't apply
+probabilities to layers you apply it to
+the weights between layers and so for
+example let's just say that this layer
+over here has these weights and this
+layer has these three ways now let's
+just say we were to apply drop connect
+to this set of weights over here and
+again if we were to apply say a 50%
+chance of dropping out randomly then
+what we would do is instead of dropping
+out the actual nodes we're going to keep
+their values instead what we're going to
+do is we're going to drop out individual
+connections between nodes so for example
+let's just say input 1 to X has been
+crossed out all right let's just say
+input 2 to Y has been crossed out okay
+so we don't want this connection and we
+also don't want this connection just
+like that that's all you need to do each
+weight has a 50% chance of being dropped
+from that backward pass now one thing to
+note you will not do this during your
+forward paths there's this thing called
+a learning phase
+that will essentially tell the dropout
+to say alright if you're doing a
+backward pass then apply dropout our
+drunk Connect but if you're doing a
+forward pass just pretend like it's not
+there and don't do anything because
+we're doing a forward pass we want the
+inferences of all neurons to be
+influencing the final output value and
+so that is how dropout and drunk a
+network and their performance is really
+by modeling for such a simple technique
+it can be applied in practically any
+neural network architecture for
+multi-layer perceptrons to convolutional
+neural networks all the way to recurrent
+neural networks however convolutional
+neural networks don't usually play very
+well with dropout because there are
+certain filters that may be critical to
+for example to the final output decision
+based off of a certain class or even
+individual pixels within filters and
+therefore dropout isn't usually used
+nowadays at least with convolutional
+neural network so still probably see a
+few implementations of CNN's would
+dropout but it's not very common because
+it's been superseded by a new algorithm
+called batch normalization and so the
+next part of the video I'll be
+describing Bachelor mobilization and how
+you can actually standardize not only
+input data to your network but also you
+can standardize the data coming out of
+each layer to make the next layers
+learning easier and accelerate your
+training by many many fold and so that
+was a quick overview of the drop out and
+drop can I algorithms and how you can
+prevent your neuron that looks lower
+fitting by Maybelline back propagation
+to find in new ways to spread knowledge
+throughout the neural network at the
+same time make sure that all modes get
+some knowledge and they're not just
+memorizing certain values based off of
+certain inputs all right so I hope you
+enjoyed that tutorial thank you very
+much for joining in to the next part
+i'll be showing you batch normalization
+and of course how you can go ahead and
+implement this algorithm along with box
+fertilization on your own data sets with
+multi-layer perceptrons and
+convolutional neural networks in cross
+and Swift for tensor flow all right so
+thank you very much joining them for it
+for joining in today and that's what I
+had for this tutorial do hope you
+enjoyed if you did please make sure you
+leave
+like down below if you do have any
+questions suggestions or feedback feel
+free to leave a comment and I will
+certainly get back to you artfully not
+if you do believe this tutorial can be
+useful to anyone you know like your
+family your friends feel free to share
+the video as well and if you really do
+like my content you want to see more of
+it feel free to subscribe to the channel
+as well as it really does help out a lot
+and apart from that turn on
+notifications if you want please if
+you'd like to be notified whenever I
+release new content so thank you very
+much goodbye

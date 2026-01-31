@@ -1,0 +1,493 @@
+so hello there and welcome to another
+tutorial my name is Tammy bakshi and
+today we're going to be talking about
+what makes track GPT just so good and
+how you can build your own micro version
+of chat GPT and deploy it to your own
+Discord server as a bot uh now in my
+last video I talked about if chat GPT
+could replace me and talked about some
+of the fundamental limitations with its
+architecture and why it works well for
+certain things and what those tasks
+actually are but also why it doesn't
+work well for certain tasks and in this
+video I want to dive a little bit deeper
+into the why aspect specifically talking
+about what the evolution was of gbt over
+the past couple of years to get to where
+it is today and then in the next video
+you're going to get to see how you can
+actually build your own version and then
+deploy it as a Discord bot
+specifically a micro version of chat gbt
+that doesn't of course reach the levels
+of quality that openai does because we
+don't have infinite money to throw but
+for relatively cheap you can get a model
+that forms surprisingly well especially
+considering how well these models would
+have performed just a couple of months
+ago and it'll all be permissively
+licensed something that you could
+theoretically use for your own
+applications without having any
+proprietary data or any data that comes
+from a legal gray area like the data
+sets that come from gbt itself let's
+dive into it let's start off by taking a
+look at a small example of some of the
+content that your Bot will be able to
+generate by the end of these two videos
+once you've actually gone through the
+process and spent the thirty dollars to
+actually train this model you'll be able
+to ask it questions like what is TLS and
+get answers like this super detailed and
+written out very well potentially even
+be able to ask questions like to write
+simple Python scripts that do things or
+explain the concept of ownership in Rust
+and so as you can tell the bot is
+powerful and it's only a three billion
+parameter model
+saying that feels wrong because it's
+three billion parameters up until once
+again relatively recently that was a lot
+of parameters for something that I'd be
+running locally as a Discord bot but
+these days that's actually not that much
+that is just a micro version of gbt yet
+it is a large language model
+now GPT itself stands for generative
+pre-trained Transformer I've already
+talked about the Transformer
+architecture and what makes it special
+compared to previous iterations of the
+kinds of networks we used to use for uh
+different tasks like natural language
+understanding and processing and things
+like this in a previous video that will
+be linked in the description below but
+the primary goal of the GPT architecture
+was to train transformer models that are
+good at just modeling language and
+generating language and the way that
+they would do it is the traditional Auto
+regressive approach so effectively take
+a bunch of content from the internet uh
+take it tokenize it into words create
+word embeddings out of these words feed
+them into a neural network one token at
+a time and for every token attempt to
+predict the next token that is the
+objective that all of these models have
+been trained with and we sort of then
+abuse this objective by then taking that
+final next token prediction and to just
+take sampling a token from it and
+feeding it back into the network as if
+that was actually the next token in the
+sequence and by using the architecture
+this way we're able to sort of I guess
+misuse it to generate language the
+reason I say misuse is because
+fundamentally the architecture and its
+training objective was never really
+meant for text generation it was really
+meant to try and model the output
+distribution of the kind of text that is
+seen on the internet so given a series
+of tokens predicting the distribution of
+probabilities of what the next possible
+you know token would be is something
+that these models do very well they are
+surprisingly accurate at it and the
+thing is theoretically if they are
+literally perfect at it then the output
+distribution would be the same as the
+input distribution and you'd just be
+able to sample those tokens feed it back
+into the model and actually generate
+text and you know this would be
+perfectly fine but the problem is that
+the output distribution is never perfect
+so that's why through gpt1 and gpt2 and
+even the beginning of gbt3 you know they
+progressively got more and more
+impressive you might remember you know
+like the Unicorn generation from gpt2
+and the arguments against recycling from
+gbd2 and then eventually gpt3 generating
+even higher quality versions more
+reliably right and this is the reason
+they got better and better is because we
+made the models bigger and bigger gbt2
+was even bigger gpt3 was bigger still
+reaching even 175 billion parameters at
+its peak right for context a lot of
+other natural language models are in the
+hundreds of millions to maybe a billion
+or two before this and then gpt3 just
+blows them all out of the water right
+and so because the models are really big
+big and trained on lots of data it's
+possible for us to train them to have
+really good output distributions but
+these really good output distributions
+are still imperfect and that imperfect
+nature of the distribution makes it so
+that when we use them for generating
+text we end up sampling tokens and then
+feeding them back into a network that's
+not used to seeing tokens that are
+generated that way that is a major
+problem right so we end up now with two
+issues one of them is that we are now
+misusing the architecture by feeding
+data sampling data from the architecture
+feeding it back into itself but
+fundamentally during training the
+network has never seen that output data
+and on the other hand we're really just
+training it on arbitrary internet data
+and the reason that's a problem is
+because we want to use this for language
+generation at a scale where it's easy to
+do right so for example traditionally
+with GPT two and three if you were to
+prompt the model with something like
+write me a story about
+um about a man who uh who who loved the
+code right random random story or if you
+for example gave it an article and you
+said summarize this article into a
+paragraph the language model wouldn't
+actually do it very well in fact it
+would generate something relatively
+nonsensical compared to what you asked
+but considering the training objective
+it would make complete sense because on
+the internet you never just see tokens
+of here's an article and then an article
+please summarize the article and then a
+great summary you never see that on the
+internet that's not part of its training
+distribution and therefore it's not
+something that it's good at if you asked
+it to summarize the article it might
+just you know continue on generating
+content as if it were a web page where
+it saw that sentence and that wouldn't
+necessarily be a summary and so the way
+to get around this and the way to make
+it so the model's better at actually
+following instructions is to then
+further tune the model now that it has a
+baseline understanding of what language
+is to be good at instruction following
+and that's exactly what openai does they
+then perform what's called supervised
+fine-tuning on an instruction following
+data set they don't fundamentally change
+the nature of the architecture at all
+it's still next token prediction but
+they then fine-tune the model on a data
+set of instruction response Pairs and
+these pairs enable a model to understand
+you know given a prompt of a certain
+instruction the completion is supposed
+to contain tokens that quote unquote
+follow that instruction this supervised
+fine tuning brings the model into a
+really good State and this plus one
+other trick enables the instruct series
+of models from open AI these are the
+models that you are probably most
+familiar with since before chat gbt
+right before chat gbt was a thing the
+instruct models were incredible you can
+provide them instructions in natural
+language and they respond by attempting
+to complete said instruction or complete
+said task
+and these instruct models uh were
+insanely powerful not just because of
+that instruction tuning making it
+infinitely easier to actually use the
+models but also because of one other
+piece of secret sauce and that secret
+sauce is reinforcement learning from
+Human feedback
+rlhf as it's as it's uh short form is
+called now this is something that there
+is a lot of hype for right around and
+lots of people give a lot of different
+descriptions as to what rlhf is and I
+think that there's actually a pretty
+succinct way of trying to summarize what
+rlhf does and I haven't seen uh
+reinforcement learning from Human
+feedback summarized in exactly this way
+before but it's sort of my intuitive
+model as to why it works so well you see
+rlhf brings instruct models from G from
+openai and Chachi BT to the next level
+it makes them truly valuable and the way
+it does so is by training the model not
+just on next token prediction from an
+existing data set but also on human
+feedback of the model's own Generations
+this does introduce a bit of a challenge
+though and the challenge is that well
+the models are trained currently end to
+end right we have a data set we have
+tokens so we feed them in and we make
+them predict the next token and because
+it's a relatively simple objective the
+models can be trained with gradient
+descent this gradient descent has a
+super simple error function classic
+classification across time steps
+the problem now though is that we are
+trying to introduce human feedback into
+the equation the way we're training with
+reinforcement learning with human
+feedback or or through human feedback
+the way we train is by quite literally
+giving humans Generations from the model
+say an instruction and what the model
+did and asking humans to either rate the
+quality of the output or choose between
+two different outputs to determine which
+one is better and humans if you if you
+didn't already know aren't
+differentiable we can't calculate the
+derivative of a function or a gradient
+through a human and so this introduces a
+challenge how do we now tune GPT how do
+we train GPT the model the machine
+learning model that's meant to have
+gradients if we introduce a human into
+the error function or into the reward in
+this case where we can't actually
+calculate the gradient through the
+function anymore well the solution is
+twofold on one hand we don't really want
+to use gradients the entire Point here
+is that we want to learn from overall
+feedback the other point is that well
+how do we even scale the function then
+right because we want to train on tons
+of data we want to train on tons of
+rewards but there is a limited amount of
+humans that we can throw into a room in
+a limited amount of money we can provide
+to them and time they can spend to
+continuously rate the output of these
+models so this introduces those two
+challenges right we don't want to use
+gradients we want to learn off of
+feedback but on the other hand we can't
+scale humans infinitely and apply them
+to keep rating model outputs as it
+learns so
+the solution
+what what do you do when you can't scale
+a bunch of humans and they need to do
+something that traditionally only humans
+can do well you throw machine learning
+at the problem and so open AI through
+machine learning at the problem of how
+to train a machine learning algorithm
+and what they do is they train what's
+called a reward model so they will take
+a bunch of output completions from chat
+gbt and even just human written data as
+well just regardless of what it is
+and to take these ratings take these
+preference values this data set of
+people saying hey this output was better
+than this output or this one was worse
+than this other one all right take all
+of this data and train a reward model to
+predict human preferences right so take
+whatever open AI generates whatever gbt
+generates and train a model to take that
+generation and predict a quality score
+for that output
+so think about what we've just done
+we've removed the human from the
+equation we no longer need to
+necessarily use a human to determine
+which of two outputs is better and if
+you train a very strong reward model
+which itself could be based on
+theoretically the same language model or
+a similar language model as gbt then you
+end up in a scenario where you now have
+a super strong model that can do that
+human annotation of which generation is
+better and because it's scalable you can
+now train your base model to attempt to
+optimize it to produce higher and higher
+Rewards or quality scores against this
+reward model and we do it specifically
+using reinforcement learning and the
+reason reinforcement learning is used is
+because even though we have now turned
+this into a machine learning task where
+the human is removed from the equation
+the problem is there is still a break in
+differentiability you still cannot fully
+at least truly optimize this end to end
+and the reason you cannot do that is
+because the output of GPT is still a
+language model and this brings me to the
+final real problem you see gbt being a
+language model fundamentally is
+optimized for next token prediction even
+after instruct tuning even after rlhf it
+was it's only really tuned for that sort
+of next token prediction
+outputting a distribution of
+probabilities that way you see the thing
+about this output distribution is that
+not only is the model not used to having
+input where the distribution is its own
+output because it's only ever seeing a
+real text as input the other issue with
+it is that because the outputs are
+probabilities when you try and distill
+those probabilities down into an actual
+token you've broken differentiability
+right so if gbt were to see the sentence
+my name is right and if let's just say
+for some reason you know the next
+highest probability token from gbt was
+tan May that doesn't mean gpt's
+generating the token tan may all that's
+saying is that the highest probability
+token to come next should be tanning we
+then abuse that output to then say okay
+we're going to choose tanway as the next
+most uh as the next token in the
+sequence
+and because we have to choose a token
+and turn it from a continuous
+probability space into a discrete chosen
+token differentiability is broken
+meaning that when we feed this these
+series of tokens the sentence my name is
+tanmay into the reward model for it to
+give us a reward there is no way for us
+to go gradients of the reward back to
+how to update the underlying gbt model
+this is a problem but it's solved using
+reinforcement learning reinforcement
+learning you may know is what we use to
+train agents in an environment in an
+environment where we may not have a
+clearly differentiable just end-to-end
+optimization you know solution
+and so reinforcement learning being used
+in all sorts of different techniques to
+for example play Atari games and so on
+is super advantageous here because now
+what we can do is we can train GPT using
+rewards predicted by a reward model but
+we don't actually need to Output at the
+individual token probability level gbt
+is no longer being optimized at the
+individual just what should the next
+token be level GPT is being optimized to
+really just improve its probabilities
+across time steps such that the discrete
+tokens we end up choosing result in
+higher outputs at the reward model level
+and because we've now very subtly
+shifted the objective away from next
+token prediction and into a space where
+a we're optimizing across all
+probabilities across all time steps
+right we're no longer just optimizing
+for an individual step at a time and
+because of the fact that during the
+generation it was seeing its own output
+distribution because of those two
+factors we end up with a model that
+learns a lot better both how to be used
+for text generation but also how to
+align to the preferences of a reward
+model which themselves elves are derived
+from preferences from humans things like
+safety concerns making sure that the
+model doesn't generate toxic content
+making sure that the model generates
+accurate content or that it follows the
+instructions that it was told to follow
+and doesn't repeat itself and so on and
+so forth those two factors make it so
+that instruct GPT was already so good
+and Chachi BT just brings that to the
+next level chat gbt is quite literally
+just another round of supervised
+fine-tuning on top of a chat data set
+and then reinforcement learning from
+Human feedback to make it that the model
+is both used to its own input
+distribution being its output
+distribution as well as optimizing
+against something that is not just a
+next token prediction objective that's
+why rlhf works so well that's why I've
+been interested in it for quite
+literally years even before instruct gbt
+came out if you remember my project for
+say generating music lyrics you might
+know that I've been a subscribe fiber of
+the TRL GitHub repo which which aims to
+do reinforcement learning for
+Transformers and so I've been I've been
+looking into these sorts of techniques
+for multiple years now
+since around like end of 2019 and it's
+so exciting to finally get to see
+reinforcement learning used at this
+scale to enable such incredible
+applications rlhf is traditionally
+expensive and difficult to do it's
+getting more accessible but for the sake
+of this video we're going to see how you
+can do the first stage of what openai
+did the supervised fine-tuning on top of
+a chat data set to build a model that is
+capable of conversing with you but
+clearly doesn't necessarily have that
+reward based feedback to help it be sort
+of at that next level of quality so
+let's go ahead and in the next video
+take a look at how you can actually
+download the both open assistant and
+Dolly data set from databricks both of
+these data sets are going to be used to
+train the Replay code model so replit
+released a 3 billion parameter language
+model trained on top of something like
+half a trillion tokens of code for three
+epochs it is a really good code model
+for its size and we are going to take
+both the um
+open assistant and Dolly data sets we're
+going to reformat them to fit what we
+need and train this model to be really
+good at next token prediction on top of
+those two data sets and in a future
+video we will also take a look at how
+you can potentially reinforcement
+learning based tune these models to be
+good at following human preferences and
+so now without any further Ado let's go
+ahead and take a look at how you can
+train those models in the next video I
+will see you there

@@ -1,0 +1,376 @@
+[Music]
+solo there and welcome to another
+tutorial my name is Tammy Bakshi and
+this time we're going to be going over
+how you can do semantics text similarity
+tasks by the dandelion API now this is
+actually a very very interesting topic
+because so far when every would want to
+find the similarity between two
+sentences you do things like okay how
+far off of the words cosine similarity
+and all the stuff that gives you roughly
+you know good metric as to how similar
+two sentences or paragraphs are however
+what if you wanted to do completely
+semantic text similarity using an
+algorithm that actually understands the
+meaning behind your words well this is
+where the dandelion API comes in now
+dakki line api actually has a lot of
+different API is relating to natural
+language such as natural language
+classifications and it's the extraction
+but one of those is tech similarity and
+not only do they provide semantic text
+similarity but also syntactic text
+similarity now this is actually very
+very interesting API and let's talk a
+little bit more about the backend
+technology of such a system now while
+I'm not completely sure as to what
+actually goes behind the back end of
+dandelion itself what I can say is that
+in order to build a system like this
+I've use a neural network what kind well
+of course a recurrent neural network now
+before you watch this video I'd
+recommend that you watch my
+auto-encoders video and that was a video
+just before this one link in the
+description below and that video will
+give you a good ideas to how neural
+networks encode and decode information
+but now they'll assuming that you've
+watched that video let's get into how
+exactly I run a document semantic
+similarity task
+let's get started now what I'm gonna do
+over here I'll start now first of all
+let's just say that you've got a water a
+sentence weight for example how are you
+and then space and then question mark
+now this is tokenized so there's a space
+between the question mark how and you
+know and our end you owe and so as you
+can see we've got the sentence here now
+how can a deep learning algorithm
+understand in this sentence here now the
+way it does this is by of course first
+of all converting these words to vectors
+in this case word vectors now before you
+continue I would also recommend that you
+check out a separate video that I will
+be posting a little bit later about word
+vectors and how exactly they work that's
+kind of soon Alba in essence word
+vectors allow you to represent the
+semantic meaning of words within vectors
+there are lots of different
+implementations of these including love
+and word to back however
+essentially the way they work is by
+using unsupervised learning and finding
+out where words occur near other words
+and in fact the reason some word vectors
+are so magical and the reason everyone
+loves them so much is because you can do
+things like this imagine you wanted to
+do math expressions with words and so
+let's just take say you've took the
+entire vector expression and say that's
+just you know 100 100 numbers you know
+in a simple array and you took that
+vector representation for the word King
+okay you've got that vector
+representation now let's just say you
+minus the vector representation for man
+okay now you've got a vector that
+represents the word King without the man
+attribute now what you can do is you can
+actually add in the vector for woman and
+guess what the output vector is if you
+would find the word closest to the
+output vector of that statement guess
+what were you get you probably guessed
+it right Queen see these word vectors
+are amazing at capturing the semantic
+similarity and that's why they're so
+useful for deep learning they really
+capture what the words actually mean but
+what they don't capture is
+what a sentence or a paragraph means
+they just have a bunch of vectors and
+the way you can find out what these
+vectors in conjunction mean he's by
+using a neural network which is what I'm
+going to show you now so let's just say
+of course I erase this over here now
+let's continue so we're going to start
+off by taking a look at the network
+architecture so of course we're gonna
+have an array of word vectors that go
+into an LS TM network let's just say
+it's Alice team it could be any type of
+recurrent neural network that you like
+on the LST n gives us a classification
+now there's a lot more going on here
+because of course you've got your dense
+layers you've got your work you've got
+lots of other layers and drub and all
+the stuff to worry about this is a
+really high up view of what happens
+weren't vectors to Alice T n/2
+classification let's just assume in set
+symbol for now now as I mentioned my own
+coders video between Alice T and
+classification there is an encoding this
+encoding represents not just the word
+vector now but the entire sentence
+vector but now if you would take another
+sentence like for example I'm doing fine
+okay this is your sentence now if you
+were to send another pair of word
+vectors to the same LS TM okay now these
+things these two LS TM share weights and
+have the same weights this is the same
+Alice team this would also have a put a
+classification classification
+however what you can do is of course
+with the magic of deep learning you can
+erase the classification layers and only
+keep the Ella stimulants now when you
+kick the honesty of weights you're
+keeping the encodings of both of these
+sentences now instead of getting an
+array of word vectors you're getting a
+single sentence vector okay now these
+satins factors can then individually be
+fed into a sock into a neural network
+another neural network you can merge and
+concatenate these sends factors into one
+long a wreck you're not going to merge
+them you're gonna concatenate them okay
+so I'm just to clear that up this is a
+concatenate operation here
+that's concatenate and then you're gonna
+feed that into dense Network which will
+give you the similarity now how exactly
+would you find the similarity well it's
+quite simple what you're going to do is
+there we find a bunch of pairs of
+similar sentences that have been tagged
+as similar and pairs of sentences
+anything tagged as non similar but we're
+in the world is defined that well it's
+actually quite simple where can you find
+lots of posts from people who are you
+know asking the same questions over and
+over
+of course sites like Quora Stack
+Exchange and many more so Quora actually
+made their duplicate questions data set
+available for the public to use and
+using that data set you can train a
+neural network like this one and people
+have achieved really great accuracy but
+instead of you going through all of that
+pain to build this entire neural network
+even though Karass makes it easy for you
+it's much simpler just to use the
+dandelion API so now let's get over to
+the coding part or I'll show you how you
+can actually build an application using
+the dandelion API and how you can run
+tech similarity using this API well
+let's get to it all right so welcome
+back to the Mac part and now that you
+understand the backend technology behind
+the dandelion API and how exactly you
+can find the tech similarity between two
+different types of text
+now let's take a look on how you can
+actually implement a very simple text
+similarity application now what we're
+gonna do is first of all head over to
+the dandelion website
+this is dandelion API now this is my
+dashboard of course you have your API
+token you can always refresh your token
+if you've shared it with someone and so
+now of course you can also try the
+dandelion API out on its demo page which
+let's take a look at that first now of
+course they provide entity extractions
+like for example you can extract
+entities from any sentence and as you
+can see it extracts all of the important
+entities you can actually choose for
+either more tags which when we ask it
+for more tags it gives us as many tags
+as possible or if you wanted to be
+really precise and how many tags it
+gives us
+aha then it doesn't give us any but if
+you have a nice balance between them
+then you can find the right types of
+tags for you
+however text similarity is what we're
+really interested in now text in
+molarity allows you to find the
+similarity semantic and syntactic
+between due to two different texts
+whether it be sentences words or or even
+paragraphs now of course in this case
+we've got sentences over here and let's
+just say we have the English language
+here let's computer similarity as you
+can see this is 66% semantically similar
+but 0% syntactically similar because of
+course these are worded entirely
+differently but they mean the exact same
+thing if you were to read those two
+sentence as they mean the exact same
+thing however what's really really
+interesting is we can actually give it
+like just let's say define that all
+right now let's just take its first
+definition right let's paste it into the
+dandelion API and let's just say I were
+to write this again and I were to sort
+of try and paraphrase the definition of
+a CAF let's just say
+[Music]
+all right so this is my final sentence
+let's actually go ahead and compute our
+similarity now as you can see it has
+automatically given me the semantic and
+syntactic similarity now I've used quite
+a few of the same words so we also have
+high syntactic similarity if I were to
+paraphrase even further we should still
+have very high semantic similarity but
+even lower syntactic similarity in fact
+I can even remove some of the facts here
+talk about say for example many breeds
+have been developed and it will still
+give me a very high semantic similarity
+so one of the great uses that you could
+use here is for example let's just say
+you wanted to ask someone a question
+through your program and see if they got
+the answer right however you are using
+natural language so you can't just say
+if answer equals this because it can
+always be a few characters to offer a
+few words off that could be you know
+represented or phrase in different ways
+so how do you solve that you solve it
+through the text similarity API in fact
+you can even use this for things like
+question deduplication and so so much
+more they also provide to api's like
+text classification where you can also
+of course take in natural language
+classified sentiment analysis which is
+really really powerful and the
+integrations but I won't be talking
+about those yet because those are videos
+that are coming soon for now let's focus
+on text similarity and how you can use
+the dandelion API now let's get over to
+the code as you can see this over here
+is our code now inside of here I've got
+a Python pod this Python file contains
+the entire code that is required in
+order to run the dandy-lion API let's
+make this a little bit smaller so we
+don't have any line wrapping or anything
+of that sort all right now as you can
+see it's what starts off with us
+importing URL live in JSON of course you
+probably know what this is for this is
+for accessing the actual REST API and of
+course from there converting the
+response to JSON and then parsing that
+JSON I start off with getting the raw
+input of text 1 and text whoo which we
+will calculate the similarity for I
+print those out which technically is not
+required anymore and then I create a URL
+for the classification now the way this
+works is we actually start
+with that API prefix here I knew pass a
+text one as of course the first text
+that you gave us
+but URL encoded by a URL lip we do the
+same thing for text number two we tell
+it that the language is English you can
+change this to whichever one is
+supported by dandy-lion and you prefer
+and I give it my API token from there I
+read the response that dandelion gives
+me I parse the JSON of that response and
+print out the percentage now in this
+case I actually just take the response
+find similarity multiply it by 100 once
+it has been of course convert to a float
+due to the fact that we're parsing JSON
+directly I add a percent sign to the end
+once I've converted it to a string and I
+print out the entire thing again this is
+the entire code that we have got for the
+system now that in theory if this works
+we should be able to go back I'm going
+to save this code I'm going to do Python
+main dot py alright it's going to ask me
+for my first text this time let's go for
+say define what should we go
+define car alright I'm going to copy
+this description and on what you paste
+it in now what I can do is I can give it
+a paraphrased version of that exact same
+sentence so I'm going to say
+all right there we go I went to run this
+into Danny line and as you can see it
+gives me a 65 point 65 percent
+similarity now why isn't it higher you
+may ask it's because I am skipping a lot
+of information and skipping the fact is
+that it's a road vehicle I'm skipping
+the fact that it's powered by an
+internal internal combustion engine and
+it's phrased differently however as you
+can see even though I phrased it
+entirely differently it gave me a 65
+percent similarity because I knew that
+we're talking about the same topic and
+we mentioned over half of the same facts
+from the original sentence that was a
+quick demo of the Danny line API in
+action I hope you enjoyed that demo of
+the dandelion API thank you very much
+for joining in today of course though
+you really like this content you want to
+see more please do consider subscribing
+and liking the video as it really does
+help out a lot of course sharing it with
+your family and friends or anyone else
+you think he may benefit from this video
+apart from that though if you have any
+more questions suggestions or feedback
+moving down in the comment section below
+you can email it to me at a g-man a
+gmail.com or tweet it to me at Taji mani
+apart from that of course subscribing
+and turning on notifications whenever
+you whenever I release new content
+really just helped out a lot and apart
+from that felt thank you very much
+everyone for joining today that's going
+to be all I had for this tutorial I
+really do hope you enjoyed a demo of the
+dandelion API in action and how you can
+find the similarity of two different
+short sentences by a dandelion thank you
+very much for joining you today good bye

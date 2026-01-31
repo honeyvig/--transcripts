@@ -1,0 +1,202 @@
+so hello there and welcome to another
+tutorial my name is tanray bakshi and
+today i'm really glad to get to talk
+about the new m1 max with an x macbook
+pro and specifically running minecraft
+on it as you know a little while ago i
+released a tutorial on how you can run
+minecraft natively on apple silicon for
+the very first time uh to the best of my
+knowledge it was the first tutorial on
+the internet telling you how to run
+minecraft natively on apple silicon back
+when they had released the m1 with the
+macbook air and the 13-inch macbook pro
+as a matter of fact i'm linking to my
+tutorial the first ever resource to run
+minecraft natively on apple silicon down
+in the description below so make sure
+you take a look at that if you want to
+understand a little bit more about what
+went behind actually getting minecraft
+to run natively and some of the
+advantages of apple silicon in general
+and now here's the thing after that not
+much progress was made on minecraft or
+microsoft's end on getting it to run
+natively on apple silicon and still my
+tutorial is pretty much the only way for
+you to actually run it natively i
+released a github gist telling you
+exactly how to do it i've pre-compiled
+all the dependencies like lwjgl and so
+on and so forth there have been lots of
+different folks on the github just
+contributing different you know ideas to
+how you can make it better like for
+example integrating multi-mc integrating
+forge and fabric and optiflying and all
+these other great ideas in fact there
+are also some workarounds to enable you
+to log in with microsoft accounts like
+for example using the minecraft native
+launcher and then using that to launch
+an intel version of minecraft closing it
+finding the json where it stores the
+access token and then using that access
+token in my script in order to log you
+into minecraft but here's the problem
+that's really inconvenient and it seems
+like minecraft and microsoft really want
+to push people to using microsoft
+accounts to log into minecraft
+so today i want to do two things first
+of all there's a link in the description
+to a newer version of the same github
+gist that enables microsoft account
+based authentication completely within
+the terminal meaning you no longer need
+to use any weird hacks or workarounds to
+use microsoft accounts for your
+minecraft installation to run natively
+on apple silicon second i want to show
+you some benchmarks and show you the
+kind of performance you can expect with
+a 32 core gpu m1 max macbook pro
+specifically the 16 inch running in high
+performance mode although the high
+performance mode doesn't matter as much
+for minecraft because it doesn't require
+as much sustained performance and that
+much of a thermal envelope as a matter
+of fact running minecraft barely ever in
+fact i've never heard the fans running
+on this computer running minecraft if
+you go back to the intel max running
+minecraft like a good 30fps would bring
+you
+to an extremely loud laptop but now we
+can be running at like
+fps with barely any heat generated it
+truly is incredible now if you'd like to
+skip ahead to the part where i actually
+show you how to use the system click on
+the box on screen right now or skip to
+that chapter
+however
+if you'd like to go ahead and understand
+a little bit more about how this
+authentication works let me give you a
+brief overview previously the way
+authentication would work is you would
+pass my script your username or email
+address as well as a password and given
+the email address and password i would
+go to the minecraft servers run a rest
+request to get an access token and your
+user's uuid which i would then pass to
+the minecraft client which would then
+log you into minecraft and enable you to
+join servers that were in online mode
+and so on and so forth
+however microsoft after they bought
+mojang
+is switching them over to microsoft
+account-based authentication meaning in
+order to authenticate against minecraft
+there's actually a three-step procedure
+you need to follow now first you have to
+make an oauth request against microsoft
+to log you into your microsoft account
+then once you're logged into the
+microsoft account you need to send a
+request against the xbox live servers
+the xbox live servers give you another
+token that you then go ahead and pass to
+the mojang servers saying here's my xbox
+live token can you please log me into
+minecraft then that gives you an access
+token and if you send another request
+you can get the uuid through the profile
+endpoint
+that is a lot of steps and sometimes it
+requires weird ways of using azure and
+other sorts of apis in order to work
+however i managed to find a way to
+encapsulate all of that into a single
+javascript script and integrate that
+into the launcher script that i had
+built last time so now without any
+further ado let's take a look at how you
+can actually well run minecraft natively
+on apple silicon
+microsoft accounts as well this time
+let's take a look running minecraft
+using this new launcher script is
+incredibly simple all you have to do is
+provide it well your email and password
+same as before except this time this is
+the email and password associated with
+the microsoft account that is associated
+with the xbox live account that you use
+for minecraft once you provide the email
+and password through environment
+variables in your shell using these
+export commands simply run sh launch.sh
+and just like that it will run node run
+the request it needs to do get the
+access token and launch minecraft for
+you now by default without using
+optifine or any other kind of mods using
+just normal vanilla minecraft and
+running entirely natively on the m1 max
+i'm usually getting much over a hundred
+frames per second i'm usually getting
+about between 120 and 180 on average
+using a render distance of 12 chunks of
+course i have options like vsync off and
+of course unlimited frame rate set now
+here's what's really interesting with
+previous macs even if you were getting
+for example a 120 fps frame rate it
+didn't really matter because your screen
+wasn't refreshing that quickly anything
+beyond 16 it no longer really matters
+because once again your screen isn't
+updating fast enough to show you all
+those extra frames that your gpu is
+calculating however what's really
+interesting is on these brand new
+macbook pros the monitors well they're
+promotion and what that means is that
+you get 120 hertz refresh rate when
+you're playing minecraft and that means
+when you get a higher frame rate you're
+actually getting a much smoother
+experience and that's running minecraft
+natively on the m1 max which will also
+work for the m1 pro as well as the m1 if
+you'd like to use the m1
+with a microsoft account thank you very
+much for joining today i do hope you
+enjoyed if you have any other questions
+or you know things you'd like to see me
+do with this specific versions to use
+feel free to let me know down in the
+comment section below and make sure to
+also leave a comment on the github gist
+there's a great community of people
+working towards you know little
+improvements um and making this a better
+experience for everybody and so i'm sure
+everybody can contribute towards making
+this even better to run minecraft on
+these new macs hopefully microsoft comes
+with native support very soon but once
+again thank you very much everybody for
+joining today if you do enjoy this kind
+of content you want to see more of it
+please do make sure to subscribe to the
+channel and turn on notifications so you
+don't miss videos like this one thank
+you goodbye

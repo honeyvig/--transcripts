@@ -1,0 +1,506 @@
+so long there and welcome to another
+tutorial my name is Tina Bakshi and this
+time we're gonna be going over how you
+can use the IBM Watson conversation
+service in bluemix with a special
+surprise actually just like the natural
+language classifier service the
+retrieving write service and you know
+the dialogue service for example they
+all have sort of toolkits that you can
+use in order to easily train your IBM
+Watson service and so now as you can see
+the classifier I mean the conversation
+service as well has that little tool box
+where you can easily trance to do what
+you want alright so now let's get right
+into it so now first of all what is the
+conversation service now first of all
+the conversation service is essentially
+a mash-up of the IBM Watson dialogue and
+the IBM Watson natural language
+classifier services now if you've worked
+with these two services before you know
+that combining them can create really
+interesting chat BOTS I guess you could
+call them so someone actually even
+created a movie assistant using the IBM
+Watson dialogue and natural language
+classifier services and so basically
+that's that's really a neat application
+actually it essentially allows you to
+you know say I want this this sort of
+movie I want it to be rated this I want
+sort of comedy and it'll be able to
+create this little list of movies that
+you'd like to see but today I'm going to
+be showing you how you can create an
+application with a conversation service
+which it was essentially this chat bot
+that allows you to order pizza you can
+give it your specifications like you
+want large or you want no sauce or you
+want these toppings and then it will be
+able to actually order the pizza for you
+I guess all right let's get straight
+into it now first of all before I get
+into this what is the conversation
+service do it allows you to create
+applications for users to be able to
+converse with IBM Watson and so how does
+it do this now let's get into this now
+there are three main things that go into
+making this work let's begin with number
+one then there's number two
+of course and oh sorry how about that
+and of course number three okay that's
+really number one what is number one
+it's intense
+now what is an intent in this case are
+usually by definition it is what a user
+will intend to do basically a user's
+intent okay so this is basically the
+waste whatever message that the user has
+given IBM Watson or the conversation
+service in this case it's going to say
+what was their intent behind that
+message it'll basically use machine
+learning this is where actually the
+natural language classifier comes in and
+this is where basically it finds out
+that hey the user wants to do this for
+example if I say hey what sizes of
+pizzas are there okay and it'll respond
+to me small medium large and extra-large
+however behind there it knew that hey
+his input meant that his intent is to
+find out what sizes of pizza there are
+all right once it understands the intent
+it can actually reply to the user
+next entities now what is an entity in
+this case we're essentially scanning the
+users input for uh Nanta t so basically
+entities in the users input okay so we
+basically take the users input and we
+filter down to look for entities inside
+of that statement
+now let's say for example I were to take
+this let's say why I said you know top
+topic number one should be cheese all
+right and so basically what it's going
+to do is it's going to say hey the
+intent was to set a topping to cheese
+but the entity was
+what was the number-one meaning we want
+to set a topping the cheese and that
+topping is the first topic which is how
+entities will tie into intense so that
+the conversation service can really
+understand what the user wants and you
+know using these two combined throughout
+it throughout an entire conversation you
+can have contextual analysis as well
+so if you say hey my first topic should
+be cheese you can say hey next I want
+chicken for example or pineapple okay
+and this will actually come into use in
+a real application but not in this video
+though I will be showing you a demo and
+a quick tutorial on how to create your
+own applications using the conversation
+service today I'm not going to be going
+into how you can actually use the REST
+API to create your own applications
+that's for another part today I'm going
+to be showing you how to use the toolkit
+to train that conversation service so
+now finally the third and one of the
+most important sort of basic aspects to
+this so now first this is actually the
+dialogue step now the dialogue step is
+essentially the conversation there's a
+second
+it's essentially what I like to call the
+conversation flow all right it's now
+basically well the eraser doesn't want
+to stay but basically what this is is
+the dialogue aspect to this is where the
+dialogue service comes in and so
+essentially as you can see what happens
+here
+is it essentially creates the
+conversation flow it is a set of
+conditionals that says you know what if
+they specify that hey I want to add a
+topping that topping is cheese and they
+said it's the second topping that they
+want to add you can wash those together
+and - you know what they want to add
+cheese is their second topping onto the
+pizza okay and then you can respond to
+them and you can also check hey they
+didn't they mentioned that they wanted a
+topping his cheese but we've done the
+textual analysis and we have also you
+know I gone through the entities and we
+didn't find which topping they like that
+to be and so we can respond to the user
+by saying you know what you haven't
+really told us which top you'd like to
+have to be so we can't add that to your
+pizza please tell us whether they would
+like that to be topping one two or three
+and that's how the dialogue aspect can
+tie in with intents and entities in
+order to create a applications that you
+can converse with just like a normal
+human
+alright so now that's gonna be it for
+this little explanation part so now
+again this is going to be an application
+a chatbot for you to be able to talk
+with IBM Watson just like a normal human
+being so that you can actually do
+something like order a pizza then again
+this can be applied to many different
+things TVs cars phones anything all
+right let's get to the Mac part where I
+am going to be explaining the actual
+code and a little demonstration to you
+so welcome back to the Mac part and now
+I'm going to be showing you how exactly
+you can use the conversation service to
+make a pizza man that can take your
+pizza order and yeah send it to the
+person who makes it and yeah and then
+they can have a pizza so let's begin now
+first of all what you want
+do is actually create a conversation
+service and Linux so to begin what you
+need to do is go over to bluemix first
+of all and go to your catalog all right
+then go down to of course lots and over
+here watson then click on conversation
+your plan i'm just going to go for its
+41 for now i'm going to put it in a cell
+in any space really make sure you keep
+track of the service name though the
+credential name really whatever again
+select the plan is free and you should
+usually click create but i've already
+created this so let's go to my dashboard
+and as you can see the service i'm going
+to be using today is conversation gk so
+alright so now what i'm going to do here
+as you can see this is the conversation
+sort of dashboard i guess this is where
+you can go to the developer resources
+this is the introduction page so now
+what i'm going to do here is i'm going
+to click on the launch tool button ok
+this is going to launch a tool that will
+allow you to sort of train a watson
+conversation service
+now again you want to make sure that you
+will recent the correct instance of
+conversation since you may have many
+instances as you can see in fear you
+create something called a workspace
+which is where you're actually going to
+be creating let's say your pizza mat so
+let's just say create a workspace and
+i'm going to call this it's all mine for
+you too all right after so watson pizza
+all rights now english glass and let's
+just create it as you can see it i just
+created this little workspace here and
+if i go to get started
+it allows to put things like intense
+entities and dialogue now we do actually
+to go back to this other workspace which
+I have actually filled out so I don't do
+you know go through filling it out which
+would be extremely long basically as you
+can see here in the intense page I
+filled out all these intents such as
+what capable for example are which is
+basically how can I customize my feeds
+are what are the options what can you
+change or you do what options do I have
+what you have to order it's not socially
+what this is doing is all of these
+questions that I've given it leaves out
+this list are these cells these six
+questions what happens is these actually
+go to the natural line it's classifier
+service and say you know what these
+questions actually if you trained to it
+I mean if something similar to these
+questions arise then what happens is we
+know that the what capable intent is
+what the user is intending to do or
+intending to look for it's that sort of
+what's hot what's happening to the
+natural language classifier how that
+ties it and again this is very useful
+here because the thing is before you'd
+have to actually manually program in the
+combination of the natural language
+classifier and dialogue now it doesn't
+for you so as you can see in these what
+capable what's happening is as I said I
+mean then dialogue over to this dialogue
+here why does the user asks something
+that is about what cable it says you
+know I can help you customize your pizza
+and following Roy's size toppings
+crossed thickness and sauce all right
+slava go back there are they're intense
+as well like the topping
+cheese okay a cross thick sauce extra
+sauce normal sauce no and again all
+these intents are essentially what the
+user could want to do here so for
+example let's say we wanted to add an
+intent that allowed you to ask a
+question like when where did you two get
+here so let's say we said one um pizza
+bit of a time okay well let's just say
+delivered all right asana well let's say
+these are some sort of sample questions
+of these are class how long will it take
+to arrive when will the pizza very good
+ten minutes is it free after a certain
+amount of time also for example um I'm
+patient for pizza all right so now these
+are sort of examples of what the user
+could ask in order to have an intent of
+delivery time so now if I click on done
+as you can see this intent has been
+added and so now I can go to my entities
+again I'll get into actual programming
+the intensity dialog in just a minute
+but in the entities we only have the
+topic number which is the first second
+or third
+as you can see sort of which topic
+number were looking for let's every want
+to add a fourth one actually all I need
+to do is go to topic number add a new
+value okay and say you know what let's
+say you want to add four okay now Riley
+report so then I can add some synonyms
+or other ways that user could mention
+that entity so I could say four number
+four or or or enter or number four or
+fourth or four or topping for right
+those are some ways or you know just
+yeah
+and so let's distribute some ways that
+the user could mention topping number uh
+and so it's like you know just click on
+this little plus button over here it
+adds the fourth topping capability here
+but then again I only want stick with
+three so if I just put this little
+checkbox here and if I click on delete
+they will delete the fort topping them
+if I want you to create another entity
+in general just click this little crate
+button on top here now let's say we go
+for a dialog all right now I mean we
+have incorporated this new air intent
+call delivery time and then
+is when the user will be able to get
+their delivery now if we go to the last
+dialogue over here we click on this
+little plus button down there as you can
+see I can just minimize that now now as
+you can see here I can enter a condition
+when this dialogue is triggered by
+Watson so they these are asks you know
+delivery time right I just click on off
+then what we can say the pizza should
+arrive within 30 minutes or it's free
+all right then just minimize that
+that'll also save it and now we are
+ready to test out the conversation
+service now as you can see if we go to
+this top right over here you click on
+this little conversation icon
+as you can see Watson so training on our
+recent changes that actually gives me
+some time to go over the previous
+dialogue that I've already created
+let's begin first of all if the user
+asks for small pizza all right a small
+lar medium then already media same thing
+to the other sizes and show you gets you
+catch the drift and if let's say they
+ask for no sauce then no songs its ask
+for normal sauce general the default
+sauce is ask for extra sauce extra sauce
+it is if they want thin crust
+sounds good thin crust if they want
+thick crust the question will be however
+if they want cheese on a pizza
+and they've specified which topping we'd
+like that to be then there whatever
+topping later that to be is cheese if
+they same thing for chicken all lives
+and pineapple but if none of these will
+trigger and they've fallen through just
+like that else if statement if they've
+fallen through each one then as you can
+see it falls over to this one where no
+matter which topping is selected you
+know that they haven't specified a
+specific topic number and so we can say
+you know what specify which topping
+number you'd like this to be next we can
+say what I mean we if the
+what if the user wants to know what
+Watson is capable of then this is the
+answer to that I can help you with the
+size toppings cross thickness and sauce
+you can of course answer what sizes
+there are of pizzas it can answer what
+toppings you can put on your pizza we
+can answer what thicknesses there are
+I'll crust and it can answer what types
+of soft starters
+then we can say you know what there's
+this also intent where a work complete
+the conversation and so the user said
+you know what sounds good let's go to
+the next step I'll tilt wheeling billing
+details so we say Watson says sounds
+great this receipts the next page where
+you can search on a price and size
+shipping address and the details it's a
+lot some pizza this large up there in 30
+minutes it's free just and if there's
+anything else then you know that's
+usually the first message that we're
+sending to the user so just going to say
+hi welcome to Watson pizza
+I'm Watson may I take your order all
+right so as you can see on the side here
+Watson is actually done training it
+tells us so now we can actually you know
+start treatment start you know testing
+out what all the conversation service
+let's do that shall we
+now first of all it says hi welcome to
+our sweets I'm Watson how I'm gonna take
+your I've been very good so let's just
+say we asked Watson how can you help me
+with it so as you can speed answers I
+can help you customize your pizza in
+following ways sighs toppings crust
+thickness and sauce now if you know from
+what some of my previous videos
+I'm actually not to make much of a thing
+of sauce on my pizzas so I'm going to
+say uh I don't really like sauce on that
+pizza all right and it says I like no
+sauce and it's set that perimeter all to
+say you know what this user does not
+want sauce then I'm going to say you
+know what I'm very hungry give me the
+biggest pizza
+you have now again what's going to
+happen is if I send this it will
+understand that I want an extra-large
+now again Watson is good great
+just great a sort of filtering out the
+noise which is I'm very hungry and so
+you know it understands that hey that's
+just conversation talk with humans enjoy
+but it does it doesn't really understand
+what that means it doesn't know emotions
+and so give me the biggest pizza you
+have biggest pizza it really focuses on
+that and is even say you know what they
+want extra large and since as you know
+what you'll give them an extra lunch now
+let's say I want to see what type of
+class they have so what types of trust
+do you have all right
+I can ask and it says you know what you
+can choose between thin and thick crust
+so now I mean well usually I don't think
+so Oh thin all right sounds good then
+cross you know how toppings can I
+actually have on this pizza okay so zip
+you can see it says that I can have
+three toppings maximum and I can choose
+between cheese chicken all ups and
+pineapple so now let's say I want cheese
+all right but then again I didn't tell
+it which topping I'd like that to be so
+I'd say first topping is cheese all
+right um second sprinkle some chicken
+for example Oslo again it's good it's
+Frost or fill 20 outfit noise sprinkle
+some it removes that and said second
+topping chicken okay so if I send that
+as you can see alright so our second
+topping this chicken I know if I say ah
+third please add some cheese again as
+you can see it filters out the noise and
+it says all right so it's throat topping
+is cheese and now let's just say we're
+done I love just before we and the
+conversation we want to ask how long
+will it take to a lot and as you can see
+it says the pizza should arrive within
+30 minutes or it's free and I can say
+already on
+and as you can see it so sounds great
+please proceed to the next page where
+you can see final price and say your
+shipping address and billing details and
+just wats pizza does not get there in 30
+minutes
+it's free goodbye and that was a quick
+demo of the IBM Watson conversation
+service now what I'm going to do is I'm
+actually going to put this into an
+application iOS application includes
+some sort of contextual analysis and
+then I will be of course putting it into
+another application now that's going to
+be it for this tutorial now again today
+we have created an application for users
+to essentially be able to converse with
+Watson in order to basically create this
+sort of chat bot that users can converse
+with in order to sort of feel like
+they're talking to a human but they're
+not actually talking to a human I know
+it feels very natural it's not just like
+you know what here's Pizza Pizza online
+form where you fill in all these sorts
+of details instead it's very natural hey
+I don't want sauce i feets I'm not too
+big of a fan of that I want thinner
+crust but you can actually talk to it
+for example you can incorporate speech
+to text and text to speech again that's
+going to be all for this tutorial thank
+you very much I hope you enjoyed and if
+you did please make sure to leave a like
+and subscribe to the YouTube channel it
+really does help out a lot and of course
+even if you'd like to see my future
+content and tutorials all right so now
+again if you have any questions
+suggestions feedback you can of course
+leave down the comments email me
+attachment gmail.com tweet to me at 10 G
+Manny and that's going to be it thank
+you very much again subscribe to the
+channel turn you or your lock on content
+you want some more of it
+and that's gonna be it good bye

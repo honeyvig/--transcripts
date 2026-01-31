@@ -1,0 +1,363 @@
+[Music]
+hello there and welcome to another
+tutorial my name is tan May bakshi and
+this time we're going to be going over
+using the Nuance speech kit in Swift
+with iOS
+well to begin this was actually a
+question sent to me by one of my
+subscribers
+on clip now this is tarabala Christian
+one of my subscribers
+days ago she on a YouTube comment uh on
+my NS speech recognizer tutorial
+actually asked me how we can actually
+use the Nuance speech SDK for iOS with
+swift so that's the tutorial I'm
+creating today I hope this helps you out
+Tara
+season sent by Tara uh let's actually
+get into the Mac part
+I will be explaining exactly how we can
+use the Nuance speech kit with swift too
+so uh let's get right into it shall we
+so welcome back to the Mac part and now
+I'm going to be showing you uh well I
+mean just before this super simple and
+short code I'm going to show showing you
+a demo of the app that I've made for
+Tara so let's begin as you can see this
+is my iPhone mirrored onto my Mac
+alright so as you can see what I'm gonna
+do is I am going to say a sentence into
+this application and let's see if it can
+convert it to text so as you can see
+there is a listen button right over at
+the bottom here so we're going to click
+this this will turn into listening then
+the label over here will uh tell us what
+the result is uh right as we're done
+saying things now this will
+automatically detect when you are done
+talking and so you don't need to click
+any sort of stop button which is just
+great again Siri is actually powered by
+Nuance and so that's actually a really
+neat fun fact But continuing though
+let's uh begin so let's actually give it
+something pretty simple like
+I have a YouTube channel comma in which
+I like to teach things period
+as you can see it says I have a YouTube
+channel in which I like to teach things
+alright so that was pretty simple let's
+try something else though as you can see
+I'm going to click on listen and it
+turns into listening
+I have created this sample app for one
+of my subscribers
+as you can see it said I have created
+this sample app for one of my
+subscribers great as you can see Nuance
+is actually pretty accurate now there's
+one thing that I am going to save for
+the last which is actually just
+fascinating uh but then again the best
+examples are going to be saved for the
+last uh all right so now let's continue
+though let's begin with the UI shall we
+so as you can see the UI is even simpler
+than the code the listen button has an
+IB action on the touch up inside which
+has button clicked can't get simpler
+than that button click gets executed
+right as you click a button done okay
+referencing Outlets we have an IB Outlet
+that's called a record button connected
+to the button that's it all right but
+the label is a bit different the label
+is actually connected only to an IB
+Outlet that's called result label okay
+that's the label now as you can see in
+the code we actually have those two IB
+Outlets uh record button which is a UI
+button and result label which is a UI
+label now as you can see view controller
+doesn't just in uh actually let me see
+UI view controller uh is a class so it
+doesn't just inherit from UI view
+controller but it actually conforms to
+the SK transaction delegate protocol and
+in case you were wondering actually if
+you were to click on command on your
+keyboard actually I promise I'm clicking
+command on my keyboard and if you move
+around your mouse you can actually see
+these things convert into links whenever
+you hover over something and so
+basically if I hover over SK transaction
+delegate and I click on it and then I
+release command and the click as you can
+see basically it shows us where this is
+defined and as you can see right now
+this is actually a public protocol of SK
+transaction delegate in the nuanced
+speech kit framework and so that's why I
+know that this is a protocol so I can
+say that this can then new controller
+conforms to it not in the hair it's from
+if it were to inherit from that would be
+a class conforms to linear protocol all
+right so I'm going to explain exactly
+what the difference is in just a second
+but then again that's an entirely
+separate video uh but I will explain in
+minor detail right now in just a second
+then let's look at the IB action
+function called button clicked now what
+does this do basically we're going to
+take the record button and we're going
+to set its title to listening and for
+State normal you don't need to worry
+about that this that's just telling
+record button that it's still a normal
+button it's it's not weird
+um
+so basically uh the record buttons title
+is now listening instead of listen
+because you've clicked on it but then
+after that we actually create a session
+which is equal to a new speech kit
+session or SK session for short if we go
+into this this is inside of speech kit
+and so basically what we're doing here
+is we're creating that SK session with a
+URL now basically the hard part is comes
+in you want you're going to want to
+actually go to the link in the
+description uh the link in the
+description basically brings you to a
+page in Nuance that allows you to
+actually register for an API key and so
+once you've done that uh you will
+actually get something called a Sandbox
+credential now basically this is a
+development credential uh and when
+you're sort of developing your app with
+Nuance you want to use these credentials
+because they're absolutely free and who
+doesn't like free stuff however what
+this is not fit for production use okay
+you want something that's paid when you
+actually actually use it for a sort of
+real life when it's on the App Store
+basically and so basically uh you're
+just going to want to pay when you're
+actually uh using it for production but
+right now when you're developing it I
+guess uh the free credentials work
+perfectly fine and they're called
+sandbox credentials uh so basically what
+you're going to want to do is take those
+sandbox credentials and I mean I'm using
+speech kit too but you could also use
+speech kit one but I don't see why you
+would do that since they have newer
+versions released now and so basically
+what you're going to do is you're going
+to take the link that you get on these
+speech kit too
+um
+under speaker two you'll see a link and
+you're going to take that link and it'll
+look something like this except instead
+of tagumanny gmail.com it'll be your own
+email and then lots of other random
+letters along with the date that you
+registered I assume this is I Don't Know
+But continuing though it'll just give
+you a link and you want to copy that and
+paste it into this string okay I have
+already done that then it's also going
+to give you an application token near
+the end uh but before speech kit one and
+you're going to want to copy that into
+here as well once you're done you're
+going to actually type in another line
+of code and this will essentially tell
+the session that's uh and so the session
+is basically connecting to the Nuance
+SDK in the cloud and so basically what
+you're going to do is you're going to
+say you know what start listening
+through the microphone for some sort of
+uh user voice and so basically we're
+going to say session dot recognize with
+type SK transaction speech type
+dictation what does this mean what do
+these Ren letters mean they basically
+just mean that Nuance will listen for
+users voice and convert it into uh text
+it'll dictate it okay
+or the user will dictate to it basically
+okay so that's what that is you don't
+really need to worry about that too much
+I don't know why they haven't created
+enumeration for this but they haven't
+for some reason now they could have done
+SK transaction.speech type dot or speech
+type dot dictation sorry uh which would
+have been a bit cleaner way of doing it
+but whatever uh continuing though then
+we set the detection to long now this
+can also be short or none uh and so
+basically long means that the user will
+be able to literally say in paragraphs
+with punctuation and stuff but you could
+also set this to short and that would be
+like a sentence for like a quick text
+message and you could even set this To
+None now the reason I'm not doing none
+is because that would require an
+entirely separate function from that
+delicate that were or that delegate that
+we are conforming to SK transaction
+delegate and so basically we would have
+to sort of say when the user would click
+a stop button uh in order for nuance to
+actually stop listening for the user's
+voice and but with detection it'll
+automatically realize when the user is
+done saying stuff and will automatically
+just sort of stop listening and sort of
+tell us the answer so that's why I use
+detection and so that's why I also like
+to keep it on long because with long you
+can really say short stuff as well it
+just isn't as good at it but with short
+you can't really say it as long of
+things so I'm just going to keep it that
+long you can always change this if you'd
+like and if you need help with the dot
+none option please do tell me I will
+have my contact info at the end of the
+video but continuing dog
+and then we set the language to English
+USA now again you can use whatever
+language you have I assume there is a
+link in the documentation for the
+nuanced speech kit SDK and so basically
+they would describe sort of the
+languages that are actually compatible
+with nuance and so if they do have a
+page like that if I'm able to find it it
+will be in the description I hope I find
+it for you that's uh basically then
+we've set the delicate uh the delegate I
+don't know why it's in delicate delegate
+uh then we set the delegates of that
+session to sell because we are
+conforming to that protocol and that
+there has to be a reason for it and so
+this is why we're actually doing that
+all right so that's why yeah that's
+basically what we're gonna do there
+however
+what happens when Nuance is done sort of
+getting the answer for us well that's
+where the next function comes in now
+to a protocol the protocol will give us
+optional functions that we can or
+mandatory functions that we can include
+into our code in order to add some
+functionality for example this sessions
+delegate has been set to sell and so now
+what it's going to do is since we
+conform to this delegate and we're
+setting ourselves to that sort of a
+delegate of the session
+it'll know that when we're done we have
+to contact view controller
+transaction function now there are many
+transaction functions in this protocol
+however one of them which is uh quite
+interesting called didn't receive
+recognition this one will actually be
+called when the Nuance SDK is done sort
+of recognizing what the user said in
+transcribing it and so basically what we
+do here is we actually get an SK
+recognition from the nuance svk
+after that what we want to do is we want
+to take the highest scoring candidate
+from that entire list of uh sort of
+candidate answers of what uh the what
+the user could have said we want to take
+the highest scoring candidate and we
+want to put that into a string okay
+we're going to put that into one string
+and put that into the result labels text
+um we're going to set that as the text
+of result label which is our UI label
+that we uh declared up here all right so
+once we've done that we've already given
+our user uh the answer for them then
+what we're going to do is we're going to
+set the record buttons title back to
+listen because we're done listening now
+we're not listening to the user anymore
+and so we're going to set the button
+back to listen
+that's it all right so that was pretty
+much uh all we had to uh describe for
+the code but now as I said I'd like to
+show you one more thing which is
+actually absolutely fascinating if I
+were to actually say to this app
+okay I have to get ready this is a lot
+of stuff to say all right
+this app is running on an iPhone comma
+which runs iOS comma however comma my
+Mac comma which is an iMac comma runs
+Mac OS X comma which runs xcode comma
+okay great so as you can see uh what has
+happened is it says transcribe the
+entire thing uh into this app is running
+on the iPhone which runs iOS however my
+Mac which is an iMac runs Mac Oh Mac OS
+X Mac OS X which runs xcode now this
+usually works if I were to say
+Mac OS X runs on my iMac
+and for some reason it gives us m-a-c-k
+don't know why it was working a few
+minutes ago anyway uh so I mean that's a
+problem with the Nuance SDK not with our
+code so I mean that would be fixed soon
+I guess it keeps changing I guess I mean
+it's machine learning so it would have
+kept learning from people's uh responses
+to the SDK but then again whatever
+continuing that's gonna be it for this
+tutorial I really hope this uh you
+enjoyed and I really hope this was
+helpful for your project Tara uh if you
+have any more if uh you have any more
+questions with your projects uh
+regarding the iOS development I'd be
+glad to help and everyone else if you
+would also require help uh you can
+actually comment down below uh with your
+question suggestion or feedback and I'd
+be happy to get back to you you can even
+email me at tajimani gmail.com and you
+can also tweet to me at tajimani that's
+gonna be it for this video If you
+enjoyed please leave a like subscribe to
+my channel if you really liked it and
+even share the video that would really
+help out a lot uh in fact I actually
+just hit 1 000 subscribers a few days
+ago hooray but uh continuing though hope
+you enjoyed Please Subscribe that's
+gonna be it for this video goodbye
+[Music]

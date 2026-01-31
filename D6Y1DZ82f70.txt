@@ -1,0 +1,387 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is Tam Baki and this
+time we're going to be going over how
+you can Implement oneshot learning with
+an extremely Advanced deep learning
+algorithm such as convolutional neural
+network Works let's get started now in
+this video today I'm going to tell you a
+little bit about the challenges of
+bringing onot learning to a system like
+a deep neural network like a
+convolutional neural network and well
+there are quite a few reasons why
+artificial intelligence isn't as good as
+really learning from only a few training
+parameters or a few training examples
+whereas natural intelligence like humans
+are very good in fact Excel at this task
+for example let's just say that you have
+seen you know you've seen kitchen
+utensils You' seen spoons forks knives
+etc etc uh you've seen quite a few you
+haven't seen them all but you've seen
+quite a few but you've never seen a
+spatula or a blender before okay and so
+let's just say that one day someone
+introduces you to an individual spatula
+and one blender okay simple enough you
+start to understand the concept of a
+spatula and a blender now though you've
+only seen one spatula and one blender in
+your entire life yet magically the next
+time he shows you an entirely different
+spatula or an entirely different blender
+you instantly recognize what it is and
+you don't confuse it with any other
+kitchen utensil or the spatula and the
+blender how is that that's because you
+are human and you are amazing at
+learning from only a few and in this
+case one training
+example however this sort of uh these
+sorts of actions this sort of learning
+is not very easy to replicate in
+computers and the reason is computers
+have one key part to learning that's
+completely missing they're just missing
+this one individual sort of main part of
+learning that humans definitely do have
+I'll talk about what that is in just a
+moment but before that let's take a look
+at what a regular convolutional neural
+network looks like now when you're
+either training or inferencing on a
+convolutional neural network you're
+using uh you know one of the classic CNN
+flat and dense neural networks and so uh
+let's just say you're building an
+mnist convolutional neural
+network and so with
+mnist you're feeding the data into a
+convolutional neural network the
+convolutional neural Network's output
+gets
+flattened and then that flattened output
+goes to a few dense
+layers which then give output to the
+user and so that is the final
+output which is then
+analyzed and so you're using this type
+of model whether you are training
+testing or inferencing whatever you're
+doing you're
+using
+this model
+OKAY however there are a few key
+drawbacks to this model but before we
+talk about the drawback let's take a
+look at what we do if we want to say
+compare two images to see if they
+contain the same class now what I mean
+by this is let's just say that we have
+two different images and they both
+contain the letter six but they're not
+drawn in the same way they're not the
+same image there could be a few pixels
+up few pixels down it could be drawn a
+little bit rotated etc etc so many
+different things could go wrong or not
+wrong necessarily but so many things
+could be different between the images a
+regular computer program could not tell
+the difference between them I mean
+forget telling the difference between
+them a regular computer program couldn't
+even tell you that there's a six in this
+image that's for sure and so a deep
+learning algorithm like this one can do
+that with almost 100% accuracy
+99.98% accuracy is the state-of-the-art
+and so computers are very good at this
+task when it comes to this type of deep
+learning however say that you wanted to
+do I mean this would be called I guess
+you could say like a classic
+CNN but now you want to do some sort of
+equivalency
+test
+oh you want to do an equivalency
+test and so essentially what this allows
+you to do is take two images and see if
+they contain the same class now
+generally this could be quite easy what
+you do is you go ahead and take the
+output over here and You' compare it to
+the other image's output and see if
+they're the same and while technically
+that would perform quite nicely let's
+just say that you even wanted the
+comparison to all be done by Deep
+learning so it does it all
+automatically how would you do that sort
+of equivalency test well what you go
+ahead and do is take two versions of
+mnist or not necessarily two versions to
+the the the nness data set you'd feed it
+into two different
+CNN's and remember these cnns are
+already trained in a classic way so
+these are pre-trained CNN's that you're
+using you'd flatten their
+output however there is one
+difference oh sorry not dense the the
+difference is that we're not using dense
+layers we're only going to be using the
+flatten
+layer after that we've got a numeric
+representation of how the CNN thinks
+that the image looks and we've got this
+in a list a one-dimensional array what
+you can then
+do is use a non-trained dense layer and
+feed in the output of the trained CNN
+and then train the dense layer to
+understand when two images have the same
+class and then you would have the dense
+layer give output and this output can
+either be the class that both of these
+images contain or it could be just
+simply whether or not the class of these
+two images are the
+same and so this would allow you to
+create a relatively simple equivalency
+neural network that'll take two images
+and check if they contain the same
+class however what would happen if you
+only had had a few images to train with
+but you have a lot of images to test
+with really an infinite number of images
+to test with because people can draw
+these however they want to and while
+technically the amness data set has
+60,000 of these images there is another
+data set which only has a few in fact
+only 10 training images per letter and
+in this case we're not going to be going
+for numbers we're going to use 10 Greek
+letters while technically the data set
+provides many more I'm going with a
+refined version of 10 of the characters
+that this data set provides each of the
+10 characters has 10 examples of how
+it's written in Greek of course it's a
+Greek character and so we don't really
+have much to work with here and a
+regular equivalent or classic CNN really
+wouldn't do anything here at all so what
+do we do well I'm going to go ahead and
+merge these two types of neural networks
+and add in one key element which enables
+really natural learning and with this
+key element such a neural network should
+be possible let's talk about that now
+and now with such a neural network there
+are two stages you can't just train test
+and inference on the exact same neural
+network just like you can for these two
+types of neural networks you have to
+train on a different system and and test
+or inference on another system let's
+take a look at how you do
+that and let's just say that you start
+off with training so you want to start
+off by training this neural
+network and this time we're going for a
+oneshot sort of learning and while
+technically it's not one shot entirely
+because we've got 10 different images
+still though it's very very little data
+to work off of so now again what we're
+doing is well technically we should be
+training with Greek and we are training
+with Greek characters so we're taking
+the Greek characters that we got from
+the data set but we're feeding them into
+a pre-trained CNN this pre-trained CNN
+is trained on a very similar data set
+that has ample data for us to work with
+now what this means is well Greek
+characters aren't that off for from
+numbers they're still really the same
+concept they are representing in some
+sort of very small sort of character way
+uh some sort of meaning and so we want
+to be able to determine which character
+it is and these characters are drawn uh
+in a similar way to how a number would
+be drawn it's similar enough that the
+CNN's filters wouldn't do something
+entirely different to these Greek
+characters uh for example if we were to
+use an imag net sort of convolutional
+neural network we're using very very
+similar data so you're going to feed
+this into a convolutional neural network
+which is pre-trained on the mest data
+set now this mest data set has already
+given the CNN a high amount of accuracy
+so it already knows how to at least
+slightly distinguish between different
+characters from there you're going to
+flatten the output of the
+CNN but then once once you flatten the
+output there's one key and this is
+really as I mentioned what's going to
+enable the entire system and that is
+memory that's right deep neural networks
+are very powerful but unlike humans they
+never remember anything they just learn
+individual patterns or concepts but they
+don't remember any of the examples that
+they had learned previously what this
+means is that you're gener not getting
+high accuracy because it doesn't
+remember what the spatula looks like
+it's trying to find individual little
+patterns that might make a spatula a
+spatula and little patterns that might
+make a blender a blender but it's not
+remembering the actual spatula or the
+actual blender itself to be able to
+compare future examples with its past
+knowledge it doesn't have past knowledge
+it only has past patterns learned and
+current patterns that it's trying to
+find and these patterns get mixed up
+with other training examples and
+eventually with enough training examples
+you're able to make it learn enough of
+an averaged pattern that it understands
+new images however with this type of
+neural network we're not doing that sure
+we might want to retrain the CNN a
+little bit and just fine tun its weights
+to work with the Greek alphabet however
+we're not going to be training an entire
+neural network from scratch because we
+don't have enough data to do that in the
+first place and that's just generally
+how these neural networks were built and
+how they were built and really meant to
+be used from the ground up and so once
+you've gotten this flatten this
+flattened output you can feed that into
+the memory and the memory in this case
+is just a very simple database this
+database will contain the flatten output
+and a little index of which character
+this is say that we've got these 10
+different characters the index will be
+the number of which character this
+flattened output truly
+represents and now you have trained your
+memory and you've already got a trained
+convolutional neural network you've only
+got one last training phase left before
+you can get to the inferencing stage
+once you've gone through the number one
+training phase let's go through number
+two now in number two this very same
+model will be used for training
+testing and
+inference now this model will
+essentially take that very same Greek
+alphabet we were talking about and it'll
+feed it into again the same
+convolutional neural network that we
+were talking about before now it's
+actually again very important that you
+use the same CNN so that what the memory
+outputs actually still make sense in
+this case once that's done of course the
+CNN's output will be
+flattened and then once it's flattened
+then of course we bring back the memory
+except we're not feeding into the memory
+this time we're taking from previous
+memory so the memory will also have
+output here and now there's going to be
+an entirely new script and this is
+called the comparison script
+now this itself will be powered by Deep
+learning and I'll talk about that in
+just a moment and so essentially the
+memory will also feed into this
+comparison script from somewhere else
+and so this this memory will essentially
+contain as I mentioned flattened output
+that the con illusional neural network
+had previously learned and with this
+flattened output the comparison script
+will then go ahead and use dense neural
+networks against all of the different
+examples in memory and finally the dense
+neural network will output for each
+different a training example that the
+neural network had learned from before
+how similar this image is or the content
+in this image is or in this case the
+important content in this image is to
+the important content in the training
+example from the memory from there the
+comparison script once it's done using
+its dense neural networks will give us
+output and this output will contain the
+class of the image itself and from there
+you've built an entire system that took
+only 10 training samples for 10
+different classes and was able to
+understand with actually very very high
+accuracy these sorts of images and
+remember this all depends on the neural
+network that you're training off of if
+the convolutional neural network that
+you're train TR based off of in this
+case from mest is isn't using similar
+enough data or it doesn't have high
+enough accuracy itself it can of course
+definitely influence the accuracy that
+you're getting on your Greek characters
+in fact in the next part of this
+tutorial I'll share with you exactly how
+I was able to build the system all of
+the challenges with it and of course how
+you can give it multi- Channel images
+and so so much more all implemented in
+carass with a tensor flow back end and
+so that's what I have had to cover in in
+this video today thank you very much for
+joining in I really do hope you were
+able to learn something from this video
+and enjoy so thank you very much if you
+have any more questions suggestions or
+feedback please do leave that in the
+comment section down below email it to
+me at tajim Manny gmail.com or you can
+tweet it to me at tagim Manny of course
+though if you like the video please do
+make sure to leave a like down below and
+share it with your friends or family if
+you think it could help anybody else you
+know as well apart from that if you
+really do like my content and you want
+to see more of it please do consider
+subscribing to my YouTube channel as
+well as it really does help out a lot
+and of course if you'd like to be
+notified whenever I release new content
+please do turn on notifications by
+clicking the little bell icon beside the
+Subscribe button below and so you'll be
+notified bya Google notification and
+email whenever I release new content so
+thank you very much for joining in today
+that's going to be all for this video
+goodbye

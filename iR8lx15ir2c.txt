@@ -1,0 +1,351 @@
+solo there and welcome to another
+tutorial
+my name is Senator Bakshi this time
+we're gonna be going over well the NS
+speech recognizer in Swift now I've
+already gone through a little simple
+explanation my drawing block tutorial
+however now I'm going to be going more
+in depth into it actually walking you
+through a sample app on how to use this
+and then we're going to test it out and
+see how it works so what this app is
+going to do is you're going to be able
+to say different types of food your
+favorite food and it will just write it
+one after the other on different lines
+you can tell it to pause like take a
+break
+and then you can say whatever it'll
+still recognize but will not write and
+then once you tell it to get back to
+work it'll actually work again
+so let's get started and first of all
+actually let me just talk to you
+this won't exactly be able to recognize
+speech technically it will only be able
+to recognize specific commands that you
+tell it to recognize for example in my
+drawing block this was perfect because I
+only wanted the user to say up-down
+left-right this that that this etc etc
+and so those are the only commands that
+I really need it however if you need
+like an extensive speech to text program
+then this is not the tutorial for you
+continuing first of all what we want to
+do is go to Xcode and also I am using
+Xcode 7.1 beta 2 and I'm also using
+actually I'm using the normal L Capitan
+GM or golden master for the final
+addition I'm not using the beta version
+of El Capitan though but again the
+source code will be in the description
+and if you need it for any other version
+just let me know in the comments or
+email me and I will get back to you with
+a different version of the code anyway
+first of all let's open up Xcode and
+what I'm just going to do make my face a
+bit smaller so you can see the code not
+my face and then I'm going to open up
+Xcode and then just click on create a
+new Xcode project now I want to create a
+single view application
+due to the fact that it's only when to
+be single view and it's just really
+basic application and I'm going to call
+this YouTube speech test okay let's go
+next save it and I'll just replace okay
+so now first of all what we're going to
+do is code the app then we'll create the
+UI so first of all on our code let's
+just create an iboutlet actually wait
+yeah I made a mistake this is supposed
+to be for Mac OSX not iOS so we're going
+to create a cocoa application and again
+YouTube speech test place okay now
+continuing first let's go to our view
+controller then let's create an iboutlet
+for our output as an NS textview if we
+build it should work okay continuing
+while that builds now basically what I'm
+going to do is I'm going to actually not
+create a function yet but let's just go
+up to our class view controller add
+another class and it inherits from and
+let's just say Anna speech recognizer
+delegate then let's great var SR or
+speech recognizer is equal to a new and
+a speech recognizer so what this is
+doing is first of all we're telling view
+controller to inherit from both NS view
+controller and additionally and a speech
+recognizer delegate then inside of that
+class we're creating a classical
+variable named SR or speech recognizer
+and then we're just telling it to be a
+new instance of the class and a speech
+recognizer next what we want to do is
+we're going to create IV action or
+actually we don't need an action
+instead what we'll do is in our view
+controller or actually viewdidload let's
+just put a new line of code and what
+we're going to do is set SRS delegate to
+our self or else why else would we
+inherit from NSP jerk and as a delegate
+that's the reason we do that after that
+let's set it commands so these are the
+things that we want to search for so
+let's just write up down some food like
+some chicken rice and goes again taking
+this from my UI tableview tutorial
+apples I just want a variety so that I
+can explain this and one more pears okay
+now let's just say SR start listening
+now it knows what to listen for it knows
+who to respond to once it finds
+something and we've told it to start
+actually listening for those things now
+how do we actually know when our SR has
+found a command well that's simple all
+we need to do is type in speech in our
+code and as you can see autocomplete
+generously gives us the function speech
+recognizers sender did recognize command
+now this is going to do is this is a
+function that will give you the command
+that the speech recognizer has
+recognized and so we could just do a
+switch case and check what they entered
+and then put that on but why do that and
+when you can just say output dot txt
+I mean string I'm very missed iOS plus
+equals the command that they said in a
+new line so it'll keep loading down all
+those favorite fruits now if I actually
+run this app actually have a little bit
+experience what happens is sometimes
+when I run this app and
+I'm actually recording audio and it's
+looking for audio it sometimes out of
+nowhere but gets a little scratching the
+voice so don't mind that if that happens
+chicken
+okay good it crashed that was completely
+expected so the reason it crashes
+because there is no output text view how
+it does it add stuff to something that's
+not there
+so in order to fix that let's actually
+put an output text view onto the screen
+by searching over here for a text view
+and then expanding and then connecting
+Oh other way and then connecting to
+output so now I've created an output
+text view and I've connected it to the I
+output I've yell it stop I run chicken
+apples bananas you get the point
+it completely works now let's say I
+wanted to say chicken in this sentence
+it recognized it and I'm just going
+bananas over this yeah you get the point
+I don't want it to listen to what I'm
+saying right now I want it to stop how
+do we do this without closing the
+application it's simple add some more
+code so I'm going to do is I'm going to
+add two more commands to it take a break
+get back to work so what this will do is
+it will tell it to stop listening for a
+while start listening for a while so do
+that then let's create a variable that
+will tell us if the state is currently
+break or work so our break state is
+equal to false if it's true meaning
+we're in a break we will not add
+anything tore speech recognizer or else
+if it is than we will so first of all
+what we want then what we sorry what we
+want to do is say break state is equal
+to now I'm actually want to make a
+ternary operator here command equals
+equals take a break if it is then true
+or else check if the command
+sorry command is equal to get back to
+work then false or else whatever the
+break state was before so simply what
+this is doing is if it's if you just
+said take a break then it'll set break
+say to true if you said get back to work
+it'll set it to false but if you didn't
+say either of those things you actually
+said of food it'll just keep it at what
+break state was if it was truly looking
+for truth it was false looking but false
+then let's say I'll put that text
+I mean string plus equals that's check
+if we're not in break state then we want
+to add the command that they said and a
+new line or else we want to add
+absolutely nothing perfect so this will
+essentially do reset the break state
+make sure that if they said take a break
+set it to true meaning take a break now
+but if it was get back to work
+then actually remove that and then if it
+was neither of those a true if it was a
+food keep it at break state then it'll
+add the actual command that was said to
+the outputs textview unless it was take
+a break or get back to work now you
+might be noticing that there's something
+wrong with this but you'll see what
+chicken apples rice mangoes
+take a break now as you can see I told
+it to take a break and then soon I will
+say the that word that tells it to not
+take a break so yeah actually I just
+said that it thought I said get back to
+work and so what happens is the thing is
+when we have get back to work it's
+setting break stick to false now when
+we're adding stuff to the output
+textview it's saying if not break state
+just add the command and so it's
+actually adding get back to work onto
+our view and we don't want this so how
+do we fix it well instead of this
+instead of just adding the command if
+we're not break state what we should do
+check before we add meaning if not break
+state commend not equal to get back to
+work or else
+I'm assuming this should work or does it
+yes it does
+so what I'll do if we're not in break
+state and command is not get back to
+work it'll just put the command and a
+newline on to the output text view or
+else nothing chicken mangos apples rice
+bananas pears take a break now I can say
+stuff like chicken mangoes mangoes rice
+bananas and it won't work but if I say
+get back to work
+get back to work as you can see it
+didn't note that down and I can say
+bananas or nevermind chicken bananas
+pears apples take a break and it
+completely works this is actually a very
+short app that I've made but let's just
+run down exactly what's happening in
+this code in case I was a bit too fast
+for you so first of all we're making
+viewcontroller our normal class for our
+UI inherit from NSP recognizer delegate
+sorry about that
+after that we are creating an iboutlet
+called output as an NS textview then we
+are setting break state to false which
+is a new variable which tells us if
+we're currently taking a break or for at
+work then we are setting a speech
+recognizer variable to the to a to an
+its went to an instant sorry of the NS
+speech recognizer class and also one
+more thing again this will only help the
+types of people that have specific
+commands that they're listening for not
+people who just want normal speech to
+text so if you wanted that sorry unless
+you put the entire English dictionary
+basically into the commands and that
+could work anyway continuing next we're
+setting the speech recognizers delegates
+to ourself and again one more thing it's
+not like Siri there's no natural
+language processing going on here it's
+just gonna give you the output just in
+case you were wondering yeah because
+that was also a misconception I have it
+once upon a time anyway continuing we
+are sending the XRS delegate to ourself
+because of course we made ourselves
+inherit from the NS feet recognizer
+delegate class then what we are doing is
+we are sending the commands to different
+different commands like chicken rice
+mangoes apples bananas pears take a
+break and also get back to work
+after that we are telling our speech
+recognizer to start listening so we can
+listen for the specific commands and we
+can append them to our text view or we
+can take a break or get back to work
+after that and our speech recognizer did
+recognize command function we are
+setting our break state to whether if
+they said take a break set it to true
+meaning we are take a break now taking a
+break now if they says get back to work
+send it to false meaning we're not
+taking a break but if it's not any of
+those it's just a normal food or some
+other command just send it back to break
+state keep it default however when we
+are when we are after
+laughter that's done we are adding
+something to the output text to string
+value and so this is a ternary operator
+we're checking if not break State and
+the command is not get back to work then
+append the command and a new line to our
+textview or else nothing or else nothing
+now actually now that I think about it
+there might be a little easier way to do
+this by just this this this and this
+much simpler instead of ternary operator
+inside a ternary operator nested they're
+just conditional one ternary operator at
+once
+so if I run this that should still work
+let's just try it out shall we chicken
+rice mangoes take a break okay okay nice
+okay
+get back to work rice pears take a break
+you get the point it works okay so as
+you can see I've actually shortened that
+down a bit and that's going to be it for
+this tutorial
+again all source code will be in the
+description and I actually have to start
+noting this down there's a lot for me to
+say in my outros aren't there anyway
+so rest of all if you have any questions
+app ideas suggestions or anything else
+leave it in the comments second if you
+have any of those or a video question
+which I may just feature in one of my
+next videos email it at Taji many of
+gmail.com my email will be in the
+description as well if you can't spell
+that third if you like my content you
+want to see more of it
+please subscribe to my channel it helps
+out I'm just one subscriber away from
+200 and force please consider following
+me on Twitter if you want to get updated
+with all my latest videos and news in
+general and blogs and stuff like that
+and that's going to be it for you this
+tutorial again oh yeah I forgot to
+mention my Twitter handle is at Tai Chi
+mani which will be in the description if
+you want to follow me and then after
+that I forgot what I was gonna say
+anyway continuing that's gonna be it for
+this tutorial if you liked it please
+make sure to subscribe the source code
+will be in the description that's gonna
+be it goodbye

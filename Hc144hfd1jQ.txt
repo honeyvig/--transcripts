@@ -1,0 +1,494 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is Henry Bakshi and
+this time we're going to be going over
+how you can use CUDA for massively
+parallel array arithmetic now in this
+video today I'll show you how you can
+actually implement CPUC code in order to
+take two arrays of constant links and of
+course the exact same length say 5,000
+elements in each array now we will be
+working with of course a lot more
+elements in this video but just for
+example what you could do is actually
+add subtract multiply or divide each
+element in the array for example the
+first element in the first array and the
+first element in the second array could
+be added together or even multiplied or
+subtracted or divided and that result
+would be the element first element in
+the resulting array third array which is
+the final return value now after I show
+you how you can implement that in CPU
+code I'll tell you a few of the
+drawbacks of converting this to parallel
+code whether that be parallel CPU or GPU
+code once that's done I'll show you how
+you can actually code in that very same
+system in CUDA C code to create a
+parallel GPU version of that massively
+parallel array arithmetic but now let's
+get over to the Mac part where I'll show
+you how you can actually implement all
+of this code alright so welcome back to
+the Mac part and now I'm going to show
+you how you can actually implement all
+of this now let's get started I was
+actually taking a look at a CPU
+implementation of such an application
+now as you can see this is a little bit
+of what the code looks like it starts
+off with the includes and of course with
+C we're going to be including the
+standard input and output and standard
+library libraries after that I'm going
+to this one define a variable called
+size and I'll talk about what that
+actually means in just a moment
+after that I'm going to declare the
+actual functions that will do the
+addition multiplication division and
+subtraction and in this case these are
+called matrix add matrix multiply matrix
+divided and matrix subtract the inputs
+for these functions are input 1 input 2
+the output where the output will
+actually go and of course the index of
+where exactly the inputs should be taken
+and the output should be given after
+that all they simply do is they actually
+take the output array or a pointer to
+the output array and they set the index
+element to the input ones index of
+element plus the input twos index of
+element matrix ad will then be called as
+many times as there are elements in the
+input one and input two arrays it will
+put the results in the output array and
+we use index to find out which were
+which number of the function is actually
+being called to find out which element
+in the array is to actually use and set
+very very similar logic is actually set
+for the matrix multiply divide and
+subtract functions except the fact that
+we're not adding we're either
+multiplying dividing or subtracting as
+you can see here but after that in the
+int main function we're ready for the
+actual logic that will allow us to run
+this code now of course it actually
+begins with allocating the input 1 input
+2 and output our X the way we do this is
+by declaring a pointer to input 1 input
+2 and out each one is equal to malloc
+meaning memory a lock the size we're
+passing it is the scien variable we
+design we defined up in the top of the
+code multiplied by the size of the float
+data type and then we're converting this
+from a void pointer to a float pointer
+and then putting that into n1 into and
+out respectively now you've allocated
+all of your memory now you actually have
+to give these variables meaning and once
+you give them meaning you actually have
+to allow these variables to be given to
+the functions and then once the
+functions have the variables they will
+run their logic on them
+the way you do this is by looping
+through zero to the size variable that
+we defined at the top of the code now
+the iterator here is going to be an int
+called I and the way you do this is by
+saying for int I is equal to 0 I is less
+than size plus plus I meaning while I is
+less than size with an initial value of
+0 increment I and then return its value
+or at least that's what this means over
+here now once that's done then you're
+going to take the highest element of n1
+and set it to the I variable you're
+going to take the if' element of n2 and
+set it to the I variable and you're
+going to take the highest element of the
+out variable and set it to 0 it will
+then run the matrix multiply function on
+the n1 and n2 arrays the out array and
+of course the I iterator after that
+you're done running the matrix function
+you can then print F the first 10
+results and then loop through I 0 to 10
+meaning 0 to 9 in this case because of
+the way that this is formed and from
+there you can actually print out all of
+the first 10 elements in the out array
+now if you were to run GCC to compile
+the script and then actually run the
+file that GCC gives you out you can see
+that the first 10 results are 0 1 4 9 16
+25 36 49 64 and 81 and let's make sense
+because of course the first element is 0
+10 0 then 1 times 1 2 times 2 3 times 3
+4 times 4 it continues and continues 5 6
+7 8 until it's 9 times 9 and as you can
+see that is correct
+now of course this is to be accepted or
+even expected because you're running
+this on the CPU so any calculations you
+perform here will be extremely precise
+however when running it on the GPU
+that's a little bit of a different story
+now let's talk about how you can convert
+all this code to GPU code which you can
+then go ahead and run and actually run
+this in very very highly
+parallel fashion in order to get your
+results not first of all there are quite
+a few drawbacks when you're converting
+this to parallel code whether it be CPU
+or GPU the number one drawback is well
+first of all this isn't very
+computationally expensive meaning each
+operation doesn't take very much time
+when each operation takes a lot of time
+that's usually when you want to
+implement more parallel procedures
+however again in this case we're not
+necessarily looking for whatever takes
+more time because we're doing so many in
+parallel that the plain fact that doing
+millions in parallel it adds up to give
+us a big time saving however apart from
+that you also have to remember that when
+you do things in parallel you also have
+to combine the results if you've got
+eight people doing work for you you need
+to actually go ahead and take the
+results and combine them into one list
+of results you can't just take the
+results and do and do nothing with them
+you can't just have eight separate lists
+of results and so there's another sort
+of bottleneck when you're taking all the
+results and combining them back to be
+used in another sequential manner and so
+that is what that those are just a few
+of the drawbacks however with GPUs these
+drawbacks are even more amplified
+because first of all GPUs do individual
+operations much slower and much more
+computationally expensive lis than CPUs
+do they also do them with much less
+precision than CPUs can do them and of
+course when you're using GPUs you have
+an entirely different memory space than
+when you've got CPUs what this means is
+that as you are using your GPU you need
+to copy your input variables onto your
+GPU memory and then once and do the
+calculations in the GPU you need to copy
+the output variables back onto CPU or
+host memory now this is quite a bit of a
+bottleneck and this can become one of
+the reasons that your application
+performs slower on GPU and faster on GPU
+however with extreme parallel operations
+this cost is really nullified
+the CPU in general will take more time
+to execute than the GPU would to copy
+onto the GPU run and then copy back and
+so now that I've discussed all of this
+let's talk about the CUDA implementation
+of this code now when you're doing when
+you're running a CUDA implementation you
+don't need the standard library because
+you're not allocating any memory on the
+host without CUDA so you only need to
+import the standard i/o header after
+that you can define your size which in
+this case I'm also defining Mehan as one
+million now after that there are a few
+changes in how you actually declare
+functions that will do the addition
+multiplication division and subtraction
+now the first change that you can
+probably see is that there is a global
+defined and defined in the beginning of
+all of these functions what this means
+is that it'll tell the CUDA C language
+this is a function that can be called
+from either device or host after that
+we're just of course telling it that
+this will return a void that's default
+and then of course I'm also putting a
+kernel underscore before the matrix add
+matrix multiply matrix dividing matrix
+subtract this doesn't have any language
+meaning it's just that of course it's a
+little bit more clean and you can this
+is really just a terminology that we're
+using always CUDA kernel if you don't
+exactly know what that means well I'd
+really really recommend that you watch
+my previous to the tutorial which will
+introduce you to all the basics
+terminology drawbacks and benefits of
+CUDA before continuing to watch this
+video after that you can go ahead and
+declare the input that this function
+takes as you can see this function will
+take input 1 input 2 and output as the
+inputs to the function the parameters or
+the arguments into the function these
+are all float arrays however you will
+notice that I'm no longer taking an
+index integer why is that well it's
+quite simple because now instead of
+running for example matrix add 1 million
+individual times I only call the
+function once and CUDA will
+automatically run it those millions of
+times for me I just need to specify how
+to run it millions of times from their
+kuda will automatically give this
+function a few different variables like
+block index block dimensions and thread
+index from there you can calculate the
+index by using those variables that
+cooter gives you once you calculate the
+index then you can actually calculate
+what the user needs you to calculate
+which in this case is the output index
+element is equal to input 1 and input
+twos some of their indexes element from
+there I do the same thing for the matrix
+multiply matrix divided and matrix of
+track functions except instead of using
+as addition I use multiplication
+division and subtraction but after that
+there are a lot of other changes in how
+you actually call those functions let's
+talk about that
+the first change that you can probably
+notice is that we're not running the
+malloc function anymore of course we're
+not running memory a lock because if you
+watched my earlier video you know that
+running malloc will actually give you
+page' belen ree and page double memory
+is not very efficient for cuda memory
+transfers and this is because of course
+page will memory maybe swap memory it
+may be giving less priority and in
+transfer times and just generally page
+will memory is much slower than pinch
+memory with page real memory you might
+be getting 4 to 6 gigabytes per second
+whereas with pin memory you might be
+getting 11 or 12 video bytes per second
+with these sorts of transfers and so in
+order to allocate this pinned memory
+what I do is I run CUDA host a lock and
+this will make the CUDA library allocate
+memory on the host instead of using a
+host function to allocate memory on the
+host for you in essence I pass a pointer
+to N 1 into and out I tell it the size
+of these variables in this case the size
+constant times the size of the float
+data type and then I pass it in CUDA
+host out lock and default enumerator
+essentially this will tell it that we're
+just doing
+a default host a lock after that what I
+do is I initialize these variables in
+one into and out by setting of course as
+you saw in the last CPU in one's AF
+element to I into science element I and
+outs AF element to zero after that what
+I do is I declare three more floats and
+these are d underscore in one into and
+out now what does the D underscore mean
+well D underscore stands for device
+underscore now what this means is that
+these are the variables that will be
+stored in your device or GPU memory
+instead of your CPU memory the way you
+do this is by instead of running CUDA
+host a lock this time you'll run
+cudamalloc this will run the memory
+allocation functions of CUDA and this
+will allow you to allocate memory on
+your GPU you'll pass a pointer to the
+device in one into and out and you'll
+pass it the size of these variables in
+this case the size constant times the
+size of the flow data type for each and
+after that you will actually copy the in
+one from the host to the n1 to the
+device and similarly for in two and out
+now the way you do this is by alarmingly
+cut out mem copy function you pass it
+the variable in which you want a copy
+and then the variable from where you
+want to copy you then pass it the size
+of the transfer and you pass it from
+where to where you're copying in this
+case we're doing tuna mem copy host to
+device so we're copying from CPU to GPU
+memory after that I run the kernel
+matrix multiply and over here we've got
+a little bit of logic that will tell
+CUDA how exactly it should run these
+functions or run this function
+now essentially what this means is that
+we're taking the size in which case is 1
+million and we're telling CUDA how many
+blocks there should be now a block is
+essentially a block of threads now do
+remember that the GPU that I'm using the
+gtx 1070 can only run ten twenty four
+consecutive threads in one block at
+least not on the chip on a block and so
+what you have to do is calculate how
+many blocks you'll have to use now in
+this case you have 1 million of these
+you have 1 million individual a 1
+million 5 in 1 million elements meaning
+that you want to run this function a
+million times now you can only have 1024
+threads in a block and each thread will
+handle one individual element so now
+what you need to do is divide this by
+1024 and that's how many blocks you'll
+use but then there's a problem what's
+the problem
+well let's just say that you have less
+than 1024 elements say 300 elements then
+you don't even have one single block so
+you need to take all these and add one
+block to it and similarly if you have
+over mil over 1024 then that doesn't
+really matter CUDA will just ignore that
+extra block and of course the number of
+threads that you're using are 1024 so
+you calculate the number of blocks and
+then tell that you have 1024 threads now
+after that you pass it the device
+variables for in one into and out
+finally once that's done now this is
+going to be run synchronously it's not
+like you just started the task and then
+it'll return to you it'll automatically
+wait and once all of it is done
+executing and this is really the best
+part about CUDA it's not asynchronous
+unless you want it to be you could tell
+it to happening synchronously however it
+becomes a lot easier to program in a
+circumstance like this where I want it
+to act like a CPU function or a
+sequential function whereas everything
+that's parallel is handled in the
+backend
+is actually happening but once that's
+done I then run kunam em copy and I
+actually copy into the host out variable
+from the device out variable I give it
+the size and I tell it that I'm copying
+from the Vice Center to host memory
+because remember the output of this
+function was given in device memory I
+now need to copy that from device memory
+over a host memory and then in host
+memory I can do it ever else I want to
+win it and from here it's as if nothing
+ever happened with the GPU it's as if we
+just had those results just like the CPU
+gave it to us we can use it just like we
+would any other result from there you
+can print out first ten results using
+the exact same logic that you did last
+time I'm now going to exit out of the
+editor and run MVCC the nvidia cuda
+compiler i'm going to pass it my cuda
+file I mean want to tell it that I want
+to run you can specify an architecture
+though for example if I were to run you
+can see for some reason it will
+automatically use older architectures
+and so in theory I can actually specify
+it to use newer architectures and it
+uses a newer architecture the warning is
+not given to me because this one is not
+deprecated this is the latest
+architecture compatible you compute 6.1
+architecture and I can of course also
+apart from this SM I can also use the
+compute architectures they both work
+perfectly and as you can see we again
+get the correct results because of
+course zeros on 0 1 1 1 times 1/2 times
+2 3 times 3 4 times 4 etc etc all the
+way to 9 times 9 and as you can see all
+these results are correct which again a
+cheap you isn't even not that precise it
+is it is more than precise enough to
+actually give us these results correctly
+and as you can see we have run all these
+one
+multiplication problems in parallel
+now of course though if you're looking
+to get an advantage while using a GPU
+over a CPU you definitely want many many
+more operations to be run in parallel
+because of course we're copying
+megabytes two gigabytes of information
+to and from the CPU and GPU and so you
+need enough of those operations to
+balance out the disadvantages of the GPU
+gives you the drawbacks of bottlenecks
+you need to balance those out and of
+course running more and more things in
+parallel will definitely help you do
+that okay so that's why I had to go over
+in this video today how you can actually
+take CPU code that allows you to do
+arithmetic on a on a raise and actually
+go ahead and convert that to GPU code in
+CUDA I really do hope you enjoy today
+thank you very much for joining and of
+course if you like the video please -
+make sure to leave a like down below and
+of course if you think this could help
+anybody else you know like your friends
+our family please do consider sharing
+this video as well of course so apart
+from that if you have any more questions
+suggestions or feedback please do make
+sure to leave it down in the comment
+section below you can you can also email
+out to me at Tasmania gmail.com or leave
+it down as a comment in the comment
+section below or even tweet to me ask
+Taji mani that's going to be it for this
+video today thank you very much for
+joining and if you'd like to subscribe
+to my channel if you really do like my
+content you want to see more of it
+please do and of course if you'd like to
+turn on notifications please do as well
+if you'd like to be notified of any more
+of my future content right as I release
+it over email and YouTube notification
+so thank you very much for joining today
+stay tuned for the next part of the
+Kunis series and of course - I will also
+be starting an entirely new C and C++
+series talking about all of these C
+basics in the first place thank you very
+much goodbye

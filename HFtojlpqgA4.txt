@@ -1,0 +1,194 @@
+so hello and welcome to the tutorial so
+today I'm gonna be and my name is Tammy
+Bakshi and today I'm gonna be talking
+about an app that I created and this app
+was written in Swift which is Apple's
+programming language for Mac OS X and
+iOS 9 or iOS 8 and it also works on iOS
+9 so yeah this app will essentially
+allow you to take a borrower's name and
+I am named and also an image of the
+items that they borrowed from you and
+upload it all to a database on the web
+so that you can access it from any other
+device whenever you want yeah so this
+app is mainly targeted towards people in
+you know grade 11 grade 12 that are
+trying to do computer science maybe
+making a project then and they need to
+upload images to a database it would
+work for them it could work for even
+professional app developers that are
+actually trying to create apps that need
+to actually upload images that the user
+gives them onto a database stuff like
+that and yeah I'm just going to go to
+our Mac now and you will see the app in
+action so as you can see here I have my
+iPhone here and so I already have the
+app up and running and so as you can see
+this is a UI tableview in which all of
+the entries are put in so we have Frank
+took my mouse and then a picture the
+mouse Travis took my well it was
+supposed to be marker but again
+autocorrect made it market so apparently
+he took my market but as a picture of a
+marker there and then Tom took my
+glasses and then picture their glasses
+and then Tim took my USB extension and
+then the picture of the USB extension
+and so now that we have all these why
+don't we actually try uploading
+something so to say we upload and let's
+just say the person in this name is
+Frankie
+and then let's just say the item that
+they took or my headphones that could
+work so now I'm just gonna choose an
+image and as you can see here I'm just
+going to take my headphones take a quick
+picture and then as you can see it asks
+me if I want to take a retake or if I
+want to just use the photo so I can
+click on use photo and as you can see
+after a little bit of delay which is one
+of the known bugs in the app it will
+actually start spinning the UI activity
+indicator view which will tell the user
+that it's uploading and also this back
+button here is now disabled so that we
+cannot go back while the uploads because
+then it would be in between and
+operation and then the next time you
+would open the app it would just crash
+so once this is done uploading and again
+sometimes it takes longer than other
+times but usually it's quite fast 30
+seconds to a minute
+at max so usually this can be done in
+like 15 to 20 seconds sometimes if your
+Wi-Fi slows 30 seconds and if it's
+really slow or if it's a really big
+image and it'll take around a minute so
+as you can see the uploading bars gone
+and the back button is now enabled so if
+I click on back you will see that the
+back button gets clicked but then we're
+still at the view like what happened I
+don't know but what actually happened is
+it's loading up the images from my
+website and it's putting them into the
+table view so it's downloading each
+image again and it's basically putting
+each one into the table view one by one
+so if I just wait a second this will in
+fact just load up the entire UI
+tableview with all the entries and we'll
+also have additionally Frankie took my
+headphones and then a picture of the
+headphones just so I can make sure that
+they're not damaged and just really make
+sure that they're mine so yeah that'll
+load up in a few minutes until then what
+we can do is I'm just going to minimize
+that and let's just go oh as you can see
+it has loaded up and as you can see we
+have the classic entries that were
+already there
+right to her mouth Travis took my marker
+Tom took my glasses and took my USB
+extension however if I scroll down here
+in just a second sometimes it freezes up
+like that a second again this is a
+pretty big app so it does take some time
+to load up so as you can see I can
+scroll down even more and it says that
+Frankie has taken my headphones and then
+a picture the headphones so now that
+you've seen a slight demo of the app
+let's actually get let's just skim
+through the source code here and as
+always the source code will for sure me
+in the description 100% on github like
+always
+and so this Apple essentially take the
+swift parts and the objective-c part
+makes it together and the the iOS end
+which is both Swift and objective-c will
+contact PHP PHP will upload the image to
+web server on my GoDaddy and the name
+the item and the name of the actual
+image itself will go to the database so
+that we can store it and then this is
+the UI for the app you should see you've
+already seen this but we have the reload
+upload the name of the person the item
+they took and an image of the item
+inside of a costume table view cell and
+then we have the UI for the uploading
+which is the name of the item the name
+of the person sorry and then with the
+item then you can choose an image you
+can go back and it will tell you if it
+is currently uploading apart from that
+we have view controller dot select which
+will do some basic stuff you know it'll
+it's basically the heart of the entire
+app itself it controls the entire PHP
+and the database and the web server it
+just does everything that its little
+branches can so in just a second here
+and as you can see we have an extension
+to the string class which will allow us
+to get specific ranges of character were
+actually just specific characters itself
+from strings and also apart from that we
+have a class view controller which
+conforms to UI view controller
+datasource and UI tableview delegate
+it'll also conform to UI navigation
+controller could I'll get and
+uiimagepickercontroller delegate apart
+from that this is just all some
+variables and IB outlets we are
+declaring then we have a function called
+buted load and this function is called
+whenever we whenever we run the app and
+this function over here is called
+whenever a boolean updates meaning
+whenever we're done uploading this
+function over here is the reload
+function it's called whenever we click
+on the reload button this button will
+basically hide the keyboard whenever we
+touch somewhere on the screen this
+function here will get JSON values from
+my websites or actually from the
+database and put it into the table view
+and this function will tell us how many
+rows in the section there are for the
+table view and this function will
+actually be able to make a cell for each
+cell that's required in that table view
+this IB action will allow us to start
+taking a picture this function will
+allow us to pick an image and then we
+can put that from the image picker
+controller to the actual web server
+itself and the database and this will
+allow us to get all the contents inside
+of the well basically all the names of
+the images inside of the ID the inside
+of Mike from my database and then this
+function will just allow us to parse out
+all those names from the all data and
+yeah that was really it for this
+tutorial please subscribe if you if
+you're new to the channel like the video
+if you liked it comment if you have any
+questions you can even email me and I
+will get back to you as soon as possible
+and yeah I hope you guys liked at Khan
+Academy most importantly and yeah that
+would be it goodbye

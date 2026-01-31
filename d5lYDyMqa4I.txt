@@ -1,0 +1,116 @@
+hello there ten minute back for another
+video on SQL server we're still on the
+topic querying but that'll be fixed in a
+little while if you're really eager to
+get on and start doing some really bad
+stuff and getting straight to the point
+of SQL
+well you're not ready for that yet so
+what we're gonna do now is we have the
+Select statement and you should know um
+basics of Select now another basic is
+that let's say you had you wanted to
+know okay
+let's first of all look at my entire
+table sorry
+um execute and I let's say I had many
+many more flavors and I just wanted to
+get one well it would take a few hours
+to go down up and find that one um
+flavor that I wanted to check but
+instead of that the smart person that
+may SQL came up with this command where
+a where Clause will only select
+something from the table so let's say
+you wanted um let's say you had a list
+um and you wanted to select one flavor
+from that list you would go
+select start from eye cream yes but then
+you again you do not want to scroll
+through the whole thing so what you
+would do is you would go where flavor
+equals in single quotes type in what the
+flavor you want let's say I want vanilla
+what I do is I go execute will only give
+me the result for vanilla let me see if
+I have
+their table that I think I had one yes
+here tester that was my first table
+select star adjusted so this is all the
+records I have on for this table
+now what we want to do with this table
+is we want to let's say find only people
+the last name um this last name which I
+cannot say arm select star from tester
+where I'll name equals it gives me the
+only two results that have um the last
+name as last name there so this is what
+you would do and let's say you want
+let's say you had an ID in your table
+that fits in with my ice cream table so
+select star from eye cream let's say you
+had a person ID like who is what and
+someone gave you their ID and you wanted
+to check them in the database what you
+do select star from eye cream where
+cereal equals
+ah let's say the person ID is for now
+this code is just an example serial
+could be whatever you want to name it I
+cream could be whatever the table is
+star you could just have the serial and
+a first and last name uh yeah so and
+then this for two you could it could be
+anything it could be it has to be
+person's ID so then let's execute that
+and there we have cereal for flavor choc
+bar quantity on hand cost and sit so
+what we want to do now is we're getting
+a little more advanced with the rare
+statements so why not let's why not say
+let's say there was a specification the
+person's ID is this and uh their first
+name is this let's see if this works
+this would be a little more appropriate
+to do with my tester tables so select
+start from Chester just ah and then
+let's just check out that table here we
+have many records and we want to find a
+specific one remember when I did a
+specific last name - um uh family
+members came up in this table so what I
+want to do is just get one specific
+person from that family so what you're
+going to do is select start from Chester
+where F name is equal to UM F name is
+equal to pair F name universe name L
+name is equal to their last name
+and then anyone could have the name
+first name last name but let's say you
+have their email you want it enter that
+into email equals now if you just do
+this it's an error what you want to do
+is end and so it'll give you the
+specific result that has the F name as
+the first name you want ask name as last
+thing you want and the email as the
+email you want and then if you're really
+specific instead of um email you could
+put an address or something like that
+but then if you um didn't know the
+address that wouldn't be good so that's
+why I do like you one so address can be
+no but email last name and first name
+cannot so I'd rather query first name
+last name and email rather than querying
+the address and the let's say last name
+and first name because the address can
+be no and then it'll give you many
+results because anyone can have the same
+person name and last name although that
+is rare it happens so that's our
+tutorial for SQL where statement like
+the video if you liked the video like it
+if you just liked it then this like it
+I'll subscribe to my channel and yeah
+good time

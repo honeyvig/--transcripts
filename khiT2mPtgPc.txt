@@ -1,0 +1,1156 @@
+hi I do it there you're joined myself
+James archery
+Ivan Ivan cloud advisor and we're joined
+with Jen we've actually all there I'm 13
+years old
+exactly Jamie what are we going to be
+doing today all right let's begin no
+dissent for today I wanna onions
+Facebook live events we're going to be
+talking about how you can co-pilots a
+parrot ar.drone to point out with watson
+conversation let's begin the showing so
+essentially the entire idea behind the
+project is that you'll be able to talk
+to watson conversation and essentially
+kind of chat bot and you'll be able to
+some he copilot it I don't have a drone
+you can walk in conversation so unless
+we can tell all right explain - it works
+I'd like to show everybody a really
+quick demo of how it works so let's take
+a quick look at the drone as we get the
+drone into a flight position you can see
+this is our drone over here parrot
+ar.drone 2.0 okay and on the screen
+behind me you should even see that I
+have a no trance application which was
+able to communicate with Watson
+conversation and is able to ask me for
+input so as you can see this node.js
+applications have started a new
+conversation with IBM Watson and Watson
+says hello there my name is Watson your
+conversational German pilot what would
+you like to do
+all right now that Walken's asked me
+what I'd like to do I can only ask for
+anything
+now essentially with this project you
+can firmly ask for battery information
+altitude information you can tell it to
+take off you can tell it to land you can
+tell it to rotate clockwise or counter
+clockwise and you can even tell if you
+don't
+up or down all right so let's start with
+asking it about battery information so I
+begin here as you can see in which ask
+it for battery and it says I'm sorry if
+your drone didn't provide me with this
+information can so sometimes when the
+story is connected
+the special device that I have here it
+just says sorry I wasn't able to get a
+confirmation yet so now let me actually
+just connect it to that device really
+quickly and then while Tammy works on
+the technical difficulties as we know
+software always likes to be shy when
+we're demoing one of the cool things
+about Watson technology that we're using
+with IOT devices like drones is we have
+a huge large partner actually based on
+the Germany that is using Watson visual
+recognition software with their drones
+to identify Russ and because this feel
+and its be composing if they need to
+send people actually out to the site
+therefore they're going to save time and
+money money and energy and potential
+safety from the these people having the
+kind of tower on cells that might not be
+worth needing to be searched for so
+other examples are people are using
+these drones again with visual
+recognition software they're training it
+into oil pipelines so they can see what
+are the insides of the pipelines like
+order and you can't have people go in
+there so it's nice to have that aspect
+to check it out and get a better closer
+inside view on that special capabilities
+another example of what we're using this
+capability again with visual recognition
+and controlling the drone in the
+conversational aspect is out in
+California or using the Watson
+capability to identify drought areas
+with the drones flying over and
+identifying which people are actually
+violating for lack of a better word the
+regulations in around whether or not
+that can be using the sprinkler systems
+all day every day right so you can see
+there's a lot of applications for using
+just even just for the drones Watson's
+capabilities on top of maybe leveraging
+it or as you've seen or heard with how
+Amazon is going to be using them
+potentially to deliver packages however
+is possibly thinking about using them
+for delivering food right even maybe now
+medical supplies may be your emergency
+situations where people are in a
+distraught and if you want to do for
+emergency rescue services right and can
+use those drones to identify issues so
+what I'm saying are we good
+I keep going all day every day on this
+and that's how awesome IBM is and how
+often we are available to work with you
+so one of the cool things that Tammy is
+going to show it
+this is publicly available on the
+Internet so you go to bluemix.net and
+type in Watson these capabilities are
+available to you know continuing though
+let's actually take a look at how
+Watson's able to control our drill so
+now let's begin so so as you can see if
+I ask it for battery information it says
+that the battery percentage in your
+drone is currently 100 percent aha the
+Raspberry Pi shut off by mistake so now
+it's back around and our server is set
+up again now let's say I'll continue
+like you of course also asset for
+altitude information so now we see them
+see I asked it for altitude information
+and since the drum is lying flat on the
+ground
+is that your drones current altitude is
+zero if you'd like you can tell me to
+increase or decrease the altitude alpha
+drone along with a rate of descent or
+event from 1 to 10 all right for now
+let's say we wanted to send commands to
+the drum now these commands could be for
+kicking off landing rotating going up or
+down all these of the commands so let's
+try it out now one more thing I just
+like to say is that this drone is quite
+loud when it is mid-flight so I won't be
+able to talk to you while the drum is
+flying so unfortunately I'm going to
+tell you what I'm going to do with
+walking conversation right now do it on
+the drone and then once the Joan is done
+land and it's you know landed then we'll
+be able to talk together again and I'm
+going to show you what Watson replied to
+my phrases so let's begin so right now
+what I'm going to do is I'm going to
+take off the drone make it move up I'm
+going to check the altitude make it go
+down check the altitude once more and
+then land let's try that out so let's
+begin with a take off man
+all right
+[Music]
+I dissipate go up
+and that will be Atlanta bright all
+right sweet now that actually went
+completely and if you can see back to
+the PD average said take off what we
+understood my intent to take off and
+said all right taking off
+it was then even send a command take off
+to the raspberry x who then send it to
+the drill I can also tell it up sweet
+and what this means is that lots we will
+move the drone up at a pace of three
+okay then I said stop okay
+now you will begin to fuse when it's
+soaked moving up it didn't land it just
+went back into its own color stick how
+did that happen well essentially the
+stop and Lance commands are not the same
+if you I mean what stop actually means
+is it will actually stop quite literally
+up-down and rotational movement and
+notational by the way 200 clockwise or
+counterclockwise all right so
+essentially land would actually land the
+drone we're still puts it into a new
+hover state instead of allowing it to
+move more all right but essentially the
+difference so now it's stopping me up
+it's just like hover at that new
+altitude that it has reached and next
+down for either down for that means of
+course a human will be able to say if I
+want to move the drone down at a pace
+before Watson understands it as well
+and so it says alright going down at a
+rate of four alright then I say stop
+once it reaches a sufficiently low
+height and then I asked it for altitude
+information and in this case it actually
+got quite well so it's a 0.23 five
+centimeters which was correct
+all right all right your platoon three
+five meters now can choose between
+target for everyone that's because we're
+actually in Canada right now in the u.s.
+adopts we were recording by the
+different system metrics yeah alright so
+continuing belt that was pretty
+interesting this time let's try painting
+off rotating clockwise and then rotating
+counterclockwise then when
+shine out shall we let's take off
+I think John
+oh right so now the reason you saw that
+stop in between and go down and
+sometimes when the propellers don't want
+to work it just kind of lands them sold
+but it did it was able to recover and
+get back in the air
+so essentially let's take a look at
+Watson's responses to and that landing
+installing though has nothing to do with
+the code correctly
+okay the drums only for strong I guess
+but again it's able to recover okay
+that's fun let's take a look at Watts
+responses now shall we so essentially
+again I just take off and it says
+alright taking off now when I said
+rotate clockwise or if it's alright
+rotating the drum clockwise any piece of
+four so now one more thing I'd like to
+say is that the speed in this case is
+four
+however it can lead from one to ten
+really and it's any number between one
+and ten all right so essentially one
+more thing I'd like to say is this is
+where Watson's powers come in so
+essentially instead of me having to
+manually program in every single
+sentence all right rotating the drum
+clock lines or the paces once all right
+located in Osaka education like two
+three four five interns me having to
+create all of those sentences one by one
+Watson conversation will understand the
+entities inside of that phrase along
+with your intent and after doing some
+analyzation you know the pattern
+recognition she's learning a lot sort of
+stuff it will be able to eventually tell
+me and it actually generate a sentence
+all right rotating the drones clockwise
+at a piece of course and it would be
+able to keep repeating that like four
+five six seven eight without you having
+to enter in verbatim each time perfect
+and that's where the machine learning
+element comes into that correct yeah
+Sachi and of course the machine building
+element also comes in the same place
+when it's deciding what you said so like
+rotate clockwise for that's essential
+machine learning algorithm and walk the
+conversation which I'm going into in
+just a little bit and that's able to say
+that hey the user actually wants to
+locate right now
+all right so continuing them all right
+now after that I stopped rotational
+movement and then I told it to rotate
+counterclockwise and speed of four all
+right so now essentially as I said is
+able to understand the entities
+paralyzed and forth and the content as
+rotates so it says all right rotating
+around counterclockwise a piece of four
+okay so again it's in to extract the
+intent and entities and generate
+suspension then I told to stop one more
+and then I'll and withdrawal and that is
+essentially a quick demo of how the
+drones capabilities work but now let's
+get into how the drone actually works
+yeah you have like logic or so we can
+see how that looks
+take a look that so now if I wasn't fast
+enough
+what you see on my map where Watson or
+input that will essentially the main
+nodejs application that I have running
+on my Mac all right now there's one more
+critical aspect to this application the
+internet now seamlessly wondering why is
+it so important for nodejs to be able to
+communicate with the Internet well it's
+because Watson is on the Internet as a
+REST API which is again what I want
+Aquarius advantages you don't need a
+device that has a ton of computing power
+to able to use it you can use it from
+any computer any device as long as
+Internet exactly going to have
+interaction and programming these
+capabilities that allowing you to
+connect to the internet
+okay now the drone I mean the main
+nodejs application is able to
+communicate with watson conversations
+via the interest okay but then we have a
+problem and the problem is that we're
+using a parrot ar.drone to point out why
+is this a problem you may ask well Paris
+decided that they did not want to use
+bluetooth with this drone but instead
+they wanted to use whitewashes so now
+the reason that this is a problem not as
+well the reason that this is a problem
+for us is because well I mean first of
+all when you have a Wi-Fi for interface
+it can only connect to one connection at
+a time however we Bluetooth as you
+probably know you can connect to
+multiple connections at a time your
+keyboard mouse webcam microphone eating
+a drone at the same time and so now we
+have to somehow find a way to bridge the
+drones Wi-Fi hotspot with the nodejs
+main applications internet connections
+and so in order to do this there's a
+sort of secret sauce that I use which in
+this case is a raspberry pi okay
+yeah so if you didn't already know the
+raspberry pi 3 has network interface
+still a Wi-Fi network interface built in
+now using this built-in Wi-Fi interface
+I can connect to one Wiseman connection
+and then I just install a new USB for
+the Wi-Fi dongle occupy as well and so
+now we have to in that connection okay
+one is going to Jones and once the name
+internet connection and so now
+essentially I'm able to use the no
+transmitter application to send commands
+to the Internet which goes to my friend
+hi which is then sent to the jones Wi-Fi
+hotspot and in terms of a drone and I am
+of course also able to bring information
+from the drone to the Internet to the
+main application where instead goes into
+walkie conversations grunts experiment
+which I will talk about in just a moment
+now just in case you're wondering so
+what it is actually works is by using an
+HTTP or technically free HTTP servers on
+the Raspberry Pi one listening on port
+4000 one on 5001 on 5500 now if you're
+wondering what these sports are well the
+4000 port essentially allows me to have
+a live PNG stream of the drill so
+essentially it
+from frieza's front-facing camera of the
+drone using why screams choose export on
+the 5000 port I have a JSON lots of JSON
+navigation data which is being pulled
+from the drone everyone seconds
+essentially this data contains a lot of
+stuff it contains like movement data
+rotational data battery temperature
+pressure
+literally everything you can imagine
+about the drill okay and so that's
+essentially and of course that actually
+goes into the contest variable water as
+well and want to go to the context
+variables Watson watches it quickly as I
+said aware about what the drill script
+battery level is in the altitudes all
+little stuff of course and of course
+45,500 is sort of main horse I guess
+it's essentially reports that takes
+ripping on the pipe for commands from
+the mill jazmyne applications which
+comes in turn from Watson and so
+essentially this port will listen to
+those commands and why is it gets firm
+it'll do a little little analysis on
+them and push those to the drum and then
+the drug will be able to execute that
+command alright so as I said I can't go
+plug it into that I was just saying that
+if you'd like to see the source code all
+this application to actually they'll try
+it out for yourself include this one
+logic in your own applications please do
+because right after this event this go
+through the open source ultimately no
+one actually let's just do that right
+now why don't we so if I go to my github
+page here awesome chill so it's sunny
+and maybe I would like
+and your your github name is tan maybe 1
+2 3 yes nice so now if I go to desktop
+and as well setting the wall he does
+that he has a whole bunch of other
+applications that he's created and these
+open source that code on there right for
+example like at San Mae you built on
+there and also I think you've also got
+some really good demos on YouTube right
+ok I made that she so it's a really cool
+place to where you can check out one how
+they leverage his code to work and build
+out your own drone or built your own
+I think you did like a mousetrap IOT
+device at one point yeah nice so is it
+now published yes I mean that that's not
+github just yet that's going to be like
+it like soon though
+and then I mean once it's on get help
+though I will think about it so
+whoever's walking right now if you want
+that code it will be up to what's it are
+we gonna do yeah actually I'm going to
+get into how Watson conversation now I
+can begin adaptive walking conversation
+does a majority of pre-much all
+processing in this application ok now
+let's just say that your frame is go up
+at a speed of 2 now a human would
+actually within like a middle section
+will be able to tell you that your
+sentence means you want to you want the
+drone to go upwards and the pace at
+which do that is - okay well I'll
+computer candy bastards all right a
+computer does not understand natural
+language at all okay however again we're
+talking about Watson which is able to
+introduce artificial cognition into this
+and able to understand this natural
+language by extracting the signal from
+the noise essentially no okay this is
+natural language it has a lot of noise
+as a computer just stopped at me and so
+we have two though pieces of key
+information and these business
+Meishan are up and - okay and these
+pieces of key information are called
+empathy and lots of conversations pain
+alright so now for example up all right
+when I was trimming Watson conversation
+I defined an entity type and I call that
+entity type up down direction now up
+down direction the entity type has two
+values up and down alright and in this
+case it shows the value up because of
+course I was a drunk to me up alright
+next we have a feed every time when I
+was trained Watson conversation I gave
+it the speed entity type and it has ten
+values 1 2 3 4 5 6 7 8 9 and 10 are its
+values and in this case since I chose to
+go up in a sea of two it'll say -
+alright which is correct now we have the
+key pieces of information extracted all
+right and that pretty does alright but
+we need more information to be able to
+actually determine what the user means -
+brain so in this case that team that key
+piece of information is called an intent
+all right so now what is mentioned well
+technically we could just turn in what
+the user means by looking at the
+entities of their friends button cuz
+they okay I'll go over to see - but
+let's just say that you happen to say
+take off and you find a face mention up
+and you by mistake mention - if it were
+just a certain amount of entities it
+would go up in a state of - even though
+haven't even taken off yet I'm so in
+order to solve this problem we use
+intent now just a little bit of history
+about watching if you'd like to hear
+this essentially before Watson
+conversation is released just a few
+weeks ago in fact there used to be a
+service called walkie dialogue ok so
+what can dialogue was essentially the
+old times walking conversation alright
+it helps you to create chart box but
+they didn't have the intent ability it
+was just the dialogue
+I love flow and entities alright however
+that I mean that was powerful but a lot
+of people started to combine the natural
+language classifier with dialogue it
+would deplete very powerful chatbox and
+so essentially what the guys over at
+wants to decided to do and just before I
+continue I'm sure you all heard of this
+one of the most famous examples of this
+was the newly selected sample right
+where you could give it you know in a
+chatbot information about the type of
+movie you like to watch and then it
+would be able to suggest like a movie
+for you to watch okay hi remember play
+nice application it was able to combine
+the natural language classifier with
+walk and conversation to create one of
+those really powerful chat box all right
+but now that was one more problem okay
+so are not probably necessarily but the
+gut isn't locked inside it why not
+merge NLP natural a massage fire and
+dialog to create conversation resent
+attire dialogue alright that was a great
+idea now essentially we have one service
+called conversation that combines the
+natural language classifier along with
+dialogue that you have intense entities
+and the dialogue well and of course if
+you just like to use conversation like
+dialogue go ahead and do it there's not
+one helping you I mean you the end has
+the intense and entities features or
+completely optional you don't need to
+use them so you can make a conversation
+act like dialogue so like if then if
+they respond with this just respond with
+that you can make it but it's very
+manual and it takes a lot of in whereas
+within ten like you said you didn't have
+to write out the whole sense of all the
+time like if I wanted to change my
+flight if I didn't say JFK if I just
+said JFK and not Airport it still knows
+with that accident because I'm in this
+type of an app I'm looking to go to JFK
+right and that's how he really does help
+out so let's say
+we have this rake all right now even
+though we are technically sending this
+race to watch some conversation to
+understand the intent the algorithm
+behind how watching conversations
+classify it is the same as the natural
+image classifier so say to assume that
+we are actually sending this request to
+the natural language classifier just
+with a different API is that the
+conversation search so these are also a
+pion is right yeah these are always yes
+the natural response wire conversation
+dialogue needs to be one many more
+powerful services that you can combine
+into your application to take one very
+powerful application in fact one more
+thing is a little bit off topic but one
+more thing I will recommend it
+so the combining some services like or
+even lines with conversations create
+extremely powerful chat box that can
+provide useful information to your users
+but continuing zel so again as I said
+it's safe to assume that this place is
+going to the natural language classifier
+except with a slightly different API
+those conversations you know API so once
+conversation or natural language
+classifier is done classifying
+your phrase you get the intent uptown so
+now Watson knows that your intent is to
+go either up or down
+then from the equities it was able to
+extract a deeper meaning and the super
+ruling was instead of just wanting to go
+up or down at a specific speed it knows
+that speedy and it knows the direction
+you want to go up and you want to go at
+a speed - and that is essentially how
+the entire length of this application
+works for gin so we have any questions
+oh yeah let me check the Facebook live
+while you do that though when you show
+us with Enric arrange each other's you
+write a book right
+yes actually huh in fact I have actually
+written a book I called Helen flips iOS
+app programming for kids and other these
+Skinner's and this essentially funny as
+the title suggests a book for kids and
+beginners chorus iOS octave L and first
+with from scratch so essentially I mean
+if you'd like to check it out to do if
+you think it could help somebody I'd be
+glad to Ford to help somebody
+I love to share my knowledge so this is
+another one of those media through which
+to do that of course I do also have a
+YouTube channel where you can now see
+how I like to share my knowledge and
+stuff like that but also just in case
+you were wondering more about Watson of
+course you can actually contact me and
+see my tutorial on my youtube channel
+but I also recommend highly recommend
+actually attending world of Watson this
+year which is another one of those
+concepts was hosted by IBM officially
+that is about Watson time you can use
+cognitive capabilities it's actually
+this month in October it's going to be
+Las Vegas that's gonna be very
+interesting in fact a few of my mentors
+will be presenting there as well and we
+might have a fan in Japanese but
+continuing don't one more thing I'd also
+really highly recommend attending World
+unimpressionist Watson developer
+conference again a great conference
+pretty much a cool money for developers
+about Watson and this time it's going to
+be in San Francisco so a couple
+questions that we have actually it's
+kind of funny I think we've already
+answered it but again if you wanted to
+use these Watson API services how would
+you go do that
+Watson API and that's actually one of
+their high advantages is that they're
+available online you really don't need
+any like specific amount of computing
+power in order to be able to use walk-in
+services because they're actually hosted
+on bluemix for you as you like services
+so if you want use any of the services
+that I need in my application I please
+feel free to you can just go to bluemix
+sign up for an account if you don't
+already have one and if you do just
+search up walking in real huge catalog
+and you can create all these different
+types of services makes them together
+great really powerful cognitive
+application
+someone actually asked this and i don't
+know we're going to solve that problem
+right here on the page but I said I wish
+Watson could help the IBM storage team
+quickly provision storage that depends
+on what was more specific problem is
+technically code if you had a very
+specific problem that requires coma
+cognitive abilities yeah yeah I think
+what you could possibly do right is if
+you're trying to identify let's say
+you're looking at types of workloads and
+you know it's going to be you're getting
+a lot of inputs on your application you
+could potentially do predictive
+capabilities into and recommend we maybe
+auto scale the storage to be provisioned
+for this so or you could even empower
+Watson rights to make the decision for
+you if you wanted connecting to whatever
+source you're using to provision storage
+is that fair enough to say can you do
+that definitely I mean as long as it
+applies that type of possibility yes
+okay another person asks how old you are
+and then we fought about it earlier but
+you did I think you just turned 13 so I
+would like to wish him a happy birthday
+featuring 13 yesterday right yeah I know
+actually also the 16 was 2 or 3 and oh
+yeah I was late for the birthday that
+was my fault
+see what else we got over here ok mate
+which one of the Watson API is your
+favorite
+well I wouldn't necessarily have a
+favorite because they're all they're
+useful in what they do they do very
+different things there's a huge diverse
+amount of api's and that's why it
+doesn't necessarily have a favorite but
+do I have to mention something in terms
+of community news and it has to be a
+sort of a natural language classifier
+and in sort of the most sort of thing
+that I could think of least case of
+course it would have to be conversation
+but things that I like to mash up kind
+of thing will be the natural end
+classifier moves even right for example
+conversation or even rank are very good
+couple as well and force content in
+place is another very powerful service
+that are actually currently creating
+apps for which you will find out about
+soon on my github page we have one more
+question about actually the conversation
+89 and the gentleman asked does it allow
+for customization and what we mean by
+that like initiative and converse ation
+at a particular time or even setting a
+context to the conversation definitely
+in fact about
+context cluster actually first this
+project uses the contacts variable of
+Watson heavily essentially every one
+second I grab new data from the drone
+such as battery and altitude data and I
+put that into the Watson conversation
+variable and so essentially in
+throughout with suelto dialogue flow I'm
+able to use those you know consoles
+context variables in order to tell me
+what to say next or he started to change
+how I walk and speaks like for example
+let's say you're mid-flight you want to
+know that by other context variable it
+could also know the amount of battery
+life and let's say okay so the battery
+is getting less than 20% and your
+mid-flight right in that case you could
+say okay Watson health user that the
+battery is getting well you might want
+to land now and when it gets to 10
+percent to just land it without asking
+the user that type of thing can be done
+with the Watson context walking
+conversation context variables so I know
+your personal story about how you
+started and you got into programming and
+what inspired you and where you're
+hoping to go do you mind sharing that
+because I know it's the mother to watch
+you're wondering you know what got you
+into programming and now where are you
+going happy to go yeah sure definitely
+uh well physically honest actually right
+I mean what got me into programming was
+actually when I was five years old of
+course I didn't really have that much to
+do all day so watch my dad programming
+almost all day and so it really
+intrigued me as how like a computer
+could add two numbers or display my name
+on the screen and so eventually I wanted
+to find out more about how it was able
+to do this and how you can get a
+computer to do this and so of course
+after you know asking my dad to teach me
+a bit of programming
+introduced me to the concept so the you
+know batch programming
+started in batch pro yeah oh gosh well I
+had actually a little bit of foxpro as
+well and a little bit of C and after I
+you know
+fluent with the programming fundamentals
+basics I started to maybe see ya there
+to see the programming I started to use
+the internet as a learning resources and
+then I also learned how to do iOS app
+development and then at the age of nine
+years old my first iOS app t-table for
+the acceptance into the iOS store and
+t-table did your math homework correct
+no actions taught you how to do until
+your time sale I feel like the teachers
+in your school they're probably like can
+we actually use your app to do this run
+so in xs/s which is another interesting
+question can we integrate Watson and
+JavaScript based framework yeah player
+percent in fact I'm actually using
+JavaScript right now in order to control
+the children even ojf specifically in
+son using he walk and develop a cloud
+nodejs SDK which you can find on github
+on the walking Elvis mile github but and
+so they essentially have this like
+really colorful framework to use almost
+every single walking service there is
+and it becomes really easy but it having
+to send you know rest requests all times
+you can no excuse their API and it makes
+it a lot simpler although I must say the
+way that I give walks and works is a
+REST API is much simpler than most other
+companies can provide I even more into
+the sort of fun the programs when you
+have a framework instead of having to
+call REST API over and over again so of
+course the nodejs sdk will really help
+you out with that now I can speak to
+this but I want to see what your
+thoughts are on this first gentleman's
+asking can I know how
+Watson will be used to detect advanced
+persistent threats because this is about
+security right can we expect it to have
+more human-like approach if we can
+detect new threats or do we still need
+upend on humans to research and write
+direction-- signatures so how does lots
+and fall into play around security and a
+logs and central attacks Brett well um
+it depends on your thinking about sort
+of technical security like falsification
+yes
+not with physical security so well as
+far as I know I don't think I'm a flying
+saucer might be going here and not sure
+if it will be powerful enough for this
+type of a new space because I mean as
+you can see this sector could be very
+diverse there will be lots of different
+issues rocks caused by wattage of the
+problems relationships between men will
+be very hard to determine unless you had
+an absolutely gianormous training set
+that in which wanting to find tires from
+so I'm not exactly sure how you would go
+about doing this with walk in that wave
+but if you could implement some order
+custom I mean with such advanced
+problems you don't need a special
+walking service I mean there are other
+walking services that aren't available
+on the public bluemix package but you
+can pay per month to you and so those
+more powerful walking services may be of
+more use for the type of scenario or
+maybe even a costume neural network
+might work yeah and I am what I could
+say is actually that IBM security is
+actually working with wants and
+capabilities and coming out with
+potential offering is not already on
+identifying the patterns and trends and
+intent right because that's one of the
+most powerful things about Lawson right
+is to identify patterns and trends and
+the context are you're relating to that
+right and if you start training this
+type of a influx in your network it's
+probably coming from this type of
+situation and therefore we should
+protect ourselves in that or is how we
+respond right someone also asked how
+accessible is Watson for someone who
+does not have a technical or programming
+background in fact actually just before
+I continue that is again one of the huge
+advantages of IBM Watson you don't need
+a like a PhD in machine learning to be
+able to implement the sort of stuff
+that's the best part all you need to do
+is have some fun you know small
+programming experience like I mean a
+success you I mean I heard your question
+you don't have that much a programming
+experience but if you can get started
+you know learn programming language
+which in case you want to undo so the
+iOS development course I said my both
+tell us this could help you out with
+that and so essentially you just need to
+learn that sort of basic coke
+fundamentals and once you are able to
+get to that to the point where you can
+create applications there after that
+it's literally just a few rest API calls
+to call Watson and to be able to create
+your own cognitive based application so
+you're going to know that whenever here
+the thing is interesting and that was a
+great explanation of how we can use it
+actually again I'd recommend going to
+IBM Watson or bluemix.net and looking at
+which of the services interest you
+because we actually have very nice user
+interface examples of understanding how
+they would work and you could
+potentially leverage those in your
+day-to-day or your environment and then
+what you want to get more into the
+programming aspect we even had SDK kits
+for each of these services available to
+you on to help you controlled us another
+one person said will Watson be cost
+effective to reach low budget clients so
+you know I people like Walmart could
+probably afford it but what about the
+API is is going to be you think that
+like if I want to start my own company
+could I leverage it or I really do think
+so and in fact again that's one of the
+advantages about Watson it's not
+overpriced Watson ears relatively
+affordable for small businesses yeah and
+so I'm going to tag on to that one too
+I've actually worked with a couple
+startups in New York City I'm actually
+one of them with boom fantasy and they
+are using Watson trade-off analytics to
+identify with their market budget every
+month whether or not they're receiving
+which of the customers or consumers or
+the ones that they should be marketing
+to because as a start-up you know your
+budget is limited right and you have a
+you have that burn rate that you have to
+deal with so if you can validate every
+month or even sooner how efficient your
+money is being spent on the marketing
+notice through YouTube whether it's
+through you know you know meetups or any
+other types of campaigns that you'd run
+that'll help you out so it's definitely
+used in the startup environment all the
+way on to the large corporate companies
+that are using it today and again one of
+the things that we work with -
+especially if you're a small start-up
+looking for that about IBM Global
+entrepreneur program we'll be able to
+provide you credit to be validate for
+that so you'll be able to
+leverage our services on bluemix and
+watson another thing that i was going to
+go act here someone actually said kid
+watson speak captcha image so you know
+the caches online screening would it be
+able to know to go into and say we were
+River it right no I mean in theory yes
+but then again since some capsules are
+coming Li Randall it may take a lot of
+training but then again it's completely
+possible using visual recognition and of
+course the text-to-speech then again a
+lot of money would be acquired and I
+know a lot of folks are actually
+continue to keep asking about the price
+and how much it's going to cost again
+the way we built these initial AP is out
+for the public to test with you can sign
+up for your bluemix it's a free trial
+then from there what you can do is
+you'll see the API calls capabilities
+and actually if you're going to ask
+you've hit the premium model if you
+actually want to start going past that
+again there's always multiple ways
+potentially increase your credit if you
+validate for that through IBM global
+entrepreneur is Nespresso you can work
+with you on that as well another thing
+that we do is you do see regular credit
+card and you pay per API call so that's
+actually again how it's working that's
+where we see actually cloud going you
+pay for what you use exactly right
+and what your and we're going to provide
+a link to Panama is a github again I
+know you're wondering though its kind
+maybe one two three I cannot pull that
+up right now so this is my github page
+and you can see all my open-source
+projects here now I want one more but
+Tammy what do you uh see yourself going
+next after this well um to be completely
+honest I think it would be well mainly I
+want to continue to do what I'm
+currently doing alright so to continue
+you know my fossil development keynote
+speaking iOS app development opens it I
+mean of course continuing to share my
+knowledge and of course those with
+cognitive like Watson
+I created cops and machine learning
+solutions as well I want to continue
+using things like a I for example and so
+you know I want to continue to gain more
+experience at this and as I gain more
+experience or share my knowledge about
+it and you know just keep getting better
+reaching out to more people in fact
+actually one of my goals is to reach out
+to and help at least 100,000 aspiring
+kid coders and beginners so you speak at
+stem events right as well you've done
+that before and I think you're going to
+be in Northwest Bentonville Arkansas
+speak to a couple of students here I've
+spoken to schools in Toronto as well so
+I know the again I know the answer to
+this because I'm forced to be it was the
+March part of the marketing a prefilled
+aspect but people are wondering you know
+how can I be M assist self-driving cars
+automobiles autopilot self-flying
+vehicles boats in Union anything that
+has a motor on it how would they help
+well that's actually what my toll was
+the crazily
+like an autonomous drone that utilizing
+Watson and I really think IBM Watson
+provides very colorful capabilities for
+you to be able to do this type of thing
+so for example actually visual
+recognition can really help you out with
+saying these lights on like let's say
+you're building an autonomous RC car you
+can use visual recognition to see
+whether the drone I mean with the RC car
+keeps light and start turning slightly
+little or slightly right slightly left
+as less how visual recognition can be
+used in things like RC cars drone for
+example it can detect faces all that
+sort of stuff I can really reuse in
+autonomous vehicles very nice so an
+example that we're actually using this
+today is a thing called Ollie so Watson
+ollie one it'll be at world of Watson
+but we're actually implemented it
+there's a 3d printing company that they
+printed out all the parts in the span of
+icing was like three months or less
+massives creative and they built with
+Watson as the brain behind it speech the
+tags text-to-speech so with a person
+person the button says hello how can I
+do or where should I take you and you
+could say I want to go to the Italian
+restaurant where is good and they could
+recommend list and then I'll start
+driving for you along
+that has it's actually in National
+Harbor in new on Maryland there the
+Washington DC area and they're using it
+right there I know we're actually
+looking at leveraging and other
+implementation as well so that's
+actually where and how we've already
+been using this in self-driving
+automobiles People's Republic
+transportation let's see what else we
+got here let's see what G okay great I'm
+curious what what you want to do in life
+did you already say that yeah on the
+outside and if you want I can repeat
+that sort of I mean as I said my goal is
+to mainly reach out to and help at least
+100,000 silent encoders and again it
+works actually I'm already around 2,000
+people there and the force uh continuing
+with our reach cycles and higher one and
+continue to share my knowledge and help
+as many people as I can and that's
+another thing please like and follow him
+on Twitter and Facebook and YouTube it's
+not already I mean because he's not
+stopping here guys he's going to keep
+doing more is working with all those
+audience top minds like John Cohen and
+markets around I owe t another quick
+question though and I get this a lot too
+is is IBM Watson and all these AP is
+another agrestic rest like guys could I
+could I use it with an application
+that's on another platform that's not
+the bluemix so which is like AWS or
+Microsoft or as far as I know Watson
+does not provide that capability yes as
+far as I know yes but for now though you
+have to host a job for the Watson
+services on do my services off limits
+but then again
+so ease of use of Lumix really just
+really tells me that there really isn't
+enough to need for hosting I've been
+walking services on other sort on the
+platform okay so one performance always
+feel free to do try it out on bloomix
+you know that's how we're going to host
+this our platform as a service and there
+you can combine it with a lot of other
+things if you're an enterprise you can
+start combining it with your business
+process managers your systems of record
+because we're going to expose it through
+API connect and these are now going to
+be restful api you can now combine with
+watson valuable insights that may be
+your amusing mainframe on the back end
+these apps that never been able to touch
+it a new capability that's right that
+you can apply that to have some pretty
+awesome stuff let's see how did you
+describe the services between oh yeah
+someone mentioned how would you describe
+the differences between isis amazon echo
+and watson okay have you played it all
+the other one i go at all that was when
+i go yes so this is just my preference
+or point of view when it comes to it IBM
+cognitive capabilities we've really
+designed them to be enterprise grading
+scale we've tested them mattias lee
+we've built these corpuses up at a
+certain level so when we give them back
+to you as the user they're going to hit
+a certain quality assurance level right
+off so one of the things that we don't
+do versus some of the other like Google
+now or Siri they ask you and for your
+data to them be shared with others
+because it's part of the training
+process we don't do that because we want
+your data to always be your data and so
+that keeps your competitive advantage
+right if we were to have all the banks
+give us the data to train and give it
+out as a platform
+you've lost your citizens so on that
+note Sam a is there anything else you'd
+like to share before we leave I think
+that we've already talked about what a
+lot an interconnect and I guess that's
+actually going to be it for this
+Facebook live event again thank you
+everybody for tuning in and yeah I mean
+if you'd like to check out the source
+code of this project please do it's on
+my github can maybe want to sleep there
+will be a link to it after this event
+and then yes looks good I mean if you
+have any questions you can actually
+email me am I
+mail as many gmail.com that will be in
+the description with Facebook Osment as
+well and I think that's gonna be it for
+city alright thank you again for tuning
+in and again go to his website go to his
+Facebook go to github and to be doing a
+lot more with this on and on and good
+something thank you guys goodbye

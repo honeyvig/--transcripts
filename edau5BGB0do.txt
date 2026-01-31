@@ -1,0 +1,46 @@
+hi there my name is tme back for
+another SQL Server
+2012
+tutorial um so today we're going to be
+covering the
+topic um the order by
+topic
+so order bu is a command that that
+basically sorts the result set that you
+get
+so what U I'm going to do select star
+from IE cream okay so we have this table
+here IE cream and I have Sid now I have
+one two and three in here and it's
+really messy and if I wanted to find
+let's say all the fives I could go where
+but if I just wanted to see them with
+the entire result set then what I do is
+I wouldn't go down scroll and uh copy
+down every single one that I see that's
+five that would take way too much time
+and yeah so what I do is I just go
+order by Sid and then it's by default
+ascending so it shows the lowest number
+to the highest number and or ascending
+order so um the serial is Miss up now
+but the Sid is um organized so 11 one 22
+and
+three so then the Cal and then you could
+also order it by the Sid and serial
+too or was that a yes you
+can so it result it um orders it as good
+as it can to match Sid
+as the primary of what it needs to order
+and then Cal as um the secondary thing
+it needs to um order just because
+because so whatever comes first is the
+primary thing that needs to be changed
+so if I did seral and then
+Sid um Sid would be um secondary so it
+would first order cereal and then Sid to
+um be as close as it can match up so
+that was the tutorial for SQL Server
+2012
+um um order by
+function so thank you goodbye

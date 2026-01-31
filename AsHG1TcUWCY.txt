@@ -1,0 +1,618 @@
+so well then welcome to another tutorial
+my name is Sam actually this time we're
+gonna be going over the Google or gmail
+ooofff 2.0 authentication API and also
+we're doing in iOS not any of the other
+languages of supporting or at least this
+time or such as PHP or Ruby but anyway
+before we get into that this video is
+going to be essentially a part two to my
+chatting app so there will be a link to
+in the description to that video now
+let's get Kent let's continue now what
+am i doing in this video essentially
+what I'm doing isn't what you telling
+you how you can take the old chatting
+app and you can instead of having to put
+in your own username and password into
+the app you can log into your gmail
+account which will act as authentication
+for the chatting app now the way we're
+going to be doing this is pretty simple
+but first of all let me just get out of
+the way what are some advantages of
+doing this well one main advantage is
+security and the next advantage is just
+overall relief I wrote the developer and
+the user so now security what does this
+mean in our old chatting app we're just
+taking the username and password of the
+user putting it straight into our parse
+database not encrypting it of any kind
+or anything so we're limited by parses
+security if someone were to get by Parsa
+security then they'd easily get into our
+database and hack all the chatting apps
+chatting app accounts however with Gmail
+we know that Gmail has one of the best
+security features in the world if you
+have Gmail in your account probably
+won't get packed and so we're utilizing
+the security of Gmail and also it's much
+better for the user because they have
+just one set of username and password
+that works with all of their Google
+stuff and all of their account stuff so
+they don't have like a billion different
+passwords going around but that
+remember each one and so those are the
+advantages out of the way now which APR
+we're going to be using
+it's called OAuth or open authentication
+2.0 because they've deprecated one and
+so we're going to be using the iOS
+version of this library which can
+sometimes be very hard and frustrating
+and this actually took me quite a while
+over maybe even a week to actually get
+set up and running because sometimes I
+would just get an error where the user
+header search paths wouldn't work or
+something like that but this video will
+make it very easy for you to be able to
+do that so now let's discuss how the
+algorithm of our authentication will
+change so let's get started with what
+was our old algorithm
+well what simply we would have usually a
+client on this end let's just say this
+is a client now client signs in or signs
+up for this app with a username as
+client three for two or something like
+that and his password is something like
+client is the best not the most secure
+password but anyway now what's going to
+happen is this or this is going to be
+nicknamed username and this is going to
+be named password by the app ok then
+we're going to have our parse database
+here and over here on our parse a debase
+no we're going to have our users
+database or a table sorry in which we
+will take this username and password and
+upload and to here and notice there's
+nothing going on why we'll up while
+uploading we're not encrypting it we're
+not putting in a secure place we're not
+doing anything would this username or
+password which would make it secure at
+all really and so this is named as an
+unsecured method or actually I once I
+highly unsecure because they're using
+parse a parse data base not a custom
+MySQL database but still this is
+potentially a security threat I'm not
+trying to say that parse isn't secure
+it's extremely secure but I'm I don't
+want to take any chances with extremely
+confidential information okay
+and so I would honestly label this
+unsecure however let's just jump over to
+a new method over here over here we see
+we have Gmail
+okay now gmail has a username and
+password as well you still have to use a
+username and password but guess what
+your Gmail account works with YouTube it
+works
+with a drive it works with pretty much
+everything else you have for Google and
+it also works with third-party apps such
+as Stack Overflow and so as you can see
+it's not going to come evident that once
+you have a username and password for a
+gmail account you can easily have it
+refer to literally every single other
+one of your accounts and the best part
+is let's say Stack Overflow security is
+breached not to worry your Gmail
+password is stored with Gmail not would
+stack overflow
+so if Stack Overflow security is
+breached your password is not linked
+your username however if Gmail
+securities leaked yeah your passwords
+out for pretty much everything but still
+that's a very very rare occurrence so
+that hasn't happened for almost two
+years now maybe even three so as you can
+see this is secure it's easy for the
+user and it's also very easy for the
+developer because instead of having to
+program all of this in all that they do
+is this now they have their app or let's
+just name this client again now client
+has all of these accounts every single
+one okay and then a client also uses the
+app so you know just to just so it
+doesn't confuse you these apps are not
+at all related with how we're going to
+be using Google authentication but now
+we can see that client uses this app and
+so our app in general will now be taking
+first of all Google authentication and
+so to put this really simply all that
+we're really doing this app we say to
+Google hey authenticate this guy called
+client now client will log into his
+gmail account and if he gets the right
+username and password then it'll be like
+yes sure to the app the authentication
+was correct you can let this guy have
+access to his account but let's say he's
+signing up how do we do something then
+well Google will give us the email
+address
+so that we can use that as his username
+so we don't need to store his password
+anywhere we just store his email address
+as his username and let Google do the
+rest of the authentication if he's able
+to get into Google with this email
+address
+we know that it's him and we can
+continue and give him access to chat and
+this is what makes him happy so that's
+what our final goal should be to get him
+to chat using Google authentication so
+as you can see there's a big jump from
+uploading an unencrypted username and
+password to a database or using one of
+the most secure forms of authentication
+in the world with your app and so that's
+going to be it for the whiteboard part
+next I'm going to be showing you how
+exactly you can use the api's on an iOS
+app so without further ado let's get
+straight to the Mac part so yeah I just
+started editing this video I was just
+stitching up the clips and stuff and I
+just found out the original subscribers
+I asked me the question irshad just sent
+in a picture of himself ah to feature in
+the video so yeah I'm gonna be showing
+his picture on screen now it's I believe
+it's already up but his question was how
+can I use instead of custom
+authentication something like Gmail
+authentication and that's at chatting up
+he also had a few more things to do with
+the chatting app but there will be later
+videos for those so yeah for now I'm
+gonna be telling you how you can use
+Gmail authentication or OS to log into
+apps so let's get straight into the Mac
+part now so welcome back to the Mac part
+and now we're going to be actually
+implementing this insolate so now let's
+just move my face smaller move it to the
+corner now I've opened up the Google
+QuickStart guide and there will be a
+link to this in the description so you
+can actually use
+now I'm not exactly going to be going
+going through step 1
+because that's just turning on the Gmail
+API there is a set of instructions that
+are extremely straightforward just a few
+button clicks for you to setup the Gmail
+API and then we'll be done
+so I'm just going to assume that you've
+already set the app up and so once
+you've set it up
+you should have credentials here and
+when you click on it it should show your
+real credentials so now what we're going
+to do is we're going to skip straight to
+step 2 now step 2 will include
+downloading the actual Gmail api's and
+using and setting them up etc etc so
+what you're going to do is go to step 2
+you see this little code block here
+hover your mouse over it and in the
+corner you'll see this little window
+over here that looks like two clipboards
+so just click on it and it shall copy
+all this code here all of this and now
+all you need to do is go to a terminal
+window type and I just like to do this
+mkdir let's say just Google App then I'm
+going to CD into Google App if you don't
+know what I'm doing I'm just creating a
+directory called Google app in my home
+directory and then I'm going into it
+then I just I mean we copied all that
+code so just click command V and it'll
+execute them all one by one by itself
+you don't need to do anything and once
+it's done perfect it's done so now we
+have if I go into my home folder we have
+this Google App over here and we have
+all the Google API s inside of this
+folder so now if I move my face up go
+into Xcode now if I type if I say ctrl
+command n it will create a new
+work space for me and I'm just going to
+put this inside of my home directory
+google app and I'm just going to name
+this app workspace because this is
+really a workspace if you don't know
+what a workspace is again it's actually
+just a collection of projects or
+multiple files which are for Xcode now
+let's just create this and that's going
+to be it so now let's continue with what
+the kik QuickStart says there are going
+to be some modifications at the end but
+now we really just need to follow what
+the QuickStart says so I'm going to
+actually no not scroll down I'm going to
+go into Mission Control really quickly
+and move Google Chrome beside my Xcode
+window so that it's a bit easier and
+then new finder beside it that's already
+there okay so now let's start with step
+3
+prepare the workspace first of all we've
+already created a workspace it's not
+named QuickStart but that doesn't matter
+then what it says is what I'm going to
+do is I'm going to go into the directory
+that we were in for the google app then
+double-click on GTM session fetcher go
+into that directory go into source and
+you'll see this little Xcode project
+here yet take this and drag it keep it
+on the edge of your screen and drag it
+into your xcode's
+file manager on the side then go back to
+directories and double-click on Google
+API objective-c client go into source
+and take this Xcode project GTL dot
+Xcode project again move it into your
+Xcode workspace note this this Xcode
+project should not be under GTM session
+petrichor no it should be above it
+meaning it shouldn't go inside of that
+Xcode project it should be separate now
+let's see what it tells us to do ok so
+now it says select the GTM session
+fetcher project
+I'm assuming it's this one the core and
+then it's say
+add a new target of iOS framework and
+library cocoa touch static library so
+iOS framework and library code of cocoa
+touch static library and it says to name
+it GTM session fetcher Lib I'm just
+going to copy this and paste it into
+Xcode click finish and it has created
+the target now what we need to do is go
+into build phases compile sources click
+on the plus button and you see this
+folder GTM session fetcher click command
+and select every single dot M file
+inside of this folder click enter or add
+and it has added these into the compile
+sources build phase then select the GTL
+project then what you'll want to do is
+go into build phases link binary with
+libraries it already has security and
+system configuration so all you need to
+do is add let's see right here
+Lib Lib GTM session fetcher Lib ok live
+GTM in this one now click Add and as you
+can see it's added it in now this is
+where I actually first got an error what
+you have to do is come over here and to
+build settings and say what was it
+called a user header a user header
+search paths in this little place double
+click and click the Add button and also
+just let me check to make sure yeah I
+made a really small mistake what you're
+supposed to do just remove this library
+just ignore that before you start doing
+any of this stuff you have to actually
+click over here
+and go into GTL touch state ecstatically
+then you need to ad-lib GTM session
+fetcher lib and then you need to add go
+into the build settings and go user
+header search paths double click on here
+click the Add button now what you need
+to do this is quite important so listen
+go over finder go back to directories
+again and go into your GTM session
+fetcher folder take the source folder
+don't go into it take it and drag it
+into this text field that xcode is
+giving you now Colet select this
+non-recursive
+text box or selector and change it to
+recursive so it gets all the header
+files and then you're done then all you
+need to do is copy this little flag here
+and go into other linker flags and add
+that in right there or sorry not there
+that's a little thing I get confused on
+it's actually supposed to go under a
+preprocessor macros over here as you can
+see Apple LLVM 7.0 pre-processing and
+under pre-processing macro macros double
+click over here add paste it in go
+perfect so now that you've done that go
+into GTL again and we're already here
+click on this little tab if it isn't
+already open if it's blue don't click it
+then as you can see you see this little
+GTL framework target remove it and click
+delete then in the project navigator
+open up GTL go to GTL source go to
+common and delete HTTP fetcher
+that's not required okay because I think
+that was deprecated in iOS 9 anyway okay
+so now what we're going to do is click
+on this little plus button over here
+click a new project iOS application
+single View application then make this
+project name something like main app ok
+make it four Swift make sure it's the
+iPhone you don't have to it could also
+be the iPad but I prefer iPhone in this
+case and then click Next again I'm just
+going to create inside of this directory
+then we have to go into main app build
+phases link binary with libraries add
+system configuration add security and
+also add what is it called live GTL
+touch let's just paste that in Lilly GTL
+touch static lib day that's a mouthful
+okay so now we're done that now what we
+should be able to do is copy this little
+link or flag now this time I'm actually
+correct this is a linker flags
+so go into build settings type in other
+linker flags and so double click over
+here then add in Objective C all load
+next we need to again listen carefully
+go into user header search pads click
+the Add button over here then go back
+into your main Google Apps directory
+then go back into GTM session fetcher
+and again take the source and drag it in
+to the little text box then make this
+from non-recursive
+to recursive add another one this time
+do it for Google API objective-c client
+yes take the source drag it in and make
+sure it's recursive there we go
+now that should be good and also one
+thing I've noted I usually get an error
+if always search user paths is no so I
+always make it yes even though the
+Google documentation does not tell me to
+do that I don't know why anyway
+now let's go into preprocessor macros
+macros then what I'm going to do is
+under debug I'm going to add the linker
+the preprocessor preprocessor macro and
+also under a release so that it works in
+both ways then what we're going to do is
+we're going to go into the Google API
+objective-c client source o auth to
+touch and then take this nib file and
+just drag it right in make sure it's
+copy and then finish then what we're
+going to do is we're going to go in back
+over here
+and then go into these services
+directory go into Gmail generated then
+get the GTL gmail dot H and GTL Gmail
+sources dot M files and drag them into
+our the app make sure it's copy finish
+make sure you create a bridging header
+make sure copy this code over here and
+paste it into your bridging header and I
+just like to move it up here okay so now
+what we're going to do is they have a
+step four in which you type in code or
+you copy this code and put it in and
+then it does something I'm not using
+their code I've modified out a bit
+and now if I just open up my other app
+where is it now specifically this file
+that I'm about to show you this one will
+be available for download in the
+description from github no other file
+because actually this file is special
+and the other files are very how do I
+say restricted to your setup for example
+I have to put in the absolute path like
+over here in user like this is the
+directory in my Mac to this file so I
+cannot give you this specific Xcode
+project or else you won't be able to
+build but if you follow all the steps
+that I'm doing in this video or I'm
+using in this video and you copy in the
+code that I do give you in the
+description this should work just fine
+for you
+now I've already gone ahead and done
+this but you need to fill in your client
+ID and your client secret if you don't
+know how to get that but you should at
+this point but it's okay go into your
+Google developers console go into
+credentials click on the credential name
+and get the client ID in the secret so
+now that you have these two just put
+them into these strings you can change
+this if you'd like to but I wouldn't
+recommend it I actually know what let's
+just do that 10 May testing Gmail API
+okay
+so now I'll show you exactly what this
+does but first we're going to have to
+run this app now make sure you don't
+have this iOS framework as the active
+scheme make sure its main app now run it
+till then just give me a minute
+do you remember okay
+so yeah I'm going to pause the video
+really quickly get the other gmail
+account that I don't really use the
+credentials for that one because I don't
+exactly remember them then I am going to
+be back
+is new tutorial we just really quickly
+see though if I can get it from here
+yeah so I'm going to be pausing the
+video and I'll be right back with my
+credentials and I won't touch the app or
+anything don't worry so welcome back as
+I said I have not really done anything
+to the code all I've done is I've
+changed my password for a gmail account
+I really don't use anymore
+and so as you can see this is the
+simulator now I didn't do anything on
+the simulator to a code or anything this
+is all the exact same so as you can see
+here we have this gmail account or this
+Gmail login window now I have not
+created this logo these labels this
+image these text boxes this button
+anything here this is nothing of mine
+this is all created by Google
+I'm not authenticating anything with
+this I just say to Google hello I need
+this person to enter his username and
+password and I want you to return his
+email address and Google's like sure and
+then shows up a little new controller
+asks them to login and then after that
+once they log in it returns the email
+address as I had requested so let me
+just log in really quickly ten we've
+actually demo one as you can see though
+I'm just gonna come over here to my
+Xcode
+there's nothing printed except for all
+of this stuff and so if we come back and
+we actually log in now password now if I
+sign in and I click on the allow button
+so it knows that I'm allowed to use all
+of these things here then as you can see
+it does absolutely nothing on the app I
+might be thinking why did I do all of
+this work for a blank screen but it
+actually requested the Google API for
+your email address and printed it out
+there might not be so impressive however
+think about it now you have used Google
+api's to authenticate a user to get
+their usernames that you can up
+to a parse database that will now be
+their single sign-on token basically
+that's just amazing I will be
+integrating this into a into the actual
+chatting app in a separate video but I
+hope you enjoyed that now let's just see
+what happens when I rerun my app as you
+can see blank screen again but it prints
+out my email address now why didn't it
+ask me to authenticate again this is
+because once you authenticate once it's
+storing that authentication the token
+basically in keychain keychain then
+stores that pretty much forever until
+you either delete it or don't make
+references to it anymore and as you can
+see and touches begin I'm doing just
+that
+I'm just deleting the keychain
+authentication method so if I run once
+more just so you know I'm not doing any
+trickery it's still a blank screen and
+it gets my email address however if I
+click on the screen this time and then I
+rerun as you can see it'll ask me to
+what through to authenticate again this
+is due to the fact that it deleted the
+keychain token now I'm going to login so
+as you can see I'm granting privileges
+right now and it gets my email address
+I'm going to run once more so as you can
+see it only happens once and it still
+gets my email address but there's one
+more thing that I can do as you can see
+I'm not clicking on the simulator but if
+I change the keychain item name that it
+refers to to something like this
+then as you can see it it doesn't find
+the credentials in that keychain item
+and it asks me to authenticate again or
+actually no it has to be something like
+three sorry this won't apply to you
+it'll only apply to me two already has
+credentials in it so three as you can
+see asks me to authentic authentic eight
+again so that's essentially how that
+works now again I'm not going to be
+going into any of this code just yet due
+to the fact that this is all just enough
+code for you to implement into your app
+and so this will allow you to make
+service calls now since this is
+technically a Gmail API you can do tons
+of stuff rather than just getting there
+you the email address you can if you
+want to see what you can do under French
+labels go to query and under GTL query
+Gmail do dot query for and you'll see
+these are all the queries you can do you
+can literally I think compose messages
+well I'm not exactly sure if you can
+compose messages but you can get the
+messages you can list messages you can
+modify messages you can send to trash
+you can do all these sorts of things yes
+you can also send so it's technically a
+Gmail API but you can also get their
+profile so it's quite interesting in
+that sense okay so that was actually
+pretty much it for this tutorial again
+if you have any more questions or you
+want me to elaborate on this at all
+please leave it in the comments or email
+me at tattoo mini at gmail.com or even
+contact me on twitter at add you many
+they'll all be in the description the
+viewcontroller will be in the this
+viewcontroller sorry the this file over
+here will be on github which will there
+will be a link to in the description and
+that was going to be it for this
+tutorial if you liked the video please
+like it and if you're new to my cotton
+you want to or you want to see more of
+it please actually subscribe to my
+channel
+also quickly you can send me a video
+question at @anjghie manage email calm
+and I might just be certain one of my
+next videos again everything will be in
+the description and that's going to be
+it goodbye

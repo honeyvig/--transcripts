@@ -1,0 +1,742 @@
+since its release in November of last
+year chat GPT has had so much hype
+around it and also similar Technologies
+like Bing chat and Google's Bard and
+gpt4 and really generative AI in general
+uh now as you may know I like to say
+that artificial intelligence is easily
+the most misunderstood technology on the
+planet and to be completely honest the
+past couple of months have only further
+driven in that belief for me there have
+been people making very confident claims
+and statements about uh say a GPT and
+what it's capable of that I frankly
+don't really think hold for example I've
+seen some very confidently claim that we
+will be replacing all Junior developers
+and even artists and journalists and
+that this is the worst thing to happen
+to education uh I don't really believe
+that but this does bring up an
+interesting question in my opinion and
+that is that you see I love to do a lot
+of different things I love to write code
+and build applications as you can
+probably tell from my YouTube channel
+but I also absolutely love to share what
+I learn learn about the world of tech
+with others through a variety of
+different media like for example
+teaching AI courses and my YouTube
+channel as well as through non-technical
+media for example doing interviews to
+help people understand the impact of
+technology on their lives from a
+non-technical perspective and so here's
+uh here's the question today can chat
+gbt replace me or maybe even at least
+part of what I do and if so how does
+that generalize to everyone and things
+that we all do or maybe if not today
+will it in the future well before we get
+to that a little bit of background now
+you may know that I've always been a big
+proponent of the idea that the AI
+artificial intelligence technology we
+build today isn't really artificial
+intelligence right it's not actually
+intelligent rather what we're proving is
+that there are skills that we have that
+we previously thought required human
+cognition and intelligence and instead
+if we boil it down to enough of a subset
+of that skill still we can actually
+replicate it with math and we can do it
+with the power of technology so take for
+example deep blue playing chess or
+Watson playing Jeopardy or alphago
+playing go right so some of the classic
+examples of AI technology and how it's
+grown over the years especially with
+almost with actually all of these
+examples all we've really done is we
+said all right here's a human skill
+we've had say for example playing chess
+or playing Jeopardy and if you boil it
+down to enough of a subset and if you
+specify the problem really well and you
+really sit down and think about how to
+build a pipeline an approach to solve
+this problem mathematically we can
+actually do it in in Computing right we
+can do it with the power of Technology
+we don't need human cognition for it
+however this also comes with a pretty
+fundamental limitation and that is that
+these systems are not at all flexible or
+adaptable really all they're doing is
+what they were programmed to do pretty
+much like every other technology system
+except they have more capabilities right
+they can for example analyze
+unstructured data like Watson playing
+Jeopardy but it's still playing Jeopardy
+you can't tell Watson to do something
+else in language for example but you can
+continue to make these capabilities even
+more complex sort of growing out from
+there back in 2020 I even built and
+trained a series of deep Learning
+Systems myself that I call Auto Lyricist
+and the goal of the system is to augment
+songwriters by providing what I call
+automated inspiration at scale the idea
+is to eliminate writer's block and
+actually got the chance to work with a
+couple different talented
+singer-songwriters uh to prove out the
+system and show that it actually works
+[Music]
+the line that you just heard and many
+others in this song by Claudia hoiser
+titled A Summertime song were actually
+inspired by the auto Lyricist system
+however even Auto Lyricist working in
+language with such complex unstructured
+data and nuance and art and creativity
+isn't really flexible you can't really
+get this pipeline of deep Learning
+Systems to do something other than
+generating music lyrics at least not
+effectively on the contrary it seems
+that modern AI technology is actually
+flexible so take for example chat GPT I
+can actually tell it to write a song
+containing the line that you just heard
+and it seemed to just do it without
+requiring that whole complex pipeline
+that I put together three years ago I
+could even ask it to draft a response to
+an email that I received or I could ask
+it to write code for me for example and
+this flexibility is precisely what makes
+these systems so impressive to us and
+also the fact that their input and
+output modality is just language right
+language in and of itself is super
+special to us because fundamentally it
+is the serialization format for our
+thoughts it is very deeply linked to the
+way that we think and when you can
+communicate with an AI system quote
+unquote that happens to use language as
+this input output modality and it seems
+like you can understand this complex
+language and it seems like it's able to
+communicate fluently using that language
+it's very easy to trip up our brain's
+internal circuitry and assign way more
+credit and intelligence to the backing
+system then there really actually is but
+let's finally go ahead and answer the
+question can chat GPT replace me or
+replace you for that matter or anyone
+there are four tests that I want to run
+today first we're going to see if chat
+gbt can answer interview questions for
+me we'll see if they can draft responses
+to my emails we're going to see if they
+can answer my assessments that I've
+written for my own students and my AI
+courses like the one that I taught at
+University of Winnipeg last year and
+this will see if you know GPT can even
+teach students which I mean is dependent
+on it being able to answer the
+assessments I put together in the first
+place and then finally we're going to
+see if chatgpt can replace me as a
+developer and write my code for me so
+let's go ahead and try them out alright
+let's begin our assessment of chat GPT
+to see if it can replace me we're going
+to start off with a task that isn't
+really replacing me as much as it is uh
+automating a little bit of the job that
+isn't as fun for me let's see if it can
+write my emails now this is sort of like
+a typical example of the kind of thing
+you would do with gbt taking a look at a
+hypothetical email that I that I wrote
+out this is from John and he's saying
+he's the founder of a startup focused on
+blockchain and he wants to chat about
+his web 3.0 platform now let's just say
+once again fully hypothetical scenario I
+have a conflict of interest and so I
+can't work with them uh due to due to
+this conflict of interest but I'd be
+happy to chat I can simply tell chat gbt
+tell John that I can't work with him due
+to a conflict of interest but I'd be
+happy to chat and with this very naive
+prompting I get back actually not that
+bad of an email draft it says hi John
+thanks for reaching out introducing
+yourself I appreciate your interest and
+basically boils down to you know giving
+across the message that I wanted to
+but here's the problem you can tell that
+I didn't write this right if this is
+continuing a thread with someone I've
+been speaking to myself for a long time
+or if this is you know sending out new
+emails and eventually I take over you're
+gonna be able to tell that there's a
+shift in voice and I don't want that now
+I gotta go in and do a lot of you know
+editing in post to make it sound like
+I'm the one who sent the email
+so how can we somehow improve this well
+we can improve it with context so what I
+did is I built a script that basically
+scraped every email I have written and I
+took out pairs of emails where it was an
+email that I got and then and then my
+response immediately after and wherever
+I noticed that pattern across my emails
+and of course it was like an actual
+important tagged email I stored those in
+the database and used the openai
+embeddings endpoint to index all of
+these emails and so now when I see an
+email like hypothetical John's over here
+I embed that through the same embeddings
+endpoint look up similar emails I've
+gotten in the past take the top five
+most similar emails take my responses of
+them and then feed those into chat gpt's
+context telling it to respond with the
+message that I specify here but then in
+the voice and writing style of these
+previous five emails and so now if I
+were to run this through with the same
+message and same email but including
+this sort of contextual prompting I I
+get an email that is a lot closer to how
+I would actually word a response to the
+email that I got if this is what I
+wanted to say
+and so you can improve the results that
+you get from these models significantly
+and make them much more valuable to the
+end user by using all sorts of neat
+tricks and these are ones that you build
+into your application not just ones that
+you prompt the language model with right
+so for example I actually had to go out
+and index all of my emails scrape them
+run them through the embedding store the
+vectors in the database and then
+implement the lookup to make it so I can
+construct The Prompt for GPT to begin
+with so one thing to keep in mind is
+that when you're building valuable
+applications it's all about that
+interplay of using the software that you
+build in the logic that you build
+alongside the language model in
+individual components where it can
+actually be valuable now let's move on
+to what I think is a more interesting
+assessment let's see if we can automate
+the uh the process of responding to
+people's questions that want
+non-technical answers now I receive
+these a lot in like talks that I do in
+interviews when people ask me questions
+and this will be a non-technical
+audience so say will ask me something
+like what are your thoughts on
+generative AI technology like gbt3 do
+you think that large language models are
+going to be a bad thing for Education
+since students are just going to copy
+the output of these AI systems and not
+learn anything for themselves and do you
+think it's going to replace entry-level
+Developers
+this is a real question that I got uh
+just a couple of days ago let's see what
+gbt4 the sort of state-of-the-art
+language model from openai has to say
+about this as you can see
+it gives us a not bad answer like it
+gives us something that is technically
+correct
+um there are pros and cons regarding its
+impact on education you know it can be a
+valuable tool for students but we need
+to emphasize using these tools
+responsibly as a supplement rather than
+a replacement and as per entry-level
+developers AI systems can automate
+certain tasks but they're not capable of
+replacing the human creativity problem
+solving adaptability that's important
+for
+um development
+and then it might change the nature of
+some entry level jobs
+again technically not wrong and it's
+aligns to what I was going to answer
+regardless but let's ask more detail
+because this was kind of high level
+so I ask what is the interaction between
+students and AI really look like like
+why wouldn't they just use it to cheat
+right and
+gpt4 comes back with a list of positive
+interactions between students and Ai and
+some of the ways that we can encourage
+students not to cheat and most of it
+boils down to providing clear guidelines
+encouraging collaboration you know
+emphasizing the importance of academic
+integrity and then also you know finally
+designing assessments that require
+students to apply their Knowledge and
+Skills
+and so
+a lot of this was honestly quite high
+level boiling down to hey you just got
+to make sure that you really am you know
+encourage people not to cheat there
+wasn't a lot of real substance as to
+something I guess actionable um in these
+answers
+uh now for a little bit of context
+my actual answer to this was something
+along the lines of you know with these
+language models sure say software
+engineering students they will
+inevitably try to use it to cheat no
+matter how much you encourage them not
+to but the point is that's these models
+fundamentally due to certain limitations
+and precisely the same ones that made it
+so they couldn't answer this question in
+more detail we'll never get everything
+completely right there will be mistakes
+that are made especially in fields like
+software and when these mistakes are
+made you are forced to then go in
+understand the content the code and then
+fix those bugs that is a lot harder than
+people will necessarily give credit for
+and then from an entry-level perspective
+entry-level jobs are going to continue
+to exist we're not replacing developers
+right what's going to happen though is
+the expectations of entry-level
+developers will significantly change
+they will be much higher than they are
+today and the reason is simply because
+they will have better tools right If you
+hired two mathematicians one with them
+without a calculator I imagine that you
+would expect the one with the calculator
+to get more work done because they just
+fundamentally have a better tool and so
+it's not that entry level developers are
+going to be expected to have senior
+levels of experience coming out of
+school that's unreasonable instead
+what's going to be expected is that they
+will be able to provide more than an
+entry-level developer today because they
+will have the tools alongside their
+human creativity and problem solving and
+that little bit of experience to sort of
+work effectively with that tool and get
+more done than they would be able to
+today but what about replacing me in
+technical domains let's see if chatgpt
+could replace me as a teacher now of
+course in order to replace me as a
+teacher I would expect that it would
+actually be able to pass the existing
+assessments I've already made for some
+of my students for example as I
+mentioned I taught a course at the
+University of Winnipeg last year this AI
+course was centered around my students
+actually being able to build an actual
+application using a machine learning
+Tech and I had a quiz where I asked why
+is explainability a problem with modern
+deep learning techniques select all that
+apply and in this question there were
+four possible answers it's because we
+don't understand the math behind
+training the models at all the data we
+train these models on only Maps input to
+output and doesn't include the reasoning
+for why the human made the original
+decision uh also that there's no
+standard way to explain a model's output
+because it depends on the domain and the
+representation of the data and deep
+learning models are just trained
+end-to-end with a large number of
+parameters as a black box
+and so these are our four possible
+answers why is explainability a problem
+with modern deep learning techniques
+now right now if you'd like go ahead and
+pause think about the answers and leave
+them down in the comment section below
+the reason I chose this specific
+question from the quiz to give to gbt4
+is because this was the one that
+actually stumped the most of my students
+and looking back in retrospect it was
+kind of mean toward it this way because
+it's a little bit misleading but really
+if you think about the answers and if
+you think about what they entail and
+what would be necessary for them to be
+true or false you realize which ones
+should be true and false so let's run it
+through gpt4 and let's see what it gives
+us
+once again this is sort of like the
+state of the art model that we have
+access to so asking it to both explain
+each option a little bit as well as say
+whether they're true or false we see it
+start with number one then it gets to
+number two and three and four
+um and it basically boils down to saying
+that number one is false because it's um
+because we do understand sort of the
+Core Concepts behind training deep
+learning systems but then two three and
+four are true number two because given
+reasoning we could train these deep
+Learning Systems to use that reasoning
+number three because of course
+explainability depends on your data and
+domain
+uh and then number four uh because that
+is how these deep learning systems are
+trained they are trained as an
+end-to-end Black Box uh and so we may
+not be able to understand you know the
+internal uh reasoning behind decisions
+now how did gpt4 score
+well what if I told you it got three of
+the four correct number two should
+actually be false now thinking about
+this for just a moment
+if you really sort of understand the way
+deep learning algorithms are trained and
+if we think about reasoning and if for
+example data sets contained reasoning as
+to why certain outputs are correct or
+incorrect compared to others
+even if a deep Learning System were
+trained the way it is today to produce
+that reasoning as output even if it were
+part of the data that doesn't change the
+fact that that reasoning is now just
+another output of this system
+and so now your reasoning is another
+output that must further be explained
+right you sort of develop the problem
+back into needing to now explain the
+reason you came to that explanation
+because it's just another output of your
+deep Learning System that is trained end
+to end as a black box
+and you know a system that we don't have
+a standard way of explaining output for
+and so that answer should have been
+false but it's true and gpt4 fell for
+the same uh sort of uh trap I guess that
+that every human does
+um or a lot of humans do which is it
+sounds very correct right it sounds like
+if there were explanations and reasoning
+and training data that would be able to
+train systems to sort of respect that
+reasoning and to be able to adhere or or
+produce that kind of reasoning but
+fundamentally keeping the training
+algorithms the way they are today we
+can't do that because then reasoning
+just ends up being another output and so
+I think this is really fascinating to
+take a look behind the curtain to see
+what some of the very fundamental
+limitations Behind These large language
+models are and speaking of fundamental
+limitations
+what about code can chat GPT replace me
+as a developer well let's find out and
+we're going to find out with the example
+of the email bot that I showed you just
+a little while ago now how is that
+relevant you may ask well
+as I mentioned I had to build a script
+that could extract email pairs from all
+of the emails I've ever sent email reply
+Pairs and I would then feed them through
+the openai embedding endpoint I would
+receive embeddings store them in a
+quote-unquote database which is really
+just a numpy file on disk and then
+attempt to retrieve new vector
+embeddings and match them against old
+emails in the future
+now on one hand people have argued that
+yes large language models will replace
+developers in some fashion at least
+entry level ones and the reason is
+because of the following if I were to
+for example throw the code sort of task
+that I need into gpt4 it seems like it's
+able to code it pretty well so for
+example I can tell it that I would like
+to
+Implement a script that can take the um
+that can take you know list of emails
+that are that are laid out in folders in
+a certain way and run them through the
+open AI embedding endpoint and save them
+to disk and what's really impressive is
+that it's doing this based off of an
+example of using the openai embedding
+endpoint because it's data cutoff is
+before that endpoint was even released
+and so it is really impressive to be
+fair and this sort of conclusion has led
+a lot of people to think hey we're
+replacing entry level developers but
+here's the catch let's take another step
+back let's go back to the author script
+that I was talking about that actually
+extracts
+the email reply pairs in the first place
+the problem is that we're trying to
+extract these pairs from an Mbox file
+I've actually exported my entire Gmail
+to two Mbox files in total it's
+something like 20 Gigabytes large that's
+a big inbox file if you don't know what
+these files are laid out like don't
+worry I didn't until yesterday either
+but these Mbox files are basically a
+bunch of text representing all the
+information in every single email that
+is in your well email account
+and
+this information includes all the way
+from like the subject and the body to
+the individual tags of the email when it
+when the email was sent you know who is
+from the message ID all these things
+and the thing is parsing that entire
+file to begin with ahead of time to then
+go and extract like a thousand emails
+from it is insanely wasteful but by
+default that is the solution that chat
+GPT will want to provide you what I
+wanted was a solution in the go
+programming language that would lazily
+load one by one individual emails from
+the Mbox file put them through a channel
+and allow multiple go routines to parse
+these emails allowing me to make use of
+all the resources on my computer at
+least a lot more of them in order to
+parse these emails and figure out which
+ones have replies and which ones don't
+it's a pretty complex problem because
+you have to keep track of State you have
+to keep track of the fact that for
+example when you see an email you're
+going to see the reply before you
+actually see the email because they're
+sorted chronologically so you've got to
+store the in reply to tag of a certain
+email and then match that against the
+message ID of a future email and if you
+don't end up seeing one then you don't
+actually have an original email and you
+shouldn't save the reply there is
+complex state that needs to be managed
+and honestly it's a pretty challenging
+task it requires a certain level of
+creativity to come up with a brand new
+way of this of this sort of parsing that
+gpt4 may or may not have seen on the
+internet before sure maybe it's seen
+individually lazy loading
+emails from an Mbox maybe individually
+it's seen things like understanding the
+in reply to header but putting that all
+together it's either I Lay It All Out
+step by step in which case I've still
+done the creativity and I've still done
+the problem solving
+or alternatively I could write the code
+myself because chat GPT really just
+doesn't have the capability to come up
+with these sorts of Novel solutions to
+novel problems
+on its own it's just not fundamentally
+creative enough it's still boiling down
+to a statistical language model a
+statistical language model that can
+interpolate between its own internal
+data points in a very very sophisticated
+Manner and then a lot of times ways that
+look really impressive but it can't
+extrapolate outside of its own data set
+outside of its own data distribution
+that is the limitation with these models
+and that's why it's not going to replace
+developers anytime soon now I personally
+think that these experiments have been
+incredibly insightful to learn more
+about how these models work and what
+they're actually useful for and
+hopefully you can see why I say that
+these models aren't going to be
+replacing me or you or really the
+majority of people anytime soon however
+this does bring me to another question
+which is why did it take so long for me
+to even cover generative Ai and chat GPT
+and these sorts of Technologies on this
+channel in the first place and really
+it's because and I know this is going to
+sound weird but I have been struggling
+to find a need a use case to cover
+now you're probably thinking there's so
+much you can do with this there's
+infinite possibilities why have I been
+struggling to find a use case well it's
+because I traditionally like to cover
+one of two kinds of topics either like
+to cover very core technical Concepts
+that in and of themselves don't seem
+that useful but could be used and sort
+of abstracted or learned from to then
+apply into a real application or I like
+to cover actual applications that I
+might not scale up myself or put in
+production but that have the capability
+to move into production so for example
+a hard ID is a system that I built that
+can recognize you based off of the way
+your heart beats and it uses deep
+learning and this is an actual
+application that you know could scale up
+and be put into production in the future
+or you know I released a YouTube
+tutorial on using Nvidia Cuda kernels to
+brute force hashes similar to proof of
+work in blockchains and in and of them
+in and of itself the code base isn't
+that useful but you can learn things
+like how to launch Cuda kernels and the
+basics of blockchain Technology
+and so when you take a look at those two
+sorts of things I like to cover
+Easter realized that chat GPT and the
+majority of things you can do with it
+exist in this very weird Middle Ground
+it's almost an uncanny valley of sorts
+because on one hand there's the obvious
+use case which is just chat with it
+right talk to chat gbt and then sort of
+guide it through conversation providing
+more and more instructions as necessary
+to achieve a certain task that's the
+obvious one
+now what I think delivers a real value
+that people would really want to have is
+just having these you know machine
+Learning Systems integrated into an
+application so you don't need to think
+about it you don't need to converse with
+this AI system it just does things for
+you right
+but these systems aren't really capable
+of that yet they're not truly
+intelligent they can't genuinely pick
+off of little bits of context and just
+you know do the things we want them to
+so I can't really build real world
+applications with it as a matter of fact
+it's very hard to do so it's very hard
+to think of those use cases which is why
+you see all these cool demos but barely
+any actual applications that people are
+using at a very large scale to do things
+in completely automated ways but on the
+other hand it's also not really hard to
+call into as a developer right pretty
+much any developer with simple rest API
+knowledge can call into the open AI API
+so I'm also not really covering a core
+technical concept so that puts me in
+this very weird Middle Ground where it's
+hard for me to cover anything technical
+because it's just calling an API and
+openai has decided not to release any
+details about their models but on the
+other hand it's also very difficult for
+me to build anything because sure I
+could show you some demos where it works
+but if you actually tried to use these
+applications in the real world they
+break down so quickly that sometimes it
+ends up being more effective just not to
+use them or to instead take parts of
+what you were going to do and just
+converse with chat gbt directly
+and so that is the problem that I've
+faced so far and this brings me right
+back to the fundamental limitations of
+these models they are large language
+models they're not intelligent right it
+takes a fundamental rethinking of the
+way we do machine learning and AI to
+make them useful in large scale
+applications and while there are uses
+for today's version of this you know
+large language modeling tech there are
+use cases but they boil back down to
+helping us with individual pieces of
+larger bits of work rather than taking
+over parts of the work entirely that's
+that's that's that's really what it
+boils down to so I know this is a topic
+that many people have many different
+opinions on so feel free to leave your
+opinions down in the comments section
+below or ask any questions or provide
+any suggestions I'm happy and in fact
+I'm very interested to be hearing from
+you on this one apart from that if you
+enjoy the video please do make sure to
+leave a like down below subscribe to the
+channel as it really does help out a lot
+and turn on notifications that you're
+notified whenever I release content just
+like this apart from that thank you very
+much for morning and goodbye

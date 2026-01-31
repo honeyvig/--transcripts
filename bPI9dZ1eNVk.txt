@@ -1,0 +1,89 @@
+hello there time to back for another
+video this time we're doing another new
+topic so related to selecting and
+querying but this time we are doing
+updating and deleting this time
+specifically updating next video will
+we'll be doing believing but both of
+them are pretty much just similar now
+here we are
+let's open up mr. Renkin studio here we
+are where we left off last time where we
+were doing multiple wear statements but
+here we have their email and their
+address and their last name is their
+first name let's say um we got their
+email wrong that's not the email you
+want to change it to send an email we
+need to send an important email and this
+thing needs to be changed so that they
+get the email what they do like they
+wouldn't completely delete this query
+and make a completely different one what
+they do is they use this simple command
+update now this may look complicated
+once I put it all the code but it's
+actually pretty easy once you get the
+hang of it so update table that's the
+first little part of it you can see
+update became modal pinkish square
+pinkish color and table became bluish so
+that's how you know it's actually
+working so let's say we wanted to change
+email and right now it's our unit geo
+calm but we wanted to change it to let's
+say you know are you in one two three
+let's say up faster set now this is
+where lots of confusion comes in
+because if you just go let's say set
+email equals R in or 2/3 at gmail.com
+then what's gonna happen is every single
+query every single or result that has an
+email every single every single thing
+will become email every still thing
+every single email will become a rain
+one two three at gmail.com sorry add to
+something okay
+so every single email will become or in
+one two three at gmail.com if you just
+do this trend now how do you fix this
+you ask well let's fix it now let's
+execute this command that execute this
+command currently I'm just gonna select
+this and then click execute that means
+it's only gonna execute on select star
+from desert now we have dots of emails
+here right all these will be changed to
+RN one two three at gmail.com if I
+execute this command update sorry uh
+you're not supposed to put in table I
+was confused with the delete okay so
+this is what happens if you execute this
+command see all the emails are re anyone
+to direct email calm now I'll fix that
+later but let's say we wanted to change
+our aims to our a.m. one two three four
+if you would just do that again every
+single thing will change
+before what you can do now is you can do
+where and then you put in the some
+unique key so that not two things get
+changed only one thing that's changed
+and that's the one that you want to
+change so let's say we're last name I
+don't have a specific ID system or any
+duplicates right now so this is this
+works for me
+but if you had duplicates and you had a
+ID system then this would probably not
+work for you and you would not be the
+best way to do this so let's pretend one
+of these was ID first name is ID I'm
+just going to change so now just execute
+this command and then execute this
+command you see everything that's are in
+1 2 3 but um this specific power result
+is 1 2 3 4 that's all for updating for
+this tutorial thank you for watching
+please like comment and subscribe ask me
+if you have any questions and goodbye

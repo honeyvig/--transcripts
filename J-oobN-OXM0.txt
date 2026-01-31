@@ -1,0 +1,208 @@
+[Music]
+so hello there and welcome to another
+tutorial
+my name is Tanmay Bakshi and this time
+we're going to be going over how you can
+use dropout layers and convolutional
+neural networks in order to reduce the
+chances overfitting now to begin though
+a little background now what are you
+trading a convolutional neural network
+you know it's an extremely you know
+computationally expensive process and
+there are lots of measures in place to
+try and prevent overfitting just like
+drop out layers but one thing I'd like
+to say here is that specially
+convolutional neural networks are
+notorious for overfitting they will over
+fit if you do not give enough data or
+safeguard against it by using an
+algorithm like early stopping or these
+dropout layers and so like for example
+if you don't have enough data
+it'll over fit to that training data and
+it won't work on your test data and so
+that's why this looks like imagenet are
+great for scene ends because cnn's have
+so many trampled parameters that you
+need as much data as possible to allow
+them to generalize to the concept of
+what they're trying to learn and so
+that's what i'm going to be showing you
+how you can do today how you can
+increase the generalization of your own
+network instead of having an overfit to
+a specific training set that's actually
+came here probably know at the end of
+every rule network you've got this fully
+connected or as they're called dense
+players now they need to act as regular
+be forward neural networks so if I were
+to draw say some some hidden neurons say
+for hidden neurons alright so we've got
+four circles representing four neurons
+and then if I were to say CN n so the
+output from AC and
+and can actually become the input for
+this beep over here I'll network and so
+what would happen is the same man with
+feed data into the neural network and so
+we're assuming there's one more dense
+layer here the beginning of the dense
+layers here and then that access input
+for this hidden layer what status let's
+just say you're building a kind of dog
+classifier all right
+and so the first neuron represents cat
+and the second neuron for output
+represents a dog and so let's just say
+we're gonna draw two neurons here
+representing our output neurons okay I
+know what happens all of our neurons
+would actually connect to all of our
+hidden neurons would connect to all of
+our output neurons and then so so this
+is what our fully connected or dense
+layer looks like now what we're trying
+to do is reduce overfitting in this
+section of the convolutional neural
+network because in this part you know we
+can also incorporate dropout layers and
+CNN itself but that's an entirely
+separate video topic but today which we
+talk about dropout layers and cnn's
+inside of the dense layers so let's just
+say we were to implement a dropout layer
+and this dropout layer has a probability
+value I don't tell you what the
+probability doesn't just for a moment
+fifty percent there is a 50 percent
+chance that any neuron here can be
+dropped up so what will happen is let's
+just say we've got you know we've got
+the same layer each neuron would be
+assigned a random value from 1 to 100
+okay let's just say these values are 50
+and 10 and 59 and 5
+okay so that what's happening is now is
+now the actual logic behind behind
+choosing the in a 50 percent random drop
+out isn't actually no just generating
+random number and checking if it's you
+know 1 to 50 then no or you know
+otherwise yes but let's just call it I'm
+going to represent it for you to show
+you that there is a 50% probability that
+one of these neurons will be dropped out
+so each neuron is assigned the value
+then we check if we go through each
+value if it is then we'll that neurons
+been dropped out exactly that means in
+just a moment and so as you can see
+neuron number one and your number 3 have
+been dropped out this means they will
+basically be completely inactive they
+will pretend as if they're not there and
+the neural net will not know of their
+existence what this means is that for
+the one pass that's currently doing
+these neurons won't exist at all
+it so it's going to happen is the
+neurons themselves as well as all of
+their connections now mean nothing
+they're not there and so when you see
+them provides input to this dense layer
+what's happening is only these neurons
+are activated and only these neurons
+mean is we don't pull it and let's just
+say the output layer turns ugly like
+zero zero point six seven and four dogs
+0.89 but the problem is that it was
+actually cat picture but this represents
+cat probability and this represents dog
+probability and so it's classifying this
+cat pictures doll so you've been on the
+back propagation to increase the score
+for cat and decrease the score for dog
+but there is another problem what do we
+do with these john bell later dropout
+neurons well it's actually quite simple
+ignore them again when you back
+propagate
+only backpropagate on the weights that
+are active and the muons are active the
+ones that are remembering what this will
+allow us to do is retain the knowledge
+that these neurons and it's connections
+store and when it retains its knowledge
+well in that case we haven't changed it
+at all so the neural network still has
+some previous knowledge but also has
+some newer knowledge and that doesn't
+mean and that means that I mean with
+overfitting that means you're basically
+throwing out older knowledge using new
+knowledge and the knowledge that's
+that's there mostly in the data set
+because that's the one that that
+prevails the most on the back
+propagating that simply does not have a
+chance to survive because it's keeping
+all the knowledge as well as newer
+knowledge and it's allows us to reduce
+over thing by so much and next time say
+maybe this neuron this neuron are
+dropped outer this you're on this one
+end or this one in this one it's
+completely random but it allows for us
+never been overfeeding it's such a
+simple yet intuitive way because what
+happens again is it's not just learning
+new things it's remembering what it has
+already learned and this allows it to
+generalize for the concept of cat and
+generalize to the concept of a dog in a
+much much better way and this allows it
+to give you correct output as part of
+the CNN now of course these same drop
+out layers can be incorporated in
+convolution layers and more but I'm not
+going to be covering that yet as that
+slightly different the logic behind is
+slightly different although the concept
+is entirely the same retain older
+knowledge while still learning new
+knowledge or gaining new knowledge but
+again that's a topic for a separate
+video all right so I really do hope
+you're able to learn something from this
+video and of course though if you did
+learn from this video please make sure
+to leave a like down below so it really
+does help out a lot and of course if you
+believe this could help anybody else you
+know like your friends and family please
+do make sure to share the video as well
+all right any more questions
+feedback from this or any of my other
+videos please leave it down in the
+comment section below
+tweet it to me act as many or email it
+to me at 10 G mani at gmail.com and my
+contact information will be in the
+description below alright so thank you
+very much for watching today but you can
+really like that content and you want to
+see a lot more of it please do make sure
+to subscribe to the YouTube channel as
+well so it does help out a lot as well
+as if you'd like to see notifications
+whenever I release a new video by email
+and Google notification please do make
+sure to turn on notifications by
+clicking the little bell icon beside the
+subscribe button as well alright so
+thank you very much for watching today
+and good bye
+you

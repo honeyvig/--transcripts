@@ -1,0 +1,959 @@
+so hello there and welcome to the
+tutorial my name is Henry Bakshi and
+this time we're gonna be going over
+another general education video this
+time I'm gonna be going over something
+quite vast and so this is gonna be the
+first part of my algebra series yeah I
+think there will be exactly three parts
+in total and so now we're gonna be
+starting off and so now I'm going to
+give you quite literally a shower of
+lots of questions for algebra I'm gonna
+be telling you the definition of algebra
+its word origin give you some sample
+questions tell you the vocabulary the
+simple vocabulary etcetera etcetera so
+let's get right started and before we
+even continue you must be wondering what
+is algebra in the first place
+well algebra is that branch of
+mathematics in which symbols or even
+sometimes letters are actually mostly
+letters sometimes symbols are used to
+represent quantities in formulae or
+equations I got that definition from the
+Google dictionary so if you want to
+check that out there will be a link in
+the description and I also got this
+award origin from the Google dictionary
+and so the word origin for the word
+algebra comes from Arabic and so the two
+words that are mainly derived from
+Arabia for algebra are Jabara sorry if
+I'm not pronouncing that right and also
+algebra and also we added in a bit of
+Italian Spanish and medieval Latin and
+we also added in the English word for
+algorithm and got to the final word
+algebra which is used in modern day
+anyway
+now that we know the word origin for
+some reason and also the definition of
+the word algebra let's get right started
+before I explain algebra teen it's
+necessary not really necessary but it
+would be extremely helpful for you
+helpful sorry if you would just go watch
+my integers series because that will
+really come in handy when you're trying
+to learn algebra so there will be a link
+to that down in the trip ssin however if
+you already know integers or if you just
+want to skip that part for now and see
+this then you're more than welcome to
+let's get started anyway so now I'm
+going to be teaching you three main
+things
+and then we will be getting into algebra
+first of all something called a term now
+it's a turn now as you know variables
+could be something like a symbol or or a
+letter so for example X could be equal
+to five now this would be called a
+variable so X in this case is a variable
+that stores five and so if we were to
+say X plus five we would say ten or X
+plus two you would say seven so now let
+you know what a variable is now I can
+tell you what a term is a term would be
+something like 3x now what is this you
+may ask now there's a number and there's
+a variable what together these create a
+term and specifically this 3 which is
+the number is called the coefficient and
+this X is called the variable
+right there so now that you know what
+the coefficient of the variable are I
+can explain the term so the term is
+basically a mix of the coefficient of
+the variable together and so you can
+multiply these and get the answer of
+this term so if you were ever see a
+number and a variable with nothing in
+between them now it automatically mean
+that we and that would automatically
+imply actually that we want to multiply
+both of these values so that's what a
+term would be and I'll give you a more
+detailed explanation right after this
+actually instead of erasing that just go
+over here so now if we explain an
+expression to you an expression could be
+something like X plus 5 equals 10
+actually nope
+hi Mary Steven this is an expression
+this is now I'll give you an example of
+an equation and then I'll tell you the
+difference between an expression and
+equation so the equation could be
+something like X plus 5 is equal to 10
+then do this this would be that is an
+equation so now what's the difference
+between an expression an equation an
+expression is something without an
+equals and so there's no two sides to it
+and just before I continue an equation
+would be a question essentially an
+expression and then equals and then a
+correct answer so the belt so that both
+these sides are balanced anyway
+I'm sorry about that apart from that no
+I can actually start teaching you a
+little bit of algebra so now take an
+example question to start maybe
+something like this is pretty simple X
+plus 4 equals 9
+no we do not know what X is equal to and
+that means that we have to solve for X
+meaning that we have to find out what X
+is equal to now in order to do this we
+have to do something called name for it
+the operator thing yeah just a second
+forgot what is a call if the opposite
+operator what was that good anyway so we
+have to use the opposite operator 4 plus
+because in this case we're using plus
+here oh just remembered what it was it
+was a counter operator we have to use
+the counter operator 4 plus which in
+this case is - let me just write that
+out for you this is our counter operator
+list
+so our counter operators four plus minus
+times and divided so four plus it would
+be minus four minus that we do plus four
+times that would be divided and four
+divided it would be times so now we need
+to do is we see that if you see my
+integers but already there are actually
+invisible pluses before X and nine and
+so this plus is associated with this X
+this plus is associated with this four
+and this plus is associated with this
+knife now what we need to do is in order
+to solve for X we need to say X is equal
+to now what will X be equal to if we
+don't already know its value well in
+order to find it we say that okay
+this is what we are modifying X with in
+order to get nine so what we need to do
+is say okay this will be going over here
+however when an operator over here
+travels over this equal sign then it has
+to be counter or actually opposite so
+now as we know for plus our Condor a
+counter operator is minus and because of
+that what I'm going to do is while it's
+traveling I'm going to turn it into a
+minus 4 so X will be equal to actually
+plus X because this is a still positive
+X is equal to positive 9 but since we've
+changed this from a positive 4 to a
+negative 4 negative 4 and so now we can
+simplify this so that you know how to do
+this 2x is equal to 9 minus 4 and that's
+how simple it is to do that now we all
+know what 9 minus 4 is it's 5 so we can
+say successfully that X is equal to 5
+perfect so now we know that X is equal
+to 5 because
+five plus four is obviously equal to
+nine anyway now that you know the basics
+on this let's try something more
+complicated shall we let's do something
+like yeah I mean think while I erase
+okay perfect so we can do something like
+X minus four equals eight now how would
+we go about doing this what we would do
+is first of all say okay there's a
+positive here
+pause appear now I'm just doing this to
+introduce this to you next time I'm not
+gonna be putting in the positives and
+again we can see that this is associated
+with this is associated this and this so
+positive X negative 4 positive 8 so then
+what we have to do is since this 4 is
+modifying this X we have to move this 4
+to the opposite side of the equation and
+we're gonna do that we just trends we
+just make it travel but whenever
+anything travels a from left to right of
+the equals or from right to left of the
+equals then we always have to invert its
+operator so again - is counter operator
+as we see right here is going to be a
+plus so what we do is while traveling we
+make this a positive 4 so now we can say
+successfully that X is equal to 8 plus 4
+because if we take these positives back
+into account we see that this positive
+is associated with an X and then this
+positive is associated with 8 this
+positive is associated with 4 so now
+what we can do is X is equal to 8 plus 4
+which we know is 12 so now we can say
+that X
+is equal to 12 and we all know that for
+example again let's just write the
+question over here X minus 4 equals 8
+now we found out that X is 12 so let's
+just put that in 12 minus 4 what would
+that be 8 and so our answer is correct
+and that's how you would also test your
+questions or your answers that you just
+got now let's go into something a little
+bit more complicated so now that it's
+started do this now you're about to get
+a little bit confused maybe unless you
+actually really paid attention in the
+beginning now
+what is this what is this madness anyway
+three X is equal to 15 unless you really
+pay attention in the beginning you will
+know that this is a term and so there's
+the coefficient and there is the
+variable now in between them is an
+imaginary multiply so actually you could
+say this as three times X so now we know
+that three times X will be fifteen in
+order to calculate this in order to
+calculate for X sorry we need to again
+take this three and put it on the
+opposite side of the spectrum or on the
+opposite side of the equation and again
+as with everything we have to also
+invert the operator while moving across
+the equals so while this three moves
+over here as we can see over here the
+counter operator for x is divided so
+what we do is we convert this from times
+three 2/3 and now all we need to do is
+do divide I'm not gonna write it there
+as you're not supposed to do that what
+you can do is X is equal to 15 and then
+as we said divided by three then we can
+just calculate that so it's five so
+basically we know that X will be equal
+to five because obviously 15 divided by
+3 is 5 that works out now we can test
+this so we can say 3x is equal to 15 and
+now we can say 3 times 5 is equal to 15
+and so our answer is again correct now
+let's go and do some more complicated
+sorry okay now we're gonna be doing
+something like the like a vision and
+then we're gonna do addition again it's
+that's what's up
+so let's just say something like yeah
+sorry hum 8 divided by 4 is equal to 3
+now how would we go about solving this
+first of all what we have to do is take
+this 4 part and move it over here in
+order to do that we have to take this
+divide and again as with everything when
+we move it over the equals they have to
+take its counter operator with us let's
+go over here again
+and so our counter operator for divide
+is going to have to be you can just come
+over here quickly our counter operator
+for divide these of course multiply so
+when we come over here we know that this
+will be turned into times 4 but I'm not
+going to write up there of course that
+was just to make sure you don't get
+confused because that's not how you do
+things in algebra what you actually do
+is 8 is equal to 3 times 4 and then we
+can say a is equal to 12 and so now we
+can test we know that a divided by 4
+will be 3 and now let's put the 12 in 12
+divided by 4 is equal to 3 and our
+answer has once again turned out to be
+correct now we can do something pretty
+simple again
+this ask you something like the
+subtraction I guess so my example will
+be X X minus 2 is equal to 6 now this
+would be pretty easy to solve because
+they're small numbers but I mean again
+we're doing algebra so now what we need
+to do is we have to take this part move
+it over here but again we're crossing
+this border and that's what causes were
+we have to convert this minus 2 into a
+plus 2 so while going across this border
+it becomes a plus 2 and then so X is
+equal to 6 plus 2 so now we can do X is
+equal to 8 so now what we can do is come
+over here and say that X minus 2 equals
+6 so let's fill it in 8 minus 2 is equal
+to 6 and our answer is now correct
+pretty simple right anyway
+now we can do something a little bit
+more complicated again and sorry if
+you're not really enjoying this until
+now if you really want that shower
+questions if you want the part where
+you're really gonna get those sort of
+advanced questions don't worry that's
+coming up but again you have to learn
+these basics first anyway do something
+like B I mean not 6b me plus six is how
+do we go about solving this again now
+again this is the part that has to be
+modified because it has to go over here
+but again it's being it's crossing the
+border line crossing the border the plus
+becomes a minus and so plus six becomes
+minus 6
+now we can do B is equal to 9 minus 6 so
+now we can do B is equal to 3 that
+simple so now what we can do is do okay
+we already know that B plus 6 is equal
+to 9 but 3 plus 6 is equal to 9 and B is
+equal to 3 and so our answer is correct
+anyway some more examples and then you
+should know just enough to get started
+with the shower of questions that I
+promised in the title
+anyway let's talk about 2y8 is okay so
+now that we have this question again
+this would be our term if you didn't
+remember our coefficient over here and
+then our variable over here so now what
+we're going to do what we're going to do
+is again if you didn't remember there's
+actually an invisible x between these so
+it's actually two times y is equal to 8
+in order to find this well we knew Y is
+equal to 8 divided by 2 and the reason
+we did that is because we took this two
+x went over here but we crossed the
+border so we changed x 2
+we're not gonna use that 2 divided by 2
+so this is our final question so Y is
+going to be equal to 4 now we can do to
+test it we know that 2 y would be equal
+to 8 but 2 times 4 will also give us 8
+and Y is equal to 4 and so our answer
+it's correct now that we have that we
+can continue to the next question
+which will apparently be see to think
+look good money not too hard not that
+simple got it yeah
+got a divided by five is equal to four
+in case you didn't know this was also
+another meaning for divided and just
+quickly before I continue that this
+would actually imply brackets around
+both of these meaning that you would
+have to first of all solve for this then
+solve for this then divide and but if
+you were to just write a divided by five
+is equal to four and then you would
+actually just fall normal organ
+vibrations in order to self but not in
+this case anyway okay so now what we do
+is receive that a divided by five is
+equal to four
+this is what you can see this a bit
+better so I can the border crossing and
+stuff I'm just going to write it like
+this as well as like that
+so a divided by five as you go before
+that's in case some of you like this
+some of you like this so now of course
+we see that there's a divided by five
+but this has to go over here and again
+we're crossing this little border so our
+divide will be changed to a multiply and
+so what we have to do a is equal to four
+times five and we know that will be
+twenty perfect so now we can test and
+say 20 divided by five and yes this is
+equal four so our answer is correct
+pretty simple till now we might just get
+a little bit commutator next who knows
+anyway it's now I might just give you a
+little more complicated maybe a few more
+simple and just decide on a question
+that would be appropriate right now
+so now let's do something like uh n plus
+7 equals 2 how do we do this
+again we see this as plus 7 so now we
+take this we put it over here but again
+we're crossing this border we do pluses
+to minuses and then so plus 7 to minus 7
+so M will be equal to 2 minus 7 now this
+will give us a negative answer which is
+negative 5 and so if you didn't watch my
+integers video well I'd recommend you do
+that a link will be down in the
+description or maybe on the page right
+now ok so now what we can do is M is
+equal to negative 5 and now we can test
+witness we can do negative 5 just so you
+can see it better for negative 5 in
+brackets plus 7 equals 2 and so our
+answer here is completely correct
+amazing right
+power of algebra anyway
+and now we're done this you can do
+something like yeah even better one M
+minus seven equals two now oh let me do
+what would we do
+first of all what you do is say okay
+just a sec yeah so we would take this
+part move it over here but again we're
+crossing this border so we convert
+negative 7/2 plus seven so M is equal to
+two plus seven and so M would be equal
+to of course two plus seven we all know
+is nine so now we can test it out nine
+minus seven equals two and so we are
+correct now let's do something like
+maybe this I think we should start doing
+something more complicated now now we
+actually start our shower of questions
+apparently anyway so sorry about that in
+order to do this we see that this over
+here has is negative for and so again we
+will be putting it over here
+however we cross this border meaning in
+the negative 4 turns into a positive 4
+and then so we can do n is equal to
+minus 6 plus 4 so this would mean minus
+S Plus forward which would mean negative
+2 so that means n is equal to negative 2
+and so we know that this is right now
+because negative 2 negative 4 negative 6
+so we really don't need to test that
+here that just takes up way too much
+time and I'm sure you're getting a
+little bit bored of it too anyway so now
+you can do something like perfect a plus
+7 equals negative 3
+we might be wondering how this is
+actually possible because we're adding
+how could we get to a smaller number
+well you'll find out in this section
+because we might just seen as a negative
+number here anyway what we're gonna do
+is we see this and we have to move it
+here we're crossing the border so we
+need to change plus 7 into negative 7
+sorry and so a will be equal to negative
+3 negative 7 and so a will be equal to
+negative 10 so negative 10 plus 7
+negative 3 it's that simple
+anyway sorry about that now yeah so I
+can give you the example of something
+like oh I don't know 8 divided by 2
+equals 3 how would we go about solving
+this first of all we know this is the
+vision and so I can actually show you a
+little diagram I'm going to write it
+straight so a divided by 2 equals 3 how
+do we solve for a what we do first of
+all is we see that there is divided 12
+here so what we want to do is basically
+you have to take this and move it over
+here and we're to solve for a
+now when moving or crossing this little
+border and so right as we cross this
+border it gets changed from and divided
+by 2 2 times 2 so we can say that a is
+equal to 3 times 2 perfect so now we can
+say a is equal to 6 now just one last
+time in order to test this because the
+our verse does sort like this we can
+just say 6i / - you know it was able to
+3 I'll be doing many testings after this
+because of course you know that this is
+always going to be right because this is
+the rule how you do it now algebra
+anyway next question negative 8 divided
+by 3 is equal to 5
+see how we would go about solving this
+first of all it's nice and straight we
+would see negative 8 divided by 3 equals
+5 in order to solve this what we would
+do we take our division and what we have
+to do move it over here
+however again because we cross this
+border it goes from division to
+multiplication whenever it goes from
+division to multiplication we do first
+of all before we even continue this
+minus is basically associated with this
+a so it will be completely not valid for
+us to say this this is not valid because
+we're supposed to say this is a negative
+a not positive so what we can do now
+though in order to make this a valid
+expression we can do negative a is equal
+to 5 times 3 5 times 3 we know is 15 so
+negative a will be equal to 15 perfect
+so now we go that negative a is 15 but
+we want to solve for a specifically not
+negative a so what would we do
+first of all let's get back to our point
+of terms what is a term you may ask term
+and if you paid attention to the
+beginning it's something like this 3 why
+this means our coefficient here the
+coefficient and then our variable I'm
+gonna be asking how will Terms help us
+in what we're doing right now well first
+of all you need to accept the fact that
+negative 8 is in fact a term how you may
+ask well if you remember the term is the
+coefficient of the variable and so over
+here there's actually a hidden
+coefficient right there which is
+negative 1 so our actual
+term would be written as negative one a
+and so we can say that negative one a is
+equal to negative a completely new to
+the fact that negative one times a
+because this again is a term negative
+one times a we know will be negative a
+not know difference and also negative a
+is equal to negative a that means that
+this becomes a term in the in the place
+of this so what we can do is write minus
+one a is equal to 15 now how does this
+help us if you remember there's the x
+over here so we can take this to our
+advantage and say that this x can go
+over here as a divided because of course
+it will cross this border and we come to
+my so now we can do is we can say a is
+equal to 15 divided by negative one now
+if you followed by integers video you
+know that first of all 15 divided by 1
+we know is 15 but since there's a minus
+here a plus here the minus wins in this
+battle and then we get a negative 50
+answer so a is equal to negative 15 so
+our a is actually equal to negative 15
+now when we're testing this I'm
+specifically going to test this because
+there's actually a little catch to this
+just erase all of our terms here instead
+I'm going to tell you we know that we
+want to solve negative a divided by 3 is
+equal to 5 now we have solved for a but
+there still a minus here so we can say
+that we have to first of all we have to
+keep the minus here because we are going
+to give the value for a not negative a
+so since we're giving the valley
+for a we still have to have this
+negative here because of course we
+aren't solving for negative a keep that
+- and then in a bracket we can write our
+answer for a which is negative 15 and if
+you've seen my into this tutorial you
+can you know that - and - comes up to me
+a plus so this is positive 15 divided by
+3 is equal to 5 so our answer correct
+and that's how that works anyway next
+question again bear with me here I know
+this is actually starting to get a bit
+more tedious and stuff what I mean this
+is all good so you have a good
+foundation for algebra so when I make my
+further tutorials you will be completely
+fluent with the idea and you will get
+what we do with algebra anyway
+now let's do something like C divided by
+5 is equal to 4 now how would you find
+the answer this question first of all
+again language we saying C divided by 5
+is equal to 4 now we take this little
+divided segment put it over here
+across the border he comes from divided
+by 2 times 5 so we know that C is equal
+to 4 times 5 C is equal to 20 and of
+course we know that the answer is
+correct because 20 divided by 5 is 4
+next question anyway now let's do
+something like a negative D divided by
+two is equal to again a little confusion
+should make some negative why not
+maybe it's negative so now we can write
+it like this minus D divided by two is
+equal to negative 10 so now what we can
+do in order to solve you see we take
+this little segment put it over here
+since when we cross the border change it
+from divided two to multiply two of
+course
+so then negative D is equal to negative
+10 times 2 so we see 10 times 220 and
+there's a minus and a plus the minus
+wins
+so negative D is equal to minus 20 now
+again we can easily convert find the
+value for D but how would we do that
+first of all let's convert this to a
+term so minus 1 D is equal to minus 20
+we have to agree then we can say that D
+is equal to minus 20 divided by minus 1
+because again we're taking this little x
+portion will be get over here and since
+we cross this border it becomes x minus
+1 instead of divide minus 1 actually
+nope sorry it comes and he comes from
+the x to divide their reference so now
+we have this and so we can say our
+answer is successfully d is equal to 20
+so now you know this is right I've
+already explained how to test this sort
+of thing so I'm not going to be testing
+this and so that's sort of why I taught
+you all of that so you will be in the
+potestas by you're on your own now
+now I've already taught you enough that
+you should be able your articles go test
+this on yourself and you should be able
+to get the right answer and the right
+answer will be in the description for
+this specific answer since I didn't give
+it to you anyway then something like
+three a is equal to 18 which some of you
+will not get if you didn't pay attention
+for the past like literally 10 minutes
+or so this is a term this is the
+coefficient and again I'm going to
+explain this just one last time so you
+really get this in your head this is a
+variable now the reason I explain this
+again is because I really want you to
+memorize okay when you see a a number
+and a variable
+it's a term term term term and term now
+you should be able to find out the
+answer to 3 a is equal to 18 and if you
+still don't get what I mean
+here's a simple way to look at it three
+times a is equal to 18 you get it yet I
+think you should because the term has
+the that invisible x in between it so we
+were to solve this as always we are
+going to take this time to part put it
+over here hmm so this will become since
+we're crossing the border it will become
+from times a what sorry three times that
+we have to move over not me so
+it's actually hmm when it's three times
+a equals 18 we have to move this part
+not the variable this part where else
+there's no point really over here but
+again because we're crossing the spoiler
+it goes from x to divide and so we can
+discern that a is equal to 18
+sorry 18 divided by 3 it's that simple
+let's take a look at this a successfully
+be equal to 6 that's how you do that so
+now we can do 3 times 6 is equal to 18
+and yes it's right it's now let's do
+some more term stuff because I you
+really need to know this in order to be
+able to do algebra terms minus 2 a is
+equal to okay so now what we're gonna be
+doing is we have this negative to a part
+so as you know there's a invisible x
+here we're gonna move this invisible x
+over here and since it goes over a
+border it's going to go from the time so
+divide so it's going to be a is equal to
+10 divided by negative 2 now if you've
+watched my introduced tutorial again as
+I said in the beginning it's really
+really helpful for you if you've already
+watched my integers tutorial because
+then you don't need to learn all this in
+this part because I won't be explaining
+this and if you just watch my introduced
+tutorials specifically on multiplication
+and addition which are in two separate
+parts so sorry about that but both them
+will be down in the description so you
+can get their widdy's and so apart from
+that let's just solve this quickly 10
+times 10 divided by 2 that's 5 minus and
+plus the minus 1 so negative 5 so we
+know that a it'll be equal to negative 5
+that's how that works
+next what we can do something like just
+anchor exactly 40 is equal to 1 minus 28
+or to solve this again we have an
+invisible x here we have to move this
+invisible x over here again we are
+crossing a border so it becomes x 2
+divided so now we can ascertain that Z
+is equal to negative 28 divided by 4 so
+we see that this is obviously positive 4
+because we're not saying what it is so
+then we can say that ok negative 28
+divided by 4 I mean just just 28 divided
+by 4 would be 7 yeah so 7 and then so
+negative and positive negative ones
+negative 7 that means D is equal to
+negative 7 that's how that works anyway
+next 10 minus P is equal to 6
+now that we have our little question
+here now I'm going to teach you a trick
+that will be very useful so what this
+trick essentially does is we will be
+able to convert all negatives to
+positives and positives negatives so it
+becomes easier for us to calculate but
+before that I want to show you the
+regular way and compare how much simpler
+it is just to use the trick first of all
+the regular way would be as you can see
+this negative is associated with this P
+there's an invisible positive here which
+is associated with this 10 and
+this negative is associated with the six
+so now we have to keep that in mind and
+say negative P is equal to dot dot dot
+whatever I decide to put there next
+so now we can see that we have to move
+this part over here by going over here
+but since you know we're crossing this
+border it becomes up from a plus to a
+minus so this will be minus six minus 10
+which we know will be minus 16 so now as
+you can see we have minus P is equal to
+-16 and now we have to just convert to a
+positive P and then we have our answer
+so minus 1 P is equal to negative 16
+after you know then as I discussed P
+will be equal to negative 16 divided by
+negative 1 so P is actually going to be
+equal to 16 as I discussed because this
+this little x here gets moved over here
+as division because we're crossing the
+border when you take a 1 in a 16 it's
+always going to be 16 but since there's
+two minuses it becomes a plus and we are
+able to get to our P answer and so we
+got our answer which is 16 perfect
+positive 16 to be exact anyway
+next we have Oh yep we're up the trick
+now I'm ever wondering what does the
+trick even help us with well before you
+have to calculate for negative P do all
+this and then converting and stuff but
+now all you do is update this equation
+or actually yeah this equation to this
+first of all and this is just my
+preference for beginners what I would do
+is you know this hidden operators show
+all of them first so that you can
+actually see what you're changing and
+you don't make a mistake so first of all
+we see there's a hidden operator here
+and nowhere else because there there's
+more numbers there aren't more numbers
+so now we see this is a pause it convert
+it to a negative right here there's a 10
+keep it as a 10 there's a negative write
+it as a positive there's a P keep it as
+a P equals stays equals negative becomes
+positive six state six now you have an
+almost exactly inverted version of this
+operation it's not we can do is we have
+negative 10 plus P equals plus 6 so now
+we can just solve for P because P will
+be equal to and then let's calculate
+because 10 just goes over here and it's
+- but because it goes over this like a
+bulwark border it goes from minus to
+plus this means that it's plus 6 plus 10
+and so we always know that this will be
+equal to 16 and so we've got our answer
+in two steps instead of five that's how
+much that's I mean it doesn't reduct
+our work by a lot but it does make quite
+a big difference if you're doing a much
+longer equation anyway getting back to
+the basics almost almost as I said
+almost
+because now we are doing multiplication
+and division we're just doing addition
+negative n plus two is equal to now
+should I make this negative or not I
+don't think I should make this negative
+anyway so now as you see we have a
+negative n I'm not gonna use the trick
+here I'm just gonna solve this
+legitimate way so negative M as we know
+will be equal to as we see this has to
+be moved over the board but because of
+that it becomes a minus so it becomes
+five minus two and so we know that
+negative M is equal to three you guys 5
+minus 2 is 3 now in order to make this a
+positive M we need to do minus 1 M is
+equal to 3 sorry anyway so now what we
+can do is M is equal to 3 divided by
+negative 1 and so our final answer will
+be M is equal to and then finally of
+course negative 3 so we got our answer
+which is negative 3 we have sold for em
+now
+course- d4 especially in this case
+inverting signs will make a big
+difference because it's just positive
+positive positive then but first I'm
+gonna do this the legitimate way as I
+said then the trick let's start first of
+all this has to be moved here and since
+it crosses the border it gets changed
+from minus to plus so minus D is equal
+to minus seven plus four so we know that
+negative D is going to be equal to
+negative three then of course we have to
+convert this to normal D so minus one D
+is equal to negative three and then D
+will be equal to negative three divided
+by negative one then what we can do is
+just D is equal to three it was that
+simple however these are a lot more
+steps than if we were to use the trick
+now I'm just gonna write the trick on
+the side so that you can actually
+compare what the steps are let's do this
+then we have negative D over here minus
+negative negative seven now in order to
+make this a trick we have to do just
+positive D positive four equals positive
+seven and now we have our real sort of
+equation now we're to solve for it we
+can just do D is equal to and so now we
+know that this will go over here and
+since we crossed the border it goes from
+a plus to a minus so we can do plus
+seven minus four which means D will be
+equal to automatically plus
+so that's how simple that is as you can
+see this is like first of all 1 2 3 4 5
+this is 1 2 3 that's a pretty huge
+difference if you think about it and so
+that's how that trick works anyway now
+we can do something like
+negative 10y solve this first of all we
+know it's a positive y so we can just
+write Y here not right why I'm sorry
+about that
+okay so y y is equal to now let's see if
+negative 10 moves over here becomes a
+positive because we're crossing the
+border so now what we can do y is equal
+to 8 plus 10 so now Y is equal to 18 so
+that is our correct answer all right
+again bear with me here I'm giving you
+too many examples but I mean this is
+going to really give you a solid
+foundation on algebra and the parts to
+come it's expected right now that I'm
+gonna have three parts but I may even
+have like five or ten parts but nothing
+not necessarily because of course I
+don't know what exactly would to cover
+in how many parts how complicated is for
+you etc etc so putting all those factors
+into account it might be three parts
+more parts of five parts or whatever but
+let's just continue with part one at
+least anyway let's do something like
+minus seven meters plus or minus plus a
+is equal to five I guess yeah five I'll
+just write that nicely for you instead
+of how do you read that gonna have five
+okay so now what we're gonna do we have
+a here a is equal to and then we have
+this over here little bit over here
+crossing the border so negative to
+positive 5 plus seven
+we all know bat should meet will that's
+pretty simple and that is our correct
+answer we have solved for a now our last
+question
+I know you must be really glad their
+last question anyway now we have to do
+something like negative for negative W
+is equal to 12 and I'm not going to
+invert science or anything we're just
+gonna do this with the legitimate way so
+we have to first of all solve for
+negative W but in order to do that we
+have to take negative 4 put it over here
+since we're crossing the border it
+becomes from negative to positive
+so now we can write W minus W is equal
+to 12 plus 4 so minus W we know will
+successfully become 16 so now we can do
+in order to convert minus 1 W is equal
+to 16 but of course we want to do just
+yeah W is equal to 16 divided by
+negative 1 horse then we know that W
+will be equal to negative 16 so our
+answer is negative 16 actually whatever
+so that concludes our video for today
+and so today just to sum it all up you
+learned about the origin of the word
+algebra you learn the definition of
+algebra which is actually quite
+important if you want to learn algebra
+of course because if you don't know what
+it means you can't really learn it so
+again just to clear it up it's a branch
+of math mathematics but I won't go into
+too much detail right now but of course
+we want to see the exact definition they
+go down yeah go down to the description
+where you will see the actual definition
+from the Google dictionary stripe and
+that was really it you also learned
+about terms expressions equations how to
+solve etc it's that try you also learnt
+about the counter operators and yeah
+that was pretty much it
+subscriber for you to my channel and
+that you can do that by clicking on that
+big red subscribe button down there and
+you can also comment
+if you have any suggestions questions
+app ideas general education video ideas
+it can be anything from math to science
+or even computers if you want to send me
+a video question of you actually saying
+your question and I can feature it maybe
+in my next sir
+couple of next videos you can always
+email me at tangi manage email comm you
+can always email also email me if you
+have any questions and my email will
+also be down in the description like my
+video if you liked it and that's gonna
+be it
+goodbye

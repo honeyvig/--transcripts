@@ -1,0 +1,793 @@
+so hello there and welcome to another
+tutorial my name is Terry Bakshi and
+today we're going to be going over LLVM
+compiler infrastructure now LLVM is an
+absolutely fascinating piece of software
+and the idea is this how can you make it
+easier how can we make it faster how can
+we introduce more reuse of code in the
+compiler development world now first of
+all let's take a bit of a step back and
+let's start off by talking about
+compilers now of course as developers
+what you interact with on a day to day
+basis would be compilers whatever you
+write C or C++ or swift or Julia or rust
+code you are interacting with a compiler
+when you writes a Python code Ruby code
+you're interacting with what's known as
+an interpreter we'll talk about those
+later and why they're special but for
+today let's talk a bit more about
+compilers now think about this let's
+just say I were to give you as a
+developer some sort of C code so of
+course I would be writing a dot C file
+or if I were writing C++ code this
+depends on your convention but you would
+usually call it a CPP or a C X X file
+right so single now think about how
+exactly your computer your machine
+actually knows what to do with the code
+that you've written now of course your
+CPU is not gonna understand C code it
+needs to be translated down to machine
+code individual instructions that your
+CPU can go ahead and execute or at least
+understand we'll get more into what
+exactly the differences in future
+episodes but for now let's just say we
+need to take our C C++ files and we need
+to convert them to some kind
+of machine code so we need to convert
+from here to say x86 or maybe arm
+assembly maybe we need to convert to
+PowerPC right so it really depends on
+what architecture you're trying to learn
+the code on and this is the role of the
+compiler taking your high-level code
+that's relatively much easier to write
+and converting it down to machine code
+but there's a bit of a problem when you
+write code you have intentions for what
+you want the computer to achieve you
+have some sort of input you want to get
+some sort of output and you're providing
+the computer with a way to translate
+that input to output not the compiler
+needs to understand your underlying
+intentions behind the code because if it
+can't then it's gonna do a kind of naive
+translation from your code to machine
+code and that is extremely inefficient
+think about it like a loop where you say
+X is equal to five right and while X is
+less than ten go ahead and increment X
+so go ahead and take X and increment it
+by one now really what you're doing is
+you're trying to say all right we want X
+to be nine and if the compiler were to
+just run this as it is
+you would get X's equals nine eventually
+but it would take a bunch of CPU cycles
+so what if the compiler could
+automatically understand that hey you
+just want X to be nine so instead of
+setting it to five and then looping
+through and checking the condition every
+time and incrementing and doing all of
+this nonsense why not just send it
+tonight it's that simple this is called
+constant folding it's one of the many
+optimizations that a compiler can apply
+to your code to automatically make it
+faster without you needing to write
+better code in the first place it's
+super convenient there's all sorts of
+other optimizations like for example
+function inlining where when you call a
+function if it's short enough instead of
+actually going and calling the function
+things in stock and plopping them after
+what it's gonna do is it's just gonna
+take the code from that function and
+align it wherever you called it it's
+that simple
+and by doing so it can in some cases the
+greatly improve the performance of your
+programs but there's a bit of a problem
+almost all of the compilers written in
+the past
+we're monolithic compilers what that
+means is that they would have their own
+little sets of optimizations or or
+transformations that they plan your code
+and only that compiler would ever be
+able to use those optimizations and if
+you want to introduce new
+transformations maybe you want to insert
+some instrumentation only we have a
+brand new idea of how you can make your
+programs faster for a very specific
+domain well you're kind of out of luck
+because you have to deal with the
+monolithic nature of the compiler and
+somehow integrate your passes your
+transformations into it and this is
+where LLVM comes in instead of having
+this one blackbox compiler that takes
+your code and just widely translates the
+machine code instead LLVM has a modular
+architecture enabling anyone to go ahead
+and extend it however they wish so think
+about it like this instead of going
+directly from C to assembly with a bunch
+of who knows what in between what if we
+could clearly define what exactly that
+intermediate stage represents for your
+code this is called an IR intermediate
+representation where particularly in
+this case it's called the LLVM IR LLVM
+intermediate representation so what's
+gonna happen is you're gonna take let's
+just say a C file it's going to go to a
+dot ll file which is your dot LLVM IR
+file and this will be converted to your
+assembly and of course your machine code
+now when you convert C to LLVM I arm
+it's not just static code the LLVM AR
+goes through a series of transformations
+and then from those transformations back
+into LLVM i
+code and this will happen over and over
+and over again until LLVM says I'm done
+optimizing this program then an
+LLVM back-end will kick in and the
+backend will take this platform generic
+LLVM code and you can read the platform
+specific assembly code for example let's
+just say you're compiling on x86 arm
+risk 5 PowerPC whatever it might be no
+matter what you're gonna have in most
+cases the same LLVM IR code it'll be
+optimized the same way but then
+depending on the architecture you're
+compiling for a different back-end will
+kick in and convert that to native
+assembly that is the idea behind LLVM
+now there are many many more things you
+can do with LLVM for example let's take
+a look at some other languages now we
+know that clang for a fact uses LLVM
+clang is of course a c compiler now GCC
+and other c compilers jumped it's only
+clang that uses LOV m however there are
+other languages altogether that use LLVM
+compiler infrastructure some of these
+most notably would be swift rust and
+Julia Julia you may know as a
+just-in-time compiled language that's
+right LLVM doesn't just need to be ahead
+of time compiled like this it can even
+be just-in-time compiled as the Julia
+compiler does enabling them to have
+super powerful in language features
+enabling lengths or frameworks like flux
+and zygote to even exist anyhow back to
+LLVM now think about this there's a set
+of transformations over here inside of
+this LLVM ir domain but sometimes the
+thing is that it's important to
+understand the high level code that the
+Rossi file provides in order to provide
+more meaningful and language specific
+optimizations if you think about it C is
+still relatively low level and so when
+you go from seat
+I are sure you're decomposing structure
+a little bit but it's not too bad
+however when it comes to a really high
+level language like swift where you give
+up a lot of control to the compiler you
+in most cases don't manage memory
+manually you hand it over to automatic
+reference counting things like this
+because of that the LLVM code is a lot
+more lengthy it contains a lot more
+instructions to do almost the same thing
+that you wouldn't see so when you go
+from Swift to LLVM ir to eventually or
+assembly if the architecture looked like
+this you would be losing a lot of
+architectural information about the
+program between these two stages
+therefore the Swift compiler team
+thought that hey instead of going
+directly to LLVM ir which is kind of
+like assembly with types kind of like in
+between c and assembly what if we had
+two intermediate representations what if
+we went from swift to a different
+language altogether what if we went from
+Swift to this new thing called SIL and
+then from SIL to LLVM SI l being swift
+intermediate language then when we went
+from Swift intermediate language to ir
+and an ir to assembly each individual
+stage introduces its own optimization
+passes enabling your program to run
+faster and here's the thing because this
+is slightly higher level it can
+understand higher level details about
+your program enabling it to do higher
+level optimizations that enable better
+and more canonicalized LLVM ir which can
+then be further optimized by the LLVM
+compiler and its transformations finally
+converted to assembly code and here's
+the interesting thing the same
+optimizations that were written for C
+are now instantly applicable to Swift
+the Swift compiler team didn't need to
+rewrite
+worth of optimization and
+transformations that was already done by
+the LLVM compiler team this is why LLVM
+is so important being able to reuse code
+across compilers across languages and
+they learn people to get things done
+faster enabling all languages to benefit
+from just a single compiler that's the
+idea behind LLVM and there's so many
+more things the great teams at the
+elevator are working on now the primary
+maintainer of the LLVM compiler and a
+clan compiler actually as it's the only
+C compiler supporting Objective C has
+been Apple of course but now Google is
+contributing a lot to the project as
+well you may have heard of the new Swift
+for tensorflow framework which is
+extensively powered by LLVM features of
+course because chris laughing is a
+creator of both LLVM and the Swift
+language left Apple to join the Google
+team for their accelerators and now of
+course leaving the Swift for tensorflow
+team and they are also contributing
+something else something called ml IR
+which will further increase the amount
+of reuse we can have a cross compilers
+even to things like for example Google's
+TP use and other accelerators but that's
+a topic for an entirely separate video
+this however is what we're going to be
+getting into today we're gonna take a
+look at if your different languages like
+Swift Julia and C we need to be specific
+we're gonna take a look at how exactly
+these individual intermediate
+representations work what they mean and
+how they're optimized and in a future
+video you're going to be able to see how
+you can develop your own transformation
+and optimization passes and how you can
+go ahead and do things like insert
+instrumentation entirely automatically
+and now let's take a look at how these
+compilers client Swift and Julia
+actually use LLVM compiler
+infrastructure right so now let's take a
+look at how you can actually see what's
+going on behind the scenes inside of the
+LLVM compiler infrastructure tooling now
+I will say that while you can use the
+compiler tools directly you can actually
+invoke clang or Swift C or the Julia
+pilot with certain arguments to see your
+LLVM code another great way to take a
+look at LLVM code and even assembly code
+is through something called a god bolt
+compiler explorer it's available at god
+bolt or gets entirely online they
+provide you with tons of different
+compilers tons of different kinds of
+compilers and different languages for
+example over here I can switch over to a
+c compiler i can choose which kind of c
+compiler i want i can choose a GCC i can
+choose the MSV c compiler the microsoft
+compiler i can choose the power
+compilers use the Excel compilers and of
+course I can choose clang compilers so
+take a look at this I can go up to clang
+9 I can you even go to trunk but let's
+just say we want x86 Clank 9 compilation
+now over here on the Left I type in my C
+code which is in this case just in
+square in num return num times nothing
+simple squaring logic but let's just see
+I did something a little bit different
+let's just say I did int factorial and I
+provided index and we said if X is equal
+to 1 then just return 1 otherwise return
+X x factorial X minus 1 now this is a
+super simple classic factorial
+implementation now look at this on the
+right we get some assembly code that
+represents the factorial function super
+simple just like that as a matter of
+fact if I like I can even go ahead and
+include stdio.h or file and I can
+actually go ahead and print out the
+factorial of 5 so just like that we're
+printing out the factorial of 5 we get a
+main function as you can see we're
+moving the number 5 to a register or
+calling the factorial function we're
+moving the results over to other
+registers calling printf and so on and
+so forth classic stuff but wait we're
+using the clang compiler so we know that
+before goes to assembly it goes to LLVM
+in turn
+representation so how do we take a look
+at that well if we pass the - s flag -
+clang that's just telling it a bit
+assembly so it's gonna admit the same
+thing as it was before but there's one
+more flag you should pass - Annette -
+LLVM when you pass this flag it's gonna
+change entirely and now we're gonna see
+is LLVM IR code now this looks a lot
+less intimidating than the assembly code
+looked although I will say that it's
+still not great from a sort of first
+time you take a look at this it looks
+intimidating still so let's go ahead and
+try and understand a bit of how LLVM
+works and the way LLVM works is it's
+written in phone called SS a single
+static assignment now I will link to
+some resources so you can figure out
+more about SSA and what it does
+essentially LLVM works on the sort of
+infinite registers concept so as you can
+see here for example within the
+factorial function we have these many
+registers we register two three four
+five at Sentara
+and these are just labels for different
+registers that we're storing things and
+over here and here and here at cetera
+now there are also other labels for
+example % one is the label for the first
+parameter passed into the function
+itself and over here you can see that
+we're specifying the type of that is a
+32-bit integer over here we also happen
+to find that the function will return a
+32-bit integer as well within the
+function there are a few different
+things we do for example the first thing
+is we have two separate registers where
+we're going to store the pointer to an
+allocation of a 32-bit integer so we're
+allocating two different 32-bit integers
+in memory and storing their pointer
+addresses inside of those registers then
+we're actually storing let's see what
+are we sort here we're storing the
+argument that came into the function
+inside of this third register over here
+now I will say one thing a few of these
+instructions are absolutely useless this
+is not the best this code can be but why
+is that you may ask well it's because
+would cleanse
+it's been a blind translation from the C
+code you gave it right to some LLVM code
+the most obvious translation possible
+that works but is it fast it's doing a
+lot of unnecessary operations so how can
+we reduce that it has an entire register
+year that doesn't even use and here's
+how you can do it
+we gotta tell LLVM or client more
+specifically to actually optimize the
+code to do this we're gonna pass it the
+- oh flag now there are a few different
+levels of optimization there's - 0 which
+is don't even think about optimizing
+whatsoever there's a 102 3 and then
+there's fast fast means enable some
+experimental potentially unsafe
+operations like for example working with
+less accurate floating point division
+and things like this I usually use oh
+fast because the particular applications
+that I develop don't need the extra
+safety but in most circumstances sort of
+production level applications are gonna
+use oh three because it's the safer
+option in this case though what's the
+worst that can happen let's use Oh
+faster so I'm gonna go - oh fast and my
+compiler options here and would you look
+at that Wow we went from a little bit of
+LLVM code to a lot of LLVM code now why
+is this you may ask well there's one
+thing I want you to think about let's
+just say we remove a fast and let's take
+a look at our code as you can see it's a
+blind translation therefore on line 21
+we're calling the factorial function I
+mean obviously it's a recursive function
+so we be calling the function again it's
+recursive but if I add the optimization
+plan back watch this if I try and search
+for factorial I only get one result the
+factorial function isn't calling itself
+guess what happened LLVM removed the
+recursiveness from the function it
+understood what the function was trying
+to accomplish and made it a non
+recursive implementation of the same
+function isn't
+fascinating now because it's sort of
+canonicalized standardized the
+implementation of that function it was
+able to do another really interesting
+thing now look at this inside of our C
+code there are three times factorial is
+mentioned once for its definition wants
+to call itself recursively and another
+time to actually call it from the main
+function but watch this
+there's only one reference to it the
+LLVM code is the main function not
+calling the factorial function well
+actually it isn't so the constant
+folding I was telling you about just a
+moment ago what happens is this LLVM
+actually runs your variables or your
+constants in this case your literal
+values through the function at compile
+time and it's like hey factorial is such
+a simple function I might as well just
+hard-code the result for you take a look
+at this on line 111 in the main function
+we're calling the printf function but
+the printf function doesn't call we're
+not calling factorial to figure out what
+the print LLVM has hard-coded the result
+of factorial 5 into the program for you
+LLVM is not looking at the name of the
+function or what it is rather it's
+looking at the functionality it's doing
+constant full and say hey you know what
+we don't need to do all this calculation
+at runtime we might as well just print
+out 120 because that's what they want us
+to do what's that that's what the
+programmer wants us to do and that's
+LLVM sort of thought process they're
+iteratively going through these
+different optimization passes it enables
+you to create faster code first of all
+it's a moving that recursiveness it's
+making it interative on top of that it's
+making it a better implementation you
+see the factorial function when
+optimized becomes a lot longer but at
+the same time it's faster because each
+individual instruction is a lot faster
+and fewer instructions end up being as
+you would if you were clock cycle are
+taken on top of that what happens is it
+in mind is a function so it puts the
+factorial implementation inside of
+and then it does constant falling it
+says hmm inside of the main function we
+have all this unnecessary computation
+that I can do now that I don't need to
+do at runtime let's just finish this now
+and that is why these compilers are so
+great that's why these are necessary
+tools is because they enable you to
+write such good code as a matter of fact
+in the vast majority of circumstances
+writing assembly code manually is
+actually it actually ends up giving you
+slower code than writing in a
+higher-level language because then you
+have all these compiler optimizations
+that are making your code faster for you
+so that is a quick look at LLVM for c
+but there's still two more languages to
+cover so let's take a look at them now
+first of all I'm gonna take a look at
+just using the actual clen compiler
+locally to help put this LLVM code it's
+gonna be super simple so let's just say
+we do test dot see again this time we'll
+do the square example
+so we'll do number times number and
+we're just gonna print out the result of
+one hundred squared all right
+just because we want to avoid a warning
+we're going to include this header file
+as well so we're just printing out the
+square of a hundred now if I go ahead
+and do clang test dot C then it'll
+output a binary that I can run and it'll
+print out the square of 100 but what I
+can also do is pass it the dash S flag
+which will create a test on s file which
+is the assembly code for the code that I
+just wrote if I also pass it emit LLVM
+then it'll output a test dot ll file
+which is the LLVM code so now here's
+what I'm gonna do I'm gonna remove the
+binary and the S file and now we've only
+got the LLVM code so I'm gonna say C
+example ll or every test ll see example
+ll and there we go so we've got test dot
+C and C example ll which is the LLVM
+code for that C code but now let's take
+a look at some Swift code shall we so
+let's just say I go ahead and type in
+test on Swift so we're gonna create a
+super simple Swift file
+we're gonna create a function called
+square it takes number which is an
+integer returns another integer which is
+just a number times number and it prints
+out square of 100 all right now if I run
+Swift test on Swift it prints out 10,000
+just like clang did but I can do Swift C
+test on Swift I can tell it to emit IR
+which will emit the LLVM IR code now
+yeah so I can tell it to me IR and I can
+tell it to output to Swift example dot
+that well now watch this if I open up
+this file get ready to see quite a bit
+of code there we are so much code now if
+you take a look at what's actually
+happening here as I mentioned Swift is a
+much higher level language than CEA's
+and therefore there are many more
+operations that go behind doing
+essentially the same thing in Swift now
+when this gets compiled down to assembly
+likely a lot of this stuff is gonna go
+away but in this case it isn't this is
+raw LLVM ir from the swift compiler
+remember both clang and Swift that we've
+taken a look at so far have not
+introduced any optimization passes we'll
+take a look at what it looks like then
+in just a moment but as you can see this
+is all of the LLVM IR code that Swift
+generates that is a lot of IR code at
+least relatively all right but now let's
+take a look at Julia now remember that
+julia is an is a just-in-time compiled
+language so we can't just call it and
+say emit the IR for this entire file
+because it does it function by function
+not file by file so let's go ahead and
+actually run the Julia repo and go ahead
+and interact with a little bit
+but first a quick primer on the Julian
+language the star operator is a bit
+special in this language so for example
+you can do 5 times 5 and of course you
+would get 25 you can do 25.6 times 20
+3.12 and of course you would get
+whatever the result of that is but the
+star operator in julia is also the
+string concatenation operator so for
+example hello times world would result
+in hello world now let's just say we
+were to create a function called F and
+it takes a variable or a parameter
+argument called X and it returns x times
+X and now Julia is a compiled language
+but we didn't tell it what the type of X
+is so how in the world does it know what
+to do with X well watch this this is
+almost like a magic trick I can pass it
+the number 5 guess what it returns 25 I
+can pass it hello
+and guess what our turns hello hello I
+can pass it 5.67 and it returns 5.67
+squared isn't that absolutely
+exceptional
+but what's super interesting is that we
+can take a look at the LLVM code for all
+these different compiled versions of the
+F function by using a little macro
+called at code underscore LLVM I type
+that out and I tell it what I'm going to
+invoke for example let's just say I'm
+passing well let's just say I'm passing
+an integer to F then as you can see it
+creates LLVM I our code assuming we're
+taking an integer 64 and returning an
+integer 64 and returning 8 multiplied by
+itself
+super simple stuff so then how about we
+do floats so let's just say I were to
+return or let's just say I were to pass
+5.67 now as you can see it's looking for
+doubles and it's doing a floating point
+multiplication but what if I pass in a
+string look at this when I pass it
+ten a just like that's so much more code
+to deal with this string involved so
+every time you pass different arguments
+Julia is actually going through and
+saying hmm does this function make sense
+if X is a string or integer or a double
+if it does go ahead and compile it to
+LLVM and then provide the user with the
+result of the execution and what's
+interesting is every single time you
+actually run a function the first time
+it'll compile the LLVM code and optimize
+it and the second time and so on and so
+forth
+it'll use the cache version of that
+function so it doesn't keep compiling or
+else of course there would be no point
+to using the language because it would
+be too slow your recompiling the
+function every single time you call it
+and so that is how julia uses LLVM and
+so that is how clang Swift and Julia
+used LLVM in their own ways one more
+thing I want you to take a look at them
+as you can tell we have LLVM ir files
+for two different languages swift and C
+both of them were created a zooming no
+compiler optimizations in mind but let's
+redo that this time assuming we do want
+compiler optimizations so I'm going to
+do
+clang test dot C this time gonna pass oh
+fast to make it optimize as much as it
+can then we're going to do s emit LLVM
+and we're going to output to see example
+ll and we're gonna do something similar
+for Swift now Swift doesn't have levels
+of optimizations either you are or you
+aren't optimizing or you're optimizing
+for binary size instead of speed which I
+rarely ever do and so in this case we're
+just gonna pass a - oh because that
+means optimized for speed from there I'm
+going to tell it to admit I are and
+we're going to output to Swift example
+LL now let's take a look at this C
+version of the LLVM ir how simple is
+that the square functions literally just
+multiply argument against itself in
+return and the main function well it's
+not even calling the square function
+it's just printing out the hard-coded
+result of square and of course that is
+10,000 because we're looking for the
+square of 100
+now what's interesting is that while the
+Swift IR is still a lot longer
+it is doing fundamentally the same thing
+take a look at this line of code it's
+storing this hard-coded 10,000 inside of
+a variable which it then passes over to
+print Anakin's print it out onto the
+screen so it's actually pretty simple if
+you take a look Swift and see both did
+constant folding thanks to the same
+optimization passes that is absolutely
+exceptional stuff code reuse is always
+good and the fact that LLVM is open
+source being maintained by large
+companies at Google and Apple and if so
+many developers working towards it you
+can be sure that your code is being
+optimized as thoroughly as possible that
+people are working towards more and more
+even companies like IBM are contributing
+towards different optimization passes
+for example loop optimization paksas
+loop merging all sorts of things one
+more thing I want to leave you in before
+I go as I mentioned Swift doesn't just
+compile to I honor it compiles through
+another intermediate language called SIL
+Swift intermediate language so let's
+take a look at some of that shall we now
+we can compile in a very similar way
+except this time we're gonna admit silk
+instead of a MIDI IR and we're going to
+save it to a different file so i'm gonna
+open to something there we go we got SIL
+this looks kind of like if you were to
+take swift and LLVM and kind of go in
+between but a little bit closer to the
+LLVM side whereas LLVM looks as if you
+went between C and assembly sort of
+right in the middle right so you're
+going from Swift to something a little
+bit closer to Swift not quite at LLVM
+and then you're going to LLVM and then
+they're going to assembly and by doing
+this at every stage you can introduce
+further further lower level
+optimizations that you could never
+achieve with a simple monolithic
+architecture that's the power of the
+Swift and generally LLVM compilers
+taking a look at this this is all silk
+up now because this has optimizations
+there's a chance that the hard coding
+and the constant folding occurred over
+here
+let's take a look indeed it has as you
+can see the constant folding that was
+necessary for swift to say you know what
+instead of calling square we'll just
+print out 10,000 that actually happened
+at the Silph phase so it didn't even
+make it to LLVM and this enables LLVM to
+apply its optimization passes better now
+just you're aware another thing that
+LLVM does is called canonicalization
+this does things like for example let's
+actually take a look at a sample file
+here if I were to do something like int
+F X and this just returns X plus 1 or we
+could say if X is not equal to 5 return
+1 otherwise return 0 well in this case
+what's happening is if you were to take
+a look at the canonicalize or fixing me
+to see syntax here if you were to take a
+look at the canonicalized LLVM for this
+instead of saying if X is not equal to 5
+then return 1 otherwise return 0 it'll
+flip that around and it'll say if X is
+equal to 5
+return 0 otherwise or or if it is so
+it'll it'll basically switch the true
+and false from the else above to the
+regular F or for example if it's doing X
+minus 1 in central do X plus equals or
+plus negative 1 by doing this it
+standardizes the format for certain
+operations and enables optimization
+passes to look at only certain kinds of
+operations instead of having to look at
+a wide range of different operations and
+so I doing that enables optimization
+passes to have an easier job and so that
+is how LLVM compiler tooling works now
+in the next few videos on LLVM we're
+going to be taking a look at how you can
+actually use the LLVM pass manager to
+introduce your own instrumentation into
+different functions and from there we're
+gonna be taking a look and brand new
+stuff in the world of LLVM hopefully
+things like MLI are very very soon
+but that's all we have for this tutorial
+today I really do hope you enjoy if you
+have any questions poof or leave them
+down in the comment section below email
+them to me or tweet them to me act as
+you many apart from that if you do enjoy
+the content on this channel and you want
+to see more of it please do feel free to
+subscribe to be notified whenever I
+release a new video once again thank you
+very much for joining in today good bye

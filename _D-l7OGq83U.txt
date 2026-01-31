@@ -1,0 +1,971 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is Tammy Bakshi and
+today we're going to be going over how
+you can use the brand new suite for
+tensorflow library to train your own
+neural networks entirely within the
+Swift programming environment now before
+we even get into what we're gonna build
+today let's start off by talking a
+little bit more about the key phrase
+that you've probably heard first swim
+for tensorflow now again before we get
+to sleep pretend to flow let's talk a
+little bit more about tend to flow
+itself now I'm sure that if you've been
+watching my videos for some time now
+you've interacted with tensorflow in
+some way in fact the majority went deep
+learning based videos use carros which
+is a deep learning library built around
+tensorflow CM TK an Tiano now tensorflow
+is the most mature of these backends
+that go behind Karass which is why
+almost always I end up using tensorflow
+now something to note about tensorflow
+though is that when you're using cross
+you are using a very high-level
+abstraction of the tensorflow core and
+so essentially about tens of full
+operations to find and see and you've
+got a wrapper around them in Python for
+tensorflow and then you've got cross as
+another wrapper around that a very
+high-level neural network wrapper enable
+you to develop neural networks very
+quickly import attack different
+architectures now if you've been working
+with cross you'll probably find it a
+great experience because of how easy it
+is to create your neural networks custom
+layers custom loss functions whatever
+else it is that you may need
+but tensorflow when you start to work
+with raw tensorflow code well you'd
+eventually find one thing that the
+tensile community is found as an issue
+in tensorflow
+for a very long time now the problem is
+that it's not intuitive what do I mean
+by not intuitive what I mean is that
+tensorflow
+is very limited by the Python
+programming language itself
+you see tens of operations are defined
+in
+see if you want to create your own
+tensor operations well you've got to
+write C code and then from there let's
+just say you want a building normal
+network with raw tensor flow they knew
+how to define a graph you've got to add
+your tensor operations to that craft and
+then you kind of execute the graph it's
+not intuitive and it doesn't work easily
+it's difficult for programmers and it's
+not very maintainable code that are able
+to write which is why the majority of
+developers prefer pine torch or torch
+even though torch is written in a
+different language all together luma but
+now the tensorflow team wants to change
+that because they know tenza flow has a
+few unique points that's separated from
+the majority of all other deep learning
+libraries like for example support for
+Google's proprietary tensor processing
+unit that enables you to trade neural
+networks hundreds of times faster and
+you could with graphics processing units
+alone and so this is why they are a
+rewriting tensor flood when the wrapper
+around it to work on a compiled
+programming language and which language
+we would be better for the task than the
+Swift programming language
+now why is swim such a good fit well
+there are two reasons first of all of
+course the fact that it's open source
+the fact that it's cross-platform fact
+that has over a million active
+developers and the fact that it's the
+world's fastest-growing programming
+language but apart from that there's the
+fact that Chris Lautner the lead
+developer of the Swift programming
+language actually went from Apple to
+Tesla to leave their autopilot division
+a little while ago and then he went from
+Tesla to Google leading the tensor flow
+acceleration teams now after he started
+to leave the tens of flow acceleration
+teams is around when tensorflow thought
+hey what if we were to rewrite tons of
+flow in a compiled language to make it
+easier for everyone to write tensor flow
+code and so Chris slacker was put in
+charge of the project and they're now
+doing it with Swift but wait just one
+moment why is it called Swift for tensor
+flow and not tensor flow for Swift well
+they're rewriting tenzin flow in the
+Swift language instead of Python right
+well not exactly
+in fact the tensor flow team believes
+that machine learning is such an
+important
+technology for the future that well they
+believe that deserves first class
+compiler support which is why they are
+actually integrating tensorflow into the
+actual swift compiler in fact you can
+take a look at all the changes they've
+made at the tensorflow branch on the
+official apple swift repository on
+github now eventually all these changes
+are going to push in to master and
+you'll be able to use tensorflow as just
+another framework that's built into the
+swift standard library inside of your
+Xcode playgrounds for example and so
+this is the power of swift for
+tensorflow it enables the Swift compiler
+itself to take a look at all the tensor
+operations within your code and
+automatically take them all construct a
+tensor flow graph and the best part
+let's just say you want to run that
+graph on the GPU or the TPU it's only
+one line of code enable GPU or enable
+TPU and just like that the Swift
+compiler will take all your code and
+accelerate on the GPU or accelerated on
+the TPU that it also supports amazing
+conveniences like automatic
+differentiation so for example let's
+just say you're writing a neural network
+in a structure and you defined a forward
+pass of your neural network you tell a
+neural network that you're gonna run
+these convolution operations or this by
+linear interpolation whatever it is they
+might want to do now right as you're
+done with that you don't need to write
+your gradient function you do not need
+to write the backward pass of your
+neural network because all you do is you
+tell suite for tensorflow and there that
+this function is a differentiable
+function and it will automatically use a
+swift compiler to go look at all the
+tensor ops within that code and
+calculate that backward pass for you so
+you don't need to and so again that's
+just the power of the swift for tensor
+flow library and again just the plain
+and simple fact that sutras compiled
+gives you another huge advantage over
+Python which is of course that it can
+check for errors and let you know even
+before you run your code so you need to
+figure out by the time their code
+actually gets to that line with the
+error in it and of course the team
+acknowledges and it will take a very
+long time
+and of course a lot of effort to bring
+people over from Python to Swift which
+is why they've built a Python swift
+bridge to enable you to call Python code
+like for example numpy or SK learn
+directly within the Swift programming
+language as if it were just another
+script package alright and so that's a
+quick primer on the super tensorflow
+library and how you can actually train
+neural networks intensive flow in the
+Swift environment but now let's get into
+what you're gonna be building today so
+today I'm gonna show you how you can
+build an application that uses
+convolutional neural networks
+implemented on Swift for tensorflow
+accelerated on the GPU specifically on
+google collaboratory and also how you
+can compile Swift yourself on your own a
+Bluetooth server in order to run your
+own code accelerate this convolutional
+neural network on the GPU train it to
+get over 97% accuracy on the m-miss
+database and then how you can actually
+export those weights download it back to
+your computer and then host a model
+using Python flask in order to take new
+new digits that a user draws on an iPad
+screen and run them through the flask
+server to get a prediction and return it
+back to the user all right so now
+without any further ado let's go ahead
+and take a look at how you can build
+this application let's get started all
+right but before we get to the code
+let's take a look at a demo of the
+application in action now if you've
+already seen my video on interpolating
+between M&S digits you've probably seen
+an interface just like this one before
+but in case you have no problem let's
+take a quick recap
+now this over here this black square in
+the middle of the screen is the draw of
+you over here as the name suggests you
+can draw whatever you want to you could
+draw a person's name whatever you want
+to do essentially just lets you draw
+things on screen now what's more
+interesting are the two buttons below
+the draw of you there's the predict
+button and there is the Clear button
+clear button very self-explanatory you
+click it clears whatever you drew on the
+draw of you but the predict button
+enables you to take whatever it is that
+you drew convert it to an image
+send that image over to a flask server
+running the model that I'd trained using
+the same code you're about to see in
+just a moment and then from there tell
+me what it is that I drew along with a
+confidence value so let's go ahead and
+draw a random digit say for example the
+digits 7 now if I click on predict over
+here it lets me know that indeed I did
+draw the number 7 and even gives me a
+confidence value which is a 1 multiply
+that by a hundred to get a percentage
+and you get a hundred percent confidence
+now of course this is because it was
+actually so precise that I had to round
+up to to 100% now if I click on OK we
+can go back to drawing now to show you
+how robust this neural network bottle is
+I could draw the same 7 to 7 in a
+different style so for example let's
+just say I were to add this little line
+over here which is how some people were
+to draw 7 it still tells me it's a 7 I
+could draw something a bit more complex
+say a form really straight like this
+there we go it tells me that I did draw
+a 4 or maybe I want to draw a 4 like
+this and it stills tell me it still
+tells me that I drew a form we can do
+something more complex like for example
+9 is a number that models traditionally
+have a little bit of trouble working
+with but I click on predict and indeed
+it tells me that I drew the number 9 1
+is also a very interesting number when
+it comes to neural networks because if I
+click on predict it tells me that it's a
+1 but I can draw one in a few other ways
+as well but it still tells me that I
+drew one now of course this is actually
+a pretty accurate neural network model
+for something that was trained in under
+10 minutes in fact this is that over
+ninety seven point seven percent
+accuracy and I'm gonna show you how you
+can train your own version of this model
+in just a moment as well as you can see
+says I drew it too but now let's go
+ahead and take a look at how you can
+actually build this application and the
+model that goes behind it
+so now let's take a look at how the code
+actually works behind this whole
+application and let's start off with the
+actual unique part of this app and that
+is of course Swift for tensorflow now
+over here I've actually SS aged into a
+server however if you do not have access
+to an abundant computer or you don't
+have access
+to an NVIDIA GPU enabled computer to
+train the neural network no worries at
+all because you can use Google
+collaboratory to train your neural
+networks instead there will be a link in
+the description to Google collaboratory
+now you can set up your own Swift
+environment in just a few simple steps
+but for now let's take a look at how you
+can run this on an abuti machine now
+over here I've got a folder called M
+nest inside of I've got three files main
+dot Swift M Masson and p z and w n py w
+NP Li are the last trained weights that
+you actually saw in the demo just a
+moment ago and missed on NP z are the
+actual amnesty files that have the MS
+data set within the men may not Swift is
+the code that actually trains the neural
+network now to show you how this works
+from scratch
+let's go ahead and remove the data set
+let's also remove the weights and then
+let's go into the code now in the code
+over here we start off with of course a
+fundamental line import tensorflow and
+after that over here the second line of
+code is one of the most unique things
+about super tensor flow right here in
+the top of the file this is the enable
+GPU function just like that tensor flow
+has enabled CUDA acceleration and we can
+now train the neural network model on
+GPU that's all I need to do none of the
+code that you see from here on out
+was written with a specific intent of
+running on a GPU is could just as easily
+run on any other device alright let's
+continue now as I mentioned there is a
+Python swift bridge which is why I
+import Python and then from there I
+import three different Python packages
+OS the operating system to download data
+NP for numpy and metrics specifically SK
+learn scikit-learn dot metrics this is
+used to calculate the accuracy score
+from there I go ahead and create an
+extension to the data set type so I can
+actually load my in this data set into
+Swift for tenza flow into the script now
+there's actual actually sort of adopted
+this data set from one of the official
+Swift for tensor flow examples the
+sci-fi example to be specific they'll be
+a link to where you can get six ten
+down in the description below but I've
+modified it slightly in order to make it
+so it actually takes one hot encoded
+labels instead of sparse encoded labels
+from there what I do is I check if the
+amnesty file the actual data set exists
+using a Python package if it does not
+exist then I go ahead and W get that
+data and of course I go ahead and read
+the results we can wait for it to be
+done before we actually continue now
+what's actually done downloading that I
+go ahead and tell numpy to load that
+file into the m missed contra constants
+extra annex tests and why trained and
+why test now when it comes to Swift
+standards you would probably want images
+training or training images or testing
+images and then training labels and
+testing labels but the thing is just to
+make it a little bit clearer and show
+you the sort of contrast between what
+you would usually write in Python and
+what we're writing in Swift I decided to
+keep it with X ray and X test and why
+train Y test which is what you're all
+more familiar with now let's go ahead
+and take a look at how this actually
+works so what I do is I take X train
+from the egg nest
+data set and then I go ahead and convert
+that to a float 32 type I reshape it to
+60,000 28 28 1 because of course we want
+images that are 28 in with 28 in height
+one channel only because it's grayscale
+but then again all of these images we
+have 60,000 s we've got these many
+individual numbers in the array now from
+there I go ahead and do the same thing
+for X tests except this time 10,000
+instead of 60,000 and of course for both
+X train and X test I divide by 255 and
+then after that once I've got that numpy
+array I then go ahead and convert that
+to a tensor of type float and I use the
+numpy initializer to convert from a
+numpy array to a tensor
+now from there for the white rain and Y
+test essentially all I need to do is go
+ahead and take my white rain and Y test
+numpy arrays reshape and juice 60,000
+10,000
+give the ink 32 type tell my depth is
+going to be 10 meaning 10 different
+categories and then I run the one hot at
+indices initializer pass it another
+tenths room type in 32 which is
+initialized with the numpy initializer
+and so essentially it take an umpire
+rake and wear that to a tensor type at
+32 and then convert that to a tensor of
+type float which is one hot acting
+disease now from there I just go ahead
+and print out the shapes of all these
+different training arrays just to sort
+of print it out for debugging purposes
+figure out you know make sure that the
+data sets are loaded correctly and then
+from there I go ahead actually define
+the real training and testing data set
+off type data set which is a tensor pair
+of tensorflow tensor float
+initialize it from a tuple which is
+extreme wide train and then X test Y
+test for the training dataset and
+testing data set respectively and so I
+go ahead and set these now I've got my
+data set and just like that you loaded a
+numpy data set into swift for tensorflow
+it's amazing how you can do this next up
+is the real sort of magic part of the
+code this is the actual model that
+you're going to be using to train and
+run inference so I'm calling this
+amnesty model and this is going to be a
+public structure it's going to conform
+to the layer protocol and this layer
+protocol is essentially going to let you
+have different differentiable attributes
+and weights that optimizers like
+stochastic gradient descent or Adam can
+actually optimize for you now in this
+case I'm gonna have C Leslie we're gonna
+have one convolutional layer another
+convolutional layer a max pooling layer
+another convolutional layer and then two
+dense layers and the final dense layer
+will give us our prediction now after
+I'd actually initialize to all of these
+different or what's I've declared these
+different variables that I can
+initialize and define exactly what they
+mean so over here is the initializer for
+the class or for the structure actually
+and I'm also taking this thing called a
+learning phase indicator now if I were
+to for example include dropout or
+Bachelor realization then these layers
+need to know if we're currently tree
+or testing if we're running inference or
+if we're currently training the neural
+network and so the learning phase
+indicator will essentially tell those
+layers whether we're currently training
+or whether we're currently running
+inference in this case I'm not actually
+using the learning phase indicator now
+from there I go ahead and actually
+define these different layers so first
+of all I created Yukon 2d layer now
+convolution 2ds built into Swift for
+tensor flow I'm giving it a type of
+float and the filter shape is going to
+be 3 3 1 32 why did I choose that filter
+shape well in case you're not familiar
+with the actual rock tensor flow
+operation let's talk more about the
+actual con of 2d tensor flow pop
+essentially what it's gonna do is it's
+gonna take a filter okay this is going
+to be a filter of shape filter width
+filter filter height then it's going to
+take the number of channels in and then
+channels out and so essentially let's
+just say we want a three by three filter
+size we're taking in one channel and we
+want to return 32 different channels
+then this is what our filter size would
+be and of course we're gonna want some
+padding and in this case we're just
+doing valid padding which means no
+padding just essentially run the
+convolution operation do not add extra
+padding and since we've got a 3 by 3
+note we jump to the top here since we've
+got a 3 by 3 filter size on on this on
+this convolution operation we're gonna
+actually be going from a 28 by 28 image
+to a 26 by 26 so 3 minus 1 is 2 and 28
+minus 2 is 26 so it's gonna be 26 by 26
+by 32 image now from there what's gonna
+happen we're gonna put one more of these
+layers except this time it's gonna take
+in 32 channels and out 64 channels and
+it's gonna reduce the dimensionality in
+terms of the actual size of the
+individual channels from 26 by 26 to 24
+by 24 then we're gonna run some max
+pooling with a pool size of 2 by 2 and
+strata 2 by 2 essentially having the
+size of the image from 24 by 24 to 12 by
+12
+then we run one last convolution
+operation with a 3x3 filter sighs once
+more taking in 64 channels and out 64
+once more with valid padding reducing
+the dimensionality from 12 by 12 by 64
+to 10 by 10 by 64 then what I do is I
+add a dense layer of type float and
+essentially it's going to take in a 10
+by 10 by 64 length vector output just
+128 and then from there it's gonna have
+the riilu activation rectified linear
+units essentially anything lower the
+clip all values lower than zero and then
+from there I have one last dense layer
+again of tight float with the input size
+of 128 which is the output size of the
+last layer now an output size of 10 and
+an activation of softmax so we get one
+hot encoded outputs we get these logics
+from the softmax function then comes the
+real magic of Swift for tensorflow this
+over here this is something that really
+makes your life working with deep
+learning a lot easier than you could
+possibly imagine this is a
+differentiable attribute essentially
+what it's doing is that this it's time
+Swift that this applied function is
+differentiable with respect to self
+which is the model and the input passed
+into the applied function so essentially
+the applied function actually defines
+the four paths of the neural network so
+this is exactly how one forward pass is
+done using all the different layers or
+whatever else it is that you need to do
+then from there in order to for example
+get your backward pass the gradients of
+your forward pass all you need to do is
+call the gradient function but we'll
+talk about how that works in just a
+moment now let's go ahead and take a
+look at how the applied function works
+in essence it's a sequence of taking one
+layers output and feeding it into the
+next so for example I take the input fed
+into this applied function and actually
+take the first convolution layer and
+apply it to that input run it through
+the Electric rectified linear unit
+activity
+for the second convolution I run it
+through I actually apply it to the
+output of the last layer run up through
+rectify deliver unit and then I take the
+pooling layer and apply it to the output
+of the last convolutional layer etc etc
+I do that same thing for convolution 3
+and then I go ahead and flatten the
+output of that convolution so for
+example let's just say the output of
+this convolution is a matrix of size
+let's just say our batch size in this
+case is 64 and output of the
+convolutional layer is 10/10 64 because
+we got 64 channels now what's gonna
+happen is from here we're gonna go ahead
+and actually take this vector and we're
+going to we're going to change it to a
+shape of 64 ten times ten times 64 so in
+this case the result was it of this
+would be 6400 so we're gonna reshape it
+to 64 64 hundred and then we're gonna
+feed this into the next dense layer
+because of course dense layers don't
+work in in multiple dimensions they work
+in one dimension of course that is
+unless you would have a time distributor
+wrapper like the one in chorus but we
+won't get into that right now all right
+so now back to what I was saying so this
+over here alaya allows me to reshape
+that tensor into essentially the batch
+size and then the number of elements or
+the number of individual elements that i
+want to it wanted to be flattened into
+and then I just apply my first dense
+layer to that flattened output and then
+apply my second dense layer to the
+output of the last one again in this
+case I'm not actually defining which
+activation function to use here because
+I've already done that over here in my
+initializer conf 2d does not support
+this activation the initializer so I
+have to do that here although of course
+that would be very convenient all right
+and just like that you've got your
+applied function and now with just this
+much code you have successfully
+conformed to the layer protocol in fact
+the only thing that you really need to
+put to conform to layer it would be this
+function but I've actually added my own
+function over here called
+all weights it's essentially just a
+convenience function to help me save all
+the weights from this model into a numpy
+array it returns an
+ray of tensors and so essentially just
+take the con one filter con one biased
+content etcetera etc I take all the
+weights and biases of all the layers put
+that to an array and return it and just
+like that I get all my weights alright
+so next up once you define your model
+and also one thing to note this actually
+it was a very simple model definition
+then cross it would only take say you
+know this much code to actually define
+the model but the amount of flexibility
+and sort of inner workings that you're
+able to see would switch for tensorflow
+or great and I'm sure soon we're gonna
+get even higher level neural network
+api's and when of course it's more of a
+final product other people will start
+contributing and creating their own
+libraries to work with this as well but
+for now this is the highest level we can
+get with Swift for tensor flow alright
+so next up we've got one more function
+over here called the loss function the
+loss function will return a softmax
+cross-entropy loss which is a relatively
+complex loss it's not sort of like a
+standard loss that you would use with
+with your average neural network and so
+this is actually also going to be a
+differentiable function with respect to
+the model that was fed into it so into
+this loss function I feed in an amnesty
+model some images that I want to test
+the model against and some labels of the
+actual true labels of those images and I
+return a tensor now this tensor is not
+an actual vector it's not an array it is
+a scalar value it's just the actual
+individual loss value so what I do is I
+go ahead and take the logits the
+prediction of the model on the images
+and then I go ahead and call a built-in
+function called softmax cross-entropy
+on those logics and the labels that you
+provided into the function after that
+I've got just one more convenience
+function for myself called a loss with
+accuracy essentially where I go ahead
+and take a model the images that you
+want to feed into the model and the
+labels and I return both the loss as
+just a float a scalar and an accurate
+and an accuracy value so this is exactly
+why we actually got the SK learn metrics
+package here so what I do is I go ahead
+and predict the logits then I go ahead
+and use
+to get the art max and create the sparse
+logics and sparse labels I know I can
+call softmax cross-entropy the same way
+that I did last time except this time I
+scale Erised a value and then from there
+I go ahead and calculate the accuracy
+using the accuracy score function of SK
+learn passing in the sparse labels and
+the sparse logits and converting that to
+a float and force unwrapping the
+optional and so that's how I'm able to
+calculate loss and accuracy in the same
+function instead of calculating loss and
+then calculating accuracy and having to
+do two different model predictions all
+right next up let's define some hyper
+parameters so over here we've got our
+batch size now the batch size is in 32
+it's value of 64 essentially this is
+going to find how many individual
+batches of data that we're gonna be
+using weight our model so let's just say
+in this case of course we've got a batch
+size of 64 and we've got 60,000 total
+images so in that case we have 938
+turtle batches so we have 937 bachelors
+that are full you know full of 64
+individual images and then one extra
+batch at the end that doesn't have 64
+that has 32 and it's not a full batch
+but in total we've got nitrogen 38
+different batches of course since we're
+starting off with an index of zero we'd
+be going from 0 to 937 in our loop but
+that's a topic for another time since we
+actually don't mess with the actual
+indices or numerating the training
+batches but that actually brings me to
+how we batch the data so I go ahead and
+define new two new constants training
+batches and test batches so I
+essentially take the training set of the
+testing data set and this is how simple
+it is to batch your data by the way I
+just called the batch function and pass
+my batch size that's all and just like
+that I've got a data set that's been
+bashed into however much I want in this
+case 64 and so I've got let's see here
+again thousand divided by 64 we've got
+nine hundred and thirty-eight different
+batches but of course we're testing we
+would have 10,000 divided by 64 150
+seven different batches all right and so
+that was the training and test mini
+batching
+next up let's actually go ahead and take
+a look at how we train the model so of
+course we should create a new learning
+face indicator we should create a new
+model pass at the learning phase
+indicator and then from there creating
+new optimizer in this case I'm using
+stochastic gradient descent
+I'm passing it my model I'm telling it
+that I'm using the type float and my
+learning rate in this case is 0.1
+relatively high learning rate now from
+there I go ahead and actually loop
+through one to ten and I essentially
+have the epoch counter and then I print
+out that were training epoch whatever
+epoch we're currently on and then start
+the sort of fun part of Swift for
+tensorflow this is sort of what allows
+the neural network to learn and this is
+our main training loop so first of all
+what I do is that a clear a new variable
+called training loss sub which is a
+float equal to zero initially and the
+training batch count which is the total
+number batches that we have trained on
+so far now I'm telling the learning
+phase indicator that we are indeed
+currently training and then I loop
+through each batch in the training
+batches then what I do is I create a new
+constant called gradients and this is
+the really fun part so I call the
+gradient function I tell it to find
+gradient at model and then it call
+another sort of function over here where
+it passes a model and then this function
+returns a tensor float which is the loss
+of that model and the gradient function
+will go ahead and return the gradients
+of the model that the optimizer can use
+to optimize the weights now what I do
+inside of this function is I go ahead
+and calculate the current batches loss
+by calling the loss function after that
+I go ahead and actually add that loss as
+a scalar eyes due to the training lost
+sum that we declared over here and then
+I turn it as part of this little
+function over here after that I
+increment the training batch count and
+then I go ahead and update using the
+optimizer all the differentiable
+variables inside of my model and I do it
+along the gradients that were turned
+from the gradient function again this is
+the automatic differentiation that
+enables you to train there
+that works in so much more of an easy
+way now from there I print out the
+average loss of the neural network in
+this sort of batch psycho this epoch by
+taking the total loss sum and then I
+could I and then I go ahead and divide
+it by the number of batches as a float
+so we got a very accurate loss now from
+there we can go ahead and actually test
+using the same code so essentially I
+tell a learning phase indicator that we
+are not training anymore I go ahead and
+take the test lost some test accuracy
+son in this case because I'm like
+training I'm also calculating accuracy
+here of course I also keep track of the
+testing batch count and then I go ahead
+and loop through every batch in the test
+batches I called a loss with accuracy
+function add the test loss and test
+accuracy sums add to the test batch
+count and then print out the average
+loss and average accuracy by taking
+those sums and dividing it by the test
+batch count and then after that we're
+done we've trained a neural network with
+Swift for tensor flow just like that and
+now we ready to export the model
+download it to our local computer and
+well go ahead and use it however we like
+to so in order to do that what I do is I
+say weights or W in this case a new
+constant is equal to model dot all
+weights dot map okay so I get all the
+weights which are an array of tensors
+and then I map through them and convert
+each tensor to a numpy array or a Python
+object to be specific then I go ahead
+and take that specific tensor convert
+that to an umpire array and then convert
+that that u array of numpy arrays into
+an umpire array itself and then I save
+that numpy array to W dot n py using the
+NPA function and just like that I've got
+my weights saved to my disk and now I
+can go ahead and exit my code and just
+like that we should be ready to go ahead
+and actually use this code now all I
+need to do is run Swift main dot Swift
+and it should go ahead download the data
+as you can see using W get then it
+should go ahead and load it and print
+out the shapes and then it should start
+with the first epoch any second
+now it's gonna print out the loss and
+the accuracy for training and then
+validation or the accuracy only for
+validation and then it should go ahead
+and train for 10 I box and at the end we
+should get a model it's around 97%
+accurate but then again every run is
+slightly different since we're not
+setting a random seat all right so so
+far we are at 85% accuracy let's see how
+high we can get but instead of having
+you watch paint dry I'm gonna go ahead
+and speed up this clip of the video but
+one more thing to show you now if I were
+to click control Z in order to sort of
+pause my my execution here if I run
+Nvidia s online to take a look at what's
+happening we're currently using around
+1.5 gigabytes ish of memory on the first
+Tesla P 100 GPU so we are using the GPU
+here
+so if I click foreground to continue
+prints out the average accuracy now
+we're getting to 87% and I'm going to
+just quickly speed up this clip so you
+don't need to watch paint dry
+all right so as you can see towards the
+end in this specific instance we got
+around eighty nine point four percent
+accuracy were rounded up because the
+next digit isin five eighty nine point
+five percent accuracy now of course this
+is nowhere near state-of-the-art you can
+of course get a lot more optimized
+optimized in terms of the model
+structure itself but for now let's go
+ahead and take a look if this model can
+perform as well as the one I've shown
+you in the demo so what I'm gonna do is
+I'm gonna go ahead and copy the weight
+file that was just saved to the disk
+here over to my max disk in order to do
+that all I need to do is run this secure
+copy command with the correct directory
+in order to copy the weight file so I'm
+gonna go ahead and run this give it my
+server here and just like that it starts
+copying the weight file to my local disk
+now right as that's done we've got this
+new weight file over here I can move it
+into the relevant directory and now
+let's go ahead go into it and start the
+flash server so over here I have started
+my flask server then what I can do is
+open up a new ngr okay instance in order
+to actually be able to connect to that
+flask server via my iPad and using my
+swift code so now let's head back over
+to the iPad to take a look at a demo of
+whether or not this model can perform as
+well as the last one we had just trained
+so now let's see if this model can hold
+up with the model that we trained before
+so let's go ahead and try say the number
+four so if I go ahead and draw a four
+and click predict indeed it lets me know
+that I drew you four with a hundred
+percent confidence maybe we can try
+something a bit more complex like the
+number seven I draw a regular old seven
+tell us we're gonna do a seven a little
+more complex say a different style and
+it tells me that I still drew a seven
+regardless of the way it was shaped we
+can try something like for example the
+number three I could predict and it
+tells me that the number I drew
+indeed a three and then from there we
+could try for example nine draw nine
+tell us that it's a nine draw a six and
+it tells me that I drew a six and so
+that was a quick demo of the brand new
+model that we just trained in action
+showing you that indeed it does perform
+quite well of course at around ninety
+percent confidence that could get where
+it was an accuracy it could get much
+better in terms of the actual structure
+of the neural network we could use a
+different optimizer but if you add an
+optimizer we could train for more epochs
+things a slower learning rate tons of
+things we could do but that was a quick
+demo how you can use the brand new suite
+for tensorflow library in order to train
+your own neural networks on a GPU
+environment using CUDA 10 and see you
+dm7
+alright so I really do hope you enjoyed
+that demo in action again if you'd like
+to use Google collaboratory instead of
+your own machine feel free to do so
+there'll be a link in the description
+describing exactly how you can do that
+alright so again I really do hope you
+enjoyed this tutorial if you do please
+make sure to leave a like down below and
+apart from that if you really do like my
+content you want to see more of it or if
+you do believe that this specific video
+could help anyone you know like your
+family your friends feel free to share
+the video with them leave a comment down
+below if you have any suggestions or
+feedback and I'd love to get back to you
+or not if you really do like my content
+you want to see more of it please do
+consider to subscribe to our youtube
+channel as well is it really does help
+out a lot and apart from that turn on
+notifications if you'd like to me
+of course notified whenever I release
+new content so again thank you very much
+for joining in today that's what I have
+for this tutorial goodbye

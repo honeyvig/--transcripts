@@ -1,0 +1,485 @@
+so welcome to the tutorial my name is
+Tammy Bakshi and this time we're gonna
+be going over a second revision or
+second part of my ex coat IPA tutorial
+now the reason I've been doing this is
+because there were a few issues with the
+last one and I also just want to make
+this better because you think about it
+the last one wasn't very practical it
+every time you wanted to build you would
+have to create a new deal we linked you
+would have to create a new tiny URL link
+it was just really annoying but if but
+this method will require you to setup
+once but then you can keep building and
+you will be able to run on your iOS
+device so now this was actually made for
+one of my really good subscribers if you
+go to the Xcode
+IPA tutorial the original one you will
+see that in the comments we've been
+having a little conversation then he
+also emailed me his name is Wade sellers
+he actually asked me to create this
+video not this video will this app
+because he was having issues with the
+code signing with the older version so
+what I decided to do is why not just
+make a video and share it with all you
+guys too and while I was at it while I
+was fixing issues why not just make it
+better too right so yeah let's get
+started as you can see I have a little
+diagram here on how this one we built
+how this will work the last one was
+quite a bit more complicated what you
+would do in the last one is you would
+convert to IPA with the tool that I
+created okay then you would send this to
+Diaw we okay that seems simple enough
+but that's very manual and then this
+will go further down into tiny URL then
+this would go onto your device
+now how can we go through this entire
+thing every time you were to build this
+was like around 90% in manual work 10%
+automated well I created a method that's
+basically the reverse this is around 10%
+manual and 90% automated and the O and
+5% of this is just the setup so it's
+pretty easy now now as you can see this
+method does look much longer but that's
+because the setting up does take some
+time now when we're done setting up
+however it's really easy to use and it
+still isn't that practical if you're
+changing a little bit of code then
+building on your device again changing a
+little bit of code than building on a
+device again it's more for those
+developers that are creating a game and
+they want to build and then do another
+code modification for another hour so
+maybe 30 minutes then build again then
+make another modification then build
+again so it's more for that sort of
+thing because again you can never really
+achieve a 100% automated build unless
+Apple actually includes the feature that
+they did in Expo 4.2 but then they
+removed it so again let's just go over
+how this method works now essentially we
+use someone I forgot what his name is
+but you'll see in a minute you go to
+github and you download a person
+software his I don't know his name yet
+but I'll show it to you in just a second
+you have to download a software called
+Shenzhen or at least I think that's how
+it's pronounced and then basically this
+software will help us convert our Xcode
+project to an IPA from the command-line
+really easily you just need to type an
+IPA build that's it no file names
+nothing then you basically send this IPA
+to Dropbox which will basically use a
+drop pages Dropbox app to create a
+simple web hosting service and this and
+this will go to your iDevice which will
+then install the app on itself
+and yeah that's really how it works so
+let's get to the Mac and I'll show you
+exactly how it's done
+so hello there and welcome to the Mac
+part of the video so now I'm going to be
+describing to you exactly how to go
+through this and how to actually upload
+your apps wirelessly to your device
+step-by-step from the beginning
+using the example code that I will give
+you in the description so let's get
+started as you can see I'm on my desktop
+here I'm just going to one second I'm
+going to move over to Google Chrome here
+then I'm going to go to github and
+actually not even get hub I'm just going
+to type in Shin Zen and Google and as
+you can see nope we don't want this we
+don't want the city we want github so if
+you go to nomads shenzhen get hub
+repository as you can see there are some
+already files and stuff but you just
+want to come down here and you see this
+little command just copy this and go to
+terminal
+now don't worry this command will be in
+the description as well if you're too
+lazy to go to the github website so then
+in terminal you want to type in sudo and
+then paste in the command type enter and
+then type in your password now I've
+already done this this will take a
+little bit of time so I'm just gonna go
+ctrl C and it'll interrupt it now you
+want to copy in this long command from
+here and also install now again I've
+already done this so I'm just going to
+ctrl C out of it now there is a slight
+problem with these though the problem is
+that it doesn't install IPA to the
+correct folder error to solve that I've
+created a little package for you
+so if you go to the description and
+download from my site or actually from
+my github then you will get this entire
+package that has all the files that have
+to do with Xcode type a2 and also
+Jensen's current version of I
+and so if you go into Shenzhen first
+you'll see these files and if you go
+into the bin folder you'll see this
+little executable for Linux if you just
+click on this and click command C or if
+you can go down here and click copy
+where is it copy then you want to click
+you want to go up here and click on the
+actual go button then go down here and
+click on go to folder or you can type in
+shift command G then what you want to do
+type in slash USR slash bin go and then
+you'll get here now you want to paste in
+IPA and since I've already done this I'm
+going to stop but as you can see just
+want to paste it in here now don't worry
+if you don't already have all these some
+people might have a million things in
+here some people might have nothing so
+it's completely ok no matter how many
+things you have in here just paste it in
+ok so now that we have that out of the
+way we have IPA successfully installed
+in order to test this you can go to
+terminal and type in IPA as you can see
+it basically prints out all this stuff
+to the screen and so now we can just
+close the terminal window to exit now
+that we're done with that part let's go
+back to my xcode to IPA folder and as
+you can see we have three files here now
+what i want you to do is you want i want
+to create a project a very simple app
+and we're going to drag it into that
+folder so let's just go to xcode here
+and let's click on click on create a new
+Xcode project let's just create an iOS
+single view application and called this
+Wireless hello world okay
+now let's just go next and let's just
+save this inside of that little package
+that I'm going to give you or actually
+let's just save it to my apps folder and
+I'll tell you why in just a second so
+I'm just going to create this and I'm
+going to go to my main not storyboard
+and let's just create a quick label that
+says
+hello world on screen and so that'll
+really be it so we see the UI here which
+I can edit to be iPhone 4.7 inch I'm
+going to hide that part now I can get a
+little label drag it to the center of
+the screen and just name it hello world
+actually drag it to the center of the
+screen this time and as you can see we
+want to run this app on iOS device now
+I'm going to close this down actually
+first I'm going to open this in finder
+then I'm going to close this down then
+as you can see we have all these project
+files now what I'm gonna do is I'm gonna
+make a little copy of my a package
+really quickly and I'm going to go into
+our package open up the second folder
+here Xcode type a2 then you'll see these
+three files as I've already shown you
+and you just want to take all these
+files or project files
+and copy it into here okay now that
+we're done with that let's do some more
+work so now what you want to do is you
+want to head over to google chrome again
+and download Dropbox for Mac now you'll
+see this you don't want to click on this
+you want to click on this so as you can
+see it'll go here and then it will allow
+you to install Dropbox then you just
+want to go through the installation
+process for Dropbox which I will not do
+because that'll take a long time and
+then once you're done in your favorites
+under finder and you should also have
+another Dropbox folder then you want to
+head over to Google Chrome one last time
+and you want to type in drop pages in
+Google then if you go to this one drop
+pages calm and you click on sign in and
+you will be able to sign in to your
+Dropbox account and so I've already
+created a drop pages account by linking
+it to my Dropbox well that's a fairly
+simple process you just sign in with
+your Dropbox it'll ask you if you want
+to give this app permission to view your
+Dropbox and you just click on yes so
+then you create a simple site I just
+called my aunt Angie Manny dot draw
+pages calm because that was
+email and I just wanted to keep it
+simple and so that's really it
+now if I go to Dropbox I could also go
+in here but I don't want to destroy this
+for you so then if you go into your apps
+folder my dot drop pages and then you go
+to your website and then you've got a
+public there will just be a main dot CSS
+when you create this but I want you to
+create a new file or a folder sorry and
+let's just name this hello world or
+actually 8uw for symbol this okay let's
+create this folder and let's go into it
+now what I want you to do and go back
+here take all of this stuff that was
+inside of the package including your
+project copy it go to your Dropbox go to
+your apps my doc drop pages go to your
+website public and go to this folder
+that you just created now paste it in
+and go over here and make sure that it
+uploads everything to your Dropbox form
+a files remaining and in just a second
+it should be done syncing okay now it's
+done it's all up to date and we've
+uploaded everything now you're ready to
+change the links and as I said this is
+quite a big setup process but it all
+works out in the long run and it's much
+better to set it up once and have it
+work for the rest of the life of your
+project okay so now let's continue as
+you can see we're in this folder and so
+now we have installed HTML we're going
+to modify this to be able to basically
+install our app onto our iOS device in
+order to do that we have to go to this
+wireless app disk plist file by
+right-clicking open with and I just
+recommend Xcode for this because that's
+the simplest thing you could possibly
+use and by default you can go to items
+item 0 if you go into assets then I am 0
+and you'll see kind software package do
+not shake
+change this and you'll see URL and then
+something called link goes here I put
+this in for you and what do you what
+this means is you have to go to your
+Dropbox and just before you do anything
+else go to your terminal and type in CD
+space then go to this folder that you
+created in your Dropbox and you're sorry
+drag it into your terminal ok remove the
+extra space and click enter now you are
+inside of that folder now if you click
+LS you'll see all the contents of the
+directory in Dropbox and so what you
+want to do type an Sh update ipas H this
+will create a new IPA file using a
+predominance name was just check
+well his link will be down in the
+description he was I used his little API
+for the last X coat IPA and so we are
+also using it here so as you can see it
+says successfully built and then the
+location to the IPA file now what we can
+do is we can go back into Dropbox and
+you see that in just a second
+after Dropbox is done syncing it on
+which it says it'll take four seconds 30
+seconds and it's almost done ok there it
+is
+now what you want to do as you can see
+there's a little share button here just
+click on it and you'll get this little
+link now copy this link and head back to
+your Xcode now in your url instead of
+link goes here paste in the link now let
+me tell you how to modify this link to
+work
+remove this question DL is equal to zero
+just take that out now replace
+www.sceeto.com just remove this part and
+replace it with DL Dropbox user content
+dot-com and then keep everything else
+the same and yeah that's it now if you
+go to your metadata tab in the P list
+you'll see the bundle identifier bundle
+version the kind which you should not
+change and the title let's just do these
+quickly Wireless hello world
+and then the bundle version which is 1.0
+now just to make sure that these are all
+right I'm going to open up my Xcode
+projects in from Dropbox I'm going to go
+over here
+TBS s dot wireless hello world and if I
+go here just a sec sometimes it does do
+this because I mean it's from Dropbox
+and it'll take some time for it to load
+up okay there so TBS s dot wireless
+hello world and then so if we go here as
+you can see it's correct so then we can
+save this and close out of it now as you
+can see it will instantly almost sync it
+because I mean it is a pretty small file
+then we want to edit this the installed
+HTML file you want to open this up with
+well I recommend sublime text to because
+that's just the best text editor I've
+seen yet for Mac specifically but I mean
+you could use any other text editor but
+do not use TextEdit for my experience it
+just messes up the HTML and it just
+doesn't work okay
+okay so as you can see we have a little
+link here called install and I have this
+thing called link goes here remove that
+again and go back to your Dropbox
+there's nothing else you need to do this
+time just look at your wireless app
+tostop plist and do the same thing that
+we just did click on the share button
+find this link copy it go here sublime
+text paste it in then modify it to the
+exact same way I told you to so DL
+Dropbox User Content comm and you also
+want to change this DL equals 0 to
+nothing there that's it now if I were to
+save this and close out of it as you can
+see in our Dropbox it says that we've
+just modified this now what I'm gonna do
+is I'm going to stream my iphone to my
+Mac so that you can see what I'm doing
+command
+chin and so then I guess what we can do
+stream my iPhone not my face
+and I can just quit out of these okay so
+as you can see I'm streaming my iPhone
+to my Mac now so if I open up my iPhone
+so as you can see it all works it's
+perfect however now if I go to Safari
+you can see that's what I can do let's
+just head over to the website that we
+created which is tangi mani not drop
+pages comm and specifically we want to
+go to /hw which is what we just created
+slash installed on HTML okay now we
+click on go as you can see just I'm
+gonna zoom in so that you can see this
+it gives us an install link now what we
+want to do is we're gonna click on this
+and it should theoretically install the
+hello world app to our eye device so if
+I click on install as you can see we
+would like to install a wireless hello
+world let's just click on install shall
+we now as you can see it's going to wait
+for a while wait for a while wait for a
+while and it will successfully put the
+hello world app on to our iPhone and we
+will be able to use it now just while
+that's installing I'm gonna tell you a
+really good trick as you can see if I'm
+gonna go back to Safari it's a pain to
+keep going back to this website just to
+install your app so what you want to do
+click on the sender little share button
+here at the bottom then you want to
+click on add to homescreen and rename
+this to instant basically anything you
+want I'm just gonna name this install HW
+yeah I'm gonna add this and as you can
+see well it's also done installing so if
+I go into this app as you can see it's
+the correct app completely works in the
+label spine and just quickly yeah so you
+see we've also added install HW so we
+can use that whenever we want and so we
+also have the app now let's just do a
+quick lot of
+Asian and time how long it takes for us
+to get it onto our I advice just roughly
+so I'm going to go into Xcode and we're
+going to open up the wireless hello
+world from the Dropbox and so what I'm
+gonna do I'm gonna go to the lane not
+storyboard and I want to make a little
+change okay that works now that that's
+done let's close out of it
+and once it is done syncing to Dropbox
+all you do is you go over here and go
+and delete these two files okay now
+let's start timing again a rough time so
+if I go to well I guess isn't there a
+pro oh yeah clock sorry and then if I go
+to timer stopwatch so then I can
+basically just go to terminal again I'm
+going to update the IPA again
+okay
+okay so that's done now we can exit out
+of this and let's just go to install HW
+or actually before that we have to
+delete this app okay now it's going to
+install HW and install install retry
+sometimes the reason that happens is
+because it's not done syncing to Dropbox
+but then when you click on retry it will
+sync to Dropbox and then it'll work so
+just give it a minute or two I guess
+will successfully install so till now I
+say it's been around 50 seconds maybe a
+minute now but if we just wait a little
+bit longer the only reason it takes this
+long the installing process is perfectly
+fine it's just that it's getting it from
+my server and not just any App Store
+server which is much faster than mine so
+yeah again this also does vary your
+Wi-Fi connection your Wi-Fi speed and
+another benefit about this I mean it
+this was also benefit in the last Xcode
+type EA but a really good benefit for
+this is that you don't need to be on the
+same Wi-Fi network as if you would with
+Xcode 4.2 when you and wirelessly deploy
+so as you can see it is done and now if
+we were to go into the clock so yeah I'd
+say it takes around one minute 40
+seconds maybe two minutes for each build
+to go on your device so again as I said
+it isn't for that developer that's
+building and running every 20 seconds
+it's for that developer that needs to
+build and run around every 30 seconds
+and so yeah that was basically how it
+worked I subscribe to my channel if
+you're new I hope you liked it all my
+viewers and also specially wide seller
+because this was made for you also if
+you have any questions leave it down in
+the comments like the video if you liked
+it and yeah
+that'll be it you can also mail me at
+tanjung mini gmail.com the source code
+will be in description and yeah that's
+it good bye

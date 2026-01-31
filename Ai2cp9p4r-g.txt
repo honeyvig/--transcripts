@@ -1,0 +1,605 @@
+[Music]
+so just before we begin the actual video
+today I'd just like to say that an early
+access copy of my book hello Swift IOS
+app programming for kids and other
+beginners has been released you can find
+it on many bookstores online such as
+Amazon chapters and Indigo as well as
+the Publishers website I really do hope
+it helps you along your journey of
+learning the Swift programming language
+for iOS development all right so let's
+get into the tutorial now so hello there
+and welcome to another tutorial my name
+is Tammy bakshi and this time we're
+going to be going over how you can code
+and use Bridges between different
+programming languages all right so to
+begin today I'd like to say a big thank
+you to retesh for sending in this
+question on Twitter uh and so basically
+what we're going to be doing today is we
+are going to be using the following
+programming language programming
+language combinations and I'm going to
+be telling you how to create Bridges
+between Java and Ruby Swift and python
+as well as Swift PHP and
+MySQL all right so let's begin with the
+very first topic of this video today
+which is how you can create Bridges
+between Java and Ruby all right so now
+the main way that you should be doing
+this or at least the main way that I
+believe uh is quite simple to actually
+do uh is using shell let me explain uh
+so let's say we've got two little bricks
+here okay these bricks are respectively
+Java and of course we've
+got we too big of a box there but we've
+also got
+Ruby has another programming language so
+we've got jav and
+Ruby now let's say you've got a very
+very simple Ruby script uh that takes
+two numbers all right uh two and three
+for example and we'll add them together
+and print the screen five and that's in
+Ruby and let's just say that you'd like
+to call that code from java what would
+you do well first of all let's take a
+look how you regularly run this Ruby
+script now what you would usually do is
+you would go to your terminal
+and this signifies your terminal this
+dollar sign and you would type in
+Ruby script
+script.
+RB and then you give it your parameters
+like 2
+three okay and what's going to happen is
+it'll run the Ruby command on script. RB
+and it'll give it the two and three
+arguments and then those arguments can
+then be used to add and then it'll give
+you the result five and then you have
+your terminal again now this is
+something called a shell command and
+well now we've actually determined that
+Ruby is basically just sitting on top of
+this shell
+platform okay we're basically running
+Ruby off of shell in this case now the
+thing is the exact same logic applies to
+Java we're calling Java off of
+shell more specifically we're running
+the Java Das jar function and we're
+running our jar our Java
+jar now let's just ignore how we
+actually call Ruby FAL okay but we're
+basically what what my what the idea is
+in order to get uh these two programming
+languages Bridge together is the fact
+that both of these are not only based
+off of shell but can then in turn call
+Shell
+commands as most most programming
+languages can so Java can call Shell
+commands and can get output from them
+and so can
+Ruby
+shell okay and since these both are
+based off of shell and can run shell
+commands it becomes so so e easy to
+bridge them the reason is because all we
+need to do is let's just say we want to
+call that Ruby script from java what we
+do is since Ruby's based off of shell
+and we can call Shell from java all we
+need to do is tell Java to call Shell
+Shell then calls that Ruby shell
+script
+okay and once shell once this shell has
+called our Ruby script and once Ruby has
+given those instructions back to
+Shell this shell is able to give output
+to
+Java the shell Handler
+more
+specifically and then what happens is
+we're able to get our output into
+Java then once Java has the output it's
+free to do whatever it actually wants to
+with that output and this is actually
+quite a simple way of having a
+programming language bridge and it works
+the exact same way if you like to
+contact from Ruby to Shell in fact now
+let's cut over to the Mac part where I'm
+going to show you how you can actually
+implement this so let's cut over to a
+short code part and then we'll be back
+to the Whiteboard part to discuss how
+you can Bridge Swift and python all
+right so now I'm going to be showing you
+how you can implement the bridge between
+Java and Ruby all right so let's take a
+look so to begin let me show you the
+extremely simple Ruby script that we're
+going to be using today now first of all
+just before I actually get to the Ruby
+script though I like to show you I have
+this little Java project ready called
+Call Ruby code and this Java project uh
+is actually quite simple and what I've
+done is I've actually gone into a
+terminal window and cded into this
+directory if you seen the list here uh
+we've got of course as you know by
+default the bin and Source directories
+uh but we've also got this script called
+add to numbers. RB if I open it up as
+you can see it's a very very simple Ruby
+script inside of the Java projects
+directory uh and basically all we do
+here is we print to the screen or put to
+the screen uh the first argument that it
+was given to an integer plus the second
+argument that was given to an integer
+now basically what this means uh is
+we're taking both of the arguments that
+was given via the command line and we
+are converting them to integers adding
+them together and putting them back onto
+the
+screen once that's done you should have
+a very simple Ruby script that can do
+this so if you type in Ruby add to
+numbers. rb23 it should give you five if
+you were to write 50,000 maybe 25,000 it
+should give you 7500 uh 75,000 sorry uh
+so you can just you know add in put any
+two numbers here and it will add them up
+uh except for decimals you have to put
+in integers uh and it should be able to
+add them up and give you your
+output now basically let's just say you
+wanted to call this code from java how
+would you do that well it's actually
+quite simple now the first thing you
+need to do is make Java available to ACC
+actually access the shell environment
+and the way we can do that is by
+implementing my very own little run
+shell function and the Run shell
+function returns a string but it also
+takes a string called command and this
+is the actual shell command that you'd
+like to run and this function can throw
+an
+exception now inside here as you can see
+I'm defining the output variable and
+this is basically a string that contains
+the final output for the
+user or technically what came from our
+shell command
+once that's done I'm creating a new
+process called execution process and
+we're setting this execution process to
+a new runtime execution process and
+we're giving it the command that you
+gave for that shell command then what
+we're doing is we're telling it to wait
+for this process to be done because what
+we've just gone ahead and done is we've
+given that uh I guess you could say
+execution Handler uh to a different
+process but what we're doing is we're
+telling this process to wait for itself
+to be done and then we'll continue with
+the rest of the Java code and so once
+that is done we take that execution
+process and we get it input stream and
+we put that into a new variable called
+is we then create a new input stream
+reader called is reader uh based off of
+that input stream and then we create a
+buffered reader called reader from that
+input stream reader uh and this is a new
+buffered reader instance then there's a
+little bit of logic that we use in order
+to extract all of the lines from our
+buffered read reader into our output
+variable now this is a little bit of I
+guess you could say work around is logic
+uh and it's not recommended for your
+applications necessarily but it should
+work in really every single circumstance
+so I'm not exactly uh I mean it's not
+bad basically uh but the way this works
+uh is essentially we are using
+exceptions to our advantage I guess you
+could say uh so inside of our try catch
+here uh I have inside of the tri block
+uh an infinite Loop a while true Loop
+which is infinitely going on it'll never
+ever stop and inside of this we've
+basically got our output variable which
+uh starts off as a blank string as you
+can see here and we're basically telling
+setting it to whatever it already was
+plus uh the next line in from the
+iterator of the lines of our buffer
+reader and then we're adding a new line
+basically what this means is infinitely
+we'll keep you know using this iterator
+from the reader and we'll keep getting
+the next line and the next line and the
+next line the next line however when
+there is no next line then what's going
+to happen is the next function will
+actually just throw a no such element
+exception and once it throws this
+exception we're going to be out of scope
+of this while and we're going to be
+inside of our catch block and since
+there's no code in our catch block we're
+basically catching our exception and
+then dropping
+we ignore it completely because we know
+that's basically how we're stopping our
+Loop and then we're able to return the
+output variable and that means we are
+completely finished executing our code
+and now we have run the shell command
+successfully and gotten our output and
+then that can be used to do really
+anything we would like to and so then in
+the main static function all I do is I
+print out to the screen the output of
+the Run shell function when I run the
+root be add two numbers on rb23 command
+so now if I run this as you should see
+uh it says five to me in this little
+console here uh and I mean just for
+example if I were to say a few different
+numbers maybe uh through four and three
+uh it should give me uh I'm just going
+to save my file and then as you can see
+it gives me seven and I could type in
+any two numbers any two numbers I'd like
+to and it should be able to give me the
+output for that uh for that addition
+problem and that is how you can call
+Ruby code from java now though let's get
+back to the Whiteboard part where I'm
+going to show you how you can create a
+Swift and python code Bridge let's get
+to it all right so welcome back to the
+whiteo part and now that you've seen how
+you can Bridge Java and Ruby now let's
+take a look at how you can Bridge Swift
+and python code now quite surprisingly
+and quite uh amazingly and quite um I
+guess you could say easy easily for us
+developers or it's quite convenient how
+guess what all we need to do in order to
+Swift Java I mean uh Swift uh sorry uh
+Bridge Swift and python code is replace
+Java and Ruby with
+Swift and
+python but why is this well let's take a
+look now let's say we've got a python
+scrip that again add the numbers two and
+three now the way you would run this is
+you would go to your terminal and you
+would type in
+Python uh let's just say
+script.py and you would say 2 3 then it
+would output five and then you're back
+to a
+terminal so this proves that python is
+based off of
+bash now something else that's very
+interesting here is you're saying hey
+what well Swift isn't based off of bash
+well that's why I'm here to talk to you
+about Mac iOS apps or uh sorry Mac uh
+Swift apps now you can actually create
+command line tools or you can create
+command line applications in Swift for
+Mac OS and so the way you would run
+those is you would have your terminal
+and you would say Swift for example um
+some binary file like uh Swift my
+app okay and then you would say
+23 and then 2 three will be the input
+and the application can use that input
+and then of course you would receive
+five from Swift and then you can
+continue dot dot dot do whatever you
+want to in your
+shell uh and so uh that's basically what
+we're going to be doing today we're
+going to compile some of our Swift code
+into a binary uh or at least we could
+compile it into a binary and have python
+call it using its shell capability uh
+but in this case what I'm going to do is
+I'm actually going to be using using our
+python script and I'm going to be
+calling my python script from my Swift
+code from my iOS sorry my Mac OS Swift
+Code so now let's get right back over to
+the code part where I'm going to be
+showing you how you can create a bridge
+between Swift and python let's get to
+that all right so now I'm going to be
+showing you how you can implement the
+bridge between Java and Ruby all right
+so let's take a look so to begin let me
+show you the extremely simple Ruby
+script that we're going to be using
+today now first of all just we actually
+get to the Ruby script though I like to
+show you I have this little Java project
+ready called Call Ruby code and this
+Java product uh is actually quite simple
+and what I've done is I've actually gone
+into a terminal window and cded into
+this directory if you've seen the list
+here uh we've got of course as you know
+by default the bin and Source Direct R
+uh but we've also got this script called
+add to numbers. RB if I open it up as
+you can see it's a very very simple Ruby
+script inside of the Java projects
+directory uh and basically all we do
+here is we print to the screen or put to
+the screen uh the first argument that it
+was given to an integer plus the second
+argument it was given to an integer now
+basically what this means uh is we're
+taking both of the arguments that was
+given via the command line and we are
+converting them to integers adding them
+together and putting them back onto the
+screen once that's done you should have
+a very simple Ruby script that can do
+this so if you type in Ruby add2
+numbers. rb23 it should give you five if
+you were to write 50,000 maybe 25,000
+which should give you 7500 uh 75,000
+sorry uh so you can just you know add in
+put any two numbers here and it will add
+them up uh except for decimals you have
+to put in integers uh and it should be
+able to add them up and give you your
+output now basically let's just say you
+wanted to call this code from java how
+would you do that well it's actually
+quite simple now the first thing you
+need to do is make Java available to ACC
+actually access the shell environment
+and the way we can do that is by
+implementing my very own little run
+shell function the Run shell function
+returns a string but it also takes a
+string called command and this is the
+actual shell command that you'd like to
+run and this function can throw an
+exception
+now inside here as you can see I'm
+defining the output variable and this is
+basically a string that contains the
+final output for the
+user or technically what came from our
+shell command once that's done I'm
+creating a new process called execution
+process and we're setting this execution
+process to a new runtime execution
+process and we're giving it the command
+that you gave for that shell command
+then what we're doing is we're telling
+it to wait for this process to be done
+because what we've just gone ahead and
+done is we've given that I guess you
+could say execution Handler uh to a
+different process but what we're doing
+is we're telling this process to wait
+for itself to be done and then we'll
+continue with the rest of the Java code
+and so once that is done we take that
+execution process and we get it input
+stream and we put that into a new
+variable called is we then create a new
+input stream reader called is reader uh
+based off of that input stream and then
+we create a buffered reader called
+reader from that input stream reader uh
+and this is a new buffer reader instance
+then there's a little bit of logic that
+we use in order to extract all of the
+lines from our buffer reader into our
+output
+variable now this is a little bit of I
+guess you could say workaround each
+logic uh and it's not recommended for
+your applications necessarily but it
+should work in really every single
+circumstance so I'm not exactly uh I
+mean it
+it's not bad basically uh but the way
+this works uh is essentially we are
+using exceptions to our advantage I
+guess you could say uh so inside of our
+Tri catch here uh I have inside of the
+tri block uh an infinite Loop a while
+true Loop which is infinitely going on
+it'll never ever stop and inside of this
+we've basically got our output variable
+which uh starts off as a blank string as
+you can see here and we're basically
+telling setting it to whatever it
+already was
+plus uh the next line in from the
+iterator of the lines of our buffered
+reader and then we're adding a new line
+basically what this means is infinitely
+we'll keep you know using this iterator
+from the reader and we'll keep getting
+the next line and the next line and the
+next line the next line however when
+there is no next line then what's going
+to happen is the next function will
+actually just throw a no such element
+exception
+and once it throws this exception we're
+going to be out of scope of this while
+and we're going to be inside of our
+catch block and since there's no code in
+our catch block we're basically catching
+our exception and then dropping it we
+ignore it completely because we know
+that's basically how we're stopping our
+Loop and then we're able to return the
+output variable and that means we are
+completely finished executing our code
+and now we have run the shell command
+successfully and gotten our output and
+then that can be used to do really
+anything we would like to and so then in
+the main static function all I do is I
+print out to the screen the output of
+the Run shell function when I run the
+Ruby add to numbers on rb23 command so
+now if I run this as you should see uh
+it says five to me in this little
+console here uh and I mean just for
+example if I were to say a few different
+numbers maybe uh four and three uh it
+should give me uh I'm just going to save
+my file and then as you can see gives me
+seven and I could type in any two
+numbers any two numbers I'd like to and
+it should be able to give me the output
+for that uh for that addition
+problem and that is how you can call
+Ruby code from java now though let's get
+back to the Whiteboard part where I'm
+going to show you how you can create a
+Swift and python code Bridge let's get
+to it all right so now that you've seen
+how you can Bridge Java and Ruby as well
+as Swift and python we are now ready to
+move to the last and argu arguably the
+most important Bridge of them all how
+you can use Swift to bridge with myql
+using PHP in between let's talk about
+that now we're basically using in this
+case MySQL for things like user data
+okay uh or really anything any storage
+for your application uh in this case
+would be handled by
+MySQL uh and essentially the point here
+uh is that we
+are sorry uh so basically what we're
+going to do is let's just say we've got
+Swift and this Swift is running on an
+IOS app and this IOS app is something
+like a chatting app okay uh and
+basically you've
+got all the messages and everything of
+that sort on my my
+SQL okay got messages user data
+everything about your application on
+MySQL now you need to find a way to
+communicate between Swift and MySQL but
+there's no direct way to do that so you
+have to use a programming language
+bridge and the way that I like to do
+this is well a very simple PHP bridge
+now what does this mean well basically
+what this means is that with PHP we can
+easily get a direct connection to myql
+up and running in no time and that means
+that PHP is capable of very very easily
+communicating to and from my
+SQL and I can very easily again make
+Swift communicate with PHP as well but
+how would we do that it's quite simple
+all we need to do is set up a rest and
+point Point such as
+get I mean you could use post request
+delete request put request anything I'm
+using get in this case since it's the
+simplest to create so a get request for
+slash maybe you know insert or you know
+register and this would take a few
+parameters like username password date
+of birth etc etc etc and then what would
+happen is we would use Swift and we
+would basically
+contact PHP using this endpoint and PHP
+would you know do its MySQL logic go to
+mySQL do whatever it needs to then MySQL
+is going to come back to PHP and Swift
+will get the result to get that uh uh
+get the result of that rest call that it
+made to PHP and in this way it basically
+becomes a rest API that your application
+is based off of and it becomes extremely
+extremely convenient to work with and so
+that is basically how this bridge Works
+uh in fact if you'd actually like to see
+a live example of how this works with a
+friend list app uh then of course you
+can actually visit my video in fact one
+of my one of my first video is called
+Swift databases uh and I've actually
+created an entire series about this with
+then they all highlight how you can use
+that Swift PHP MySQL bridge in fact I've
+even created I guess you could say this
+framework called tql kit and there will
+be a link to that video as well in the
+description and that basically allows
+you to skip the worrying and the logic
+of that PHP Bridge it allows you to run
+native MySQL code on inside of Swift
+that will go through PHP in the
+background and will hit a remote MySQL
+server and get back to you with a
+response it's really really interesting
+what it does and of course I really do
+recommend that you check the those all
+out and links to those will be in the
+description all right so that's what
+this video consisted of today I really
+do hope you enjoyed and of course I
+really do hope I was able to answer your
+question ratesh all right so thank you
+very much for watching today of course
+if you like the video please do consider
+liking the video but if you think this
+could help anybody that you know like
+your friends or family please do
+consider sharing the video as well of
+course if you have any other questions
+suggestions or feedback you can leave
+them down in the comment section below
+email them to me at tajim Manny
+gmail.com or tweet them to me at tajim
+Manny of course though if you really
+like my content you want to see a lot
+more of it please do consider
+subscribing to my YouTube channel as
+well as it really does help out a lot
+and if you'd like to be notified
+whenever I release new content uh or new
+videos please do consider turning on
+notifications as well as that helps out
+as well all right so thank you very much
+for watching today that's going to be it
+for this tutorial goodbye

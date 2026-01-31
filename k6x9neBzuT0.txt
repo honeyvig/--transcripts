@@ -1,0 +1,376 @@
+so hello there and welcome to the
+tutorial my enemy Bakshi this time we're
+gonna be going over well a classic
+tutorial I know it's been a long time
+but I mean lots of you guys have
+requested this I haven't done one in a
+while it's easier for me to make it
+seems to me edit so I decided I'd do it
+anyway again for all of you that love my
+camera tutorials there's still gonna be
+lots of them left it's just that I will
+also be doing a few of these classic
+tutorials there's lots of you guys like
+them and as I said it's easier for me uh
+anyway let's get started
+and so today someone called ago link I'm
+very sorry for pronouncing that wrong I
+don't know how proud and exactly but she
+requested me to actually create a video
+based off of databases which isn't
+really about databases but it's about
+populating the tableview because lots of
+beginners have trouble with populating
+tableviews so I decided that I'd make a
+tutorial on creating you wanna table
+view cells and stuff like that so let's
+get started and I'm going to open up
+Xcode 7 beta 5 and I'm going to open it
+up and so right as it opens up we're
+going to create a new Xcode project of
+course more than left ok perfect so
+let's just create a new Xcode project
+first then let's create a new single
+view application and let's just call
+this something like UI table view cells
+again source code for this will be down
+in the description and so what we can do
+its first of all we're going to go to
+our storyboard and we're gonna also i'm
+assuming what you know what a table view
+is I mean case you don't simply a table
+view would be could be defined as
+basically a table where you can list
+stuff like so first I can list like 10
+may then someone else then someone else
+than someone else
+someone else and then someone else and
+stuff like that
+so as you can see now we have Xcode open
+I'm going to make that full screen there
+and also move my face out of the way and
+make it a bit smaller yay
+why why is my face anyway so now you
+just move the view over here go to our
+attributes inspector change it to iPhone
+4.7 inch and or iPhone 6
+yea iPhone 6 and then what I'm going to
+do is I'm going to search up table view
+up in this little area and I'm going to
+drag one right on to the view in the
+corner there and make it take the shape
+of the entire view itself then I'm going
+to right click the table view and I'm
+going to connect the data source to our
+view controller and the delegate to our
+view controller then I'm going to go to
+a view controller dot Swift file and
+right as it loads up I'm going to create
+a variable and an iboutlet the IB how it
+will be for the table view and the
+variable will be for the contents that
+we're going to put inside of the table
+view so let's just create the IB outlet
+here and this is going to be called
+table view of type UI tableview and
+let's just create var foods I like is
+equal to something like chicken I like
+rice I like mangoes I like carrots I
+like bananas
+and what else do I like one more thing
+apples of course apples anyway
+so now what we can do is first of all
+what we need to do first before we
+continue over here our class declaration
+for UI tableview we don't I mean view
+controller we don't you just want to
+inherit from uiviewcontroller we also
+want to inherit from UI tableview
+datasource and also UI tableview
+delegate
+once that's done just go over here and
+in the middle of your code and type in
+the
+table then find the function that says
+over here table mu number four rows and
+section that returns an integer
+click enter it'll type out all that code
+frame and move this little placeholder
+and also create a function for this one
+table view cell for row at index path
+enter there now basically let me explain
+what these functions do this number of
+rows and Section function will just
+essentially tell the table view how many
+rows there are in this table so in this
+case there's going to be one two three
+four five six but since I don't want to
+hard-code that I can do return foods I
+like dot count that's it anyway so then
+what we do is we go to this function and
+what this function will do is this will
+actually return a cell that has the
+information for the specific row that we
+want so basically in order to get the
+row that we're getting the info for we
+just save our row is equal to index path
+dot row now and so actually I'll change
+this to a constant because whenever
+we're gonna change it and so essentially
+this ver this a constant will keep which
+row we are currently editing and so this
+function will be called multiple times
+once for each row that there is in this
+in the that was returned by this table
+view function which is foods I like
+count so we ran six times and the first
+one it will give us an index path a row
+of zero and one then two then three then
+four and then five and so what we can do
+is get the information out of the array
+and put it onto the cell and put the
+cell onto the table view so let's get
+started by by just creating a new cell
+which is equal to a new you add table
+view cell and then let's sell the set
+the cells text labels text to foods I
+like specifically for this row and then
+let's return this cell
+if you couldn't tell what this is doing
+is we're just creating a new cell for
+our UI tableview
+and then we're setting its text to the
+specific food for this row and then
+we're just returning this cell to the UI
+tableview for it to put on to it now if
+we run this app we should be able to see
+it run again sorry let me just move my
+face so the simulator takes a while to
+turn on so I'm just going to be back in
+one minute and I will meet you then yeah
+so as you can see the UI tableview has
+loaded whatever we wanted to it is
+showing that the contents of the array
+which are chicken rice mangoes carrots
+bananas and apples so that's pretty
+amazing anyway so now let's just code
+and let's just make it actually show an
+image of all these foods it's the first
+thing we want to do is we want to edit
+our UI to be able to use those images so
+first of all we need to create a custom
+cell in order to do this I'm going to
+search up table view here and I'm going
+to drag on a new UI tableview cell after
+that I'm going to increase its height
+and then I'm going to take a label and
+drag it on around there and take an
+image view and put it around right there
+make it a bit smaller around this size
+should be perfect and move it to just
+about there perfect and so now what we
+can do is we can go over here
+right-click on this folder here and
+click on new file then double-click on
+cocoa touch class create the class
+called table view cell or actually let's
+just call this food cell make it a
+subclass of uitableviewcell do not
+create a nib file and so this will be
+disabled and make sure the language is
+Swift
+objective-c then click Next click create
+and then I'm just going to move it up
+here so it look cleaner anyway and over
+here what we can do is at typing at
+iboutlet
+VAR food label as a UI label and
+iboutlet VAR food image as a UI image
+view perfect so basically this food
+image will store our image and this food
+label will store our food name so now I
+can go back to our view controller and
+so in order to code this in I'm going to
+first create a dictionary I like images
+and so what this dictionary will contain
+is actually the a link to an image for
+chicken rice mangoes carrots bananas and
+apples so let's get started first with
+chicken and this doesn't have to be in
+order because this is a dictionary and
+I'm just going to give it a blank URL
+for now code the rest then put in the
+links ok perfect so now we've put in all
+the dictionary entries their URLs well
+actually they're blank right now but we
+will put in their URLs but let's just
+assume the URLs are in there now how
+will we code the cell in order to be
+able to put in the image well first of
+all we don't want just any
+uitableviewcell we want specifically the
+one that we designed in our IB so what
+I'm going to do is I'm going to go to
+our main dot storyboard file and I'm
+going to click in this white space first
+and then click on our cell as you can
+see in the attributes inspector over
+here we have to set our identifier to
+something like food so once you're done
+we can go back to our view
+controller and instead of saying sell is
+equal to uitableviewcell
+let's say sell is equal to table view
+dot DQ reusable cell with identifier
+food cell and then let's just force this
+as a downcast to food cell which is the
+custom cell that we just created then
+what we want to do is come over here and
+say cell dot food label dot text dot txt
+is equal to foods I like rub and so this
+will set our food labels text to the
+specific food I like then I'm going to
+say the food image the image is equal to
+UI image for data which is NS data of
+contents of URL and s URL of a string
+which is going to be foods I like images
+foods I like ro force this force this
+and force this there we are
+perfect and so now basically what this
+is doing is I need to counter it camera
+anyway so basically what's happening is
+we're taking the specific food I like
+getting its URL converting it to data
+then converting that data to a UI image
+then putting that image into our image
+view so now that works we can just
+return the cell and now what I'm going
+to do is we're going to insert links to
+images for each of these things so let's
+do that by opening of google chrome my
+web browser of choice doesn't have to be
+I'm just going to quit QuickTime anyway
+so now we can go to something like
+chicken
+rice carrots
+what else do I like mangoes not Ming
+mangoes bananas oh no no no no no no no
+bananas and Apple
+nope not apples there it's now it's gets
+an image for chicken well it's just gets
+fried maybe something like this
+wow that loads I can just go over here
+get maybe something like that like that
+like that that and this or actually no
+this or not this one yeah okay so let's
+get started and so copy image URL and
+paste go over here
+copy image URL and paste copy image URL
+paste again or nope that's carrots
+actually let's get one that yeah sure
+doesn't work copy the image URL to the
+mango paste it and bananas and then
+finally apples
+that was a long my my wrist hurts my
+wrist actually really hurts right now
+anyway
+so as you can see these are all the
+links to the to the images which I for
+the foods that I like and just as a
+little precaution for you to take if I
+were to run this on the simulator right
+now just well I'm going to quick go home
+as you can see this will actually not
+work at all but I'm just going to show
+you why it doesn't work
+reason it doesn't work
+whereas it loads I will be able to tell
+you why it does not work does not work
+due to the fact that yep no actually
+this wasn't supposed to be the problem
+but oh yeah there's actually two
+problems this time there's one thing I
+forgot one thing that so it doesn't let
+you do so let's just take a take a look
+at what I forgot which is if you go to
+may not storyboard you have to actually
+click on your cell go to this little one
+does this call identity inspector and
+send its custom class to food cell then
+if you were to run it still wouldn't
+work as you can see or actually it's
+probably not because of this yep it's
+another thing that I forgot apparently
+but it's pretty easy to fix all you need
+to do is right click on your image view
+take the referencing outlet and drag it
+to your cell and select food image then
+right click on your label drag from the
+referencing outlet to your to your cell
+and then click on food label now it
+still won't work but it's not because I
+forgot something for sure this time so
+as you can see yep this is not something
+I forgot basically swift to will block
+you from actually accessing HTTP it has
+to me I think HTTP but in order to fix
+that all you do is you go to google and
+you type in NS app Transport Security
+click on the first one from forums
+developer.apple.com okay I hate my Wi-Fi
+it is the world's worst Wi-Fi anyone
+could possibly wish for okay if this
+takes too long I'm just going to give up
+and try to do it from a different one
+okay let's try and stack overflow
+all right nope never mind okay so when
+you click on the first one for Apple
+developer forums just uh school slightly
+down and you'll see this correct answer
+in green and just copy this code snippet
+then go over here right click on your
+info.plist file open as source code and
+then after this array tag and before
+this dict tag paste in what you just
+copied from the apple developer forums
+then run it on the simulator and then
+wait wait and just wait because this is
+actually gonna download the images from
+the website which will take quite a long
+time yeah not pleasant oh well that was
+faster than it's ever done that in my
+entire life
+I have never seen it do that fast anyway
+as you can see it doesn't really show
+these really nicely so all I'm going to
+do go to my main dot storyboard increase
+the height of the cell actually not even
+that much stir all this much
+first of all make the image bigger
+that's a must and put it around there
+and then actually over here ish and then
+just create make this label much bigger
+now if we were to run this shouldn't
+take too long because I'm in a room
+where my Wi-Fi usually works fine
+perfect
+as you can see it has downloaded the
+images from online the exact ones that
+we wanted it to it's put no sorry
+sometimes does this it puts the names
+into the labels and that was it I hope
+this answers your question the going and
+so that's gonna that's gonna be it again
+subscribe to my channel if you like my
+content we want to see more of it like
+the video if you liked it comment down
+below if you have any questions the
+source code will also be down down there
+in the description you can even email me
+at IG manage email comment you have any
+questions or any app ideas suggestions
+or you know video of you asking a
+question which I can feature in my next
+video whether it be math science or even
+about computers and that's gonna be it
+goodbye

@@ -1,0 +1,300 @@
+so hello there and welcome to another
+tutorial
+my name is Turner Bakshi this time we're
+gonna be going over split view
+controllers in Swift on the iPhone and
+so I know this sounds a bit weird but
+with X with the iPhone 6 plus and 6s
+plus there's enough space to actually
+fit a split view controller in the area
+so what I've gone ahead and done is I've
+created an app which uses split view
+controllers on the iPhone 6s plus so as
+you can see behind my face I am
+mirroring my iphone to my computer and
+using Quicktime and now if I make my
+face smaller and move it out of the way
+we can see but this is the app that
+we're going to end up making actually
+I'm going to be explaining to so as you
+can see we have an actor selector on the
+side but what does this actor selector
+really do well actually let me just do
+this it's now let's just click on an
+actor like Tom Cruise and then we get
+three movies he was in Tom Kenny three
+more movies not demin three more movies
+Angelina Jolie sorry and then three more
+movies Will Smith and also Brad Pitt so
+now this app will very simply allow you
+to select an actor and show you three
+movies that he or she has been in an
+hour to program this we actually need to
+use split view controllers of course
+since there's a UI tableview on the side
+get my hand on this okay and then a
+detail view on the other side on so in
+order to code this we actually have to
+do a little bit math not in the sewing
+math but as you can see in my code I
+have added something extra and this will
+help us determine some coordinates which
+I will talk about later anyway first of
+all what we have to talk about is let's
+just say that I come over here
+you won't need to do this I'm just doing
+this let you understand okay so now
+let's just say you start developing an
+app and this is your initial view
+controller that you start off with now
+how do we convert this into a split view
+controller or to do that simply all we
+need to do is delete this view delete
+this view actually let me just make sure
+after that anything wrong here okay oh
+so now you just type in the word split
+in your objects library take the split
+view controller drag it on click on one
+of the split you can click on one of the
+views and it's a second babe you know
+okay
+then set the size to your iPhone size
+which in my case is the plus so 5.5 inch
+okay continue it actually don't set that
+one set this one to your iPhone size and
+then all of them should change to that
+size perfect okay continuing after that
+what you want to do is click on this
+view controller and DUP and the check
+mark is initial view controller then
+what you want to do is art is create two
+new files list dot Swift and detail dot
+Swift in detail dot Swift you need to
+type in the code C bar first of all this
+will be a global variable so import
+UIKit then of our curl list meaning
+current list is equal to list now I know
+you haven't created a class called list
+yet and so it'll give you an error but
+just don't worry yet just type in the
+code and I'll explain later
+thank read a new class called detail
+which will be of a subtle be inheriting
+from uiviewcontroller bankrate to me
+label IB outlets label one label to a
+label three in viewdidload
+sucker detail to self now you haven't
+defined kur detail yet but don't worry
+you will be in just a second and so what
+this will do is it will set the current
+detail variable to ourselves then create
+a new function called touches began and
+sorry in it once you click print self
+dot view dot friend size dot with that's
+a mouthful but what it's going to do is
+it's going to tell us what the width is
+of this view in the split view
+controller this is temporary code that
+we require only for the time being just
+to set up our app okay then on your list
+dot Swift file first of all actually I
+don't need this anymore okay
+it first of all import you I can of
+course okay so now what you want to do
+is say uh create a new global variable
+of our Kerdi tail is equal to a new
+details now things are starting to take
+shape your current detail error that was
+in the other file will now be fixed then
+create a new class called list which is
+inheriting from not UI view controller
+but UI tableview controller then create
+a variable called new data and give it
+all of this data which is the the actors
+and the movies that they star in and
+then in the viewdidload set cur list to
+self then put in to actually for the
+time yeah does this actually create two
+new table view functions the first one
+there are number of rows in section and
+I'm going just going to return the data
+arrays count that we just defined here
+sorry
+okay continuing after that in the
+tableview cell for our index pass
+function well we just create a new cell
+set the count variable to zero
+loop through new data which is a
+dictionary so it will automatically be
+enumerated index and value but we don't
+need value only index because that's the
+actors name which is what we need for
+the list so index and underscore the
+underscore will be taken as nothing my
+Swift so we won't have a Val then what
+we want to do is check if the count is
+equal to index path 0 but you're saying
+this is always 0 how can it be equal to
+the index pastro well I'll tell you
+first of all we just need to understand
+that if it is set the cells text labels
+text to the index that we're currently
+on being the actor we're currently on
+and then break this for loop however if
+we didn't execute that we're going to
+pass plus count by one eye meaning
+increment it by 1 and then it will sorry
+it will continue this loop until we find
+one actor which is equal to the index
+pass row so it's put into the cell and
+then we return the cell to be put onto
+the split view controller like this then
+we want to have one more table view
+function but that's weird why is there
+another table view function well this is
+because we actually want to handle what
+happens whenever we select something on
+the table view so what we do is once
+something is selected on the table view
+we get the cell that was selected by
+doing var cell is equal to table view
+cell for our index path and the index
+path of which cell was selected then we
+set curve details label ones text to new
+data specifically the actor that was
+clicked by doing cell dot txt leveled up
+text so that's the actor that was
+clicked from the new data or forcing
+that as an unwrapped and we're getting
+the 0 with value
+meaning the first value now you
+understand why we created the Curless
+and cur detail variables because from
+the list we want to be able to inject
+values into the detail so that because
+instead of having the cur the detail
+view doing everything we have the list
+making the curl the detail view doing
+everything and then we do the same thing
+for label two and label three except we
+get the for the second element and then
+the third element of course then all we
+need to do is go back to our main up
+storyboard click on our detail view move
+my face over here and then after moving
+my face you just click on this little I
+think this what's it's called identity
+inspector I think that's supposed to be
+like a whatever why do I care anyway
+click on custom class actually go under
+custom class and click on this little
+blank text view here beside the class
+label and type in detail and then click
+enter but I'm not going to do that then
+click on your list and in the class type
+list but I'm again not going to do that
+because I already have once you're done
+you should have a view like this a view
+here of you here a view here of you here
+then you can also double click on this
+little pain here and change the title of
+the list but I just named it actor
+selector but wait how did I get this
+view to be this small
+well show you first of all let's just
+run the app on my phone actually this is
+going to give us an error because I
+forgot to click a button okay there now
+it won't so all you need to do run the
+app now remember the touches begin
+temporary code that we added in that's
+coming in use now just click anywhere in
+this blank area I'll actually show you
+I'm clicking in this blank area as you
+can see here on my phone I'm clicking in
+this blank area
+I'm clicking in the blank area and
+apparently we printed out the width of
+our view and so our width is 4 4 0 4 40
+so what you need to do is let's just say
+that this is the detailed view this is
+the view which you set the class for all
+you need to do click on it so there's a
+blue boundary around it click on the
+attributes inspector set the orientation
+to landscape and set the size to
+freeform actually set it to I phone 5.5
+inch then go to a ruler click on the
+simulated size click on freeform then
+set the width to 440 and you're done
+that was simple the reason we're doing
+this is let's say you keep the normal
+width and the normal height let's say
+you sent her something on the actual
+view then it's going to appear here
+because you centered it on this entire
+plane not just this much so when you
+send her in this much it's going to
+actually appear in the center of this
+detailed view and that's exactly why
+we're changing the size of the view
+anyway after that what you want to do
+yeah well anyway who care act's
+after that what you want to do is once
+you've done all of that you change the
+width and everything go into your view
+and create three labels now you can make
+any size any color anything doesn't
+matter just three labels then connect
+the label 1 label 2 and label 3 IB
+outlets to these labels it's that simple
+once you run the app you should see
+this pop-up and it worked as you can see
+there are seven actors now actually I
+found out why there were only six last
+time so Leonardo DiCaprio got left out
+but now he's back as well
+and so that's going to be it for this
+tutorial as you can see this time we
+created an actor selector using split
+view controllers again I'm sorry I
+forgot to mention this in the beginning
+but Vaughn Clement who has actually
+quite a few courses online and a few
+videos and a lots of apps online as well
+I had actually send me this question
+originally how do I use split view
+controllers and Swift he wanted to use
+it with an iPad but since iPhones and
+iPhone iPhone 6s plus --is and iPads are
+pretty much the same if you put them in
+landscape now I just decided to do this
+for iPhone since I didn't really have an
+iPad to test this on actually I do have
+an iPad Mini but then it's just too much
+- it's too much to work on because the
+UI is a bit too big to work on a smaller
+screen but that's going to be it for
+this tutorial I hope you enjoyed if you
+did please make sure to leave a like on
+this video and if you have any questions
+leave it down in the comments below and
+I will almost surely get back to you you
+can also email me at a g-man in
+gmail.com with any questions suggestions
+app ideas concerns or even more comments
+you can also email me a video question
+of you saying a question and it may just
+feature it in one of my next videos it
+can be on anything from computing to
+science to algorithms to math everything
+and also consider subscribing to my
+channel if you like my content and you
+want to see more of it or if you're just
+playing into the channel it would help
+me out and also consider following me on
+twitter at @anjghie manney again all my
+email and my Twitter and everything will
+be in the description the source code
+for this will also be in the description
+and that's going to be it goodbye

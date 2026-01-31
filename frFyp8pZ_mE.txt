@@ -1,0 +1,475 @@
+[Music]
+solo there and welcome to another
+tutorial my name is kami Bakshi and this
+time we're going to be going over how
+you can use the IBM Watson visual
+recognition tooling and fluff this is
+the new tooling that they have just
+released in fact let me tell you a
+little bit about the backstory behind
+all of this so it actually all began in
+round November of 2016
+and in November and I remember Josh
+Zynga and of course thanks to him he is
+a product manager at IBM Walkman and
+from he actually reached out to me and
+he said hey we know that you've been
+using visual recognition for some time
+now and we've just released the same
+visual recognition tooling well not
+released but they started beta testing
+his new visual recognition tulane and it
+wasn't you test it out you know do some
+beta testing be one of the first users
+and so of course I was glad to do that
+because I knew at the time that Scotty
+Watson visual recognition command line
+utilities weren't even out and it wasn't
+really that easy to get a Watson
+classifier walking visual recognition
+classifier train because through the
+utilities and even now through utilities
+it's not how easy and something like
+visual recognition tooling so as you
+know other Watson services do have truly
+let's allow developers to easily train
+them or speed their data into a train
+Watson and then get output as well into
+the visual recognition tooling does
+practically the same thing and so of
+course while I was using the visual
+recognition tooling I got really
+interested Josh if I could actually
+create a YouTube video about this
+and while unfortunately it wasn't the
+correct time to do that because it
+wasn't officially released now however
+it has been officially released and you
+can actually use this visual recognition
+tooling in order to train your profit
+wires in order to create visual
+recognition purposes so now though I'm
+going to show
+you an example of how I was able to use
+this tooling in order to create a water
+visual recognition bonfire which can
+successfully classified among different
+types of flowers today we're going to
+using four favorite species of flowers
+and door going to be painting in quite a
+few images of these four species we're
+going to expedient images of rodents all
+right we're going to see move images of
+daffodils relatives and daffodils all
+over you feeding in iris plants and of
+course we're going to be feeding in the
+sunflowers as well and so what we're
+going to do is we're gonna get all right
+50 to 100 images of all of these
+different species of plant into the
+watson visual recognition tooling and
+basically what we're going to do here is
+we are going to have that visual
+recognition tooling as a web interface
+that we can access and then we're going
+to do is i'm going to see these into the
+tooling
+and then once they're fed the choice
+between will use the REST API for visual
+recognition and it will then go to the
+regional recognition service through
+that REST API and that is how this
+entire systems going to work and so now
+again instead of having teams see URL
+commands or instead of having to use the
+command line utilities or having to use
+any language specific SDK all you need
+to do is upload your images to this VR
+tooling over here and then once it's
+done training you can then continue to
+use that top of my RIT with the same API
+key among all of your different
+applications whether that be powered by
+the SDK the REST API indirectly or even
+the tooling itself and so now without me
+further ado let's get into how you can
+actually build this system and so now
+without further ado let's get into the
+code all right so welcome back to the
+Mac part and now I'm going to be showing
+you how exactly you can use this brand
+new visual recognition tooling service
+provided by IBM let's take a look so now
+if I go over here as you can see even
+before we get into visual recognition
+the service and how we can use new
+tooling first I'd like to show you a
+little bit about the training data that
+we're actually feeding into the visual
+recognition service now as you can see
+in this folder here I've got four
+folders in it and these four folders
+actually are titled daffodils iris rose
+and sunflower and in each folder
+they it contains around 100 images of
+that type of flowers you can see over
+here for daffodils we can go over to
+iris this contains iris plant images and
+again these are just IRS plant free
+images gathered from Google and so if we
+go back to roses as you can see all
+different types of Rose is there are
+some you know red roses purple roses
+pink roses white roses etc etc and then
+if we go back over here as you can see
+in these sunflowers we've got all this
+in touches on
+flowers even ones with sunglasses on as
+you'll see later in the data set but if
+we go down as you can see we've got all
+these different types of sunflowers and
+again these are not strictly only
+sunflowers we may contain a little bit
+of noise in this data say for example
+this image right here because again
+you've just images scraped off of Google
+images for free and so what's happening
+is we're basically just trying to tell
+visual resolution what the basic sketch
+of a sunflower looks like by giving it
+most of the data that doesn't contain
+noise and then some noise in between
+that it's able to filter out and so as
+you can see eventually these are all of
+our sunflowers all right so those are
+our four these are our four directories
+containing those images and outside we
+then have in this root directory four
+more images not just not not folders we
+just have image files and the images are
+named daffodil iris rose and sunflower I
+go through these again as you can see
+these are individual images of one iris
+one one daffodil one rose and one or one
+sunflower field and so one more thing
+I'd like to point out here though is
+that these are going to be our test
+images and these images are not
+contained in these folders and what if I
+hit done after this is actually
+compressed each folder into a zip file
+right after that and as you can see
+these are all of our zip files and that
+is what we were going to be using to
+train the visual recognition service all
+right so now we can go over to the
+bluemix here as you can see which I went
+to a bluemix catalog and I was able to
+create a new visual recognition service
+and once you have created your service
+and once you have those credentials you
+are then ready to actually find your API
+key now one more thing I'd like you to
+note is that eventually the tooling will
+be available on this managed page in
+your service near this developer
+resources pane or you know somewhere on
+this page here the only reason it's not
+currently available is since I'm
+actually recording this just before it's
+officially released and that means that
+it isn't technically available in
+bluemix
+just yet but what I'm going to show you
+how the almost exact same UI exact same
+sort of interface for using the tooling
+it's just that I cannot access it
+through Linux instead I have to access
+it through URL but what I'm going to do
+first is I'm actually going to find my
+API key and then I'm going to copy it
+and go over to the Watson visual
+recognition tooling you will not need to
+go to the Watson visual recognition
+tooling my gimmick on that page although
+I am because again this will be
+available through bluemix I'm going to
+click on API key enter in my API key
+click enter and as you can see it is
+going to bring me into the Watson visual
+recognition tooling then inside of this
+tooling I'm ready to create a new
+classifier and what I'm going to do is
+I'm actually going to call this
+classifier flower YouTube classifier now
+what we're going to do is we're going to
+give this four different classes and
+these classes are going to be coal Rose
+iris I'm going to add a new class call
+it daffodil and I'm going to add a new
+class and call this one
+sunflower now of course we don't need to
+upload any negative images as these are
+optional and we only want our classifier
+to distinguish between different types
+of flowers in this case Rose IRS
+daffodil and sunflower and not tell me
+if something is a flower and if it is
+what what species flower what type of
+flower but we do not want want it to
+tell us whether it's not a flower that's
+that's a feature that we do not want
+with this classifier so we are not going
+to be uploading a negative data set so
+I'm going to go back here and I'm going
+to take the Rose dot bit file and I'm
+going to drag it into my Rose class in
+the tooling once that is done I'm going
+to go back and do the exact same thing
+for the iris once that thing done I'm
+going to do that for the daffodil and
+once that's done I'm going to do it for
+sunflower one more thing I'd like to
+note here is that these you can only
+upload up to 50 megabytes of images and
+you zip files to watts and visual
+recognition that's the most that it can
+take at once so one thing I'd like you
+to note here is that I have not actually
+I think they optimized my JPEG
+JPG files that's why these are actually
+relatively large files 41 megabytes in
+total for around 100 images these of
+course can be shrunk even further using
+some sort of JPEG öktem optimizer which
+you can get by a homebrew or you can
+download by the Mac App Store if you're
+using Linux or Windows there are
+alternatives for that as well there are
+also online tools so gun if you have a
+lot of different training data and you
+want to see it all in to visual
+recognition a few things you can try you
+know reducing your file sizes key
+weather that we through optimization
+making your image is smaller or
+something of that sort again at the end
+of the video I will be getting my
+contact information so if you'd like to
+contact me and I can help you out with
+dial your visual recognition training
+all right so now in March do know is I'm
+going to click on create and now the
+visual recognition tooling will take all
+these files and upload it to the Watson
+visual recognition API now once it goes
+into the API we will be ready to start
+using the classifier after it trains and
+so now though this is currently
+uploading our images to the API now this
+may take several minutes to complete due
+to the fact that the image files are not
+small so I will speed up to click now
+and then we will be right back with the
+training classifier
+all right so as you can see it is done
+uploading our images to the API and it
+is now training our classifier now all
+we need to do is wait for the visual
+declination service we've done training
+our classifier and once it is complete
+we'll be able to use our classifier and
+test other images against the model to
+see how it performs all right I will be
+back in just a few minutes right as my
+classifier is done training and then
+we'll take a look at the performance of
+the model all right so as you can see
+I'm back again and visual recognition
+tool is done training the classifier and
+so now what we can do is we can actually
+go ahead and give it our test images and
+we should be able to see the results
+that has for each one let's actually
+begin with the daffodil image so what
+I'm going to do is I'm going to take the
+daffodil image and drag it over to the
+tooling and drag it into this box under
+our classifier it's going to upload and
+as you can see Watson visual recognition
+responds with a confidence value in as
+you can see it says that this indicates
+not necessarily confidence but this is
+this looks eighty-three percent like a
+sunflower to Watson because what's
+actually happening is this technically
+isn't a confidence or an accuracy value
+what instead is happening is Watson is
+actually taking it's actually creating
+four different models internally and
+what it's doing is it's taking let's say
+the first model and it's saying okay
+let's just say we have daffodil is one
+class and everything else is one class
+and it will compare daffodils to
+everything else and then we have three
+other models that do the exact same
+thing it'll compare relevance to
+everything else is just everything else
+and sunflowers to everything else
+Erol then use that as basically an
+ensemble of different models and it'll
+use those in order to find which one
+actually has the most probability of
+being credit or it's this impressive
+collection of probabilities from which
+it then selects and in this case
+daffodil turns out to be the correct
+answer but if you see Rose actually is
+not far behind and the reason for this
+is because if you think I'll let's think
+a little bit about this and if you think
+about a rose and if you were to look at
+this image it would see a little odd
+resemblance to Rose and I mean if you
+were again
+look at this I have a little bit of that
+rose pattern the other thing it has more
+of a daffodil pattern and that's why
+what we be able to tell us that this is
+indeed a daffodil or at least that's
+what I believe and so that's why a
+watching is able to classify this as a
+daffodil then we can go ahead and take
+the IRS in inch huh of course hasn't
+also open that up but okay sure so we
+can take the iris image drag that into
+the box it's going to upload the image
+to Watson as you can see again these
+four models have returned this
+probability that iris is most probably
+the correct answer because it's able to
+find the iris pattern the iris color and
+what's usually in the background of
+these IRS images it's able to take
+everything into account using its you
+know internal algorithms and it's been
+able to actually return to us that iris
+is most probably what is inside of this
+image we can then go ahead and take the
+rose drag that in and as you can see in
+just a moment it tells us that Rose is
+the correct answer again these flowers
+are not in the training set desert this
+is a separate test set that we have not
+trained lots of visual recognition to
+understand yet it is able to tell us
+that this most probably contains a rose
+even despite the black background
+despite the little water droplets on the
+Rose despite you know all these all this
+noise around the roads we're still able
+to determine that this contained the
+Rose because of the Rose patterns that
+can then are contained inside of this
+image and then of course now here comes
+a slightly a little bit more difficult
+one something that something that
+something that really shows you the
+power of the service a perfect daffodil
+when the sunflower one's a little bit
+challenging as well and the reason I'm
+going to say this is because of color
+and it's not necessarily because hey
+it's going to be unable to find you know
+sunflower patterns it's going to be able
+to do that perfectly it'll be able to
+find okay we've got so many sunflowers
+here this is probably a sunflower field
+and return some flowers the correct
+answer but if you see there's a lot of
+conflicting noise here
+with the red sky and blue sky here in
+the clouds and the other other plants
+around here all the other vegetation
+here and you can see basically this has
+a lot of noise but yet technically if we
+want to take this image and drag it into
+the service we should be able to get an
+answer and it should be sunflower so
+again it's uploading the file as you can
+see again Watson does tell us that
+sunflower is most probably the correct
+answer what's currently in this image or
+what this image contains out of the four
+classes that it was that it was trained
+to recognize inside of images and again
+note because the technique that it uses
+here Watson visual recognition is not
+able to say hey this contains a
+sunflower and a rose or a sunflower and
+iris if not able to say hey contain both
+of these or three of these or nothing
+what happens is lots of visual
+recognition instead it can only find
+individual objects inside of those
+images and so for like for example if
+you wanted to create a classifier that
+could detect some flowers and roses
+together you have to create an entirely
+new class for sunflower Rose because
+then you would give images that contain
+both of sunflower and a rose and then it
+will be able to classify it as that
+class just a few notes about the facial
+recognition service but that's what
+makes it so interesting and so great and
+fun and easy to work with again this is
+the brand new tooling and as I like to
+say the visual recognition service is
+actually a great service to use as your
+first walking service because of its
+simplicity because of how great you can
+just give it a little bit of training
+data and be able to take all that learn
+it and take new test data and give you
+your answers and with good accuracy as
+well and so now this makes it even more
+user friendly and even better how to use
+with your first lots of service and
+generally to use as a professional tool
+for your applications and now the visual
+recognition service has just gotten so
+much better and that's what I have to
+cover in this tutorial thank you very
+much for watching that's going
+of course so if you enjoyed this
+tutorial and if it was able to help you
+out please do make sure to leave a like
+down below and if you believe this could
+help anybody else you know like your
+friends or family make please make sure
+to share video as well alright that
+point for this tutorial but if you have
+any comments feedback suggestions
+suggestions or questions you can use
+them down in the comments below
+email them to me at 10 G man.you
+gmail.com or tweet them to me at
+humanity
+alright so that's going to be for this
+video but if you'd like to see a lot
+more content like this and of course if
+you want to try your support for the
+channel please to make sure to subscribe
+as well as it really does help out a lot
+and if you'd like to be notified via
+email and Google notifications whenever
+I release a new video please do make
+sure to turn on notifications as well by
+clicking the little bell icon beside the
+subscribe button
+alright so thank you very much for
+watching today that's going to be all
+for this tutorial
+goodbye

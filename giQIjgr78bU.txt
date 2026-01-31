@@ -1,0 +1,161 @@
+hello and today we will be making a file
+copier and remover and visual basic
+first of all what you're going to want
+to do take a button drag it there
+uh in this part of
+this i'm only going to be doing copying
+files but
+go to my other uh
+um
+uh the next person will have copying and
+moving then only moving
+so what you're gonna do next is make a
+label um a text box sorry
+um
+make it that big
+then make a button
+there we go
+uh put its text as dot dot dot
+dot dot dot
+okay so three dots
+uh make it smaller and make it as small
+as it possibly can fit into a button for
+three dots
+now this isn't exact but it doesn't
+matter right now i'm in a matter of a
+hurry so
+uh now i'll just resize that
+i won't actually add any labels right
+now i'm just going to explain to you
+what this is this text box will have the
+parent folder directory so which file
+you want
+and
+next one
+will have
+this one
+will have
+uh where you want it to be copied to
+yeah
+so
+now
+this one
+that i'm making right now
+no not this not code
+control click
+okay so this one will contain the file
+name the new file name
+and this one okay contain the parent
+folder
+um
+uh the parent folders
+extension so go to dialogs get an open
+file dialog a folder browser dialog
+go to this button
+open
+file dialog one dot show dialog
+text box one dot text
+equals
+open file dialog one dot
+file name
+okay so then go to your design
+go to this button
+then you're going to say
+open
+file dot wait not open file dialogue
+folder
+browser dialog 1 dot show dialog
+text box 2 dot text
+equals
+open file
+dialog not open file
+folder
+browser dialog one dot
+selected
+okay so go back to your design now comes
+the real actual coding
+so what you're going to want to do
+system dot io dot file
+dot copy
+bracket text box one dot text
+comma text box 2 dot text
+ampersand
+then what you're going to want to do uh
+since text box will not text has the
+name for the file put a slash in
+ampersand
+text box three dot text
+and person
+and
+quotes a dot ampersand
+text box for
+text
+msgbox
+file
+copy
+let's test it out
+first of all
+gonna click computer
+let's just go into my c drive
+right
+here and then
+i'm just i just already made an extra
+folder i have this document here i want
+to copy it to my documents so what i'm
+going to do is
+i'm going to debug this
+app
+so called
+click
+uh welcome to the second part of this
+video
+uh here i have entered lots of code
+we've entered lots of code in from last
+part now we're going to be testing it so
+we'll debug it
+as i told you last time i had a
+directory so i'm going to go to it
+i'm going to click it and click open
+now here i'm going to put
+txt since you can see this txt excluding
+the dot because uh the computer puts it
+in for us
+uh click that
+click libraries documents
+yeah my documents
+okay
+now let's save it there
+so now the file name you can name it
+anything timeless
+test yeah i think that's good
+copy
+file copied let's see if it really
+copied it
+i'm going to go to computer
+documents
+there we go timely test is here
+has everything here
+and you can actually also
+change the
+the
+uh you can change this from let's say
+txt to dot bat
+you can change that to bat and you
+change its name
+and maze
+tts
+so then when i click copy file copied
+and when i go to my documents
+see
+i've actually got a windows batch file
+here
+go there
+and then it actually does the codes i
+entered to it
+so hope you liked these two parts of my
+videos
+uh
+please
+uh
+make these programs and
+goodbye from my side

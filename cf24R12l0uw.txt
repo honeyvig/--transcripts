@@ -1,0 +1,450 @@
+[Music]
+so well there and welcome to another
+tutorial my name is Tammy Bakshi and
+this time we're going to be going over
+how to use Google tensorflow API as well
+as with deep learning technologies in
+order to create a word prediction model
+using LSP M now let's get straight into
+how this is going to work so today I'm
+going to show you how you can actually
+feed into an LLC M powered by tanks as
+well actually some data some text that
+you bring or that you write on a daily
+basis and then that Al's 10 should be
+able to predict the next word in a
+sentence or in a partial sentence that
+you write so let's talk about how this
+is going to work now if you use a model
+like the or to the keyboard like Swift
+key or the new iOS 8 keyboard iOS 8 plus
+keyboard even though there are little in
+award predictions on the top of your
+keyboard and so you can see that these
+were predictions basically are
+personalized based off of your Google
+your Gmail your your Facebook your
+Twitter your your contacts and so
+basically no take a lot of different
+texting rights on this keyboard and
+they'll learn how you like how you like
+to read text and what word usually come
+after other words using machine learning
+technology and so now I'm going to show
+you how you can actually replicate that
+effect using tensorflow let's get into
+it
+now I actually I start off here the
+point behind this Alice TM or long short
+term memory recurrent neural network to
+be able to take in a partial sentence
+that you write like for example if I say
+thank you very much for your email in my
+emails a lot then someone is right thank
+you very much for each I have some agent
+automatically predict your and email
+once I type that out and so this is how
+we're going to achieve that now it
+actually starts off with this data set
+that we're going to be into the
+yep and of course there's going to be a
+bunch of emails that I've written over
+time and basically I'm going to take a
+bunch of email that are written copy and
+paste them into a document and there you
+go you've got your data set now for so
+I'm using an incredibly small data set
+for this task you're probably going to
+want to use many many more words or
+basically many many more documents who
+want to get a good classifier that can
+actually predict the next word you want
+to write correctly however I want to
+using a small model because I'm going to
+be showing you a refined example and of
+course you can train larger model if
+you'd like to yourself all right so now
+after that we've got a library this
+library
+well basically act as its black box that
+will allow us to train and sample from
+LSP n networks now this was actually
+developed by sure deal out there since
+our time and I'm not pronouncing that
+correctly however essentially the point
+of this is that it's coal car are an
+intensive loan okay and so basically the
+port of this little of sniffing code
+that he's shared on github is to be able
+to train Atlas TF networks
+just like how I encourage courtesy uses
+character or car RM that he created with
+torch it's just that he's replicated
+that intentional and that is the results
+of car are an intensive flow and so what
+happens is I will actually go ahead I'm
+taking email data facts appear and feed
+it into car are and tensorflow
+and then once it's inside of car or
+inadmissible we can then define a model
+inside of car in and sensor the tensor
+flow and then wants you to find the
+model it should go ahead and start
+training and just only while you see
+that you get actually a quite low lock
+value and once you're lost value is
+quite low then you're ready to actually
+start predicting using this model until
+the color R min what it does is it
+actually outputs and saved model as a
+checkbox
+and so again
+Celsus clips on UL STM tesla model and
+something ul s T M month okay
+and so the car are an attempt to slow
+will output this month now after this
+model has been up with we're ready to
+actually feed in data into this model
+and see which predicts they are
+proceeding in a prime in this model now
+a prime depicts what the starting heart
+attack so basically recede all this of
+the output speed and the friction will
+happen it let's just say the prime has
+to be your partial sentence let's just
+say as a prime in this case Thursday
+thank you very much for and then what
+would happen that sentence will go into
+the LSP model and the LSP M model will
+then output the next 50 or so characters
+that I believe you would write and so
+this will be me next 50 characters
+okay so once the ls p.m. model gives you
+the next 50 characters now you cover
+multiple different words that is
+predicted 1/3 of it so you have to have
+a way to print to extract the next words
+of this lsdm predicted and so what would
+happen is you would then fit into a very
+small Python script that would do word
+extraction and so there will be a word
+[Music]
+extractor in Python again very very
+simple and I will be certifying the next
+word the elephant predicted after your
+prime text and then once you feed those
+next 50 characters into the word
+instructor the word extractor will give
+you finally the next words that it
+believed that the Elliston believes you
+would write and there you go and that is
+the entire system diagram of how logic
+behind this entire system works and so
+now again just to recap we would be
+feeding in some training data into car
+are an intensive flow which will create
+an LS p.m. model for us
+I'll that's be in a prime to ALS peer
+model which will now generate multiple
+different words after me after the prime
+to great basically is as a paragraph or
+what I would say after that prime text
+then what'll happen is it'll look at
+those next 50 characters or so I will
+see that into a word extractor which
+will extract the next word after the
+prime text and finally that next word is
+the next words the LSC and predicts that
+we usually like depending on the context
+of everything before the prime text and
+course applying text itself all right
+now obtaining you how you can actually
+build a system using car or an intensive
+low let's get to it now alright so
+welcome back to the code part now I'm
+going to be showing you how you can
+actually code in this entire system now
+if I go back to my terminal right over
+here you can see we've got this car on
+tensorflow over here and if i LS and
+here you see we've got a few folders and
+so the in sofa car and in to work you
+have to have a few different directories
+first of all yes
+have your data directory I'll talk about
+that in a moment but you also have to
+have your save checkpoint directory
+which is where it will actually save the
+Train models to and once it seems the
+Train models and you can actually use
+the Train models once they've been
+trained enough to actually run your word
+prediction tasks I'll take it with me
+data directory now if I go to make data
+directory as you can see there are few
+directors inside of data but inside of
+data we've also got one more directory
+called payment email I hang my emails
+and if I LS this as you can see we've
+got a few different files here are you
+only need to create input doc txt it'll
+automatically create data to nqy and no
+cab PKL for you all you need to do is
+create input dot txt and fax I get the
+first three lines of input dot exe you
+can see these are first three lines
+inside of that input text field text
+type text file however of course there
+are many more lines and each line
+contains a line from an email that I
+sent someone and so basically I'm going
+to be training the system to actually
+cleave as word prediction model based
+off of my emails now remember though
+because I'm not eating very much train
+dinner at all it is a little bit hard to
+train this model because of overfitting
+issues
+how about of course if you were to use
+enough data for example I'm your I'm
+using email but if you were to
+concatenate a lot of data from Twitter
+Facebook email and your contacts it
+could become of course much much more
+accurate and of course much more context
+sensitive now of course though if we
+were to go back you can see in
+compensate email you just need to have
+this in an empty directory once you're
+done training all of these files will
+come into into this directory alright so
+once that's done you're ready to
+continue now so that I do not overwrite
+the pre train models that I've already
+got prepared I want to create a new
+checkpoint directory called feed email
+YouTube once that's ready your start to
+you're ready to start training your
+model now the way you actually train the
+model is like calling Python train dot
+py and I'm going to pass it of the air
+directory of data slash can make emails
+okay and the same directory it's going
+to be saved
+email thank you then click enter and let
+it work it's magic
+it's not going to bloat in all the data
+and it's going to get start is going to
+start raining all right so what it
+started once it has started to Train of
+course I actually took this to do are
+not too many epochs and so this should
+be slightly this should not take too
+much time
+however instead of having you watch this
+model train I decided that I should have
+a pre train model that you can actually
+look at and see how it performs so again
+it reads on the exact same data on the
+exact same model configuration the only
+thing is that I've already pre trained
+it so you don't need to watch this model
+train so if I control C out of this you
+can see the loss is getting extremely
+low and at this point we're starting to
+overfit but then again I'm not using
+very much data when you use a lot more
+data this overfitting will not be a
+concern however once that's done
+training you're ready to move on to the
+sampling stage in the sampling page will
+allow you to actually run your word
+prediction tasks now if I were to
+actually run Python sample dot py and
+unfortunately these passages save
+directory again which in this case is
+save email and of course so we need to
+pass sequence prime and paste my prime
+will be saved Watson made simple or
+walked and made okay as you know I have
+an IBM Facebook live series called wasa
+mates in volute anime and so I I have
+mentioned this in a few different emails
+to people and so if I pass this is my
+prime it should be able to get symbol as
+the next word let's see now this will of
+course create a few quite a few more
+characters than then just one more work
+because of course it's based off of
+characters and not words it just doesn't
+generate words it generates a lot of
+characters and so you can see generate a
+lot of characters but in the beginning
+we've got our prime we just walked main
+space and after that we've got the word
+simple however well sure it did of
+course predict the next word but how can
+we actually extract
+SIB loud well this is where my next trip
+comes in the next scripts if I actually
+show you here I will actually run this
+sample script on a prime and giveth and
+then once you pass in that prime it'll
+actually parse that result in order to
+give you your final answer which is then
+the next word using its logic it'll
+split the results in the sample script
+by every new line it'll get the first
+line and then it will split every in
+split everything in that first line by
+spaces it will then get the specific
+element which is equal to the length of
+the prime itself being split up by
+spaces minus one and so basically like
+for example if the prime and past it was
+Watson made space then and then now
+what's happened is the array would be
+locked in made and in fact I can
+actually go to a Python shell here I can
+do Watson made and do dot splint space
+all right oh and you can see also gives
+a little extra ending here as well and
+so what I can do is just go back here so
+what happens who want to pass in this
+string with a prime then this would be
+the output of this right here or prime
+dot foot space until the length of this
+would be of course three and then of
+course what you would do is you would do
+the length minus one and then of course
+that would be two and then what you
+would do is going to take a result which
+others all too long to put in here but
+if you were to split that up by ever you
+line and you get every line they will
+take the first line and some that you
+would split it by every space until you
+get you know Watson made simple dot dot
+dot and then once you've got that you
+can just get from this specifically the
+second element as we cited here and as
+you can see this is the zeroth element
+this is the first element of some second
+element and the output of this should be
+simple
+the entire logic behind that one line
+works I just compressed all this into
+one lines of creating multiple different
+lines but this and that's what seems a
+little bit complicated but this is the
+actual logic that goes behind extracting
+that word
+and so now though if I were to actually
+run that script that I just created on
+Watson made it would run that exact same
+that exact same script in the backend I
+will extract out the word symbol and it
+should return o sometimes it requires of
+course it's an LS p.m. it's it's word
+prediction not ever you know completely
+predictable but of course as you can see
+it has now returned simple as the
+correct answer and now of course if I
+were you know I on an actual iOS
+keyboard I would click on the word
+simple instead of typing out simple and
+then what happened is would
+automatically start suggesting words
+that would come next and then of course
+it would say walking make simple
+episodes that's also something that
+could be correcting a watch to make
+simple episode but of course lots of
+make simple which could also be correct
+because that would suggest we as Tanmay
+and as you can see it says T can't huh
+but again it's an alice you have not
+completely predictable and and of course
+I'm not using a lot of training data but
+if you were to use a lot more training
+data you could get much much better
+results in fact what you could actually
+do is use the training data behind
+SwiftKey itself in order to create a
+base model and of course improve that
+model ever so slightly and fine-tune it
+towards the user specifications and
+users interest by of course feeding in
+the emails Facebook posts tweets and
+contact of the user while keeping that
+base as a huge training data from for
+example blogs or the news or something
+of that sort to create this really great
+English base but also I will not be
+going into that in this video is this is
+intended to be a simple video to show
+you how you can get a word prediction
+model up and running and in fact in
+tensorflow which of course is absolutely
+great and and of course the best part is
+that this doesn't require you know too
+much training like sequence of sequence
+models
+this is a regular long short-term memory
+model that will allow you to of course
+the estimate here or predict the next
+the next
+word in your sentence and plus the thing
+is it'll actually continue the context
+from the rest of your sentence it won't
+just say okay rather if you've got the
+sentence watching me then it should be
+simple next if you had sentences before
+Watson made simple then it will be able
+to you know infer context from those
+sentences which is why LS TM are just so
+so powerful and that is exactly how we
+can build this word prediction model
+intensive flow using long short term
+memory networks of course there will be
+a link to the tar are an intensive low
+in the description below as well as all
+the code that I used which is the word
+predict a QR file in the description as
+well unfortunately I will not be able to
+provide how the emails intersect that I
+was talking about
+however of course you can use either
+your own emails innocent if you've got
+enough or q if you don't have enough
+emails or you know messages then you can
+of course use pre you know data from
+online like the end on your data set
+which should be able to provide a good
+language base for you to train up
+alright but thank you very much for
+joining today that's going to be it for
+this video I really do hope you're able
+to learn from this and enjoy watching
+this video of course those who are able
+to learn from this please to make sure
+to consider sharing the video as well as
+liking it as well as it really does help
+out a lot and of course again if you've
+got any more questions suggestions or
+feedback please leave it down in the
+comment section below you can email it
+to me at any minute Gmail comm or tweet
+it to me at 10 G mini alright so thank
+you very much but of course if you
+really like my content you want to see a
+lot more of it please do consider
+subscribing to our youtube channel as
+well as it really does help out a lot
+and of course please do make sure to
+come on notifications if you'd like to
+be notified whenever I release new
+content so thank you very much for
+joining in today Daphne's goal for this
+tutorial
+goodbye

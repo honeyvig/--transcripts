@@ -1,0 +1,283 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is Tam Baki and this
+time we're going to be going over IBM
+Watson a few Services it provides and of
+course today I'm with my mentor Rob High
+here at again IBM interconnect 2017 as
+you saw in the last video was with John
+con uh talking about the TJ bot and iot
+uh with the TJ bot that actually Rob I
+here actually gifted to me on stage
+during our ey talk uh and so uh we're
+going to be of course creating many more
+videos with that but for now we're
+talking about Watson and doing a quick
+Q&A session about some of your
+frequently asked questions about Watson
+but before we begin Rob would you like
+to introduce yourself okay I'm Rob High
+I'm the CTO for IBM Watson I've had the
+privilege for the last several years to
+be able to guide the technical strategy
+for IBM's uh work in cognitive Computing
+that is great all right so let's begin
+with one of the most asked questions
+that my subscribers have for you which
+is really what's the difference between
+Ai and cognitive uh versus cognitive
+Computing or sorry traditional Computing
+tradition yes what's really the
+difference here what what makes
+cognitive Computing so special so one of
+the key things that cognitive Computing
+does is it really begins to look at the
+world the same way that we do you know
+if you really kind of look at our world
+around us it's full of signals you know
+the light is a set of of uh of uh of
+either particles or waves depending on
+how you want to look at them that have a
+certain frequency to them that give them
+color give them brightness um um that's
+just one thing you know our voices are
+carried as as audio signals um the
+things that we feel the things that we
+um are able to touch the things that we
+smell all these things are signals and
+what's really amazing about human beings
+is essentially what our brain is capable
+of doing very very well is figuring at
+the patterns of meaning in all those
+signals and that's true whether these
+are physical signals the signals that we
+associate with physics and chemistry uh
+and biology or even more softer signals
+the signals of emotion the signals of
+intent the signals of imagination all
+those are signals as well and one of the
+things that we've tried to do in the
+cognitive Computing system is really
+kind of Follow That same approach to
+understanding the world that we live in
+by just picking up all these signals and
+then looking at the patterns of meaning
+that we can find in the cognitive system
+similar to the way that humans do as
+well and that's just completely
+different than what we've done in the
+past where you know to build a program
+you had to write the logic of every
+mathematical turn that was going to
+occur within um that particular
+algorithm Perfect all right so now that
+we've gone over really the difference
+between cognitive and traditional
+Computing and what makes cognitive so
+special uh would you like to touch upon
+a little bit about how cognitive is
+assisting humans so one of the things
+that we really focus on is not just
+simply recreating the human mind uh in
+part because frankly the human mind is
+really amazing it's it's you know
+mysterious um but yet it also is very
+good at doing certain things instead we
+look at is how do we augment human Minds
+how do we take what human beings are
+really good at and and extend it um give
+it more strength give us more power by
+be able to take our mental capabilities
+and using a cog system to do things that
+we could not naturally do on our own
+perfect uh so that's what uh What uh is
+IBM you know I mean we've all heard that
+IBM is working with cogni Computing and
+Watson is a System created by IBM uh
+that can understand it can reason it can
+learn it can make decisions for itself
+based off of learning from these signals
+and these inputs that it's being given
+in order to give output that the user
+would want uh and so now though uh
+another question how can developers
+around the world actually use Watson's
+capabilities in their apps so one of the
+things that we were able to do over the
+years of experience with Watson is begin
+to identify what were sort of the key
+building blocks that were necessary to
+construct a really useful cognitive
+application so we took each of these
+building blocks and we put them in the
+cloud given them an API and made those
+apis available through the cloud for
+anybody to use so really building an
+application is as simple as identifying
+the service that you want to make use of
+writing the code all these code all
+these a apis are available as restful
+services so if you know how to build a
+Json structure as you have done in many
+of your videos um you can make use of
+the services there's a wide variety of
+them available so all you have to do is
+go to ibm.com BL miix navigate into the
+Watson Zone and you're going to find
+those services and be able to pick them
+up and make use of them exactly so
+Watson has things like speech Vision
+natural language processing and you know
+General reasoning and logic right that's
+right and the key ones are things like
+conversations right because that's a
+very common use case for people today is
+they want to build what some people
+refer to as jaat chat Bots but I like to
+think of one it's not just a chat but
+really a conversation right trying to
+build an application that walks people
+through their conversational Bots
+exactly got okay yeah there we go so in
+fact if you'd like to find out more
+about how you can build these
+conversational Bots and use Watson's
+apis there will be a link to the TM
+teachers Watson playlist down below and
+then you you can you know go ahead and
+check out how you can use those Waton
+services in your applications but now
+another question is well what's the
+underlying technology behind Watson what
+types of algorithms do you do you use
+like what what's going on behind it so
+we've actually gone through a transition
+over the years and when we first began
+we were heavily focused on using classic
+machine learning algorithms um you know
+things like uh logistical regression uh
+sbms um even linear regression in basan
+we've more recently evolved over to
+making better use of deep learning
+algorithms um convolutional neuron Nets
+Uh current neuron Nets or even more
+exotic variations of uh of long
+short-term uh memory um algorithms um
+what we call
+lstms um and usually in combination it's
+not usually just a single algorithm it's
+usually different algorithms that we're
+leveraging to pick up on different kind
+the signals and find those patterns
+exactly uh so that's what goes behind
+Watson but now another question is well
+uh and this will be on my YouTube
+channel soon but I've actually sometimes
+you know gone ahead and created um I
+guess you could say mixes of services to
+create one extremely powerful service
+like conversation enhanced by Tone
+analyzer by say for example uh actually
+combining the conversation and tone
+analyzer by whenever you send a uh a uh
+message to conversation it'll actually
+put the tone of that message into a
+context variable so that you can of
+course access uh access the tone and
+give personalized responses do you think
+or do you believe Watson uh will I guess
+you could say start to support like
+mixes of these apis built in soon
+mashing them up together in in both uh
+structured and unstructured ways um the
+answer is very likely you know there's
+still choices that we have to make as we
+move forward making sure that people can
+Mash these things up in the style that
+you describe yet at the same time keep
+keep each individual Service as simple
+as possible and of course that's a
+balance we're always trying to measure
+how complicated we're making things so
+that we don't and we can keep things to
+the point where people can do everything
+they really want to do without being
+bogged down so yeah you're going to see
+more and more at least patterns of
+integration where you can take something
+like a conversation integrate it with
+tone analyzer integrate with personality
+insights integrate it with other
+services like the weather to be able to
+understand you know what the weather is
+like outside where you are or where
+you're going um what the environment is
+like the place that you're at you know
+if that's in your home or in your car or
+in your office what else is happening in
+that room that would also inform how the
+conversational system should interpret
+what you need to be able to anticipate
+that need and be able to offer you
+choices in that context that are
+meaningful to you or relevant to you in
+that environment so yes absolutely
+you're going to see lots of combinations
+of this kind that is perfect I can
+imagine that being being very powerful
+for a lot of developers applications now
+one more thing how can developers give
+feedback to the Watson team if they want
+to say incorporate a new feature give
+feedback for an existing service so we
+have a variety of uh social channels
+that we invite people to come and join
+us of course we have GitHub slack um
+Twitter LinkedIn channels where you can
+provide us input we love to hear from
+you um we want to hear what is working
+for you the great case of of of success
+that you've had doing fun and
+interesting things uh and where things
+are not working so well for you CU
+obviously we always want to make these
+these things
+better all right so that's going to be
+for this video and of course I'd like to
+say a big thank you to Rob hot Mentor
+here uh for actually taking out the time
+from his extremely busy schedule to
+record this video with me all right so
+that's going to be it for this video of
+course Rob High where can my subscribers
+contact you um I'm on LinkedIn uh and uh
+under uh H
+ghr us. ibm.com or on Twitter at um R
+high rhi G and uh I uh welcome you to
+join me on either Channel perfect your
+link your contact information will be
+down in the description below so if you
+like to contact Rob please feel free to
+do so all right so that's going to be it
+for this video if you'd like to leave
+any comments suggestions questions or
+feedback leave them down in the comment
+section below or you can email email
+them to me or drop high at tajim Manny
+gmail.com or his contact information or
+you can tweet them to me at tajim Manny
+and of course if you really like the
+video please make sure to leave a like
+down below and if you believe it can
+help anybody else you know develop with
+Watson and his cognitive abilities
+please do share the video as well that's
+going to be it for this video but if you
+really do like my content though and you
+want to be notified whenever I release
+new content and new videos please do
+make sure to subscribe to the channel
+and turn on notifications and that's
+going to be it for this video today
+thank you very much for watching today
+goodbye thank you Tam

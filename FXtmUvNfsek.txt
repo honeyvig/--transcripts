@@ -1,0 +1,536 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is Tim Baki and this
+time we're going to be going over how
+you can use Swift in order to customize
+and take input from the touch bar and
+authenticate using Touch ID not using an
+i phone but instead using the new late
+2016 MacBook Pros so to begin now I'm
+very excited about this today so uh
+essentially now if you haven't already
+heard uh Apple has just released new
+Macbook Pros uh in October uh the 27th
+uh in fact I was live streaming their
+event uh and so what happened uh is the
+new of course the new Macbook Pros have
+Touch ID with them so of course the same
+feature that powers your iPhones and
+your iPads where you can scan your
+finger unlock and use you know for the
+App Store for apps generally apps can
+use Touch ID for you know securing data
+for example uh and of course you can use
+it for Apple pay that type of stuff with
+the iPhone and iPad has now come to the
+mac and now you can actually incorporate
+Touch ID in your Mac
+applications now apart from just touch
+ID Apple has actually released an entire
+new feature called The Touch bar which
+is exclusive to the new Macbook Pros at
+least at the the time of this video and
+so essentially this new touch bar will
+allow us to essentially have a dynamic
+function row on the top of our keyboard
+and so essentially what Apple decided is
+that instead of having something like a
+touch screen they wanted to have a touch
+keyboard so you had a lot of
+customizable functionality at your
+fingertips and so today I'm going to be
+showing you how we can Port uh my ti
+Vault application which is actually an
+application for iOS that can allow you
+to of course use your fingerprint to
+store data and we're going to be porting
+that over to Mac OS so that you can of
+course store your data securely with
+Touch ID and in fact this also shows you
+an example of how you can use the NS
+touch bar in order to customize the
+touch bar all right so now another thing
+here is that uh another quick note uh
+this video was mainly supposed to be a
+demo of how Touch ID and the touch bar
+actually work so this application isn't
+the most secure it takes the data that
+you put into the tid Vault and stores it
+in a text file in your home directory
+while that isn't the most secure in the
+next uh video where I show you how to
+improve this application you'll be
+seeing more features such as a much more
+secure way of storing this information
+but of course until then let's actually
+get into how you can use the touch bar
+and touch ID with the new Macbook Pros
+in order to create T Vault for Mac OS
+let's get right to the Mac part now
+shall we all right so welcome back to
+the Mac part and now just before I begin
+this video today I'd like to show you a
+quick demo of this Mac first of all and
+as well uh the ti Vault application in
+action so before we begin the coding I'm
+going to be showing you a quick demo of
+the application let's begin shall we so
+as you can see over here we have our new
+uh MacBook Pro here with the touch bar
+and touch ID right there uh of course
+new keyboard everything else so now to
+begin first of all of course uh as you
+can see if I want to unlock my Mac it
+allows me to use Touch ID for that as
+you can see it says unlock with Touch ID
+I just put my finger over it and it
+unlocks using Touch ID now as you can
+see this touch bar as well is very
+customizable and as you can see I have
+this little application running in the
+center here and this application is
+actually our tid Vault now as you can
+see in the middle we have our unlock
+Vault button but what I've also done is
+I've coded this in a way that we also
+have unlock Vault right here on our
+touch bar and so let's say we were you
+know in the flow using this application
+it was a bit more complex and we had a
+lot of functionality uh and some of that
+functionality was hidden down in you
+know menus and stuff well the touch bar
+wants to make that accessible and so
+let's just say unlock vault is right
+over there and let's say I'm just typing
+and I want to click unlock Vault so I
+click unlock Vault and as you can see
+what
+happens is it says that uh the touch ID
+Vault Mac application is trying to
+unlock tid vault okay uh and so of
+course it's saying you need to give your
+touch ID or enter your password to allow
+this so as you can see first of all on
+the touch bar it says Touch ID Vault Mac
+and my application logo Touch ID to
+unlock T Vault and if I put my finger on
+that touch ID
+sensor it lets me right into my Vault
+and as you can see we have a nice text
+field here where I can put in any of my
+information like I don't know a credit
+card information uh 1 2 3 4 5 6 7 8 uh
+9012 um um three four five uh six just
+random information you know my passwords
+really whatever uh this is a TI default
+test right and then right there once I'm
+done typing at my fingertips I have that
+functionality to click Lock vault and it
+locks that Vault and we're back into the
+unlock Vault page now if I want to
+unlock once more of course I can just
+you know click here for example and if I
+want I can also use my password my Mac
+OS password by clicking on use password
+and I can type in my Mac OS password and
+as you can see it lets me right into my
+touch ID Vault all right so that was a
+quick demo of first of all the touch bar
+and touch ID in action with this new
+Macbook Pro and how I was able to use
+that with ti Vault on the new Mac OS uh
+and MacBook Pro all right so now let's
+get right into how we can code in this
+application let's get to the screen
+recording now shall we all right so
+welcome back to the part where now we
+should start coding so before we begin
+as you can see again I have this touch
+ID Vault application open I can on I can
+click on unlock Vault I put my finger on
+the touch ID sensor right over there
+unlocks and there we go that is our text
+all right so now before we can begin uh
+more demos let's actually take a look at
+the code for this application so the way
+this works is just how this would work
+uh for an iOS application it works using
+the local authentication framework in
+Swift and so if I head back over to my
+xcode view here now let's begin with the
+uh actual storyboard shall we the UI so
+as you can see here I have you know just
+like a Mac AOA application uh I have our
+window controller over here just general
+window controller uh I also have a view
+controller this is our default view
+controller where I have an unlock Vault
+button uh and I also have a new view
+that I've created called The Vault
+controller now the Vault controller
+essentially is the view that I mean it's
+this view over here uh that comes up
+once you have unlocked your Vault and
+you are ready to start typing some text
+into it so next as you can see this was
+a very simple UI and of course I've
+created a new class for this Vault
+controller view called well Vault
+controller now another thing that I've
+done is in order to actually have touch
+bar support we need to actually have uh
+some some functions uh implemented in
+the uh in the window controller uh of
+our views so that it knows what to put
+on the touch bar and so in order to
+actually Implement that I had to create
+a new class for that window controller
+uh called well window controller uh
+which inherits from NS window controller
+and as you can see this is the function
+or this is the class okay so this is a
+class called window controller inherits
+from NS window controller uh and so of
+course we have our window did load
+function uh this isn't anything we need
+to worry about right now but the
+function that we had to implement in our
+uh project is the make touch bar
+function now the main touch bar function
+essentially allows us to tell Mac OS
+that yes we are creating a touch bar and
+here is what is going to be in that
+touch bar now uh of course uh this has a
+few uh sort of uh this will now the way
+this works is it'll return an NS touch
+bar okay and this is optional because we
+could or could not actually have a touch
+bar to use at the moment if we return
+nil then there'll just be nothing on the
+touch bar just you know the escape and
+our system controls uh but if we return
+and then that's touch bar then in the
+middle there between the escape and
+between those system controls you'll
+have an application space where you can
+put in any of your objects and so as you
+can see in our window controller now did
+what we display on the touch bar depends
+on what view we're on right and so what
+happens is if we're in if we haven't
+unlocked our vault and we want to then
+on our touch bar we want to say unlock
+Vault so we can ask the user for their
+fingerprint but if we're inside of the
+Vault and we want to lock it now then
+that means that we want to click on
+touch bar Lock vault and so we need to
+change button text accordingly and so in
+the main touch bar function what I've
+done is I've checked if uh let view
+controller is equal to the content view
+controller self. content content view
+controller as view controller so what
+this is doing is we're saying okay we're
+taking this Windows content uh we I mean
+self is an NS window controller and
+we're taking the view content okay and
+we're checking if that view content can
+be made as a view
+controller now keep in mind that view
+controller is this view right over here
+okay this is view controller and so uh
+if it is then we call that view
+controller make touch bar function if
+it's a vault controller then of course
+we still call that make touch bar
+function and so uh inside of the view
+controller class and the Vault uh
+controller class and both of those have
+their own functions called make touch
+bar now each one will create their own
+touch bar you know their own customized
+touch bar whatever they want to have in
+it and so essentially what happens is if
+we call let's say this one's make touch
+bar so again this is the make touch bar
+for this view over here that wants us to
+unlock the Vault and so as you can see
+in this function we are creating a new
+touch bar we're setting the delegate to
+self we're setting the customization
+identifier to an unlock bar I'll talk
+about this in just a little a little bit
+I'm setting the default item identifiers
+as unlock button and I'm setting the
+allowed item identifiers as unlock
+button and of course then I'm returning
+the touch bar now what is unlock bar
+unlock button well essentially what this
+is is if I go to touchbar identifiers.
+Swift over here on my side as you can
+see I have an extension to the NS
+touchbar item identifier uh class which
+essentially allows me to create two new
+constants the unlock button and the lock
+button and so these are the two types of
+elements that I that I'm creating for my
+touch bar now again if you had many more
+elements to put on your touch bar you
+would have many more in these list okay
+now another thing to keep in mind here
+is that this isn't your average sort of
+hey I'm going to create a label element
+I'm going to create a button element I'm
+going to create etc etc uh in this case
+what you want to do is create very
+specific types for example I didn't just
+create button like stat let button and
+and then just say okay then in the code
+I set one of the buttons texts to unlock
+button and one of the buttons text to
+lock button what I did is I created the
+unlock button and lock button as
+separate types and that's what you want
+to do be very specific with each and
+every item that will be on your touch
+bar now after that I've set these
+constants to NS touch bar item
+identifier uh and then I've just given
+it some random identifier like com. tbss
+touchbar do un lock button and then lock
+button for the lock button now I've also
+extended the NS touch bar customization
+identifier class and this allows me to
+create an unlock bar and a lock bar uh
+and so essentially this tells me whether
+this this um this touch bar that we're
+currently creating will be will will be
+the one with an unlock button or a lock
+button all right and so that essentially
+allows me to of course know what I'm
+currently doing with the touch bar and
+allow the system to know what I'm doing
+with the touch bar as well so now if I
+head back over here uh so that's
+essentially what we're doing in the view
+controller for make touch bar in the
+vault controller for make touch bar
+we're doing the exact same thing except
+instead we're giving it the lock bar
+lock button and of course lock button
+once more now heading back the to the
+view controller class uh now of course
+the view controller class also inherits
+from another class called NS touch bar
+delegate or in this case it's a protocol
+not a class sorry so of course uh from
+this protocol we are uh implementing a
+function called touch bar make item for
+identifier and which returns an NS touch
+bar item okay and so what I'm checking
+here is if the identifier is a do unlock
+button then we return an unlock button
+what this means is that if the touch bar
+API is saying hey what does an unlock
+button look like you told me that we're
+going to create an unlock button but
+what does that look like and so if it's
+asking for an unlock button which in
+this case it most probably is then we're
+going to create a new unlock button item
+we're going to create a new NS button
+for this unlock Vault uh and of course
+we're going to give it a selector and a
+Target we're going to set the unlock
+button items view to that button because
+of course NS button uh inherits from
+that view uh and then we can return that
+item and so the touch bar is then able
+to put essentially an NS button onto
+your touch bar that you can then control
+and right as you click that uh little
+button over there it'll call that action
+in the selector that you put in your NS
+button all right and so of course if we
+aren't asking for unlock button then
+we're going to return nil because we
+don't know how to do this all right so
+next in the vault controller let's talk
+about the Vault controllers touch bar
+make item for identifier function again
+exact same thing as view controller
+except instead of unlock Vault it is
+Lock vault and of course a different
+selector as
+well but now let's talk about the logic
+where we can actually use Touch ID to
+authenticate our users so now in order
+to do that we actually need a special
+framework that Apple's written called
+local authentication now of course you
+can just write in import local
+authentication Swift will import that
+automatically into your project and of
+course what we can do now is sort of uh
+also we don't exactly need this okay so
+that was an uh that was something from
+my older version but never mind uh so
+what we can do now uh is essentially see
+this unlock function here uh is
+essentially going to allow us to unlock
+the ti Vault so of course just like an
+iOS application just like I've explained
+in my previous tutorial which by the way
+if you haven't watched there will be a
+link to in the description that video
+sort of explains how you can use Touch
+ID with the iPhone and the same thing
+over here we're creating a new La
+context local authentication context
+we're giving the reason as unlock TI
+Vault we're giving an authentication
+error currently as nil but if it gets an
+authentication error it'll put that
+error into this variable and then we're
+checking if this context can actually uh
+can actually you know um you know
+actually ask the user for their Touch ID
+uh and but we're doing that by saying
+can evaluate policy that checks if the
+user actually has Touch ID on their
+device and so in this case if they do
+then it'll call another block of code
+which will actually evaluate that policy
+and ask the user for their Touch ID now
+another thing to note if I command click
+on device owner authentication here as
+you can see there's another case here
+device owner authentication with
+Biometrics this means that we're only
+going to take a biometric scan okay we
+don't want any passwords nothing we only
+want that touch ID scan if they get the
+touch ID wrong we're not going to let
+them devolve
+but if they get the touch ID right we'll
+let them in but in this case we're using
+both Touch ID and the user system
+password and this allows us to
+essentially say hey if you want to use
+your touch ID use your touch ID is
+really convenient but if you don't want
+to use your touch ID or you don't have
+that finger right now you can of course
+use your
+password of course uh though since I
+wanted people to be able to use their
+password I did not tell it to specify
+Biometrics and so finally one once I
+evaluate that policy and once it gets
+back to me I check if it was a success
+and if it was a success we were
+successfully able to authenticate that
+user that yes it is indeed the user of
+this Mac that we want to let into the
+Vault then we can perform a segue called
+the unlocked Segway now let me tell you
+a bit more about that so if I go to my
+main. storyboard as you can see I have a
+little segue here uh between these two
+views uh and this segue is uh a sheet
+segue uh and the identifier is unlocked
+segue okay okay now the sheet seg
+essentially now if I unlock my Vault
+here as you can see uh it sort of just
+dropped down like a sheet onto this view
+uh and so that's essentially a sheet
+segue okay it it just drops down uh and
+then when I click on Lock vault it
+slides back up again okay and so that's
+essentially what that is it's one of the
+simplest Segways I could find to
+actually Implement because uh as you
+probably know uh Segway with kakoa
+aren't exactly fun to work with uh but
+of course I was able to get that that
+working uh and in order to actually
+dismiss this Lock vault controller You
+Must Be Wondering well we don't have a
+segue from Lock vault back to unlock
+Vault uh well actually what happens is
+what I can do if I show you here uh all
+I need to do is call self. dismiss self
+and what this does it'll just dismiss
+self okay it'll just go right back up
+because this is essentially like a
+message view or an alert view uh and it
+will allow us to dismiss it
+automatically all right so apart from
+that we of course have our save and load
+functions these are very
+self-explanatory again mostly inherited
+from our iPhone application and this
+will allow us to of course first of all
+save our text that we've put in our tid
+Vault and load text from the tid Vault
+when the application begins and of
+course when you click lock we call a
+lock function and the lock function will
+automatically save what you put in the T
+Vault and it'll dismiss self and of
+course in viewed load we will try to
+load in some new text and we will tell
+the touch bar that hey now essentially
+what this is that uh this input field if
+I unlock the Vault again this input
+field um now when with what happened is
+the touch bar actually has another
+feature where when you start to type in
+text uh it'll actually give you those
+quick type suggestions just like just
+like it does on iOS very convenient but
+not for a tid Vault the reason being
+that well our Lock vault button gets
+hidden due to that keyboard uh those
+quick type suggestions and so of course
+I told it that is automatic text
+completion enabled is equal to false and
+this means that it will not give us
+those quick type suggestions so that the
+Lock vault button can stay there and of
+course can be very accessible and easy
+to access by the
+user and that is essentially a quick
+rundown of the code for this
+application now again as I said if you
+look in the save function this isn't the
+most secure save function then again
+today I wanted to teach you how you can
+use Touch ID and the NS touch bar in
+order to control these new features that
+the Mac has brought to us but of course
+a new feature or a new version of this
+video will be coming out very soon which
+tells you exactly how you can of course
+improve on this and make it more secure
+and of course an actual Mac up soon
+maybe as well all right then so of
+course this code will be open sourced on
+GitHub and the link will be down in the
+description for you to download and use
+and learn from uh and if you have any
+more questions suggestions or feedback
+you can leave them down in the comment
+section below email them to me or tweet
+them to me at tajim Manny and of course
+if you really like my content and you
+want to see more of it please do
+consider subscribing to this YouTube
+channel or maybe just liking the video
+and if you think this video could help
+anyone else you know please do consider
+sharing it as well again once again
+thank you that's going to be it for this
+tutorial today goodbye

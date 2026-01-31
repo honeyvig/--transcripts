@@ -1,0 +1,808 @@
+if you want to see an explanation of the
+app we're creating in this video click
+over here if you want to see a
+demonstration of the app we're going to
+be creating in this video click over
+here if you want to see an explanation
+of the code of the app in this video
+click on my torso if you want to
+subscribe to my YouTube channel click
+over here and if you want to follow me
+on Twitter click over
+here now if you don't click on anything
+I'll be forced to tell you that all of
+this will just happen in the order that
+I just told told you so you better click
+in a few seconds and the video should
+start
+now this is
+tyan he's asked me to create a video on
+pars of how to create a chatting app so
+I've decided to help him here's the
+video answering his question I hope you
+enjoy so hello there and welcome to
+another tutorial my name is AI and this
+time we're going to be going over the
+tat app that I've created in Swift using
+pars now what is the T chat app exactly
+well simply put this is a chatting
+application that I've created and it
+doesn't use any normal database as a
+back end it uses parse as a backend so
+now I'm going to be teaching you exactly
+how I did it it also includes a little
+private chat mode and also a global chat
+mode in case you were uh thinking about
+chatting with hundreds of people or just
+someone you know uh and you wanted to
+discuss something with them like when
+you're going on a trip or when you're
+going on dinner or something like that
+anyway continuing so now I'm going to be
+telling you exactly what par even is uh
+and then I'm going to explain a little
+bit more in depth of how it's different
+to the other swi dat basis parts that
+I've done uh and then we will get into
+the code after a little demonstration um
+and also in case I haven't mentioned
+this is Swift databases part five uh
+Again part five I've done quite a few of
+these uh um Swift databases Parts but
+this is a very interesting tutorial uh
+they seem uh to be very interesting to
+you guys as well and there pretty fun
+for me to make as well anyway continuing
+let's get into it but what is Parts
+exactly well simply put let's just say
+this before I had to create my own
+little custom database connect to it
+using custom methods in Swift and that
+was pretty nice but it was very memory
+intensive and it was just very uh
+extensive to build if you wanted to
+start creating an application first you
+had to plan it all out uh what HP files
+would be there what databases would be
+there how am I going to connect them
+using Swift what am I going to do etc
+etc uh but with parse it basically
+solves all of that you can connect to a
+parse database natively in Swift using
+the parse API uh you don't need to have
+any PHP uh in the uh in the background
+uh doing stuff um uh and so now I'm just
+going to explain how parse is different
+from the others as switch databases
+parts that I've done uh now simply put
+quickly
+though parse doesn't require a PHP
+backend to help communicate with swift
+so this is what would happen before in
+older Swift
+databases uh we would have Swift over
+here and this is uh where you're trying
+to get all your information or where
+you're trying to upload from we'd have
+PHP over
+here and we also have our my
+ql database over
+here now what would happen is I would
+Bridge Swift to PHP PHP would bridge
+over to
+mySQL uh so this is what would happen
+then MySQL would give information to PHP
+and then PHP would give it back to Swift
+but then if I were to try to upload what
+would
+happen Swift would uh talk to
+PHP oh sorry mixed the H and the
+P so would talk to PHP then uh the PHP
+would upload into MySQL which was also
+sometimes a bit glitchy sometimes it
+wouldn't upload uh and stuff like that
+so that was just uh in general a really
+workaround sort of way to do this I mean
+this is the pretty much only way you can
+do this if you don't want to use
+something like parse or
+something uh
+but still if there's better ways you can
+do it like this anyway continuing now
+this is how we're going to do it with
+parse just erase this and then I'll
+explain what we're doing with
+parse
+okay uh so now oh yeah just by the way
+quickly uh parse was actually created by
+a developer actually a team uh but then
+eventually it was bought out by Facebook
+and now it's also open source uh so uh
+just in case you wanted to know that you
+can actually modify the pars apis and
+stuff uh and so it's pretty interesting
+like that but we're just going with a
+native parse apis we don't need anything
+else anyway continuing now this is what
+we're doing with
+parse you'll see what I wrote there in
+just a
+second
+that's it we're taking a parse back end
+that's what be stands for a parse back
+end over
+here adding this API to Swift now Swift
+is capable of immediately interacting
+with parse and
+back so we don't need PHP or
+anything we don't need a custom mySQL
+database okay oh you don't need to have
+your own
+website and it's
+100%
+free at this time not sure about later
+but for now it's free for all of you
+that don't want to exactly pay for a
+website it's free for now
+and so as you can see the advantages are
+literally just stacking up over here
+compared to our older method of using
+databases anyway so now how does this
+chatting app work exactly well let's
+just take this example or let me just
+wipe this right
+off so this chatting app does use a
+parse database of course as I've said uh
+it uses AB absolutely no PHP you do not
+need a website in order to be able to do
+this and you just need pure Swift
+knowledge so let's get started let's
+just say we have three clients over here
+one iPhone another iPhone another iPhone
+these all have my T chat app running on
+them so this is uh client number one two
+and
+three so now this is our pars
+database
+now first of all we have a timer in this
+app so for
+Tat we have a
+timer that updates every 1
+second and so what this timer is
+doing is every 1
+second
+these uh clients are going to the pars
+database and then they're retrieving
+every single message that's in the
+database now we're not just playing
+blank putting it on the screen because
+we have to do a bit processing and
+filtering
+first now in parse we have a few
+databases uh such as
+user sorry forgot you and user
+okay we have
+users which we'll talk about later this
+is just the uh users that are uh that uh
+have been registered and can log in but
+there's one more thing chat so now this
+is one table sorry this is a table not a
+database this is a table now this has uh
+The Columns
+username
+message and
+two now what's happening right as we
+receive uh right as we download all this
+chat information from our po database
+what's happening
+is we're
+checking is the two field
+blank if it's blank this is
+Global if yes it's Global if no it's
+private and so if it's private we want
+to
+check uh
+chatting is this person currently
+chatting with the person with this
+username are we chatting with this this
+username if
+yes
+display if
+no then uh nothing do nothing with this
+message and also if it's Global just
+display it's that
+simple and so effectively this creates
+both a method to privately chat with
+people and publicly chat with people
+instantly so now what's next see when
+you send a message what's happening well
+what's happening just really simply
+we're
+checking
+chatting if
+yes then
+who
+and so then we upload with the
+username
+self or whatever that user's username is
+the message as of course the
+message and two as
+who if we're not chatting
+then we just uh write two as blank um
+message as of course
+[Music]
+message and
+[Music]
+username as
+username sorry that U and M are capital
+so I'm just going to change
+that
+and that is quite
+simple uh sorry I guess I can do this so
+you understand this is just syntax not
+the actual parameter
+so
+okay okay and so this is just a
+really really just getting our toes wet
+simple explanation of what's happening
+when you see the code it's going to be a
+bit complicated but I'm going to try my
+best to make it as simple as possible
+for you and of course the code will be
+in the description so if you have any
+questions uh or uh any concerns about
+the code you can look at it in the
+description and you will see uh the code
+and you can modify T tier will uh and
+you can just do whatever you want with
+the code anyway so now that I'm done
+explaining exactly how this app works I
+can actually go to my Mac now and I'm
+just going to show you a quick
+demonstration of the app uh and so if
+you like uh the demonstration you can
+continue see the code uh and then we'll
+be done and that's going to be it let's
+go to the demonstration
+now so now we're getting to the
+demonstration of the app and as you can
+see I have three devices open a
+simulator my iPhone and one of my
+friends iPhones so now we're all going
+to register um and then we're going to
+log in and actually start chatting as a
+little demonstration of this app so my
+friend over here is going to start
+registering uh
+and I'm also going to start
+registering as you can
+see uh just a second I need to
+see yeah uh so let's continue now we're
+going to be logging into the Glo chat
+mode uh you can't log into a mode uh but
+we're actually logging in and by default
+it's Global if you want to private chat
+there's an option to do that uh inside
+of the app so as you can see my username
+is going to be
+tme
+backi
+333 just so you can see numbers
+work uh then I'm going to type in my
+password something as like um T
+May tan May's
+password
+random okay now I'm going to click on
+the register button this will register
+me and log me in now as you can see we
+get to this sort of
+screen uh where we have a enter message
+here send this will send out a message
+users's name chat this will allow you to
+enter users's name click on chat and
+then you'll be private chatting with
+that
+user uh and then apart from that this is
+just a UI table view where people's
+messages are so I'm going to keep back
+my iPhone for a second and I'm going to
+register this so um
+the
+simulator can I not like
+uh use the keyboard on that
+thing what's wrong here okay the
+simulator uh let's just give it password
+Sim
+987 okay so let's register the simulator
+as well and now as you can see we are
+all uh on this uh little chat I'm just
+going to wait for my friend to be able
+to register uh then I'm going to come
+over
+[Music]
+here uh yes now you can
+register perfect so now let me just
+start it off and so let's just say uh
+um hey uh
+guys did
+you here
+about the
+news from
+n okay that I'm going to send as you can
+see this pops up on everybody's
+screen uh and so now my friend can reply
+to me and
+say whatever he likes
+to sort of ruins the surprise you can
+actually see him typing in the message
+so you don't know what he's going to
+send you so just ruins the suspense of
+it okay so as you can see that pop up on
+everybody's screen now I can
+reply
+uh it
+was forgot
+um it
+was
+anyway
+sorry
+Mars I'm purposely making it this long
+so you can see how it wraps
+text so I'm going to send and it pops up
+on everybody's
+device
+anyway now we're going to continue
+chatting we're just going to finish this
+up then I'll show you that even the
+simulator can
+chat right after my friend's typing in
+his message uh be able to
+continue
+so
+my
+e
+so's see what he
+wrote that's great so maybe we could go
+up there etc etc now I'm just going to
+scroll down on the simulator so now
+okay so the
+message okay so actually and this is
+this is pretty much like a fact video
+for you now but I'm just trying to
+um finish up this message for some
+reason it won't let me bring up the
+keyboard it's actually Frozen Okay much
+better so
+now
+actually
+sometimes it freezes up a
+bit so okay there we go much
+better
+[Music]
+actually the
+[Music]
+soil
+there is
+toxic so no
+potatoes
+so as you can see it
+sends then in a second I can also show
+you but you can actually scroll
+down
+yeah and
+so send my friend sends that but now the
+simulator joins in and says hey they've
+been talking about this this this Etc
+ETA so basically
+uh he can write a message saying uh well
+maybe
+oh hey
+guys that
+sounds cool any more
+news and as you can see it pops up on
+all of our
+devices and so
+I can just type
+in really
+quickly
+sorry none
+yet will keep
+you informed
+though there we
+go uh and so that is a really simple
+demonst rtion of how this Global chat
+really works uh but then there's also
+supposed to be private chat so let's say
+only me and Thomas wanted to discuss uh
+something like a Tripper going on so I'm
+just going to type in uh into mine and I
+don't want you to do it just yet but I'm
+just going to type in
+Thomas the
+great 56 into my chat box and I'm going
+to click on the chat button and it
+clears out my table view well that's
+actually supposed to
+happen uh and you'll see why in just a
+second
+so next uh my friend Thomas over here
+can click on the second text field
+called users's
+name over there and he can type in t
+capital T May
+bshi 3 three
+three uh you put a two k
+maybe you can fix
+that wrong button okay good it's no
+333 uh now click on the chat
+button and we are in private chat mode
+together so as you can see the simulator
+still has all these messages but let's
+just say I'm uh feeling in the mood for
+hiking hiking hiking of course hiking uh
+so
+maybe something
+like okay
+so
+what time are we
+leaving for the
+hiking now as you can
+see uh Thomas has received my message
+but the simulator can't see our messages
+this is because it's in private chat
+mode of
+course now um my friend can reply here
+uh he'll tell me what time we're
+leaving
+click on the send button not the chat
+button
+okay so now he says Saturday 6: a.m.
+[Music]
+sounds
+good make sure not to forget
+anything send and now as you can see
+these three messages that we've sent
+back and forth with each other uh uh
+Thomas can see I can see but the
+simulator cannot see because he's not
+part of our private chat and it is that
+simple to do a private chat in this app
+anyway now we're going to go to the
+coding part since we're done a
+demonstration and I hope you all like
+this app anyway now we're going to go to
+the code part to explain how the code of
+this app actually works so let's get
+there around
+now welcome back to the Mac part now as
+you can see I have pars open up uh and
+so this is the table we were putting all
+of our chat messages into so we have
+username meaning the username that sent
+these messages the text or the text of
+the message itself the two which is a
+string which is who it was directed to
+if if it was not directed to anyone it
+was Global then it'll just be nothing uh
+and that was actually quite
+simple uh but anyway then we also have
+the user uh table uh which has username
+and password uh which is where we store
+all our usernames and passwords uh so I
+know this isn't the most secure way to
+do this but uh this is just a simple
+chatting app we're not really uh
+encrypting or anything because we don't
+need to this is just a simple barebones
+thing if you want to make a real apps WP
+out of this I mean you could do some
+security uh with the passwords but I
+don't need to right now anyway
+continuing now that we know the parse
+end let's look at the xcode end now
+before I continue I have two storyboards
+main. storyboard and Main iPhone 6.
+storyboard the main. storyboard was
+meant to work with iPhone 6 and 6 plus
+the iPhone 6 storyboard was meant to
+work with the iPhone 6 and the
+6s or sorry
+uh the main not storyboard was made to
+work with the 6 Plus and
+6s+ and the iPhone 6 was made for uh the
+iPhone 6 and the iPhone 6s because those
+have smaller screen sizes than the plus
+versions and order to decide which
+storyboard is uh opened on uh on launch
+what we're doing is first of all in our
+application did finish launching with
+options we are checking if the UI
+devices current device
+is model name is equal to iPhone 6 or 6s
+then switch over to the main iPhone 6.
+storyboard so that uh it fits on the
+screen uh and if you were wondering what
+this line of code is doing it's
+basically setting the parses application
+ID to this and the client key to
+this
+continuing now the chat View and in case
+you were wondering uh if you can
+actually use this no I'm actually going
+to be changing this so doesn't matter
+even if you find out I don't need to
+blur It Anyway
+continuing next in our we have three
+files chat cell which is a UI table view
+cell login View and chat
+view now the chat cell is our custom UI
+table view cell which will allow us to
+store a message on the screen now this
+is a chat cell uh subass of UI table
+view cell uh with an IB Outlet chat text
+and IB Outlet chat
+user chat text is the
+actual uh message that the user sent and
+the chat user is who sent this the chat
+text is a UI text view in case it's long
+and the chat user is just a label why
+would you have a really long
+name then the login view this is really
+simple all we're doing is we are
+creating an IB Outlet username and
+password both UI text fields we have an
+IB action called login which
+basically uh
+sorry yeah yeah uh just really quickly
+uh this code over here uh this UI device
+code that gets the model name uh is was
+actually taken by I forgot his name I
+will definitely put a link to his stack
+Overflow uh Link in the description
+below uh so you can check that out many
+thanks to that person who made it
+because he is allowing me to actually
+see what type of device we're actually
+running
+or else I can't do this anyway
+continuing now in the login view in our
+ibaction function called login we are
+collecting all logins as a PF query to
+the class name called user to get all
+the data from the user
+table we are setting the objects to try
+exclamation mark meaning Force try uh
+this logins doind objects uh method then
+We're looping through the object
+we're saying current
+username is equal to I doob for key
+username as a string and then same thing
+for
+password then we're checking if the
+current username that we're on in the
+loop is equal to the username that you
+entered and the password is equal to the
+password you entered then set the
+current session username to the current
+uh username set the current session's
+password to the current password perform
+a SE to segue sorry to chat uh with a
+sender self uh and then break this Loop
+because why continue right then when we
+register we do something uh quite
+different
+actually sorry we're still getting the
+logins as a PF query to class user we're
+still getting the objects we're still
+looping through the objects but we're
+only getting the username this
+time if the username in the loop is
+equal to the username entered then just
+return because we do not want to create
+a duplicate
+username but if that doesn't happen it
+won't return meaning we will create a
+new query called of a PF object uh
+called of class name user we're going to
+set the value username in this query to
+the usernames text username text field
+then we're going to set the password
+value of this query to password.
+text we're going to try exclamation mark
+meaning for try to save this query onto
+the parse database then we're going to
+just call the login function in the uh
+for the username and password that was
+entered uh because it's in the database
+now it can automatically log Us in uh
+because why should we have to relog in
+if the register function can do it for
+us finally the chat view then I'll
+explain the UI in the chat view we have
+a UI view controller uh uh sorry subass
+of UI View controller UI table view
+delegate UI table view data source and
+UI text field
+delegate and so we have three IB Outlets
+table view message and chat with the
+table view is subass of UI table view
+the message is CL subass of UI text
+field and chat with this subass of UI
+text field again then we have a Boolean
+called chatting with is equal to false
+because of course uh this is just
+storing if we're privately chatting with
+someone and by default it's no we're in
+global chat then we have the update
+timer which is equal to a new NS timer
+then the update delay which is 1.0
+meaning every one second then we have
+the current data which is an array of
+dictionaries of string string type which
+is blank by
+default then what we're doing is we're
+setting the update timer to a new NS
+timer with a scheduled timer with time
+interval the update delay meaning 1
+second we're targeting ourself we're
+calling the update function every 1
+second we're giving it no user info and
+we're telling it to repeat so every 1
+second we are calling the update
+function next we're saying in the text
+field should return function we first of
+all are returning true of course and
+then we're just telling oursel self.
+view. and editing true meaning force it
+meaning always hide the keyboard like no
+matter
+what then the main juice of this class
+the update function the update function
+will take a query as a p F query to the
+class name called chat in our pars
+database it'll set the limit to a th
+it'll find the objects by doing VAR
+objects is equal to force TR query. find
+objects it'll set the current data to a
+blank array it'll Loop through the
+objects it'll create a final dictionary
+of string string
+type it'll set the username of that
+final dictionary to the username of the
+current object that we're on as a string
+same thing for the text of the actual uh
+chat itself then we're checking if we're
+chatting with someone then we want to
+check if the username it was from is
+equal to the person we're chatting with
+and the person it's to is equal to
+us
+or the uh username that it was from is
+equal to the current username and the
+one that it's to is equal to the one
+that we're chatting
+with and so effectively all messages
+from you to them and from them to you
+are being displayed on
+screen if this conditional were true
+it'll append the final dictionary which
+is the username and text into our
+current data else it'll just check
+meaning if we're not chatting with
+someone if the two uh is equal to
+nothing in that message meaning it
+wasn't directed towards someone or else
+we're looking at people's private
+chats if that's true we set the current
+data uh we append uh the final
+dictionary to the current data then we
+just reload our table view it's that
+simple then our table view number of
+rows in section function we just return
+the current data as count and in our
+self aroa index path function we're
+creating a new cell which is a uh table
+view. DQ reusable cell with identifier
+custom chat cell as a new chat cell
+we're setting the cells chat text text
+to the current data's index path. row
+text so that we're setting the the
+actual message then we're setting the
+username in the same
+way then what we're doing finally is we
+are actually returning this cell and so
+this gets put onto our table
+view next in our send IB action we're
+creating an object or a PF object of
+class name chat we're setting the object
+username to the current session's
+username we're setting the text to
+message. text we're setting the object
+to to first of all we're chatting
+checking chatting with if we are
+chatting with someone then set the chat
+withs text meaning whoever we're
+chatting with uh is the two value or
+else just make it
+blank then you have to try to you have
+have to force try to save this object
+onto the par
+database then we're setting messages
+text to nothing so once you send it
+should clear out of your uh text field
+or else it's an annoyance of you having
+to actually um like erase it every time
+and then we're just ending edited ending
+editing uh uh force uh so that all the
+keyboard just gets
+hidden and then finally we have an
+initiate private chat function uh which
+will just start a private chat with
+anybody you like so we're just setting
+chatting with to not chatting with
+meaning if it's true it'll become false
+if it's false it'll become true so if
+you were not chatting with somebody you
+now are if you were chatting with
+somebody now you're
+not then we're setting chat with text to
+we're checking if you're chatting with
+someone if you're chatting with someone
+keep it the same or else make it blank
+again it is that simple and that is all
+the code you need to create a working
+chatting app in Swift now I'm just going
+to go over to my iPhone really quick you
+won't be able to see what I'm doing
+right now uh but it'll be worth it
+because what I'm going to
+do is I'm going to
+delete all of this data from
+pars now if I go into this uh app I log
+in really
+quickly
+okay log
+again okay I've logged in now if I enter
+a message here hi now if I reload my
+parse as you can see it has actually
+inserted this text into the database so
+it's really interesting how that works
+as well I can even Brute Force more
+users in delete some users I can delete
+some chats put some more chats in uh and
+it's just really simple like that and
+that's actually going to be all for this
+tutorial I hope you enjoyed and if you
+did please leave a like down below the
+source code will be uploaded right as
+the video is uploaded this time because
+now I'm not forgetting to upload the
+source code uh last time for Swip VI
+controllers you actually have to remind
+me uh thanks to the person that reminded
+me I forgot his name uh but anyway
+that's going to be it for this time
+again leave a like if you like this
+video comment or email me at tajim Manny
+gmail.com if you have any questions
+suggestions app ideas improvements
+concerns or anything else it can range
+from math to science to pretty much
+anything uh and yeah you can even email
+me video questions of you saying a
+question and I might just feature it in
+one of my next videos that's going to be
+it and again subscribe to my channel if
+you're new to my content and you want to
+see more of it or you're just pling new
+to my C Channel or you like my channel
+just please subscribe to my channel you
+will get all the latest videos that I
+released and it will be amazing I'm
+telling you that anyway you can also
+follow me on Twitter if you'd like to
+tajim Manny again my email the source
+code and my Twitter handle will be in
+the description in case you couldn't get
+that and that's going to be it
+goodbye

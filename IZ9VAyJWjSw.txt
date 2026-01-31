@@ -1,0 +1,805 @@
+so hello there and welcome to another
+tutorial my name's sandy Bakshi and
+today I'm joined by rich hire T so
+welcome rich thank you for joining us
+today would you like to quickly
+introduce yourself lucky to be with you
+thank you I'm rejecting I've worked for
+IBM I'm a developer advocate working on
+the Watson services so our role our team
+have a small team we focus on the
+cognitive AI side of things and our job
+is to create assets for developers yes
+so we go and create actual applications
+that utilize a lot of lots of services
+and we provide a lot of information
+about how so developers can get started
+a running start with pretty extensive
+read B's and tutorials and blogs and all
+that stuff that we'll get into later on
+that's correct that so that we get
+developers on to the Watson services as
+quickly as possible that's nice thank
+you very much this is really really
+interesting stuff you just mentioned in
+fact the tutorial today is all about the
+Watson discovery service and more
+specifically a new feature that's going
+to be coming to all Watson discovery
+service instances very very soon now
+that's the step feature we'll talk about
+in just a moment that allows you to get
+structured information and knowledge
+from your unstructured information which
+is really interesting but for now I'd
+like to begin by talking about how we
+can actually use the Watson discovery
+service in a much easier way using the
+color patterns that enable you to create
+Watson applications so right rajulun
+tell us a little bit more about that you
+discovery UI the in created as a code
+pattern sure so what we did was we took
+a real use case we we took it so first
+of all Watson discovery is great it's a
+ingesting unstructured data yes an
+indexing it
+enrichments so that it could be queried
+in a number of ways that's the power of
+discovery so what we did was we took
+basically a thousand Airbnb reviews for
+the City of Austin this is freely
+available data yeah yeah so that's part
+of the behind most of our code matters
+we always use data that people can get
+for free we have access to these
+services that they can get on a free
+trial basis okay so users never have to
+pay for anything to get started right so
+our code pattern basically takes a look
+at that data you can we can use the
+Watson discovery tooling to look at that
+and try to try to get some information
+glean some information from that through
+the tooling a little bit ugly little the
+interface just individual queries you're
+not it's not formatted very well so what
+the UI did was just put in a happy face
+around that using the API is making the
+same types of queries that users would
+typically make presented in a nice UI so
+people can see it and get some data
+information about that way that's great
+all right so now let's take a look and
+how easy it is for you to get started
+and actually use that new discovery UI
+let's take a look at thousand Airbnb
+reviews and take a look at what kinds of
+insights were handling
+okay so anyway this is the this is eek
+developer code pattern home page which
+is available at developer ibm.com so
+this is where the landing page for all
+of our code patterns so as a developer
+this is where you'd come to just you
+know you have a specific need or you're
+trying to look for an example of this
+specific service so you would come here
+to find that that's great so we have
+some some filtering over here or some
+hints to get you to where you want to go
+I'm going to go directly to the app that
+I created so for each one of these
+developer patterns we have this nice
+page overview page which allows you to
+view a demo try it out you can actually
+run it without doing anything just
+clicking the button you'll get there we
+have a description of the of the code
+pattern overview this is where you're
+going to determine what
+you really want to dig deeper or not
+yeah hopefully it gives you enough
+information for that as with all the
+code patterns we have a diagram flow
+describing the services and the
+interactions between the pieces yes so
+from there let's go ahead and get the
+code that takes us to the github repo
+again all of our code patterns are
+housed on github publicly they're freely
+open sourced so people can take them do
+what they want with them they can
+actually contribute to the code if they
+find bugs they can log issues or
+whatever so I'm gonna go to the github
+repo here first page is always a detail
+to read me so for this one we talked
+about a little bit about what discovery
+does for you this is the enrichment part
+when we talked about where it pulls out
+entities categories concepts keywords
+and sentiment yes and we'll we'll dig a
+little bit deeper in how you set that up
+with your data mm-hmm here's that same
+architecture diagram where we're
+ingesting where we're feeding JSON files
+into Watson discovery the API is
+accessed as that discovery shows it to
+the user mm-hmm
+here's a little hand drawing of some of
+them at the layout of what its gonna
+look like I thought this was a pretty
+cool this is what we thought about
+additionally how we what we wanted to
+show to the user yes
+so these were all the UI components so
+not only we showing you how to access
+discovery but we're also going down and
+showing and using specific obviously we
+were writing codes we have to choose a
+specific framework yes so what we like
+about no this one's written to note what
+we like about note is that it's a little
+more freely open to other frameworks
+it's not so cookie cutter you know you
+have your choice of things in fact here
+we talked about all the components this
+one uses nodejs we based on react we
+have an express back-end yes this one
+uses semantic UI components which is
+cool it uses chart and just for testing
+that's nice so I can see that's all the
+steps here are really neatly written
+which I love so if I'm a developer and
+it's just starting off with Watson
+discovery I wouldn't need to you know
+start from scratch entirely
+documentation there's a clear list of
+steps here that's gonna help me out so I
+like that yeah and you don't want code
+snippets right you want you want fully
+functional code that's what's on the
+liver so we have a video which you can
+go click on I encourage you to do that
+mm-hmm and if you link the only industry
+actually good and that that's a deeper
+dive into this thing so here's the steps
+you talked about now for most of our
+code matters we offer a deployed IBM
+Cloud button which is convenience
+basically there's some setup involved I
+would recommend users who really want to
+know this stuff to actually go through
+the manual process without loading a
+locally provisioning of the services
+yourself yes that's the only where
+you're gonna learn but there's we always
+offer this option which does a
+provisioning for you and pushes a code
+and deploys it on the cloud and you can
+access it that way that's convenient yes
+so these are the steps I would recommend
+running locally starts with cloning the
+repo then we go through the creating of
+the IBM cloud service in this case is
+just discovery and we'll show you that a
+bit the end result of what has house but
+but essentially you you provision a
+discovery instance and you have you
+point to the data that you want to
+ingest yes and this will give you your
+shows kind of takes you through that
+mm-hmm and they get ingested into
+discovery so again these are the steps
+involved with that at the end of that
+you're going to have a set of
+credentials that Watts provides for you
+for to run this application you need to
+plug those into what we are env file yes
+and there's B&B file just for those not
+familiar with that UJ and ojs would be
+the environment file
+yep telling you all the different
+credentials yes so it's basically
+username password and the pointer to
+exact instance of discovery we want to
+talk to and then you just run the
+application and it's available on port
+3000
+so let's go to first let's go to the
+discovery service
+so here's those Airbnb ratings I've
+already created the collection perfect
+if we click on that you'll see that
+we've loaded in 999 records perfect one
+of the key things about the enrichment
+is is done through a configuration file
+so here's where you access that and you
+notice here that for us we want all of
+these enrichments to take place okay
+another concept that we're going to go
+into later with your with the knowledge
+graph is that we need to add the
+mentions like to this configuration
+which isn't available which is not
+available this tool so we had to do that
+programmatically Juby API so if you take
+a look at especially we take a look at
+natural language understanding you'll
+realize that under the egg teeth there's
+also a specific kind of oh there's
+another enrichment can I have been
+mentions that's not available through
+the tuning currently so you're gonna
+have to add that manually but we'll get
+into that in just a moment when we're
+talking about the new feature that I was
+telling you about the knowledge graph
+right perfect
+so here's the data and it pulls out
+things like top entities these are what
+we call aggregate information so it
+takes a look at all the 999 of them and
+it pulls out the things that it finds
+most most often yes so we have related
+concepts the hierarchies so it's all
+cool stuff displayed to you you can
+actually dig deeper look at some of the
+the actual fields it pulls out mm-hmm
+we can run queries through the tooling
+yes wish I had a nice query I can run
+it's about Airbnb ease and Austin so I'm
+going to say near the college we'll see
+what we get all right so we get some
+hits about from the ratings themselves
+again this is not easy to read it gives
+you scores based on how well Watson
+thinks it
+meets the criteria for your search yeah
+those kind of things so the whole
+purpose behind the UI is to is to make
+this more readable and accessible to the
+user absolutely
+so let's go to the UI so here it is I'm
+running on port 3000 off that same data
+these are all of the reviews and notice
+we have those enrichments we talked
+about as filters so this is what you
+build with the kind of pattern so when
+you actually go ahead download the code
+pattern run it with NPM this is what
+you're gonna get a little UI for Watson
+discovery right so these things are
+pretty obvious it talks about the
+entities and it's in and or the
+enrichments each category tells you the
+number of hits what category it found we
+have a nice tag cloud here with the top
+entities or any of the other merchants
+you want to choose we also have a
+sentiment chart this is based on
+Watson's determination of sentiment
+which is different than a rating so the
+user has rated the facility the Airbnb
+rental but Watson has looked at the
+actual text beyond text so the wording
+of the rating and determined a positive
+or negative sign yes not towards
+necessarily the actual place but towards
+the situation that was described in the
+review yes and in this case you could
+see most of them are favorable mm-hm
+we have a nice trending graph here so we
+could see how the term Austin has
+trended over time I don't know if that's
+very relevant one but I'm just going to
+oh it's the actual scores over time
+mm-hmm
+so you can use different different
+values here
+yes I got a good one here so we can take
+a lot of the concepts yeah we go and of
+course we can also there's some other
+niceties here we can filter the the
+matches the actual ratings we can show
+based on they go to the lowest rate the
+lows are negative sentiments
+there we go so as you can see there are
+quite a few people that have negative
+experiences with Airbnb but this one
+over here about South by Southwest says
+Lisa was great which is positive
+welcoming cue bungalow and good
+references for food around town okay but
+this is where the negative part comes in
+all right
+when I broke a key she came armed with
+bolt cutters and rescued my computer
+from the locked cabinet above and beyond
+now as a human you can tell this
+technically positive but Watson took the
+situation into context and said hey you
+broke a key but luckily someone came
+armed with bolt cutters but the
+situation generally here was negative if
+this hadn't happened it would be not
+positive that's why Watson gave me
+negative rating if you wanted to say
+make this more relevant to Airbnb and
+try and predict what someone's rating
+would be based off of the text then in
+that case you would probably have to
+train your own model either a with the
+Watson studio over the natural language
+classifier or something that you seemed
+fit but for the sentiment this is this
+is what the sentiment understanding
+currently does right great explanation
+okay so let's go back to discovery and
+let's talk about how we can further
+enhance this data through building
+relationships and they're not the
+knowledge rap sounds good okay all right
+so now once you get a little bit deeper
+into Watson discovery by taking a look
+at the knowledge grouse boy what does
+the knowledge graph - well imagine this
+for the Airbnb reviews we've got people
+who are viewing different places at
+Airbnb now let's just say we want to
+extract some structured knowledge some
+kind of facts so we're able to find from
+that text and we want ballistically
+display it in a graph like let's just
+say we've got Fiona now Fiona
+is someone who actually hosts guests on
+Airbnb now of course these Airbnb
+reviews are from Austin and so please
+these are host two that are of course
+Austin we know that already but if it
+weren't as obvious to us like for
+example if we were taking mobile reviews
+into account we need information like
+this
+now one more thing fiona is hosting
+people in downtown Austin
+so downtown is technically considered as
+a separate location by Watson and this
+is downtown in the south of Austin so
+cells is also a separate location now
+this is how the knowledge graph works
+all of this is a really complex
+unstructured natural language but with
+the knowledge graph you can go ahead and
+determine relationships between all of
+these entities we know that downtown
+Austin and South are geo political
+entities or locations and fiona is a
+person and so fiona is located in Austin
+okay so we Watson is able to tell us
+that fiona is located in Austin Watson's
+also able to tell us fiona is located
+downtown and then Watson can go even
+deeper and say downtown is located in
+Austin and all of these relationships
+are being found from simply natural
+language and then it also tells us at
+downtown is located in the south and
+then all we need to do is build an
+algorithm they can understand this kind
+of graph but much much larger of course
+because this is only a small snippet of
+all the different knowledge that
+discovery was able to uncover and just
+like that we can understand unstructured
+data through the Watson discovery
+service using knowledge graph
+unfortunately since it's in beta it's
+only currently available to advanced and
+premium instances so if you have an
+advance or a premium instance of lots of
+discovery great you can follow along
+if not then highly recommend you take a
+look at how it works just so you're
+ready when Watson Isco
+has this speech we're rolling out to all
+the other kinds of instances as well all
+right so now in order to enable the
+knowledge graph feature with your
+discovery instance you first will have
+to give Watson correct enrichments for
+its people to find out watch though the
+knowledge graph so what I recommend you
+do is you go over to the Watson swagger
+interface now what this is it's
+basically the API Explorer for Watson
+you can find at the Watson API Explorer
+Angela mix net there will be a link to
+it in the description below now if you
+scroll down you can see every single
+different kind of API call that you can
+make to the Watson discovery service
+there are lots of them and they're
+really useful but the one that we want
+to use is actually get your
+configuration now your configuration is
+what tells Watson what exactly it does
+with different data sources and how
+exactly it enriches those data sources
+so what you do is in the very top here
+pasting your user name and password for
+your discovery service then scroll down
+and provide your environment ID and
+configuration ID go ahead and click on
+try it out and as you can see it's gonna
+run the request and it's gonna come back
+to you in response this is the whole
+configuration now go ahead and copy this
+response and paste it into the update
+update API call now occurring you're
+going to need to copy in your
+environment ID and configuration ID but
+you also need to paste in the
+configuration if you pasted it and you
+scroll up you'll realize that where it
+says entities you will not have mentions
+and mention types so what you need to do
+is need to add mentions true and mention
+types true there will be a there will be
+a link to a github gist that contains
+this whole configuration for you so you
+don't need to put it in for yourself
+manual and then what you do is fill out
+the environment ID which I can just copy
+from up over here from our last call
+paste it into the update then go ahead
+and do the same thing for the
+configuration ID and then tell Watson to
+update that configuration of course
+I haven't need to add anything because I
+already had it there but once you add in
+your mentions just click on try it out
+and just like that you've updated your
+you've updated your configuration
+response code 200 it's a success now
+Watson knows exactly how it needs to
+enrich the data now one thing you need
+to make sure is that you upload your
+documents after you do this step do not
+do this step later because then Watson
+will not be able to reinvent your
+documents they're going to delete the
+configuration or delete the environment
+and do it all over again or delete the
+collection all right so now that we're
+back here and now of course we've
+already had our mentions and Watson has
+enriched the data now where do you take
+a look at what the knowledge graph truly
+does I'm gonna go over to this pane over
+here the build queries pane now right
+beside searching aggregations is
+knowledge graph if you don't see if and
+that means you're not running a premium
+or advanced instance as of today which
+is July 20th so now of course you can go
+ahead and find some different entities
+if you want to look for example well
+let's just say I wanted to find a person
+called Fiona I can go ahead and run the
+query and it would give me entities that
+match that Fiona and it gives me some
+information about that entity but what's
+more useful and what you want are the
+relationships now of course it gives you
+a watching discover is going to give you
+a list of all the different entities
+inside of its knowledge graph that it's
+built inside the system and so all of
+these entities are related to other
+entities in some way or another so now
+that we're here let's take a look at
+what we can actually do now let's just
+say we're looking for Fiona and we want
+to see how exactly Fiona is related to
+Austin all I'm going to do is run the
+query as you can see it tells me Austin
+has a colocation Fiona colocation is
+it's a very very broad sort of
+relationship so we can ignore all the
+collocations but Fiona is located at
+Austin and Fiona resides in Austin and
+both of these are correct so I can
+actually go ahead and take a look and
+remove Austin now if I only provide if I
+only provide Discovery with Fiona
+and I don't tell it to find the
+relationship of Fiona to any other
+specific entity and it's just gonna give
+me all the relationships that Fiona has
+to other entities this Brian communicate
+she's the owner of a cottage she greets
+people that come over she's located at
+location which is a co reference to
+another entity but these are all good
+for relationships associated with the
+Fiona entity now if you would actually
+go ahead and take all these
+relationships and graph them out this is
+what it would look like now one thing I
+would do I would like you note is that
+I'm using a website called web graph
+viscom and what I did is I actually just
+went him to the JavaScript console of
+Google Chrome and I put together a quick
+like uh like a three liner piece of
+JavaScript code over here and basically
+what this JavaScript code does is it
+allows you to take all these
+relationships that are shown in this
+English sum in the Watson discovery
+tooling and as you can see it exports
+them to a format that graph is likes so
+you can go ahead and copy this and you
+can paste it into graph news and that's
+actually gonna make a really uh neat
+knowledge graph out of it
+so I took a few different entities
+namely I took Fiona downtown Austin and
+I took those three entities and I found
+all the different relationships they
+have and I exported them to graph this
+format and I put them into this website
+called web graph is calm so I didn't
+need to do it manually in Python so as
+you can see this is the whole graph that
+it makes for us let's go through this a
+little bit and take a look at what it
+actually is so of course we have Fiona
+at the very beginning here now Fiona is
+located at location of course that's
+just a CO reference to learner entity
+here's the agent of recommend and she's
+the owner of a cottage so you can see
+Fiona owner of cottage and there's
+another feature and discovery that
+allows you to find evidence for use but
+we're not going to be coloring that in
+this video now there is a little bit
+more of an interesting map here so you
+could take a look at Fiona she's located
+at downtown now Fiona is also located at
+Austin
+now downtown is located at Austin and
+downtown is located at self and South is
+also located at downtown so there's a
+sort of circular reference here between
+these two entities now if you take a
+look over here there's also an
+organization or Congress that's based in
+and is a part of the South which is
+located in downtown which is located in
+Austin so as you can see you're able to
+create this really complex graphs you
+can take a look at Congress and you can
+see that Congress is technically located
+in Austin because Congress is based in
+self which is located in downtown which
+is located in Austin so you can make
+these really complex relationships you
+can also take a look at some more things
+that are located in downtown with for
+example Hyde Park is located in downtown
+there's a neighborhood there many
+restaurants inside of downtown there are
+the Boston streets cars they're all in
+the downtown and so as you can see this
+is just a small fraction of the
+knowledge that discovery was able to
+extract from the Airbnb reviews and
+again the Airbnb reviews weren't even
+written with the intention of providing
+this kind of knowledge but still lots of
+discovery was able to understand that
+natural language and provide that
+information to us but we've got a little
+bit more of an interesting data set
+that's meant to actually provide this
+kind of knowledge now this data set is
+actually two documents just two
+documents in contrast to the 999
+available over here in the Airbnb
+ratings however if you go back over to
+manage data it's a very very interesting
+data set see the Danes that I'm talking
+about two biographies of Henrietta Lacks
+now just in case you're unaware
+Henrietta Lacks or actually was
+suffering from a kind of cancer back in
+nineteen around the 1950s and this kind
+of cancer was actually special because
+the cancer she had made her the first
+person to have cells that we live and
+actually thrive outside of the human
+body so you can actually buy HeLa cells
+as they're called and actually what
+experiments on them and so that's why
+we've solved uncertainly solve but we've
+had major breakthrough some different
+areas like cancer it all tons it four
+kinds of areas because we were able to
+use those difference
+and so of course our client people
+different people who write biographies
+on Henrietta Lacks and so we take these
+biographies more specifically the one by
+Rebecca Skloot and also the Wikipedia
+page actually relax and upload them into
+Watson discovery using that same Airbnb
+config so that we have the mentions and
+the entities and the relationships all
+all in the India in figuration as you
+can see I tells us it's 50 percent
+positive 50 percent negative it gives us
+some keywords Henrietta Lacks but Bette
+lacks Carver a personal Crownsville
+state hospital David Lacs and these are
+all related to of course the biography
+tells us a little bit about the content
+and it also tell us about a few
+different concepts of course he'll as I
+was mentioning the HeLa cells are
+talking about cell cultures Rebecca
+Skloot who's who actually wrote the
+biography and Henrietta Lacks herself
+but I know what you're interested in
+you're interested in the knowledge
+graphs let's head over to the crosswords
+now let's just say that we want to find
+the relationship all the relationships
+that Henrietta Lacks has as you can see
+these are all a different kind these are
+all the different relationships that
+Henrietta Lacks has now Henrietta Lacks
+has attribute cancer health condition
+Watson's able to find these really
+complex relationships just for natural
+language and then the best part is that
+you can combine it with other machine
+learning services to say hey something
+like does Henrietta Lacks suffer from
+cancer and actually convert that to
+actually find a certain kind of
+attribute or entity in this knowledge
+graph but anyway let's just say I go
+ahead inspect and I run inside of the
+console that quick three liner of code I
+was telling you about
+as you can see we get these these graph
+is an x over these graphs this sort of
+graph this format text so if I were to
+copy that into web graph is again as you
+can see this is the knowledge graphic
+gives us four four four just a few of
+the entities inside of the solid graph
+of course there's a lot more you could
+extract if you wanted to but this is
+what I've extracted for now so as you
+can see this is actually great because
+it says Henry
+relax part of many elderly because Henry
+Lux was elderly Henry relaxes also the
+parent of Deb relaxed which again is
+correct can relax also resides in clover
+which is a geopolitical entity now
+Deborah Laxmi more interesting Oprah
+Winfrey actually plays role of Deborah
+lakhs in a movie
+however whispers is not that movie
+that's a separate ecatel together
+and Deborah Lacs is also part of many
+descendants and these descendants of
+Henrietta Lacks are located in the South
+just like Deborah Lacs is located in the
+South actually also part of the family
+the lacs family and she's also the agent
+of informs because she's informing
+people about this by participating in
+talks all the descendants are
+participating in talks as well as Deb
+relax if you go over here here are some
+entities that aren't actually directly
+linked to this part of the knowledge
+graph however if we were to get out
+every single relationship in this
+knowledge graph there would probably be
+some kind of link here now again this is
+why this is so interesting we can see
+that there's instructor which is a
+person who is employed by Bellarmine
+University which is an organization and
+this organization is based in Louisville
+which is a geopolitical entity now
+Center College is based in Danville and
+most of Danville and Louisville are
+located in Kentucky
+so they're both located in Kentucky as
+rich tell us they're located in Kentucky
+and so this is the knowledge graph and
+discovery built of just a few entities
+imagine having to go through that entire
+biography as human and actually having
+to extract these cash relationships make
+notes about this now instead of you
+actually really through all that text
+and actually having it be impossible for
+many computer programs to go through
+that text you can use programs like
+Watson discovery to create knowledge
+graphs convert the structure of
+information take a look at all the
+different relationships that exist
+inside this text and of course make your
+life million times easier by converting
+unstructured data and structured data
+that you can make use of in
+yeah great job explaining that I think
+this crap will make lives at home so
+that's my radio
+it's very soon you know very soon as you
+create a code pattern once but once the
+Watson discovery knowledge graph is in
+of course it is completely available to
+the public because currently it's only
+in in advance and the code pattern
+should allow you to upload documents and
+automatically make huge knowledge graphs
+like this one that you can actually
+jurors the 3d now we need to join code
+pattern yes looking forward to it
+thank you alright and so that's how you
+can use the Watson knowledge graph or
+Watson discovery services knowledge
+graph to convert unstructured data into
+structured data alright so that's how
+you can use water discoveries new
+knowledge graph feature hopefully very
+soon it becomes out of beta and you can
+use it in your free trial instances or
+light instances and your regular
+instances as well so thank you very much
+rich for joining you today glad to have
+you on the show my pleasure thank you
+opportunity working with you appreciate
+it
+thank you very much glad to have you on
+so apart from that if you did like the
+video and you want to see more content
+just like this one please do consider
+liking the video and sharing it with
+people you believe may be able to
+benefit from it apart from that if you
+have any questions suggestions or
+feedback please do go ahead and contact
+either rich or I so rich how can people
+contact you you pull my personal IBM
+email account which I think you'll
+provide a link to in your video perfect
+so rich is email address will be down in
+the description below also my email
+address my Twitter will be in the
+description so if you'd like to ask rich
+variety questions please do feel free to
+contact us or even just leave a comment
+down below and we'd love to get back to
+you
+apart from that if you do love the
+videos on this channel and you want to
+see more content like this please do
+consider subscribing as well
+notifications so you send you receive an
+email every single time I upload a new
+video so thank you very much and thank
+you rich alright thank you thank you bye
+bye bye buddy

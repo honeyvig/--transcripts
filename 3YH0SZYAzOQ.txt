@@ -1,0 +1,760 @@
+so hello there and welcome to another
+tutorial my name is hry bshi and this
+time we're going to be going over well
+the second part for my tower of Hanoi
+series now this is just the second part
+so now I'm going to be explaining the
+algorithm and showing you a little
+implementation of it in Swift again this
+uses trees and so yeah I'm just going to
+be explaining it to you so let's get
+started let's dive straight into this I
+have really nothing to explain yet
+however as I said already like a million
+times we're using trees for this to
+happen and I have the Whiteboard ready
+here as you can see so what I'm going to
+be doing now is I'm going to be telling
+you how we can use my custom algorithm
+to solve the Tower of Hanoi uh for four
+discs okay so that's four discs we're
+going to be solving using this method
+first of all as you can see this is
+going to be the tree area but uh this
+green shaded area over here Will be an
+array basically of all the instructions
+that we have gathered thus far so let's
+just dive straight into it now basically
+what we're going to be doing is we need
+to uh make a set of steps that we're
+going to be taking so what my current
+plan is we want to first of all
+move four
+diss from also uh yeah uh I'm going to
+be referring to Peg one as Peg a peg two
+as Peg B and Peg 3 is Peg C in case you
+were wondering so now what I'm going to
+say is we're using four
+diss from
+a to
+c however we can use B in the middle if
+we need
+to okay
+perfect now this is our beginning like
+what are we going to be doing from now
+on basically what we have to do is we're
+going to take three discs now we're
+going to move it from uh Peg a to Peg B
+the first three discs then the remaining
+disc on Peg a will be moved to Peg C
+then the remaining pegs on Peg B will be
+moved to Peg C and then like that all
+four discs will be on
+pegy so now how are we going to do this
+we know that we have to move three discs
+first of all let me just make a little
+line so you can see first this is the
+first tree that I'm first line that I'm
+making we know that we have to move uh
+three
+discs from actually uh just give me a
+sec
+so you can see that a bit better I'm
+just going to make it a bit
+bigger okay so now we're moving three
+discs from Peg
+a to Peg B using Peg
+C now you might already start noticing a
+pattern but next we're going to be
+moving Peg I mean one dis from Peg a a
+to Peg C using
+B again you're getting this
+pattern and then finally what we're
+going to be doing is we're going to be
+moving those three discs from Peg B to
+Peg C using Peg
+a it is that simple now here is our
+pattern essentially what we're doing is
+we're taking our beginning uh for
+example node this is one node in our
+tree now this node has four for its dis
+value a for its from Peg B for its using
+Peg and C for its two
+Peg now the first thing that this node
+wants to do is move three diss from A to
+B and so essentially what we're doing is
+we're saying 4- 1 is 3 then we're just
+swapping these two over here B and C we
+swapping to make CB meaning a CB A to B
+using
+C then over here basically what we're
+doing on the middle on the second node
+is we are just saying okay we're going
+to move one disc from a to c using B
+that one disc on a going to
+C then finally what we're going to do is
+we're going to move the three diss that
+we moveed to B back over to C using a
+it's that simple now if you don't
+understand this yet that's probably
+because I haven't filled in the rest of
+the table now I'm going to be filling in
+the rest of the table with you then I'll
+explain what this tree means then I'll
+explain the actual algorithm then we're
+going to go going to go to the Mac part
+okay so
+now from 3 ACB what are we going to be
+doing first of all we know that the
+first node over here is just diss minus
+one okay so the diss number for this
+specific
+node will be 3 - 1 which is
+2 okay so we had two discs we've
+determined that then we know we have to
+swap the using Peg and the two
+Peg so ACB will become
+ABC as you can
+see
+now we know that the second
+node will have always one
+dis uh so we can just write a
+one right and we know it'll have the
+exact same setup as these three
+pegs so it'll have ABC or sorry
+ACB because it's coming from this
+node
+then finally the third
+node which will have again diss minus
+one which would be two in this case and
+then the two I mean the FR Peg and the
+using Peg have to be
+reversed and so I'm going to say c a
+b now we have constructed
+a little we've gone in one
+depth but first of all we know one
+cannot be extended like that's the
+simplest thing you can do just move one
+disc from a to c you don't need
+instructions on how to do that but
+moving three discs from A to B you need
+instructions so this will be continued
+this is just going to stop right here
+and I'm going to tell you what we're
+going to do with this but this is again
+three not one so we're going to extend
+it further so now let's just um bring it
+further now 3 - 1 is
+2 now b a c we have to uh switch over
+the two and using p the pegs so this
+will become B
+CA so I'm going to write uh or sorry
+yeah b c
+a boom next what we're going to do for
+the second
+node is we are going to say again we
+just know that it's one disc with the
+exact same Peg set up so we're going to
+say 1 BAC
+C okay it's that simple next the third
+node which will be down
+here so what we're going to do is we're
+going to switch the from and using
+nodes and we're going to remove one from
+the discs so that would be two
+discs and if we swap b and a that would
+be a
+BC
+perfect okay so we are making progress
+with our tree but we still have a few
+more things to do because as you can see
+we have a two which is not to which we
+do not know how to solve we have another
+two we and we have two more twos so now
+we have four more things to
+expand and then theoretically we should
+have a set of instructions right well
+let's
+see so we see we're starting off from
+here we have two from a to c using B so
+if I expand we know that 2 - 1 is 1 of
+course and so the number of discs will
+be
+one
+okay next we have to swap the using and
+the two pegs so that will be
+ACB a
+CB okay then we're going to do our
+middle Peg or our sorry our second
+node get confused between those two
+sometimes uh and so we know that's of
+course just one uh dis but it's the
+exact same Peg setup so we're going to
+say dis one with the exact same Peg
+setup which is
+ABC then finally our third
+node which 2 - one is one
+dis uh and then A and B reverse that
+would be b a
+c and
+perfect now we've solved this now let's
+solve this node so now this node's first
+node child node actually will be let's
+see 2 minus one that's one for
+Diss and then A and B reversed that
+would be
+CBA
+perfect next what we have is the second
+node okay so now we know it's the exact
+same Peg setup with just one disc
+instead so that would be c a b
+finally the third node child node of
+this node uh and so we know that's 2 -
+one that's one
+dis then we have C and A have to be
+reverse so that would be
+ACB and
+perfect next we're going to solve this
+one and this one and we'll be done okay
+so 2 BCA 2 - 1 that's one so we know the
+number of discs for this first child
+node will be
+one then we know C and A flipped will be
+uh a so b a
+c then I'm going to create the um
+basically second node child node for
+this parent
+node which will have anywh
+uh the one dis and the exact same Peg
+setup so one
+BCA then we're going to go for the third
+child
+node which will be 2 - 1 that's
+1 and then B and C flipped so it will be
+CBA and now just really quickly let me
+just tell you this will work with both
+even and odd discs because as you can
+see here we have a node that has an odd
+number and it's still working over here
+it's working fine it's just that I
+wanted a slightly bigger um pet um discs
+uh for this example so you can really
+see how this tree is formed and if I
+were to choose something like five
+however this would just be gigantic so
+I'm not going to go so huge as to five
+but I want a moderately big uh tree so
+that you can really see how it's going
+to three how it's going to two how it's
+going to one etc
+etc okay
+continuing now that we've solved this
+node's child nodes we don't need to do
+it for this one because that's a one
+then we can do it for this one however
+this
+node now this is 2 a BC so 2 - 1 we know
+that's one so it's first nodes uh number
+of discs should be one then B and C
+flipped is CB so AC CB
+okay uh then the second node we all know
+that this is just going to be uh a one
+dis with the exact same Peg set up so
+that would be one
+ABC uh next the third child node so
+let's just do
+that now we know 2 - 1 is 1 so that
+would mean the number of discs is one
+and then A and B flipped is ba a so b a
+c meaning this will be the end
+result and now we have completed our
+tree now basically this is a this is how
+you can take it into like consideration
+this is a fully grown apple tree now we
+need to pick the ripe apples off
+essentially and the ripe apples are the
+ones with one disc and it has to be done
+from most top right down okay just top
+right from here down now you may be
+wondering wait a minute are these just
+the instructions that we're going to
+pick off no and you'll see what I
+mean so essentially what I'm saying is
+whenever you see a one in this
+tree and then it's uh discs
+these
+diss are essentially what we're going to
+take out and put into the
+instructions for example 1 a BC will be
+taken as a to c by our program and then
+given to the user but we can't just take
+this in any random order that just
+wouldn't work however what we are going
+to do is let's just say I get a marker
+we see we're going here we have this
+initial node
+it has its own first node then it has
+its own first
+node now it has its own first node and
+then it ends here this is the last one
+so this is the first uh basically uh
+node that I've encountered that has one
+dis on it so I can say I can note down
+a I can I can put that into my array as
+a to
+B so I'm going to note that down as a
+to B so we got one instruction down now
+as you can see we have to go back
+because we cannot go forward that that
+would just be nil so we have over here
+the second node for this okay so this
+node has a second
+node this is the second time we've got
+over with a dis with a uh instruction
+with one it and we can see it says a to
+c so we're going to follow what it says
+and move from a
+over 2
+C then we're going to go back and we're
+going to say okay come down over here
+and we see oh third node this also has a
+one so it says B to C that means note
+down from B to
+C
+okay now we go back we see oh we checked
+all these all the child noes for this
+node now we have to go back now we see
+for this node what's its second child
+node because we're done the first oh it
+has a one so well we say A to B perfect
+note it
+down a to
+B
+perfect now we cannot expand further
+than this again that would just be nail
+so we say okay come back over here and
+we're done the second child node for
+this node so go down
+here
+and so from here we have a first
+Noe so this is a one and we're going to
+say C to a so we just note down C to a
+perfect then we go back in the second
+node C to B perfect C to
+B then we go back and we say oh third
+node A to B perfect no put that
+down a
+to
+B come back come back come back because
+we are done
+basically we've gone into this
+node and we've gone into its first node
+and we've completed all of its three
+child nodes now we're coming back then
+we grab an apple from here then we come
+back and we grab all of these three
+child nodes and we just noticed just
+like we got all the three child nodes
+from this we got it from this node so
+now this node is no longer needed by us
+so either we can just delete it but why
+would you want to delete it when you can
+just keep it and go to the next and now
+since we are initiating this from this
+node we have to look at its second node
+which is a one dis and this is a to c so
+I'm going to note that
+down a 2
+C perfect
+there now we're going to look at its
+third node which is again a
+three now this has a first node which
+has its own first node but then that's
+the end of the line so that's B to
+C again going back oh this has a second
+node beat
+a now come back this has its own third
+node which is c a
+okay which I can just note down
+conveniently coming back we see okay
+perfect uh we're done the first node and
+all its three child nodes now we have to
+do the three's second
+node uh so uh wait just really quickly
+note if you were if you want to if you
+make this connection from the other part
+one that I just made uh actually Four
+discs will require 15 turns because uh
+actually 2 to ^ 4 16 - 1 is 15 meaning
+it'll take 15 turns uh so that's why I
+have exactly 15 elements in this array
+over here uh so that we can see if we
+have the correct number of moves anyway
+continuing now we've gotten back from
+here here here now we're going to the
+second node which is B to
+C so I can just write that
+down B to
+next we're going to go to its third node
+which has its own first node which is a
+to
+B then it has its own second node which
+is a to
+c then it has its own third node which
+is B
+Toc now we can go back say back back
+back and now once we've returned this to
+this initial node we know that we've
+gone through all this
+tree and that means we have a perfectly
+good set of instructions to solve four
+discs in the tower of noo in the minimum
+number of moves possible hope you
+enjoyed that now what I'm going to do is
+I'm going to be taking a picture of this
+I'm going to move it onto my Mac and I'm
+going to show you that these moves will
+actually solve a tower of hanoy game
+okay so that was actually pretty much it
+for the Whiteboard part of this video I
+hope you enjoyed now we're going to be
+going to the Mac part where I'm also
+going to be showing you an
+implementation of this and Swift hope
+you enjoy let's get to it so welcome
+back to the Mac part now I'm going to be
+cropping this image so we can only see
+the instructions then I'm going to be
+going to the Tower of Hanoi simulator
+online The Flash simulator uh and then
+we're just going to be seeing how it
+works I'm going to show you the Swift
+implementation and then we'll be done
+okay so let's get started with uh this
+white board image over here make my face
+smaller uh come over here and I'm just
+going to select these instructions that
+we have created on the Whiteboard and in
+case you didn't already know this if you
+select something in preview and then you
+click command K crops that right out
+okay then I'm going to use l capitan's
+Main feature I guess I'm going to press
+this down actually I guess I have to
+have these uh in small view uh I'm going
+to press this down put this over here
+put this over here make this a bit
+bigger and here we are ready so now as
+you can see I have the tower ofy on one
+side and then I have the instructions on
+the other so again this is for four
+discs and let's get started now first of
+all it tells us to solve a to B so uh
+we're on a to B over here on the first
+one so A to B boom then it says a to c
+okay I'll do that then it says B to
+C then it says A to
+B then it's telling you to move from C
+to
+a again as you if you really look at
+this pattern and if you watch part one
+you realize that we're using the exact
+same algorithm it's just the computer
+found out these
+moved again in case you haven't watched
+part one this website is mathisfun.com
+that allows me to simulate the Tower of
+hooi uh and there's a flash version and
+an HTML version The Links will be in the
+description
+continuing now after we've moved from C
+to a we can move from C to
+B then from A to B and we've we've
+solved the first seven and as you can
+see we've moved three diss from A to B
+using
+C okay now it tells us to move from a to
+c
+interesting then it says B to C okay
+okay I'll do that then it says b to a
+okay then C to
+a interesting B to C not very surprising
+then a to
+b a to
+c and finally B2
+C now that was quite simple and we have
+solve the the game in exactly 15 moves
+now when I was explaining this to you
+you may have realized oh God this is
+going to be really expensive to program
+and this is just going to be too much
+but you're mistaken this is actually
+quite simple to actually make it's just
+that the implementation of it uh is
+really easy just creating a command line
+interface isn't that easy but we'll get
+into that later first what we have to
+get into is the
+Noy so as you can see over here this is
+a simple version of an implementation in
+Swift as you can see it's very very
+little code and if I say uh I want
+number of discs as for example three it
+gives us the result first of all move a
+to c uh or actually you know what let me
+just actually follow these steps so a to
+c
+first just to really quickly show you
+this works a to c then it tells us to
+move a to B
+then it says C to
+B then it says a to
+c then it says uh B to
+a and then it says B to
+C and then it says a to c and as you can
+see we've solved it in seven
+moves so that was actually quite simple
+uh and that proves that this actually
+works we can also do it for
+four and it'll give us the instructions
+five I think we might need a debug uh
+console now uh we can do it for six I'm
+just quickly scrolling through these um
+see how it
+works as you can see it eventually
+starts taking uh some time to
+calculate uh moves because of course
+there are tons of moves for like nine
+different discs but anyway so now okay
+it got that um there was an earlier
+version of this that I programmed in
+that would actually use the first
+algorithm that I used in part one and
+that could at Max do around five discs
+because it was very memory intensive but
+this is recursive yet it's not that
+memory intensive so as you can see this
+is a very efficient algorithm and let's
+get straight into coding this now now
+first of all this is an implementation
+of it in part three I'm going to be
+showing you the cui or how to create the
+command line interface for
+it okay so now let me make my face a bit
+bigger and so now I can just uh comment
+this line out so we don't have all this
+random execution going on and hide the
+debug
+console so let's get into it by saying
+that first of all we are creating a
+class called Hanoi node and also a quick
+tip uh if you're using a playground
+really basic uh functionality like not
+even framework functionality just no UI
+kit whatsoever or anything you don't
+really need to spend excess memory
+importing framework or UI kit when you
+can just import Darwin and it takes up a
+bit less memory so that's just a quick
+tip for you anyway continuing inside of
+the Hanoi node class we are noting the
+diss from using and two
+pegs so basically uh when I would show
+you uh over here on preview if I just
+control command Z that uh each one of
+these was a node this was a node this
+was a node this was a node it had a
+diss
+from Two and using
+value which were the pegs that it was
+from using in
+two and so now these are stored as
+strings because of course you can name
+your
+pegs then what we're doing is we we have
+three computed properties in case you
+don't know what a computed property is
+well uh I do have another tutorial with
+my AAR pathfinding that will explain
+that but anyway let me just give a quick
+explanation but if you are wondering
+what a star pathfinding is a link will
+be in the description for sure okay so
+basically computed property will allow
+you to it's just a variable but when you
+get it the propert the value inside of
+this property is computed each time uh
+so for example uh let's say I created um
+a variable a which is equal to something
+the user can enter and variable B which
+is also something the user can enter
+variable C if it was a computed property
+whenever you would get it it would
+automatically already be equal to the
+value of a plus b that's simple so that
+you don't need to calculate it then use
+it no just use it straight up and it
+gets calculated like a function but it
+has some limitations like it can't take
+parameters it's that simple okay
+continuing so
+now we have Leaf one leaf 2 and leaf
+three which themselves are Hanoi nodes
+now you may be thinking if a Hanoi node
+contains a variable of a Hanoi node and
+that itself has more Hanoi nodes doesn't
+that just break my own rule of the
+barrier recursion that I talked about in
+my other recursion video which there
+will be a link to in the
+description well no because this is
+optional meaning at any time I can make
+this nil meaning there will be nothing
+after that that also means that I was
+lying to you a few minutes ago not lying
+just I'm sorry but uh as you can see
+whenever you have one on the board the
+tree doesn't just end there there's
+actually a nil after this but you
+usually ignore that due to the fact that
+it's just nil doesn't matter it's just
+nil I guess uh and same thing for all
+these ones there's a nil after this
+there's a nil after this there's a nil
+after all of these because it can't just
+abruptly end it can't just stop at a
+Hanoi node that's impossible so that's
+just a quick uh explanation of that for
+you anyway continuing now when you get
+Leaf one we are creating a new Final
+constant which is equal to a new Hanoi
+node which is the discs of this Hanoi
+node are equal to our diss minus one the
+current diss minus one the from value
+will be same from but we're swapping the
+using Peg and the two Peg uh so we're
+for the using we're giving two and for
+two we're giving using that
+simple next we are returning uh then
+we're using a quick uh conditional uh
+we're checking if final do diss greater
+than zero meaning it is one or something
+bigger than
+one then we on to return that final
+variable meaning continue good job or
+else nil because we do not want an
+endless loop of
+recursion next in leaf two we're doing
+the same thing with the optional Hanoi
+node we're still creating the final
+constant however this time for the diss
+we're just straight up giving one
+because we I taught that to you in the
+trees uh then we are keeping from using
+into two the exact same then we're doing
+exact same thing with the discs however
+instead of checking finals discs because
+we know that's going to be one we're
+checking our own discs so that we can
+see uh if we should actually uh continue
+and create this
+node finally Leaf three in which we are
+still creating finyl we are putting the
+diss minus one however we are swapping
+from and using and we're keeping two the
+same then we're just check then we're
+just checking if the final discs are
+greater than Z Z if so then return final
+or else
+no then we just have a really quick
+initializer for this class which takes
+the diss from using and two and sets the
+values to them that was quick then we
+have a global variable named ins or
+instructions uh which is a string array
+then we have a Hanoi function now simply
+put this function is going to do all the
+dirty work for us it's going to to
+create the Hanoi node class go through
+the tree and basically grab all the
+values it'll pick all the
+apples and so this function will take
+the diss the name of the peg a the name
+of Peg B and the name of Peg
+C then we are creating a starting Leaf a
+constant we are creating a hanoy node in
+this of course we're setting the diss to
+the dis that the user gave us in the
+function declar ation from as a using as
+B and to as C of
+course then what we're doing is we're
+checking if let L1 is equal to leaf.
+Leaf one meaning does this Leaf have
+Leaf one if it does then say if L1 do
+diss is equal to
+one what what's happening now is we're
+checking is this ripe essentially uh if
+it is tick it or else call yourself on
+this
+Leaf I'll explain what that means
+now meaning if the discs are one then
+just take this instruction and append it
+into our instructions
+array as Leaf one from then Leaf one to
+so if it were to say a one ABC meaning
+one disc from a to c it would actually
+just depend AC into to the
+array or else if it's actually a um real
+U uh dis if it's the you call it if it's
+not one it's two or three or something
+greater than one then we're just going
+to call ourself on diss minus
+one with the same from using and two
+values that we got from this
+leaf then we do the exact same thing for
+leaf two and the exact same thing for
+leaf three no difference whatsoever
+except that in leaf two if uh the discs
+are not one then we call ourself with
+diss minus one and a is just a b is just
+B and C is just C it'll eventually stop
+we know that
+okay now this function works but it
+isn't too convenient to code in this is
+due to the fact that you need to give it
+the discs the a value the B value and
+the C value and it doesn't return
+anything now order to fix that I've
+actually created another function called
+Hanoi just straight up Hanoi not Hanoi
+underscore and so what's happening is
+this uh function only takes uh the diss
+as an integer and returns an array of
+strings or the
+instructions then we just call Hanoi on
+the discs that you gave us with the the
+a peg named a the bpeg named B and the
+cpeg named C then we just return those
+instructions that uh are created uh once
+uh you use the Hanoi function and then
+as you can see if I just fill this in
+with let's say three
+diss it worked and that was actually all
+it for part two I hope you enjoyed if
+you did please uh leave a like on this
+video again also subscribe to my Channel
+if you're new you can also contact me by
+either commenting down below you can uh
+um also contact me on Twitter at tagim
+Manny or you can just email me at tajim
+man gmail.com the email and Twitter
+handle that I just mentioned will be in
+the description if you can't spell them
+and yeah that's going to be it for this
+video again part three is coming out
+really soon and part three will have how
+to create a little simple uh cui not GUI
+command user interface not um graphical
+user interface for this program and
+that's going to be it for this video
+goodbye

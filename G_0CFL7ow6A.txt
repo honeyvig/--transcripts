@@ -1,0 +1,315 @@
+[Music]
+so hello there and welcome to another
+tutorial my name is tany bakshi and this
+time we're going to be going over how
+you can use the discovery service in an
+iOS application in coded in Swift so you
+know what let's actually be in today uh
+so what's going to be happening is we're
+going to be using xcode we're going to
+be using Swift uh in order to create an
+iOS application uh which can query the
+IBM Watson Discovery Service uh and so
+without any further Ado Again by the way
+though if you haven't already I'd really
+really recommend that you watch my
+previous video of Discovery to which the
+link will be down in the description uh
+and that video really just uh shows you
+how you can actually use the discovery
+Service uh with it generally and how you
+can train it and how you can test it and
+improve its performance and give it data
+that type of stuff but this video is
+going to be showing you how you can
+create a swift iOS interface for that
+service in X code so let's get right to
+it now shall we
+[Music]
+[Music]
+all right so let's begin with a quick
+demo of the application itself so what
+are we going to be building today well
+essentially as you can see over here
+I've got an iPhone simulator opened up
+here uh and this is the iPhone 7 plus
+simulator so let's say I were to search
+for something on Discovery and uh let's
+just send uh for the sake of Simplicity
+let's send the same request that we did
+in the first part of the video series uh
+and let's send Quest let's say when did
+T start coding okay I'm going to click
+on the Discover button and in just a
+moment you will see this UI t view
+populate with lots of search results
+from Discovery and of course we can take
+a look at the top one which is the exact
+same one that we saw in part one which
+of course says meet Tammy bshi an Indian
+origin preee from Brandon Canada who
+started coding when he was just 5 years
+old and of course this sentence is
+conveying a lot lot of information and
+this as I said the same sentence I'm I'm
+I originate from India I'm a Preen I
+live in brandton Canada and I started
+coding when I was 5 years old and it was
+able to extract that contextual
+similarity to my query in this document
+and it was able to give me my final
+answer but now let's take a look at how
+I was actually able to build this
+application let's get to it shall we
+[Music]
+all right so now let's take a look at
+the actual user interface of this
+application so if I switch over here as
+you can see I've got xcode open and this
+is a very very simple interface as you
+can see I've got our UI text field over
+here uh with prototype text as search
+query uh which is where the user will
+type in their query of course the
+Discover button which actually queries
+Discovery with your query and then a UI
+table view which will of course give you
+a list of the results that Discovery has
+returned now inside of this UI table
+view I have a UI table view cell and
+this is a prototype cell uh and so as
+you can see this is a very simple cell
+just I haven't even changed the height
+whatsoever uh however there is some neat
+stuff that goes on with this in the code
+uh and so what happens is each row if I
+open up our demo back here each row is
+of different height so of course this
+article is of different height this
+article is of different height this one
+is much bigger uh and this of course
+this one might be smaller uh but as you
+can see each row is of a different
+height and so essentially what happens
+is this UI table view in this label
+adjust different heights and widths
+according to how big the article or
+result actually is and so I've got some
+constraints set up on the label uh no
+constraints on the actual row though uh
+because of course or the cell
+technically uh because of course that uh
+is done in the code but this label has a
+few constraints on it using uh of course
+uh Auto layout and so uh I will be
+leaving you a link to a ray wonderl
+article which explains exactly how you
+can do that uh in a very simple way
+actually so that'll be down in the
+description but now that you've seen the
+user interface of this application I'd
+like to introduce you to the code of
+this application and how it's actually
+able to query Discovery with your real
+query and give you back the results all
+right let's get to that part
+[Music]
+now all right so now let's take a look
+at how the code of this application
+works so if I go back to xcode here as
+you can see I've got our main code open
+the viewcontroller.swift file uh and
+over here I have let's just start right
+off uh right after import UI kit I've
+got an extension to the string class and
+this is very simple uh this is from my
+asked handm code actually uh and so this
+is an extension to the string class
+which allows us uh to URL encode a
+string very nicely and very quickly so
+you can just do like for example
+um hi there this is
+a
+spring with um
+symbols and you could URL encode this
+very nicely just URL encoded and it
+would be able to um if I just move that
+over here see it would really easily be
+able to URL encode this string and then
+you could put this into sort of like an
+nsurl or something of that sort and so
+of course that's what that extension
+does uh and next we also have a class
+though this is our table view cell that
+we created uh and so very simply it only
+has one label the Discover label which
+is where the discovery search result
+will be this is a UI label uh and of
+course it is connected uh to the actual
+label uh with an IP
+Outlet next in our view controller of
+course we've got this uh in sort of
+inheriting from UI view controller but
+it also conforms to the UI table view
+data source uh and UI table view
+delegate uh protocols uh and of course
+we've got our IB it's the table view
+which is UI table View and our query
+field which is our UI text field which
+is what allows us to actually know what
+the user wants to query of course we've
+got a data array and this is the final
+data that Discovery returns back to us
+and this is actually the really
+interesting code for the eii table view
+that I was talking about just uh in the
+last part here and so this uh UI table
+view code essentially allows us to set
+the table views row height to UI table
+view automatic Dimension which will
+allow us to automatically set the row
+height but the estimated row height this
+is just set to anything real random
+really uh 140 again the link to the ray
+wonderl article which explains mostly
+all of this uh is going to be in the
+description so if you'd like to know
+more about how you can use you know Auto
+layout and how you can use it with UI
+table views to create self adjusting
+rows of height uh then of course you uh
+you can check that link out in the
+description of course though I also have
+an IB action and this is the Discover IB
+action and what's going to happen is
+here I end editing meaning if the
+keyboard is up on an iOS device it'll go
+right back down and I do force it to do
+that uh and then I call a function
+called get data uh which will give us
+our which and will give it the query
+text uh so it knows what to give to
+Discovery and then we reload our table
+views data but of course I also have I'm
+also uh overwriting the touches began
+function so that right as the user
+touches on The View I can end editing
+meaning I can bring down the keyboard
+but finally the most important function
+of them all the get data function this
+will take our query as a string and
+it'll of course reset the data variable
+which is our final data that goes into
+the table view it'll create a URL string
+which uh this is actually quite long but
+this is this will essentially query
+Watson Discovery uh with of course this
+long Watson Discovery query URL
+including lots of information about the
+actual collection that we want to query
+but of course the query that we want to
+give it itself uh and so uh of course we
+are URL encoding this query using that
+string extension that I was talking
+about just a little while ago and we're
+telling it to return 10 uh results to us
+we're giving it no offset aggregation
+filter or return though next I'm turning
+this into a URL as you know with swift 3
+uh Apple has sort of just uh stripped
+out all the NSS uh from you know NS URL
+NS data uh and so of course we're just
+left with URL and then I created a new
+data response constant uh where I
+forcefully try to get the data uh of
+that URL the data in that URL so it'll
+query that URL and give me that data of
+course though I'm also getting Json so
+I'm taking this data and I'm forcefully
+trying uh and so what I'm doing is I'm
+forcefully trying the Json
+serializations Json object function and
+I'm giving it the data response that I
+got from the URL I'm telling it that I
+want some mutable containers as the
+options for this Json
+sterilization uh and then finally I
+enforce uh casting that to a string any
+object
+dictionary once that's finally done
+though I'm creating a results constant
+uh and this will be uh the results from
+our Json uh and this is essentially a uh
+this is one of the keys that are that is
+returned from Watson Discovery itself
+when it returns its Json so results uh
+would be the array where uh Watson holds
+all the results as as the um as it sort
+of indicates but then I forcefully cast
+that to an array of dictionaries and
+those dictionaries are string and object
+dictionaries but then since this is an
+array of dictionaries I Loop through
+this array of dictionaries so every time
+I Loop I'm getting I which is a
+dictionary itself and then for every I I
+get I append that I uh that I's text
+value more specifically uh to the data
+variable now once this get data function
+is called over here in our Discover
+function now remember get data is
+synchronous so it'll actually stop
+execution until it receives the data and
+then I can run table view. reload data
+and since this data variable uh has all
+of the new data from watts and Discovery
+I can actually tell the table view uh
+first of all my first uh table view
+class here would be uh number of rows in
+section and so I'm just telling it
+however many uh rows are in or however
+many elements there are in data that's
+how many rows there will be in the table
+view so I'm just returning data. count
+and for the cell for row at index path
+uh table view function here I'm just
+creating the new cell I'm grabbing the
+Prototype cell that we made in the view
+controller uh or the actual main.
+storyboard I'm I'm casting this to a
+table cell which is the class that we
+created over here I'm then setting the
+cells discover labels text to data index
+path. row that we can set uh it to its
+respective result that we got from wats
+and Discovery and then I'm returning
+that cell and that will finally be
+displayed on this on the screen for the
+user to see and so of course that's
+essentially how this application
+actually does work out of course though
+that's actually going to be it for this
+video it's was quite simple but of
+course it shows you how you can create
+an iOS application that disco that uh
+queries the IMM Watson Discovery service
+but of course though as I said before
+the link to the part one of this video
+series will be in the description just
+in case you haven't watched it until now
+but of course though if you really
+that's going to be it for this video but
+if you really do like this video please
+consider leaving a like down below but
+if you have any more suggestions
+feedback or questions please do consider
+leaving them down in the comments below
+emailing them to me at tajim Manny
+atgmailcom or tweeting them to me at
+tajim Manny of course if you really do
+like my content and you want to see more
+of it do consider subscribing to my
+channel as it really does help out a lot
+and of course that's going to be it for
+this video today thank you very much
+goodbye

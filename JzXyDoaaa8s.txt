@@ -1,0 +1,622 @@
+so hello there and welcome to another
+tutorial my name is Tammy Bakshi and
+today we're gonna be going over how you
+can use class activation maps in order
+to figure out where your convolutional
+neural networks are looking in Karass
+let's go ahead and take a look at how
+this works now I'm sure you're aware of
+the attention mechanism using the
+attention mechanism you can find out
+where it is that your neural network is
+focusing is well attention now this
+works great for recurrent neural
+networks and multi-layer perceptrons or
+also called
+dense neural networks in cross terms
+however they don't work very well for
+convolutional networks now what am I
+talking about let's go ahead and take a
+look at an example of attention for a
+dense Network now with a dense Network
+you are essentially trying to take a
+feature vector and you're trying to
+classify those features into a few
+different categories or maybe do a
+regression but let's just take a look at
+the example of classification for now
+let's just say that we've got a neural
+network where you've got the features
+alright so you have features all right
+and these features need to be fed into
+your dense layer now on the way to the
+dense layer you can go ahead and do some
+really interesting stuff like for
+example instead of sending this to
+another dense right instead of sending
+that to say a soft max for
+classification instead what you do is
+you do a little bit of a skip here you
+erase these two layers for now but we'll
+get back to them in just a moment then
+you go ahead and right after this dense
+layer you add a soft Max okay now what
+you do is you keep this dense layer the
+same number as the same number of units
+as there are features that you're
+feeding in so for example if you're
+working with the iris data set and
+you've got you know a three length
+feature vector coming in and let's just
+say you want to reduce that's where you
+want to go and put attention then you
+don't read
+all right in that case you pretty dense
+that has an output shape of three as
+well so you're not producing you're just
+going from three features to three
+features gaming nets now you're gonna go
+ahead and put in a soft max so you're
+probably thinking well how would I train
+this neural network what kind of output
+are we gonna expect here well this isn't
+where neural network ends even though
+there's a sock max later now what's the
+output going to be with a soft max think
+about that let's just say we've got
+three values this is not necessarily
+what you feed into a neural network I'm
+just thinking of random numbers say
+three six and one okay these are three
+different numbers room they put commas
+between them now these three different
+numbers let's just say we ran these room
+you know through this dance and through
+the softmax what would the end result be
+well it would be a bunch of numbers from
+0 to 1 the sum of which would be a 1 so
+it's a probability matrix now let's go
+ahead and take a look at what those
+values might be maybe it's 0.15 0.25 and
+0.4 or 0.6 actually and that would add
+up to 1
+now what's so interesting about the
+attention technique is you can go ahead
+and take these softmax values and
+multiply them by the actual values
+themselves and once you do that you've
+got weighted features that you can go
+ahead and feed into another view dense
+layers so basically what you're gonna do
+now is you're gonna have a
+multiplication layer okay so let's just
+say we branch out here and we have a
+multiply layer all right they're going
+to multiply the output of that softmax
+activation by the features that you
+originally fed it in then you're going
+to have weighted features that you can
+go ahead and feed right back into
+another
+dense Network all right and then you can
+go ahead and do your final
+classification so for example if you
+want to have another softmax layer I
+have another softmax layer and this
+softmax leaders given to the final
+classification so you're going to have
+you know one of one of say two classes
+here let's not take a look at the iris
+dataset let's just say we're classifying
+into two classes instead of three then
+they're gonna have your final
+classification down here now this is
+well and good prevents neural networks
+and there's a similar technique for the
+current neural networks as well however
+convolutional neural networks well they
+don't play very well with this technique
+in my experience you know whenever you
+would try this kind of technique it
+simply wasn't scalable enough or it
+wouldn't work well enough to be worth
+the extra effort however there is still
+a way that you can visualize where your
+neural network is paying attention
+without forcing it to pay attention like
+for example over here what you would do
+is you would force the neural network to
+pay attention and order the training the
+attention layers here and here however
+what happens this time of the
+convolutional neural networks and class
+activation mapping is you're not forcing
+the neural network to pay attention
+you're just figuring out where it is of
+the neural network pay attention so now
+how does this work let's take a look now
+first of all we've got to understand how
+do convolutional neural networks work in
+the first place now convolutional neural
+networks are interesting the reason I
+say that is let's just say we feed in
+one image now this image could be say
+you know 224 by 224 in size that's a
+pretty standard size for a neural
+network now the problem with the snow
+all Network it or the novice or the
+problem but an interesting thing is that
+you're not just gonna be
+in this one image into the neural
+network that's not how it works
+well you're gonna be doing is you're
+gonna be feeding three images into the
+neural network three images that
+represent this one image so for example
+let's just say that you've got a regular
+image
+it's an RGB image right it's a red green
+and blue image you've got three
+different channels there so you're
+actually going to be taking three
+different images right your red your
+green your blue and you're gonna be
+feeding those as channels into your
+convolutional layer let's just say you
+know in kernofs that would be a comm 2d
+layer and that's what you're going to be
+doing now let's just ignore this input
+part for now let's get back to the
+convolutional neural network this time
+we're not gonna be taking a look at the
+beginning of the neural network we're
+going to be taking a look at the very
+end of the neural network so not towards
+the end of course let's just say we draw
+a whole neural network right you've got
+you've got convolutional layers you go
+down and you have more convolutional
+laters okay we'll see it more and more
+and more and usually your filters will
+get more and more of a time the number
+of channels will increase right this is
+not what an actual neural network
+architecture would look like it's
+probably going to be very well optimized
+but let's just say that you've got two
+to two layers with there two builders
+then 164 and then one with 128 filters
+now that means there are 128 channels in
+the final in the final convolutional
+Network you've got 128 images that your
+neural network is working with I say
+images in a loose sense because it's
+actually just 120 different channels
+that your neural network is working with
+you could of course reduce or increase
+that based on your neural network but
+that's not a problem for now now over
+time unless you're doing things like
+zero padding your neural
+or reduce the dimensions of the image
+that's just how these convolutional
+torques work of course you could put
+zeros on the outside of the image and
+that's how you would usually keep the
+image size the same for example in
+ResNet for skip connections you kind of
+need to do that however for this were
+let's just assume that the size is going
+down over time so if we start off with
+say of 224 5 224 here this is going to
+go down to 222 by 222 then it's going to
+go down to 220 by 220 and then it's
+going to go down to 218 by two hundred
+and eighteen assuming that it is a 3x3
+filter size all the way down now the
+interesting part here again is that
+towards the end let's just say you know
+for the sake of simplicity for now that
+we're working with a smaller set of
+images let's see we're working with 28
+by 28 all right and the 28 by 28 becomes
+26 by 26 which becomes 24 by 24 which
+becomes 22 by 22 all right now what
+happens at the end is we've got 22 by 22
+by 128 set of data all right this is
+basically an umpire layer with this
+shape okay now what if there were way to
+visualize the weights that the neural
+network gives for each of these
+individual filters at the end okay
+towards the final classification okay
+that's what we're doing here with class
+activation mapping there's a special
+kind of pooling you've probably heard of
+maximum cooling right you actually take
+say let's just say you've got a six by
+six set of data all right so you have
+six different or let's just say you've
+got a four by four agree all right now
+let's just say
+that this 4x4 grid or this four by three
+grid here so we might 4x4 grid let's
+just say that you want a max pool with a
+window size of two by two so what you're
+doing is you're taking the values from
+this window you're taking the values
+from this window you're taking the
+values from this window and you're
+taking the values from this window and
+you're getting the average of those
+groups and then you're putting them into
+a new image this new image is simply
+saying let's see here two by two in size
+and this is the result all right you
+know how to do this this is simple
+convolutional neural network stuff and
+it's stuff that you've been doing for a
+long time if you work with convolutional
+neural networks the global average
+pooling is another really interesting
+kind of ruling and what it lets you do
+is take this whole 4x4 grid alright and
+bring that down to not four different
+data points but instead just one
+individual data point so what you're
+gonna be doing is not getting the
+maximum value from any individual group
+you're gonna be getting the whole
+average value of this whole filter and
+you're going to be getting that down
+into one individual value that consists
+of the average of all the values that
+you just collected now what you can do
+with the possibilities that this opens
+up is that well let's just say the enemy
+here right by 22 by 22 by 128 gauge with
+global average pooling using no weights
+just a slight averaging method for each
+of those 128 channels you get down to a
+1 by 1 by 128 set of data now with this
+one by one by 128 set of data you can go
+ahead and assume that of course each
+individual data point right let's just
+say there are 128 there are 3
+here so let's just say there are 125 of
+these you know data points going forward
+and let's just say you have two
+classifications right your two classes
+that you're trying to classify into over
+here and over here these are your dense
+units you can connect directly from this
+global average pooling and flattening
+layer to those not to those units now
+I'm sure you're starting to see what I'm
+pointing towards if the final activation
+here is softmax or really anything else
+what you've just done is you have
+provided a weight okay you've provided a
+weight value for each individual filter
+because remember each of these
+individual data points came from one
+bigger filter in the actual
+convolutional neural network so all of
+these came from different filters that
+found different shapes or edges in the
+image and these represent those filters
+so if you could somehow exploit the way
+that you're actually capturing those
+weights or individual filters to the
+actual units that have different
+meanings to you or your classification
+you can go ahead and assume that the
+filters these represent contain
+meaningful information asks of a
+relationship between a certain class so
+basically what I'm trying to say is that
+you were safe all right this is a dog
+unit and this is a cat unit in terms of
+dog versus cap classification if you go
+ahead and take a look at the weights
+from the dog unit took all of the
+different filters that you've fed into
+that one individual unit whichever ones
+are higher have a good representation of
+where the doggies in the image or what
+the dog looks like the ones that are
+lower are capturing information that is
+related to anything but the dog and that
+is what I'm going to be showing you how
+to use in cross
+sounds really complex but it's not
+nearly as complex as you may imagine now
+what I may be doing is showing you how
+exactly you can get a good class
+activation mapping designing neural
+network architectures that are
+specifically built toward great with
+clouds activation mapping so you can do
+object detection directly within your
+object recognition or object
+classification workflows this could be
+expanded to a lot of other places as
+well but we're gonna be covering
+convolutional neural networks for image
+classification in specific today all
+right so now without any further ado
+let's go ahead and get into the code
+part where I'm going to show you how you
+can implement this system and take a
+look at where your neural network is
+actually looking all right so welcome
+back and now let's take a look at the
+actual code that goes behind this now
+first of all let's take a look at the
+neural network architecture so let's go
+ahead and open up first of all before we
+get you into the neural network
+architecture the data loading sprint now
+of course in order to do this CatDog
+classification we're going to need data
+this data has been downloaded from
+cackled and you can do so as well now
+this is a bunch of really simple code
+that I've put together that essentially
+uses multi processing as well as numpy
+glob and pillow in order to load a bunch
+of images and then save them to the disk
+as dogs are n py and cats n py it loads
+them in at 224 by 224 resolution and it
+does the necessary pre-processing like
+for example dividing the RGB values by
+255 to make sure they're good ranges for
+the neural networks to capture now if I
+were to go ahead from here as you can
+see basically it's just using a multi
+processing pool in order to import
+images very very quickly of course multi
+processing multi-threading these kinds
+of things in Python don't usually work
+very well together but in this case it
+gave enough of a performance improvement
+to be worth in the extra hassle now if I
+go ahead and exit out of this here we
+can get to the real main part which is
+the actual neural network training that
+I do now the neural network training
+since I had
+eight different GPUs on the dgx one I
+can actually go ahead and build the
+model on my CPU and that go ahead and
+train it on the GPU or specifically
+eight GPUs and because of that I take my
+batch size which is 64 multiply it by 8
+so that of course I mean that 6 + 4
+times 8 that's 512 being done in a
+single batch of course 5 12/8 still 64
+so 64 image is being done per batch per
+GPU basically now I'm doing 150 epochs
+but I won't necessarily wait for 150 of
+them to be done I actually have this
+callback that'll actually force the
+model is safe at every single epoch and
+also log down what epoch it was and the
+valid agent accuracy and so basically I
+can go ahead and take whichever epoch
+had the highest validation accuracy into
+my into my experiment now of course in
+terms of test size I'm keeping 20% of
+the data for testing and only 80% of the
+data for training and I'm glad to say
+that I was able to get tore down 91%
+accuracy using this neural network that
+is barely optimized for this kind of for
+this kind of classification of course I
+can get much higher if I did something
+like transfer learning or using larger
+datasets however for now I'm using just
+a plain old new neural network using
+this global Albert puling 2d layer at
+the end and then directly a dense
+connection now though let's go ahead and
+get into how we can actually use this
+with can now the beauty of this
+technique lies in its simplicity so if I
+were to go ahead and quit out of this I
+go ahead and take the train model save
+it to my disk and this is where it's
+located in the cam folder or class
+activation so we've got a few main files
+here we've got the cam file of course
+we've got a katfoe we've got a captive
+picture and we've got a dog picture over
+here now we've also got this model this
+is actually what I downloaded from from
+me from my limbic server but there's
+just one
+little problem with these models let me
+show you
+tensa flow cross models in for load
+model so I'm gonna go ahead and load the
+model that I actually downloaded from
+from my from my name big server here now
+what you'll notice is that when I go
+ahead and load the model and also just
+one more thing you should notice though
+is that this model check point which is
+what I download it from I told it to not
+just save the weights but also to save
+the neural network architecture in the
+same file so that's why I can just do
+load model without defining the model
+and then loading the weights now if I
+were to print out a sari you see it's
+not saved in the same format that I
+saved that I wanted it in right so we've
+got all these input layers you know
+these lambda layers we've got the
+sequential and we've got this weird
+concatenate stuff however if you take a
+look at the layers right in the model
+you take a look at this array the
+second-last is this sequential layer
+which is actually technically a model
+now if I were to take a look at that
+that is indeed sequential and because
+that model is a layer I can go ahead and
+treat that as an individual model which
+gives me this whole this real sort of
+model which is what I wanted and so if I
+were to go ahead and actually save this
+as a model it would go ahead and work
+because this is what I'm truly after not
+this weird format of a neural network
+because this has my global average
+pooling and my convolution layers so I'm
+going to go ahead and exit out of this
+and let's go ahead and take a look at
+the actual code now the class activation
+map code as I mentioned is very simple
+it's taking the actual weights from the
+final node that made the highest
+prediction of the highest confidence
+value and it's trying to figure out
+which filters had the highest weights
+whichever ones had the highest will have
+more of their map wanted to final class
+activation map which everyone's had less
+weights or less less important weight
+will actually reduce their pixels or
+their pixels importance
+from the final class activation there
+will be a link to where you can download
+this library or this function in the
+description below as well I'm going to
+go ahead and quit out of this but the
+really interesting part is inside of the
+make prediction file because of the make
+prediction file I go ahead and actually
+use that class activation code now in
+order to create a class activation mode
+essentially what I do is I run a
+prediction through the model all right
+and then from there I create a new total
+class activation I want all the pixels
+that are supporting that evidence for
+the for the for the main prediction that
+the neural network make and then I
+remove the pixels that are supporting
+the evidence for the lower prediction so
+for example if you were to put in a dog
+and the neural that were predicted that
+this is a dog it will go ahead and add
+the dog heat map pictures of pixels and
+then minus the cat heat pixels from that
+from that final class activation map and
+then from there it's gonna go ahead and
+divide it by the maximum of the absolute
+value total class activation then it'll
+click the values at 0 to 1 multiplying
+on my 255 convert them to au and convert
+them to a real image and then save it at
+a certain location and of course return
+it as well now over here I've just got
+some simple code to actually go ahead
+and load my image put it into a numpy
+array and then over here I call that
+function with the image and the original
+one as well so if I were to go ahead and
+exit outside of this file and run Python
+make pred I can go ahead and feed it a
+model like for example the cat dog age
+five month let's go ahead and speed it
+you know your cat is a cat jpg alright
+now over here it's gonna go ahead and
+run it through the model and as you can
+see with 99% confidence in fact over 99%
+it predicts that this is a cat because
+the first Club is indeed a capped now
+what you do is open this directory in
+finder
+and let's take a look at the cat and the
+cats heat map now this is really
+interesting take a look at those white
+spots in the image and take a look at
+the cat now what's happening is wherever
+the white spots are located that's where
+the convolutional neural network was
+like yes this is part of a cat and one
+of the black spots are are either a not
+cat activations or B wherever there was
+a dog activation so this is what the
+neural network is seeing when it sees a
+cat of course there's a lot of room for
+improvement we could have a more
+high-resolution class activation map we
+could have a more accurate neural
+network we do transfer learning from
+something like from the visual geometry
+group the vgg net we can do all these
+little you know sets of fine tuning in
+order to get a better class activation
+map but let's go ahead and take a look
+at the dog now so if I were to feed in
+dog dog jpg as you can see it runs it
+through the model and it lets me know
+that with 77 percent confidence this is
+indeed a dog I go ahead and open up both
+those images show them side-by-side and
+as you can see well I'm gonna go ahead
+and slip these up into two different
+windows over here so you can take a look
+at them and switch them over so we're
+consistent now this part of the image
+over here which is of course near the
+dog's head in ears is what really
+activated the neural network to say yes
+this is a dog and so did this lower part
+over here towards the bottom and so did
+the dog's tail so as you can see the
+neural network is definitely basing a
+lot of its predictions off of the
+animals tail you saw it the cat you see
+with the dog it's trying to find some
+sort of patterns in the tail that say
+yeah this is a dog Taylor yeah this is a
+cat tail and it's also taking a look at
+those feet for examples take a look
+those arms
+it's taking a look at all these
+different things in order to make its
+final prediction of course this can be
+used for debugging your neural networks
+this can be used to
+you're out whether or not you're finding
+the right features within your neural
+networks as well and that was a quick
+demo of class activation Maps through
+Python and Karass there's many there's
+much more to come when it comes to class
+activation apps and object localization
+using neural networks only trained for
+object recognition but that was a good
+tutorial on how you can use class
+activation ops I do hope you enjoy thank
+you very much everyone for joining in
+today if you do like this tutorial make
+sure to leave a like down below and
+share it with your family and friends if
+you think they could benefit from it as
+well apart from that if you do have any
+questions suggestions or feedback feel
+free to leave that down in the comments
+section below or if you do really like
+my content you want to see more of it
+feel free to subscribe to my channel as
+it really does help out a lot and turn
+on notifications if you'd like to be
+notified whenever I release new content
+so again thank you for joining today
+that's what I had for this tutorial
+goodbye

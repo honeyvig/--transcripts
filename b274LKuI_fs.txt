@@ -1,0 +1,214 @@
+so welcome back to the mac part and now
+i'm going to be telling you exactly how
+you can upload download and delete
+images from parse and really you could
+do this for any file but i'm doing this
+for an image now as you can see over
+here if I just go over to my chrome and
+if i go into enger know which is a photo
+sharing site as you can see i have
+hosted it pictured me at Ripley's
+Aquarium actually I was there just I
+think last month and there might maybe a
+video about it soon but I didn't mean to
+say that anyway ok let's continue as you
+can see I put a little picture of me
+from there I posted on amber and now I'm
+going to be uploaded mr. Parsons in code
+we're going to download it put it into
+an image view and then delete it off a
+puss so let's get started first of all
+it's going to parse because that's
+pretty much where we're going to be
+doing this so parse com okay so let's go
+to our apps and let's just go to our
+core of our image upload I just created
+a quick database called image upload and
+under it in its core I've created a
+class called photo which has an image
+name as string and image file as file /
+l actually columns and now we're going
+to be adding some rose to it with some
+files so let's begin so first of all
+let's explain the functionality of the
+app basically what happens let's just
+run this on a simulator what's going to
+happen is it just shows a blank screen
+for a while and then once it's uploaded
+the image to parse you can click on load
+image it shows you the title of the
+image in a message box and then it shows
+you the actual image itself and again
+this is from par so I'll prove it to you
+in just a second but let's just close
+that down and now let me explain exactly
+how it works and on the same at the same
+time I'm going to be showing you what's
+happening in parse so what's happening
+is on view did load we're calling a
+function called upload image now
+essentially upload image is doing is
+first of all we're defining constant
+called URL this is
+URL for our imgur image then we're
+finding a constant called data which is
+equal to the NS data which is equal to
+the contents of the URL nsurl which is
+taken from a string which is our URL
+then we're forcing that to be unwrapped
+and then forcing the NS data to be
+unwrapped because we know in this case
+that it will be correct or there will be
+something in it then we're declaring a
+constant called image file a type PF
+file which is going to be equal to a new
+PF file and we're running the name data
+initializer on it so we're giving it the
+name tanmay ripley's jpg and we're
+giving it the data the data that we just
+extracted from the URL then we're just
+doing a force dry image file dot safe
+and so now what's happening is we're
+saving this image file locally now we're
+doing is we're creating a PF object
+called user photo and basically the its
+class name is called photo because if I
+show you over here i created this class
+called photo ok now we're setting user
+photos image name to me a trip with
+aquarium of canada then we're setting
+the image file to the image file that we
+just created the PF file constant and
+then we're doing a first try user photo
+dot safe and so now what we're doing is
+we're saving the user photo the entire
+thing online properly ok so now let's
+run the app as you can see you now know
+what's happening in the background we
+have now successfully uploaded the image
+now because this button has appeared ok
+so now what I'm going to do is I'm going
+to go to parse and if i refresh as you
+can see we can see image name me at
+ripley's aquarium of canada and the
+image file is Tammy Ripley's and then I
+can download that of course and look at
+it ok perfect and now what's going to
+happen is let's just take a look at the
+IP action for the button clicked now
+this IP option I be action calls
+download image and delete image and
+essentially what happens a download
+image will download the
+as it says and put it into the image
+view and delete image will actually just
+delete the image off of parts and so I
+can just get to show you a sample of
+that it does this yeah ripley's aquarium
+of canada breakfast ok so now continuing
+what's going to happen is in download
+image we are creating a new PF query for
+a class named photo then we are creating
+an object which is the first object we
+get from that query then we're creating
+a UI alert controller with the title
+title an image a message as the image
+name itself that we got from pars and
+we're giving this the alert style then
+we're giving it then we're creating
+actually a UI alert action with title
+nice of style canceled and has no
+handler and then we're adding this to
+our UI alert controller then we are
+presenting this UI lower controller on
+our screen doing using self represent
+view controller and then the controller
+make sure it's animated note completion
+handler then we're doing is we're
+running the we're actually creating the
+variable for the image which is equal to
+just a new generic UI image i guess i
+could also just do UI image that works
+much better it takes bit less memory
+doesn't really matter though anyway
+continuing then we're saying we're
+creating a new constant called file
+which is equal to object the object for
+key image file a zanu-pf file and so now
+what we're doing is we're taking the PF
+file that we sent over to parse we're
+taking it back and we're extracting it
+into a PF file then what we're doing is
+we're saying a mage is equal to UI image
+which is itself from data which is
+itself from a URL which is itself from a
+string and then we just get the files
+URL from parse we force unwrap that then
+we force unwrap the nsurl then we force
+unwrap the NS data then we force unwrap
+the UI image that worked ok looks
+complicated but once you've just revised
+over a few times it isn't I promise
+anyway then we're sending the image use
+image to the image that we just got and
+in case you were wondering the image
+view iboutlet
+is up over here and then as you can see
+we have the function delete image which
+is called next after download image
+which essentially just creates a new PF
+query of class name photo oh we get the
+first object from that query and then we
+force try to delete that object and that
+is as simple as that now as you can see
+if I run this app one more time let's go
+to parse let's refresh as you can see
+right now there's nothing in photo but
+once our app is done loading as you can
+see if i refresh as you can see that
+there is something in photo ok now let's
+just click on load image as you can see
+me at ripley's aquarium of canada is the
+exact title we gave it over here me at
+ripley's aquarium of canada okay now
+let's click on the nice button so it
+continues it shows me the image that we
+just downloaded from cars and now if we
+refresh in parts it's gone because we
+have deleted it and that was it for this
+tutorial now in the next tutorial I'm
+going to be teaching you how to do this
+was a much more elegant you why this was
+just a bare-bones proof of concept
+because I just wanted to get this out
+ASAP and so next I'm going to be putting
+a UI to it so you can actually select
+images and take images to upload and
+then see them in a list then later i'm
+also going to be integrating with them
+into my chat app and as I long-promised
+I'm also going to be integrating push
+notifications and better private chat
+into my chatting app and so olds all
+those will be in separate parts and
+we're going to merge them together ok so
+that's it for this tutorial and
+explanation for its next parts ok so if
+you enjoy please make sure to leave a
+like you can also comment down below if
+you have any questions suggestions app
+ideas really anything you can also email
+me if you have any of those and you can
+also email me if you have a video
+question that you'd like me to feature
+in one of my next videos you can also
+contact me via Twitter at Ted umani
+again all my points of contact will be
+in the description the source code will
+also be in the description on a github
+repo and yeah if you like my cottony
+water see more of it on YouTube
+specifically you might
+I consider subscribing to me it does
+help out quite a bit and that's going to
+be it for this tutorial goodbye

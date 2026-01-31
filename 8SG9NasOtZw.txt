@@ -1,0 +1,673 @@
+so lower and welcome to the tutorial my
+name is Henry Bakshi and this time we're
+gonna be going over something printing
+you and before I continue I'm just going
+to recommend that this tutorial is
+slightly based off of my postfix and
+infix evaluating tutorial so I actually
+created a video for that and so I'd
+recommend you check that out down in the
+description
+it'll be really helpful if you just
+watch that then watch this because it's
+slightly based off of it and yeah that's
+pretty much it anyway continuing today
+I'm going to be explaining how you could
+evaluate straight up in fix expressions
+using Swift so let's get started and so
+this method is basically instead of
+converting to post tricks than solving
+the postfix just solve as you go through
+the equation essentially so let's get
+started and I'll explain exactly how it
+works while we move on so let's get
+started to end so now first thing what
+I'm gonna do is I'm going to take some
+sort of random expression like maybe
+something like 1 plus 2 2 times 4 plus 5
+now this is a pretty interesting
+equation the reason I didn't just put 3
+here's because windows 2 is 3 anyway so
+it's a really more informative if we do
+this way ok let's continue so again
+we're going to be using stacks for this
+and so again this is going to be a
+quicker way to do this since once we
+reach an operator it's going to solve
+whatever was behind it as long as it can
+with bed mass rules again I couldn't
+find this on Wikipedia online in general
+so I'm assuming since I couldn't find it
+no no no one has screen a tutorial on
+this yet but if you can find a name for
+this algorithm please do tell me in the
+comments or you can even email me at Tai
+Chi mini at gmail.com and I email will
+also be down in the description anyway
+continuing let's start solving this
+expression so first of all let's number
+these characters so the
+one is zero this plus is one actually
+which right is a bit bigger zero this is
+the one
+and so then Oh actually that's two
+erases and I'm where to where I didn't
+read so you can clearly tell the
+distinct difference so now is it going
+to be a zero this is a 1 this is a 2 3
+so this one is the zeroth character in
+the expression this plus is the first
+this 2 is the second this times is the
+third this fourth is the fourth this
+pick this plus is the fifth and this v
+is the sixth and so let's get started
+and so now what I'm going to be doing is
+we're going to be solving if you use Dax
+let's get started and so first thing
+what we do is in Swift we split this
+into an array it's separated by each
+space so that we have each and every is
+a little token then what we do is we
+just loop through that entire tokens
+array and start solving so let's get
+started over here and so let's just say
+first of all we have one stack in black
+one stack good so this is one stack that
+we have I'm going to make one more stack
+for our operators it's already starting
+to look quite a lot like my other
+tutorial however this is where the twist
+comes in instead of converting than
+solving again this will convert and
+solve at the same time and then whatever
+is left it'll solve so let's get started
+and first we have a 1 again whenever you
+find a number in this expression just
+add it to the operand stack so in order
+to differentiate between these this is
+the operand stack or the number stack
+and this is the operator stack there's
+no other really name for it stack
+perfect so this is the operand stack
+this is the operator stack so when we
+see a 1 over here we just immediately
+say that okay we're gonna take one and
+push it in here now what we're gonna do
+is we're gonna see a plus and since
+there's nothing in here there's no
+things for us to do so we just push the
+plus onto our stack so we write a plus
+inside here perfect then we have a 2
+again this will just go straight into
+our operand stack now here's where
+something comes in we seen other times
+now let me explain something called
+priority 2 now as you can see we have
+times divide add and subtract now we
+split these into two parts and so
+multiplication and division have the
+priority of 0 addition subtraction of
+the priority of 1 and so these actually
+you know what it's a little bit
+confusing for someone just to see it
+like that so I'm gonna get spaced out so
+there's going to be
+times which has a priority of zero me
+has the highest priority and there's
+also divide which also has a priority of
+zero so it also has the highest priority
+addition not so much it has the least
+priority and so does subtraction
+perfects so now that you know that I can
+explain the rule to you the rule is that
+because we want to take a look at this
+operator so we have a times currently
+that's what we're on okay in our stack
+our stacks peak which is our plus which
+is the highest element in the stack is a
+plus so we note down the priorities for
+each four times zero for addition it's 1
+now when you can see that this number
+over here 1 is greater than zero so we
+can say that we will not be popping out
+however for example if it's priority or
+zero we would be popping out the plus
+and doing some more stuff however I'm
+going to be explaining that in just a
+minute so now we know we're not going to
+be doing any popping we just add the
+times to our snack perfect so now we see
+a four and so we just put a four onto
+our operand stack perfect then we see a
+plus and now this is where the twist
+comes in as you can see this is
+basically just like my other tutorial
+we're just building up some postfix
+however now that it sees this operator
+no not because it's the last however
+because it's priority is greater than
+the one that's in the peak of the stack
+so as you can see we're currently on
+this plus
+and we're not on this tines we're
+currently on the plus ok so we note down
+the plusses priority which we know is
+one and we note down the times priority
+which is zero so now we know that 0 is
+less than 1 so what we do is we come
+over here and we and we pop the x out of
+our stack then we pop out the floor and
+then we pop out the two okay then we put
+them to the side and we said okay what's
+for the operator and then two equal to
+well we know that it is eight so what we
+do is we take that eight and push it
+onto our operand stack perfect so now
+what we can do is again we see that I'm
+not going to erase this because we're
+still on this because we see there's
+still something in our operator stack so
+this actually has the same priority
+because plus and plus both have a
+priority of one so this is equal to one
+that means still that we will pop out
+and add so what I'm going to do is I'm
+going to pop this plus out of our stack
+I'm going to pop out our eight from the
+stack I'm going to pop out the one from
+our stack then what I want to do is I
+again I'm going to put them to the side
+and again we're done this I'm just going
+to keep that there so you know we've
+done that and then so we have 8 plus 1
+which will be equal to 9 and so we put a
+9 into our operand stack and then we see
+ok there's a plus and so we just put in
+a plus onto our operators that operator
+stack because of course that needs to go
+there no matter what then we see a 5 so
+we're going to put it onto our operand
+stack now we realize that the question
+is over so a few remaining operators
+that are in this
+that we're going to apply here just like
+we didn't postfix just no not exactly
+so we see a plus right so what we do
+where we pop out with plus we pop out
+the 9 you pop out the 5 and you say
+what's five plus nine and so it is 14
+and so it'll push 14 onto our auburn
+stack and then once we're done
+completely there's nothing left in the
+operator stack we can just pop out this
+value and return it and so our answer we
+know will leave 14 so it's a really
+basic method of how this works and now
+that you know exactly how this works I'm
+going to give you one more example
+before we do go to the Mac part let's do
+something like yeah let's do some
+subtraction this times right
+let's do subtraction so something like
+five plus two minus four perfect no but
+I can do draw this out nicely for you
+five plus four and so this is the zero
+with character is the first character
+the second character this is the third
+character and this is the fourth
+character perfect and actually since
+this is actually a little bit hard to
+distinguish if this is actually a number
+or character number I'm gonna try it in
+red so again this is the zero is the
+first second third
+that's the fourth the reason I'm
+actually telling you these character
+numbers and you'll see is in the Mac
+part there's a little extra feature in
+this app that I will be showing you that
+requires these characters numbers anyway
+let's solve this now first of all I'm
+gonna draw stack so I'm just going to
+say stack one stack two wrong okay so
+first of all we see a five and you push
+it onto our operand stack perfect
+then you take a plus and we add it onto
+our operators back then we see it - we
+put it onto our operand stack we see a -
+now we start so the minuses priority and
+the pluses priority are the same since
+they're the same we just do this you pop
+out the plus you pop out the - they pop
+out the five we do 5 minus 2 and we know
+oh it's so plus 2 sorry and so we know
+that this will be 7 so what we can do is
+just push a 7 on to our operand stack
+then again this - has to go into our
+operator stack and then we see a 4 so I
+can just put it onto our operand stack
+now that we're done we see a - and so
+since it's a - what we do we pop it out
+of our operator stack we pop the 4 out
+we pop the 7 out and then we see okay
+what is 7 minus 4 well this is going to
+be equal to 3 now that we know that we
+can push it back in here and then we see
+oh this is empty the operator stack is
+anything so you just pop this out return
+it and we have our answer which is the
+correct answer which is 3
+those are two really quick examples of
+how that worked and so actually further
+to tell you this I actually thought of
+this algorithm while I actually suck
+nose up punching calculators where you
+can basically type five plus four plus
+this plus that and it solves it why like
+while you type I was really confused on
+how it would just actually be able to
+solve it without knowing mean to our
+question without knowing that there's
+something ahead that has higher bidness
+but since I have I've seen many of these
+I've worked with them I was able to
+estimate what sort of algorithm would be
+after a bit of tweaking it worked and
+I'm creating this video so now we're
+gonna be going to the Mac part in which
+I will explain my entire code a
+playground and also a slight app that
+I've created again I haven't really
+created a framework for yet but I will
+be making one and it will be available
+available for download down in the
+description and it can also handle
+brackets basically it'll just solve
+brackets for you it'll actually know
+it'll sold the bracket and instead of
+having the bracket there it'll put a
+dancer there and then it's maybe becomes
+much easier to solve so that's how that
+works
+and yeah let's get to the Mac part so
+welcome back to the Mac part now we're
+going to be going over the code and as
+you can see I have actually brought this
+little panel closer to the codes and you
+can actually see the equation and also
+the answer pretty much close together so
+let's get started with this specific
+equation two plus four plus five minus
+three times two plus seven pretty long
+and the answer in this case should be
+okay let's take this out so three times
+two we know that's six then we can do it
+in anywhere you want so six plus seven
+for example 13 five minus 13 we could do
+eight for that and then so four plus 80
+2000 be 12 and then I'm two so this
+should be around 14 for the answer so
+now let's put this into
+our little contraption actually you know
+what that wasn't such a good idea anyway
+so let's put this into our little code
+and so 2 plus 4 plus 5 minus 3 2 plus 4
+plus 5 minus 3 times 2 plus 7 so let's
+see what this program gives us and the
+answer is 12 maybe I had an error in my
+calculations but this is the correct
+answer because I have tested this out
+and it is completely correct so let's
+just test this out 6 plus 5 so that
+would be around 11 11 minus 6 we know
+that would be around 5 5 plus 7 would be
+12 perfect so this is 12 and so I had an
+error in my calculation sorry but anyway
+we know that the correct answer is 12
+and so our program is pretty accurate
+and so again as I said in the whiteboard
+parts this program does work with
+brackets I have coded it to place all
+brackets with their answer and so ever
+to give it something like 12 plus 10
+divided by 2 as you can see it will give
+17 however if I put brackets around 12
+plus 10 it will give us 11 and this is
+the correct answer because 12 plus 10
+that's 22 divided by 2 that should be 11
+however if we do it this way it's going
+to be 12 plus 10 divided by 2 and 10
+divided by 2 is 5
+so 12 plus 5 which is 17 which is the
+correct answer as well so the brackets
+in this case do make a difference and
+that's how they work in case you don't
+understand what I mean by replace the
+brackets well this is what I mean if we
+go up here as you can see my bracket
+logic this is the original little
+expression here with the brackets and
+stuff after my simplification process it
+is this 22 divided by 2 and that's how
+that works
+anyway now continuing let's take a look
+at the code now now again as I said it
+would be extremely helpful if you would
+just go
+watch the original postfix tutorial
+because there I always explain stacks I
+explain most that sort of stuff and so
+it would be really helpful if you would
+just check that out and then so you will
+also find out how I calculate the
+precedents and stuff like that anyway
+and also one more thing before we
+continue first of all what I'm gonna do
+is I'm going to expand this variable
+once I type something in like what was
+the original question two plus four plus
+five plus four plus five minus actually
+minus three minus three times two plus
+seven perfect and so now as you can see
+it gives us the correct answer and this
+is all the stuff behind it so I just do
+this and so I can also show this so as
+you can see here this is actually
+showing us first of all what character
+are what index in our array and then
+second it's actually showing us okay so
+um basically the third character which
+is this plus modified this two plus four
+to be turned into six and as you can see
+these red numbers here are all our
+indexes now anyway continuing and I set
+this third this third character which is
+the plus actually modified to plus four
+to become 6 then this fifth minus
+modified six plus five to become eleven
+as you can see here also here we have
+the five here it modified this to become
+eleven anyway now at nine we can see
+this plus has turned this 3 times 2 into
+6 over here and then this Plus also
+solved for essentially 11 minus 6 which
+would be 5 as you can see and then it
+was just left with 5 plus
+seven and so it got the answer 12 and so
+that's how that works anyway now we can
+continue who is looking at our code
+let's continue now and as you can see I
+am going to be skipping a little bit of
+this because uh first of all this is you
+don't need to know this right now and
+also this is completely I needed I was
+just experimenting with something before
+but now it's not needed as you can see I
+have my stack class I have an extensions
+in the string class which will easily
+allow me to get the precedents the
+operator or number of any sort of
+essentially string another extension is
+the string class which was created by I
+think Alec Lars not start on them so but
+anyway the link to it will be down in
+the description and so that completely
+works this string extension will allow
+us to get a subscript of a string and
+then finally this extension to the array
+class which will allow us to get
+something from an array and make sure
+that it actually exists by either
+returning an optional or it will return
+the actual value if it exists and so
+what it's going to do it actually this
+was created by someone on Stack Overflow
+as well and I will be putting their name
+and the link to their answer down in
+description so you can look in the
+description for that anyway continuing
+let's look at our in fix parser now so
+anyway this is our and fixed parser and
+first of all as you can see I have a
+function here what this function is
+going to do is it's going to allow me to
+replace all the brackets with the actual
+final answer it does this by taking each
+and every section of brackets and it
+will basically and also in case you are
+wondering these are the only two things
+that I've taken from Stack Overflow the
+rest is all mine completely is the only
+two things that were from stag envelope
+anyway so that's the this is the bracket
+engine it has
+some nested functions which will allow
+us first of all to power to parse out
+all the brackets and so from all of them
+from the entire expression convert all
+the brackets into an array of strings so
+if there's like five sets of brackets
+you want to put five sets of brackets
+into that string array and then after
+that this bracket solving function will
+actually return a string which is the
+final expression completely ready to be
+essentially returned so it will take all
+the brackets values and it will solve
+them using this solve function that I've
+created and then it will replace the the
+places where that bracket is occurring
+inside of the expression with the answer
+that it got from the sole function so
+that's a pretty simple way to explain
+how it works and if you want a more
+detailed explanation on this again you
+can always download the source code from
+github and this will be completely
+available on github I will be releasing
+an app version soon of this but the
+playground version will be available
+immediately and it will also be soon
+releasing an app version of the postfix
+and index conversion just check out my
+Twitter and I'll I'll tweet you one I am
+done uploading that anyway let's
+continue so now as you can see our solve
+function finally so now this is our salt
+function and we're taking the expression
+over here as a variable and so this
+expression variable is a string and
+we're returning an int I due to the fact
+that I just wanted to English and then
+to turn on a double because it gives you
+for me to test anyway so now the
+expression so basically when we are
+going to be removing all the brackets in
+this one line because we have an
+expression handler function so what's
+gonna happen is we're going to say the
+expression is equal to expression dot
+characters dot contains a bracket if it
+does then use a bracket engine on this
+expression or else just
+equal to the expression which is itself
+and so that's how it will simplify a
+very complicated bracket filled equate
+expression with normal expert with a
+normal expression that it's nice at
+sewing anyway after that we are creating
+our operator stack and our operand stack
+next after that we are creating our
+tokens which are essentially just the
+expression separated by each space and
+that's so that we have all the different
+tokens and then using that we can look
+through them check a third operator
+check number do some logic with them etc
+etc so as you can see it's converting
+two plus four plus five minus three
+times two plus seven into a big array
+full of all this two plus four plus five
+minus three and then there's more so
+that you can't see them here anyway and
+then so after that we are looping
+through our tokens so we are enumerated
+our tokens and so we are taking the
+index and the token in our tokens array
+and looping through them after that
+we're just printing out token at index
+so it's a little bit easier for me to
+know what is where just in case I went
+to the bug sorry about that
+and so now we can see that I'm checking
+if the tokens a number no logic required
+put it onto the operand stack that's it
+apart from that if it's an operator
+however this is where stuff gets
+complicated we're checking if the
+operator stack speaks precedence is
+lower than or equal to our current
+tokens precedence then we want to check
+if not the operator operator stacks
+empty meaning that this stack is not
+empty then create a new variable called
+result and then do a switch case on the
+operator stack and then you want
+to check if it's a plus set the result
+to the two values right fresh out of the
+stack add them together and that's the
+value in resolution
+result however if it's a - you want to
+take the the number that's one down from
+the first number so what you do is you
+say okay this number I'm not going to
+explain how I actually get this number
+but this number is the second highest in
+V stack so if five were the highest and
+two were after a five and then there was
+many other numbers there were many other
+not many other numbers actually then you
+would take the two because that's second
+highest in this stack and then you can -
+out operand stack top pop because that's
+going to be the first number anyway and
+so since that one's gone but the second
+the second highest element is now the
+first highest element man it's still
+there we have to pop that out of our
+operand stack but multiplication however
+we don't do that that's because addition
+and multiplication can be done in any
+order order gets you do the numbers but
+actually in most cases it can in some
+cases it can't but yeah it doesn't
+really matter for this sort of a
+conversation sort of a calculator and
+yeah so sorry multiply multiply in
+addition you can do in any order like
+you can put the number the first number
+on the other side or the second number
+on the other side and it'll still give
+you the same result but if you were the
+if for a multiplication or actually
+division and subtraction you have you
+would put the numbers in a different
+order it would give you a completely
+different result maybe even negative
+numbers sometimes and you don't really
+want that so that's why we are not doing
+it for addition for multiplication and
+addition but we are for division and
+subtraction so in division we're doing
+the same thing that we did for
+subtraction however we are not basically
+mining or subtracting we're dividing and
+so that's basically how that works
+anyway but I if there's nothing like
+that if there's not a plus minus times
+or divide meaning our algorithm has gone
+wrong for some reason
+the result is zero that's the best thing
+we can do after that just print out the
+index week but we don't need that
+anymore because we have result at index
+meaning if there's something that's
+modifying something tell me where it's
+being modified from and what its answers
+going to be so it's easy for me to debug
+and also I can show it to you and then
+I'm just printing out operand stack not
+self value which I do not need anymore
+but then I'm popping one out of the
+operator stack because now we've
+actually done that we've essentially
+dealt with that operator and then we are
+pushing this result on to the operand
+stack and then once everything is done
+we are pushing this specific token on to
+the operator stack sorry operator stack
+and then once we're done there might be
+a few opera operators left in the
+operator stack so what I'm doing is I'm
+saying while not operator stack dot
+empty what we're doing is we are again
+just setting the result to zero
+switching on the operator stack speak
+doing all that logic then popping one
+out of the operator stack and then
+pushing this result on to the operand
+stack once we're completely done with
+that the only value left inside of the
+operand stack will be the final answer
+and so we can just return the int
+typecasted force unwrapped version of
+operand stack pop that's how that works
+and so then it will return our answer
+and then we will be able to see our
+answer so for example if I were to do
+something really complicated maybe
+something like random numbers and random
+operators at the same time plus four
+times nine
+four times right just some random thing
+here
+81 and let's see what spotlight gives us
+81 so as you can see our answer is
+correct because of course I don't think
+spotlight Apple's own little calculator
+thing would be wrong okay so that's
+essentially how this infix parser works
+again this entire source code will be
+down in the description for you to
+download I will eventually be making a
+framework for both this and my other
+postfix one if you want to take a look
+at that and again this is very simple
+kind of operators just put its
+precedents and it's a string extension
+and handle it in both of these while
+loops and so I will also be making app
+versions for both the postfix
+version and this version again if you
+want to look at all that news you can
+just go to my Twitter for me follow me
+and you'll always get notified whenever
+I release a tweet and that tweet will
+probably tell you that I'm releasing
+something new and so yeah that was
+pretty much it and again if you like my
+content you want to see more of it
+please subscribe to my channel if you'd
+like this video please make sure to
+click the like button and if you have
+any questions dressen's app ideas quite
+general and general education ideas
+please comment down below you can even
+email me a question at tangi mani at
+gmail.com you can also email me the
+video of you asking a question at
+Tazmanian gmail.com my email will be
+down in the description and again I
+might just feature a video on one of my
+next videos and that's gonna be it good
+bye
